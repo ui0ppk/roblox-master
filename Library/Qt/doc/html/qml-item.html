@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativeitem.cpp -->
+  <title>Qt 4.8: QML Item Element</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML Item Element</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#key-handling">Key Handling</a></li>
+<li class="level2"><a href="#layout-mirroring">Layout Mirroring</a></li>
+</ul>
+</div>
+<h1 class="title">QML Item Element</h1>
+<span class="subtitle"></span>
+<!-- $$$Item-brief -->
+<p>The Item is the most basic of all visual items in QML. <a href="#details">More...</a></p>
+<!-- @@@Item -->
+<p>Inherited by <a href="qml-borderimage.html">BorderImage</a>, <a href="qml-column.html">Column</a>, <a href="qml-flickable.html">Flickable</a>, <a href="qml-flipable.html">Flipable</a>, <a href="qml-flow.html">Flow</a>, <a href="qml-focuspanel.html">FocusPanel</a>, <a href="qml-focusscope.html">FocusScope</a>, <a href="qml-gesturearea.html">GestureArea</a>, <a href="qml-grid.html">Grid</a>, <a href="qml-image.html">Image</a>, <a href="qml-loader.html">Loader</a>, <a href="qml-mousearea.html">MouseArea</a>, <a href="qml-particles.html">Particles</a>, <a href="qml-pathview.html">PathView</a>, <a href="qml-pincharea.html">PinchArea</a>, propertychanges, <a href="qml-rectangle.html">Rectangle</a>, <a href="qml-repeater.html">Repeater</a>, <a href="qml-row.html">Row</a>, <a href="qml-shadereffectitem.html">ShaderEffectItem</a>, <a href="qml-text.html">Text</a>, <a href="qml-textedit.html">TextEdit</a>, <a href="qml-textinput.html">TextInput</a>, and <a href="qml-webview.html">WebView</a>.</p>
+<p>Item instantiates the C++ class <a href="qdeclarativeitem.html">QDeclarativeItem</a></p>
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-item-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-item.html#activeFocus-prop">activeFocus</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.baseline-prop">anchors.baseline</a></b></b> : AnchorLine</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.baselineOffset-prop">anchors.baselineOffset</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.bottom-prop">anchors.bottom</a></b></b> : AnchorLine</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.bottomMargin-prop">anchors.bottomMargin</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.centerIn-prop">anchors.centerIn</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.fill-prop">anchors.fill</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.horizontalCenter-prop">anchors.horizontalCenter</a></b></b> : AnchorLine</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.horizontalCenterOffset-prop">anchors.horizontalCenterOffset</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.left-prop">anchors.left</a></b></b> : AnchorLine</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.leftMargin-prop">anchors.leftMargin</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.margins-prop">anchors.margins</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.mirrored-prop">anchors.mirrored</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.right-prop">anchors.right</a></b></b> : AnchorLine</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.rightMargin-prop">anchors.rightMargin</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.top-prop">anchors.top</a></b></b> : AnchorLine</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.topMargin-prop">anchors.topMargin</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.verticalCenter-prop">anchors.verticalCenter</a></b></b> : AnchorLine</li>
+<li class="fn"><b><b><a href="qml-item.html#anchors.verticalCenterOffset-prop">anchors.verticalCenterOffset</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#children-prop">children</a></b></b> : list&lt;Item&gt;</li>
+<li class="fn"><b><b><a href="qml-item.html#childrenRect.height-prop">childrenRect.height</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#childrenRect.width-prop">childrenRect.width</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#childrenRect.x-prop">childrenRect.x</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#childrenRect.y-prop">childrenRect.y</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#clip-prop">clip</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-item.html#data-prop">data</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-item.html#focus-prop">focus</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-item.html#height-prop">height</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#implicitHeight-prop">implicitHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#implicitWidth-prop">implicitWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#opacity-prop">opacity</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#parent-prop">parent</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-item.html#resources-prop">resources</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-item.html#rotation-prop">rotation</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#scale-prop">scale</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#state-prop">state</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-item.html#states-prop">states</a></b></b> : list&lt;State&gt;</li>
+<li class="fn"><b><b><a href="qml-item.html#transform-prop">transform</a></b></b> : list&lt;Transform&gt;</li>
+<li class="fn"><b><b><a href="qml-item.html#transformOrigin-prop">transformOrigin</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-item.html#transitions-prop">transitions</a></b></b> : list&lt;Transition&gt;</li>
+<li class="fn"><b><b><a href="qml-item.html#visible-prop">visible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-item.html#width-prop">width</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#x-prop">x</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#y-prop">y</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-item.html#z-prop">z</a></b></b> : real</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-item.html#childAt-method">childAt</a></b></b></li>
+<li class="fn"><b><b><a href="qml-item.html#forceActiveFocus-method">forceActiveFocus</a></b></b></li>
+<li class="fn"><b><b><a href="qml-item.html#mapFromItem-method">mapFromItem</a></b></b></li>
+<li class="fn"><b><b><a href="qml-item.html#mapToItem-method">mapToItem</a></b></b></li>
+</ul>
+<!-- $$$Item-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>All visual items in Qt Declarative inherit from Item. Although Item has no visual appearance, it defines all the properties that are common across visual items - such as the x and y position, the width and height, <a href="qml-anchor-layout.html#anchor-layout">anchoring</a> and key handling.</p>
+<p>Item is also useful for grouping items together.</p>
+<pre class="qml"> <span class="type">Item</span> {
+     <span class="type"><a href="qml-image.html">Image</a></span> {
+         <span class="name">source</span>: <span class="string">&quot;tile.png&quot;</span>
+     }
+     <span class="type"><a href="qml-image.html">Image</a></span> {
+         <span class="name">x</span>: <span class="number">80</span>
+         <span class="name">width</span>: <span class="number">100</span>
+         <span class="name">height</span>: <span class="number">100</span>
+         <span class="name">source</span>: <span class="string">&quot;tile.png&quot;</span>
+     }
+     <span class="type"><a href="qml-image.html">Image</a></span> {
+         <span class="name">x</span>: <span class="number">190</span>
+         <span class="name">width</span>: <span class="number">100</span>
+         <span class="name">height</span>: <span class="number">100</span>
+         <span class="name">fillMode</span>: <span class="name">Image</span>.<span class="name">Tile</span>
+         <span class="name">source</span>: <span class="string">&quot;tile.png&quot;</span>
+     }
+ }</pre>
+<a name="key-handling"></a>
+<h2>Key Handling</h2>
+<p>Key handling is available to all Item-based visual elements via the <a href="qml-keys.html">Keys</a> attached property. The <i>Keys</i> attached property provides basic handlers such as <a href="qml-keys.html#onPressed-signal">onPressed</a> and <a href="qml-keys.html#onReleased-signal">onReleased</a>, as well as handlers for specific keys, such as <a href="qml-keys.html#onCancelPressed-signal">onCancelPressed</a>. The example below assigns <a href="qdeclarativefocus.html#qmlfocus">focus</a> to the item and handles the Left key via the general <i>onPressed</i> handler and the Select key via the onSelectPressed handler:</p>
+<pre class="qml"> <span class="type">Item</span> {
+     <span class="name">focus</span>: <span class="number">true</span>
+     <span class="name">Keys</span>.onPressed: {
+         <span class="keyword">if</span> (<span class="name">event</span>.<span class="name">key</span> <span class="operator">==</span> <span class="name">Qt</span>.<span class="name">Key_Left</span>) {
+             <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;move left&quot;</span>);
+             <span class="name">event</span>.<span class="name">accepted</span> <span class="operator">=</span> <span class="number">true</span>;
+         }
+     }
+     <span class="name">Keys</span>.onSelectPressed: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Selected&quot;</span>);
+ }</pre>
+<p>See the <a href="qml-keys.html">Keys</a> attached property for detailed documentation.</p>
+<a name="layout-mirroring"></a>
+<h2>Layout Mirroring</h2>
+<p>Item layouts can be mirrored using the <a href="qml-layoutmirroring.html">LayoutMirroring</a> attached property.</p>
+<!-- @@@Item -->
+<h2>Property Documentation</h2>
+<!-- $$$activeFocus -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="activeFocus-prop"></a><span class="qmlreadonly">read-only</span><span class="name">activeFocus</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property indicates whether the item has active focus.</p>
+<p>An item with active focus will receive keyboard input, or is a <a href="qml-focusscope.html">FocusScope</a> ancestor of the item that will receive keyboard input.</p>
+<p>Usually, activeFocus is gained by setting focus on an item and its enclosing FocusScopes. In the following example <tt>input</tt> will have activeFocus.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="type"><a href="qml-focusscope.html">FocusScope</a></span> {
+         <span class="name">focus</span>: <span class="number">true</span>
+         <span class="type"><a href="qml-textinput.html">TextInput</a></span> {
+             <span class="name">id</span>: <span class="name">input</span>
+             <span class="name">focus</span>: <span class="number">true</span>
+         }
+     }
+ }</pre>
+<p><b>See also </b><a href="qml-item.html#focus-prop">focus</a> and <a href="qdeclarativefocus.html#qmlfocus">Keyboard Focus</a>.</p>
+</div></div><!-- @@@activeFocus -->
+<br/>
+<!-- $$$anchors.top -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.top-prop"></a><span class="name">anchors.top</span> : <span class="type">AnchorLine</span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.bottom-prop"></a><span class="name">anchors.bottom</span> : <span class="type">AnchorLine</span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.left-prop"></a><span class="name">anchors.left</span> : <span class="type">AnchorLine</span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.right-prop"></a><span class="name">anchors.right</span> : <span class="type">AnchorLine</span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.horizontalCenter-prop"></a><span class="name">anchors.horizontalCenter</span> : <span class="type">AnchorLine</span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.verticalCenter-prop"></a><span class="name">anchors.verticalCenter</span> : <span class="type">AnchorLine</span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.baseline-prop"></a><span class="name">anchors.baseline</span> : <span class="type">AnchorLine</span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.fill-prop"></a><span class="name">anchors.fill</span> : <span class="type">Item</span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.centerIn-prop"></a><span class="name">anchors.centerIn</span> : <span class="type">Item</span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.margins-prop"></a><span class="name">anchors.margins</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.topMargin-prop"></a><span class="name">anchors.topMargin</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.bottomMargin-prop"></a><span class="name">anchors.bottomMargin</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.leftMargin-prop"></a><span class="name">anchors.leftMargin</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.rightMargin-prop"></a><span class="name">anchors.rightMargin</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.horizontalCenterOffset-prop"></a><span class="name">anchors.horizontalCenterOffset</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.verticalCenterOffset-prop"></a><span class="name">anchors.verticalCenterOffset</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchors.baselineOffset-prop"></a><span class="name">anchors.baselineOffset</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="anchors.mirrored-prop"></a><span class="name">anchors.mirrored</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Anchors provide a way to position an item by specifying its relationship with other items.</p>
+<p>Margins apply to top, bottom, left, right, and fill anchors. The <tt>anchors.margins</tt> property can be used to set all of the various margins at once, to the same value. Note that margins are anchor-specific and are not applied if an item does not use anchors.</p>
+<p>Offsets apply for horizontal center, vertical center, and baseline anchors.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/declarative-anchors_example.png" alt="" /></p></td><td >Text anchored to Image, horizontally centered and vertically below, with a margin.<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-image.html">Image</a></span> {
+         <span class="name">id</span>: <span class="name">pic</span>
+         <span class="comment">// ...</span>
+     }
+     <span class="type"><a href="qml-text.html">Text</a></span> {
+         <span class="name">id</span>: <span class="name">label</span>
+         <span class="name">anchors</span>.horizontalCenter: <span class="name">pic</span>.<span class="name">horizontalCenter</span>
+         <span class="name">anchors</span>.top: <span class="name">pic</span>.<span class="name">bottom</span>
+         <span class="name">anchors</span>.topMargin: <span class="number">5</span>
+         <span class="comment">// ...</span>
+     }
+ }</pre>
+</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/declarative-anchors_example2.png" alt="" /></p></td><td >Left of Text anchored to right of Image, with a margin. The y property of both defaults to 0.<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-image.html">Image</a></span> {
+         <span class="name">id</span>: <span class="name">pic</span>
+         <span class="comment">// ...</span>
+     }
+     <span class="type"><a href="qml-text.html">Text</a></span> {
+         <span class="name">id</span>: <span class="name">label</span>
+         <span class="name">anchors</span>.left: <span class="name">pic</span>.<span class="name">right</span>
+         <span class="name">anchors</span>.leftMargin: <span class="number">5</span>
+         <span class="comment">// ...</span>
+     }
+ }</pre>
+</td></tr>
+</table>
+<p><tt>anchors.fill</tt> provides a convenient way for one item to have the same geometry as another item, and is equivalent to connecting all four directional anchors.</p>
+<p>To clear an anchor value, set it to <tt>undefined</tt>.</p>
+<p><tt>anchors.mirrored</tt> returns true it the layout has been <a href="qml-layoutmirroring.html">mirrored</a>.</p>
+<p><b>Note:</b> You can only anchor an item to siblings or a parent.</p>
+<p>For more information see <a href="qml-anchor-layout.html#anchor-layout">Anchor Layouts</a>.</p>
+</div></div><!-- @@@anchors.top -->
+<br/>
+<!-- $$$children -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="children-prop"></a><span class="qmlreadonly">read-only</span><span class="name">children</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type">Item</span>&gt;</p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="resources-prop"></a><span class="qmlreadonly">read-only</span><span class="name">resources</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>The children property contains the list of visual children of this item. The resources property contains non-visual resources that you want to reference by name.</p>
+<p>Generally you can rely on Item's default property to handle all this for you, but it can come in handy in some cases.</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">children</span>: [
+         <span class="type"><a href="qml-text.html">Text</a></span> {},
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {}
+     ]
+     <span class="name">resources</span>: [
+         <span class="type"><a href="qml-component.html">Component</a></span> {
+             <span class="name">id</span>: <span class="name">myComponent</span>
+             <span class="type"><a href="qml-text.html">Text</a></span> {}
+         }
+     ]
+ }</pre>
+</div></div><!-- @@@children -->
+<br/>
+<!-- $$$childrenRect.x -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="childrenRect.x-prop"></a><span class="qmlreadonly">read-only</span><span class="name">childrenRect.x</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="childrenRect.y-prop"></a><span class="qmlreadonly">read-only</span><span class="name">childrenRect.y</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="childrenRect.width-prop"></a><span class="qmlreadonly">read-only</span><span class="name">childrenRect.width</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="childrenRect.height-prop"></a><span class="qmlreadonly">read-only</span><span class="name">childrenRect.height</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>The childrenRect properties allow an item access to the geometry of its children. This property is useful if you have an item that needs to be sized to fit its children.</p>
+</div></div><!-- @@@childrenRect.x -->
+<br/>
+<!-- $$$clip -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="clip-prop"></a><span class="name">clip</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether clipping is enabled. The default clip value is <tt>false</tt>.</p>
+<p>If clipping is enabled, an item will clip its own painting, as well as the painting of its children, to its bounding rectangle.</p>
+<p>Non-rectangular clipping regions are not supported for performance reasons.</p>
+</div></div><!-- @@@clip -->
+<br/>
+<!-- $$$data -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="data-prop"></a><span class="qmlreadonly">read-only</span><span class="qmldefault">default</span><span class="name">data</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>The data property allows you to freely mix visual children and resources in an item. If you assign a visual item to the data list it becomes a child and if you assign any other object type, it is added as a resource.</p>
+<p>So you can write:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-text.html">Text</a></span> {}
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {}
+     <span class="type"><a href="qml-timer.html">Timer</a></span> {}
+ }</pre>
+<p>instead of:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">children</span>: [
+         <span class="type"><a href="qml-text.html">Text</a></span> {},
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {}
+     ]
+     <span class="name">resources</span>: [
+         <span class="type"><a href="qml-timer.html">Timer</a></span> {}
+     ]
+ }</pre>
+<p>data is a behind-the-scenes property: you should never need to explicitly specify it.</p>
+</div></div><!-- @@@data -->
+<br/>
+<!-- $$$focus -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="focus-prop"></a><span class="name">focus</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property indicates whether the item has focus within the enclosing focus scope. If true, this item will gain active focus when the enclosing focus scope gains active focus. In the following example, <tt>input</tt> will be given active focus when <tt>scope</tt> gains active focus.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="type"><a href="qml-focusscope.html">FocusScope</a></span> {
+         <span class="name">id</span>: <span class="name">scope</span>
+         <span class="type"><a href="qml-textinput.html">TextInput</a></span> {
+             <span class="name">id</span>: <span class="name">input</span>
+             <span class="name">focus</span>: <span class="number">true</span>
+         }
+     }
+ }</pre>
+<p>For the purposes of this property, the scene as a whole is assumed to act like a focus scope. On a practical level, that means the following QML will give active focus to <tt>input</tt> on startup.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="type"><a href="qml-textinput.html">TextInput</a></span> {
+         <span class="name">id</span>: <span class="name">input</span>
+         <span class="name">focus</span>: <span class="number">true</span>
+     }
+ }</pre>
+<p><b>See also </b><a href="qml-item.html#activeFocus-prop">activeFocus</a> and <a href="qdeclarativefocus.html#qmlfocus">Keyboard Focus</a>.</p>
+</div></div><!-- @@@focus -->
+<br/>
+<!-- $$$implicitWidth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="implicitWidth-prop"></a><span class="name">implicitWidth</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="implicitHeight-prop"></a><span class="name">implicitHeight</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>Defines the natural width or height of the Item if no <a href="qml-item.html#width-prop">width</a> or <a href="qml-item.html#height-prop">height</a> is specified.</p>
+<p>The default implicit size for most items is 0x0, however some elements have an inherent implicit size which cannot be overridden, e.g&#x2e; Image, Text.</p>
+<p>Setting the implicit size is useful for defining components that have a preferred size based on their content, for example:</p>
+<pre class="qml"> <span class="comment">// Label.qml</span>
+ import QtQuick 1.1
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     property <span class="type">alias</span> <span class="name">icon</span>: <span class="name">image</span>.<span class="name">source</span>
+     property <span class="type">alias</span> <span class="name">label</span>: <span class="name">text</span>.<span class="name">text</span>
+     <span class="name">implicitWidth</span>: <span class="name">text</span>.<span class="name">implicitWidth</span> <span class="operator">+</span> <span class="name">image</span>.<span class="name">implicitWidth</span>
+     <span class="name">implicitHeight</span>: <span class="name">Math</span>.<span class="name">max</span>(<span class="name">text</span>.<span class="name">implicitHeight</span>, <span class="name">image</span>.<span class="name">implicitHeight</span>)
+     <span class="type"><a href="qml-image.html">Image</a></span> { <span class="name">id</span>: <span class="name">image</span> }
+     <span class="type"><a href="qml-text.html">Text</a></span> {
+         <span class="name">id</span>: <span class="name">text</span>
+         <span class="name">wrapMode</span>: <span class="name">Text</span>.<span class="name">Wrap</span>
+         <span class="name">anchors</span>.left: <span class="name">image</span>.<span class="name">right</span>; <span class="name">anchors</span>.right: <span class="name">parent</span>.<span class="name">right</span>
+         <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+     }
+ }</pre>
+<p><b>Note</b>: using implicitWidth of Text or <a href="qml-textedit.html">TextEdit</a> and setting the width explicitly incurs a performance penalty as the text must be laid out twice.</p>
+<p>This property group was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@implicitWidth -->
+<br/>
+<!-- $$$opacity -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="opacity-prop"></a><span class="name">opacity</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the opacity of the item. Opacity is specified as a number between 0 (fully transparent) and 1 (fully opaque). The default is 1.</p>
+<p>When this property is set, the specified opacity is also applied individually to child items. In almost all cases this is what you want, but in some cases it may produce undesired results. For example in the second set of rectangles below, the red rectangle has specified an opacity of 0.5, which affects the opacity of its blue child rectangle even though the child has not specified an opacity.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/declarative-item_opacity1.png" alt="" /></p></td><td ><pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+             <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">50</span>; <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         }
+     }
+ }</pre>
+</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/declarative-item_opacity2.png" alt="" /></p></td><td ><pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">opacity</span>: <span class="number">0.5</span>
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+             <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">50</span>; <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         }
+     }
+ }</pre>
+</td></tr>
+</table>
+<p>If an item's opacity is set to 0, the item will no longer receive mouse events, but will continue to receive key events and will retain the keyboard <a href="qml-item.html#focus-prop">focus</a> if it has been set. (In contrast, setting the <a href="qml-item.html#visible-prop">visible</a> property to <tt>false</tt> stops both mouse and keyboard events, and also removes focus from the item.)</p>
+</div></div><!-- @@@opacity -->
+<br/>
+<!-- $$$parent -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="parent-prop"></a><span class="name">parent</span> : <span class="type">Item</span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the parent of the item.</p>
+</div></div><!-- @@@parent -->
+<br/>
+<!-- $$$rotation -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="rotation-prop"></a><span class="name">rotation</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the rotation of the item in degrees clockwise.</p>
+<p>This specifies how many degrees to rotate the item around its <a href="qml-item.html#transformOrigin-prop">transformOrigin</a>. The default rotation is 0 degrees (i.e&#x2e; not rotated at all).</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/declarative-rotation.png" alt="" /></p></td><td ><pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">x</span>: <span class="number">25</span>; <span class="name">y</span>: <span class="number">25</span>; <span class="name">width</span>: <span class="number">50</span>; <span class="name">height</span>: <span class="number">50</span>
+         <span class="name">rotation</span>: <span class="number">30</span>
+     }
+ }</pre>
+</td></tr>
+</table>
+<p><b>See also </b><a href="qml-item.html#transform-prop">transform</a> and <a href="qml-rotation.html">Rotation</a>.</p>
+</div></div><!-- @@@rotation -->
+<br/>
+<!-- $$$scale -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="scale-prop"></a><span class="name">scale</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the scale of the item.</p>
+<p>A scale of less than 1 means the item will be displayed smaller than normal, and a scale of greater than 1 means the item will be displayed larger than normal. A negative scale means the item will be mirrored.</p>
+<p>By default, items are displayed at a scale of 1 (i.e&#x2e; at their normal size).</p>
+<p>Scaling is from the item's <a href="qml-item.html#transformOrigin-prop">transformOrigin</a>.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/declarative-scale.png" alt="" /></p></td><td ><pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;green&quot;</span>
+         <span class="name">width</span>: <span class="number">25</span>; <span class="name">height</span>: <span class="number">25</span>
+     }
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">x</span>: <span class="number">25</span>; <span class="name">y</span>: <span class="number">25</span>; <span class="name">width</span>: <span class="number">50</span>; <span class="name">height</span>: <span class="number">50</span>
+         <span class="name">scale</span>: <span class="number">1.4</span>
+     }
+ }</pre>
+</td></tr>
+</table>
+<p><b>See also </b><a href="qml-item.html#transform-prop">transform</a> and <a href="qml-scale.html">Scale</a>.</p>
+</div></div><!-- @@@scale -->
+<br/>
+<!-- $$$state -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="state-prop"></a><span class="name">state</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the name of the current state of the item.</p>
+<p>This property is often used in scripts to change between states. For example:</p>
+<pre class="js"> <span class="keyword">function</span> <span class="name">toggle</span>() {
+     <span class="keyword">if</span> (<span class="name">button</span>.<span class="name">state</span> <span class="operator">==</span> <span class="string">'On'</span>)
+         <span class="name">button</span>.<span class="name">state</span> <span class="operator">=</span> <span class="string">'Off'</span>;
+     else
+         <span class="name">button</span>.<span class="name">state</span> <span class="operator">=</span> <span class="string">'On'</span>;
+ }</pre>
+<p>If the item is in its base state (i.e&#x2e; no explicit state has been set), <tt>state</tt> will be a blank string. Likewise, you can return an item to its base state by setting its current state to <tt>''</tt>.</p>
+<p><b>See also </b><a href="qdeclarativestates.html#qmlstates">States</a>.</p>
+</div></div><!-- @@@state -->
+<br/>
+<!-- $$$states -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="states-prop"></a><span class="qmlreadonly">read-only</span><span class="name">states</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type"><a href="qml-state.html">State</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>This property holds a list of states defined by the item.</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">states</span>: [
+         <span class="type"><a href="qml-state.html">State</a></span> {
+             <span class="comment">// ...</span>
+         },
+         <span class="type"><a href="qml-state.html">State</a></span> {
+             <span class="comment">// ...</span>
+         }
+         <span class="comment">// ...</span>
+     ]
+ }</pre>
+<p><b>See also </b><a href="qdeclarativestates.html#qmlstates">States</a>.</p>
+</div></div><!-- @@@states -->
+<br/>
+<!-- $$$transform -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="transform-prop"></a><span class="qmlreadonly">read-only</span><span class="name">transform</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type"><a href="qml-transform.html">Transform</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>This property holds the list of transformations to apply.</p>
+<p>For more information see <a href="qml-transform.html">Transform</a>.</p>
+</div></div><!-- @@@transform -->
+<br/>
+<!-- $$$transformOrigin -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="transformOrigin-prop"></a><span class="name">transformOrigin</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the origin point around which scale and rotation transform.</p>
+<p>Nine transform origins are available, as shown in the image below.</p>
+<p class="centerAlign"><img src="images/declarative-transformorigin.png" alt="" /></p><p>This example rotates an image around its bottom-right corner.</p>
+<pre class="qml"> <span class="type"><a href="qml-image.html">Image</a></span> {
+     <span class="name">source</span>: <span class="string">&quot;myimage.png&quot;</span>
+     <span class="name">transformOrigin</span>: <span class="name">Item</span>.<span class="name">BottomRight</span>
+     <span class="name">rotation</span>: <span class="number">45</span>
+ }</pre>
+<p>The default transform origin is <tt>Item.Center</tt>.</p>
+<p>To set an arbitrary transform origin point use the <a href="qml-scale.html">Scale</a> or <a href="qml-rotation.html">Rotation</a> transform elements.</p>
+</div></div><!-- @@@transformOrigin -->
+<br/>
+<!-- $$$transitions -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="transitions-prop"></a><span class="qmlreadonly">read-only</span><span class="name">transitions</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type"><a href="qml-transition.html">Transition</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>This property holds a list of transitions defined by the item.</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">transitions</span>: [
+         <span class="type"><a href="qml-transition.html">Transition</a></span> {
+             <span class="comment">// ...</span>
+         },
+         <span class="type"><a href="qml-transition.html">Transition</a></span> {
+             <span class="comment">// ...</span>
+         }
+         <span class="comment">// ...</span>
+     ]
+ }</pre>
+<p><b>See also </b><a href="qdeclarativeanimation.html">Transitions</a>.</p>
+</div></div><!-- @@@transitions -->
+<br/>
+<!-- $$$visible -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="visible-prop"></a><span class="name">visible</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the item is visible. By default this is true.</p>
+<p>Setting this property directly affects the <tt>visible</tt> value of child items. When set to <tt>false</tt>, the <tt>visible</tt> values of all child items also become <tt>false</tt>. When set to <tt>true</tt>, the <tt>visible</tt> values of child items are returned to <tt>true</tt>, unless they have explicitly been set to <tt>false</tt>.</p>
+<p>(Because of this flow-on behavior, using the <tt>visible</tt> property may not have the intended effect if a property binding should only respond to explicit property changes. In such cases it may be better to use the <a href="qml-item.html#opacity-prop">opacity</a> property instead.)</p>
+<p>Setting this property to <tt>false</tt> automatically causes <a href="qml-item.html#focus-prop">focus</a> to be set to <tt>false</tt>, and this item will longer receive mouse and keyboard events. (In contrast, setting the <a href="qml-item.html#opacity-prop">opacity</a> to 0 does not affect the <a href="qml-item.html#focus-prop">focus</a> property and the receiving of key events.)</p>
+<p><b>Note:</b> This property's value is only affected by changes to this property or the parent's <tt>visible</tt> property. It does not change, for example, if this item moves off-screen, or if the <a href="qml-item.html#opacity-prop">opacity</a> changes to 0.</p>
+</div></div><!-- @@@visible -->
+<br/>
+<!-- $$$x -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="x-prop"></a><span class="name">x</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="y-prop"></a><span class="name">y</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="width-prop"></a><span class="name">width</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="height-prop"></a><span class="name">height</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>Defines the item's position and size relative to its parent.</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> { <span class="name">x</span>: <span class="number">100</span>; <span class="name">y</span>: <span class="number">100</span>; <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span> }</pre>
+</div></div><!-- @@@x -->
+<br/>
+<!-- $$$z -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="z-prop"></a><span class="name">z</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the stacking order of sibling items. By default the stacking order is 0.</p>
+<p>Items with a higher stacking value are drawn on top of siblings with a lower stacking order. Items with the same stacking value are drawn bottom up in the order they appear. Items with a negative stacking value are drawn under their parent's content.</p>
+<p>The following example shows the various effects of stacking order.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/declarative-item_stacking1.png" alt="" /></p></td><td >Same <tt>z</tt> - later children above earlier children:<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     }
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+         <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">50</span>; <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     }
+ }</pre>
+</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/declarative-item_stacking2.png" alt="" /></p></td><td >Higher <tt>z</tt> on top:<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">z</span>: <span class="number">1</span>
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     }
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+         <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">50</span>; <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     }
+ }</pre>
+</td></tr>
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/declarative-item_stacking3.png" alt="" /></p></td><td >Same <tt>z</tt> - children above parents:<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+             <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">50</span>; <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         }
+     }
+ }</pre>
+</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/declarative-item_stacking4.png" alt="" /></p></td><td >Lower <tt>z</tt> below:<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">z</span>: -<span class="number">1</span>
+             <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+             <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">50</span>; <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         }
+     }
+ }</pre>
+</td></tr>
+</table>
+</div></div><!-- @@@z -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$childAt -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="childAt-method"></a>Item::<span class="name">childAt</span> ( <span class="type"><a href="qml-real.html">real</a></span> <i>x</i>, <span class="type"><a href="qml-real.html">real</a></span> <i>y</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the visible child item at point (<i>x</i>, <i>y</i>), which is in this item's coordinate system, or <tt>null</tt> if there is no such item.</p>
+</div></div><!-- @@@childAt -->
+<br/>
+<!-- $$$forceActiveFocus -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="forceActiveFocus-method"></a>Item::<span class="name">forceActiveFocus</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Forces active focus on the item.</p>
+<p>This method sets focus on the item and makes sure that all the focus scopes higher in the object hierarchy are also given the focus.</p>
+</div></div><!-- @@@forceActiveFocus -->
+<br/>
+<!-- $$$mapFromItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="mapFromItem-method"></a><span class="type">object</span> Item::<span class="name">mapFromItem</span> ( <span class="type">Item</span> <i>item</i>, <span class="type"><a href="qml-real.html">real</a></span> <i>x</i>, <span class="type"><a href="qml-real.html">real</a></span> <i>y</i> )</p></td></tr></table></div><div class="qmldoc"><p>Maps the point (<i>x</i>, <i>y</i>), which is in <i>item</i>'s coordinate system, to this item's coordinate system, and returns an object with <tt>x</tt> and <tt>y</tt> properties matching the mapped cooordinate.</p>
+<p>If <i>item</i> is a <tt>null</tt> value, this maps the point from the coordinate system of the root QML view.</p>
+</div></div><!-- @@@mapFromItem -->
+<br/>
+<!-- $$$mapToItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="mapToItem-method"></a><span class="type">object</span> Item::<span class="name">mapToItem</span> ( <span class="type">Item</span> <i>item</i>, <span class="type"><a href="qml-real.html">real</a></span> <i>x</i>, <span class="type"><a href="qml-real.html">real</a></span> <i>y</i> )</p></td></tr></table></div><div class="qmldoc"><p>Maps the point (<i>x</i>, <i>y</i>), which is in this item's coordinate system, to <i>item</i>'s coordinate system, and returns an object with <tt>x</tt> and <tt>y</tt> properties matching the mapped cooordinate.</p>
+<p>If <i>item</i> is a <tt>null</tt> value, this maps <i>x</i> and <i>y</i> to the coordinate system of the root QML view.</p>
+</div></div><!-- @@@mapToItem -->
+<br/>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

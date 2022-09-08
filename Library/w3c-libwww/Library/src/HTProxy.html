@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww Proxies and Gateways</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Proxy and gateway Manager
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This module keeps a list of proxies and gateways to be contacted on a request
+in stead of requesting it directly from the origin server. The module replaces
+the old system of environment variables for gateways and proxies. However
+for backward compatibility there is a function that reads the environment
+variables at start up. Note that there is a difference between a proxy and
+a gateway - the difference is the way the URL is set up in the
+<EM>RequestLine</EM> of the HTTP request. If the original, full URL looks
+like <CODE>"http://www.w3.org/test.html"</CODE> then the result will for
+a proxy is <CODE>"http://www.w3.org/test.html"</CODE> and a gateway
+<CODE>"/www.w3.org/test.html"</CODE>
+<P>
+The module is implemented by <A HREF="HTProxy.c">HTProxy.c</A>, and it is
+a part of the <A HREF="http://www.w3.org/Library/"> W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTPROXY_H
+#define HTPROXY_H
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+
+#include "HTList.h"
+</PRE>
+<H2>
+  Registering a Proxy Server
+</H2>
+<P>
+A proxy server is registered with a corresponding access method, for example
+<EM>http</EM>, <EM>ftp</EM> etc. The `proxy' parameter should be a fully
+valid name, like <CODE>http://proxy.w3.org:8001</CODE> but domain name is
+not required. If an entry exists for this access then delete it and use the
+new one.
+<PRE>
+extern BOOL HTProxy_add		(const char * access, const char * proxy);
+</PRE>
+<H3>
+  Registering a Proxy Using Regular Expressions
+</H3>
+<P>
+Registers a proxy as the server to contact for any URL matching the regular
+expression. This requires that you have compiled with the
+<TT>HT_POSIX_REGEX</TT> flag, see the <A HREF="../../INSTALL.html">installation
+instructions</A>. If you call this function without having compiled with
+the <TT>HT_POSIX_REGEX</TT> flag then you will essentially get the non-regex
+version.&nbsp;The name of the proxy should be a fully valid URL, like
+"<TT>http://proxy.w3.org:8001</TT>". Returns YES if OK, else NO
+<PRE>
+extern BOOL HTProxy_addRegex (const char * regex,
+                              const char * proxy,
+                              int regex_flags);
+</PRE>
+<H3>
+  Deleting All Registered Proxies
+</H3>
+<PRE>
+extern BOOL HTProxy_deleteAll	(void);
+</PRE>
+<P>
+The remove function removes all registered proxies. This is automatically
+done in <A HREF="HTLib.html"> HTLibTerminate()</A> <A NAME="noproxy"></A>
+<H2>
+  Registering a No Proxy Location
+</H2>
+<P>
+The <EM>noproxy</EM> list is a list of host names and domain names where
+we don't contact a proxy even though a proxy is in fact registered for this
+particular access method . When registering a <EM>noproxy</EM> item, you
+can specify a specific port for this access method in which case it isvalid
+only for requests to this port. If `port' is '0' then it applies to all ports
+and if `access' is NULL then it applies to to all access methods. Examples
+of host names are <CODE>w3.org</CODE> and <CODE>www.close.com</CODE>
+<PRE>
+extern BOOL HTNoProxy_add	(const char * host, const char * access,
+				 unsigned port);
+</PRE>
+<H3>
+  Registering a NoProxy Location Using Regular Expressions
+</H3>
+<P>
+Registers a regular expression where URIs matching this expression should
+go directly and not via a proxy. Examples:
+<CODE>http://&lt;star&gt;\.w3\.org</CODE> and
+<CODE>http://www\.noproxy\.com/&lt;star&gt;</CODE> (I use
+<TT>&lt;star&gt;</TT> in order not interfere with C comments) This requires
+that you have compiled with the <TT>HT_POSIX_REGEX</TT> flag, see the
+<A HREF="../../INSTALL.html">installation instructions</A>. If you call this
+function without having compiled with the <TT>HT_POSIX_REGEX</TT> flag then
+you will essentially get the non-regex version.&nbsp;
+<PRE>
+extern BOOL HTNoProxy_addRegex (const char * regex, int regex_flags);
+</PRE>
+<H3>
+  Delete all Noproxy Destinations
+</H3>
+<PRE>
+extern BOOL HTNoProxy_deleteAll	(void);
+</PRE>
+<P>
+The remove function removes all entries in the list. This is automatically
+done in <A HREF="HTLib.html"> HTLibTerminate()</A>
+<H3>
+  Inverse the meaning of the NoProxy list
+</H3>
+<P>
+Allows to change the value of a flag so that the NoProxy list is interpreted
+as if it were an OnlyProxy list.
+<PRE>
+extern int  HTProxy_NoProxyIsOnlyProxy (void);
+extern void HTProxy_setNoProxyIsOnlyProxy (int value);
+</PRE>
+<H2>
+  Look for a Proxy server
+</H2>
+<P>
+This function evaluates the lists of registered proxies and if one is found
+for the actual access method and it is not registered in the `noproxy' list,
+then a URL containing the host to be contacted is returned to the caller.
+This string must be freed be the caller.
+<PRE>
+extern char * HTProxy_find	(const char * url);
+</PRE>
+<H2>
+  Registering a gateway
+</H2>
+<P>
+A gateway is registered with a corresponding access method, for example
+<EM>http</EM>, <EM>ftp</EM> etc. The `gate' parameter should be a fully valid
+name, like <CODE>http://gateway.w3.org:8001</CODE> but domain name is not
+required. If an entry exists for this access then delete it and use the new
+one.
+<PRE>
+extern BOOL HTGateway_add	(const char * access, const char * gate);
+extern BOOL HTGateway_deleteAll	(void);
+</PRE>
+<P>
+The remove function removes all registered proxies. This is automatically
+done in <A HREF="HTLib.html"> HTLibTerminate()</A>
+<H2>
+  Look for a Gateway
+</H2>
+<P>
+This function evaluates the lists of registered gateways and if one is found
+for the actual access method then it is returned and must be freed by the
+caller.
+<PRE>
+extern char * HTGateway_find	(const char * url);
+</PRE>
+<H2>
+  Backwards Compability with Environment Variables
+</H2>
+<P>
+This function maintains backwards compatibility with the old environment
+variables and searches for the most common values: http, ftp, news, wais,
+and gopher
+<PRE>
+extern void HTProxy_getEnvVar	(void);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTPROXY_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativelistview.cpp -->
+  <title>Qt 4.8: QML ListView Element</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML ListView Element</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#properties">Attached Properties</a></li>
+<li class="level1"><a href="#signal-handlers">Attached Signal Handlers</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example-usage">Example Usage</a></li>
+</ul>
+</div>
+<h1 class="title">QML ListView Element</h1>
+<span class="subtitle"></span>
+<!-- $$$ListView-brief -->
+<p>The ListView item provides a list view of items provided by a model. <a href="#details">More...</a></p>
+<!-- @@@ListView -->
+<p>Inherits <a href="qml-flickable.html">Flickable</a></p>
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-listview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-listview.html#cacheBuffer-prop">cacheBuffer</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-listview.html#count-prop">count</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-listview.html#currentIndex-prop">currentIndex</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-listview.html#currentItem-prop">currentItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-listview.html#currentSection-prop">currentSection</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-listview.html#delegate-prop">delegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-listview.html#footer-prop">footer</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-listview.html#header-prop">header</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlight-prop">highlight</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlightItem-prop">highlightItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlightMoveDuration-prop">highlightMoveDuration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlightMoveSpeed-prop">highlightMoveSpeed</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlightRangeMode-prop">highlightRangeMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlightResizeDuration-prop">highlightResizeDuration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-listview.html#highlightResizeSpeed-prop">highlightResizeSpeed</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-listview.html#keyNavigationWraps-prop">keyNavigationWraps</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-listview.html#layoutDirection-prop">layoutDirection</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-listview.html#model-prop">model</a></b></b> : model</li>
+<li class="fn"><b><b><a href="qml-listview.html#orientation-prop">orientation</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-listview.html#preferredHighlightBegin-prop">preferredHighlightBegin</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-listview.html#preferredHighlightEnd-prop">preferredHighlightEnd</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-listview.html#section.criteria-prop">section.criteria</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-listview.html#section.delegate-prop">section.delegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-listview.html#section.property-prop">section.property</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-listview.html#snapMode-prop">snapMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-listview.html#spacing-prop">spacing</a></b></b> : real</li>
+</ul>
+<a name="attached-properties"></a>
+<h2>Attached Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-listview.html#delayRemove-prop">delayRemove</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-listview.html#isCurrentItem-prop">isCurrentItem</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-listview.html#nextSection-prop">nextSection</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-listview.html#previousSection-prop">previousSection</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-listview.html#section-prop">section</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-listview.html#view-prop">view</a></b></b> : ListView</li>
+</ul>
+<a name="attached-signal-handlers"></a>
+<h2>Attached Signal Handlers</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-listview.html#onAdd-signal">onAdd</a></b></b></li>
+<li class="fn"><b><b><a href="qml-listview.html#onRemove-signal">onRemove</a></b></b></li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-listview.html#decrementCurrentIndex-method">decrementCurrentIndex</a></b></b></li>
+<li class="fn"><b><b><a href="qml-listview.html#incrementCurrentIndex-method">incrementCurrentIndex</a></b></b></li>
+<li class="fn"><b><b><a href="qml-listview.html#indexAt-method">indexAt</a></b></b></li>
+<li class="fn"><b><b><a href="qml-listview.html#positionViewAtBeginning-method">positionViewAtBeginning</a></b></b></li>
+<li class="fn"><b><b><a href="qml-listview.html#positionViewAtEnd-method">positionViewAtEnd</a></b></b></li>
+<li class="fn"><b><b><a href="qml-listview.html#positionViewAtIndex-method">positionViewAtIndex</a></b></b></li>
+</ul>
+<!-- $$$ListView-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>A ListView displays data from models created from built-in QML elements like <a href="qml-listmodel.html">ListModel</a> and <a href="qml-xmllistmodel.html">XmlListModel</a>, or custom model classes defined in C++ that inherit from <a href="qabstractlistmodel.html">QAbstractListModel</a>.</p>
+<p>A ListView has a <a href="qml-listview.html#model-prop">model</a>, which defines the data to be displayed, and a <a href="qml-listview.html#delegate-prop">delegate</a>, which defines how the data should be displayed. Items in a ListView are laid out horizontally or vertically. List views are inherently flickable because ListView inherits from <a href="qml-flickable.html">Flickable</a>.</p>
+<a name="example-usage"></a>
+<h2>Example Usage</h2>
+<p>The following example shows the definition of a simple list model defined in a file called <tt>ContactModel.qml</tt>:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-listmodel.html">ListModel</a></span> {
+     <span class="type"><a href="qml-listelement.html">ListElement</a></span> {
+         <span class="name">name</span>: <span class="string">&quot;Bill Smith&quot;</span>
+         <span class="name">number</span>: <span class="string">&quot;555 3264&quot;</span>
+     }
+     <span class="type"><a href="qml-listelement.html">ListElement</a></span> {
+         <span class="name">name</span>: <span class="string">&quot;John Brown&quot;</span>
+         <span class="name">number</span>: <span class="string">&quot;555 8426&quot;</span>
+     }
+     <span class="type"><a href="qml-listelement.html">ListElement</a></span> {
+         <span class="name">name</span>: <span class="string">&quot;Sam Wise&quot;</span>
+         <span class="name">number</span>: <span class="string">&quot;555 0473&quot;</span>
+     }
+ }</pre>
+<p>Another component can display this model data in a ListView, like this:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type">ListView</span> {
+     <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="name">model</span>: <span class="name">ContactModel</span> {}
+     <span class="name">delegate</span>: <span class="name">Text</span> {
+         <span class="name">text</span>: <span class="name">name</span> <span class="operator">+</span> <span class="string">&quot;: &quot;</span> <span class="operator">+</span> <span class="name">number</span>
+     }
+ }</pre>
+<p class="centerAlign"><img src="images/listview-simple.png" alt="" /></p><p>Here, the ListView creates a <tt>ContactModel</tt> component for its model, and a <a href="qml-text.html">Text</a> element for its delegate. The view will create a new <a href="qml-text.html">Text</a> component for each item in the model. Notice the delegate is able to access the model's <tt>name</tt> and <tt>number</tt> data directly.</p>
+<p>An improved list view is shown below. The delegate is visually improved and is moved into a separate <tt>contactDelegate</tt> component.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="type"><a href="qml-component.html">Component</a></span> {
+         <span class="name">id</span>: <span class="name">contactDelegate</span>
+         <span class="type"><a href="qml-item.html">Item</a></span> {
+             <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">40</span>
+             <span class="type"><a href="qml-column.html">Column</a></span> {
+                 <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">text</span>: <span class="string">'&lt;b&gt;Name:&lt;/b&gt; '</span> <span class="operator">+</span> <span class="name">name</span> }
+                 <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">text</span>: <span class="string">'&lt;b&gt;Number:&lt;/b&gt; '</span> <span class="operator">+</span> <span class="name">number</span> }
+             }
+         }
+     }
+
+     <span class="type">ListView</span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">model</span>: <span class="name">ContactModel</span> {}
+         <span class="name">delegate</span>: <span class="name">contactDelegate</span>
+         <span class="name">highlight</span>: <span class="name">Rectangle</span> { <span class="name">color</span>: <span class="string">&quot;lightsteelblue&quot;</span>; <span class="name">radius</span>: <span class="number">5</span> }
+         <span class="name">focus</span>: <span class="number">true</span>
+     }
+ }</pre>
+<p class="centerAlign"><img src="images/listview-highlight.png" alt="" /></p><p>The currently selected item is highlighted with a blue <a href="qml-rectangle.html">Rectangle</a> using the <a href="qml-listview.html#highlight-prop">highlight</a> property, and <tt>focus</tt> is set to <tt>true</tt> to enable keyboard navigation for the list view. The list view itself is a focus scope (see <a href="qdeclarativefocus.html#acquiring-focus-and-focus-scopes">the focus documentation page</a> for more details).</p>
+<p>Delegates are instantiated as needed and may be destroyed at any time. State should <i>never</i> be stored in a delegate.</p>
+<p>ListView attaches a number of properties to the root item of the delegate, for example <tt>ListView.isCurrentItem</tt>. In the following example, the root delegate item can access this attached property directly as <tt>ListView.isCurrentItem</tt>, while the child <tt>contactInfo</tt> object must refer to this property as <tt>wrapper.ListView.isCurrentItem</tt>.</p>
+<pre class="qml"> <span class="type">ListView</span> {
+     <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="type"><a href="qml-component.html">Component</a></span> {
+         <span class="name">id</span>: <span class="name">contactsDelegate</span>
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">id</span>: <span class="name">wrapper</span>
+             <span class="name">width</span>: <span class="number">180</span>
+             <span class="name">height</span>: <span class="name">contactInfo</span>.<span class="name">height</span>
+             <span class="name">color</span>: <span class="name">ListView</span>.<span class="name">isCurrentItem</span> ? <span class="string">&quot;black&quot;</span> : <span class="string">&quot;red&quot;</span>
+             <span class="type"><a href="qml-text.html">Text</a></span> {
+                 <span class="name">id</span>: <span class="name">contactInfo</span>
+                 <span class="name">text</span>: <span class="name">name</span> <span class="operator">+</span> <span class="string">&quot;: &quot;</span> <span class="operator">+</span> <span class="name">number</span>
+                 <span class="name">color</span>: <span class="name">wrapper</span>.<span class="name">ListView</span>.<span class="name">isCurrentItem</span> ? <span class="string">&quot;red&quot;</span> : <span class="string">&quot;black&quot;</span>
+             }
+         }
+     }
+
+     <span class="name">model</span>: <span class="name">ContactModel</span> {}
+     <span class="name">delegate</span>: <span class="name">contactsDelegate</span>
+     <span class="name">focus</span>: <span class="number">true</span>
+ }</pre>
+<p><b>Note:</b> Views do not enable <i>clip</i> automatically. If the view is not clipped by another item or the screen, it will be necessary to set <i>clip: true</i> in order to have the out of view items clipped nicely.</p>
+<p><b>See also </b><a href="qdeclarativemodels.html">QML Data Models</a>, <a href="qml-gridview.html">GridView</a>, and <a href="qml-listview-examples.html">ListView examples</a>.</p>
+<!-- @@@ListView -->
+<h2>Property Documentation</h2>
+<!-- $$$cacheBuffer -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cacheBuffer-prop"></a><span class="name">cacheBuffer</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property determines whether delegates are retained outside the visible area of the view.</p>
+<p>If this value is non-zero, the view keeps as many delegates instantiated as it can fit within the buffer specified. For example, if in a vertical view the delegate is 20 pixels high and <tt>cacheBuffer</tt> is set to 40, then up to 2 delegates above and 2 delegates below the visible area may be retained.</p>
+<p>Note that cacheBuffer is not a pixel buffer - it only maintains additional instantiated delegates.</p>
+<p>Setting this value can improve the smoothness of scrolling behavior at the expense of additional memory usage. It is not a substitute for creating efficient delegates; the fewer elements in a delegate, the faster a view can be scrolled.</p>
+</div></div><!-- @@@cacheBuffer -->
+<br/>
+<!-- $$$count -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="qmlreadonly">read-only</span><span class="name">count</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the number of items in the view.</p>
+</div></div><!-- @@@count -->
+<br/>
+<!-- $$$currentIndex -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="currentIndex-prop"></a><span class="name">currentIndex</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="currentItem-prop"></a><span class="name">currentItem</span> : <span class="type"><a href="qml-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p>The <tt>currentIndex</tt> property holds the index of the current item, and <tt>currentItem</tt> holds the current item. Setting the currentIndex to -1 will clear the highlight and set <a href="qml-listview.html#currentItem-prop">currentItem</a> to null.</p>
+<p>If <a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> is <tt>true</tt>, setting either of these properties will smoothly scroll the <a href="qml-listview.html">ListView</a> so that the current item becomes visible.</p>
+<p>Note that the position of the current item may only be approximate until it becomes visible in the view.</p>
+</div></div><!-- @@@currentIndex -->
+<br/>
+<!-- $$$currentSection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="currentSection-prop"></a><span class="qmlreadonly">read-only</span><span class="name">currentSection</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the section that is currently at the beginning of the view.</p>
+</div></div><!-- @@@currentSection -->
+<br/>
+<!-- $$$delegate -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="delegate-prop"></a><span class="name">delegate</span> : <span class="type"><a href="qml-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>The delegate provides a template defining each item instantiated by the view. The index is exposed as an accessible <tt>index</tt> property. Properties of the model are also available depending upon the type of <a href="qdeclarativemodels.html#qmlmodels">Data Model</a>.</p>
+<p>The number of elements in the delegate has a direct effect on the flicking performance of the view. If at all possible, place functionality that is not needed for the normal display of the delegate in a <a href="qml-loader.html">Loader</a> which can load additional elements when needed.</p>
+<p>The <a href="qml-listview.html">ListView</a> will lay out the items based on the size of the root item in the delegate.</p>
+<p>It is recommended that the delagate's size be a whole number to avoid sub-pixel alignment of items.</p>
+<p><b>Note:</b> Delegates are instantiated as needed and may be destroyed at any time. State should <i>never</i> be stored in a delegate.</p>
+</div></div><!-- @@@delegate -->
+<br/>
+<!-- $$$footer -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="footer-prop"></a><span class="name">footer</span> : <span class="type"><a href="qml-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the footer.</p>
+<p>An instance of the footer component is created for each view. The footer is positioned at the end of the view, after any items.</p>
+<p><b>See also </b><a href="qml-listview.html#header-prop">header</a>.</p>
+</div></div><!-- @@@footer -->
+<br/>
+<!-- $$$header -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="header-prop"></a><span class="name">header</span> : <span class="type"><a href="qml-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the header.</p>
+<p>An instance of the header component is created for each view. The header is positioned at the beginning of the view, before any items.</p>
+<p><b>See also </b><a href="qml-listview.html#footer-prop">footer</a>.</p>
+</div></div><!-- @@@header -->
+<br/>
+<!-- $$$highlight -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlight-prop"></a><span class="name">highlight</span> : <span class="type"><a href="qml-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the component to use as the highlight.</p>
+<p>An instance of the highlight component is created for each list. The geometry of the resulting component instance is managed by the list so as to stay with the current item, unless the <a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> property is false.</p>
+<p><b>See also </b><a href="qml-listview.html#highlightItem-prop">highlightItem</a>, <a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a>, and <a href="qml-listview-examples.html">ListView examples</a>.</p>
+</div></div><!-- @@@highlight -->
+<br/>
+<!-- $$$highlightFollowsCurrentItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlightFollowsCurrentItem-prop"></a><span class="name">highlightFollowsCurrentItem</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the highlight is managed by the view.</p>
+<p>If this property is true (the default value), the highlight is moved smoothly to follow the current item. Otherwise, the highlight is not moved by the view, and any movement must be implemented by the highlight.</p>
+<p>Here is a highlight with its motion defined by a <a href="qml-springanimation.html">SpringAnimation</a> item:</p>
+<pre class="qml"> <span class="type"><a href="qml-component.html">Component</a></span> {
+     <span class="name">id</span>: <span class="name">highlight</span>
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">40</span>
+         <span class="name">color</span>: <span class="string">&quot;lightsteelblue&quot;</span>; <span class="name">radius</span>: <span class="number">5</span>
+         <span class="name">y</span>: <span class="name">list</span>.<span class="name">currentItem</span>.<span class="name">y</span>
+         Behavior on <span class="name">y</span> {
+             <span class="type"><a href="qml-springanimation.html">SpringAnimation</a></span> {
+                 <span class="name">spring</span>: <span class="number">3</span>
+                 <span class="name">damping</span>: <span class="number">0.2</span>
+             }
+         }
+     }
+ }
+
+ <span class="type"><a href="qml-listview.html">ListView</a></span> {
+     <span class="name">id</span>: <span class="name">list</span>
+     <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">200</span>
+     <span class="name">model</span>: <span class="name">ContactModel</span> {}
+     <span class="name">delegate</span>: <span class="name">Text</span> { <span class="name">text</span>: <span class="name">name</span> }
+
+     <span class="name">highlight</span>: <span class="name">highlight</span>
+     <span class="name">highlightFollowsCurrentItem</span>: <span class="number">false</span>
+     <span class="name">focus</span>: <span class="number">true</span>
+ }</pre>
+<p>Note that the highlight animation also affects the way that the view is scrolled. This is because the view moves to maintain the highlight within the preferred highlight range (or visible viewport).</p>
+<p><b>See also </b><a href="qml-listview.html#highlight-prop">highlight</a> and <a href="qml-listview.html#highlightMoveSpeed-prop">highlightMoveSpeed</a>.</p>
+</div></div><!-- @@@highlightFollowsCurrentItem -->
+<br/>
+<!-- $$$highlightItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlightItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">highlightItem</span> : <span class="type"><a href="qml-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p>This holds the highlight item created from the <a href="qml-listview.html#highlight-prop">highlight</a> component.</p>
+<p>The <tt>highlightItem</tt> is managed by the view unless <a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> is set to false.</p>
+<p><b>See also </b><a href="qml-listview.html#highlight-prop">highlight</a> and <a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a>.</p>
+</div></div><!-- @@@highlightItem -->
+<br/>
+<!-- $$$highlightMoveSpeed -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlightMoveSpeed-prop"></a><span class="name">highlightMoveSpeed</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="highlightMoveDuration-prop"></a><span class="name">highlightMoveDuration</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlightResizeSpeed-prop"></a><span class="name">highlightResizeSpeed</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="highlightResizeDuration-prop"></a><span class="name">highlightResizeDuration</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties hold the move and resize animation speed of the highlight delegate.</p>
+<p><a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a> must be true for these properties to have effect.</p>
+<p>The default value for the speed properties is 400 pixels/second. The default value for the duration properties is -1, i.e&#x2e; the highlight will take as much time as necessary to move at the set speed.</p>
+<p>These properties have the same characteristics as a <a href="qml-smoothedanimation.html">SmoothedAnimation</a>.</p>
+<p><b>See also </b><a href="qml-listview.html#highlightFollowsCurrentItem-prop">highlightFollowsCurrentItem</a>.</p>
+</div></div><!-- @@@highlightMoveSpeed -->
+<br/>
+<!-- $$$keyNavigationWraps -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="keyNavigationWraps-prop"></a><span class="name">keyNavigationWraps</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the list wraps key navigation.</p>
+<p>If this is true, key navigation that would move the current item selection past the end of the list instead wraps around and moves the selection to the start of the list, and vice-versa.</p>
+<p>By default, key navigation is not wrapped.</p>
+</div></div><!-- @@@keyNavigationWraps -->
+<br/>
+<!-- $$$layoutDirection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="layoutDirection-prop"></a><span class="name">layoutDirection</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the layout direction of the horizontal list.</p>
+<p>Possible values:</p>
+<ul>
+<li>Qt.LeftToRight (default) - Items will be laid out from left to right.</li>
+<li>Qt.RightToLeft - Items will be laid out from right to let.</li>
+</ul>
+<p>When using the attached property <a href="qml-layoutmirroring.html#enabled-prop">LayoutMirroring::enabled</a> for locale layouts, the layout direction of the horizontal list will be mirrored. However, the actual property <tt>layoutDirection</tt> will remain unchanged. You can use the property <a href="qml-layoutmirroring.html#enabled-prop">LayoutMirroring::enabled</a> to determine whether the direction has been mirrored.</p>
+<p><b>See also </b><a href="qml-layoutmirroring.html">LayoutMirroring</a>.</p>
+</div></div><!-- @@@layoutDirection -->
+<br/>
+<!-- $$$model -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="model-prop"></a><span class="name">model</span> : <span class="type">model</span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the model providing data for the list.</p>
+<p>The model provides the set of data that is used to create the items in the view. Models can be created directly in QML using <a href="qml-listmodel.html">ListModel</a>, <a href="qml-xmllistmodel.html">XmlListModel</a> or <a href="qml-visualitemmodel.html">VisualItemModel</a>, or provided by C++ model classes. If a C++ model class is used, it must be a subclass of <a href="qabstractitemmodel.html">QAbstractItemModel</a> or a simple list.</p>
+<p><b>See also </b><a href="qdeclarativemodels.html#qmlmodels">Data Models</a>.</p>
+</div></div><!-- @@@model -->
+<br/>
+<!-- $$$orientation -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="orientation-prop"></a><span class="name">orientation</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the orientation of the list.</p>
+<p>Possible values:</p>
+<ul>
+<li><a href="qml-listview.html">ListView</a>.Horizontal - Items are laid out horizontally</li>
+<li><a href="qml-listview.html">ListView</a>.Vertical (default) - Items are laid out vertically</li>
+</ul>
+<table class="generic">
+<tr valign="top" class="odd"><td >Horizontal orientation:<p class="centerAlign"><img src="images/ListViewHorizontal.png" alt="" /></p></td></tr>
+<tr valign="top" class="even"><td >Vertical orientation:<p class="centerAlign"><img src="images/listview-highlight.png" alt="" /></p></td></tr>
+</table>
+</div></div><!-- @@@orientation -->
+<br/>
+<!-- $$$preferredHighlightBegin -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="preferredHighlightBegin-prop"></a><span class="name">preferredHighlightBegin</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="preferredHighlightEnd-prop"></a><span class="name">preferredHighlightEnd</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlightRangeMode-prop"></a><span class="name">highlightRangeMode</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties define the preferred range of the highlight (for the current item) within the view. The <tt>preferredHighlightBegin</tt> value must be less than the <tt>preferredHighlightEnd</tt> value.</p>
+<p>These properties affect the position of the current item when the list is scrolled. For example, if the currently selected item should stay in the middle of the list when the view is scrolled, set the <tt>preferredHighlightBegin</tt> and <tt>preferredHighlightEnd</tt> values to the top and bottom coordinates of where the middle item would be. If the <tt>currentItem</tt> is changed programmatically, the list will automatically scroll so that the current item is in the middle of the view. Furthermore, the behavior of the current item index will occur whether or not a highlight exists.</p>
+<p>Valid values for <tt>highlightRangeMode</tt> are:</p>
+<ul>
+<li><a href="qml-listview.html">ListView</a>.ApplyRange - the view attempts to maintain the highlight within the range. However, the highlight can move outside of the range at the ends of the list or due to mouse interaction.</li>
+<li><a href="qml-listview.html">ListView</a>.StrictlyEnforceRange - the highlight never moves outside of the range. The current item changes if a keyboard or mouse action would cause the highlight to move outside of the range.</li>
+<li><a href="qml-listview.html">ListView</a>.NoHighlightRange - this is the default value.</li>
+</ul>
+</div></div><!-- @@@preferredHighlightBegin -->
+<br/>
+<!-- $$$section.property -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="section.property-prop"></a><span class="name">section.property</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="section.criteria-prop"></a><span class="name">section.criteria</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="section.delegate-prop"></a><span class="name">section.delegate</span> : <span class="type"><a href="qml-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties hold the expression to be evaluated for the <a href="qml-listview.html#section-prop">section</a> attached property.</p>
+<p>The <a href="qml-listview.html#section-prop">section</a> attached property enables a <a href="qml-listview.html">ListView</a> to be visually separated into different parts. These properties determine how sections are created.</p>
+<p><tt>section.property</tt> holds the name of the property that is the basis of each section.</p>
+<p><tt>section.criteria</tt> holds the criteria for forming each section based on <tt>section.property</tt>. This value can be one of:</p>
+<ul>
+<li>ViewSection.FullString (default) - sections are created based on the <tt>section.property</tt> value.</li>
+<li>ViewSection.FirstCharacter - sections are created based on the first character of the <tt>section.property</tt> value (for example, 'A', 'B', 'C' sections, etc. for an address book)</li>
+</ul>
+<p><tt>section.delegate</tt> holds the delegate component for each section.</p>
+<p>Each item in the list has attached properties named <tt>ListView.section</tt>, <tt>ListView.previousSection</tt> and <tt>ListView.nextSection</tt>. These may be used to place a section header for related items.</p>
+<p>For example, here is a <a href="qml-listview.html">ListView</a> that displays a list of animals, separated into sections. Each item in the <a href="qml-listview.html">ListView</a> is placed in a different section depending on the &quot;size&quot; property of the model item. The <tt>sectionHeading</tt> delegate component provides the light blue bar that marks the beginning of each section.</p>
+<pre class="qml"></pre>
+<p class="centerAlign"><img src="images/qml-listview-sections-example.png" alt="" /></p><p><b>Note:</b> Adding sections to a <a href="qml-listview.html">ListView</a> does not automatically re-order the list items by the section criteria. If the model is not ordered by section, then it is possible that the sections created will not be unique; each boundary between differing sections will result in a section header being created even if that section exists elsewhere.</p>
+<p><b>See also </b><a href="qml-listview-examples.html">ListView examples</a>.</p>
+</div></div><!-- @@@section.property -->
+<br/>
+<!-- $$$snapMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="snapMode-prop"></a><span class="name">snapMode</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property determines how the view scrolling will settle following a drag or flick. The possible values are:</p>
+<ul>
+<li><a href="qml-listview.html">ListView</a>.NoSnap (default) - the view stops anywhere within the visible area.</li>
+<li><a href="qml-listview.html">ListView</a>.SnapToItem - the view settles with an item aligned with the start of the view.</li>
+<li><a href="qml-listview.html">ListView</a>.SnapOneItem - the view settles no more than one item away from the first visible item at the time the mouse button is released. This mode is particularly useful for moving one page at a time.</li>
+</ul>
+<p><tt>snapMode</tt> does not affect the <a href="qml-listview.html#currentIndex-prop">currentIndex</a>. To update the <a href="qml-listview.html#currentIndex-prop">currentIndex</a> as the list is moved, set <a href="qml-listview.html#highlightRangeMode-prop">highlightRangeMode</a> to <tt>ListView.StrictlyEnforceRange</tt>.</p>
+<p><b>See also </b><a href="qml-listview.html#highlightRangeMode-prop">highlightRangeMode</a>.</p>
+</div></div><!-- @@@snapMode -->
+<br/>
+<!-- $$$spacing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="spacing-prop"></a><span class="name">spacing</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the spacing between items.</p>
+<p>The default value is 0.</p>
+</div></div><!-- @@@spacing -->
+<br/>
+<h2>Attached Property Documentation</h2>
+<!-- $$$delayRemove -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="delayRemove-prop"></a><span class="qmlreadonly">read-only</span><span class="name">ListView.delayRemove</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds whether the delegate may be destroyed.</p>
+<p>It is attached to each instance of the delegate.</p>
+<p>It is sometimes necessary to delay the destruction of an item until an animation completes.</p>
+<p>The example delegate below ensures that the animation completes before the item is removed from the list.</p>
+<pre class="qml"> <span class="type"><a href="qml-component.html">Component</a></span> {
+     <span class="name">id</span>: <span class="name">delegate</span>
+     <span class="type"><a href="qml-item.html">Item</a></span> {
+         <span class="name">ListView</span>.onRemove: <span class="name">SequentialAnimation</span> {
+             <span class="type"><a href="qml-propertyaction.html">PropertyAction</a></span> { <span class="name">target</span>: <span class="name">wrapper</span>; <span class="name">property</span>: <span class="string">&quot;ListView.delayRemove&quot;</span>; <span class="name">value</span>: <span class="number">true</span> }
+             <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">target</span>: <span class="name">wrapper</span>; <span class="name">property</span>: <span class="string">&quot;scale&quot;</span>; <span class="name">to</span>: <span class="number">0</span>; <span class="name">duration</span>: <span class="number">250</span>; <span class="name">easing</span>.type: <span class="name">Easing</span>.<span class="name">InOutQuad</span> }
+             <span class="type"><a href="qml-propertyaction.html">PropertyAction</a></span> { <span class="name">target</span>: <span class="name">wrapper</span>; <span class="name">property</span>: <span class="string">&quot;ListView.delayRemove&quot;</span>; <span class="name">value</span>: <span class="number">false</span> }
+         }
+     }
+ }</pre>
+</div></div><!-- @@@delayRemove -->
+<br/>
+<!-- $$$isCurrentItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="isCurrentItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">ListView.isCurrentItem</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This attached property is true if this delegate is the current item; otherwise false.</p>
+<p>It is attached to each instance of the delegate.</p>
+<p>This property may be used to adjust the appearance of the current item, for example:</p>
+<pre class="qml"> <span class="type"><a href="qml-listview.html">ListView</a></span> {
+     <span class="name">width</span>: <span class="number">180</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="type"><a href="qml-component.html">Component</a></span> {
+         <span class="name">id</span>: <span class="name">contactsDelegate</span>
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">id</span>: <span class="name">wrapper</span>
+             <span class="name">width</span>: <span class="number">180</span>
+             <span class="name">height</span>: <span class="name">contactInfo</span>.<span class="name">height</span>
+             <span class="name">color</span>: <span class="name">ListView</span>.<span class="name">isCurrentItem</span> ? <span class="string">&quot;black&quot;</span> : <span class="string">&quot;red&quot;</span>
+             <span class="type"><a href="qml-text.html">Text</a></span> {
+                 <span class="name">id</span>: <span class="name">contactInfo</span>
+                 <span class="name">text</span>: <span class="name">name</span> <span class="operator">+</span> <span class="string">&quot;: &quot;</span> <span class="operator">+</span> <span class="name">number</span>
+                 <span class="name">color</span>: <span class="name">wrapper</span>.<span class="name">ListView</span>.<span class="name">isCurrentItem</span> ? <span class="string">&quot;red&quot;</span> : <span class="string">&quot;black&quot;</span>
+             }
+         }
+     }
+
+     <span class="name">model</span>: <span class="name">ContactModel</span> {}
+     <span class="name">delegate</span>: <span class="name">contactsDelegate</span>
+     <span class="name">focus</span>: <span class="number">true</span>
+ }</pre>
+</div></div><!-- @@@isCurrentItem -->
+<br/>
+<!-- $$$nextSection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="nextSection-prop"></a><span class="qmlreadonly">read-only</span><span class="name">ListView.nextSection</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds the section of the next element.</p>
+<p>It is attached to each instance of the delegate.</p>
+<p>The section is evaluated using the <a href="qml-listview.html#section.property-prop">section</a> properties.</p>
+</div></div><!-- @@@nextSection -->
+<br/>
+<!-- $$$previousSection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="previousSection-prop"></a><span class="qmlreadonly">read-only</span><span class="name">ListView.previousSection</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds the section of the previous element.</p>
+<p>It is attached to each instance of the delegate.</p>
+<p>The section is evaluated using the <a href="qml-listview.html#section.property-prop">section</a> properties.</p>
+</div></div><!-- @@@previousSection -->
+<br/>
+<!-- $$$section -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="section-prop"></a><span class="qmlreadonly">read-only</span><span class="name">ListView.section</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds the section of this element.</p>
+<p>It is attached to each instance of the delegate.</p>
+<p>The section is evaluated using the <a href="qml-listview.html#section.property-prop">section</a> properties.</p>
+</div></div><!-- @@@section -->
+<br/>
+<!-- $$$view -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="view-prop"></a><span class="qmlreadonly">read-only</span><span class="name">ListView.view</span> : <span class="type">ListView</span></p></td></tr></table></div><div class="qmldoc"><p>This attached property holds the view that manages this delegate instance.</p>
+<p>It is attached to each instance of the delegate.</p>
+</div></div><!-- @@@view -->
+<br/>
+<h2>Attached Signal Handler Documentation</h2>
+<!-- $$$onAdd -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onAdd-signal"></a>ListView::<span class="name">onAdd</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This attached handler is called immediately after an item is added to the view.</p>
+</div></div><!-- @@@onAdd -->
+<br/>
+<!-- $$$onRemove -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onRemove-signal"></a>ListView::<span class="name">onRemove</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This attached handler is called immediately before an item is removed from the view.</p>
+</div></div><!-- @@@onRemove -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$decrementCurrentIndex -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="decrementCurrentIndex-method"></a>ListView::<span class="name">decrementCurrentIndex</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Decrements the current index. The current index will wrap if <a href="qml-listview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the beginning. This method has no effect if the <a href="qml-listview.html#count-prop">count</a> is zero.</p>
+<p><b>Note</b>: methods should only be called after the Component has completed.</p>
+</div></div><!-- @@@decrementCurrentIndex -->
+<br/>
+<!-- $$$incrementCurrentIndex -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="incrementCurrentIndex-method"></a>ListView::<span class="name">incrementCurrentIndex</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Increments the current index. The current index will wrap if <a href="qml-listview.html#keyNavigationWraps-prop">keyNavigationWraps</a> is true and it is currently at the end. This method has no effect if the <a href="qml-listview.html#count-prop">count</a> is zero.</p>
+<p><b>Note</b>: methods should only be called after the Component has completed.</p>
+</div></div><!-- @@@incrementCurrentIndex -->
+<br/>
+<!-- $$$indexAt -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="indexAt-method"></a><span class="type"><a href="qml-int.html">int</a></span> ListView::<span class="name">indexAt</span> ( <span class="type"><a href="qml-int.html">int</a></span> <i>x</i>, <span class="type"><a href="qml-int.html">int</a></span> <i>y</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns the index of the visible item containing the point <i>x</i>, <i>y</i> in content coordinates. If there is no item at the point specified, or the item is not visible -1 is returned.</p>
+<p>If the item is outside the visible area, -1 is returned, regardless of whether an item will exist at that point when scrolled into view.</p>
+<p><b>Note</b>: methods should only be called after the Component has completed.</p>
+</div></div><!-- @@@indexAt -->
+<br/>
+<!-- $$$positionViewAtBeginning -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionViewAtBeginning-method"></a>ListView::<span class="name">positionViewAtBeginning</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Positions the view at the beginning or end, taking into account any header or footer.</p>
+<p>It is not recommended to use <a href="qml-flickable.html#contentX-prop">contentX</a> or <a href="qml-flickable.html#contentY-prop">contentY</a> to position the view at a particular index. This is unreliable since removing items from the start of the list does not cause all other items to be repositioned, and because the actual start of the view can vary based on the size of the delegates.</p>
+<p><b>Note</b>: methods should only be called after the Component has completed. To position the view at startup, this method should be called by Component.onCompleted. For example, to position the view at the end on startup:</p>
+<pre class="cpp"> Component<span class="operator">.</span>onCompleted: <a href="qml-listview.html#positionViewAtEnd-method">positionViewAtEnd</a>()</pre>
+<p>This documentation was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@positionViewAtBeginning -->
+<br/>
+<!-- $$$positionViewAtEnd -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionViewAtEnd-method"></a>ListView::<span class="name">positionViewAtEnd</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Positions the view at the beginning or end, taking into account any header or footer.</p>
+<p>It is not recommended to use <a href="qml-flickable.html#contentX-prop">contentX</a> or <a href="qml-flickable.html#contentY-prop">contentY</a> to position the view at a particular index. This is unreliable since removing items from the start of the list does not cause all other items to be repositioned, and because the actual start of the view can vary based on the size of the delegates.</p>
+<p><b>Note</b>: methods should only be called after the Component has completed. To position the view at startup, this method should be called by Component.onCompleted. For example, to position the view at the end on startup:</p>
+<pre class="cpp"> Component<span class="operator">.</span>onCompleted: positionViewAtEnd()</pre>
+<p>This documentation was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@positionViewAtEnd -->
+<br/>
+<!-- $$$positionViewAtIndex -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionViewAtIndex-method"></a>ListView::<span class="name">positionViewAtIndex</span> ( <span class="type"><a href="qml-int.html">int</a></span> <i>index</i>, <span class="type">PositionMode</span> <i>mode</i> )</p></td></tr></table></div><div class="qmldoc"><p>Positions the view such that the <i>index</i> is at the position specified by <i>mode</i>:</p>
+<ul>
+<li><a href="qml-listview.html">ListView</a>.Beginning - position item at the top (or left for horizontal orientation) of the view.</li>
+<li><a href="qml-listview.html">ListView</a>.Center - position item in the center of the view.</li>
+<li><a href="qml-listview.html">ListView</a>.End - position item at bottom (or right for horizontal orientation) of the view.</li>
+<li><a href="qml-listview.html">ListView</a>.Visible - if any part of the item is visible then take no action, otherwise bring the item into view.</li>
+<li><a href="qml-listview.html">ListView</a>.Contain - ensure the entire item is visible. If the item is larger than the view the item is positioned at the top (or left for horizontal orientation) of the view.</li>
+</ul>
+<p>If positioning the view at <i>index</i> would cause empty space to be displayed at the beginning or end of the view, the view will be positioned at the boundary.</p>
+<p>It is not recommended to use <a href="qml-flickable.html#contentX-prop">contentX</a> or <a href="qml-flickable.html#contentY-prop">contentY</a> to position the view at a particular index. This is unreliable since removing items from the start of the list does not cause all other items to be repositioned, and because the actual start of the view can vary based on the size of the delegates. The correct way to bring an item into view is with <tt>positionViewAtIndex</tt>.</p>
+<p><b>Note</b>: methods should only be called after the Component has completed. To position the view at startup, this method should be called by Component.onCompleted. For example, to position the view at the end:</p>
+<pre class="cpp"> Component<span class="operator">.</span>onCompleted: positionViewAtIndex(count <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> ListView<span class="operator">.</span>Beginning)</pre>
+</div></div><!-- @@@positionViewAtIndex -->
+<br/>
+<p class="naviNextPrevious footerNavi">
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

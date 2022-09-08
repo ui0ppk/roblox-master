@@ -1,0 +1,142 @@
+<HTML>
+<HEAD>
+<TITLE>W3C Sample Code Library libwww Dynamic Array Pointer Class</TITLE>
+<!-- Changed by: Henrik Frystyk Nielsen, 23-Mar-1996 -->
+</HEAD>
+<BODY>
+
+<H1>Dynamic Array Pointer Class</H1>
+
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+
+This module implements a flexible array of pointers. It is a general
+utility module.  An array is a structure which may be extended.  These
+routines create and append data to arrays, automatically reallocating
+them as necessary.  It is garanteed that the last entry in an array is
+<B>NULL</B>
+
+This module is implemented by <A HREF="HTArray.c">HTArray.c</A>, and
+it is a part of the <A HREF="http://www.w3.org/Library/"> W3C
+Sample Code Library</A>.
+
+<PRE>
+#ifndef HTARRAY_H
+#define HTARRAY_H
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+
+<H2>Private Data Structure</H2>
+
+This structure should not be referenced outside this module. If I find
+out I'll make it private ;-)
+
+<PRE>
+typedef struct {
+    int		size;		/* In numbers of elements	*/
+    int		growby;		/* Allocation unit in elements	*/
+    int		allocated;	/* Current size of *data	*/
+    void **	data;		/* Pointer to malloced area or 0 */
+} HTArray;
+</PRE>
+
+<H2>Create a new Array</H2>
+
+Create a new array and specify the number of bytes to allocate at a
+time when the array is later extended. Arbitrary but normally a
+trade-off time vs. memory
+
+<PRE>
+extern HTArray * HTArray_new (int grow);
+</PRE>
+
+<H2>Delete an Array</H2>
+
+Delete an array created by HTArray_new
+
+<PRE>
+extern BOOL HTArray_delete (HTArray * array);
+</PRE>
+
+<H2>Clear an Array</H2>
+
+Clears an array but keeps it around
+
+<PRE>
+extern BOOL HTArray_clear (HTArray * array);
+</PRE>
+
+<H2>Append an element to the Array</H2>
+
+Add the element to the array.
+
+<PRE>
+extern BOOL HTArray_addObject (HTArray * array, void * object);
+</PRE>
+
+<H2>Traverse an Array</H2>
+
+Fast macros to traverse a macro ending in a NULL element.
+
+<PRE>
+#define HTArray_firstObject(me, dp) \
+	((me) &amp;&amp; ((dp)=(me)-&gt;data) ? *(dp)++ : NULL)
+#define HTArray_nextObject(me, dp) \
+	((me) &amp;&amp; (dp) ? *(dp)++ : NULL)
+</PRE>
+
+<H2>Sort an Array</H2>
+
+An array can be sorted in any way you like, for example with
+qsort(). This module provides an easy interface to the qsort()
+function using where you can define you own comparison routine as a
+function of the type:
+
+<PRE>
+typedef int HTComparer (const void * a, const void * b);
+</PRE>
+
+The sort function returns YES if sorting OK, else NO.
+
+<PRE>
+extern BOOL HTArray_sort (HTArray * array, HTComparer * comp);
+</PRE>
+
+<H2>Returns Data Vector</H2>
+
+Returns a pointer to the actual data
+
+<PRE>
+#define HTArray_data(me)	((me) ? (me)-&gt;data : NULL)
+</PRE>
+
+
+<H2>Return Current Size</H2>
+
+Returns the current size of the chunk
+
+<PRE>
+#define HTArray_size(me)	((me) ? (me)-&gt;size : -1)
+</PRE>
+
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+</PRE>
+
+<HR>
+<ADDRESS>
+@(#) $Id$
+</ADDRESS>
+</BODY>
+</HTML>

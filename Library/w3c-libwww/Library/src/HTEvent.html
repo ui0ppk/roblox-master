@@ -1,0 +1,235 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww Event Class</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  The Event Class
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The Event Class defines any event manager to be used by libwww for handling
+events. An <I>event</I> is not strictly defined as it is highly platform
+dependent and hence out of scope for the Library. If you are using the libwww
+pseudo threads on Unix then an event is when the&nbsp;<I>select()</I> system
+call returns a notification on&nbsp;a socket descriptor, but it may as well
+be an asynchronous event from the windows manager etc. If your application
+is not using anything but traditional blocking sockets then you do not need
+an event manager at all. In that case, libwww will block on any socket or
+system call until the process can proceed.
+<P>
+The libwww interface to an event manager is very simple as it consists of
+<B>registering</B> a <I>socket descriptor</I>, the <I>location</I> in the
+program, and the <I>current state</I> when an operation (for example
+<CODE>read</CODE>) would block. When the event manager at a later point in
+time gets a notification that the socket has become ready, it can then call
+libwww with the state saved from the registration and libwww can continue.
+Second, libwww must be able to <B>unregister</B> a socket when it is not
+anymore in a state where it can block. <I>Only</I> in case the application
+wishes to use <I>non-blocking</I> sockets it should register methods for
+handling the <B>registration</B> process as described below.
+<P>
+<B>Note</B>: The library <B>core</B> does <I>not</I> define any event manager
+- it is considered part of the application. The library comes with a
+<A HREF="HTEvtLst.html">default event manager</A> which can be initiated
+using the function <CODE>HTEventInit()</CODE> in <A HREF="HTInit.html">HTInit
+module</A>
+<P>
+This module is implemented by <A HREF="HTEvent.c">HTEvent.c</A>, and it is
+a part of the <A HREF="http://www.w3.org/Library/">W3C Sample Code Library</A>.
+<PRE>
+#ifndef HTEVENT_H
+#define HTEVENT_H
+#include "wwwsys.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+
+#ifdef IN_EVENT
+typedef struct _HTTimer HTTimer;
+#endif
+
+typedef enum _HTPriority {
+    HT_PRIORITY_INV = -1,
+    HT_PRIORITY_OFF = 0,
+    HT_PRIORITY_MIN = 1,
+    HT_PRIORITY_MAX = 20
+} HTPriority; 
+
+#define HTEVENT_INDEX 0x10
+typedef enum {
+#ifdef WWW_WIN_ASYNC
+    HTEvent_READ    = (0x001 | 0 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_WRITE   = (0x002 | 1 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_OOB     = (0x004 | 2 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_ACCEPT  = (0x008 | 3 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_CONNECT = (0x010 | 4 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_CLOSE   = (0x020 | 5 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_TYPES   = 6,	/* winsock has seperate events for all of these */
+#define HTEVENT_TYPES	6 /* use in constructing the fake event below */
+#else /* WWW_WIN_ASYNC */
+    HTEvent_READ    = (0x001 | 0 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_ACCEPT  = (0x002 | 0 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_CLOSE   = (0x004 | 0 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_WRITE   = (0x008 | 1 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_CONNECT = (0x010 | 1 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_OOB     = (0x020 | 2 &lt;&lt; HTEVENT_INDEX),
+    HTEvent_TYPES   = 3,	/* only READ, WRITE, and OOB are real types */
+#define HTEVENT_TYPES	3 /* use in constructing the fake event below */
+#endif /* !WWW_WIN_ASYNC */
+    /*
+    **	fake events - these don't correspond to event manager events, but they
+    **	are usefull for communicating with the protocol modules
+    */
+    HTEvent_TIMEOUT = (0x040 | HTEVENT_TYPES &lt;&lt; HTEVENT_INDEX),
+    HTEvent_BEGIN   = (0x000 | HTEVENT_TYPES &lt;&lt; HTEVENT_INDEX),
+    HTEvent_END     = (0x080 | HTEVENT_TYPES &lt;&lt; HTEVENT_INDEX),
+    HTEvent_FLUSH   = (0x100 | HTEVENT_TYPES &lt;&lt; HTEVENT_INDEX),
+    HTEvent_RESET   = (0x200 | HTEVENT_TYPES &lt;&lt; HTEVENT_INDEX),
+    HTEvent_ALL     = 0xFFFF
+} HTEventType;
+
+#define HTEvent_BITS(type) (type &amp; 0xFFFF)
+#define HTEvent_INDEX(type) (type &gt;&gt; HTEVENT_INDEX)
+
+#define HT_EVENT_INITIALIZER \
+    {HTEvent_READ, "HTEvent_READ"}, \
+    {HTEvent_ACCEPT, "HTEvent_ACCEPT"}, \
+    {HTEvent_CLOSE, "HTEvent_CLOSE"}, \
+    {HTEvent_WRITE, "HTEvent_WRITE"}, \
+    {HTEvent_CONNECT, "HTEvent_CONNECT"}, \
+    {HTEvent_OOB, "HTEvent_OOB"}, \
+    {HTEvent_TIMEOUT, "HTEvent_TIMEOUT"}, \
+    {HTEvent_BEGIN, "HTEvent_BEGIN"}, \
+    {HTEvent_END, "HTEvent_END"}, \
+    {HTEvent_FLUSH, "HTEvent_FLUSH"}, \
+    {HTEvent_RESET, "HTEvent_RESET"}
+
+extern char * HTEvent_type2str(HTEventType type);
+</PRE>
+<H2>
+  <A NAME="eventHandlers">Event Handlers</A>
+</H2>
+<P>
+A <I>location</I> is a function that can be registered by the event manager
+and called at a later point in time in order to continue an operation. All
+locations must be of type &nbsp;<CODE>HTEventCallback</CODE> as defined here:
+<PRE>
+typedef int HTEventCallback (SOCKET, void *, HTEventType);
+typedef struct _HTEvent HTEvent;
+
+/* Avoid circular include for HTReq-&gt;HTNet-&gt;HTHost: HTEvent blah */
+#include "HTReq.h"
+</PRE>
+<P>
+There are many default event handlers provided with the Library. For example,
+all the protocol modules such as the <A HREF="HTTP.html">HTTP client module</A>
+are implemented as event handlers. In stead of using blocking sockets, this
+allows a protocol module to register itself when performing an operation
+that would block. When the sockets becomes ready the handler is called with
+th socket in question, the request object, and the socket operation &nbsp;
+<H2>
+  Registering and Unregistering Events
+</H2>
+<P>
+As mentioned above, the only interface libwww requires from an event manager
+is a method to <I>register</I> an event when an operation would block and
+<I>unregister</I> it when the operation has completed The library registers
+and unregisters events by calling the following two functions:
+<PRE>
+extern int HTEvent_register	(SOCKET, HTEventType, HTEvent *);
+extern int HTEvent_unregister	(SOCKET, HTEventType);
+</PRE>
+<P>
+The register function contains information about which socket we are waiting
+on to get ready and which operation we are waiting for (read, write, etc.),
+the request object containing the current request, the event handler that
+we want to be called when the socket becomes reasy, and finally the priority
+by which we want the thread to be processed by the event manager. Likewise,
+libwww can unregister a operation on a socket which means that libwww is
+no longer waiting for this actiion to become ready.
+<H2>
+  Registering an Event Manager
+</H2>
+<P>
+Libwww core does not contain any event manager as it depends on whether you
+want to use pseudo threads no threads, or real threads. Instead, libwww comes
+with a <A HREF="HTEvtLst.html">default implementation</A> that you may register,
+but you may as well implement and register your own. The register and unregister
+functions above actually does nothing than looking for a registered event
+manager and then passes the call on to that. You register your own event
+manager by using the methods below:
+<PRE>
+typedef int HTEvent_registerCallback(SOCKET, HTEventType, HTEvent *);
+typedef int HTEvent_unregisterCallback(SOCKET, HTEventType);
+
+extern void HTEvent_setRegisterCallback(HTEvent_registerCallback *);
+extern void HTEvent_setUnregisterCallback(HTEvent_unregisterCallback *);
+</PRE>
+<H3>
+  Has Register and Unregister Callbacks been setup?
+</H3>
+<P>
+Replies YES if both an <TT>HTEvent_setRegisterCallback</TT> and
+<TT>HTEvent_setUnregisterCallback</TT> have been called with non NULL callbacks.
+<PRE>
+extern BOOL HTEvent_isCallbacksRegistered(void);
+</PRE>
+<H2>
+  Create and Delete Events
+</H2>
+<PRE>
+extern HTEvent * HTEvent_new (HTEventCallback * cbf, void * context,
+			      HTPriority pritority, int timeoutInMillis);
+extern BOOL HTEvent_delete (HTEvent * event);
+</PRE>
+<H3>
+  Event Timeouts, Priorities, Callbacks, and Contexts
+</H3>
+<P>
+Normally, these are set when creating the event.
+<PRE>
+extern BOOL HTEvent_setParam(HTEvent * event, void * param);
+extern BOOL HTEvent_setPriority(HTEvent * event, HTPriority priority);
+extern BOOL HTEvent_setTimeout(HTEvent * event, int timeoutInMillis);
+extern BOOL HTEvent_setCallback(HTEvent * event, HTEventCallback * cbf);
+</PRE>
+<H2>
+  The Raw Event Type
+</H2>
+<P>
+Don't use this directly, use the methods above instead.
+<PRE>
+struct _HTEvent {
+    HTPriority		priority;	 /* Priority of this request (event) */
+    int                 millis;              /* Timeout in ms for this event */
+#ifdef IN_EVENT
+    HTTimer *		timer;
+#endif
+    HTEventCallback *	cbf;			   /* Protocol state machine */
+    void *		param;		       /* HTEvent_register parameter */
+    HTRequest *		request;
+};
+</PRE>
+<P>
+You can register the event manager provided together with libwww by using
+the <CODE>HTEventInit()</CODE> in the <A HREF="HTInit.html">HTInit module</A>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTEVENT_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

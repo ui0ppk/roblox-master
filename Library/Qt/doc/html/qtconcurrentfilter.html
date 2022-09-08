@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtconcurrentfilter.cpp -->
+  <title>Qt 4.8: &lt;QtConcurrentFilter&gt; - Concurrent Filter and Filter-Reduce</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#concurrent-filter">Concurrent Filter</a></li>
+<li class="level1"><a href="#concurrent-filter-reduce">Concurrent Filter-Reduce</a></li>
+<li class="level1"><a href="#additional-api-features">Additional API Features</a></li>
+<li class="level2"><a href="#using-iterators-instead-of-sequence">Using Iterators instead of Sequence</a></li>
+<li class="level2"><a href="#using-member-functions">Using Member Functions</a></li>
+<li class="level2"><a href="#using-function-objects">Using Function Objects</a></li>
+<li class="level2"><a href="#using-bound-function-arguments">Using Bound Function Arguments</a></li>
+</ul>
+</div>
+<h1 class="title">&lt;QtConcurrentFilter&gt; - Concurrent Filter and Filter-Reduce</h1>
+<span class="subtitle"></span>
+<!-- $$$<QtConcurrentFilter>-brief -->
+<p>The &lt;QtConcurrentFilter&gt; header provides concurrent Filter and Filter-Reduce. <a href="#details">More...</a></p>
+<!-- @@@<QtConcurrentFilter> -->
+<ul>
+</ul>
+<a name="Functionsx"></a>
+<h2>Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;void&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentfilter.html#filter">filter</a></b> ( Sequence &amp; <i>sequence</i>, FilterFunction <i>filterFunction</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentfilter.html#filtered">filtered</a></b> ( const Sequence &amp; <i>sequence</i>, FilterFunction <i>filterFunction</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentfilter.html#filtered-2">filtered</a></b> ( ConstIterator <i>begin</i>, ConstIterator <i>end</i>, FilterFunction <i>filterFunction</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentfilter.html#filteredReduced">filteredReduced</a></b> ( const Sequence &amp; <i>sequence</i>, FilterFunction <i>filterFunction</i>, ReduceFunction <i>reduceFunction</i>, QtConcurrent::ReduceOptions <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentfilter.html#filteredReduced-2">filteredReduced</a></b> ( ConstIterator <i>begin</i>, ConstIterator <i>end</i>, FilterFunction <i>filterFunction</i>, ReduceFunction <i>reduceFunction</i>, QtConcurrent::ReduceOptions <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</td></tr>
+</table>
+<!-- $$$<QtConcurrentFilter>-description -->
+<div class="descr"> <a name="details"></a>
+<p>These functions are a part of the <a href="threads-qtconcurrent.html">Qt Concurrent</a> framework.</p>
+<p>The <a href="qtconcurrentfilter.html#filter">QtConcurrent::filter</a>(), <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>() and <a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>() functions filter items in a sequence such as a <a href="qlist.html">QList</a> or a <a href="qvector.html">QVector</a> in parallel. <a href="qtconcurrentfilter.html#filter">QtConcurrent::filter</a>() modifies a sequence in-place, <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>() returns a new sequence containing the filtered content, and <a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>() returns a single result.</p>
+<p>Each of the above functions have a blocking variant that returns the final result instead of a <a href="qfuture.html">QFuture</a>. You use them in the same way as the asynchronous variants.</p>
+<pre class="cpp"> <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+
+ <span class="comment">// each call blocks until the entire operation is finished</span>
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> lowerCaseStrings <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingFiltered(strings<span class="operator">,</span> allLowerCase);
+
+ <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingFilter(strings<span class="operator">,</span> allLowerCase);
+
+ <span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> dictionary <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingFilteredReduced(strings<span class="operator">,</span> allLowerCase<span class="operator">,</span> addToDictionary);</pre>
+<p>Note that the result types above are not <a href="qfuture.html">QFuture</a> objects, but real result types (in this case, <a href="qstringlist.html">QStringList</a> and <a href="qset.html">QSet</a>&lt;<a href="qstring.html">QString</a>&gt;).</p>
+<a name="concurrent-filter"></a>
+<h2>Concurrent Filter</h2>
+<p><a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>() takes an input sequence and a filter function. This filter function is then called for each item in the sequence, and a new sequence containing the filtered values is returned.</p>
+<p>The filter function must be of the form:</p>
+<pre class="cpp"> <span class="type">bool</span> function(<span class="keyword">const</span> T <span class="operator">&amp;</span>t);</pre>
+<p>T must match the type stored in the sequence. The function returns true if the item should be kept, false if it should be discarded.</p>
+<p>This example shows how to keep strings that are all lower-case from a <a href="qstringlist.html">QStringList</a>:</p>
+<pre class="cpp"> <span class="type">bool</span> allLowerCase(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>string)
+ {
+     <span class="keyword">return</span> string<span class="operator">.</span>lowered() <span class="operator">=</span><span class="operator">=</span> string;
+ }
+
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> lowerCaseStrings <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filtered(strings<span class="operator">,</span> allLowerCase);</pre>
+<p>The results of the filter are made available through <a href="qfuture.html">QFuture</a>. See the <a href="qfuture.html">QFuture</a> and <a href="qfuturewatcher.html">QFutureWatcher</a> documentation for more information on how to use <a href="qfuture.html">QFuture</a> in your applications.</p>
+<p>If you want to modify a sequence in-place, use <a href="qtconcurrentfilter.html#filter">QtConcurrent::filter</a>():</p>
+<pre class="cpp"> <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filter(strings<span class="operator">,</span> allLowerCase);</pre>
+<p>Since the sequence is modified in place, <a href="qtconcurrentfilter.html#filter">QtConcurrent::filter</a>() does not return any results via <a href="qfuture.html">QFuture</a>. However, you can still use <a href="qfuture.html">QFuture</a> and <a href="qfuturewatcher.html">QFutureWatcher</a> to monitor the status of the filter.</p>
+<a name="concurrent-filter-reduce"></a>
+<h2>Concurrent Filter-Reduce</h2>
+<p><a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>() is similar to <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>(), but instead of returing a sequence with the filtered results, the results are combined into a single value using a reduce function.</p>
+<p>The reduce function must be of the form:</p>
+<pre class="cpp"> V function(T <span class="operator">&amp;</span>result<span class="operator">,</span> <span class="keyword">const</span> U <span class="operator">&amp;</span>intermediate)</pre>
+<p>T is the type of the final result, U is the type of items being filtered. Note that the return value and return type of the reduce function are not used.</p>
+<p>Call <a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>() like this:</p>
+<pre class="cpp"> <span class="type">void</span> addToDictionary(<span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>dictionary<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>string)
+ {
+     dictionary<span class="operator">.</span>insert(string);
+ }
+
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> <span class="operator">&gt;</span> dictionary <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filteredReduced(strings<span class="operator">,</span> allLowerCase<span class="operator">,</span> addToDictionary);</pre>
+<p>The reduce function will be called once for each result kept by the filter function, and should merge the <i>intermediate</i> into the <i>result</i> variable. <a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>() guarantees that only one thread will call reduce at a time, so using a mutex to lock the result variable is not necessary. The <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a> enum provides a way to control the order in which the reduction is done.</p>
+<a name="additional-api-features"></a>
+<h2>Additional API Features</h2>
+<a name="using-iterators-instead-of-sequence"></a>
+<h3>Using Iterators instead of Sequence</h3>
+<p>Each of the above functions has a variant that takes an iterator range instead of a sequence. You use them in the same way as the sequence variants:</p>
+<pre class="cpp"> <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> lowerCaseStrings <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filtered(strings<span class="operator">.</span>constBegin()<span class="operator">,</span> strings<span class="operator">.</span>constEnd()<span class="operator">,</span> allLowerCase);
+
+ <span class="comment">// filter in-place only works on non-const iterators</span>
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filter(strings<span class="operator">.</span>begin()<span class="operator">,</span> strings<span class="operator">.</span>end()<span class="operator">,</span> allLowerCase);
+
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> <span class="operator">&gt;</span> dictionary <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filteredReduced(strings<span class="operator">.</span>constBegin()<span class="operator">,</span> strings<span class="operator">.</span>constEnd()<span class="operator">,</span> allLowerCase<span class="operator">,</span> addToDictionary);</pre>
+<a name="using-member-functions"></a>
+<h3>Using Member Functions</h3>
+<p><a href="qtconcurrentfilter.html#filter">QtConcurrent::filter</a>(), <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>(), and <a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>() accept pointers to member functions. The member function class type must match the type stored in the sequence:</p>
+<pre class="cpp"> <span class="comment">// keep only images with an alpha channel</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> alphaImages <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filter(strings<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>hasAlphaChannel);
+
+ <span class="comment">// keep only gray scale images</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> grayscaleImages <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filtered(images<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>isGrayscale);
+
+ <span class="comment">// create a set of all printable characters</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qchar.html">QChar</a></span><span class="operator">&gt;</span> characters <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qchar.html">QChar</a></span><span class="operator">&gt;</span> <span class="operator">&gt;</span> set <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filteredReduced(characters<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qchar.html">QChar</a></span><span class="operator">::</span>isPrint<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qchar.html">QChar</a></span><span class="operator">&gt;</span><span class="operator">::</span>insert);</pre>
+<p>Note that when using <a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>(), you can mix the use of normal and member functions freely:</p>
+<pre class="cpp"> <span class="comment">// can mix normal functions and member functions with QtConcurrent::filteredReduced()</span>
+
+ <span class="comment">// create a dictionary of all lower cased strings</span>
+ <span class="keyword">extern</span> <span class="type">bool</span> allLowerCase(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>string);
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> averageWordLength <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filteredReduced(strings<span class="operator">,</span> allLowerCase<span class="operator">,</span> <span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span><span class="operator">::</span>insert);
+
+ <span class="comment">// create a collage of all gray scale images</span>
+ <span class="keyword">extern</span> <span class="type">void</span> addToCollage(<span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>collage<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>grayscaleImage);
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> collage <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filteredReduced(images<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>isGrayscale<span class="operator">,</span> addToCollage);</pre>
+<a name="using-function-objects"></a>
+<h3>Using Function Objects</h3>
+<p><a href="qtconcurrentfilter.html#filter">QtConcurrent::filter</a>(), <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>(), and <a href="qtconcurrentfilter.html#filteredReduced">QtConcurrent::filteredReduced</a>() accept function objects, which can be used to add state to a function call. The result_type typedef must define the result type of the function call operator:</p>
+<pre class="cpp"> <span class="keyword">struct</span> StartsWith
+ {
+     StartsWith(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>string)
+     : m_string(string) { }
+
+     <span class="keyword">typedef</span> <span class="type">bool</span> result_type;
+
+     <span class="type">bool</span> <span class="keyword">operator</span>()(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>testString)
+     {
+         <span class="keyword">return</span> testString<span class="operator">.</span>startsWith(m_string);
+     }
+
+     <span class="type"><a href="qstring.html">QString</a></span> m_string;
+ };
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> fooString <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>filtered(images<span class="operator">,</span> StartsWith(QLatin1String(<span class="string">&quot;Foo&quot;</span>)));</pre>
+<a name="using-bound-function-arguments"></a>
+<h3>Using Bound Function Arguments</h3>
+<p>Note that Qt does not provide support for bound functions. This is provided by 3rd party libraries like <a href="http://www.boost.org/libs/bind/bind.html">Boost</a> or <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1836.pdf">C++ TR1 Library Extensions</a>.</p>
+<p>If you want to use a filter function takes more than one argument, you can use boost::bind() or std::tr1::bind() to transform it onto a function that takes one argument.</p>
+<p>As an example, we use <a href="qstring.html#contains">QString::contains</a>():</p>
+<pre class="cpp"> <span class="type">bool</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>contains(<span class="keyword">const</span> <span class="type"><a href="qregexp.html">QRegExp</a></span> <span class="operator">&amp;</span>regexp) <span class="keyword">const</span>;</pre>
+<p><a href="qstring.html#contains">QString::contains</a>() takes 2 arguments (including the &quot;this&quot; pointer) and can't be used with <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>() directly, because <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>() expects a function that takes one argument. To use <a href="qstring.html#contains">QString::contains</a>() with <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>() we have to provide a value for the <i>regexp</i> argument:</p>
+<pre class="cpp"> boost<span class="operator">::</span>bind(<span class="operator">&amp;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>contains<span class="operator">,</span> <span class="type"><a href="qregexp.html">QRegExp</a></span>(<span class="string">&quot;^\\S+$&quot;</span>)); <span class="comment">// matches strings without whitespace</span></pre>
+<p>The return value from boost::bind() is a function object (functor) with the following signature:</p>
+<pre class="cpp"> <span class="type">bool</span> contains(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>string)</pre>
+<p>This matches what <a href="qtconcurrentfilter.html#filtered">QtConcurrent::filtered</a>() expects, and the complete example becomes:</p>
+<pre class="cpp"> <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ boost<span class="operator">::</span>bind(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type">bool</span>(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span><span class="operator">*</span>)(<span class="keyword">const</span> <span class="type"><a href="qregexp.html">QRegExp</a></span><span class="operator">&amp;</span>)<span class="operator">&gt;</span>( <span class="operator">&amp;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>contains )<span class="operator">,</span> <span class="type"><a href="qregexp.html">QRegExp</a></span>(<span class="string">&quot;...&quot;</span> ));</pre>
+</div>
+<!-- @@@<QtConcurrentFilter> -->
+<h2>Function Documentation</h2>
+<!-- $$$filter[overload1]$$$filterSequence&FilterFunction -->
+<h3 class="fn"><a name="filter"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">void</span>&gt; QtConcurrent::<span class="name">filter</span> ( <span class="type">Sequence</span> &amp; <i>sequence</i>, <span class="type">FilterFunction</span> <i>filterFunction</i> )</h3>
+<p>Calls <i>filterFunction</i> once for each item in <i>sequence</i>. If <i>filterFunction</i> returns true, the item is kept in <i>sequence</i>; otherwise, the item is removed from <i>sequence</i>.</p>
+<!-- @@@filter -->
+<!-- $$$filtered[overload1]$$$filteredconstSequence&FilterFunction -->
+<h3 class="fn"><a name="filtered"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">filtered</span> ( const <span class="type">Sequence</span> &amp; <i>sequence</i>, <span class="type">FilterFunction</span> <i>filterFunction</i> )</h3>
+<p>Calls <i>filterFunction</i> once for each item in <i>sequence</i> and returns a new Sequence of kept items. If <i>filterFunction</i> returns true, a copy of the item is put in the new Sequence. Otherwise, the item will <i>not</i> appear in the new Sequence.</p>
+<!-- @@@filtered -->
+<!-- $$$filtered$$$filteredConstIteratorConstIteratorFilterFunction -->
+<h3 class="fn"><a name="filtered-2"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">filtered</span> ( <span class="type">ConstIterator</span> <i>begin</i>, <span class="type">ConstIterator</span> <i>end</i>, <span class="type">FilterFunction</span> <i>filterFunction</i> )</h3>
+<p>Calls <i>filterFunction</i> once for each item from <i>begin</i> to <i>end</i> and returns a new Sequence of kept items. If <i>filterFunction</i> returns true, a copy of the item is put in the new Sequence. Otherwise, the item will <i>not</i> appear in the new Sequence.</p>
+<!-- @@@filtered -->
+<!-- $$$filteredReduced[overload1]$$$filteredReducedconstSequence&FilterFunctionReduceFunctionQtConcurrent::ReduceOptions -->
+<h3 class="fn"><a name="filteredReduced"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">filteredReduced</span> ( const <span class="type">Sequence</span> &amp; <i>sequence</i>, <span class="type">FilterFunction</span> <i>filterFunction</i>, <span class="type">ReduceFunction</span> <i>reduceFunction</i>, <span class="type"><a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a></span> <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</h3>
+<p>Calls <i>filterFunction</i> once for each item in <i>sequence</i>. If <i>filterFunction</i> returns true for an item, that item is then passed to <i>reduceFunction</i>. In other words, the return value is the result of <i>reduceFunction</i> for each item where <i>filterFunction</i> returns true.</p>
+<p>Note that while <i>filterFunction</i> is called concurrently, only one thread at a time will call <i>reduceFunction</i>. The order in which <i>reduceFunction</i> is called is undefined if <i>reduceOptions</i> is <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::UnorderedReduce</a>. If <i>reduceOptions</i> is <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::OrderedReduce</a>, <i>reduceFunction</i> is called in the order of the original sequence.</p>
+<!-- @@@filteredReduced -->
+<!-- $$$filteredReduced$$$filteredReducedConstIteratorConstIteratorFilterFunctionReduceFunctionQtConcurrent::ReduceOptions -->
+<h3 class="fn"><a name="filteredReduced-2"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">filteredReduced</span> ( <span class="type">ConstIterator</span> <i>begin</i>, <span class="type">ConstIterator</span> <i>end</i>, <span class="type">FilterFunction</span> <i>filterFunction</i>, <span class="type">ReduceFunction</span> <i>reduceFunction</i>, <span class="type"><a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a></span> <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</h3>
+<p>Calls <i>filterFunction</i> once for each item from <i>begin</i> to <i>end</i>. If <i>filterFunction</i> returns true for an item, that item is then passed to <i>reduceFunction</i>. In other words, the return value is the result of <i>reduceFunction</i> for each item where <i>filterFunction</i> returns true.</p>
+<p>Note that while <i>filterFunction</i> is called concurrently, only one thread at a time will call <i>reduceFunction</i>. The order in which <i>reduceFunction</i> is called is undefined if <i>reduceOptions</i> is <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::UnorderedReduce</a>. If <i>reduceOptions</i> is <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::OrderedReduce</a>, the <i>reduceFunction</i> is called in the order of the original sequence.</p>
+<!-- @@@filteredReduced -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- i18n.qdoc -->
+  <title>Qt 4.8: Writing Source Code for Translation</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>Writing Source Code for Translation</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="prev" href="internationalization.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="internationalization.html">Internationalization with Qt</a>
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-basics">The Basics</a></li>
+<li class="level1"><a href="#defining-a-translation-context">Defining a Translation Context</a></li>
+<li class="level1"><a href="#using-tr-to-obtain-a-translation">Using tr() to Obtain a Translation</a></li>
+<li class="level1"><a href="#translator-comments">Translator Comments</a></li>
+<li class="level1"><a href="#adding-meta-data-to-strings">Adding Meta-Data to Strings</a></li>
+<li class="level1"><a href="#disambiguation">Disambiguation</a></li>
+<li class="level1"><a href="#character-encodings">Character Encodings</a></li>
+<li class="level1"><a href="#handling-plurals">Handling Plurals</a></li>
+<li class="level1"><a href="#enabling-translation">Enabling Translation</a></li>
+<li class="level1"><a href="#further-reading">Further Reading</a></li>
+</ul>
+</div>
+<h1 class="title">Writing Source Code for Translation</h1>
+<span class="subtitle"></span>
+<!-- $$$i18n-source-translation.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="the-basics"></a>
+<h2>The Basics</h2>
+<p>Developers use the <a href="qobject.html#tr">tr()</a> function to obtain translated text for their classes, typically for display purposes. This function is also used to indicate which text strings in an application are translatable.</p>
+<p>Qt indexes each translatable string by the <i>translation context</i> it is associated with; this is generally the name of the <a href="qobject.html">QObject</a> subclass it is used in.</p>
+<p>Translation contexts are defined for new <a href="qobject.html">QObject</a>-based classes by the use of the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro in each new class definition.</p>
+<p>When tr() is called, it looks up the translatable string using a <a href="qtranslator.html">QTranslator</a> object. For translation to work, one or more of these must have been installed on the application object in the way described in the <a href="#enabling-translation">Enabling Translation</a> section below.</p>
+<a name="defining-a-translation-context"></a>
+<h2>Defining a Translation Context</h2>
+<p>The translation context for <a href="qobject.html">QObject</a> and each <a href="qobject.html">QObject</a> subclass is the class name itself. Developers subclassing <a href="qobject.html">QObject</a> must use the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro in their class definition to override the translation context. This macro sets the context to the name of the subclass.</p>
+<p>For example, the following class definition includes the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro, implementing a new tr() that uses the <tt>MainWindow</tt> context:</p>
+<pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     MainWindow();
+     ...</pre>
+<p>If <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> is not used in a class definition, the context will be inherited from the base class. For example, since all <a href="qobject.html">QObject</a>-based classes in Qt provide a context, a new <a href="qwidget.html">QWidget</a> subclass defined without a <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro will use the <tt>QWidget</tt> context if its tr() function is invoked.</p>
+<a name="using-tr-to-obtain-a-translation"></a>
+<h2>Using tr() to Obtain a Translation</h2>
+<p>The following example shows how a translation is obtained for the class shown in the previous section:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createMenus()
+ {
+     fileMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;File&quot;</span>));
+     ...</pre>
+<p>Here, the translation context is <tt>MainWindow</tt> because it is the <tt>MainWindow::tr()</tt> function that is invoked. The text returned by the tr() function is a translation of &quot;&amp;File&quot; obtained from the <tt>MainWindow</tt> context.</p>
+<p>When Qt's translation tool, <a href="linguist-manager.html#lupdate">lupdate</a>, is used to process a set of source files, the text wrapped in tr() calls is stored in a section of the translation file that corresponds to its translation context.</p>
+<p>In some situations, it is useful to give a translation context explicitly by fully qualifying the call to tr(); for example:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> <span class="type"><a href="qscrollbar.html">QScrollBar</a></span><span class="operator">::</span>tr(<span class="string">&quot;Page up&quot;</span>);</pre>
+<p>This call obtains the translated text for &quot;Page up&quot; from the <tt>QScrollBar</tt> context. Developers can also use the <a href="qcoreapplication.html#translate">QCoreApplication::translate</a>() function to obtain a translation for a particular translation context.</p>
+<a name="translator-comments"></a>
+<h2>Translator Comments</h2>
+<p>Developers can include information about each translatable string to help translators with the translation process. These are extracted when <a href="linguist-manager.html#lupdate">lupdate</a> is used to process the source files. The recommended way to add comments is to annotate the tr() calls in your code with comments of the form:</p>
+<p><tt>//: ..&#x2e;</tt></p>
+<p>or</p>
+<p><tt><tt>/*</tt>: ..&#x2e; <tt>*/</tt></tt></p>
+<p>Examples:</p>
+<pre class="cpp"> <span class="comment">//: This name refers to a host name.</span>
+ hostNameLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Name:&quot;</span>));
+
+ <span class="comment">/*: This text refers to a C++ code example. */</span>
+ <span class="type"><a href="qstring.html">QString</a></span> example <span class="operator">=</span> tr(<span class="string">&quot;Example&quot;</span>);</pre>
+<p>In these examples, the comments will be associated with the strings passed to tr() in the context of each call.</p>
+<a name="adding-meta-data-to-strings"></a>
+<h2>Adding Meta-Data to Strings</h2>
+<p>Additional data can be attached to each translatable message. These are extracted when <a href="linguist-manager.html#lupdate">lupdate</a> is used to process the source files. The recommended way to add meta-data is to annotate the tr() calls in your code with comments of the form:</p>
+<p><tt>//= &lt;id&gt;</tt></p>
+<p>This can be used to give the message a unique identifier to support tools which need it.</p>
+<p>An alternative way to attach meta-data is to use the following syntax:</p>
+<p><tt>//~ &lt;field name&gt; &lt;field contents&gt;</tt></p>
+<p>This can be used to attach meta-data to the message. The field name should consist of a domain prefix (possibly the conventional file extension of the file format the field is inspired by), a hyphen and the actual field name in underscore-delimited notation. For storage in TS files, the field name together with the prefix &quot;extra-&quot; will form an XML element name. The field contents will be XML-escaped, but otherwise appear verbatim as the element's contents. Any number of unique fields can be added to each message.</p>
+<p>Example:</p>
+<pre class="cpp"> <span class="comment">//: This is a comment for the translator.</span>
+ <span class="comment">//= qtn_foo_bar</span>
+ <span class="comment">//~ loc-layout_id foo_dialog</span>
+ <span class="comment">//~ loc-blank False</span>
+ <span class="comment">//~ magic-stuff This might mean something magic.</span>
+ <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> MyMagicClass<span class="operator">::</span>tr(<span class="string">&quot;Sim sala bim.&quot;</span>);</pre>
+<p>Meta-data appearing right in front of a magic TRANSLATOR comment applies to the whole TS file.</p>
+<a name="disambiguation"></a>
+<h2>Disambiguation</h2>
+<p>If the same translatable string is used in different roles within the same translation context, an additional identifying string may be passed in the call to <a href="qobject.html#tr">tr()</a>. This optional disambiguation argument is used to distinguish between otherwise identical strings.</p>
+<p>Example:</p>
+<pre class="cpp"> MyWindow<span class="operator">::</span>MyWindow()
+ {
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>senderLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Name:&quot;</span>));
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>recipientLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Name:&quot;</span><span class="operator">,</span> <span class="string">&quot;recipient&quot;</span>));
+     ...</pre>
+<p>In Qt 4.4 and earlier, this disambiguation parameter was the preferred way to specify comments to translators.</p>
+<a name="character-encodings"></a>
+<h2>Character Encodings</h2>
+<p>You can set the encoding for the source text by calling <a href="qtextcodec.html#setCodecForTr">QTextCodec::setCodecForTr</a>(). By default, the source text is assumed to be in Latin-1 encoding.</p>
+<a name="handling-plurals"></a>
+<h2>Handling Plurals</h2>
+<p>Some translatable strings contain placeholders for integer values and need to be translated differently depending on the values in use.</p>
+<p>To help with this problem, developers pass an additional integer argument to the <a href="qobject.html#tr">tr()</a> function, and typically use a special notation for plurals in each translatable string.</p>
+<p>If this argument is equal or greater than zero, all occurrences of <tt>%n</tt> in the resulting string are replaced with a decimal representation of the value supplied. In addition, the translation used will adapt to the value according to the rules for each language.</p>
+<p>Example:</p>
+<pre class="cpp"> <span class="type">int</span> n <span class="operator">=</span> messages<span class="operator">.</span>count();
+ showMessage(tr(<span class="string">&quot;%n message(s) saved&quot;</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> n));</pre>
+<p>The table below shows what string is returned depending on the active translation:</p>
+<table class="generic">
+<thead><tr class="qt-style"><th ></th><th  colspan="3">Active Translation</th></tr>
+<tr class="qt-style"><th ><i>n</i></th><th >No Translation</th><th >French</th><th >English</th></tr></thead>
+<tr valign="top" class="odd"><td >0</td><td >&quot;0 message(s) saved&quot;</td><td >&quot;0 message sauvegardé&quot;</td><td >&quot;0 message<b>s</b> saved&quot;</td></tr>
+<tr valign="top" class="even"><td >1</td><td >&quot;1 message(s) saved&quot;</td><td >&quot;1 message sauvegardé&quot;</td><td >&quot;1 message saved&quot;</td></tr>
+<tr valign="top" class="odd"><td >2</td><td >&quot;2 message(s) saved&quot;</td><td >&quot;2 message<b>s</b> sauvegardé<b>s</b>&quot;</td><td >&quot;2 message<b>s</b> saved&quot;</td></tr>
+<tr valign="top" class="even"><td >37</td><td >&quot;37 message(s) saved&quot;</td><td >&quot;37 message<b>s</b> sauvegardé<b>s</b>&quot;</td><td >&quot;37 message<b>s</b> saved&quot;</td></tr>
+</table>
+<p>This idiom is more flexible than the traditional approach; e.g&#x2e;,</p>
+<pre class="cpp"> n <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">?</span> tr(<span class="string">&quot;%n message saved&quot;</span>) : tr(<span class="string">&quot;%n messages saved&quot;</span>)</pre>
+<p>because it also works with target languages that have several plural forms (e.g&#x2e;, Irish has a special &quot;dual&quot; form that should be used when <tt>n</tt> is 2), and it handles the <i>n</i> == 0 case correctly for languages such as French that require the singular. See the <a href="linguist-manual.html">Qt Linguist Manual</a> for details.</p>
+<p>Instead of <tt>%n</tt>, you can use <tt>%Ln</tt> to produce a localized representation of <i>n</i>. The conversion uses the default locale, set using <a href="qlocale.html#setDefault">QLocale::setDefault</a>(). (If no default locale was specified, the &quot;C&quot; locale is used.)</p>
+<p>A summary of supported languages and the rules used to translate strings containing plurals can be obtained by running <tt>lupdate -list-languages</tt>.</p>
+<a name="enabling-translation"></a>
+<h2>Enabling Translation</h2>
+<p>Typically, your application's <tt>main()</tt> function will look like this:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qtranslator.html">QTranslator</a></span> qtTranslator;
+     qtTranslator<span class="operator">.</span>load(<span class="string">&quot;qt_&quot;</span> <span class="operator">+</span> <span class="type"><a href="qlocale.html">QLocale</a></span><span class="operator">::</span>system()<span class="operator">.</span>name()<span class="operator">,</span>
+             <span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>location(<span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>TranslationsPath));
+     app<span class="operator">.</span>installTranslator(<span class="operator">&amp;</span>qtTranslator);
+
+     <span class="type"><a href="qtranslator.html">QTranslator</a></span> myappTranslator;
+     myappTranslator<span class="operator">.</span>load(<span class="string">&quot;myapp_&quot;</span> <span class="operator">+</span> <span class="type"><a href="qlocale.html">QLocale</a></span><span class="operator">::</span>system()<span class="operator">.</span>name());
+     app<span class="operator">.</span>installTranslator(<span class="operator">&amp;</span>myappTranslator);
+
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>Note the use of <a href="qlibraryinfo.html#location">QLibraryInfo::location</a>() to locate the Qt translations. Developers should request the path to the translations at run-time by passing <a href="qlibraryinfo.html#LibraryLocation-enum">QLibraryInfo::TranslationsPath</a> to this function instead of using the <tt>QTDIR</tt> environment variable in their applications.</p>
+<a name="further-reading"></a>
+<h2>Further Reading</h2>
+<p><a href="linguist-manual.html">Qt Linguist Manual</a>, <a href="linguist-hellotr.html">Hello tr</a>() Example</p>
+</div>
+<!-- @@@i18n-source-translation.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="internationalization.html">Internationalization with Qt</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Roblox</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
+        type="text/javascript"></script>
+
+</head>
+<body id="BODY1" style="padding: 0; margin: 0">
+    <!-- Main -->
+    <!-- TODO: nuke the Panel div when we don't need it for debugging -->
+        <div id="WebButtons">
+            <button id="playButton" onclick="play(); return false" style="display: inline">
+                Play</button>
+        </div>
+		<div id="outputPanel" style="width: 100%">
+		output
+        </div>
+
+        <script type="text/javascript">
+            var traces = new Array();
+            var traceIndex = 19;
+            function trace(message) {
+                var div = $('<div></div>')
+                div.text(message);
+                div.appendTo(outputPanel);
+
+                if (traces.length < 20)
+                    traces.push(div);
+                else {
+                    traceIndex = traceIndex + 1;
+                    if (traceIndex == 20)
+                        traceIndex = 0;
+                    traces[traceIndex].remove();
+                    traces[traceIndex] = div;
+                }
+            }
+        </script>
+
+    <!-- Scripts -->
+
+    <script type="text/javascript">
+	function play() {
+		trace("playing!");
+		//window.external.StartGame();
+		trace(window.external.helloWorld());
+		trace(window.external.IsRobloxAppIDE);
+		trace(window.external.InstallHost);
+		
+		window.external.StartGame(
+'2D86BB6A7DE07B38CCE1D50A191BAB5FCF43A5BA1FCF1EF9B7A7F775F70EF41A6150828C9A7D61BA1B09326F124D37939899147D8992519A2DB3980A901E14736B3E3AD064BE8EF2BB1A356EC92AF9C4432FAF5BF0F51AA6CEF00210E7D6007DE205D298CB7F65822A0CD52C04515B484318ADDF389345797D33DCAA1B74472159A4BC2F3168067F177E0F5853074F83C335E0C06E0B80F19CE02E954FBDB91828C41DC31700D53E9832D664EB7D719CBBAD708D7882A8513FB6E570D38D9906A5C02C363D24B6FF78D47EF2020FC1A1EB152819',
+'http://sitetest.roblox.com//Login/Negotiate.ashx', 
+'http://sitetest.roblox.com//Game/visit.ashx?PlaceID=2562360&upload=2562360'
+		 	);
+		
+		trace("played!");
+	}
+	function go() {
+		trace("hi there!");
+	}
+		$(go);
+    </script>
+
+</body>
+</html>

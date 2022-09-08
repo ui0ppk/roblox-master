@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 27-May-1996 -->
+  <TITLE>Function Definitions</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" ALT="C-Style" SRC="../../../Icons/WWW/progstyle48x" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  Function Definitions
+</H1>
+<P>
+This section concerns function definitions. Some of these conventions may
+be arbitrary, but are none the less useful for that. A typical example of
+a function definition looks like:
+<PRE>
+/*	Scan a line
+**	-----------
+**	This function scans a string for ...
+**
+** On entry,
+**	l		points to the zero-terminated line to be scanned
+** On exit,
+**	*l		The line has null terminators inserted after each
+**			 word found.
+**	return value	is the number of words found, or -1 if error.
+**	lines		This global value is incremented.
+*/	
+PRIVATE int scan_line (const char * line)
+{
+   /* Code here */
+}
+</PRE>
+<DL>
+  <DT>
+    Separation of functions
+  <DD>
+    White space of two lines separating functions
+  <DT>
+    Name of the function
+  <DD>
+    The identifier of the function right-justified to make it easy to find when
+    flicking through a listing
+  <DT>
+    Function header
+  <DD>
+    The macros <CODE>PUBLIC</CODE> and <CODE>PRIVATE</CODE> (in
+    <A HREF="../../src/HTUtils.html">HTUtils.h</A>) expand to <CODE>NULL</CODE>
+    and to <CODE>static</CODE> respectively. They show that one has thought about
+    whether visibility is required outside the module, and they get over the
+    overloading of the keyword "static" in C. Use one or the other. (Use for
+    top level variables too).
+  <DT>
+    Entry and exit conditions
+  <DD>
+    It is most important to document the function as seen by the rest of the
+    world (especially the caller). The most important aspects of the appearance
+    of the function to the caller are the pre- and post-conditions. The preconditions
+    include the value of the parameters and structures they point to. Both include
+    any requirements on or changes to global data, the screen, disk files, etc.
+</DL>
+<P>
+<IMG BORDER="0" SRC="../../../Icons/32x32/caution" ALT="NOTE"> We have a set of predefined
+exit values in <A HREF="../../src/HTUtils.html#return">HTUtils module</A>.
+<P>
+  <HR>
+<ADDRESS>
+  Tim BL, and <A HREF="../../../People.html#Frystyk">Henrik Frystyk
+  Nielsen</A><BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

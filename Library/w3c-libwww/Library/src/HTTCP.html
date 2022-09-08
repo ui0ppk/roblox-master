@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen,  1-Jul-1996 -->
+  <TITLE>W3C Sample Code Library libwww Socket Open and Close</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Socket Open and Close
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The Socket Open and Close methods knows how to establish a BSD socket TCP
+connection and is part of the <A HREF="WWWTrans.html">Transport interface</A>.
+<P>
+This module is implemented by <A HREF="HTTCP.c">HTTCP.c</A>, and it is a
+part of the <A HREF="http://www.w3.org/Library/">W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTTCP_H
+#define HTTCP_H
+#include "HTReq.h"
+#include "HTNet.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  Active Connection Establishment
+</H2>
+<P>
+This makes an active <CODE>connect</CODE> to the specified host. An
+<A HREF="HTNet.html">HTNet Object</A> is parsed in order to handle errors
+and other stuff. The default port might be overwritten by any port indication
+in the <A HREF="http://www.w3.org/Addressing/">URL</A> specified
+as <CODE>&lt;host&gt;:&lt;port&gt;</CODE> If it is a <I>multihomed host </I>(a
+host having multiple IP-addresses with the same host name) &nbsp;then
+<CODE>HTDoConnect()</CODE> measures the time it takes to connect and updates
+the calculated weights in the <A HREF="HTDNS.html">DNS object</A>.
+<PRE>
+extern int HTDoConnect (HTNet * net);
+</PRE>
+<H2>
+  Passive Connection Establishment
+</H2>
+<P>
+This function makes an <CODE>accept</CODE> on a port. The net must contain
+a valid socket to accept on. If accept is OK then we <I>duplicate</I> the
+net object and assign the accepted socket to the newly created net object.
+The original <A HREF="HTNet.html">Net object</A> will keep accepting connections
+on the original socket, for example port 80 in the case of
+<A HREF="HTTP.html">HTTP</A>. The newly created Net object will be freed
+when the <A HREF="HTProt.html">protocol module</A> has finished. If the
+<I>accepted</I> net object pointer points to the net object itself, that
+is - the same object all along - then we reuse the same Net obejct; closes
+the original socket and replaces it wik the accepted one. This is a quick
+way of accepting a single connection.
+<PRE>
+extern int HTDoAccept (HTNet * listen, HTNet * accept);
+</PRE>
+<H2>
+  Listen on a Socket
+</H2>
+<P>
+Listens on the specified port described in the Net
+object. <CODE>backlog</CODE> is the number of connections that can be
+queued on the socket - you can use <CODE>HT_BACKLOG</CODE> for a
+platform dependent value (typically 5 on BSD and 32 on SVR4). Returns
+<CODE>HT_ERROR</CODE> or <CODE>HT_OK</CODE>.
+<PRE>
+extern int HTDoListen (HTNet * net, HTNet * accept, int backlog);
+</PRE>
+<H2>
+  Closing a socket
+</H2>
+<P>
+Closes a socket
+<PRE>
+extern int HTDoClose (HTNet * net);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif   /* HTTCP_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

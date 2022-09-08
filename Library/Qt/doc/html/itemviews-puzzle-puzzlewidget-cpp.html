@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: puzzlewidget.cpp Example File (itemviews/puzzle/puzzlewidget.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">puzzlewidget.cpp Example File</h1>
+<span class="small-subtitle">itemviews/puzzle/puzzlewidget.cpp</span>
+<!-- $$$itemviews/puzzle/puzzlewidget.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="preprocessor">#include &quot;puzzlewidget.h&quot;</span>
+
+ PuzzleWidget<span class="operator">::</span>PuzzleWidget(<span class="type">int</span> imageSize<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span> m_ImageSize(imageSize)
+ {
+     setAcceptDrops(<span class="keyword">true</span>);
+     setMinimumSize(m_ImageSize<span class="operator">,</span> m_ImageSize);
+     setMaximumSize(m_ImageSize<span class="operator">,</span> m_ImageSize);
+ }
+
+ <span class="type">void</span> PuzzleWidget<span class="operator">::</span>clear()
+ {
+     pieceLocations<span class="operator">.</span>clear();
+     piecePixmaps<span class="operator">.</span>clear();
+     pieceRects<span class="operator">.</span>clear();
+     highlightedRect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>();
+     inPlace <span class="operator">=</span> <span class="number">0</span>;
+     update();
+ }
+
+ <span class="type">void</span> PuzzleWidget<span class="operator">::</span>dragEnterEvent(<span class="type"><a href="qdragenterevent.html">QDragEnterEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasFormat(<span class="string">&quot;image/x-puzzle-piece&quot;</span>))
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     <span class="keyword">else</span>
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+ }
+
+ <span class="type">void</span> PuzzleWidget<span class="operator">::</span>dragLeaveEvent(<span class="type"><a href="qdragleaveevent.html">QDragLeaveEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qrect.html">QRect</a></span> updateRect <span class="operator">=</span> highlightedRect;
+     highlightedRect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>();
+     update(updateRect);
+     event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+ }
+
+ <span class="type">void</span> PuzzleWidget<span class="operator">::</span>dragMoveEvent(<span class="type"><a href="qdragmoveevent.html">QDragMoveEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qrect.html">QRect</a></span> updateRect <span class="operator">=</span> highlightedRect<span class="operator">.</span>unite(targetSquare(event<span class="operator">-</span><span class="operator">&gt;</span>pos()));
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasFormat(<span class="string">&quot;image/x-puzzle-piece&quot;</span>)
+         <span class="operator">&amp;</span><span class="operator">&amp;</span> findPiece(targetSquare(event<span class="operator">-</span><span class="operator">&gt;</span>pos())) <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+
+         highlightedRect <span class="operator">=</span> targetSquare(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+         event<span class="operator">-</span><span class="operator">&gt;</span>setDropAction(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MoveAction);
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     } <span class="keyword">else</span> {
+         highlightedRect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>();
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+     }
+
+     update(updateRect);
+ }
+
+ <span class="type">void</span> PuzzleWidget<span class="operator">::</span>dropEvent(<span class="type"><a href="qdropevent.html">QDropEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasFormat(<span class="string">&quot;image/x-puzzle-piece&quot;</span>)
+         <span class="operator">&amp;</span><span class="operator">&amp;</span> findPiece(targetSquare(event<span class="operator">-</span><span class="operator">&gt;</span>pos())) <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+
+         <span class="type"><a href="qbytearray.html">QByteArray</a></span> pieceData <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>data(<span class="string">&quot;image/x-puzzle-piece&quot;</span>);
+         <span class="type"><a href="qdatastream.html">QDataStream</a></span> stream(<span class="operator">&amp;</span>pieceData<span class="operator">,</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+         <span class="type"><a href="qrect.html">QRect</a></span> square <span class="operator">=</span> targetSquare(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+         <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap;
+         <span class="type"><a href="qpoint.html">QPoint</a></span> location;
+         stream <span class="operator">&gt;</span><span class="operator">&gt;</span> pixmap <span class="operator">&gt;</span><span class="operator">&gt;</span> location;
+
+         pieceLocations<span class="operator">.</span>append(location);
+         piecePixmaps<span class="operator">.</span>append(pixmap);
+         pieceRects<span class="operator">.</span>append(square);
+
+         highlightedRect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>();
+         update(square);
+
+         event<span class="operator">-</span><span class="operator">&gt;</span>setDropAction(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MoveAction);
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+
+         <span class="keyword">if</span> (location <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(square<span class="operator">.</span>x()<span class="operator">/</span>pieceSize()<span class="operator">,</span> square<span class="operator">.</span>y()<span class="operator">/</span>pieceSize())) {
+             inPlace<span class="operator">+</span><span class="operator">+</span>;
+             <span class="keyword">if</span> (inPlace <span class="operator">=</span><span class="operator">=</span> <span class="number">25</span>)
+                 <span class="keyword">emit</span> puzzleCompleted();
+         }
+     } <span class="keyword">else</span> {
+         highlightedRect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>();
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+     }
+ }
+
+ <span class="type">int</span> PuzzleWidget<span class="operator">::</span>findPiece(<span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>pieceRect) <span class="keyword">const</span>
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> pieceRects<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (pieceRect <span class="operator">=</span><span class="operator">=</span> pieceRects<span class="operator">[</span>i<span class="operator">]</span>) {
+             <span class="keyword">return</span> i;
+         }
+     }
+     <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type">void</span> PuzzleWidget<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qrect.html">QRect</a></span> square <span class="operator">=</span> targetSquare(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+     <span class="type">int</span> found <span class="operator">=</span> findPiece(square);
+
+     <span class="keyword">if</span> (found <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qpoint.html">QPoint</a></span> location <span class="operator">=</span> pieceLocations<span class="operator">[</span>found<span class="operator">]</span>;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap <span class="operator">=</span> piecePixmaps<span class="operator">[</span>found<span class="operator">]</span>;
+     pieceLocations<span class="operator">.</span>removeAt(found);
+     piecePixmaps<span class="operator">.</span>removeAt(found);
+     pieceRects<span class="operator">.</span>removeAt(found);
+
+     <span class="keyword">if</span> (location <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(square<span class="operator">.</span>x()<span class="operator">/</span>pieceSize()<span class="operator">,</span> square<span class="operator">.</span>y()<span class="operator">/</span>pieceSize()))
+         inPlace<span class="operator">-</span><span class="operator">-</span>;
+
+     update(square);
+
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> itemData;
+     <span class="type"><a href="qdatastream.html">QDataStream</a></span> dataStream(<span class="operator">&amp;</span>itemData<span class="operator">,</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly);
+
+     dataStream <span class="operator">&lt;</span><span class="operator">&lt;</span> pixmap <span class="operator">&lt;</span><span class="operator">&lt;</span> location;
+
+     <span class="type"><a href="qmimedata.html">QMimeData</a></span> <span class="operator">*</span>mimeData <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmimedata.html">QMimeData</a></span>;
+     mimeData<span class="operator">-</span><span class="operator">&gt;</span>setData(<span class="string">&quot;image/x-puzzle-piece&quot;</span><span class="operator">,</span> itemData);
+
+     <span class="type"><a href="qdrag.html">QDrag</a></span> <span class="operator">*</span>drag <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdrag.html">QDrag</a></span>(<span class="keyword">this</span>);
+     drag<span class="operator">-</span><span class="operator">&gt;</span>setMimeData(mimeData);
+     drag<span class="operator">-</span><span class="operator">&gt;</span>setHotSpot(event<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">-</span> square<span class="operator">.</span>topLeft());
+     drag<span class="operator">-</span><span class="operator">&gt;</span>setPixmap(pixmap);
+
+     <span class="keyword">if</span> (drag<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MoveAction) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+         pieceLocations<span class="operator">.</span>insert(found<span class="operator">,</span> location);
+         piecePixmaps<span class="operator">.</span>insert(found<span class="operator">,</span> pixmap);
+         pieceRects<span class="operator">.</span>insert(found<span class="operator">,</span> square);
+         update(targetSquare(event<span class="operator">-</span><span class="operator">&gt;</span>pos()));
+
+         <span class="keyword">if</span> (location <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(square<span class="operator">.</span>x()<span class="operator">/</span>pieceSize()<span class="operator">,</span> square<span class="operator">.</span>y()<span class="operator">/</span>pieceSize()))
+             inPlace<span class="operator">+</span><span class="operator">+</span>;
+     }
+ }
+
+ <span class="type">void</span> PuzzleWidget<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter;
+     painter<span class="operator">.</span>begin(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>fillRect(event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+
+     <span class="keyword">if</span> (highlightedRect<span class="operator">.</span>isValid()) {
+         painter<span class="operator">.</span>setBrush(<span class="type"><a href="qcolor.html">QColor</a></span>(<span class="string">&quot;#ffcccc&quot;</span>));
+         painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+         painter<span class="operator">.</span>drawRect(highlightedRect<span class="operator">.</span>adjusted(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span>));
+     }
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> pieceRects<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+         painter<span class="operator">.</span>drawPixmap(pieceRects<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> piecePixmaps<span class="operator">[</span>i<span class="operator">]</span>);
+     }
+     painter<span class="operator">.</span>end();
+ }
+
+ <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> PuzzleWidget<span class="operator">::</span>targetSquare(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>position) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>(position<span class="operator">.</span>x()<span class="operator">/</span>pieceSize() <span class="operator">*</span> pieceSize()<span class="operator">,</span> position<span class="operator">.</span>y()<span class="operator">/</span>pieceSize() <span class="operator">*</span> pieceSize()<span class="operator">,</span> pieceSize()<span class="operator">,</span> pieceSize());
+ }
+
+ <span class="type">int</span> PuzzleWidget<span class="operator">::</span>pieceSize() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_ImageSize <span class="operator">/</span> <span class="number">5</span>;
+ }
+
+ <span class="type">int</span> PuzzleWidget<span class="operator">::</span>imageSize() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_ImageSize;
+ }</pre>
+</div>
+<!-- @@@itemviews/puzzle/puzzlewidget.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+  <TITLE>C++ in C</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" SRC="../../../Icons/WWW/w3c_home" ALT="W3C" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/progstyle48x" ALT="C Style" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  C++ in C
+</H1>
+<P>
+C is much more widely supported than C++. There is a subset of C++ that is
+common to all C++ compilers but it can be emulated in C with minimal loss
+in efficiency or readability. This subset includes
+<P>
+<UL>
+  <LI>
+    <A NAME=2 HREF="#construction">construction/destruction</A>
+  <LI>
+    <A NAME="3" HREF="#Hiding">data hiding</A>
+  <LI>
+    <A NAME="4" HREF="#Name">name spaces</A>
+  <LI>
+    <A NAME=5 HREF="#thisPointer">this pointer</A>
+  <LI>
+    <A NAME=6 HREF="#inheritance">inheritance</A>
+</UL>
+<P>
+While the C++ in C approach is not perfect, it does allow much greater
+portability.
+<H2>
+  <A NAME="construction">Construction / Destruction</A>
+</H2>
+<P>
+C++ provides language primitives for memory allocation (<CODE>new</CODE>)
+and freeing (<CODE>free</CODE>). These functions call the
+<CODE>constructor</CODE> and <CODE>destructor</CODE> for an object. The libwww
+implements this in C with <I>object</I>_<CODE>new</CODE> and
+<I>object</I>_<CODE>delete</CODE>. For example:
+<PRE>	PUBLIC HTRequest * HTRequest_new (void)
+	{
+	    HTRequest * me;
+	    if ((me = (HTRequest *) HT_CALLOC(1, sizeof(HTRequest))) == NULL)
+	        HT_OUTOFMEM("HTRequest_new()");
+    
+	   /* Force Reload */
+	    me-&gt;reload = HT_ANY_VERSION;
+	.
+	.
+	.
+	    me-&gt;ContentNegotiation = NO;		       /* Do this by default */
+
+	#ifdef WWW_WIN_ASYNC
+	    HTEvent_winHandle(me);
+	#endif
+	    return me;
+	}
+</PRE>
+<H2>
+  <A NAME="Hiding">Data Hiding</A>
+</H2>
+<P>
+Many classes are defined in C++ to be private, meaning that all manipulation
+of the object is done through member functions (methods). Any attempt at
+meddling with the contents by an outside function will result in a compiler
+error. Object data is protected in libwww by declaring a structure in a header
+file, but not defining it. That is, the object is <I>opaque</I> to the
+application - exactly like the ANSI C <CODE>FILE</CODE> object.
+<PRE>
+	typedef struct _MyObject MyObject;
+
+	int MyObject_saveTheWorld(MyObject * me);
+</PRE>
+<P>
+The method (<CODE>saveTheWorld</CODE>) is accessible to everyone including
+the header, but the contents of a <CODE>MyObject</CODE> are not. Only the
+module containing <CODE>MyObject</CODE>'s methods has a definition of the
+object,
+<PRE>	struct _MyObject {
+	    int someInt;
+	};
+</PRE>
+<P>
+and therefore, access to the contents (<CODE>someInt</CODE>);
+<H2>
+  <A NAME="Name">Name spaces</A>
+</H2>
+<P>
+Most C++ objects come with a set of methods (member functions) which are
+<A NAME=5 HREF="#dataHiding">permitted</A> to affect the object. Any operation
+performed on an object (<CODE>myObject-&gt;saveTheWorld</CODE>) will be performed
+by an method in that object's class.
+<PRE>	class MyObject {
+	private:         // data
+	    int someInt;
+	public:          // methods
+	    int saveTheWorld(void);
+	}
+	main ()
+	{
+	  MyObject * myObject = new MyObject;
+	  myObject-&gt;saveTheWorld();
+	}
+</PRE>
+<P>
+What is actually happening is that the compiler is generating a name from
+the class name and the method name, e.g..
+<CODE>_@MyObject@@saveTheWord@132</CODE>. This is done explicitly in libwww,
+e.g. <CODE>MyObject_saveTheWorld.</CODE>While more verbose, this does, at
+least, eliminate the awkward hunt to figure out what instance of a method
+the compiler used.
+<H2>
+  "this" pointer
+</H2>
+<P>
+The this pointer is simply an understood first parameter to any method. libwww
+includes all parameters explicitly.
+<PRE>	<CODE>C++:</CODE>	myObject-&gt;saveTheWorld();
+</PRE>
+<P>
+is equivalent to
+<PRE>	<CODE>libwww:</CODE>	MyObject_saveTheWorld(myObject);
+</PRE>
+<H2>
+  Inheritance
+</H2>
+<P>
+In C++, classes may be derived from other classes.
+<PRE>	class MyOtherObject: public MyObject {
+	private:         // data
+	    int anotherInt;
+	public:          // methods
+	    int saveTheWales(void);
+	};
+</PRE>
+<P>
+As far as memory is concerned, this is identical to
+<PRE>	struct _MyOtherObject {
+	    MyObject base;
+	    int anotherInt;
+	};
+</PRE>
+<P>
+but one problem remains. In C++, all the instances of
+<CODE>MyOtherObject</CODE> may call
+<CODE>myOtherObject-&gt;saveTheWales()</CODE> as well as
+<CODE>myOtherObject-&gt;saveTheWorld()</CODE>. The compiler knows that a
+pointer to a <CODE>MyOtherObject</CODE> also points to a
+<CODE>MyObject</CODE>, so <CODE>saveTheWorld</CODE> may be called with the
+same pointer as <CODE>saveTheWales</CODE>. This is much trickier than the
+others as it requires more logic on the part of the compiler.
+<P>
+In libwww, this is mostly handled through explicit pointer casting. &nbsp;As
+an example, an <A HREF="../../src/HTStream.html">HTStream class</A> always
+includes an <CODE>HTStreamClass</CODE> as the first element (normally called
+<CODE>isa</CODE>). This way, the <I>local</I> definition of the
+<A HREF="../../src/HTStream.html">HTStream</A> may vary from module to module,
+depending on what context is needed to process the stream, but the library
+can use the standard <CODE>HTStreamClass</CODE> functions to supply it with
+data.
+<H1>
+    <HR>
+</H1>
+<ADDRESS>
+  Eric Prud'hommeaux, Henrik Frystyk Nielsen,
+  <A HREF="mailto:libwww@w3.org">libwww@w3.org</A><BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

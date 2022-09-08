@@ -1,0 +1,79 @@
+'------------------------------------------------------------------------------
+'
+' This code shows how to: 
+' - Modify a String Table using values from a unicode text file;     
+' - Add a Message Table using values from a unicode text file.
+'
+'
+' Order the full version and enjoy it without limitations!
+'
+' Demonstrates the following:
+'
+' - PEFileProxy.OpenFile
+' - PEFileProxy.Terminated
+' - PEFileProxy.HasResources
+' - PEFileProxy.ClearDefinitions
+' - PEFileProxy.OpenDefinitionFile
+' - PEFileProxy.Compile
+' - PEFileProxy.CreateBackUp
+' - PEFileProxy.SaveAsNewImage
+' - PEFileProxy.PostDebugString
+' - PEFileProxy.UpdateCheckSum
+' - ResourcesProxy.EditStringTableFromFileW
+' - ResourcesProxy.EditMessageTableFromFileW
+'
+'------------------------------------------------------------------------------
+ 
+Sub Main
+
+  PEFileProxy.PostDebugString "Executing from directory " 
+
+  PEFileProxy.PostDebugString "Updating the checksum in the PE file header is enabled." 
+  PEFileProxy.UpdateCheckSum = True 
+ 
+  PEFileProxy.PostDebugString "The creation of a backup copy is disabled." 
+  PEFileProxy.CreateBackUp = False 
+ 
+  PEFileProxy.PostDebugString "Opening the file..."
+  PEFileProxy.OpenFile "%plhd03%"
+
+  if (PEFileProxy.Terminated) then
+    'Issue a warning in case of error
+    PEFileProxy.PostDebugString "Opening the file produced a fatal error."
+  else
+    PEFileProxy.PostDebugString "File successfully opened."
+    if (not PEFileProxy.HasResources) then
+      PEFileProxy.PostDebugString "The file contains no resources."
+    else
+      PEFileProxy.PostDebugString "The file contains resources."
+ 
+      'Open the external definition file which represents the values for constants
+      'in the loaded executable file.
+      'PEFileProxy.ClearDefinitions
+      'PEFileProxy.PostDebugString "Opening the definition file..."
+      'PEFileProxy.OpenDefinitionFile "demoapp1.drc"
+ 
+      'Set Language to default value
+      LangID = 0
+ 
+      PEFileProxy.PostDebugString "Editing String Table using strings directly"
+      'CP = PEFileProxy.CodePageFromLangID(1033)
+      ResourcesProxy.EditStringTable "104", 1033, ONLY_SPECIFIED_LANG, "%plhd01%", CP_ACP
+      ResourcesProxy.EditStringTable "105", 1033, ONLY_SPECIFIED_LANG, "%plhd02%", CP_ACP
+
+      'PEFileProxy.PostDebugString "Editing String Table using strings from TXT file..."
+      'ResourcesProxy.EditStringTableFromFileW  LangID, CREATE_IF_NOT_EXIST, ".\src\strings.txt"
+ 
+      'PEFileProxy.PostDebugString "Adding Message Table using strings from TXT file"
+      'ResourcesProxy.EditMessageTableFromFileW  "1", LangID, CREATE_IF_NOT_EXIST, ".\src\messages.txt"
+ 
+      'Save file
+      PEFileProxy.PostDebugString "Saving the file to %plhd04%"
+      PEFileProxy.SaveAsNewImage "%plhd04%"
+    end if
+    PEFileProxy.PostDebugString "Closing this file..."
+    PEFileProxy.CloseFile
+  end if
+
+end Sub
+

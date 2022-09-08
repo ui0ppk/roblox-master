@@ -1,0 +1,92 @@
+<HTML> 
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 17-May-1996 -->
+  <TITLE>W3C Sample Code Library libwww HTTP Client</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Multi Threaded HyperText Tranfer Protocol Client Module
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This is the HTTP client module. This is actually a very small definition
+file as almost everything is set up elsewhere.
+<P>
+This module is implemented by <A HREF="HTTP.c">HTTP.c</A>, and it is a part
+of the <A HREF="http://www.w3.org/Library/">W3C Sample Code Library</A>.
+<PRE>
+#ifndef HTTP_H
+#define HTTP_H
+
+#include "HTProt.h"
+#include "HTStream.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H3>
+  HTTP Client Connection Mode
+</H3>
+<P>
+The HTTP client module supports various modes for communicating with HTTP
+servers. The mode are defined by the enumeration below.
+<PRE>
+typedef enum _HTTPConnectionMode { 
+    HTTP_11_PIPELINING     = 0x1,
+    HTTP_11_NO_PIPELINING  = 0x2, 
+    HTTP_11_MUX            = 0x4,
+    HTTP_FORCE_10          = 0x8
+} HTTPConnectionMode; 
+
+extern void HTTP_setConnectionMode (HTTPConnectionMode mode);
+extern HTTPConnectionMode HTTP_connectionMode (void);
+</PRE>
+<H3>
+  HTTP Write Delay of Content Bodies
+</H3>
+<P>
+Because of the differences between HTTP/1.0 and HTTP/1.1, HTTP <TT>PUT</TT>
+and <TT>POST</TT> requests can not be dealt with in non-preemptive mode -
+they have to use timers and hence must be in preemptive mode.
+<P>
+The default write mechanism used is first to write the headers and then wait
+for a period of time before writing the body. This often allows the server
+to respond before we start sending data accross the wire. If the write for
+some reason fails in a bad way then we try again, waiting a little bit longer
+this time as this may give the server enough time to think.
+<P>
+The default wait periods are 2000ms for the first wait and 3000ms if that
+fails. These are rather conservative values but can be changed by using these
+functions. The second try value must be larger (or equal) to the first try
+value and the first try value must be larger than 20 ms.
+<PRE>extern BOOL HTTP_setBodyWriteDelay (ms_t first_try, ms_t second_try);
+extern void HTTP_bodyWriteDelay (ms_t * first_try, ms_t * second_try);
+</PRE>
+<H3>
+  HTTP Event Handler
+</H3>
+<P>
+The event handler is the actual HTTP client state machine taking care of
+the communication.
+<PRE>
+extern HTProtCallback HTLoadHTTP;
+extern HTConverter HTTPStatus_new;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTTP_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- widgets-tutorial.qdoc -->
+  <title>Qt 4.8: Widgets Tutorial - Nested Layouts</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Widgets Tutorial - Nested Layouts</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#setting-up-the-model">Setting up the Model</a></li>
+</ul>
+</div>
+<h1 class="title">Widgets Tutorial - Nested Layouts</h1>
+<span class="subtitle"></span>
+<!-- $$$tutorials/widgets/nestedlayouts-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="tutorials-widgets-nestedlayouts-main-cpp.html">tutorials/widgets/nestedlayouts/main.cpp</a></li>
+<li><a href="tutorials-widgets-nestedlayouts-nestedlayouts-pro.html">tutorials/widgets/nestedlayouts/nestedlayouts.pro</a></li>
+</ul>
+<p>Just as widgets can contain other widgets, layouts can be used to provide different levels of grouping for widgets. Here, we want to display a label alongside a line edit at the top of a window, above a table view showing the results of a query.</p>
+<p>We achieve this by creating two layouts: <tt>queryLayout</tt> is a <a href="qhboxlayout.html">QHBoxLayout</a> that contains <a href="qlabel.html">QLabel</a> and <a href="qlineedit.html">QLineEdit</a> widgets placed side-by-side; <tt>mainLayout</tt> is a <a href="qvboxlayout.html">QVBoxLayout</a> that contains <tt>queryLayout</tt> and a <a href="qtableview.html">QTableView</a> arranged vertically.</p>
+<div class="qt-code"><table class="generic">
+<tr valign="top" class="odd"><td ><pre class="cpp"> <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     <span class="type"><a href="qwidget.html">QWidget</a></span> window;
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>queryLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(
+         <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>translate(<span class="string">&quot;nestedlayouts&quot;</span><span class="operator">,</span> <span class="string">&quot;Query:&quot;</span>));
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>queryEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>();
+     <span class="type"><a href="qtableview.html">QTableView</a></span> <span class="operator">*</span>resultView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtableview.html">QTableView</a></span>();
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>queryLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>();
+     queryLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(queryLabel);
+     queryLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(queryEdit);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>();
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(queryLayout);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(resultView);
+     window<span class="operator">.</span>setLayout(mainLayout);
+
+     <span class="comment">// Set up the model and configure the view...</span>
+     window<span class="operator">.</span>setWindowTitle(
+         <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>translate(<span class="string">&quot;nestedlayouts&quot;</span><span class="operator">,</span> <span class="string">&quot;Nested layouts&quot;</span>));
+     window<span class="operator">.</span>show();
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</td><td ><img src="images/widgets-tutorial-nestedlayouts.png" alt="" /></td></tr>
+</table>
+</div><p>Note that we call the <tt>mainLayout</tt>'s <a href="qboxlayout.html#addLayout">addLayout()</a> function to insert the <tt>queryLayout</tt> above the <tt>resultView</tt> table.</p>
+<p>We have omitted the code that sets up the model containing the data shown by the <a href="qtableview.html">QTableView</a> widget, <tt>resultView</tt>. For completeness, we show this below.</p>
+<p>As well as <a href="qhboxlayout.html">QHBoxLayout</a> and <a href="qvboxlayout.html">QVBoxLayout</a>, Qt also provides <a href="qgridlayout.html">QGridLayout</a> and <a href="qformlayout.html">QFormLayout</a> classes to help with more complex user interfaces. These can be seen if you run <a href="designer-manual.html#qt-designer">Qt Designer</a>.</p>
+<a name="setting-up-the-model"></a>
+<h2>Setting up the Model</h2>
+<p>In the code above, we did not show where the table's data came from because we wanted to concentrate on the use of layouts. Here, we see that the model holds a number of items corresponding to rows, each of which is set up to contain data for two columns.</p>
+<pre class="cpp">     <span class="type"><a href="qstandarditemmodel.html">QStandardItemModel</a></span> model;
+     model<span class="operator">.</span>setHorizontalHeaderLabels(
+         <span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>translate(<span class="string">&quot;nestedlayouts&quot;</span><span class="operator">,</span> <span class="string">&quot;Name&quot;</span>)
+                       <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>translate(<span class="string">&quot;nestedlayouts&quot;</span><span class="operator">,</span> <span class="string">&quot;Office&quot;</span>));
+
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstringlist.html">QStringList</a></span><span class="operator">&gt;</span> rows <span class="operator">=</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstringlist.html">QStringList</a></span><span class="operator">&gt;</span>()
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Verne Nilsen&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;123&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Carlos Tang&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;77&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Bronwyn Hawcroft&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;119&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Alessandro Hanssen&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;32&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Andrew John Bakken&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;54&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Vanessa Weatherley&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;85&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Rebecca Dickens&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;17&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;David Bradley&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;42&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Knut Walters&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;25&quot;</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Andrea Jones&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;34&quot;</span>);
+
+     foreach (<span class="type"><a href="qstringlist.html">QStringList</a></span> row<span class="operator">,</span> rows) {
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> items;
+         foreach (<span class="type"><a href="qstring.html">QString</a></span> text<span class="operator">,</span> row)
+             items<span class="operator">.</span>append(<span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(text));
+         model<span class="operator">.</span>appendRow(items);
+     }
+
+     resultView<span class="operator">-</span><span class="operator">&gt;</span>setModel(<span class="operator">&amp;</span>model);
+     resultView<span class="operator">-</span><span class="operator">&gt;</span>verticalHeader()<span class="operator">-</span><span class="operator">&gt;</span>hide();
+     resultView<span class="operator">-</span><span class="operator">&gt;</span>horizontalHeader()<span class="operator">-</span><span class="operator">&gt;</span>setStretchLastSection(<span class="keyword">true</span>);</pre>
+<p>The use of models and views is covered in the <a href="examples-itemviews.html">Item Views Examples</a> and in the <a href="model-view-programming.html">Model/View Programming</a> overview.</p>
+</div>
+<!-- @@@tutorials/widgets/nestedlayouts -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

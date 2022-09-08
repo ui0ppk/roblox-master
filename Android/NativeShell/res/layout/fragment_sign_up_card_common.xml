@@ -1,0 +1,169 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="7.5">
+    <!-- Header row start -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight=".5"
+        android:gravity="bottom"
+        android:layout_marginTop="2dp">
+        <com.roblox.client.components.RbxTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/SignupWord"
+            android:textSize="@dimen/textSizeSignupHeader"
+            android:textColor="@color/RbxGray2"
+            android:gravity="bottom"
+            android:layout_weight="2"
+            android:layout_gravity="bottom"
+            android:id="@+id/fragment_signup_header_txt" />
+        <!--style="@style/Theme.Roblox.StandardFont"-->
+        <com.roblox.client.components.RbxButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/LoginWord"
+            android:textColor="@color/RbxBlue2"
+            android:background="@android:color/transparent"
+            android:layout_weight=".5"
+            android:gravity="center_vertical|right"
+            android:textSize="@dimen/textSizeSignupLogin"
+            android:id="@+id/fragment_sign_up_login_btn"
+            android:paddingRight="1dp"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+    <!-- Header row end -->
+    <!-- This is a dummy view that absorbs the focus after we hit the
+        'Done' button on the keyboard while in the Email field. This view must
+        be immediately before the EditText we want to STOP from gaining focus. -->
+    <View
+        android:focusable="true" android:focusableInTouchMode="true"
+        android:layout_width="0px" android:layout_height="0px"/>
+    <com.roblox.client.components.RbxEditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        app:hintText="Username"
+        app:hintTextLong="Username (6-20 characters, no spaces)"
+        app:errorText="Username contains invalid characters"
+        style="@style/Theme.Roblox.EditText"
+        android:id="@+id/fragment_sign_up_username"
+        android:layout_marginTop="3dp"
+        android:layout_weight="1"
+        android:contentDescription="signupUsername"/>
+    <com.roblox.client.components.RbxEditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        app:hintText="Password"
+        app:hintTextLong="Password (4 letters and 2 numbers min.)"
+        app:inputType="password"
+        style="@style/Theme.Roblox.EditText"
+        android:id="@+id/fragment_sign_up_password"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:contentDescription="signupPassword"/>
+    <com.roblox.client.components.RbxEditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        app:hintText="Confirm password"
+        app:errorText="Passwords do not match"
+        app:inputType="password"
+        style="@style/Theme.Roblox.EditText"
+        android:id="@+id/fragment_sign_up_password_verify"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:contentDescription="signupPasswordConfirm"/>
+    <com.roblox.client.components.RbxEditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        app:hintText="Email"
+        app:errorText="This is an invalid email."
+        style="@style/Theme.Roblox.EditText"
+        android:id="@+id/fragment_sign_up_email"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        app:inputType="email"
+        android:contentDescription="signupEmail"/>
+    <com.roblox.client.components.RbxGenderPicker
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        style="@style/Theme.Roblox.StandardFontLight"
+        android:id="@+id/fragment_sign_up_gender_picker"
+        android:layout_weight=".65" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3" />
+    <com.roblox.client.components.RbxBirthdayPicker
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        style="@style/Theme.Roblox.StandardFontLight"
+        android:id="@+id/fragment_sign_up_birthday_picker"
+        android:layout_weight=".65" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3" />
+    <!-- Bottom button row -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:layout_gravity="bottom">
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="bottom" />
+        <com.roblox.client.components.RbxButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/CancelWord"
+            android:id="@+id/fragment_sign_up_cancel_btn"
+            style="@style/Theme.Roblox.Button.Flat.White"
+            android:textSize="@dimen/textSizeBtnCancel"
+            android:layout_weight="10"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="bottom"
+            android:contentDescription="signupCancelButton"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="bottom" />
+        <com.roblox.client.components.RbxProgressButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:defButtonText="@string/SignupLower"
+            android:id="@+id/fragment_sign_up_submit_btn"
+            style="@style/Theme.Roblox.Progress.Button.Blue"
+            app:buttonTextSize="@dimen/textSizeBtnSubmit"
+            app:progressTextSize="@dimen/textSizeBtnSubmitProgress"
+            android:layout_weight="10"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="bottom"
+            android:contentDescription="signupSubmitButton"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+</LinearLayout>

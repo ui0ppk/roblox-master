@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen,  1-Jun-1996 -->
+  <TITLE>W3C Sample Code Library libwww SGML Parser</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  SGML Parser
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The SGML parser is a state machine. It is called for every character of the
+input stream. The DTD data structure contains pointers to functions which
+are called to implement the actual effect of the text read. When these functions
+are called, the attribute structures pointed to by the DTD are valid, and
+the function is parsed a pointer to the curent tag structure, and an "element
+stack" which represents the state of nesting within SGML elements. See also
+the <A HREF="HTStream.html">the generic Stream definition</A>
+<P>
+The following aspects are from Dan Connolly's suggestions: Binary search,
+Strcutured object scheme basically, SGML content enum type.
+<P>
+This module is implemented by <A HREF="SGML.c">SGML.c</A>, and it is a part
+of the <A HREF="http://www.w3.org/Library/">W3C Sample Code Library</A>.
+<PRE>
+#ifndef SGML_H
+#define SGML_H
+
+#include "HTStream.h"
+#include "HTStruct.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  SGML Content Types
+</H2>
+<PRE>
+typedef enum _SGMLContent{
+    SGML_EMPTY,    	/* no content */
+    SGML_LITERAL, 	/* character data. Recognized exact close tag only.
+  		    	   Old www server compatibility only! Not SGML */
+    SGML_CDATA,    	/* character data. recognize &lt;/ only */
+    SGML_RCDATA,   	/* replaceable character data. recognize &lt;/ and &amp;ref; */
+    SGML_MIXED,    	/* elements and parsed character data. recognize all markup */
+    SGML_ELEMENT   	/* any data found will be returned as an error*/
+} SGMLContent;
+</PRE>
+<H2>
+  Attribute Types
+</H2>
+<P>
+Describes the SGML tag attribute
+<PRE>
+typedef struct _HTAttr {
+    char *	name;		/* The (constant) name of the attribute */
+    				/* Could put type info in here */
+} HTAttr;
+
+extern char * HTAttr_name (HTAttr * attr);
+</PRE>
+<H2>
+  Tag Structure Describing SGML Elements
+</H2>
+<DL>
+  <DT>
+    name
+  <DD>
+    is the string which comes after the tag opener "&lt;".
+  <DT>
+    attributes
+  <DD>
+    points to a zero-terminated array of attribute names.
+  <DT>
+    litteral
+  <DD>
+    determines how the SGML engine parses the charaters within the element. If
+    set, tag openers are ignored except for that which opens a matching closing
+    tag.
+</DL>
+<PRE>
+typedef struct _HTTag {
+    char *      name;			/* The name of the tag */
+    HTAttr *	attributes;		/* The list of acceptable attributes */
+    int		number_of_attributes;	/* Number of possible attributes */
+    SGMLContent contents;		/* End only on end tag @@ */		
+} HTTag;
+
+extern char * HTTag_name (HTTag * tag);
+extern SGMLContent HTTag_content (HTTag * tag);
+extern int HTTag_attributes (HTTag * tag);
+extern char * HTTag_attributeName (HTTag * tag, int attribute_number);
+</PRE>
+<H2>
+  DTD Information
+</H2>
+<P>
+Not the whole DTD, but all this parser uses of it.
+<PRE>
+#define MAX_ATTRIBUTES 32	     /* Max number of attributes per element */
+
+typedef struct {
+    HTTag *		tags;		/* Must be in strcmp order by name */ 
+    int			number_of_tags;
+    const char **	entity_names;	/* Must be in strcmp order by name */
+    int			number_of_entities;
+} SGML_dtd;
+
+extern HTTag * SGML_findTag (SGML_dtd * dtd, int element_number);
+extern char * SGML_findTagName (SGML_dtd * dtd, int element_number);
+extern SGMLContent SGML_findTagContents (SGML_dtd * dtd, int element_number);
+extern int SGML_findElementNumber(SGML_dtd *dtd, char *name_element);
+</PRE>
+<H2>
+  Create an SGML Parser Instance
+</H2>
+<P>
+Create an SGML parser instance which converts a stream to a structured stream.
+<PRE>
+extern HTStream * SGML_new (const SGML_dtd * 	dtd,
+			    HTStructured *	target);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif	/* SGML_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

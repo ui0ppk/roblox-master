@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 18-May-1996 -->
+  <TITLE>W3C Sample Code Library libwww NNTP State Machine</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  NNTP State Machine
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This is the News/NNTP client module that handles all communication with
+News/NNTP-servers.
+<P>
+This module is implemented by <A HREF="HTNews.c">HTNews.c</A>, and it is
+a part of the <A HREF="http://www.w3.org/Library/">W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTNEWS_H
+#define HTNEWS_H
+#include "HTProt.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<P>
+We define the max NNTP line as rather long as the result coming from a
+<CODE>XOVER</CODE> command needs it. If the line is longer then it is chopped,
+but we will almost have received the information we're looking for.
+<PRE>
+#ifndef NEWS_PORT
+#define NEWS_PORT		119			       /* See rfc977 */
+#endif
+
+#define MAX_NEWS_LINE		4096
+
+extern HTProtCallback HTLoadNews;
+</PRE>
+<H3>
+  Setting Number of Articles to Show
+</H3>
+<P>
+You can set the number of news articles to be shown at a time. If you set
+the number to none (<CODE>0</CODE>) then <EM>all</EM> articles are shown
+at once. This is also the default behavior.
+<PRE>extern BOOL HTNews_setMaxArticles (int new_max);
+extern int HTNews_maxArticles (void);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTNEWS_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

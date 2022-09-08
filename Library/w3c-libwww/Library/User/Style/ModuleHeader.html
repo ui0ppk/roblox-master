@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 27-May-1996 -->
+  <TITLE>libwww Modules</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" ALT="C-Style" SRC="../../../Icons/WWW/progstyle48x" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  Libwww Modules and Documentation
+</H1>
+<P>
+A libwww module consists of the following:
+<P>
+<UL>
+  <LI>
+    A module definition file, for example <EM>foo.c</EM>
+  <LI>
+    A module declaration file, for example <EM>foo.h</EM>
+  <LI>
+    A module description file, for example <EM>foo.html</EM>
+</UL>
+<P>
+Even though ANSI C doesn't support classes or objects, it is an advantage
+- especially when more and more people are going to contribute with modules
+that each module is a self-contained unit with a clearly defined interface
+to the rest of the world. It is important that you supply a lot of "methods"
+for accessing the data structures and only declare as little
+<CODE>PUBLIC</CODE> as possible of the internal structures.
+<P>
+Make sure that your file names are not <B>longer than 8 characters</B> as
+we support PCs as well. The declaration file is generated
+<B>automatically</B> from the description file using the
+<A HREF="../../../LineMode/">Line Mode browser</A>. This ensures that the
+description of a module is done at the same time as the declaration of the
+module. The generation of the declaration files is done at compile time using
+the <A HREF="../../../LineMode/">Line Mode Browser</A>, so be sure that you
+have a recent version of this.
+<P>
+All documentation is written in HTML so that we can use hypertext links.
+To prevent the low level documentation from getting out of sync with the
+code, the .h files are extracted from the .html files. While this is only
+effective for API function documentation, it is better than nothing.
+<P>
+The module header is the comment at the top of a definition file and description
+file. Please remember to fill it out carefully! The misterious line <CODE>@(#)
+$Id$</CODE> makes
+CVS add the version information automatically. Just write it as is and CVS
+will do the rest.
+<PRE>
+/*	
+**	FOO BAR MODULE
+**
+**	@(#) $Id$
+**
+**	This module can convert foos to bars
+**
+** Authors:
+**	JB	J. Bloggs, ACME Widget Company, TX, USA
+**	JD	J. Doe, University of Tamahalahula, Samabaria
+**
+** History:
+**	   Jan 1983	First wriiten as a widget sorter (JB)
+**	23 Nov 1986	Converted into mangle worzle sorter (JD)
+**	38 Dec 1992	Bug fix: Used to carsh on null worzles. (JD, JB)
+**
+*/
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  Tim BL, and <A HREF="../../../People.html#Frystyk">Henrik Frystyk</A><BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

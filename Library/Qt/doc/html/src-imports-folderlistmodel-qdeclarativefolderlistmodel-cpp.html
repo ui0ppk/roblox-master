@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: qdeclarativefolderlistmodel.cpp Example File (src/imports/folderlistmodel/qdeclarativefolderlistmodel.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">qdeclarativefolderlistmodel.cpp Example File</h1>
+<span class="small-subtitle">src/imports/folderlistmodel/qdeclarativefolderlistmodel.cpp</span>
+<!-- $$$src/imports/folderlistmodel/qdeclarativefolderlistmodel.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;qdeclarativefolderlistmodel.h&quot;</span>
+ <span class="preprocessor">#include &lt;QDirModel&gt;</span>
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &lt;qdeclarativecontext.h&gt;</span>
+
+ <span class="preprocessor">#ifndef QT_NO_DIRMODEL</span>
+
+ <span class="keyword">class</span> <span class="type">QDeclarativeFolderListModelPrivate</span>
+ {
+ <span class="keyword">public</span>:
+     <span class="type">QDeclarativeFolderListModelPrivate</span>()
+         : sortField(<span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>Name)<span class="operator">,</span> sortReversed(<span class="keyword">false</span>)<span class="operator">,</span> count(<span class="number">0</span>) {
+         nameFilters <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1String(<span class="string">&quot;*&quot;</span>);
+     }
+
+     <span class="type">void</span> updateSorting() {
+         <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>SortFlags flags <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">switch</span>(sortField) {
+         <span class="keyword">case</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>Unsorted:
+             flags <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Unsorted;
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>Name:
+             flags <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Name;
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>Time:
+             flags <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Time;
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>Size:
+             flags <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Size;
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>Type:
+             flags <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Type;
+             <span class="keyword">break</span>;
+         }
+
+         <span class="keyword">if</span> (sortReversed)
+             flags <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Reversed;
+
+         model<span class="operator">.</span>setSorting(flags);
+     }
+
+     <span class="type"><a href="qdirmodel.html">QDirModel</a></span> model;
+     <span class="type"><a href="qurl.html">QUrl</a></span> folder;
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> nameFilters;
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> folderIndex;
+     <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>SortField sortField;
+     <span class="type">bool</span> sortReversed;
+     <span class="type">int</span> count;
+ };
+
+ <span class="comment">/*!
+     \qmlclass FolderListModel QDeclarativeFolderListModel
+     \ingroup qml-working-with-data
+     \brief The FolderListModel provides a model of the contents of a file system folder.
+
+     FolderListModel provides access to information about the contents of a folder
+     in the local file system, exposing a list of files to views and other data components.
+
+     \note This type is made available by importing the \c Qt.labs.folderlistmodel module.
+     \e{Elements in the Qt.labs module are not guaranteed to remain compatible
+     in future versions.}
+
+     \bold{import Qt.labs.folderlistmodel 1.0}
+
+     The \l folder property specifies the folder to access. Information about the
+     files and directories in the folder is supplied via the model's interface.
+     Components access names and paths via the following roles:
+
+     \list
+     \o fileName
+     \o filePath
+     \endlist
+
+     Additionally a file entry can be differentiated from a folder entry via the
+     isFolder() method.
+
+     \section1 Filtering
+
+     Various properties can be set to filter the number of files and directories
+     exposed by the model.
+
+     The \l nameFilters property can be set to contain a list of wildcard filters
+     that are applied to names of files and directories, causing only those that
+     match the filters to be exposed.
+
+     Directories can be included or excluded using the \l showDirs property, and
+     navigation directories can also be excluded by setting the \l showDotAndDotDot
+     property to false.
+
+     It is sometimes useful to limit the files and directories exposed to those
+     that the user can access. The \l showOnlyReadable property can be set to
+     enable this feature.
+
+     \section1 Example Usage
+
+     The following example shows a FolderListModel being used to provide a list
+     of QML files in a \l ListView:
+
+     \snippet doc/src/snippets/declarative/folderlistmodel.qml 0
+
+     \section1 Path Separators
+
+     Qt uses &quot;/&quot; as a universal directory separator in the same way that &quot;/&quot; is
+     used as a path separator in URLs. If you always use &quot;/&quot; as a directory
+     separator, Qt will translate your paths to conform to the underlying
+     operating system.
+
+     \sa {QML Data Models}
+ */</span>
+
+ <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span><span class="type">QDeclarativeFolderListModel</span>(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qabstractlistmodel.html">QAbstractListModel</a></span>(parent)
+ {
+     <span class="type"><a href="qhash.html">QHash</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span> roles;
+     roles<span class="operator">[</span>FileNameRole<span class="operator">]</span> <span class="operator">=</span> <span class="string">&quot;fileName&quot;</span>;
+     roles<span class="operator">[</span>FilePathRole<span class="operator">]</span> <span class="operator">=</span> <span class="string">&quot;filePath&quot;</span>;
+     setRoleNames(roles);
+
+     d <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QDeclarativeFolderListModelPrivate</span>;
+     d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setFilter(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllDirs <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Drives <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>NoDotAndDotDot);
+     connect(<span class="operator">&amp;</span>d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">,</span> SIGNAL(rowsInserted(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span><span class="type">int</span><span class="operator">,</span><span class="type">int</span>))
+             <span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(inserted(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span><span class="type">int</span><span class="operator">,</span><span class="type">int</span>)));
+     connect(<span class="operator">&amp;</span>d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">,</span> SIGNAL(rowsRemoved(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span><span class="type">int</span><span class="operator">,</span><span class="type">int</span>))
+             <span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(removed(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span><span class="type">int</span><span class="operator">,</span><span class="type">int</span>)));
+     connect(<span class="operator">&amp;</span>d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">,</span> SIGNAL(dataChanged(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span><span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span>))
+             <span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(handleDataChanged(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span><span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&amp;</span>)));
+     connect(<span class="operator">&amp;</span>d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">,</span> SIGNAL(modelReset())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(refresh()));
+     connect(<span class="operator">&amp;</span>d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">,</span> SIGNAL(layoutChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(refresh()));
+ }
+
+ <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span><span class="operator">~</span><span class="type">QDeclarativeFolderListModel</span>()
+ {
+     <span class="keyword">delete</span> d;
+ }
+
+ <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qvariant.html">QVariant</a></span> rv;
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> modelIndex <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>index(index<span class="operator">.</span>row()<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex);
+     <span class="keyword">if</span> (modelIndex<span class="operator">.</span>isValid()) {
+         <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> FileNameRole)
+             rv <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>data(modelIndex<span class="operator">,</span> <span class="type"><a href="qdirmodel.html">QDirModel</a></span><span class="operator">::</span>FileNameRole)<span class="operator">.</span>toString();
+         <span class="keyword">else</span> <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> FilePathRole)
+             rv <span class="operator">=</span> <span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>data(modelIndex<span class="operator">,</span> <span class="type"><a href="qdirmodel.html">QDirModel</a></span><span class="operator">::</span>FilePathRole)<span class="operator">.</span>toString());
+     }
+     <span class="keyword">return</span> rv;
+ }
+
+ <span class="comment">/*!
+     \qmlproperty int FolderListModel::count
+
+     Returns the number of items in the current folder that match the
+     filter criteria.
+ */</span>
+ <span class="type">int</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>rowCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent) <span class="keyword">const</span>
+ {
+     Q_UNUSED(parent);
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>count;
+ }
+
+ <span class="comment">/*!
+     \qmlproperty string FolderListModel::folder
+
+     The \a folder property holds a URL for the folder that the model is
+     currently providing.
+
+     The value is a URL expressed as a string, and must be a \c file: or \c qrc:
+     URL, or a relative URL.
+
+     By default, the value is an invalid URL.
+ */</span>
+ <span class="type"><a href="qurl.html">QUrl</a></span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>folder() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>folder;
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>setFolder(<span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> <span class="operator">&amp;</span>folder)
+ {
+     <span class="keyword">if</span> (folder <span class="operator">=</span><span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>folder)
+         <span class="keyword">return</span>;
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>index(folder<span class="operator">.</span>toLocalFile());
+     <span class="keyword">if</span> ((index<span class="operator">.</span>isValid() <span class="operator">&amp;</span><span class="operator">&amp;</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>isDir(index)) <span class="operator">|</span><span class="operator">|</span> folder<span class="operator">.</span>toLocalFile()<span class="operator">.</span>isEmpty()) {
+
+         d<span class="operator">-</span><span class="operator">&gt;</span>folder <span class="operator">=</span> folder;
+         <span class="type"><a href="qmetaobject.html">QMetaObject</a></span><span class="operator">::</span>invokeMethod(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;refresh&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>QueuedConnection);
+         <span class="keyword">emit</span> folderChanged();
+     }
+ }
+
+ <span class="comment">/*!
+     \qmlproperty url FolderListModel::parentFolder
+
+     Returns the URL of the parent of of the current \l folder.
+ */</span>
+ <span class="type"><a href="qurl.html">QUrl</a></span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>parentFolder() <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> localFile <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>folder<span class="operator">.</span>toLocalFile();
+     <span class="keyword">if</span> (<span class="operator">!</span>localFile<span class="operator">.</span>isEmpty()) {
+         <span class="type"><a href="qdir.html">QDir</a></span> dir(localFile);
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_OS_WIN)</span>
+         <span class="keyword">if</span> (dir<span class="operator">.</span>isRoot())
+             dir<span class="operator">.</span>setPath(<span class="string">&quot;&quot;</span>);
+         <span class="keyword">else</span>
+ <span class="preprocessor">#endif</span>
+             dir<span class="operator">.</span>cdUp();
+         localFile <span class="operator">=</span> dir<span class="operator">.</span>path();
+     } <span class="keyword">else</span> {
+         <span class="type">int</span> pos <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>folder<span class="operator">.</span>path()<span class="operator">.</span>lastIndexOf(QLatin1Char(<span class="char">'/'</span>));
+         <span class="keyword">if</span> (pos <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+             <span class="keyword">return</span> <span class="type"><a href="qurl.html">QUrl</a></span>();
+         localFile <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>folder<span class="operator">.</span>path()<span class="operator">.</span>left(pos);
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(localFile);
+ }
+
+ <span class="comment">/*!
+     \qmlproperty list&lt;string&gt; FolderListModel::nameFilters
+
+     The \a nameFilters property contains a list of file name filters.
+     The filters may include the ? and * wildcards.
+
+     The example below filters on PNG and JPEG files:
+
+     \qml
+     FolderListModel {
+         nameFilters: [ &quot;*.png&quot;, &quot;*.jpg&quot; ]
+     }
+     \endqml
+
+     \note Directories are not excluded by filters.
+ */</span>
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>nameFilters() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>nameFilters;
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>setNameFilters(<span class="keyword">const</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> <span class="operator">&amp;</span>filters)
+ {
+     d<span class="operator">-</span><span class="operator">&gt;</span>nameFilters <span class="operator">=</span> filters;
+     d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setNameFilters(d<span class="operator">-</span><span class="operator">&gt;</span>nameFilters);
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>classBegin()
+ {
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>componentComplete()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>d<span class="operator">-</span><span class="operator">&gt;</span>folder<span class="operator">.</span>isValid() <span class="operator">|</span><span class="operator">|</span> d<span class="operator">-</span><span class="operator">&gt;</span>folder<span class="operator">.</span>toLocalFile()<span class="operator">.</span>isEmpty() <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span><span class="type"><a href="qdir.html">QDir</a></span>()<span class="operator">.</span>exists(d<span class="operator">-</span><span class="operator">&gt;</span>folder<span class="operator">.</span>toLocalFile()))
+         setFolder(<span class="type"><a href="qurl.html">QUrl</a></span>(QLatin1String(<span class="string">&quot;file://&quot;</span>)<span class="operator">+</span><span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>currentPath()));
+
+     <span class="keyword">if</span> (<span class="operator">!</span>d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex<span class="operator">.</span>isValid())
+         <span class="type"><a href="qmetaobject.html">QMetaObject</a></span><span class="operator">::</span>invokeMethod(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;refresh&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>QueuedConnection);
+ }
+
+ <span class="comment">/*!
+     \qmlproperty enumeration FolderListModel::sortField
+
+     The \a sortField property contains field to use for sorting.  sortField
+     may be one of:
+     \list
+     \o Unsorted - no sorting is applied.  The order is system default.
+     \o Name - sort by filename
+     \o Time - sort by time modified
+     \o Size - sort by file size
+     \o Type - sort by file type (extension)
+     \endlist
+
+     \sa sortReversed
+ */</span>
+ <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>SortField <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>sortField() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>sortField;
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>setSortField(SortField field)
+ {
+     <span class="keyword">if</span> (field <span class="operator">!</span><span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>sortField) {
+         d<span class="operator">-</span><span class="operator">&gt;</span>sortField <span class="operator">=</span> field;
+         d<span class="operator">-</span><span class="operator">&gt;</span>updateSorting();
+     }
+ }
+
+ <span class="comment">/*!
+     \qmlproperty bool FolderListModel::sortReversed
+
+     If set to true, reverses the sort order.  The default is false.
+
+     \sa sortField
+ */</span>
+ <span class="type">bool</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>sortReversed() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>sortReversed;
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>setSortReversed(<span class="type">bool</span> rev)
+ {
+     <span class="keyword">if</span> (rev <span class="operator">!</span><span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>sortReversed) {
+         d<span class="operator">-</span><span class="operator">&gt;</span>sortReversed <span class="operator">=</span> rev;
+         d<span class="operator">-</span><span class="operator">&gt;</span>updateSorting();
+     }
+ }
+
+ <span class="comment">/*!
+     \qmlmethod bool FolderListModel::isFolder(int index)
+
+     Returns true if the entry \a index is a folder; otherwise
+     returns false.
+ */</span>
+ <span class="type">bool</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>isFolder(<span class="type">int</span> index) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (index <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> idx <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>index(index<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex);
+         <span class="keyword">if</span> (idx<span class="operator">.</span>isValid())
+             <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>isDir(idx);
+     }
+     <span class="keyword">return</span> <span class="keyword">false</span>;
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>refresh()
+ {
+     d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex <span class="operator">=</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>();
+     <span class="keyword">if</span> (d<span class="operator">-</span><span class="operator">&gt;</span>count) {
+         <span class="keyword">emit</span> beginRemoveRows(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> d<span class="operator">-</span><span class="operator">&gt;</span>count<span class="operator">-</span><span class="number">1</span>);
+         d<span class="operator">-</span><span class="operator">&gt;</span>count <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">emit</span> endRemoveRows();
+     }
+     d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>index(d<span class="operator">-</span><span class="operator">&gt;</span>folder<span class="operator">.</span>toLocalFile());
+     <span class="type">int</span> newcount <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>rowCount(d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex);
+     <span class="keyword">if</span> (newcount) {
+         <span class="keyword">emit</span> beginInsertRows(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> newcount<span class="operator">-</span><span class="number">1</span>);
+         d<span class="operator">-</span><span class="operator">&gt;</span>count <span class="operator">=</span> newcount;
+         <span class="keyword">emit</span> endInsertRows();
+     }
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>inserted(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> start<span class="operator">,</span> <span class="type">int</span> end)
+ {
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex) {
+         <span class="keyword">emit</span> beginInsertRows(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()<span class="operator">,</span> start<span class="operator">,</span> end);
+         d<span class="operator">-</span><span class="operator">&gt;</span>count <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>rowCount(d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex);
+         <span class="keyword">emit</span> endInsertRows();
+     }
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>removed(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> start<span class="operator">,</span> <span class="type">int</span> end)
+ {
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex) {
+         <span class="keyword">emit</span> beginRemoveRows(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()<span class="operator">,</span> start<span class="operator">,</span> end);
+         d<span class="operator">-</span><span class="operator">&gt;</span>count <span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>rowCount(d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex);
+         <span class="keyword">emit</span> endRemoveRows();
+     }
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>handleDataChanged(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>start<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>end)
+ {
+     <span class="keyword">if</span> (start<span class="operator">.</span>parent() <span class="operator">=</span><span class="operator">=</span> d<span class="operator">-</span><span class="operator">&gt;</span>folderIndex)
+         <span class="keyword">emit</span> dataChanged(index(start<span class="operator">.</span>row()<span class="operator">,</span><span class="number">0</span>)<span class="operator">,</span> index(end<span class="operator">.</span>row()<span class="operator">,</span><span class="number">0</span>));
+ }
+
+ <span class="comment">/*!
+     \qmlproperty bool FolderListModel::showDirs
+
+     If true, directories are included in the model; otherwise only files
+     are included.
+
+     By default, this property is true.
+
+     Note that the nameFilters are not applied to directories.
+
+     \sa showDotAndDotDot
+ */</span>
+ <span class="type">bool</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>showDirs() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllDirs;
+ }
+
+ <span class="type">void</span>  <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>setShowDirs(<span class="type">bool</span> on)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllDirs) <span class="operator">=</span><span class="operator">=</span> <span class="operator">!</span>on)
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> (on)
+         d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setFilter(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllDirs <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Drives);
+     <span class="keyword">else</span>
+         d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setFilter(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="operator">~</span>(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllDirs <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Drives));
+ }
+
+ <span class="comment">/*!
+     \qmlproperty bool FolderListModel::showDotAndDotDot
+
+     If true, the &quot;.&quot; and &quot;..&quot; directories are included in the model; otherwise
+     they are excluded.
+
+     By default, this property is false.
+
+     \sa showDirs
+ */</span>
+ <span class="type">bool</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>showDotAndDotDot() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="operator">!</span>(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>NoDotAndDotDot);
+ }
+
+ <span class="type">void</span>  <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>setShowDotAndDotDot(<span class="type">bool</span> on)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>NoDotAndDotDot) <span class="operator">=</span><span class="operator">=</span> on)
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> (on)
+         d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setFilter(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="operator">~</span><span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>NoDotAndDotDot);
+     <span class="keyword">else</span>
+         d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setFilter(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>NoDotAndDotDot);
+ }
+
+ <span class="comment">/*!
+     \qmlproperty bool FolderListModel::showOnlyReadable
+
+     If true, only readable files and directories are shown; otherwise all files
+     and directories are shown.
+
+     By default, this property is false.
+
+     \sa showDirs
+ */</span>
+ <span class="type">bool</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>showOnlyReadable() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable;
+ }
+
+ <span class="type">void</span> <span class="type">QDeclarativeFolderListModel</span><span class="operator">::</span>setShowOnlyReadable(<span class="type">bool</span> on)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable) <span class="operator">=</span><span class="operator">=</span> <span class="operator">!</span>on)
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> (on)
+         d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setFilter(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable);
+     <span class="keyword">else</span>
+         d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>setFilter(d<span class="operator">-</span><span class="operator">&gt;</span>model<span class="operator">.</span>filter() <span class="operator">&amp;</span> <span class="operator">~</span><span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable);
+ }
+
+
+ <span class="preprocessor">#endif // QT_NO_DIRMODEL</span></pre>
+</div>
+<!-- @@@src/imports/folderlistmodel/qdeclarativefolderlistmodel.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

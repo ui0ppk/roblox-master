@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F4B21823-2EB7-4D89-B7F5-0E1645ED4F8E}</ProjectGuid>
+    <RootNamespace>ShaderCompiler</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.61030.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_x64</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)_x64</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Library\hlsl2glslfork/hlslang/MachineIndependent;..\..\Library\hlsl2glslfork/hlslang/OSDependent/Windows;..\..\Library\hlsl2glslfork/OGLCompilersDLL;..\..\Library\glsl-optimizer/include/c99;..\..\Library\glsl-optimizer/include;..\..\Library\glsl-optimizer/src;..\..\Library\glsl-optimizer/src/mesa;..\..\Library\glsl-optimizer/src/glsl;..\..\Library\glsl-optimizer/src/mapi;../../ClientShared;..\..\Library\SDK\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;MOJOSHADER_NO_VERSION_INCLUDE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Library\hlsl2glslfork/hlslang/MachineIndependent;..\..\Library\hlsl2glslfork/hlslang/OSDependent/Windows;..\..\Library\hlsl2glslfork/OGLCompilersDLL;..\..\Library\glsl-optimizer/include/c99;..\..\Library\glsl-optimizer/include;..\..\Library\glsl-optimizer/src/mesa;..\..\Library\glsl-optimizer/src/glsl;..\..\Library\glsl-optimizer/src/mapi;../../ClientShared;..\..\Library\SDK\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;MOJOSHADER_NO_VERSION_INCLUDE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\Library\hlsl2glslfork/hlslang/MachineIndependent;..\..\Library\hlsl2glslfork/hlslang/OSDependent/Windows;..\..\Library\hlsl2glslfork/OGLCompilersDLL;..\..\Library\glsl-optimizer/include/c99;..\..\Library\glsl-optimizer/include;..\..\Library\glsl-optimizer/src;..\..\Library\glsl-optimizer/src/mesa;..\..\Library\glsl-optimizer/src/glsl;..\..\Library\glsl-optimizer/src/mapi;../../ClientShared;..\..\Library\SDK\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;MOJOSHADER_NO_VERSION_INCLUDE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\Library\hlsl2glslfork/hlslang/MachineIndependent;..\..\Library\hlsl2glslfork/hlslang/OSDependent/Windows;..\..\Library\hlsl2glslfork/OGLCompilersDLL;..\..\Library\glsl-optimizer/include/c99;..\..\Library\glsl-optimizer/include;..\..\Library\glsl-optimizer/src/mesa;..\..\Library\glsl-optimizer/src/glsl;..\..\Library\glsl-optimizer/src/mapi;../../ClientShared;..\..\Library\SDK\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;MOJOSHADER_NO_VERSION_INCLUDE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\builtin_functions.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\builtin_types.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_equals.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_print_metal_visitor.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_stats.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_atomics.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_interface_blocks.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_named_interface_blocks.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_offset_array.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_vector_insert.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_vertex_id.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_cse.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_dead_builtin_variables.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_dead_builtin_varyings.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_flip_matrices.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_minmax.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_rebalance_tree.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_vectorize.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\util\hash_table.c" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\util\ralloc.c" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\ConstantFolding.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\Gen_hlslang.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\Gen_hlslang_tab.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslCommon.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslFunction.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslOutput.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslStruct.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslSymbol.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\HLSL2GLSL.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\hlslCrossCompiler.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\hlslLinker.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\hlslSupportLib.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\InfoSink.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\Initialize.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\Intermediate.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\intermOut.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\IntermTraverse.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\mojoshader.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\hlmojoshader.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)\hlmojoshader.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\hlmojoshader.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)\hlmojoshader.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\mojoshader_common.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\hlmojoshader_common.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)\hlmojoshader_common.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\hlmojoshader_common.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)\hlmojoshader_common.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\mojoshader_lexer.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\hlmojoshader_lexer.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)\hlmojoshader_lexer.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\hlmojoshader_lexer.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)\hlmojoshader_lexer.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\mojoshader_preprocessor.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\hlmojoshader_preprocessor.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)\hlmojoshader_preprocessor.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\hlmojoshader_preprocessor.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)\hlmojoshader_preprocessor.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\sourceloc.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\OSDependent\Windows\ossource.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\ParseHelper.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\PoolAlloc.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\propagateMutable.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\RemoveTree.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\SymbolTable.cpp" />
+    <ClCompile Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\typeSamplers.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ast_array_index.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ast_expr.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ast_function.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ast_to_hir.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ast_type.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\builtin_variables.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glcpp\glcpp-lex.c" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glcpp\glcpp-parse.c" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glsl_lexer.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glsl_optimizer.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glsl_parser.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glsl_parser_extras.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glsl_symbol_table.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glsl_types.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\hir_field_selection.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\mesa\main\imports.c" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_basic_block.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_builder.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_clone.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_constant_expression.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_expression_flattening.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_function.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_function_can_inline.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_function_detect_recursion.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_hierarchical_visitor.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_hv_accept.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_import_prototypes.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_print_glsl_visitor.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_print_visitor.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_rvalue_visitor.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_unused_structs.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_validate.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\ir_variable_refcount.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_functions.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_uniform_block_active_visitor.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_uniform_blocks.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_uniform_initializers.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_uniforms.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\link_varyings.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\linker.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\loop_analysis.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\loop_controls.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\loop_unroll.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_clip_distance.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_discard.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_discard_flow.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_if_to_cond_assign.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_instructions.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_jumps.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_mat_op_to_vec.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_noise.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_output_reads.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_packed_varyings.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_packing_builtins.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_ubo_reference.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_variable_index_to_cond_assign.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_vec_index_to_cond_assign.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_vec_index_to_swizzle.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\lower_vector.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_algebraic.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_array_splitting.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_constant_folding.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_constant_propagation.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_constant_variable.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_copy_propagation.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_copy_propagation_elements.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_dead_code.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_dead_code_local.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_dead_functions.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_flatten_nested_if_blocks.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_function_inlining.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_if_simplification.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_noop_swizzle.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_redundant_jumps.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_structure_splitting.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_swizzle_swizzle.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\opt_tree_grafting.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\glcpp\pp.c" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\mesa\program\prog_hash_table.c" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\s_expression.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\standalone_scaffolding.cpp" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\glsl\strtod.c" />
+    <ClCompile Include="..\..\Library\glsl-optimizer\src\mesa\program\symbol_table.c" />
+    <ClCompile Include="md5\md5.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mojoshader\mojoshader.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="mojoshader\mojoshader_common.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="mojoshader\mojoshader_lexer.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="mojoshader\mojoshader_preprocessor.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\builtin_type_macros.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_print_metal_visitor.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_stats.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\util\hash_table.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\util\ralloc.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslCommon.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslFunction.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslOutput.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslStruct.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\glslSymbol.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\mojoshader.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\mojoshader_internal.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\include\hlsl2glsl.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\hlslCrossCompiler.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\hlslLinker.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\hlslSupportLib.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\Initialize.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\localintermediate.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\OSDependent\Windows\osinclude.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\ParseHelper.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\propagateMutable.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\RemoveTree.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\preprocessor\sourceloc.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\SymbolTable.h" />
+    <ClInclude Include="..\..\Library\hlsl2glslfork\hlslang\GLSLCodeGen\typeSamplers.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ast.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\glcpp\glcpp-parse.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\glcpp\glcpp.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\glsl_optimizer.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\glsl_parser.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\glsl_parser_extras.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\glsl_symbol_table.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\glsl_types.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\mesa\program\hash_table.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_basic_block.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_builder.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_expression_flattening.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_function_inlining.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_hierarchical_visitor.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_optimization.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_print_glsl_visitor.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_print_visitor.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_rvalue_visitor.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_uniform.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_unused_structs.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_variable_refcount.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\ir_visitor.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\link_uniform_block_active_visitor.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\link_varyings.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\linker.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\list.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\loop_analysis.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\mesa\program\prog_instruction.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\mesa\program\prog_parameter.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\mesa\program\prog_statevars.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\program.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\s_expression.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\standalone_scaffolding.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\glsl\strtod.h" />
+    <ClInclude Include="..\..\Library\glsl-optimizer\src\mesa\program\symbol_table.h" />
+    <ClInclude Include="md5\md5.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\hlslang.l">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Executing flex on %(FullPath)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Executing flex on %(FullPath)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)..\..\tools\flex.exe %(FullPath)
+if EXIST %(RootDir)%(Directory)gen_hlslang.cpp del %(RootDir)%(Directory)gen_hlslang.cpp
+move gen_hlslang.cpp %(RootDir)%(Directory)gen_hlslang.cpp
+cd %(RootDir)%(Directory)
+rename gen_hlslang.cpp Gen_hlslang.cpp
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(RootDir)%(Directory)..\..\tools\flex.exe %(FullPath)
+if EXIST %(RootDir)%(Directory)gen_hlslang.cpp del %(RootDir)%(Directory)gen_hlslang.cpp
+move gen_hlslang.cpp %(RootDir)%(Directory)gen_hlslang.cpp
+cd %(RootDir)%(Directory)
+rename gen_hlslang.cpp Gen_hlslang.cpp
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">hlslang_tab.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">hlslang_tab.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)Gen_hlslang.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(RootDir)%(Directory)Gen_hlslang.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Executing flex on %(FullPath)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Executing flex on %(FullPath)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)..\..\tools\flex.exe %(FullPath)
+if EXIST %(RootDir)%(Directory)gen_hlslang.cpp del %(RootDir)%(Directory)gen_hlslang.cpp
+move gen_hlslang.cpp %(RootDir)%(Directory)gen_hlslang.cpp
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)..\..\tools\flex.exe %(FullPath)
+if EXIST %(RootDir)%(Directory)gen_hlslang.cpp del %(RootDir)%(Directory)gen_hlslang.cpp
+move gen_hlslang.cpp %(RootDir)%(Directory)gen_hlslang.cpp
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">hlslang_tab.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hlslang_tab.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)Gen_hlslang.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)Gen_hlslang.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Library\hlsl2glslfork\hlslang\MachineIndependent\hlslang.y">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Executing Bison on %(FullPath)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Executing Bison on %(FullPath)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SET BISON_SIMPLE=%(RootDir)%(Directory)..\..\tools\bison.simple
+SET BISON_HAIRY=%(RootDir)%(Directory)..\..\tools\bison.simple
+cd %(RootDir)%(Directory)
+%(RootDir)%(Directory)..\..\tools\bin\bison.exe -d -t -v %(Filename).y
+del /s /q %(RootDir)%(Directory)Gen_%(Filename)_tab.cpp
+del /s /q %(RootDir)%(Directory)%(Filename)_tab.h
+rename %(RootDir)%(Directory)%(Filename).tab.c Gen_%(Filename)_tab.cpp
+rename %(RootDir)%(Directory)%(Filename).tab.h %(Filename)_tab.h
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SET BISON_SIMPLE=%(RootDir)%(Directory)..\..\tools\bison.simple
+SET BISON_HAIRY=%(RootDir)%(Directory)..\..\tools\bison.simple
+cd %(RootDir)%(Directory)
+%(RootDir)%(Directory)..\..\tools\bison.exe -d -t -v %(Filename).y
+if EXIST %(RootDir)%(Directory)Gen_%(Filename)_tab.cpp del %(RootDir)%(Directory)Gen_%(Filename)_tab.cpp
+rename %(RootDir)%(Directory)%(Filename)_tab.c Gen_%(Filename)_tab.cpp
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(RootDir)%(Directory)Gen_%(Filename)_tab.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(RootDir)%(Directory)Gen_%(Filename)_tab.cpp;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Executing Bison on %(FullPath)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Executing Bison on %(FullPath)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SET BISON_SIMPLE=%(RootDir)%(Directory)..\..\tools\bison.simple
+SET BISON_HAIRY=%(RootDir)%(Directory)..\..\tools\bison.simple
+SET PATH=%PATH%;%(RootDir)%(Directory)..\..\tools\bin
+cd %(RootDir)%(Directory)
+%(RootDir)%(Directory)..\..\tools\bin\bison.exe -d -t -v %(Filename).y
+del /s /q %(RootDir)%(Directory)Gen_%(Filename)_tab.cpp
+del /s /q %(RootDir)%(Directory)%(Filename)_tab.h
+rename %(RootDir)%(Directory)%(Filename).tab.c Gen_%(Filename)_tab.cpp
+rename %(RootDir)%(Directory)%(Filename).tab.h %(Filename)_tab.h
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SET BISON_SIMPLE=%(RootDir)%(Directory)..\..\tools\bison.simple
+SET BISON_HAIRY=%(RootDir)%(Directory)..\..\tools\bison.simple
+cd %(RootDir)%(Directory)
+%(RootDir)%(Directory)..\..\tools\bison.exe -d -t -v %(Filename).y
+if EXIST %(RootDir)%(Directory)Gen_%(Filename)_tab.cpp del %(RootDir)%(Directory)Gen_%(Filename)_tab.cpp
+rename %(RootDir)%(Directory)%(Filename)_tab.c Gen_%(Filename)_tab.cpp
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(RootDir)%(Directory)Gen_%(Filename)_tab.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(RootDir)%(Directory)Gen_%(Filename)_tab.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

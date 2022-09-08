@@ -1,0 +1,58 @@
+/****************************************************************************
+**
+** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+** Contact: http://www.qt-project.org/legal
+**
+** This file is part of the documentation of the Qt Toolkit.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and Digia.  For licensing terms and
+** conditions see http://qt.digia.com/licensing.  For further information
+** use the contact form at http://qt.digia.com/contact-us.
+**
+** GNU Free Documentation License Usage
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.  Please review the following information to ensure
+** the GNU Free Documentation License version 1.3 requirements
+** will be met: http://www.gnu.org/copyleft/fdl.html.
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \page qt-embedded-differences.html
+
+    \title Porting Qt Applications to Qt for Embedded Linux
+    \ingroup porting
+    \ingroup qt-embedded-linux
+
+    Existing Qt applications should require no porting provided there is no
+    platform dependent code.
+
+    \table 100%
+    \header \o Platform Dependent Code
+
+    \row
+    \o
+    Platform dependent code includes system calls, calls to the
+    underlying window system (Windows or X11), and Qt platform
+    specific methods such as QApplication::x11EventFilter().
+
+    For cases where it is necessary to use platform dependent code
+    there are macros defined that can be used to enable and disable
+    code for each platform using \c #ifdef directives:
+
+    \list
+    \o Qt for Embedded Linux: Q_WS_QWS
+    \o Qt for Mac OS X: Q_WS_MAC
+    \o Qt for Windows: Q_WS_WIN
+    \o Qt for X11: Q_WS_X11
+    \endlist
+    \endtable
+*/

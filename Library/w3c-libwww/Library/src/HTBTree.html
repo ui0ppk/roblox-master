@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE>W3C Sample Code Library libwww Balanced Binary Tree</TITLE>
+<!-- Changed by: Henrik Frystyk Nielsen, 23-Mar-1996 -->
+</HEAD>
+<BODY>
+
+<H1>Balanced Binary Tree</H1>
+
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+
+Tree creation, traversal and freeing. User-supplied comparison
+routine.<P>
+
+This module is implemented by <A HREF="HTBTree.c">HTBTree.c</A>, and
+it is a part of the <A HREF="http://www.w3.org/Library/"> W3C
+Sample Code Library</A>.
+
+<PRE>
+#ifndef HTBTTEE_H
+#define HTBTREE_H
+
+#include "HTArray.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+
+</PRE>
+
+<PRE>
+typedef struct _HTBTree HTBTree;
+
+typedef struct _HTBTree_element HTBTElement;
+</PRE>
+
+<H2>Create a Binary Tree</H2>
+
+This function creates a new binary tree and uses the comparison
+function when building the tree.
+
+<PRE>
+extern HTBTree * HTBTree_new (HTComparer * comp);
+</PRE>
+
+<H2>Free storage of the tree but not of the objects</H2>
+
+<PRE>
+extern void HTBTree_free (HTBTree * tree);
+</PRE>
+
+<H2>Free storage of the tree and of the objects</H2>
+
+<PRE>
+extern void HTBTreeAndObject_free (HTBTree * tree);
+</PRE>
+
+<H2>Add an object to a binary tree</H2>
+
+<PRE>
+extern void HTBTree_add (HTBTree* tree, void * object);
+</PRE>
+
+<H2>Return an Object</H2>
+
+<PRE>
+extern void * HTBTree_object (HTBTElement * element);
+</PRE>
+
+<H2>Find next element in depth-first order</H2>
+
+<H3>On entry,</H3>
+
+If <CODE>element</CODE> is NULL then start with leftmost element. if
+not NULL then give next object to the right. The function returns a
+pointer to element or NULL if none left.
+
+<PRE>
+extern HTBTElement * HTBTree_next (HTBTree * tree, HTBTElement * element);
+</PRE>
+
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTBTTEE_H */
+</PRE>
+
+<HR>
+<ADDRESS>
+@(#) $Id$
+</ADDRESS>
+</BODY>
+</HTML>

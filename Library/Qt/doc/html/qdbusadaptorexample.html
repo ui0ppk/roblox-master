@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- dbus-adaptors.qdoc -->
+  <title>Qt 4.8: D-Bus Adaptor Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>D-Bus Adaptor Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="prev" href="qdbustypesystem.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qdbustypesystem.html">The QtDBus Type System</a>
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-header">The header</a></li>
+<li class="level1"><a href="#the-properties">The properties</a></li>
+<li class="level1"><a href="#the-constructor">The constructor</a></li>
+<li class="level1"><a href="#slots-methods">Slots/methods</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+</ul>
+</div>
+<h1 class="title">D-Bus Adaptor Example</h1>
+<span class="subtitle"></span>
+<!-- $$$qdbusadaptorexample.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The following example code shows how a D-Bus interface can be implemented using an adaptor.</p>
+<p>A sample usage of <a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a> is as follows:</p>
+<pre class="cpp"> <span class="keyword">class</span> MainApplicationAdaptor: <span class="keyword">public</span> <span class="type"><a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a></span>
+ {
+     Q_OBJECT
+     Q_CLASSINFO(<span class="string">&quot;D-Bus Interface&quot;</span><span class="operator">,</span> <span class="string">&quot;org.kde.DBus.MainApplication&quot;</span>)
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> caption READ caption WRITE setCaption)
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> organizationName READ organizationName)
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> organizationDomain READ organizationDomain)
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qapplication.html">QApplication</a></span> <span class="operator">*</span>app;
+
+ <span class="keyword">public</span>:
+     MainApplicationAdaptor(<span class="type"><a href="qapplication.html">QApplication</a></span> <span class="operator">*</span>application)
+         : <span class="type"><a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a></span>(application)<span class="operator">,</span> app(application)
+     {
+         connect(application<span class="operator">,</span> SIGNAL(aboutToQuit())<span class="operator">,</span> SIGNAL(aboutToQuit()));
+         connect(application<span class="operator">,</span> SIGNAL(focusChanged(<span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span>))<span class="operator">,</span>
+                 SLOT(focusChangedSlot(<span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span>)));
+     }
+
+     <span class="type"><a href="qstring.html">QString</a></span> caption()
+     {
+         <span class="keyword">if</span> (app<span class="operator">-</span><span class="operator">&gt;</span>hasMainWindow())
+             <span class="keyword">return</span> app<span class="operator">-</span><span class="operator">&gt;</span>mainWindow()<span class="operator">-</span><span class="operator">&gt;</span>caption();
+         <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;&quot;</span>); <span class="comment">// must not return a null QString</span>
+     }
+
+     <span class="type">void</span> setCaption(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>newCaption)
+     {
+         <span class="keyword">if</span> (app<span class="operator">-</span><span class="operator">&gt;</span>hasMainWindow())
+             app<span class="operator">-</span><span class="operator">&gt;</span>mainWindow()<span class="operator">-</span><span class="operator">&gt;</span>setCaption(newCaption);
+     }
+
+     <span class="type"><a href="qstring.html">QString</a></span> organizationName()
+     {
+         <span class="keyword">return</span> app<span class="operator">-</span><span class="operator">&gt;</span>organizationName();
+     }
+
+     <span class="type"><a href="qstring.html">QString</a></span> organizationDomain()
+     {
+         <span class="keyword">return</span> app<span class="operator">-</span><span class="operator">&gt;</span>organizationDomain();
+     }
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     Q_NOREPLY <span class="type">void</span> quit()
+     { app<span class="operator">-</span><span class="operator">&gt;</span>quit(); }
+
+     <span class="type">void</span> reparseConfiguration()
+     { app<span class="operator">-</span><span class="operator">&gt;</span>reparseConfiguration(); }
+
+     <span class="type"><a href="qstring.html">QString</a></span> mainWindowObject()
+     {
+         <span class="keyword">if</span> (app<span class="operator">-</span><span class="operator">&gt;</span>hasMainWindow())
+             <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;/%1/mainwindow&quot;</span>)<span class="operator">.</span>arg(app<span class="operator">-</span><span class="operator">&gt;</span>applicationName());
+         <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+     }
+
+     <span class="type">void</span> setSessionManagement(<span class="type">bool</span> enable)
+     {
+         <span class="keyword">if</span> (enable)
+            app<span class="operator">-</span><span class="operator">&gt;</span>enableSessionManagement();
+         <span class="keyword">else</span>
+            app<span class="operator">-</span><span class="operator">&gt;</span>disableSessionManagement();
+     }
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> focusChangedSlot(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>now)
+     {
+         <span class="keyword">if</span> (now <span class="operator">=</span><span class="operator">=</span> app<span class="operator">-</span><span class="operator">&gt;</span>mainWindow())
+             <span class="keyword">emit</span> mainWindowHasFocus();
+     }
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> aboutToQuit();
+     <span class="type">void</span> mainWindowHasFocus();
+ };</pre>
+<p>The code above would create an interface that could be represented more or less in the following canonical representation:</p>
+<pre class="cpp"> interface org<span class="operator">.</span>kde<span class="operator">.</span>DBus<span class="operator">.</span>MainApplication
+ {
+     property readwrite STRING caption
+     property read STRING organizationName
+     property read STRING organizationDomain
+
+     method quit() annotation(<span class="string">&quot;org.freedesktop.DBus.Method.NoReply&quot;</span><span class="operator">,</span> <span class="string">&quot;true&quot;</span>)
+     method reparseConfiguration()
+     method mainWindowObject(out STRING)
+     method disableSessionManagement(in BOOLEAN enable)
+
+     signal aboutToQuit()
+     signal mainWindowHasFocus()
+ }</pre>
+<p>This adaptor could be used in the application's main function as follows</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span><span class="operator">*</span>argv)
+ {
+     <span class="comment">// create the QApplication object</span>
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="comment">// create the MainApplication adaptor:</span>
+     <span class="keyword">new</span> MainApplicationAdaptor(app);
+
+     <span class="comment">// connect to D-Bus and register as an object:</span>
+     <span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">.</span>registerObject(<span class="string">&quot;/MainApplication&quot;</span><span class="operator">,</span> app);
+
+     <span class="comment">// add main window, etc.</span>
+     <span class="operator">[</span><span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span>
+
+     app<span class="operator">.</span>exec();
+ }</pre>
+<p>Break-down analysis: </p>
+<a name="the-header"></a>
+<h2>The header</h2>
+<p>The header of the example is:</p>
+<pre class="cpp"> <span class="keyword">class</span> MainApplicationAdaptor: <span class="keyword">public</span> <span class="type"><a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a></span>
+ {
+     Q_OBJECT
+     Q_CLASSINFO(<span class="string">&quot;D-Bus Interface&quot;</span><span class="operator">,</span> <span class="string">&quot;org.kde.DBus.MainApplication&quot;</span>)</pre>
+<p>The code does the following:</p>
+<ul>
+<li>it declares the adaptor MainApplicationAdaptor, which descends from <a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a></li>
+<li>it declares the Qt meta-object data using the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro</li>
+<li>it declares the name of the D-Bus interface it implements.</li>
+</ul>
+<a name="the-properties"></a>
+<h2>The properties</h2>
+<p>The properties are declared as follows:</p>
+<pre class="cpp">     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> caption READ caption WRITE setCaption)
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> organizationName READ organizationName)
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> organizationDomain READ organizationDomain)</pre>
+<p>And are implemented as follows:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> caption()
+ {
+     <span class="keyword">if</span> (app<span class="operator">-</span><span class="operator">&gt;</span>hasMainWindow())
+         <span class="keyword">return</span> app<span class="operator">-</span><span class="operator">&gt;</span>mainWindow()<span class="operator">-</span><span class="operator">&gt;</span>caption();
+     <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+ }
+
+ <span class="type">void</span> setCaption(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>newCaption)
+ {
+     <span class="keyword">if</span> (app<span class="operator">-</span><span class="operator">&gt;</span>hasMainWindow())
+         app<span class="operator">-</span><span class="operator">&gt;</span>mainWindow()<span class="operator">-</span><span class="operator">&gt;</span>setCaption(newCaption);
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> organizationName()
+ {
+     <span class="keyword">return</span> app<span class="operator">-</span><span class="operator">&gt;</span>organizationName();
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> organizationDomain()
+ {
+     <span class="keyword">return</span> app<span class="operator">-</span><span class="operator">&gt;</span>organizationDomain();
+ }</pre>
+<p>The code declares three properties: one of them is a read-write property called &quot;caption&quot; of string type. The other two are read-only, also of the string type.</p>
+<p>The properties organizationName and organizationDomain are simple relays of the app object's organizationName and organizationDomain properties. However, the caption property requires verifying if the application has a main window associated with it: if there isn't any, the caption property is empty. Note how it is possible to access data defined in other objects through the getter/setter functions.</p>
+<a name="the-constructor"></a>
+<h2>The constructor</h2>
+<p>The constructor:</p>
+<pre class="cpp"> MyInterfaceAdaptor(<span class="type"><a href="qapplication.html">QApplication</a></span> <span class="operator">*</span>application)
+     : <span class="type"><a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a></span>(application)<span class="operator">,</span> app(application)
+ {
+     connect(application<span class="operator">,</span> SIGNAL(aboutToQuit())<span class="operator">,</span> SIGNAL(aboutToQuit());
+     connect(application<span class="operator">,</span> SIGNAL(focusChanged(<span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             SLOT(focusChangedSlot(<span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span>)));
+ }</pre>
+<p>The constructor does the following:</p>
+<ul>
+<li>it initialises its base class (<a href="qdbusabstractadaptor.html">QDBusAbstractAdaptor</a>) with the parent object it is related to.</li>
+<li>it stores the app pointer in a member variable. Note that it would be possible to access the same object using the QDBusAbstractAdaptor::object() function, but it would be necessary to use <i>static_cast&lt;&gt;</i> to properly access the methods in <a href="qapplication.html">QApplication</a> that are not part of <a href="qobject.html">QObject</a>.</li>
+<li>it connects the application's signal <i>aboutToQuit</i> to its own signal <i>aboutToQuit</i>.</li>
+<li>it connects the application's signal <i>focusChanged</i> to a private slot to do some further processing before emitting a D-Bus signal.</li>
+</ul>
+<p>Note that there is no destructor in the example. An eventual destructor could be used to emit one last signal before the object is destroyed, for instance.</p>
+<a name="slots-methods"></a>
+<h2>Slots/methods</h2>
+<p>The public slots in the example (which will be exported as D-Bus methods) are the following:</p>
+<pre class="cpp"> <span class="keyword">public</span> <span class="keyword">slots</span>:
+     Q_NOREPLY <span class="type">void</span> quit()
+     { app<span class="operator">-</span><span class="operator">&gt;</span>quit(); }
+
+     <span class="type">void</span> reparseConfiguration()
+     { app<span class="operator">-</span><span class="operator">&gt;</span>reparseConfiguration(); }
+
+     <span class="type"><a href="qstring.html">QString</a></span> mainWindowObject()
+     {
+         <span class="keyword">if</span> (app<span class="operator">-</span><span class="operator">&gt;</span>hasMainWindow())
+             <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;/%1/mainwindow&quot;</span>)<span class="operator">.</span>arg(app<span class="operator">-</span><span class="operator">&gt;</span>applicationName());
+         <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+     }
+
+     <span class="type">void</span> setSessionManagement(<span class="type">bool</span> enable)
+     {
+         <span class="keyword">if</span> (enable)
+            app<span class="operator">-</span><span class="operator">&gt;</span>enableSessionManagement();
+         <span class="keyword">else</span>
+            app<span class="operator">-</span><span class="operator">&gt;</span>disableSessionManagement();
+     }</pre>
+<p>This snippet of code defines 4 methods with different properties each:</p>
+<ol class="1">
+<li><tt>quit</tt>: this method takes no parameters and is defined to be asynchronous. That is, callers are expected to use &quot;fire-and-forget&quot; mechanism when calling this method, since it provides no useful reply. This is represented in D-Bus by the use of the org.freedesktop.DBus.Method.NoReply annotation. See <a href="qdbusabstractadaptor.html#Q_NOREPLY">Q_NOREPLY</a> for more information on asynchronous methods</li>
+<li><tt>reparseConfiguration</tt>: this simple method, with no input or output arguments simply relays the call to the application's reparseConfiguration member function.</li>
+<li><tt>mainWindowObject</tt>: this method takes no input parameter, but returns one string output argument, containing the path to the main window object (if the application has a main window), or an empty string if it has no main window. Note that this method could have also been written: void mainWindowObject(<a href="qstring.html">QString</a> &amp;path).</li>
+<li><tt>setSessionManagement</tt>: this method takes one input argument (a boolean) and, depending on its value, it calls one function or another in the application.</li>
+</ol>
+<p>See also: <a href="qdbusabstractadaptor.html#Q_NOREPLY">Q_NOREPLY</a>.</p>
+<a name="signals"></a>
+<h2>Signals</h2>
+<p>The signals in this example are defined as follows:</p>
+<pre class="cpp"> <span class="keyword">signals</span>:
+     <span class="type">void</span> aboutToQuit();
+     <span class="type">void</span> mainWindowHasFocus();</pre>
+<p>However, signal definition isn't enough: signals have to be emitted. One simple way of emitting signals is to connect another signal to them, so that Qt's signal handling system chains them automatically. This is what is done for the <i>aboutToQuit</i> signal.</p>
+<p>When this is the case, one can use the QDBusAbstractAdaptor::setAutoRelaySignals to automatically connect every signal from the real object to the adaptor.</p>
+<p>When simple signal-to-signal connection isn't enough, one can use a private slot do do some work. This is what was done for the mainWindowHasFocus signal:</p>
+<pre class="cpp"> <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> focusChangedSlot(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>now)
+     {
+         <span class="keyword">if</span> (now <span class="operator">=</span><span class="operator">=</span> app<span class="operator">-</span><span class="operator">&gt;</span>mainWindow())
+             <span class="keyword">emit</span> mainWindowHasFocus();
+     }</pre>
+<p>This private slot (which will not be exported as a method via D-Bus) was connected to the <tt>focusChanged</tt> signal in the adaptor's constructor. It is therefore able to shape the application's signal into what the interface expects it to be.</p>
+</div>
+<!-- @@@qdbusadaptorexample.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qdbustypesystem.html">The QtDBus Type System</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

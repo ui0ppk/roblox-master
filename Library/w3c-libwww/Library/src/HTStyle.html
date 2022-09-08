@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww Stylesheet Manager</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Stylesheet Manager
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+Styles allow the translation between a logical property of a piece of text
+and its physical representation. A StyleSheet is a collection of styles,
+defining the translation necessary to represent a document. It is a linked
+list of styles.
+<P>
+A stylesheet is a collection of styles - these styles can either come from
+over the net or they can be provided by the application as needed.
+<P>
+The manager doesn't contain any styles - it only provides a mechanism for
+registering styles, looking them up and deleting them. That is, it doesn't
+have any idea of what a style actually looks like - as this is highly application
+dependent, it is not a good idea to provide this as common library code.
+<P>
+This module is implemented by <A HREF="HTStyle.c">HTStyle.c</A>, and it is
+a part of the <A HREF="http://www.w3.org/Library/"> W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTSTYLE_H
+#define HTSTYLE_H
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  Creating and Deleting a StyleSheet
+</H2>
+<P>
+A Stylesheet is a container containing multiple individual styles. You must
+therefore first create a stylesheet before you can create individual styles.
+<PRE>
+typedef struct _HTStyleSheet HTStyleSheet;
+
+extern HTStyleSheet * HTStyleSheet_new (const char * name);
+extern BOOL HTStyleSheet_delete (HTStyleSheet * me);
+</PRE>
+<H2>
+  Creating and Deleting Individual Styles
+</H2>
+<PRE>
+typedef struct _HTStyle HTStyle;
+
+extern HTStyle * HTStyle_new (const char * name, int element, void * context);
+extern BOOL HTStyle_delete (HTStyle * me);
+</PRE>
+<H2>
+  Adding and Deleting Individual styles from Stylesheet
+</H2>
+<PRE>
+extern BOOL HTStyleSheet_addStyle (HTStyleSheet * me, HTStyle * style);
+extern BOOL HTStyleSheet_deleteStyle (HTStyleSheet * me, HTStyle * style);
+</PRE>
+<H2>
+  Searching for a Specific Style
+</H2>
+<PRE>
+extern HTStyle * HTStyleSheet_findStyleWithName (HTStyleSheet * me, const char * name);
+extern HTStyle * HTStyleSheet_findStyleForElement (HTStyleSheet * me, int element);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTSTYLE_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

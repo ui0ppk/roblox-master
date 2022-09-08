@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- chapter_cache.qdoc -->
+  <title>Qt 4.8: QtWebKit Guide - Client Storage</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>QtWebKit Guide - Client Storage</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#client-storage">Client Storage</a></li>
+<li class="level1"><a href="#simple-data-storage">Simple Data Storage</a></li>
+<li class="level2"><a href="#storing-non-string-data">Storing Non-String Data</a></li>
+<li class="level2"><a href="#storage-events">Storage Events</a></li>
+<li class="level1"><a href="#websql-databases">WebSQL Databases</a></li>
+<li class="level2"><a href="#creating-and-opening-a-new-database">Creating and Opening a New Database</a></li>
+<li class="level2"><a href="#transaction-calls-and-executesql-method">Transaction Calls and ExecuteSQL Method</a></li>
+<li class="level2"><a href="#changing-database-versions">Changing Database Versions</a></li>
+<li class="level2"><a href="#errors">Errors</a></li>
+</ul>
+</div>
+<h1 class="title">QtWebKit Guide - Client Storage</h1>
+<span class="subtitle"></span>
+<!-- $$$qtwebkit-guide-cache.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="client-storage"></a>
+<h2>Client Storage</h2>
+<p>This section of the <a href="qtwebkit-guide.html">QtWebKit Guide</a> serves as an introduction to the <a href="http://dev.w3.org/html5/webstorage/">HTML5 Web Storage</a> features of <a href="qtwebkit.html">QtWebKit</a>.</p>
+<p>Traditional mobile web development centered around the limitations of client handsets, which had very little storage for applications. As handsets become more powerful, however, this assumption is no longer valid. HTML5's newly introduced <a href="http://dev.w3.org/html5/webstorage/">Web Storage</a> features expand application storage on the client.</p>
+<p>HTML 5 standardizes access to an application's local data via <tt>LocalStorage</tt> and <tt>SessionStorage</tt> APIs. These APIs boost the amount of client storage available to web applications. They also can effectively replace cookies as a means to maintain application state and track user preferences.</p>
+<p>Local storage persists indefinitely, while session storage lasts only for the duration of a window session. Local storage is available from any page or window from the same site, while session storage is local to each window. Both local and session storage rely on simple key/value pairs, with keys and values both stored as strings.</p>
+<p>Local and session storage are not the only client storage available. HTML 5 WebSQL serves as a more full-featured, client-side database. WebSQL brings SQLite-based structured database functionality, typically deployed on servers, to client browser applications. WebSQL is appropriate for data-intensive applications requiring complex queries rather than simple key/value access. WebSQL database transaction calls help avoid interfaces from locking up, facilitate rollback and error handling, and protect against SQL injection. Database versioning allows you to manage schema changes incrementally.</p>
+<a name="simple-data-storage"></a>
+<h2>Simple Data Storage</h2>
+<p>The <tt>localStorage</tt> and <tt>sessionStorage</tt> APIs offer applications up to 5MB of data storage. They both share the same simple key/value interface, but have different namespaces and also differ in the extent to which data is available. Local storage persists indefinitely, while session storage only lasts for the duration of a window session. Local storage is available from any page or window from the same site, while session storage is local to each window.</p>
+<p>The following examples demonstrate the API interface. While these use <tt>localStorage</tt> as an example, the same set of API calls work for <tt>sessionStorage</tt>, which is also available within the <tt>window</tt> object.</p>
+<p>The following performs an initial check for support of browser-based storage and assigns the database to a variable:</p>
+<pre class="cpp"> <span class="keyword">if</span> (window<span class="operator">.</span>localStorage) {
+     var db <span class="operator">=</span> window<span class="operator">.</span>localStorage;
+     <span class="comment">// storage functionality here</span>
+ }
+ <span class="keyword">else</span> {
+     <span class="comment">// store data remotely?</span>
+ }</pre>
+<p>The <tt>getItem()</tt> method retrieves the value of a database field named <tt>key</tt>:</p>
+<pre class="cpp"> var value <span class="operator">=</span> db<span class="operator">.</span>getItem(<span class="string">&quot;key&quot;</span>);</pre>
+<p>Note that both keys and values are represented as strings. If you specify any other type of data, it is converted silently to a string representation. (See <a href="#storing-non-string-data">Storing Non-String Data</a> for ways around this limitation.) If <tt>getItem()</tt> returns <tt>null</tt> rather than a string value, it means the specified key does not exist.</p>
+<p>The <tt>setItem()</tt> method establishes a new value. When adding data, it is a good idea to check to make sure you haven't exceeded the allotted storage space:</p>
+<pre class="cpp"> <span class="keyword">try</span> {
+     db<span class="operator">.</span>setItem(<span class="string">&quot;key&quot;</span><span class="operator">,</span> <span class="string">&quot;string&quot;</span>);
+ }
+ <span class="keyword">catch</span>(err) {
+     <span class="keyword">if</span> (err<span class="operator">.</span>QUOTA_EXCEEDED_ERR) {
+         <span class="comment">// storage space is exceeded</span>
+     }
+ }</pre>
+<p>The <tt>removeItem()</tt> method deletes database fields:</p>
+<pre class="cpp"> db<span class="operator">.</span>removeItem(<span class="string">&quot;key&quot;</span>);</pre>
+<p>The <tt>clear()</tt> method deletes all key/value pairs within the database, either for an entire site in the case of <tt>localStorage</tt>, or for an individual window session in the case of <tt>sessionStorage</tt>:</p>
+<pre class="cpp"> db<span class="operator">.</span>clear();</pre>
+<p>Databases can be accessed as arrays using index notation, useful in cases where you may not know all the field names. The <tt>length</tt> property returns the number of fields in the database, and the <tt>key()</tt> method returns the name of the key corresponding to a given index. The following reflects the contents of a database in a JavaScript object:</p>
+<pre class="cpp"> var obj <span class="operator">=</span> {};
+ <span class="keyword">for</span> ( var i <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> l <span class="operator">=</span> db<span class="operator">.</span>length ; i <span class="operator">&lt;</span> l ; i<span class="operator">+</span><span class="operator">+</span> ) {
+     obj<span class="operator">[</span> db<span class="operator">.</span>key(i) <span class="operator">]</span> <span class="operator">=</span> db<span class="operator">.</span>getItem( db<span class="operator">.</span>key(i) );
+ }</pre>
+<p>Since keys correspond to array indexes, you should not add or remove keys during any operation that iterates over the full set of key/value pairs. Newly introduced keys are introduced randomly into the array's sequence.</p>
+<p>The following displays simple storage functionality. The application prompts for a login and password if they are unavailable. This locally stored data is available the next time users open the browser. However, the contents of the credit card field is stored only for the duration of the browing session.</p>
+<p><a href="webkit-guide/storage.htm"><img src="images/scr_storage.png" alt="" /> </a></p>
+<p><a href="webkit-webkit-guide-css-storage-css.html">(CSS)</a> <a href="webkit-webkit-guide-js-storage-js.html">(JavaScript)</a></p>
+<a name="storing-non-string-data"></a>
+<h3>Storing Non-String Data</h3>
+<p>Since local and session storage APIs only support string values, you need to be careful not to allow errors that result from passive conversions from other data types. The following sample shows how such an error might come about:</p>
+<pre class="cpp">     var db <span class="operator">=</span> window<span class="operator">.</span>localStorage;
+     var saveCardInfo;
+         <span class="comment">// user expresses preference NOT to save credit card info:</span>
+     saveCardInfo <span class="operator">=</span> <span class="keyword">false</span>;
+         <span class="comment">// BUG happens here...</span>
+     db<span class="operator">.</span>setItem(<span class="string">&quot;save_card_info&quot;</span><span class="operator">,</span> saveCardInfo);
+         <span class="comment">// variable is now a string, not a boolean:</span>
+     saveCardInfo <span class="operator">=</span> db<span class="operator">.</span>getItem(<span class="string">&quot;save_card_info&quot;</span>);
+         <span class="comment">// both &quot;true&quot; and &quot;false&quot; strings evaluate as true...</span>
+     <span class="keyword">if</span> ( saveCardInfo ) {
+         <span class="comment">// ...so this code always executes...</span>
+     }
+     <span class="keyword">else</span> {
+         <span class="comment">// ...and this code never executes.</span>
+     }</pre>
+<p>The user's preference to retain credit card information is expressed within the application as a <tt>true</tt> or <tt>false</tt> boolean value. When each value is passed to storage, however, it is passively converted to a string. When reassigned to a JavaScript variable, it no longer serves as a valid boolean test. The application falsely assumes users want to save credit card information, regardless of their expressed preference.</p>
+<p>The following sample fixes the problem. Instead of using <tt>true</tt> and <tt>false</tt> boolean values, it converts <tt>1</tt> and <tt>0</tt> strings to numbers:</p>
+<pre class="cpp">     var db <span class="operator">=</span> window<span class="operator">.</span>localStorage;
+     var saveCardInfo <span class="operator">=</span> <span class="number">0</span>;
+     db<span class="operator">.</span>setItem(<span class="string">&quot;save_card_info&quot;</span><span class="operator">,</span> saveCardInfo);
+     <span class="comment">// multiplying forces numeric output:</span>
+     saveCardInfo <span class="operator">=</span> db<span class="operator">.</span>getItem(<span class="string">&quot;save_card_info&quot;</span>) <span class="operator">*</span> <span class="number">1</span>;</pre>
+<p>For a more reliable alternative, store values as JSON strings and rely on automatic type conversion when subsequently parsing them. The following sample shows how parsing JSON preserves both boolean and numeric data:</p>
+<pre class="cpp">     var saveCardInfo <span class="operator">=</span> <span class="keyword">true</span>;                    <span class="comment">// boolean</span>
+     var shipMethod <span class="operator">=</span> <span class="number">2</span>;                        <span class="comment">// number</span>
+     var db <span class="operator">=</span> window<span class="operator">.</span>localStorage;
+
+     db<span class="operator">.</span>setItem(<span class="string">&quot;save_card_info&quot;</span><span class="operator">,</span> JSON<span class="operator">.</span>stringify(saveCardInfo));
+     db<span class="operator">.</span>setItem(<span class="string">&quot;ship_method&quot;</span><span class="operator">,</span> JSON<span class="operator">.</span>stringify(shipMethod));
+
+     saveCardInfo <span class="operator">=</span> JSON<span class="operator">.</span>parse(db<span class="operator">.</span>getItem(<span class="string">&quot;save_card_info&quot;</span>));    <span class="comment">// boolean</span>
+     shipMethod <span class="operator">=</span> JSON<span class="operator">.</span>parse(db<span class="operator">.</span>getItem(<span class="string">&quot;ship_method&quot;</span>));        <span class="comment">// number</span></pre>
+<p>Note that this simple approach may cause problems of its own. For example, perhaps the words <tt>true</tt> and <tt>false</tt> really should be represented as strings. Encapsulating data within objects accounts for such variability:</p>
+<pre class="cpp">     var db <span class="operator">=</span> window<span class="operator">.</span>localStorage;
+     var obj <span class="operator">=</span> {
+         <span class="type">bool</span>    : <span class="keyword">true</span><span class="operator">,</span>
+         str        : <span class="string">&quot;true&quot;</span><span class="operator">,</span>
+         num        : <span class="number">1</span>
+     };
+     db<span class="operator">.</span>setItem(<span class="string">&quot;appState&quot;</span><span class="operator">,</span> JSON<span class="operator">.</span>stringify(obj));    <span class="comment">// to database...</span>
+     <span class="comment">// &quot;appState&quot; is &quot;{'bool':true,'num':1,'str':'true'}&quot;</span>
+     obj <span class="operator">=</span> JSON<span class="operator">.</span>parse(db<span class="operator">.</span>getItem(<span class="string">&quot;appState&quot;</span>));    <span class="comment">// ...and back</span>
+     <span class="comment">// obj is same as initially defined.</span></pre>
+<p>The ability to save objects as JSON strings means that you can save an application's state within a single database field. For example, you might use the following approach to save the entire contents of a shopping cart in a single field for later use:</p>
+<pre class="cpp">     var db <span class="operator">=</span> window<span class="operator">.</span>localStorage;
+     var cart <span class="operator">=</span> { items: <span class="operator">[</span><span class="operator">]</span> };
+
+     cart<span class="operator">.</span>message <span class="operator">=</span> <span class="string">&quot;From your loving uncle&quot;</span>;
+
+     cart<span class="operator">.</span>items<span class="operator">.</span>push({
+         description    : <span class="string">&quot;Floor to Ceiling Shoe Rack&quot;</span><span class="operator">,</span>
+         id        : <span class="number">203174676</span><span class="operator">,</span>
+         price    : <span class="number">99.95</span><span class="operator">,</span>
+         quantity    : <span class="number">1</span><span class="operator">,</span>
+         weight    : <span class="number">20</span><span class="operator">,</span>
+     });
+
+     cart<span class="operator">.</span>items<span class="operator">.</span>push({
+         description    : <span class="string">&quot;Automatic Laser Toy for Cats&quot;</span><span class="operator">,</span>
+         id        : <span class="number">203345371</span><span class="operator">,</span>
+         price    : <span class="number">19.95</span><span class="operator">,</span>
+         quantity    : <span class="number">2</span><span class="operator">,</span>
+         weight    : <span class="number">0.5</span><span class="operator">,</span>
+     });
+
+     <span class="comment">// save all cumulative items:</span>
+     db<span class="operator">.</span>setItem(<span class="string">&quot;cart&quot;</span><span class="operator">,</span> JSON<span class="operator">.</span>stringify(cart));
+
+     <span class="comment">// extract items from storage:</span>
+     cart <span class="operator">=</span> JSON<span class="operator">.</span>parse(db<span class="operator">.</span>getItem(<span class="string">&quot;cart&quot;</span>));</pre>
+<p>JSON allows you to store data types, but functions are ignored. That makes it more difficult to preserve objects representing fully functional applications.</p>
+<a name="storage-events"></a>
+<h3>Storage Events</h3>
+<p>The <tt>storage</tt> event allows applications to respond indirectly to modified data resulting from calls to <tt>setItem()</tt>, <tt>removeItem()</tt>, or <tt>clear()</tt>. This may be useful in providing users with visual feedback notifying them of data that is modified locally, perhaps rather than being sent to a remote server:</p>
+<pre class="cpp">     window<span class="operator">.</span>addEventListener(<span class="string">&quot;storage&quot;</span><span class="operator">,</span> function(event){
+         var icon <span class="operator">=</span> document<span class="operator">.</span>querySelector(<span class="string">&quot;#indicator&quot;</span>);
+         <span class="keyword">if</span> (event<span class="operator">.</span>storageArea<span class="operator">.</span>length) {
+             icon<span class="operator">.</span>className <span class="operator">=</span> <span class="string">&quot;writing&quot;</span>;
+         }
+         <span class="keyword">else</span> {
+             icon<span class="operator">.</span>className <span class="operator">=</span> <span class="string">&quot;empty&quot;</span>;
+         }
+     }<span class="operator">,</span> <span class="keyword">false</span>);</pre>
+<p>The <tt>storage</tt> event's <tt>storageArea</tt> attribute returns the <tt>localStorage</tt> or <tt>sessionStorage</tt> object being modified. The <tt>key</tt> is the name of the field being modified, and <tt>oldValue</tt> and <tt>newValue</tt> are its values before and after the event. The <tt>url</tt> is the page that called the method triggering the change.</p>
+<a name="websql-databases"></a>
+<h2>WebSQL Databases</h2>
+<p>While common local- or session-based databases are capable of storing complex data structures, <a href="qtwebkit.html">QtWebKit</a>-based browsers can also rely upon the WebSQL standard, which brings SQLite-based structured database functionality, typically deployed on servers, to client browser applications. Based on SQLite version 3.6&#x2e;19, WebSQL is appropriate for data-intensive applications requring complex queries rather than simple key/value access.</p>
+<p>The following test confirms support for WebSQL:</p>
+<pre class="cpp"> <span class="keyword">if</span> (<span class="operator">!</span><span class="operator">!</span>window<span class="operator">.</span>openDatabase) {
+     <span class="comment">// supports WebSQL</span>
+ }</pre>
+<p>Calls to databases made via the WebSQL API are made asynchronously via transactions to avoid the user interface from locking up, as database interaction may occur from several windows at a time.</p>
+<p>The three core API methods are:</p>
+<ul>
+<li><tt>openDatabase()</tt></li>
+<li><tt>transaction()</tt></li>
+<li><tt>executeSql()</tt></li>
+</ul>
+<a name="creating-and-opening-a-new-database"></a>
+<h3>Creating and Opening a New Database</h3>
+<p>To create and open a database, use <tt>openDatabase()</tt>on the Window object, for example:</p>
+<pre class="cpp">     var db <span class="operator">=</span> openDatabase(<span class="char">'mydb'</span><span class="operator">,</span> <span class="char">'1.0'</span><span class="operator">,</span> <span class="char">'my first database'</span><span class="operator">,</span> <span class="number">2</span><span class="operator">*</span><span class="number">1024</span><span class="operator">*</span><span class="number">1024</span>);
+     var db <span class="operator">=</span> openDatabase(<span class="char">'notes'</span><span class="operator">,</span> <span class="char">''</span><span class="operator">,</span> <span class="char">'The Example Notes App!'</span><span class="operator">,</span> <span class="number">1048576</span>);</pre>
+<p>The four required arguments are the database name, version, display name, and estimated size in bytes. You can supply a function as an optional fifth argument to serve as a callback when a database is created. It may be used to call the <tt>changeversion()</tt> method, in which case the callback is invoked with an empty string for the database version.</p>
+<p>The second example above specifies an empty string for the version. In this case, the database opens no matter what the database version is. (An <tt>openDatabase()</tt> call specifying the wrong version for an existing database throws an <tt>INVALID_STATE_ERR</tt> exception.) You can then query the version by examining the database object's version property, for example:</p>
+<pre class="cpp">     var version <span class="operator">=</span> db<span class="operator">.</span>version;</pre>
+<p>Note that you don't need to close a client-side Web SQL database when you're done working with it.</p>
+<a name="transaction-calls-and-executesql-method"></a>
+<h3>Transaction Calls and ExecuteSQL Method</h3>
+<p>Performing database transactions is superior to running SQL statements directly because transactions are not committed if they fail and you can undo them if needed. Transactions also allow you to handle errors using a callback. To implement a transaction, specify a callback function such as the following:</p>
+<pre class="cpp">     db<span class="operator">.</span>transaction(function (tx) {
+       <span class="comment">// SQL details on the tx object go here</span>
+     }</pre>
+<p>The <tt>transaction()</tt> method takes one to three arguments:</p>
+<ul>
+<li>a required transaction callback, in which <tt>executeSQL()</tt> calls belong</li>
+<li>an optional transaction error object</li>
+<li>an optional success callback.</li>
+</ul>
+<p>Use the <tt>executeSQL()</tt> method to specify SQL statements for read and write operations. The method protects against SQL injection and provides a callback method to process the results of any SQL queries you specify. The <tt>executeSQL()</tt> method takes from one to four arguments:</p>
+<ul>
+<li>a required SQL statement</li>
+<li>an optional object array of arguments</li>
+<li>an optional SQL statement callback</li>
+<li>an optional SQL statement error callback</li>
+</ul>
+<p>The example below creates the database if it doesn't exist, adds a two-column table to the database, and adds a row of data to the table:</p>
+<pre class="cpp">     var db <span class="operator">=</span> openDatabase(<span class="char">'mydb'</span><span class="operator">,</span> <span class="char">'1.0'</span><span class="operator">,</span> <span class="char">'my first database'</span><span class="operator">,</span> <span class="number">2</span> <span class="operator">*</span> <span class="number">1024</span> <span class="operator">*</span> <span class="number">1024</span>);
+     db<span class="operator">.</span>transaction(function (tx) {
+         tx<span class="operator">.</span>executeSql(<span class="char">'CREATE TABLE IF NOT EXISTS foo (id unique, text)'</span>);
+         tx<span class="operator">.</span>executeSql(<span class="char">'INSERT INTO foo (id, text) VALUES (1, &quot;synergies&quot;)'</span>);
+     });</pre>
+<p>To capture data from the user or an external source, use <tt>?</tt> placeholders to map that data into the SQL query. This ensures the data doesn't compromise database security, for example from SQL injection:</p>
+<pre class="cpp">     tx<span class="operator">.</span>executeSql(<span class="char">'INSERT INTO foo (id, text) VALUES (?, ?)'</span><span class="operator">,</span> <span class="operator">[</span>id<span class="operator">,</span> value<span class="operator">]</span>);</pre>
+<p><tt>id</tt> and <tt>value</tt> are external variables, and <tt>executeSql</tt> maps the items in the array to the <tt>?</tt>s.</p>
+<p>To select values from the table, use a callback to capture the results:</p>
+<pre class="cpp">     tx<span class="operator">.</span>executeSql(<span class="char">'SELECT * FROM foo'</span><span class="operator">,</span> <span class="operator">[</span><span class="operator">]</span><span class="operator">,</span> function(tx<span class="operator">,</span> results) {
+         <span class="keyword">for</span> (var i <span class="operator">=</span> <span class="number">0</span> <span class="operator">,</span> len <span class="operator">=</span> results<span class="operator">.</span>rows<span class="operator">.</span>length; i <span class="operator">&lt;</span> len; i<span class="operator">+</span><span class="operator">+</span>) {
+             <span class="comment">// do something with results.rows.item(i).text</span>
+         }
+     });</pre>
+<p>No fields are mapped in the above query, but to use the third argument you need to pass in an empty array as the second argument.</p>
+<p>The SQL statement callback for <tt>executeSQL()</tt> is called with the <tt>transaction</tt> object and a SQL statement <tt>result</tt> object. The <tt>result</tt> gives access to the ID of the last inserted row, the number of rows affected, and an indexed list representing the rows returned, in the order returned.</p>
+<p>The <tt>result</tt> object contains an array-like <tt>rows</tt> object. It has a length, but to access individual rows you need to use <tt>results.rows.item(i)</tt>, where <tt>i</tt> is the index of the row. This returns an object representation of each row. For example, if your database has a <tt>name</tt> and an <tt>age</tt> field, the <tt>row</tt> contains a <tt>name</tt> and an <tt>age</tt> property. The value of the <tt>age</tt> field can be accessed using <tt>results.rows.item(i).age</tt>.</p>
+<a name="changing-database-versions"></a>
+<h3>Changing Database Versions</h3>
+<p>Each database has one version at a time and multiple versions cannot exist at one time. Versions allow you to manage schema changes incrementally.</p>
+<p>You can change the version of a client-side Web SQL database using the <tt>changeversion()</tt> method:</p>
+<pre class="cpp">     <span class="keyword">if</span> (db<span class="operator">.</span>version <span class="operator">=</span><span class="operator">=</span> <span class="string">&quot;1.0&quot;</span>) {
+         <span class="keyword">try</span> {
+             <span class="comment">// comment out for crash recovery.</span>
+             db<span class="operator">.</span>changeVersion(<span class="string">&quot;1.0&quot;</span><span class="operator">,</span> <span class="string">&quot;2.0&quot;</span><span class="operator">,</span> cv_1_0_2_0<span class="operator">,</span> oops_1_0_2_0<span class="operator">,</span> success_1_0_2_0);
+         } <span class="keyword">catch</span>(e) {
+             alert(<span class="char">'changeversion 1.0 -&gt; 2.0 failed'</span>);
+             alert(<span class="char">'DB Version: '</span><span class="operator">+</span>db<span class="operator">.</span>version);
+         }
+     }</pre>
+<p><tt>changeversion()</tt> takes the following arguments: required old and new version numbers, optional SQL transaction callback, optional SQL transaction error callback, and optional success callback.</p>
+<a name="errors"></a>
+<h3>Errors</h3>
+<p>Asynchronous API errors are reported using callbacks that have a <tt>SQLError</tt> object as one of their arguments. <tt>SQLError</tt> contains a code from the table below and a localized message string.</p>
+<p>Error codes are:</p>
+<ul>
+<li>0 <tt>UNKNOWN_ERROR</tt> Transaction failed for reasons unrelated to the DB</li>
+<li>1 <tt>DATABASE_ERROR</tt> Statement failed for DB reasons not covered by other code</li>
+<li>2 <tt>VERSION_ERROR</tt> DB version doesn't match expected version</li>
+<li>3 <tt>TOO_LARGE_ERROR</tt> Data returned from DB was too large. Try the <tt>SQL LIMIT</tt> modifier.</li>
+<li>4 <tt>QUOTA_ERROR</tt> Insufficient remaining storage</li>
+<li>5 <tt>SYNTAX_ERROR</tt> Syntax error, argument mismatch, or unallowed statement</li>
+<li>6 <tt>CONSTRAINT_ERROR</tt> An <tt>INSERT</tt>, <tt>UPDATE</tt>, or <tt>REPLACE</tt> statement failed due to a constraint error</li>
+<li>7 <tt>TIMEOUT_ERROR</tt> Timeout waiting for transaction lock</li>
+</ul>
+<p><b>See Also:</b> <a href="http://html5doctor.com/introducing-web-sql-databases">HTML5 Doctor: Introducing Web SQL Databases</a></p>
+<ul>
+<li><a href="qtwebkit-guide.html">QtWebKit Guide</a> -back to the main page</li>
+</ul>
+</div>
+<!-- @@@qtwebkit-guide-cache.html -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Durango">
+      <Configuration>Debug</Configuration>
+      <Platform>Durango</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Profile|Durango">
+      <Configuration>Profile</Configuration>
+      <Platform>Durango</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Durango">
+      <Configuration>Release</Configuration>
+      <Platform>Durango</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ApplicationEnvironment>title</ApplicationEnvironment>
+    <ProjectGuid>{9B399639-7A3F-44CF-82EF-D4C50718130E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>Microsoft.Xbox.GameChat</ProjectName>
+    <RootNamespace>Microsoft.Xbox.GameChat</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ConsumeWinRT>true</ConsumeWinRT>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseXboxServices>false</UseXboxServices>
+    <UsePublicSdk>true</UsePublicSdk>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <CharacterSet>Unicode</CharacterSet>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Profile'" Label="Configuration">
+    <CharacterSet>Unicode</CharacterSet>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='arm'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Durango'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessorDefinitions>_WINRT_DLL;WIN32_LEAN_AND_MEAN=1;ENABLE_INTSAFE_SIGNED_FUNCTIONS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Utils;$(ProjectDir)Chat;$(ProjectDir)ChatUserSerialization\CxStyle;$(ProjectDir)ChatUserSerialization\ComStyle;$(ProjectDir)ChatClient;$(ProjectDir)ChatAudioThread;$(ProjectDir)ChatNetwork;$(ProjectDir)ChatEvents;$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'!='Durango' and '$(BuildingInsideVisualStudio)'=='true'">msxml6.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;ENABLE_INTSAFE_SIGNED_FUNCTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/DEBUGTYPE:CV,FIXUP %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ChatAudioThread\ChatAudioThread.h" />
+    <ClInclude Include="ChatAudioThread\JitterBuffer.h" />
+    <ClInclude Include="ChatClient\AudioDeviceIDMapper.h" />
+    <ClInclude Include="ChatClient\ChatClient.h" />
+    <ClInclude Include="ChatClient\ChatUser.h" />
+    <ClInclude Include="ChatEvents\ChatEvents.h" />
+    <ClInclude Include="ChatEvents\ChatDiagnostics.h" />
+    <ClInclude Include="ChatNetwork\ChatNetwork.h" />
+    <ClInclude Include="ChatUserSerialization\ComStyle\AudioDeviceInfo.h" />
+    <ClInclude Include="ChatUserSerialization\ComStyle\AudioDevices.h" />
+    <ClInclude Include="ChatUserSerialization\ComStyle\ChatPacker.h" />
+    <ClInclude Include="ChatUserSerialization\ComStyle\ChatReadWriteBuffer.h" />
+    <ClInclude Include="ChatUserSerialization\ComStyle\ChatUnpacker.h" />
+    <ClInclude Include="ChatUserSerialization\ComStyle\ChatUserSerializationCommon.h" />
+    <ClInclude Include="ChatUserSerialization\ComStyle\RemoteUser.h" />
+    <ClInclude Include="ChatUserSerialization\CxStyle\RemoteAudioDevice.h" />
+    <ClInclude Include="ChatUserSerialization\CxStyle\RemoteChatUser.h" />
+    <ClInclude Include="Chat\ChatManagerEvents.h" />
+    <ClInclude Include="Chat\ChatManagerSettings.h" />
+    <ClInclude Include="Chat\ChatPerformance.h" />
+    <ClInclude Include="Utils\BufferUtils.h" />
+    <ClInclude Include="Utils\ChatMacros.h" />
+    <ClInclude Include="Utils\ErrorUtils.h" />
+    <ClInclude Include="Utils\FactoryCache.h" />
+    <ClInclude Include="Utils\Thread.h" />
+    <ClInclude Include="Chat\ChatManager.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Utils\Clock.h" />
+    <ClInclude Include="Utils\StringUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChatAudioThread\ChatAudioThread.cpp" />
+    <ClCompile Include="ChatAudioThread\JitterBuffer.cpp" />
+    <ClCompile Include="ChatClient\AudioDeviceIDMapper.cpp" />
+    <ClCompile Include="ChatClient\ChatClient.cpp" />
+    <ClCompile Include="ChatClient\ChatUser.cpp" />
+    <ClCompile Include="ChatEvents\ChatDiagnostics.cpp" />
+    <ClCompile Include="ChatNetwork\ChatNetwork.cpp" />
+    <ClCompile Include="ChatUserSerialization\ComStyle\AudioDeviceInfo.cpp" />
+    <ClCompile Include="ChatUserSerialization\ComStyle\AudioDevices.cpp" />
+    <ClCompile Include="ChatUserSerialization\ComStyle\ChatPacker.cpp" />
+    <ClCompile Include="ChatUserSerialization\ComStyle\ChatReadWriteBuffer.cpp" />
+    <ClCompile Include="ChatUserSerialization\ComStyle\ChatUnpacker.cpp" />
+    <ClCompile Include="ChatUserSerialization\ComStyle\RemoteUser.cpp" />
+    <ClCompile Include="ChatUserSerialization\CxStyle\RemoteAudioDevice.cpp" />
+    <ClCompile Include="ChatUserSerialization\CxStyle\RemoteChatUser.cpp" />
+    <ClCompile Include="Chat\ChatManagerEvents.cpp" />
+    <ClCompile Include="Chat\ChatManagerSettings.cpp" />
+    <ClCompile Include="Chat\ChatPerformance.cpp" />
+    <ClCompile Include="Utils\BufferUtils.cpp" />
+    <ClCompile Include="Utils\Clock.cpp" />
+    <ClCompile Include="Utils\ErrorUtils.cpp" />
+    <ClCompile Include="Utils\FactoryCache.cpp" />
+    <ClCompile Include="Utils\Thread.cpp" />
+    <ClCompile Include="Chat\ChatManager.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utils\StringUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ChatEvents\ChatEvents.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChatEvents\Microsoft-Xbox-GameChat-Events.man" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(BuildingInsideVisualStudio)'=='true'">
+    <SDKReference Include="Xbox Services API, Version=8.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(BuildingInsideVisualStudio)'!='true' And '$(TargetPlatform)' == 'sra'">
+    <Reference Include="Microsoft.Xbox.Services">
+      <HintPath>$(ObjectPath)\..\..\..\..\services\runtime\public\adk\$(ObjectDirectory)\Microsoft.Xbox.Services.winmd</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(BuildingInsideVisualStudio)'!='true' And '$(TargetPlatform)' == 'lnm'">
+    <Reference Include="Microsoft.Xbox.Services">
+      <HintPath>$(ObjectPath)\..\..\..\..\services\runtime\public\xdk\$(ObjectDirectory)\Microsoft.Xbox.Services.winmd</HintPath>
+      <IsWinMDFile>true</IsWinMDFile>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="Microsoft.Xbox.GameChat.internal.props" Condition="exists('Microsoft.Xbox.GameChat.internal.props') And '$(BuildingInsideVisualStudio)'!='true'" />
+  <Import Project="Build.$(Platform).IDE.Cpp.props" Condition="exists('Build.$(Platform).IDE.Cpp.props') And '$(BuildingInsideVisualStudio)'=='true'" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

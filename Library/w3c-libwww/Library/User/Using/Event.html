@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+   "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>The Event Class</title>
+</head>
+<body bgcolor="#ffffff">
+
+<p><a href="../../../"><img border="0" alt="W3C"
+src="../../../Icons/WWW/w3c_home" width="72" height="48"></a> <a
+href="../../"><img border="0" alt="libwww" src="../../../Icons/WWW/Lib48x"
+width="48" height="48"></a> <a href="./"><img border="0"
+src="../../../Icons/WWW/guide48x" alt="Using" width="48" height="48"></a></p>
+
+<h1>The Event Manager</h1>
+
+<p>The <a href="../../src/HTEvent.html">Event Manager</a> defines the API to
+any event loop to be used by libwww for handling events. An <i>event</i> is
+not strictly defined as it is highly platform dependent and considered out of
+scope for libwww.</p>
+
+<p>The <a href="../../src/WWWCore.html">libwww core</a> does <em>not</em>
+define any event loop - this is considered part of the application. However,
+in the <a href="../../src/WWWApp.html">libwww application module</a>, you will
+find <a href="../../src/HTEvtLst.html">two default event loops</a>: one for
+Unix and one or Windows. They are normally initialized using the <a
+href="../../src/HTProfil.html">libwww profiles</a> which help you setting up
+libwww for your particular needs.</p>
+
+<p>Libwww is <em>not</em> currently thread safe - it supports what I call
+pseudo threads which are timed on I/O operations - that is, libwww works very
+much like X.</p>
+
+<p>If your application is not using anything but traditional blocking sockets
+then you do not need an event manager at all. In that case, libwww will block
+on any socket or system call until the process can proceed. It is important to
+note that certain operations like <a href="../../src/HTAccess.html">HTTP PUT
+and POST</a>, for example, require non-blocking sockets.</p>
+
+<p>The <a href="../../src/HTEvent.html">libwww event interface</a> is very
+simple, it consists of two operations:</p>
+<ol>
+<li>
+<b>registering</b> a <i>socket descriptor</i> together with the
+<i>location</i> in the program, and the <i>current state</i> of the operation
+(for example <code>read</code>). When the event manager at a later point in
+time gets a notification that the socket has become ready, it can then call
+libwww with the state saved from the registration and libwww can continue.
+</li>
+<li>
+<b>unregistering</b> a <em>socket descriptor</em> when it is not anymore in a
+state where it can block.
+</li>
+</ol>
+
+<p><a href="../../src/HTEvent.html"><img border="0"
+src="../../../Icons/WWW/doc48x" alt="Documentation" width="48" height="48"
+align="middle">Registrering an Event Manager</a></p>
+
+<p></p>
+<hr>
+
+<address>
+<a href="/People/Frystyk/">Henrik Frystyk Nielsen</a>,<br>
+@(#) $Id$ </address>
+</body>
+</html>

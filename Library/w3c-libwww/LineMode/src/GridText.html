@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Style Management for Line Mode Browser</TITLE>
+<!-- Changed by: Henrik Frystyk Nielsen,  4-Jul-1996 -->
+</HEAD>
+<BODY>
+
+<H1>Style Definition for Hypertext</H1>
+
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+
+This module defines the HText functions referenced from the HTML
+module in the <A HREF="http://www.w3.org/Library/">W3C
+Sample Code Library</A>.
+
+<PRE>
+#include "WWWLib.h"
+#include "HText.h"
+
+extern HTChildAnchor * HText_childNumber (HText * text, int n);
+
+/* delete a hyper doc object with interfering with any anchors */
+extern void hyperfree (HText * me);
+
+/* Is there any file left? */
+extern BOOL HText_canScrollUp (HText * text);
+extern BOOL HText_canScrollDown (HText * text);
+
+/* Move display within window */
+extern void HText_scrollUp (HText * text);	/* One page */
+extern void HText_scrollDown (HText * text);	/* One page */
+extern void HText_scrollTop (HText * text);
+extern void HText_scrollBottom (HText * text);
+
+extern BOOL HText_select (HText * text);
+extern BOOL HText_selectAnchor (HText * text, HTChildAnchor * anchor);
+
+extern int HText_sourceAnchors (HText * text);
+extern void HText_setStale (HText * text);
+extern void HText_refresh (HText * text);
+
+#ifdef CURSES
+extern int HText_getTopOfScreen (HText * text);
+extern int HText_getLines (HText * text);
+#endif
+
+</PRE>
+
+<H2>
+Delete All Documents in Memory
+</H2>
+
+This is typically called at clean up time just before exiting the application.
+
+<PRE>
+extern BOOL HText_freeAll (void);
+</PRE>
+
+<H2>
+Callbacks
+</H2>
+
+These functions are invoked as callbacks from the HText interface.
+
+<PRE>
+extern HText* LMHText_new (HTRequest * req,
+		HTParentAnchor * anchor,HTStream * output_stream);
+extern HText* LMHText_new2 (HTRequest * req,
+              HTParentAnchor * anchor,HTStream * output_stream);
+extern void HText_free (HText * self);
+extern BOOL LMHText_delete (HText * self);
+extern void LMHText_addText (HText * text, const char * str, int length);
+extern void LMHText_appendText (HText * text, const char * str);
+extern void LMHText_beginAnchor (HText *text,
+		int elem_num, int attr_num, HTChildAnchor* anc,
+		const BOOL* present, const char** value);
+
+</PRE>
+
+End of declaration
+
+</BODY>
+</HTML>
+
+

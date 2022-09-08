@@ -1,0 +1,12 @@
+Import('*')
+
+env = env.Clone()
+
+galahad = env.ConvenienceLibrary(
+	target = 'galahad',
+	source = env.ParseSourceList('Makefile.sources', 'C_SOURCES')
+	)
+
+env.Alias('galahad', galahad)
+
+Export('galahad')

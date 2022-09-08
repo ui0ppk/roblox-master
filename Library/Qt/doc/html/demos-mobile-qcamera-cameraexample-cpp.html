@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: cameraexample.cpp Example File (demos/mobile/qcamera/cameraexample.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">cameraexample.cpp Example File</h1>
+<span class="small-subtitle">demos/mobile/qcamera/cameraexample.cpp</span>
+<!-- $$$demos/mobile/qcamera/cameraexample.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;cameraexample.h&quot;</span>
+ <span class="preprocessor">#include &quot;messagehandling.h&quot;</span>
+ <span class="preprocessor">#include &quot;contactsdlg.h&quot;</span>
+ <span class="preprocessor">#include &quot;button.h&quot;</span>
+ <span class="preprocessor">#include &quot;businesscardhandling.h&quot;</span>
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+
+ <span class="comment">/*****************************************************************************
+ * MyVideoSurface
+ */</span>
+ MyVideoSurface<span class="operator">::</span>MyVideoSurface(<span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> widget<span class="operator">,</span> VideoIF<span class="operator">*</span> target<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">*</span> parent)
+     : <span class="type"><a href="qabstractvideosurface.html">QAbstractVideoSurface</a></span>(parent)
+ {
+     m_targetWidget <span class="operator">=</span> widget;
+     m_target <span class="operator">=</span> target;
+     m_imageFormat <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_Invalid;
+ }
+
+ MyVideoSurface<span class="operator">::</span><span class="operator">~</span>MyVideoSurface()
+ {
+ }
+
+ <span class="type">bool</span> MyVideoSurface<span class="operator">::</span>start(<span class="keyword">const</span> <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> <span class="operator">&amp;</span>format)
+ {
+     m_videoFormat <span class="operator">=</span> format;
+     <span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format imageFormat <span class="operator">=</span> <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>imageFormatFromPixelFormat(format<span class="operator">.</span>pixelFormat());
+     <span class="keyword">const</span> <span class="type"><a href="qsize.html">QSize</a></span> size <span class="operator">=</span> format<span class="operator">.</span>frameSize();
+
+     <span class="keyword">if</span> (imageFormat <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_Invalid <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>size<span class="operator">.</span>isEmpty()) {
+         m_imageFormat <span class="operator">=</span> imageFormat;
+         <span class="type"><a href="qabstractvideosurface.html">QAbstractVideoSurface</a></span><span class="operator">::</span>start(format);
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     } <span class="keyword">else</span> {
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+     }
+ }
+
+ <span class="type">bool</span> MyVideoSurface<span class="operator">::</span>present(<span class="keyword">const</span> <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span> <span class="operator">&amp;</span>frame)
+ {
+     m_frame <span class="operator">=</span> frame;
+     <span class="keyword">if</span> (surfaceFormat()<span class="operator">.</span>pixelFormat() <span class="operator">!</span><span class="operator">=</span> m_frame<span class="operator">.</span>pixelFormat() <span class="operator">|</span><span class="operator">|</span>
+             surfaceFormat()<span class="operator">.</span>frameSize() <span class="operator">!</span><span class="operator">=</span> m_frame<span class="operator">.</span>size()) {
+         stop();
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+     } <span class="keyword">else</span> {
+         m_target<span class="operator">-</span><span class="operator">&gt;</span>updateVideo();
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     }
+ }
+
+ <span class="type">void</span> MyVideoSurface<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter)
+  {
+      <span class="keyword">if</span> (m_frame<span class="operator">.</span>map(<span class="type"><a href="qabstractvideobuffer.html">QAbstractVideoBuffer</a></span><span class="operator">::</span>ReadOnly)) {
+          <span class="type"><a href="qimage.html">QImage</a></span> image(
+                  m_frame<span class="operator">.</span>bits()<span class="operator">,</span>
+                  m_frame<span class="operator">.</span>width()<span class="operator">,</span>
+                  m_frame<span class="operator">.</span>height()<span class="operator">,</span>
+                  m_frame<span class="operator">.</span>bytesPerLine()<span class="operator">,</span>
+                  m_imageFormat);
+
+          <span class="type"><a href="qrect.html">QRect</a></span> r <span class="operator">=</span> m_targetWidget<span class="operator">-</span><span class="operator">&gt;</span>rect();
+          <span class="type"><a href="qpoint.html">QPoint</a></span> centerPic((<a href="qtglobal.html#qAbs">qAbs</a>(r<span class="operator">.</span>size()<span class="operator">.</span>width() <span class="operator">-</span> image<span class="operator">.</span>size()<span class="operator">.</span>width())) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> (<a href="qtglobal.html#qAbs">qAbs</a>(
+              r<span class="operator">.</span>size()<span class="operator">.</span>height() <span class="operator">-</span> image<span class="operator">.</span>size()<span class="operator">.</span>height())) <span class="operator">/</span> <span class="number">2</span>);
+
+          <span class="keyword">if</span> (<span class="operator">!</span>image<span class="operator">.</span>isNull()) {
+             painter<span class="operator">-</span><span class="operator">&gt;</span>drawImage(centerPic<span class="operator">,</span>image);
+          }
+
+          m_frame<span class="operator">.</span>unmap();
+      }
+  }
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>PixelFormat<span class="operator">&gt;</span> MyVideoSurface<span class="operator">::</span>supportedPixelFormats(
+             <span class="type"><a href="qabstractvideobuffer.html">QAbstractVideoBuffer</a></span><span class="operator">::</span>HandleType handleType) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (handleType <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qabstractvideobuffer.html">QAbstractVideoBuffer</a></span><span class="operator">::</span>NoHandle) {
+         <span class="keyword">return</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>PixelFormat<span class="operator">&gt;</span>()
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>Format_RGB32
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>Format_ARGB32
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>Format_ARGB32_Premultiplied
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>Format_RGB565
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>Format_RGB555;
+     } <span class="keyword">else</span> {
+         <span class="keyword">return</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvideoframe.html">QVideoFrame</a></span><span class="operator">::</span>PixelFormat<span class="operator">&gt;</span>();
+     }
+ }
+
+ <span class="comment">/*****************************************************************************
+ * CameraExample
+ */</span>
+ CameraExample<span class="operator">::</span>CameraExample(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent) :
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent)
+ {
+     setWindowTitle(<span class="string">&quot;QCameraExample&quot;</span>);
+
+     <span class="comment">// Opitimizations for screen update and drawing qwidget</span>
+     setAutoFillBackground(<span class="keyword">false</span>);
+
+     <span class="comment">// Prevent to screensaver to activate</span>
+     m_systemScreenSaver <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QSystemScreenSaver</span>(<span class="keyword">this</span>);
+     m_systemScreenSaver<span class="operator">-</span><span class="operator">&gt;</span>setScreenSaverInhibit();
+
+     m_myVideoSurface <span class="operator">=</span> <span class="number">0</span>;
+     pictureCaptured <span class="operator">=</span> <span class="keyword">false</span>;
+     showViewFinder <span class="operator">=</span> <span class="keyword">false</span>;
+     m_focusing <span class="operator">=</span> <span class="keyword">false</span>;
+
+     <span class="comment">// MMS handling</span>
+     m_message <span class="operator">=</span> <span class="keyword">new</span> Message(<span class="keyword">this</span>);
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(m_message<span class="operator">,</span> SIGNAL(messageStateChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(messageStateChanged(<span class="type">int</span>)));
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(m_message<span class="operator">,</span> SIGNAL(messageReceived(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qpixmap.html">QPixmap</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(messageReceived(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qpixmap.html">QPixmap</a></span>)));
+
+     <span class="comment">// Business card handling (Contact's avatar picture)</span>
+     m_businessCardHandling <span class="operator">=</span> <span class="keyword">new</span> BusinessCardHandling(<span class="keyword">this</span>);
+
+     <span class="comment">// Black background</span>
+     <span class="type"><a href="qpalette.html">QPalette</a></span> palette <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>palette();
+     palette<span class="operator">.</span>setColor(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Background<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     setPalette(palette);
+
+     <span class="comment">// Main widget &amp; layout</span>
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> mainWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>(<span class="keyword">this</span>);
+     mainWidget<span class="operator">-</span><span class="operator">&gt;</span>setPalette(palette);
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span><span class="operator">*</span> hboxl <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     hboxl<span class="operator">-</span><span class="operator">&gt;</span>setSpacing(<span class="number">0</span>);
+     hboxl<span class="operator">-</span><span class="operator">&gt;</span>setMargin(<span class="number">0</span>);
+
+     <span class="comment">// UI stack</span>
+     m_stackedWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstackedwidget.html">QStackedWidget</a></span>();
+     m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>setPalette(palette);
+
+     <span class="comment">// First widget to stack</span>
+     m_videoWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>();
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>setPalette(palette);
+     m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_videoWidget);
+
+     <span class="comment">// Second widget to stack</span>
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> secondWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>(<span class="keyword">this</span>);
+     secondWidget<span class="operator">-</span><span class="operator">&gt;</span>setPalette(palette);
+     m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>addWidget(secondWidget);
+     m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">0</span>);
+
+     hboxl<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_stackedWidget);
+
+     <span class="comment">// Buttons</span>
+     <span class="type"><a href="qsize.html">QSize</a></span> iconSize(<span class="number">80</span><span class="operator">,</span> <span class="number">80</span>);
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span><span class="operator">*</span> vboxl <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>setSpacing(<span class="number">0</span>);
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>setMargin(<span class="number">0</span>);
+
+     <span class="comment">// Exit button</span>
+     m_exit <span class="operator">=</span> <span class="keyword">new</span> Button(<span class="keyword">this</span>);
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(m_exit<span class="operator">,</span> SIGNAL(pressed())<span class="operator">,</span> qApp<span class="operator">,</span> SLOT(quit()));
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> p <span class="operator">=</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/icons/exit.png&quot;</span>);
+     m_exit<span class="operator">-</span><span class="operator">&gt;</span>setPixmap(p<span class="operator">.</span>scaled(iconSize<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeepAspectRatio<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation));
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_exit);
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(m_exit<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignTop);
+
+     <span class="comment">// Camera button</span>
+     m_cameraBtn <span class="operator">=</span> <span class="keyword">new</span> Button(<span class="keyword">this</span>);
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(m_cameraBtn<span class="operator">,</span> SIGNAL(pressed())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(searchAndLock()));
+     p <span class="operator">=</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/icons/camera.png&quot;</span>);
+     m_cameraBtn<span class="operator">-</span><span class="operator">&gt;</span>setPixmap(p<span class="operator">.</span>scaled(iconSize<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeepAspectRatio<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation));
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_cameraBtn);
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(m_cameraBtn<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter);
+
+     <span class="comment">// Send MMS button</span>
+     m_mms <span class="operator">=</span> <span class="keyword">new</span> Button(<span class="keyword">this</span>);
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(m_mms<span class="operator">,</span> SIGNAL(pressed())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(openContactsDlg()));
+     p <span class="operator">=</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/icons/mms.png&quot;</span>);
+     m_mms<span class="operator">-</span><span class="operator">&gt;</span>setPixmap(p<span class="operator">.</span>scaled(iconSize<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeepAspectRatio<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation));
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_mms);
+     vboxl<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(m_mms<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignBottom);
+ <span class="preprocessor">#ifndef MESSAGING_ENABLED</span>
+     m_mms<span class="operator">-</span><span class="operator">&gt;</span>disableBtn(<span class="keyword">true</span>);
+     m_mms<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+ <span class="preprocessor">#endif</span>
+
+     hboxl<span class="operator">-</span><span class="operator">&gt;</span>addLayout(vboxl);
+     mainWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(hboxl);
+
+     setCentralWidget(mainWidget);
+
+     <span class="comment">// Enable camera after 1s, so that the application is started</span>
+     <span class="comment">// and widget is created to landscape orientation</span>
+     <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">1000</span><span class="operator">,</span><span class="keyword">this</span><span class="operator">,</span>SLOT(enableCamera()));
+ }
+
+ CameraExample<span class="operator">::</span><span class="operator">~</span>CameraExample()
+ {
+ <span class="keyword">if</span> (m_myVideoSurface)
+     m_myVideoSurface<span class="operator">-</span><span class="operator">&gt;</span>stop();
+     m_camera<span class="operator">-</span><span class="operator">&gt;</span>stop();
+     <span class="keyword">delete</span> m_stackedWidget;
+     <span class="keyword">delete</span> m_stillImageCapture;
+     <span class="keyword">delete</span> m_camera;
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>enableCamera()
+ {
+     m_camera <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QCamera</span>();
+     m_camera<span class="operator">-</span><span class="operator">&gt;</span>setCaptureMode(<span class="type">QCamera</span><span class="operator">::</span>CaptureStillImage);
+     connect(m_camera<span class="operator">,</span> SIGNAL(error(<span class="type">QCamera</span><span class="operator">::</span>Error))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(error(<span class="type">QCamera</span><span class="operator">::</span>Error)));
+     connect(m_camera<span class="operator">,</span> SIGNAL(lockStatusChanged(<span class="type">QCamera</span><span class="operator">::</span>LockStatus<span class="operator">,</span><span class="type">QCamera</span><span class="operator">::</span>LockChangeReason))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(lockStatusChanged(<span class="type">QCamera</span><span class="operator">::</span>LockStatus<span class="operator">,</span><span class="type">QCamera</span><span class="operator">::</span>LockChangeReason)));
+
+     <span class="comment">// Own video output drawing that shows camera view finder pictures</span>
+     <span class="type">QMediaService</span><span class="operator">*</span> ms <span class="operator">=</span> m_camera<span class="operator">-</span><span class="operator">&gt;</span>service();
+     <span class="type">QVideoRendererControl</span><span class="operator">*</span> vrc <span class="operator">=</span> ms<span class="operator">-</span><span class="operator">&gt;</span>requestControl<span class="operator">&lt;</span><span class="type">QVideoRendererControl</span><span class="operator">*</span><span class="operator">&gt;</span>();
+     m_myVideoSurface <span class="operator">=</span> <span class="keyword">new</span> MyVideoSurface(<span class="keyword">this</span><span class="operator">,</span><span class="keyword">this</span><span class="operator">,</span><span class="keyword">this</span>);
+     vrc<span class="operator">-</span><span class="operator">&gt;</span>setSurface(m_myVideoSurface);
+     <span class="comment">// Image capturer</span>
+     m_stillImageCapture <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QCameraImageCapture</span>(m_camera);
+     connect(m_stillImageCapture<span class="operator">,</span> SIGNAL(imageCaptured(<span class="type">int</span><span class="operator">,</span><span class="type"><a href="qimage.html">QImage</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(imageCaptured(<span class="type">int</span><span class="operator">,</span><span class="type"><a href="qimage.html">QImage</a></span>)));
+
+     <span class="comment">// Start camera</span>
+     <span class="keyword">if</span> (m_camera<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type">QCamera</span><span class="operator">::</span>ActiveState) {
+         m_camera<span class="operator">-</span><span class="operator">&gt;</span>stop();
+     }
+     m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>show();
+     m_camera<span class="operator">-</span><span class="operator">&gt;</span>start();
+     showViewFinder <span class="operator">=</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>mousePressEvent(event);
+
+     <span class="keyword">if</span> (pictureCaptured) {
+         <span class="comment">// Starting view finder</span>
+         pictureCaptured <span class="operator">=</span> <span class="keyword">false</span>;
+         m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">0</span>);
+         <span class="keyword">if</span> (m_myVideoSurface) {
+             showViewFinder <span class="operator">=</span> <span class="keyword">true</span>;
+         }
+     }
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>searchAndLock()
+ {
+     m_focusing <span class="operator">=</span> <span class="keyword">false</span>;
+     m_focusMessage<span class="operator">.</span>clear();
+
+     <span class="keyword">if</span> (pictureCaptured) {
+         <span class="comment">// Starting view finder again</span>
+         pictureCaptured <span class="operator">=</span> <span class="keyword">false</span>;
+         m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">0</span>);
+         <span class="keyword">if</span> (m_myVideoSurface) {
+             showViewFinder <span class="operator">=</span> <span class="keyword">true</span>;
+         }
+     }
+     <span class="keyword">else</span> {
+         <span class="comment">// Search and lock picture (=focus)</span>
+         <span class="keyword">if</span> (m_camera<span class="operator">-</span><span class="operator">&gt;</span>supportedLocks() <span class="operator">&amp;</span> <span class="type">QCamera</span><span class="operator">::</span>LockFocus) {
+             m_focusing <span class="operator">=</span> <span class="keyword">true</span>;
+             m_focusMessage <span class="operator">=</span> <span class="string">&quot;Focusing...&quot;</span>;
+             m_camera<span class="operator">-</span><span class="operator">&gt;</span>searchAndLock(<span class="type">QCamera</span><span class="operator">::</span>LockFocus);
+         } <span class="keyword">else</span> {
+         <span class="comment">// No focus functionality, take picture right away</span>
+             captureImage();
+         }
+     }
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>lockStatusChanged(<span class="type">QCamera</span><span class="operator">::</span>LockStatus status<span class="operator">,</span> <span class="type">QCamera</span><span class="operator">::</span>LockChangeReason reason)
+ {
+     <span class="keyword">if</span> (status <span class="operator">=</span><span class="operator">=</span> <span class="type">QCamera</span><span class="operator">::</span>Locked) {
+         <span class="keyword">if</span> (reason <span class="operator">=</span><span class="operator">=</span> <span class="type">QCamera</span><span class="operator">::</span>LockAcquired) {
+             <span class="comment">// Focus locked</span>
+             m_focusMessage<span class="operator">.</span>clear();
+             m_focusing <span class="operator">=</span> <span class="keyword">false</span>;
+             <span class="comment">// Capture new image</span>
+             captureImage();
+             <span class="comment">// Unlock camera</span>
+             m_camera<span class="operator">-</span><span class="operator">&gt;</span>unlock();
+         } <span class="keyword">else</span> {
+             <span class="keyword">if</span> (m_focusing)
+                 m_focusMessage <span class="operator">=</span> <span class="string">&quot;No focus, try again&quot;</span>;
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (status <span class="operator">=</span><span class="operator">=</span> <span class="type">QCamera</span><span class="operator">::</span>Unlocked <span class="operator">&amp;</span><span class="operator">&amp;</span> m_focusing) {
+         m_focusMessage <span class="operator">=</span> <span class="string">&quot;No focus, try again&quot;</span>;
+     }
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>captureImage()
+ {
+     <span class="keyword">if</span> (pictureCaptured) {
+         <span class="comment">// Starting view finder again</span>
+         pictureCaptured <span class="operator">=</span> <span class="keyword">false</span>;
+         m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">0</span>);
+         showViewFinder <span class="operator">=</span> <span class="keyword">true</span>;
+     }
+     <span class="keyword">else</span> {
+         <span class="comment">// Capturing image</span>
+         showViewFinder <span class="operator">=</span> <span class="keyword">false</span>;
+         <span class="comment">// Get picture location where to store captured images</span>
+         <span class="type"><a href="qstring.html">QString</a></span> path(<span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>storageLocation(<span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>PicturesLocation));
+         <span class="type"><a href="qdir.html">QDir</a></span> dir(path);
+
+         <span class="comment">// Get next filename</span>
+         <span class="type"><a href="qstringlist.html">QStringList</a></span> files <span class="operator">=</span> dir<span class="operator">.</span>entryList(<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;camera_*.jpg&quot;</span>);
+         <span class="type">int</span> lastImage <span class="operator">=</span> <span class="number">0</span>;
+         foreach ( <span class="type"><a href="qstring.html">QString</a></span> fileName<span class="operator">,</span> files ) {
+                 <span class="type">int</span> imgNumber <span class="operator">=</span> fileName<span class="operator">.</span>mid(<span class="number">7</span><span class="operator">,</span> fileName<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">11</span>)<span class="operator">.</span>toInt();
+                 lastImage <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(lastImage<span class="operator">,</span> imgNumber);
+             }
+         <span class="comment">// Capture image</span>
+         <span class="keyword">if</span> (m_stillImageCapture<span class="operator">-</span><span class="operator">&gt;</span>isReadyForCapture()) {
+             m_imageName <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;camera_%1.jpg&quot;</span>)<span class="operator">.</span>arg(lastImage<span class="operator">+</span><span class="number">1</span>);
+             m_stillImageCapture<span class="operator">-</span><span class="operator">&gt;</span>capture(m_imageName);
+         }
+     }
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>imageCaptured(<span class="type">int</span> id<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>preview)
+ {
+     showViewFinder <span class="operator">=</span> <span class="keyword">false</span>;
+     m_focusing <span class="operator">=</span> <span class="keyword">false</span>;
+
+     <span class="comment">// Image captured, show it to the user</span>
+     m_stackedWidget<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">1</span>);
+
+     <span class="comment">// Get picture location</span>
+     <span class="type"><a href="qstring.html">QString</a></span> path(<span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>storageLocation(<span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>PicturesLocation));
+     m_imageName<span class="operator">.</span>prepend(path <span class="operator">+</span> <span class="string">&quot;/&quot;</span>);
+
+     m_capturedImage <span class="operator">=</span> preview;
+
+     <span class="comment">// Set suitable size to the image</span>
+     <span class="type"><a href="qsize.html">QSize</a></span> s <span class="operator">=</span> m_videoWidget<span class="operator">-</span><span class="operator">&gt;</span>size();
+     s <span class="operator">=</span> s <span class="operator">-</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+     m_capturedImage <span class="operator">=</span> m_capturedImage<span class="operator">.</span>scaled(s<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeepAspectRatio<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation);
+
+     pictureCaptured <span class="operator">=</span> <span class="keyword">true</span>;
+     update();
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>error(<span class="type">QCamera</span><span class="operator">::</span>Error e)
+ {
+     <span class="keyword">switch</span> (e) {
+     <span class="keyword">case</span> <span class="type">QCamera</span><span class="operator">::</span>NoError:
+     {
+         <span class="keyword">break</span>;
+     }
+     <span class="keyword">case</span> <span class="type">QCamera</span><span class="operator">::</span>CameraError:
+     {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;QCameraExample&quot;</span><span class="operator">,</span> <span class="string">&quot;General Camera error&quot;</span>);
+         <span class="keyword">break</span>;
+     }
+     <span class="keyword">case</span> <span class="type">QCamera</span><span class="operator">::</span>InvalidRequestError:
+     {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;QCameraExample&quot;</span><span class="operator">,</span> <span class="string">&quot;Camera invalid request error&quot;</span>);
+         <span class="keyword">break</span>;
+     }
+     <span class="keyword">case</span> <span class="type">QCamera</span><span class="operator">::</span>ServiceMissingError:
+     {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;QCameraExample&quot;</span><span class="operator">,</span> <span class="string">&quot;Camera service missing error&quot;</span>);
+         <span class="keyword">break</span>;
+     }
+     <span class="keyword">case</span> <span class="type">QCamera</span><span class="operator">::</span>NotSupportedFeatureError :
+     {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;QCameraExample&quot;</span><span class="operator">,</span> <span class="string">&quot;Camera not supported error&quot;</span>);
+         <span class="keyword">break</span>;
+     }
+     };
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>openContactsDlg()
+ {
+     <span class="comment">// Open dialog for showing contacts</span>
+     <span class="keyword">if</span> (<span class="operator">!</span>m_contactsDialog) {
+
+         <span class="keyword">if</span> (m_capturedImage<span class="operator">.</span>isNull()) {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;QCameraExample&quot;</span><span class="operator">,</span> <span class="string">&quot;Take picture first&quot;</span>);
+             <span class="keyword">return</span>;
+         }
+
+         <span class="comment">// Show dialog</span>
+         m_contactsDialog <span class="operator">=</span> <span class="keyword">new</span> ContactsDialog(<span class="keyword">this</span>);
+         <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(m_contactsDialog<span class="operator">,</span> SIGNAL(contactSelected(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(contactSelected(<span class="type"><a href="qstring.html">QString</a></span>)));
+         m_contactsDialog<span class="operator">-</span><span class="operator">&gt;</span>exec();
+         <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>disconnect(m_contactsDialog<span class="operator">,</span> SIGNAL(contactSelected(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(contactSelected(<span class="type"><a href="qstring.html">QString</a></span>)));
+
+         <span class="keyword">delete</span> m_contactsDialog;
+         m_contactsDialog <span class="operator">=</span> <span class="number">0</span>;
+     }
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>contactSelected(<span class="type"><a href="qstring.html">QString</a></span> phoneNumber)
+ {
+     m_phoneNumber <span class="operator">=</span> phoneNumber;
+     <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">1000</span><span class="operator">,</span><span class="keyword">this</span><span class="operator">,</span>SLOT(sendMMS()));
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>sendMMS()
+ {
+ <span class="preprocessor">#ifdef MESSAGING_ENABLED</span>
+     m_message<span class="operator">-</span><span class="operator">&gt;</span>sendMMS(m_imageName<span class="operator">,</span> m_phoneNumber);
+ <span class="preprocessor">#endif</span>
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>messageStateChanged(<span class="type">int</span> <span class="comment">/*error*/</span>)
+ {
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>updateVideo()
+ {
+     <span class="keyword">if</span> (showViewFinder) {
+         repaint();
+     }
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="comment">//QMainWindow::paintEvent(event);</span>
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     <span class="type"><a href="qrect.html">QRect</a></span> r <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>rect();
+
+     <span class="type"><a href="qfont.html">QFont</a></span> font <span class="operator">=</span> painter<span class="operator">.</span>font();
+     font<span class="operator">.</span>setPixelSize(<span class="number">20</span>);
+     painter<span class="operator">.</span>setFont(font);
+     painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+
+     <span class="keyword">if</span> (showViewFinder <span class="operator">&amp;</span><span class="operator">&amp;</span> m_myVideoSurface <span class="operator">&amp;</span><span class="operator">&amp;</span> m_myVideoSurface<span class="operator">-</span><span class="operator">&gt;</span>isActive()) {
+         <span class="comment">// Show view finder</span>
+         m_myVideoSurface<span class="operator">-</span><span class="operator">&gt;</span>paint(<span class="operator">&amp;</span>painter);
+
+         <span class="comment">// Paint focus message</span>
+         <span class="keyword">if</span> (<span class="operator">!</span>m_focusMessage<span class="operator">.</span>isEmpty())
+             painter<span class="operator">.</span>drawText(r<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter<span class="operator">,</span> m_focusMessage);
+
+     } <span class="keyword">else</span> {
+         <span class="comment">// Draw black</span>
+         painter<span class="operator">.</span>fillRect(event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">,</span> palette()<span class="operator">.</span>background());
+         <span class="comment">// Show captured image</span>
+         <span class="keyword">if</span> (pictureCaptured) {
+             <span class="comment">// Paint captured image</span>
+             <span class="type"><a href="qpoint.html">QPoint</a></span> centerPic((<a href="qtglobal.html#qAbs">qAbs</a>(r<span class="operator">.</span>size()<span class="operator">.</span>width() <span class="operator">-</span> m_capturedImage<span class="operator">.</span>size()<span class="operator">.</span>width())) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> (<a href="qtglobal.html#qAbs">qAbs</a>(
+                 r<span class="operator">.</span>size()<span class="operator">.</span>height() <span class="operator">-</span> m_capturedImage<span class="operator">.</span>size()<span class="operator">.</span>height())) <span class="operator">/</span> <span class="number">2</span>);
+
+             painter<span class="operator">.</span>drawImage(centerPic<span class="operator">,</span> m_capturedImage);
+
+             <span class="comment">// Paint filename</span>
+             painter<span class="operator">.</span>drawText(r<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignBottom <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter<span class="operator">,</span> m_imageName);
+         }
+     }
+
+ }
+
+ <span class="type">void</span> CameraExample<span class="operator">::</span>messageReceived(<span class="type"><a href="qstring.html">QString</a></span> phoneNumber<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span> filename<span class="operator">,</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap)
+ {
+ <span class="preprocessor">#ifdef MESSAGING_ENABLED</span>
+     <span class="comment">// MMS message received</span>
+     <span class="comment">// Check that is came from some of our contact</span>
+     <span class="type">QContact</span> contact;
+     <span class="keyword">if</span> (m_businessCardHandling<span class="operator">-</span><span class="operator">&gt;</span>findContact(phoneNumber<span class="operator">,</span> contact)) {
+         <span class="comment">// Ask from user to store it as sender avatar picture into contacts</span>
+         <span class="keyword">if</span> (<span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>question(
+             <span class="keyword">this</span><span class="operator">,</span>
+             <span class="string">&quot;QCameraExample&quot;</span><span class="operator">,</span>
+             <span class="type"><a href="qstring.html">QString</a></span>(
+                 <span class="string">&quot;MMS picture message received from %1. Do you want to store it as sender avatar picture?&quot;</span>)<span class="operator">.</span>arg(
+                 contact<span class="operator">.</span>displayLabel())<span class="operator">,</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes <span class="operator">|</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>No) <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes) {
+
+             m_businessCardHandling<span class="operator">-</span><span class="operator">&gt;</span>storeAvatarToContact(phoneNumber<span class="operator">,</span> filename<span class="operator">,</span> pixmap);
+         }
+     }
+ <span class="preprocessor">#endif</span>
+ }</pre>
+</div>
+<!-- @@@demos/mobile/qcamera/cameraexample.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 15-Jun-1996 -->
+  <TITLE>Known Bugs in W3C Sample Code Library - libwww</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG ALT="W3C" SRC="../../../Icons/WWW/w3c_home" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" ALT="libwww" SRC="../../../Icons/WWW/Lib48x"
+    BORDER="0"></A><IMG SRC="../../../Icons/WWW/Bug48x" ALT="Bugs">
+<H1>
+  Known Bugs and Patches
+</H1>
+<P>
+As we now have made libwww <A HREF="../../cvs.html">available directly via
+CVS</A>, it is much easier to get the <A HREF="../../cvs.html#update">latest
+updates and bug fixes</A>. This means that we do not maintain this list very
+much anymore. Instead, you should look at the
+<A HREF="../ReleaseNotes.html">latest release notes</A> to see if your problem
+has been addressed.
+<P>
+Please report new bugs or bug-fixes to
+<A HREF="../../#Forums">&lt;www-lib@w3.org&gt;</A> and describe what caused
+the bug to appear. The better diffs you can prepare, that is, if they are
+generated <A HREF="../../cvs.html#update">against the latest version in
+CVS</A>, the faster they can be incorporated into the code base.
+<H2>
+  How to Apply a Patch
+</H2>
+<P>
+The provided patches are relative to the <CODE>WWW</CODE> directory in the
+distribution tree. In order to apply a patch, do the following in the
+<CODE>WWW</CODE> directory:
+<OL>
+  <LI>
+    Download the patch, for example <EM>lib-1.fix</EM>
+  <LI>
+    Invoke the patch command by typing
+    <PRE>	patch &lt; lib-1.fix
+</PRE>
+  <LI>
+    Rebuild the code by following the normal instructions for <B>autoconf</B>
+    builds. In many cases you can simply type
+    <PRE>	make
+</PRE>
+    <P>
+    from the place where you have run the configure script.
+</OL>
+<H2>
+  Available Patches
+</H2>
+<H3>
+  Version 5.1m
+</H3>
+<UL>
+  <LI>
+    <A HREF="5.1l/">These are the patches</A> that I have received which will
+    be applied to the upcoming version before libwww is released.
+</UL>
+<H3>
+  Version 5.1j
+</H3>
+<UL>
+  <LI>
+    <A HREF="5.1j/">These are the patches</A> that I have received for this release
+    and that I will apply before the next release.
+</UL>
+<H3>
+  Version 5.1d
+</H3>
+<DL>
+  <DT>
+    Contribution from Rick Curry (not a patch)
+  <DD>
+    A new version of <A HREF="../../src/HTWWWStr.c">HTWWWStr</A> with a better
+    date stamp string parser
+</DL>
+<H3>
+  Version 5.1b
+</H3>
+<DL>
+  <DT>
+    <A HREF="http://lists.w3.org/Archives/Public/www-lib-bugs/msg00256.html">Patch
+    1</A>
+  <DD>
+    A generic collection of patches fixing several bugs in libwww suggested by
+    Hidekazu SHIOZAWA
+  <DT>
+    <A HREF="http://lists.w3.org/Archives/Public/www-lib-bugs/msg00258.html">Problems
+    on FreeBSD</A>
+  <DD>
+    Gecse Roland pointed out these problems on FreeBSD
+</DL>
+<H3>
+  Version 5.0a
+</H3>
+<P>
+Bulding on <B>SunOS</B>: Sun uses the symbol "<CODE>__STDC__</CODE>" in their
+headers, not "<CODE>STDC_HEADERS</CODE>" which the configure script is looking
+for. This causes a problem compiling
+<A HREF="../../src/HTString.c">HTString.c</A> which uses the ANSI definition
+of variable arguments. The fix is to define <CODE>STDC_HEADERS</CODE> when
+running configure. Depending on your shell, this may look like this
+<PRE>	BASH&gt; CFLAGS='-g -Wall -DSTDC_HEADERS' ./configure
+	CSH&gt; env CFLAGS='-g -Wall -DSTDC_HEADERS' ./configure
+</PRE>
+<H3>
+  Version 5.0
+</H3>
+<DL>
+  <DT>
+    <A HREF="lib_5.0_1.fix">Patch 1</A>
+  <DD>
+    This patch fixes some minor problems in the library and example applications.
+    If you have downloaded version 5.0a then you do not need this patch.
+    <UL>
+      <LI>
+	Bugfix in handling <CODE>OPTIONS</CODE> requests on URL other than "/". The
+	path didn't contain an initial "/"
+      <LI>
+	Changed 204 handling so that it never expects a body
+      <LI>
+	Added support for <CODE>OPTIONS</CODE> in <A HREF="../../../LineMode/">line
+	mode browser</A>.
+      <LI>
+	Bugfix: now the memory cache filter only checks for cached documents on
+	<CODE>GET</CODE> requests.
+      <LI>
+	Bugfix: HTTP State machine didn't catch an error code returned by a POST
+	callback function
+      <LI>
+	Bugfix: Do not flush metainformation on a TRACE method and a OPTIONS method
+	request.
+      <LI>
+	Bugfix: Now we copy information from the cache index back to the amchor obejct
+	when we read the index
+      <LI>
+	Change: Cache controls are now added as replacements instead of add so that
+	we don't get duplicate entries
+      <LI>
+	Added HTCache_flushAll() to the cache manager.
+      <LI>
+	Added flush as command in the Line mode browser. It flushes the persistent
+	cache completely.
+      <LI>
+	Bugfix: Automatic connection recovery had a problem when restarting a HTTP/1.1
+	persistent connection (thanks to Markku Savela)
+    </UL>
+</DL>
+<H3>
+  Version 4.0D
+</H3>
+<H4>
+  Library
+</H4>
+<DL>
+  <DT>
+    New Multiple T stream (May 27 1996)
+  <DD>
+    Sacha has provided this new module for handling Tee'ing of multiple simultanous
+    streams. We have the &nbsp;<A HREF="lib_4.0_5.fix">C file</A> and the
+    <A HREF="lib_4.0_4.fix">H file</A>
+  <DT>
+    <A HREF="lib_4.0_2.fix">Patch for better logging</A>
+  <DD>
+</DL>
+<H4>
+  Mini Server
+</H4>
+<DL>
+  <DT>
+    Event Loop and Timeouts
+  <DD>
+    The current implementation of the server has a problem with requests that
+    timeout. That is, if the remote server is not capable of generating a response
+    within the amount of time the server is willing to wait. The server is not
+    capable of finding which request object timed out so it has to stop the search
+    completely. This is a limitatation of the current implementation of the internal
+    <A HREF="../../../Library/src/HTEvent.html">Event loop</A> in the Library.
+    It is not a design limitation, but the event loop is currently optimized
+    for use by user active applications and not so much "non-user" application.
+  <DT>
+    DNS lookup
+  <DD>
+    The current DNS resolution uses the standard <B>getXbyY</B> system calls.
+    However, as they traditionally are implemented using blocking sockets, the
+    server may block as we only have a single process and a single stack. The
+    solution is of course to have a non-blocking DNS resolver library.
+</DL>
+<H3>
+  Version 4.0C
+</H3>
+<DL>
+  <DT>
+    <A HREF="lib_4.0C_1.fix">Patch for PUT and POST</A>
+  <DD>
+    This patch is rather big but it contains some fixes and modifications that
+    enables PUT and POST to work reliably. If you download the 4.0C version of
+    the distribution then the patch has already been applied. It is basically
+    the difference between versions 4.0B and 4.0C. The main set of differences
+    are:
+    <UL>
+      <LI>
+	Automatic redirection and Access authentication has been take n out of the
+	HTTP module. Instead the new mechanism with request callback functions are
+	used so that the application can register handlers to handle these situations.
+	The reason for this change is that not all applications are interested in
+	having this functionality performed automatically.
+      <LI>
+	Authentication handler and redirection handler added to both the Line Mode
+	Browser and the Command Line Tool
+      <LI>
+	Added three possible return codes on which a request callback function can
+	be called:
+	<UL>
+	  <LI>
+	    HT_PERM_REDIRECT for permanently moved objects
+	  <LI>
+	    HT_TEMP_REDIRECT for temporarily moved objects
+	  <LI>
+	    HT_NO_ACCESS for insufficient credentials
+	</UL>
+      <LI>
+	PUT and POST do now work reliably in the Line Mode Browser and the Command
+	Line Tool. Both can PUT or POST a document <B>from</B> either a remote HTTP
+	server <EM>or</EM> the local file system <B>to</B> a remote HTTP server.
+      <LI>
+	An important bug-fix in the internal event manager that prevented a socket
+	to be registered for multiple events at the same time.
+      <LI>
+	Cleanup of the POSTWeb management in the file module and the HTTP module
+      <LI>
+	In addition to progress notification on READ we now support progress notification
+	when sending a data object
+      <LI>
+	Spelling mistake fixed. <EM>preemtive</EM> is changed to <EM>preemptive</EM>
+      <LI>
+	The W3C Mini Robot has now the ability to stop at a certain depth while
+	traversing the Web.
+    </UL>
+</DL>
+<H3>
+  Library 4.0
+</H3>
+<UL>
+  <LI>
+    <A HREF="lib_4.0_1.fix">SGML fix from Maciej Puzio for better error
+    handling</A>
+  <LI>
+    <A HREF="lib_4.0_bug_3.html">Generating DLLs under Windows using Borland
+    compilers</A>
+  <LI>
+    Bug in management of <A HREF="lib_4.0_bug_2.html"><EM>select()</EM> timeout
+    handler</A>
+  <LI>
+    Bug in <A HREF="lib_4.0_bug_1.html"><EM>no-proxy</EM> directive</A>
+  <LI>
+    HTML Machinery is still missing a great deal. However this part is now isolated
+    into the SGML-HTML-HText stream pipe and will be replaced by a new parser
+    as soon as possible in connection with the development of Arena.
+  <LI>
+    Directory listings do not work completely on Windows NT
+</UL>
+<H3>
+  Library 3.1
+</H3>
+<DL>
+  <DT>
+    Bug in time stamp on files in FTP directory listings
+  <DD>
+    The Library supports "long" directory listings for FTP Unix, VMS and Windows
+    NT servers with file type, size, time and date etc. However, the time stamp
+    is wrong by one hour for files created when daylight saving time is enabled.
+    The reason is that the FTP module in the Library doesn't know the time-zone
+    of the remote FTP server and hence doesn't know when DSR is enabled or disabled.
+    This is fixed in the next version
+  <DT>
+    <A HREF="lib_3.1_1.fix">Problem with nested HTML tags in the HTML parser</A>
+  <DD>
+    A bug which makes the HTML parser crash if is gets more than 20 nested HTML
+    tags. Thanks to Robert M. Fleischman for pointing this out!
+</DL>
+<H3>
+  Library 3.0
+</H3>
+<DL>
+  <DT>
+    <A HREF="lib_3.0_1.fix">Problems with redirection</A>
+  <DD>
+    Until now all HTTP servers have sent back a small HTML document with a
+    redirection message going:
+    <PRE>
+	If you can see this message then your browser
+	does not support automatic redirection.
+</PRE>
+    <P>
+    However, new severs like Netscape and other servers don't send this and hence
+    no stream should be set up. This confuses the Library and it dumps core.
+</DL>
+<P>
+  <HR>
+<ADDRESS>
+  <A HREF="../../../People/Frystyk/">Henrik Frystyk Nielsen</A>,<BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

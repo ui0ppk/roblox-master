@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- sql-programming.qdoc -->
+  <title>Qt 4.8: Presenting Data in a Table View</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>Presenting Data in a Table View</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="prev" href="sql-model.html" />
+  <link rel="next" href="sql-forms.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="sql-model.html">Using the SQL Model Classes</a>
+<a class="nextPage" href="sql-forms.html">Creating Data-Aware Forms</a>
+</p><p/>
+<h1 class="title">Presenting Data in a Table View</h1>
+<span class="subtitle"></span>
+<!-- $$$sql-presenting.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The <a href="qsqlquerymodel.html">QSqlQueryModel</a>, <a href="qsqltablemodel.html">QSqlTableModel</a>, and <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a> classes can be used as a data source for Qt's view classes such as <a href="qlistview.html">QListView</a>, <a href="qtableview.html">QTableView</a>, and <a href="qtreeview.html">QTreeView</a>. In practice, <a href="qtableview.html">QTableView</a> is by far the most common choice, because an SQL result set is essentially a two-dimensional data structure.</p>
+<p class="centerAlign"><img src="images/relationaltable.png" alt="A table view displaying a QSqlTableModel" /></p><p>The following example creates a view based on an SQL data model:</p>
+<pre class="cpp">     <span class="type"><a href="qtableview.html">QTableView</a></span> <span class="operator">*</span>view <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtableview.html">QTableView</a></span>;
+     view<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
+     view<span class="operator">-</span><span class="operator">&gt;</span>show();</pre>
+<p>If the model is a read-write model (e.g&#x2e;, <a href="qsqltablemodel.html">QSqlTableModel</a>), the view lets the user edit the fields. You can disable this by calling</p>
+<pre class="cpp">     view<span class="operator">-</span><span class="operator">&gt;</span>setEditTriggers(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>NoEditTriggers);</pre>
+<p>You can use the same model as a data source for multiple views. If the user edits the model through one of the views, the other views will reflect the changes immediately. The <a href="sql-tablemodel.html">Table Model</a> example shows how it works.</p>
+<p>View classes display a header at the top to label the columns. To change the header texts, call <a href="qabstractitemmodel.html#setHeaderData">setHeaderData()</a> on the model. The header's labels default to the table's field names. For example:</p>
+<pre class="cpp">     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;ID&quot;</span>));
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Name&quot;</span>));
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;City&quot;</span>));
+     model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(<span class="number">3</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Country&quot;</span>));</pre>
+<p><a href="qtableview.html">QTableView</a> also has a vertical header on the left with numbers identifying the rows. If you insert rows programmatically using <a href="qsqltablemodel.html#insertRows">QSqlTableModel::insertRows</a>(), the new rows will be marked with an asterisk (*) until they are submitted using <a href="qsqltablemodel.html#submitAll">submitAll()</a> or automatically when the user moves to another record (assuming the <a href="qsqltablemodel.html#EditStrategy-enum">edit strategy</a> is <a href="qsqltablemodel.html#EditStrategy-enum">QSqlTableModel::OnRowChange</a>).</p>
+<p class="centerAlign"><img src="images/insertrowinmodelview.png" alt="Inserting a row in a model" /></p><p>Likewise, if you remove rows using <a href="qsqltablemodel.html#removeRows">removeRows()</a>, the rows will be marked with an exclamation mark (!) until the change is submitted.</p>
+<p>The items in the view are rendered using a delegate. The default delegate, <a href="qitemdelegate.html">QItemDelegate</a>, handles the most common data types (<tt>int</tt>, <a href="qstring.html">QString</a>, <a href="qimage.html">QImage</a>, etc.)&#x2e; The delegate is also responsible for providing editor widgets (e.g&#x2e;, a combobox) when the user starts editing an item in the view. You can create your own delegates by subclassing <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a> or <a href="qitemdelegate.html">QItemDelegate</a>. See <a href="model-view-programming.html">Model/View Programming</a> for more information.</p>
+<p><a href="qsqltablemodel.html">QSqlTableModel</a> is optimized to operate on a single table at a time. If you need a read-write model that operates on an arbitrary result set, you can subclass <a href="qsqlquerymodel.html">QSqlQueryModel</a> and reimplement <a href="qabstractitemmodel.html#flags">flags()</a> and <a href="qabstractitemmodel.html#setData">setData()</a> to make it read-write. The following two functions make fields 1 and 2 of a query model editable:</p>
+<pre class="cpp"> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemFlags EditableSqlModel<span class="operator">::</span>flags(
+         <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemFlags flags <span class="operator">=</span> <span class="type"><a href="qsqlquerymodel.html">QSqlQueryModel</a></span><span class="operator">::</span>flags(index);
+     <span class="keyword">if</span> (index<span class="operator">.</span>column() <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">|</span><span class="operator">|</span> index<span class="operator">.</span>column() <span class="operator">=</span><span class="operator">=</span> <span class="number">2</span>)
+         flags <span class="operator">|</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsEditable;
+     <span class="keyword">return</span> flags;
+ }
+
+ <span class="type">bool</span> EditableSqlModel<span class="operator">::</span>setData(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value<span class="operator">,</span> <span class="type">int</span> <span class="comment">/* role */</span>)
+ {
+     <span class="keyword">if</span> (index<span class="operator">.</span>column() <span class="operator">&lt;</span> <span class="number">1</span> <span class="operator">|</span><span class="operator">|</span> index<span class="operator">.</span>column() <span class="operator">&gt;</span> <span class="number">2</span>)
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> primaryKeyIndex <span class="operator">=</span> <span class="type"><a href="qsqlquerymodel.html">QSqlQueryModel</a></span><span class="operator">::</span>index(index<span class="operator">.</span>row()<span class="operator">,</span> <span class="number">0</span>);
+     <span class="type">int</span> id <span class="operator">=</span> data(primaryKeyIndex)<span class="operator">.</span>toInt();
+
+     clear();
+
+     <span class="type">bool</span> ok;
+     <span class="keyword">if</span> (index<span class="operator">.</span>column() <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>) {
+         ok <span class="operator">=</span> setFirstName(id<span class="operator">,</span> value<span class="operator">.</span>toString());
+     } <span class="keyword">else</span> {
+         ok <span class="operator">=</span> setLastName(id<span class="operator">,</span> value<span class="operator">.</span>toString());
+     }
+     refresh();
+     <span class="keyword">return</span> ok;
+ }</pre>
+<p>The setFirstName() helper function is defined as follows:</p>
+<pre class="cpp"> <span class="type">bool</span> EditableSqlModel<span class="operator">::</span>setFirstName(<span class="type">int</span> personId<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>firstName)
+ {
+     <span class="type"><a href="qsqlquery.html">QSqlQuery</a></span> query;
+     query<span class="operator">.</span>prepare(<span class="string">&quot;update person set firstname = ? where id = ?&quot;</span>);
+     query<span class="operator">.</span>addBindValue(firstName);
+     query<span class="operator">.</span>addBindValue(personId);
+     <span class="keyword">return</span> query<span class="operator">.</span>exec();
+ }</pre>
+<p>The setLastName() function is similar. See the <a href="sql-querymodel.html">Query Model</a> example for the complete source code.</p>
+<p>Subclassing a model makes it possible to customize it in many ways: You can provide tooltips for the items, change the background color, provide calculated values, provide different values for viewing and editing, handle null values specially, and more. See <a href="model-view-programming.html">Model/View Programming</a> as well as the <a href="qabstractitemview.html">QAbstractItemView</a> reference documentation for details.</p>
+<p>If all you need is to resolve a foreign key to a more human-friendly string, you can use <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a>. For best results, you should also use <a href="qsqlrelationaldelegate.html">QSqlRelationalDelegate</a>, a delegate that provides combobox editors for editing foreign keys.</p>
+<p class="centerAlign"><img src="images/relationaltable.png" alt="Editing a foreign key in a relational table" /></p><p>The <a href="sql-relationaltablemodel.html">Relational Table Model</a> example illustrates how to use <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a> in conjunction with <a href="qsqlrelationaldelegate.html">QSqlRelationalDelegate</a> to provide tables with foreign key support.</p>
+</div>
+<!-- @@@sql-presenting.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="sql-model.html">Using the SQL Model Classes</a>
+<a class="nextPage" href="sql-forms.html">Creating Data-Aware Forms</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Find items in listvar matching the regex and remove them.
+macro( LIST_FILTER listvar regex )
+ if( ${listvar} )
+  foreach( val ${${listvar}} )
+   if( val MATCHES "${regex}" )
+    list( REMOVE_ITEM ${listvar} "${val}" )
+   endif()
+  endforeach()
+ endif()
+endmacro()

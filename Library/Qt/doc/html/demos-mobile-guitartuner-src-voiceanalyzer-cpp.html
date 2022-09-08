@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: voiceanalyzer.cpp Example File (demos/mobile/guitartuner/src/voiceanalyzer.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">voiceanalyzer.cpp Example File</h1>
+<span class="small-subtitle">demos/mobile/guitartuner/src/voiceanalyzer.cpp</span>
+<!-- $$$demos/mobile/guitartuner/src/voiceanalyzer.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;voiceanalyzer.h&quot;</span>
+
+ <span class="comment">/**
+   * Constant used to scale the cut-off density for the fft helper.
+   */</span>
+ <span class="keyword">const</span> <span class="keyword">static</span> <span class="type">float</span> CutOffScaler <span class="operator">=</span> <span class="number">0.05</span>;
+
+ <span class="comment">/**
+   * Force the precision to be &quot;1/PrecisionPerNote&quot; notes
+   * near the target frequency.
+   */</span>
+ <span class="keyword">const</span> <span class="keyword">static</span> <span class="type">int</span> PrecisionPerNote <span class="operator">=</span> <span class="number">4</span>;
+
+ <span class="comment">/**
+   * TargetFrequencyParameter is a constant which implies the index at
+   * which corresponds to the target frequency.
+   * 0.5 * N * 1/TargetFrequencyParameter is (about) the index which
+   * corresponds to the given target frequency.
+   * Effectively TargetFrequencyParameter = 2^z, and the z*TargetFrequency
+   * is the maximum frequency that can be noticed.
+   */</span>
+ <span class="keyword">const</span> <span class="keyword">static</span> <span class="type">int</span> TargetFrequencyParameter <span class="operator">=</span> <span class="number">4</span>;
+
+ VoiceAnalyzer<span class="operator">::</span>VoiceAnalyzer(<span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> <span class="operator">&amp;</span>format<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent):
+     <span class="type"><a href="qiodevice.html">QIODevice</a></span>(parent)<span class="operator">,</span>
+     m_format(format)<span class="operator">,</span>
+     m_frequency(<span class="number">0</span>)<span class="operator">,</span>
+     m_position(<span class="number">0</span>)<span class="operator">,</span>
+     m_fftHelper(<span class="keyword">new</span> FastFourierTransformer(<span class="keyword">this</span>))
+ {
+     Q_ASSERT(<a href="qmatrix4x4.html#qFuzzyCompare">qFuzzyCompare</a>(M_SAMPLE_COUNT_MULTIPLIER<span class="operator">,</span>
+                            <span class="type">float</span>(<span class="number">2</span>)<span class="operator">/</span>(M_TWELTH_ROOT_OF_2 <span class="operator">-</span><span class="number">1.0</span>)));
+     m_totalSampleCount <span class="operator">=</span> <a href="qtglobal.html#qRound">qRound</a>(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(PrecisionPerNote)
+                                 <span class="operator">*</span>TargetFrequencyParameter
+                                 <span class="operator">*</span>M_SAMPLE_COUNT_MULTIPLIER);
+     m_samples<span class="operator">.</span>reserve(m_totalSampleCount);
+     <span class="type">int</span> i <span class="operator">=</span> <span class="number">2</span>;
+     <span class="type">int</span> j <span class="operator">=</span> <span class="number">1</span>;
+     <span class="keyword">for</span> (; i <span class="operator">&lt;</span> TargetFrequencyParameter; i <span class="operator">*</span><span class="operator">=</span> <span class="number">2</span>) {
+         j<span class="operator">+</span><span class="operator">+</span>;
+     }
+     m_maximumVoiceDifference <span class="operator">=</span> j<span class="operator">*</span><span class="number">12</span>;
+
+     setCutOffPercentage(CutOffScaler);
+ }
+
+ <span class="comment">/**
+   * Opens the parent QIODevice. Sets up the analysation parameters.
+   */</span>
+ <span class="type">void</span> VoiceAnalyzer<span class="operator">::</span>start(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> frequency)
+ {
+     m_stepSize <span class="operator">=</span> (<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>) <span class="number">1.0</span> <span class="operator">*</span> m_format<span class="operator">.</span>sampleRate()
+                          <span class="operator">/</span> (TargetFrequencyParameter<span class="operator">*</span><span class="number">2</span><span class="operator">*</span>frequency);
+     m_frequency <span class="operator">=</span> frequency;
+     open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly);
+ }
+
+ <span class="comment">/**
+   * Closes the parent QIODevice, thus the voice is not analysed anymore.
+   * Resets the m_samples QList.
+   */</span>
+ <span class="type">void</span> VoiceAnalyzer<span class="operator">::</span>stop()
+ {
+     m_samples<span class="operator">.</span>clear();
+     m_samples<span class="operator">.</span>reserve(m_totalSampleCount);
+     close();
+ }
+
+ <span class="comment">/**
+   * Called when data is obtained. Stores each m_stepSize sample
+   * into a QList to be analysed.
+   */</span>
+ <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> VoiceAnalyzer<span class="operator">::</span>writeData(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>data<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> maxlen)
+ {
+     <span class="keyword">const</span> <span class="type">int</span> channelBytes <span class="operator">=</span> m_format<span class="operator">.</span>sampleSize() <span class="operator">/</span> <span class="number">8</span>;
+     <span class="type">int</span> sampleSize <span class="operator">=</span> m_format<span class="operator">.</span>channels() <span class="operator">*</span> channelBytes;
+     <span class="type">int</span> m_stepSizeInBytes <span class="operator">=</span> m_stepSize<span class="operator">*</span>sampleSize;
+     <span class="comment">// assert that each sample fits fully into the data</span>
+     Q_ASSERT((m_position <span class="operator">%</span> sampleSize)<span class="operator">=</span><span class="operator">=</span><span class="number">0</span>);
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> <span class="operator">*</span>ptr <span class="operator">=</span> <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="keyword">const</span> <span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(data);
+     <span class="keyword">while</span> (m_position <span class="operator">&lt;</span> maxlen) {
+         <span class="keyword">if</span> (m_samples<span class="operator">.</span>size() <span class="operator">&lt;</span> m_totalSampleCount) {
+             m_samples<span class="operator">.</span>append(getValueInt16(ptr<span class="operator">+</span>m_position));
+         }
+         <span class="keyword">else</span> {
+             analyzeVoice();
+             m_samples<span class="operator">.</span>clear();
+             m_samples<span class="operator">.</span>reserve(m_totalSampleCount);
+             <span class="comment">// fast forward position to the first position after maxlen or to the maxlen</span>
+             m_position <span class="operator">+</span><span class="operator">=</span> ((m_stepSizeInBytes <span class="operator">-</span> <span class="number">1</span> <span class="operator">+</span> maxlen <span class="operator">-</span> m_position) <span class="operator">/</span>
+                            m_stepSizeInBytes) <span class="operator">*</span> m_stepSizeInBytes;
+             <span class="keyword">break</span>;
+         }
+         m_position <span class="operator">+</span><span class="operator">=</span> m_stepSizeInBytes;
+     }
+     m_position <span class="operator">-</span><span class="operator">=</span> maxlen;
+     <span class="keyword">return</span> maxlen;
+ }
+
+ <span class="comment">/**
+   * Interprets ptr as a pointer to int value and returns it.
+   */</span>
+ <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span> VoiceAnalyzer<span class="operator">::</span>getValueInt16(<span class="keyword">const</span> <span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> <span class="operator">*</span>ptr)
+ {
+     <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span> realValue <span class="operator">=</span> <span class="number">0</span>;
+     <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleSize() <span class="operator">=</span><span class="operator">=</span> <span class="number">8</span>)
+     {
+         <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span> value <span class="operator">=</span> <span class="operator">*</span><span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="keyword">const</span> <span class="type"><a href="qtglobal.html#quint8-typedef">quint8</a></span><span class="operator">*</span><span class="operator">&gt;</span>(ptr);
+         <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleType() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>UnSignedInt) {
+             realValue <span class="operator">=</span> value <span class="operator">-</span> M_MAX_AMPLITUDE_8BIT_SIGNED <span class="operator">-</span> <span class="number">1</span>;
+         } <span class="keyword">else</span> <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleType() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>SignedInt) {
+             realValue <span class="operator">=</span> value;
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleSize() <span class="operator">=</span><span class="operator">=</span> <span class="number">16</span>) {
+         <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span> value <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">if</span> (m_format<span class="operator">.</span>byteOrder() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>LittleEndian)
+             value <span class="operator">=</span> <a href="qtendian.html#qFromLittleEndian">qFromLittleEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span><span class="operator">&gt;</span>(ptr);
+         <span class="keyword">else</span>
+             value <span class="operator">=</span> <a href="qtendian.html#qFromBigEndian">qFromBigEndian</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span><span class="operator">&gt;</span>(ptr);
+
+         <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleType() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>UnSignedInt) {
+             realValue <span class="operator">=</span> value <span class="operator">-</span> M_MAX_AMPLITUDE_16BIT_SIGNED;
+         } <span class="keyword">else</span> <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleType() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">::</span>SignedInt) {
+             realValue <span class="operator">=</span> value;
+         }
+     }
+     <span class="keyword">return</span> realValue;
+ }
+
+ <span class="comment">/**
+   * Takes a number between 0 and 1, scales it with CutOffScaler,
+   * multiplies it with maximum density, and then gives it
+   * to the fft helper.
+   */</span>
+ <span class="type">void</span> VoiceAnalyzer<span class="operator">::</span>setCutOffPercentage(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> cutoff)
+ {
+     cutoff <span class="operator">=</span> CutOffScaler<span class="operator">*</span>cutoff;
+     <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleSize() <span class="operator">=</span><span class="operator">=</span> <span class="number">8</span>) {
+         <span class="type">float</span> t <span class="operator">=</span> cutoff<span class="operator">*</span>m_totalSampleCount<span class="operator">*</span>M_MAX_AMPLITUDE_8BIT_SIGNED;
+         m_fftHelper<span class="operator">-</span><span class="operator">&gt;</span>setCutOffForDensity(t);
+     }
+     <span class="keyword">else</span> <span class="keyword">if</span> (m_format<span class="operator">.</span>sampleSize() <span class="operator">=</span><span class="operator">=</span> <span class="number">16</span>) {
+         <span class="type">float</span> t <span class="operator">=</span> cutoff<span class="operator">*</span>m_totalSampleCount<span class="operator">*</span>M_MAX_AMPLITUDE_16BIT_SIGNED;
+         m_fftHelper<span class="operator">-</span><span class="operator">&gt;</span>setCutOffForDensity(t);
+     }
+ }
+
+ <span class="comment">/**
+   * Returns the current target frequency.
+   */</span>
+ <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> VoiceAnalyzer<span class="operator">::</span>frequency()
+ {
+     <span class="keyword">return</span> m_frequency;
+ }
+
+ <span class="comment">/**
+   * Returns the maximum absolute value sent by
+   * the voiceDifference() signal.
+   */</span>
+ <span class="type">int</span> VoiceAnalyzer<span class="operator">::</span>getMaximumVoiceDifference()
+ {
+     <span class="keyword">return</span> m_maximumVoiceDifference;
+ }
+
+ <span class="comment">/**
+   * Returns the maximum precision per note
+   * near the target frequency.
+   */</span>
+ <span class="type">int</span> VoiceAnalyzer<span class="operator">::</span>getMaximumPrecisionPerNote()
+ {
+     <span class="keyword">return</span> PrecisionPerNote;
+ }
+
+ <span class="comment">/**
+   * Analyzes the voice frequency and emits appropriate signals.
+   */</span>
+ <span class="type">void</span> VoiceAnalyzer<span class="operator">::</span>analyzeVoice()
+ {
+     m_fftHelper<span class="operator">-</span><span class="operator">&gt;</span>calculateFFT(m_samples);
+     <span class="type">int</span> index <span class="operator">=</span> m_fftHelper<span class="operator">-</span><span class="operator">&gt;</span>getMaximumDensityIndex();
+
+     <span class="comment">// If index == -1</span>
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         <span class="comment">// The voice is to be filtered away.</span>
+         <span class="comment">// Emit the lowVoice signal and return.</span>
+         <span class="keyword">emit</span> lowVoice();
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;low voice&quot;</span>;
+         <span class="keyword">return</span>;
+     }
+     <span class="comment">// Else, continue</span>
+
+     <span class="comment">// Let the correctIndex to be</span>
+     <span class="comment">// the nearest index corresponding to the correct frequency.</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> stepSizeInFrequency <span class="operator">=</span> (<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>)m_format<span class="operator">.</span>sampleRate()
+             <span class="operator">/</span> (m_totalSampleCount <span class="operator">*</span> m_stepSize);
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> newFrequency <span class="operator">=</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(index) <span class="operator">*</span> stepSizeInFrequency;
+     <span class="comment">// Calculate the nearest index corresponding to the correct frequency.</span>
+     <span class="type">int</span> correctIndex <span class="operator">=</span> <a href="qtglobal.html#qRound">qRound</a>(m_frequency <span class="operator">/</span> stepSizeInFrequency);
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> value <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="comment">// If the obtained frequency is more than</span>
+     <span class="comment">// log_2(TargetFrequencyParameter) octaves less than the m_frequency:</span>
+
+     <span class="comment">// Note:</span>
+     <span class="comment">// Instead of m_frequency/TargetFrequencyParameter &gt; newFrequency,</span>
+     <span class="comment">// the comparison is done without a div instructions by</span>
+     <span class="comment">// m_frequency &gt; newFrequency * TargetFrequencyParameter.</span>
+
+     <span class="keyword">if</span> (m_frequency <span class="operator">&gt;</span> newFrequency <span class="operator">*</span> TargetFrequencyParameter) {
+         <span class="comment">// Set the difference value to be -m_maximumVoiceDifference.</span>
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;compare&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;low&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> newFrequency <span class="operator">&lt;</span><span class="operator">&lt;</span> m_frequency <span class="operator">-</span> stepSizeInFrequency <span class="operator">*</span> correctIndex <span class="operator">&lt;</span><span class="operator">&lt;</span> (m_frequency <span class="operator">-</span> stepSizeInFrequency <span class="operator">*</span> correctIndex) <span class="operator">/</span> stepSizeInFrequency;
+         value <span class="operator">=</span> <span class="operator">-</span>m_maximumVoiceDifference;
+     }
+     <span class="comment">// Else, if the obtained frequency is more than</span>
+     <span class="comment">// log_2(TargetFrequencyParameter) octaves more than the m_frequency:</span>
+     <span class="keyword">else</span> <span class="keyword">if</span> (m_frequency<span class="operator">*</span>TargetFrequencyParameter <span class="operator">&lt;</span> newFrequency) {
+         <span class="comment">// Set the difference value to be m_maximumVoiceDifference.</span>
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;compare&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;high&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> newFrequency <span class="operator">&lt;</span><span class="operator">&lt;</span> m_frequency <span class="operator">-</span> stepSizeInFrequency <span class="operator">*</span> correctIndex <span class="operator">&lt;</span><span class="operator">&lt;</span> (m_frequency <span class="operator">-</span> stepSizeInFrequency <span class="operator">*</span> correctIndex) <span class="operator">/</span> stepSizeInFrequency;
+         value <span class="operator">=</span> m_maximumVoiceDifference;
+     }
+     <span class="comment">// Else:</span>
+     <span class="keyword">else</span> {
+         <span class="comment">// Calculate the difference between the obtained and the correct</span>
+         <span class="comment">// frequency in tones.</span>
+         <span class="comment">// Use stepSizeInFrequency * correctIndex instead of</span>
+         <span class="comment">// m_frequency so that the value is zero when there is correct</span>
+         <span class="comment">// voice obtained. Set the difference value to be</span>
+         <span class="comment">// log(frequency / target frequency) * 12 / log(2).</span>
+         value <span class="operator">=</span> log(newFrequency <span class="operator">/</span> (stepSizeInFrequency <span class="operator">*</span> correctIndex))
+                 <span class="operator">*</span> <span class="number">12</span> <span class="operator">/</span> M_LN2;
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;compare&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> value <span class="operator">&lt;</span><span class="operator">&lt;</span> newFrequency <span class="operator">&lt;</span><span class="operator">&lt;</span> m_frequency <span class="operator">-</span> stepSizeInFrequency <span class="operator">*</span> correctIndex <span class="operator">&lt;</span><span class="operator">&lt;</span> (m_frequency <span class="operator">-</span> stepSizeInFrequency <span class="operator">*</span> correctIndex) <span class="operator">/</span> stepSizeInFrequency;
+     }
+
+     <span class="comment">// Emit voiceDifference signal.</span>
+     <span class="type"><a href="qvariant.html">QVariant</a></span> valueVar(value); <span class="comment">//Has to be QVariant for QML</span>
+     <span class="keyword">emit</span> voiceDifference(valueVar);
+
+     <span class="comment">// If the correctIndex is index, emit the correctFrequency signal.</span>
+     <span class="keyword">if</span> (correctIndex <span class="operator">=</span><span class="operator">=</span> index) {
+         <span class="keyword">emit</span>(correctFrequency());
+     }
+ }
+
+ <span class="comment">/**
+   * Empty implementation for readData, since no data is provided
+   * by the VoiceAnalyzer class.
+   */</span>
+ <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> VoiceAnalyzer<span class="operator">::</span>readData(<span class="type">char</span> <span class="operator">*</span>data<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> maxlen)
+ {
+     Q_UNUSED(data);
+     Q_UNUSED(maxlen);
+
+     <span class="keyword">return</span> <span class="number">0</span>;
+ }</pre>
+</div>
+<!-- @@@demos/mobile/guitartuner/src/voiceanalyzer.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

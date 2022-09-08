@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: sortingbox.cpp Example File (widgets/tooltips/sortingbox.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">sortingbox.cpp Example File</h1>
+<span class="small-subtitle">widgets/tooltips/sortingbox.cpp</span>
+<!-- $$$widgets/tooltips/sortingbox.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+
+ <span class="preprocessor">#include &quot;sortingbox.h&quot;</span>
+
+ SortingBox<span class="operator">::</span>SortingBox()
+ {
+     setMouseTracking(<span class="keyword">true</span>);
+     setBackgroundRole(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Base);
+
+     itemInMotion <span class="operator">=</span> <span class="number">0</span>;
+
+     newCircleButton <span class="operator">=</span> createToolButton(tr(<span class="string">&quot;New Circle&quot;</span>)<span class="operator">,</span>
+                                        <span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/circle.png&quot;</span>)<span class="operator">,</span>
+                                        SLOT(createNewCircle()));
+
+     newSquareButton <span class="operator">=</span> createToolButton(tr(<span class="string">&quot;New Square&quot;</span>)<span class="operator">,</span>
+                                        <span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/square.png&quot;</span>)<span class="operator">,</span>
+                                        SLOT(createNewSquare()));
+
+     newTriangleButton <span class="operator">=</span> createToolButton(tr(<span class="string">&quot;New Triangle&quot;</span>)<span class="operator">,</span>
+                                          <span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/triangle.png&quot;</span>)<span class="operator">,</span>
+                                          SLOT(createNewTriangle()));
+
+     circlePath<span class="operator">.</span>addEllipse(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">100</span>));
+     squarePath<span class="operator">.</span>addRect(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">100</span>));
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> x <span class="operator">=</span> trianglePath<span class="operator">.</span>currentPosition()<span class="operator">.</span>x();
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> y <span class="operator">=</span> trianglePath<span class="operator">.</span>currentPosition()<span class="operator">.</span>y();
+     trianglePath<span class="operator">.</span>moveTo(x <span class="operator">+</span> <span class="number">120</span> <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> y);
+     trianglePath<span class="operator">.</span>lineTo(<span class="number">0</span><span class="operator">,</span> <span class="number">100</span>);
+     trianglePath<span class="operator">.</span>lineTo(<span class="number">120</span><span class="operator">,</span> <span class="number">100</span>);
+     trianglePath<span class="operator">.</span>lineTo(x <span class="operator">+</span> <span class="number">120</span> <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> y);
+
+     setWindowTitle(tr(<span class="string">&quot;Tool Tips&quot;</span>));
+     resize(<span class="number">500</span><span class="operator">,</span> <span class="number">300</span>);
+
+     createShapeItem(circlePath<span class="operator">,</span> tr(<span class="string">&quot;Circle&quot;</span>)<span class="operator">,</span> initialItemPosition(circlePath)<span class="operator">,</span>
+                     initialItemColor());
+     createShapeItem(squarePath<span class="operator">,</span> tr(<span class="string">&quot;Square&quot;</span>)<span class="operator">,</span> initialItemPosition(squarePath)<span class="operator">,</span>
+                     initialItemColor());
+     createShapeItem(trianglePath<span class="operator">,</span> tr(<span class="string">&quot;Triangle&quot;</span>)<span class="operator">,</span>
+                     initialItemPosition(trianglePath)<span class="operator">,</span> initialItemColor());
+ }
+
+ <span class="type">bool</span> SortingBox<span class="operator">::</span>event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>ToolTip) {
+         <span class="type"><a href="qhelpevent.html">QHelpEvent</a></span> <span class="operator">*</span>helpEvent <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qhelpevent.html">QHelpEvent</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(event);
+         <span class="type">int</span> index <span class="operator">=</span> itemAt(helpEvent<span class="operator">-</span><span class="operator">&gt;</span>pos());
+         <span class="keyword">if</span> (index <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+             <span class="type"><a href="qtooltip.html">QToolTip</a></span><span class="operator">::</span>showText(helpEvent<span class="operator">-</span><span class="operator">&gt;</span>globalPos()<span class="operator">,</span> shapeItems<span class="operator">[</span>index<span class="operator">]</span><span class="operator">.</span>toolTip());
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qtooltip.html">QToolTip</a></span><span class="operator">::</span>hideText();
+             event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+         }
+
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>event(event);
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span> <span class="comment">/* event */</span>)
+ {
+     <span class="type">int</span> margin <span class="operator">=</span> style()<span class="operator">-</span><span class="operator">&gt;</span>pixelMetric(<span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>PM_DefaultTopLevelMargin);
+     <span class="type">int</span> x <span class="operator">=</span> width() <span class="operator">-</span> margin;
+     <span class="type">int</span> y <span class="operator">=</span> height() <span class="operator">-</span> margin;
+
+     y <span class="operator">=</span> updateButtonGeometry(newCircleButton<span class="operator">,</span> x<span class="operator">,</span> y);
+     y <span class="operator">=</span> updateButtonGeometry(newSquareButton<span class="operator">,</span> x<span class="operator">,</span> y);
+     updateButtonGeometry(newTriangleButton<span class="operator">,</span> x<span class="operator">,</span> y);
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span> <span class="comment">/* event */</span>)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+     foreach (ShapeItem shapeItem<span class="operator">,</span> shapeItems) {
+         painter<span class="operator">.</span>translate(shapeItem<span class="operator">.</span>position());
+         painter<span class="operator">.</span>setBrush(shapeItem<span class="operator">.</span>color());
+         painter<span class="operator">.</span>drawPath(shapeItem<span class="operator">.</span>path());
+         painter<span class="operator">.</span>translate(<span class="operator">-</span>shapeItem<span class="operator">.</span>position());
+     }
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         <span class="type">int</span> index <span class="operator">=</span> itemAt(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+         <span class="keyword">if</span> (index <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+             itemInMotion <span class="operator">=</span> <span class="operator">&amp;</span>shapeItems<span class="operator">[</span>index<span class="operator">]</span>;
+             previousPosition <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+             shapeItems<span class="operator">.</span>move(index<span class="operator">,</span> shapeItems<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">1</span>);
+             update();
+         }
+     }
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> ((event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) <span class="operator">&amp;</span><span class="operator">&amp;</span> itemInMotion)
+         moveItemTo(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton <span class="operator">&amp;</span><span class="operator">&amp;</span> itemInMotion) {
+         moveItemTo(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+         itemInMotion <span class="operator">=</span> <span class="number">0</span>;
+     }
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>createNewCircle()
+ {
+     <span class="keyword">static</span> <span class="type">int</span> count <span class="operator">=</span> <span class="number">1</span>;
+     createShapeItem(circlePath<span class="operator">,</span> tr(<span class="string">&quot;Circle &lt;%1&gt;&quot;</span>)<span class="operator">.</span>arg(<span class="operator">+</span><span class="operator">+</span>count)<span class="operator">,</span>
+                     randomItemPosition()<span class="operator">,</span> randomItemColor());
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>createNewSquare()
+ {
+     <span class="keyword">static</span> <span class="type">int</span> count <span class="operator">=</span> <span class="number">1</span>;
+     createShapeItem(squarePath<span class="operator">,</span> tr(<span class="string">&quot;Square &lt;%1&gt;&quot;</span>)<span class="operator">.</span>arg(<span class="operator">+</span><span class="operator">+</span>count)<span class="operator">,</span>
+                     randomItemPosition()<span class="operator">,</span> randomItemColor());
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>createNewTriangle()
+ {
+     <span class="keyword">static</span> <span class="type">int</span> count <span class="operator">=</span> <span class="number">1</span>;
+     createShapeItem(trianglePath<span class="operator">,</span> tr(<span class="string">&quot;Triangle &lt;%1&gt;&quot;</span>)<span class="operator">.</span>arg(<span class="operator">+</span><span class="operator">+</span>count)<span class="operator">,</span>
+                     randomItemPosition()<span class="operator">,</span> randomItemColor());
+ }
+
+ <span class="type">int</span> SortingBox<span class="operator">::</span>itemAt(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>pos)
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> shapeItems<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">1</span>; i <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>; <span class="operator">-</span><span class="operator">-</span>i) {
+         <span class="keyword">const</span> ShapeItem <span class="operator">&amp;</span>item <span class="operator">=</span> shapeItems<span class="operator">[</span>i<span class="operator">]</span>;
+         <span class="keyword">if</span> (item<span class="operator">.</span>path()<span class="operator">.</span>contains(pos <span class="operator">-</span> item<span class="operator">.</span>position()))
+             <span class="keyword">return</span> i;
+     }
+     <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>moveItemTo(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>pos)
+ {
+     <span class="type"><a href="qpoint.html">QPoint</a></span> offset <span class="operator">=</span> pos <span class="operator">-</span> previousPosition;
+     itemInMotion<span class="operator">-</span><span class="operator">&gt;</span>setPosition(itemInMotion<span class="operator">-</span><span class="operator">&gt;</span>position() <span class="operator">+</span> offset);
+     previousPosition <span class="operator">=</span> pos;
+     update();
+ }
+
+ <span class="type">int</span> SortingBox<span class="operator">::</span>updateButtonGeometry(<span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>button<span class="operator">,</span> <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y)
+ {
+     <span class="type"><a href="qsize.html">QSize</a></span> size <span class="operator">=</span> button<span class="operator">-</span><span class="operator">&gt;</span>sizeHint();
+     button<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(x <span class="operator">-</span> size<span class="operator">.</span>rwidth()<span class="operator">,</span> y <span class="operator">-</span> size<span class="operator">.</span>rheight()<span class="operator">,</span>
+                         size<span class="operator">.</span>rwidth()<span class="operator">,</span> size<span class="operator">.</span>rheight());
+
+     <span class="keyword">return</span> y <span class="operator">-</span> size<span class="operator">.</span>rheight()
+            <span class="operator">-</span> style()<span class="operator">-</span><span class="operator">&gt;</span>pixelMetric(<span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>PM_DefaultLayoutSpacing);
+ }
+
+ <span class="type">void</span> SortingBox<span class="operator">::</span>createShapeItem(<span class="keyword">const</span> <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> <span class="operator">&amp;</span>path<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>toolTip<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>pos<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color)
+ {
+     ShapeItem shapeItem;
+     shapeItem<span class="operator">.</span>setPath(path);
+     shapeItem<span class="operator">.</span>setToolTip(toolTip);
+     shapeItem<span class="operator">.</span>setPosition(pos);
+     shapeItem<span class="operator">.</span>setColor(color);
+     shapeItems<span class="operator">.</span>append(shapeItem);
+     update();
+ }
+
+ <span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>SortingBox<span class="operator">::</span>createToolButton(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>toolTip<span class="operator">,</span>
+                                           <span class="keyword">const</span> <span class="type"><a href="qicon.html">QIcon</a></span> <span class="operator">&amp;</span>icon<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>member)
+ {
+     <span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>(<span class="keyword">this</span>);
+     button<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(toolTip);
+     button<span class="operator">-</span><span class="operator">&gt;</span>setIcon(icon);
+     button<span class="operator">-</span><span class="operator">&gt;</span>setIconSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">32</span><span class="operator">,</span> <span class="number">32</span>));
+     connect(button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> member);
+
+     <span class="keyword">return</span> button;
+ }
+
+ <span class="type"><a href="qpoint.html">QPoint</a></span> SortingBox<span class="operator">::</span>initialItemPosition(<span class="keyword">const</span> <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> <span class="operator">&amp;</span>path)
+ {
+     <span class="type">int</span> x;
+     <span class="type">int</span> y <span class="operator">=</span> (height() <span class="operator">-</span> (<span class="type">int</span>)path<span class="operator">.</span>controlPointRect()<span class="operator">.</span>height()) <span class="operator">/</span> <span class="number">2</span>;
+     <span class="keyword">if</span> (shapeItems<span class="operator">.</span>size() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         x <span class="operator">=</span> ((<span class="number">3</span> <span class="operator">*</span> width()) <span class="operator">/</span> <span class="number">2</span> <span class="operator">-</span> (<span class="type">int</span>)path<span class="operator">.</span>controlPointRect()<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">2</span>;
+     <span class="keyword">else</span>
+         x <span class="operator">=</span> (width() <span class="operator">/</span> shapeItems<span class="operator">.</span>size()
+              <span class="operator">-</span> (<span class="type">int</span>)path<span class="operator">.</span>controlPointRect()<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">2</span>;
+
+     <span class="keyword">return</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(x<span class="operator">,</span> y);
+ }
+
+ <span class="type"><a href="qpoint.html">QPoint</a></span> SortingBox<span class="operator">::</span>randomItemPosition()
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(qrand() <span class="operator">%</span> (width() <span class="operator">-</span> <span class="number">120</span>)<span class="operator">,</span> qrand() <span class="operator">%</span> (height() <span class="operator">-</span> <span class="number">120</span>));
+ }
+
+ <span class="type"><a href="qcolor.html">QColor</a></span> SortingBox<span class="operator">::</span>initialItemColor()
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromHsv(((shapeItems<span class="operator">.</span>size() <span class="operator">+</span> <span class="number">1</span>) <span class="operator">*</span> <span class="number">85</span>) <span class="operator">%</span> <span class="number">256</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">190</span>);
+ }
+
+ <span class="type"><a href="qcolor.html">QColor</a></span> SortingBox<span class="operator">::</span>randomItemColor()
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromHsv(qrand() <span class="operator">%</span> <span class="number">256</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">190</span>);
+ }</pre>
+</div>
+<!-- @@@widgets/tooltips/sortingbox.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

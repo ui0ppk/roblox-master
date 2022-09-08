@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 23-Mar-1996 -->
+  <TITLE>W3C Sample Code Library libwww Structured Stream Class</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Structured Stream Class
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The Structured stream class defines objects which accepts a <I>structured</I>
+sequence of characters for eaxmple a SGML document. I'll rephrase that. A
+structured object is am ordered tree-structured arrangement of data which
+is representable as text. An example is the <A HREF="SGML.html">SGML parser</A>
+which outputs to a Structured Object. A Structured object can output its
+contents to another <CODE>Structured Object</CODE>. It's a kind of typed
+stream. The architecure is largely Dan Conolly's. Elements and entities are
+passed to the sob by number, implying a knowledge of the DTD.
+<P>
+The <CODE>Structured Stream</CODE> is a subclass of a
+<A HREF="HTStream.html">Generic Stream Object</A>. As always, we don't have
+classes in basic C so we have to do this by hand!
+<P>
+This module is a part of the <A HREF="http://www.w3.org/Library/">
+W3C Sample Code Library</A>.
+<PRE>#ifndef HTSTRUCT_H
+#define HTSTRUCT_H
+
+#include "HTStream.h"
+#include "HTList.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<PRE>typedef struct _HTStructured HTStructured;
+
+typedef struct _HTStructuredClass {
+
+    char * name;
+
+    int (*flush)	(HTStructured * me);
+
+    int (*_free)	(HTStructured *	me);
+
+    int (*abort)	(HTStructured *	me, HTList * errorlist);
+
+    int (*put_character)(HTStructured *	me, char ch);
+
+    int (*put_string)	(HTStructured *	me, const char * str);
+
+    int (*put_block)	(HTStructured * me, const char * str, int len);
+</PRE>
+<P>
+See the <A HREF="HTStream.html">Generic Stream Definition</A> for an explanation
+of these methods. Note that they all have a <CODE>HTStructured</CODE> object
+a the parameter, not a generic stream. This is to avoid <EM>incompatible
+pointer</EM> warnings
+<PRE>
+    void (*start_element)(HTStructured *me,
+			  int		element_number,
+			  const BOOL *	attribute_present,
+			  const char **	attribute_value);
+
+    void (*end_element)	(HTStructured *	me, int element_number);
+
+    void (*put_entity)	(HTStructured *	me, int entity_number);
+
+    int (*unparsed_begin_element)(HTStructured * me, const char * str, int len);
+
+    int (*unparsed_end_element)(HTStructured * me, const char * str, int len);
+
+    int (*unparsed_entity)(HTStructured * me, const char * str, int len);
+		
+} HTStructuredClass;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTSTRUCT_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

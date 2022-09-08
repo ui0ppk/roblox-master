@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioToolFile
+	Name="Qt Build Rules"
+	Version="8.00"
+	>
+	<Rules>
+		<CustomBuildRule
+			Name="Rcc"
+			DisplayName="Qt Rcc"
+			CommandLine="&quot;..\Library\Qt\bin\Rcc.exe&quot; -name $(InputName) &quot;$(InputPath)&quot; -o &quot;$(ProjectDir)qrc_$(InputName).cpp&quot;"
+			Outputs="&quot;$(ProjectDir)qrc_$(InputName).cpp&quot;"
+			FileExtensions="*.qrc"
+			ExecutionDescription="Rcc $(InputFileName)"
+			>
+			<Properties>
+			</Properties>
+		</CustomBuildRule>
+		<CustomBuildRule
+			Name="Moc"
+			DisplayName="Qt Moc"
+			CommandLine="&quot;..\Library\Qt\bin\moc.exe&quot; -fstdafx.h -f$(InputName).h -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\Library\Qt\include\QtCore&quot; -I&quot;..\Library\Qt\include\QtGui&quot; -I&quot;..\Library\Qt\include&quot; -I&quot;..\Library\Qt\include\ActiveQt&quot; -I&quot;..\Library\Qt\mkspecs\win32-msvc2008&quot; -D_MSC_VER=1500 -DWIN32 &quot;$(InputPath)&quot; -o &quot;$(ProjectDir)moc_$(InputName).cpp&quot;"
+			Outputs="&quot;$(ProjectDir)moc_$(InputName).cpp&quot;"
+			FileExtensions="*.dummy"
+			ExecutionDescription="Moc $(InputFileName)"
+			>
+			<Properties>
+			</Properties>
+		</CustomBuildRule>
+		<CustomBuildRule
+			Name="Uic"
+			DisplayName="Qt Uic"
+			CommandLine="&quot;..\Library\Qt\bin\uic.exe&quot; &quot;$(InputPath)&quot; -o &quot;$(ProjectDir)ui_$(InputName).h&quot;"
+			Outputs="&quot;$(ProjectDir)ui_$(InputName).h&quot;"
+			FileExtensions="*.ui"
+			ExecutionDescription="Uic $(InputFileName)"
+			>
+			<Properties>
+			</Properties>
+		</CustomBuildRule>
+	</Rules>
+</VisualStudioToolFile>

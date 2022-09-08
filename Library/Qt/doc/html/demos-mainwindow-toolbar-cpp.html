@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: toolbar.cpp Example File (demos/mainwindow/toolbar.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">toolbar.cpp Example File</h1>
+<span class="small-subtitle">demos/mainwindow/toolbar.cpp</span>
+<!-- $$$demos/mainwindow/toolbar.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;toolbar.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QMainWindow&gt;</span>
+ <span class="preprocessor">#include &lt;QMenu&gt;</span>
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QPainterPath&gt;</span>
+ <span class="preprocessor">#include &lt;QSpinBox&gt;</span>
+ <span class="preprocessor">#include &lt;QLabel&gt;</span>
+ <span class="preprocessor">#include &lt;QToolTip&gt;</span>
+
+ <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+
+ <span class="keyword">static</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span> genIcon(<span class="keyword">const</span> <span class="type"><a href="qsize.html">QSize</a></span> <span class="operator">&amp;</span>iconSize<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color)
+ {
+     <span class="type">int</span> w <span class="operator">=</span> iconSize<span class="operator">.</span>width();
+     <span class="type">int</span> h <span class="operator">=</span> iconSize<span class="operator">.</span>height();
+
+     <span class="type"><a href="qimage.html">QImage</a></span> image(w<span class="operator">,</span> h<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_ARGB32_Premultiplied);
+     image<span class="operator">.</span>fill(<span class="number">0</span>);
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="operator">&amp;</span>image);
+
+     <span class="keyword">extern</span> <span class="type">void</span> render_qt_text(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="type">int</span><span class="operator">,</span> <span class="type">int</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>);
+     render_qt_text(<span class="operator">&amp;</span>p<span class="operator">,</span> w<span class="operator">,</span> h<span class="operator">,</span> color);
+
+     <span class="keyword">return</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">::</span>fromImage(image<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DiffuseDither <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DiffuseAlphaDither);
+ }
+
+ <span class="keyword">static</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span> genIcon(<span class="keyword">const</span> <span class="type"><a href="qsize.html">QSize</a></span> <span class="operator">&amp;</span>iconSize<span class="operator">,</span> <span class="type">int</span> number<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color)
+ { <span class="keyword">return</span> genIcon(iconSize<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(number)<span class="operator">,</span> color); }
+
+ ToolBar<span class="operator">::</span>ToolBar(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>title<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qtoolbar.html">QToolBar</a></span>(parent)<span class="operator">,</span> spinbox(<span class="number">0</span>)<span class="operator">,</span> spinboxAction(<span class="number">0</span>)
+ {
+     tip <span class="operator">=</span> <span class="number">0</span>;
+     setWindowTitle(title);
+     setObjectName(title);
+
+     setIconSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">32</span><span class="operator">,</span> <span class="number">32</span>));
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> bg(palette()<span class="operator">.</span>background()<span class="operator">.</span>color());
+     menu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(<span class="string">&quot;One&quot;</span><span class="operator">,</span> <span class="keyword">this</span>);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>setIcon(genIcon(iconSize()<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black));
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(genIcon(iconSize()<span class="operator">,</span> <span class="string">&quot;A&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue)<span class="operator">,</span> <span class="string">&quot;A&quot;</span>);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(genIcon(iconSize()<span class="operator">,</span> <span class="string">&quot;B&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue)<span class="operator">,</span> <span class="string">&quot;B&quot;</span>);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(genIcon(iconSize()<span class="operator">,</span> <span class="string">&quot;C&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue)<span class="operator">,</span> <span class="string">&quot;C&quot;</span>);
+     addAction(menu<span class="operator">-</span><span class="operator">&gt;</span>menuAction());
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>two <span class="operator">=</span> addAction(genIcon(iconSize()<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white)<span class="operator">,</span> <span class="string">&quot;Two&quot;</span>);
+     <span class="type"><a href="qfont.html">QFont</a></span> boldFont;
+     boldFont<span class="operator">.</span>setBold(<span class="keyword">true</span>);
+     two<span class="operator">-</span><span class="operator">&gt;</span>setFont(boldFont);
+
+     addAction(genIcon(iconSize()<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red)<span class="operator">,</span> <span class="string">&quot;Three&quot;</span>);
+     addAction(genIcon(iconSize()<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green)<span class="operator">,</span> <span class="string">&quot;Four&quot;</span>);
+     addAction(genIcon(iconSize()<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue)<span class="operator">,</span> <span class="string">&quot;Five&quot;</span>);
+     addAction(genIcon(iconSize()<span class="operator">,</span> <span class="number">6</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow)<span class="operator">,</span> <span class="string">&quot;Six&quot;</span>);
+     orderAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="keyword">this</span>);
+     orderAction<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Order Items in Tool Bar&quot;</span>));
+     connect(orderAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> SLOT(order()));
+
+     randomizeAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="keyword">this</span>);
+     randomizeAction<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Randomize Items in Tool Bar&quot;</span>));
+     connect(randomizeAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> SLOT(randomize()));
+
+     addSpinBoxAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="keyword">this</span>);
+     addSpinBoxAction<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Add Spin Box&quot;</span>));
+     connect(addSpinBoxAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> SLOT(addSpinBox()));
+
+     removeSpinBoxAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="keyword">this</span>);
+     removeSpinBoxAction<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Remove Spin Box&quot;</span>));
+     removeSpinBoxAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     connect(removeSpinBoxAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> SLOT(removeSpinBox()));
+
+     movableAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Movable&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     movableAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(movableAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(changeMovable(<span class="type">bool</span>)));
+
+     allowedAreasActions <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(<span class="keyword">this</span>);
+     allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">false</span>);
+
+     allowLeftAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Allow on Left&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     allowLeftAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(allowLeftAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(allowLeft(<span class="type">bool</span>)));
+
+     allowRightAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Allow on Right&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     allowRightAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(allowRightAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(allowRight(<span class="type">bool</span>)));
+
+     allowTopAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Allow on Top&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     allowTopAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(allowTopAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(allowTop(<span class="type">bool</span>)));
+
+     allowBottomAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Allow on Bottom&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     allowBottomAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(allowBottomAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(allowBottom(<span class="type">bool</span>)));
+
+     allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(allowLeftAction);
+     allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(allowRightAction);
+     allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(allowTopAction);
+     allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(allowBottomAction);
+
+     areaActions <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(<span class="keyword">this</span>);
+     areaActions<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">true</span>);
+
+     leftAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Place on Left&quot;</span>) <span class="operator">,</span> <span class="keyword">this</span>);
+     leftAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(leftAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(placeLeft(<span class="type">bool</span>)));
+
+     rightAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Place on Right&quot;</span>) <span class="operator">,</span> <span class="keyword">this</span>);
+     rightAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(rightAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(placeRight(<span class="type">bool</span>)));
+
+     topAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Place on Top&quot;</span>) <span class="operator">,</span> <span class="keyword">this</span>);
+     topAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(topAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(placeTop(<span class="type">bool</span>)));
+
+     bottomAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Place on Bottom&quot;</span>) <span class="operator">,</span> <span class="keyword">this</span>);
+     bottomAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     connect(bottomAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> SLOT(placeBottom(<span class="type">bool</span>)));
+
+     areaActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(leftAction);
+     areaActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(rightAction);
+     areaActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(topAction);
+     areaActions<span class="operator">-</span><span class="operator">&gt;</span>addAction(bottomAction);
+
+     toolBarBreakAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Insert break&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(toolBarBreakAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(insertToolBarBreak()));
+
+     connect(movableAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> areaActions<span class="operator">,</span> SLOT(setEnabled(<span class="type">bool</span>)));
+
+     connect(movableAction<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> allowedAreasActions<span class="operator">,</span> SLOT(setEnabled(<span class="type">bool</span>)));
+
+     menu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(title<span class="operator">,</span> <span class="keyword">this</span>);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(toggleViewAction());
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(orderAction);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(randomizeAction);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(addSpinBoxAction);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(removeSpinBoxAction);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(movableAction);
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addActions(allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>actions());
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addActions(areaActions<span class="operator">-</span><span class="operator">&gt;</span>actions());
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(toolBarBreakAction);
+
+     connect(menu<span class="operator">,</span> SIGNAL(aboutToShow())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(updateMenu()));
+
+     randomize();
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>updateMenu()
+ {
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span> <span class="operator">*</span>mainWindow <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qmainwindow.html">QMainWindow</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(parentWidget());
+     Q_ASSERT(mainWindow <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="keyword">const</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ToolBarArea area <span class="operator">=</span> mainWindow<span class="operator">-</span><span class="operator">&gt;</span>toolBarArea(<span class="keyword">this</span>);
+     <span class="keyword">const</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ToolBarAreas areas <span class="operator">=</span> allowedAreas();
+
+     movableAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(isMovable());
+
+     allowLeftAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(isAreaAllowed(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea));
+     allowRightAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(isAreaAllowed(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea));
+     allowTopAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(isAreaAllowed(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea));
+     allowBottomAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(isAreaAllowed(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea));
+
+     <span class="keyword">if</span> (allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>isEnabled()) {
+         allowLeftAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea);
+         allowRightAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea);
+         allowTopAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea);
+         allowBottomAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea);
+     }
+
+     leftAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(area <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea);
+     rightAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(area <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea);
+     topAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(area <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea);
+     bottomAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(area <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea);
+
+     <span class="keyword">if</span> (areaActions<span class="operator">-</span><span class="operator">&gt;</span>isEnabled()) {
+         leftAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea);
+         rightAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea);
+         topAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea);
+         bottomAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea);
+     }
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>order()
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span> ordered<span class="operator">,</span> actions1 <span class="operator">=</span> actions()<span class="operator">,</span>
+                               actions2 <span class="operator">=</span> findChildren<span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span>();
+     <span class="keyword">while</span> (<span class="operator">!</span>actions2<span class="operator">.</span>isEmpty()) {
+         <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action <span class="operator">=</span> actions2<span class="operator">.</span>takeFirst();
+         <span class="keyword">if</span> (<span class="operator">!</span>actions1<span class="operator">.</span>contains(action))
+             <span class="keyword">continue</span>;
+         actions1<span class="operator">.</span>removeAll(action);
+         ordered<span class="operator">.</span>append(action);
+     }
+
+     clear();
+     addActions(ordered);
+
+     orderAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>randomize()
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span> randomized<span class="operator">,</span> actions <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>actions();
+     <span class="keyword">while</span> (<span class="operator">!</span>actions<span class="operator">.</span>isEmpty()) {
+         <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action <span class="operator">=</span> actions<span class="operator">.</span>takeAt(rand() <span class="operator">%</span> actions<span class="operator">.</span>size());
+         randomized<span class="operator">.</span>append(action);
+     }
+     clear();
+     addActions(randomized);
+
+     orderAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>addSpinBox()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>spinbox) {
+         spinbox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qspinbox.html">QSpinBox</a></span>(<span class="keyword">this</span>);
+     }
+     <span class="keyword">if</span> (<span class="operator">!</span>spinboxAction)
+         spinboxAction <span class="operator">=</span> addWidget(spinbox);
+     <span class="keyword">else</span>
+         addAction(spinboxAction);
+
+     addSpinBoxAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     removeSpinBoxAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>removeSpinBox()
+ {
+     <span class="keyword">if</span> (spinboxAction)
+         removeAction(spinboxAction);
+
+     addSpinBoxAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+     removeSpinBoxAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>allow(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ToolBarArea area<span class="operator">,</span> <span class="type">bool</span> a)
+ {
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ToolBarAreas areas <span class="operator">=</span> allowedAreas();
+     areas <span class="operator">=</span> a <span class="operator">?</span> areas <span class="operator">|</span> area : areas <span class="operator">&amp;</span> <span class="operator">~</span>area;
+     setAllowedAreas(areas);
+
+     <span class="keyword">if</span> (areaActions<span class="operator">-</span><span class="operator">&gt;</span>isEnabled()) {
+         leftAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea);
+         rightAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea);
+         topAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea);
+         bottomAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(areas <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea);
+     }
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>place(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ToolBarArea area<span class="operator">,</span> <span class="type">bool</span> p)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>p)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span> <span class="operator">*</span>mainWindow <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qmainwindow.html">QMainWindow</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(parentWidget());
+     Q_ASSERT(mainWindow <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>);
+
+     mainWindow<span class="operator">-</span><span class="operator">&gt;</span>addToolBar(area<span class="operator">,</span> <span class="keyword">this</span>);
+
+     <span class="keyword">if</span> (allowedAreasActions<span class="operator">-</span><span class="operator">&gt;</span>isEnabled()) {
+         allowLeftAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea);
+         allowRightAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea);
+         allowTopAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea);
+         allowBottomAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(area <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea);
+     }
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>changeMovable(<span class="type">bool</span> movable)
+ { setMovable(movable); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>allowLeft(<span class="type">bool</span> a)
+ { allow(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea<span class="operator">,</span> a); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>allowRight(<span class="type">bool</span> a)
+ { allow(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea<span class="operator">,</span> a); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>allowTop(<span class="type">bool</span> a)
+ { allow(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea<span class="operator">,</span> a); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>allowBottom(<span class="type">bool</span> a)
+ { allow(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea<span class="operator">,</span> a); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>placeLeft(<span class="type">bool</span> p)
+ { place(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToolBarArea<span class="operator">,</span> p); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>placeRight(<span class="type">bool</span> p)
+ { place(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToolBarArea<span class="operator">,</span> p); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>placeTop(<span class="type">bool</span> p)
+ { place(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopToolBarArea<span class="operator">,</span> p); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>placeBottom(<span class="type">bool</span> p)
+ { place(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomToolBarArea<span class="operator">,</span> p); }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>insertToolBarBreak()
+ {
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span> <span class="operator">*</span>mainWindow <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qmainwindow.html">QMainWindow</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(parentWidget());
+     Q_ASSERT(mainWindow <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>);
+
+     mainWindow<span class="operator">-</span><span class="operator">&gt;</span>insertToolBarBreak(<span class="keyword">this</span>);
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>enterEvent(<span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">*</span>)
+ {
+ <span class="comment">/*
+     These labels on top of toolbars look darn ugly
+
+     if (tip == 0) {
+         tip = new QLabel(windowTitle(), this);
+         QPalette pal = tip-&gt;palette();
+         QColor c = Qt::black;
+         c.setAlpha(100);
+         pal.setColor(QPalette::Window, c);
+         pal.setColor(QPalette::Foreground, Qt::white);
+         tip-&gt;setPalette(pal);
+         tip-&gt;setAutoFillBackground(true);
+         tip-&gt;setMargin(3);
+         tip-&gt;setText(windowTitle());
+     }
+     QPoint c = rect().center();
+     QSize hint = tip-&gt;sizeHint();
+     tip-&gt;setGeometry(c.x() - hint.width()/2, c.y() - hint.height()/2,
+                         hint.width(), hint.height());
+
+     tip-&gt;show();
+ */</span>
+ }
+
+ <span class="type">void</span> ToolBar<span class="operator">::</span>leaveEvent(<span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">*</span>)
+ {
+     <span class="keyword">if</span> (tip <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>)
+         tip<span class="operator">-</span><span class="operator">&gt;</span>hide();
+ }</pre>
+</div>
+<!-- @@@demos/mainwindow/toolbar.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

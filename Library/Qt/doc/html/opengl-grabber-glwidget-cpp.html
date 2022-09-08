@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: glwidget.cpp Example File (opengl/grabber/glwidget.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">glwidget.cpp Example File</h1>
+<span class="small-subtitle">opengl/grabber/glwidget.cpp</span>
+<!-- $$$opengl/grabber/glwidget.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &lt;QtOpenGL&gt;</span>
+
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
+
+ <span class="preprocessor">#include &quot;glwidget.h&quot;</span>
+
+ GLWidget<span class="operator">::</span>GLWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qglwidget.html">QGLWidget</a></span>(parent)
+ {
+     gear1 <span class="operator">=</span> <span class="number">0</span>;
+     gear2 <span class="operator">=</span> <span class="number">0</span>;
+     gear3 <span class="operator">=</span> <span class="number">0</span>;
+     xRot <span class="operator">=</span> <span class="number">0</span>;
+     yRot <span class="operator">=</span> <span class="number">0</span>;
+     zRot <span class="operator">=</span> <span class="number">0</span>;
+     gear1Rot <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="type"><a href="qtimer.html">QTimer</a></span> <span class="operator">*</span>timer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>(<span class="keyword">this</span>);
+     connect(timer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(advanceGears()));
+     timer<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="number">20</span>);
+ }
+
+ GLWidget<span class="operator">::</span><span class="operator">~</span>GLWidget()
+ {
+     makeCurrent();
+     glDeleteLists(gear1<span class="operator">,</span> <span class="number">1</span>);
+     glDeleteLists(gear2<span class="operator">,</span> <span class="number">1</span>);
+     glDeleteLists(gear3<span class="operator">,</span> <span class="number">1</span>);
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>setXRotation(<span class="type">int</span> angle)
+ {
+     normalizeAngle(<span class="operator">&amp;</span>angle);
+     <span class="keyword">if</span> (angle <span class="operator">!</span><span class="operator">=</span> xRot) {
+         xRot <span class="operator">=</span> angle;
+         <span class="keyword">emit</span> xRotationChanged(angle);
+         updateGL();
+     }
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>setYRotation(<span class="type">int</span> angle)
+ {
+     normalizeAngle(<span class="operator">&amp;</span>angle);
+     <span class="keyword">if</span> (angle <span class="operator">!</span><span class="operator">=</span> yRot) {
+         yRot <span class="operator">=</span> angle;
+         <span class="keyword">emit</span> yRotationChanged(angle);
+         updateGL();
+     }
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>setZRotation(<span class="type">int</span> angle)
+ {
+     normalizeAngle(<span class="operator">&amp;</span>angle);
+     <span class="keyword">if</span> (angle <span class="operator">!</span><span class="operator">=</span> zRot) {
+         zRot <span class="operator">=</span> angle;
+         <span class="keyword">emit</span> zRotationChanged(angle);
+         updateGL();
+     }
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>initializeGL()
+ {
+     <span class="keyword">static</span> <span class="keyword">const</span> GLfloat lightPos<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="number">5.0f</span><span class="operator">,</span> <span class="number">5.0f</span><span class="operator">,</span> <span class="number">10.0f</span><span class="operator">,</span> <span class="number">1.0f</span> };
+     <span class="keyword">static</span> <span class="keyword">const</span> GLfloat reflectance1<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="number">0.8f</span><span class="operator">,</span> <span class="number">0.1f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span> };
+     <span class="keyword">static</span> <span class="keyword">const</span> GLfloat reflectance2<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.8f</span><span class="operator">,</span> <span class="number">0.2f</span><span class="operator">,</span> <span class="number">1.0f</span> };
+     <span class="keyword">static</span> <span class="keyword">const</span> GLfloat reflectance3<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="number">0.2f</span><span class="operator">,</span> <span class="number">0.2f</span><span class="operator">,</span> <span class="number">1.0f</span><span class="operator">,</span> <span class="number">1.0f</span> };
+
+     glLightfv(GL_LIGHT0<span class="operator">,</span> GL_POSITION<span class="operator">,</span> lightPos);
+     glEnable(GL_LIGHTING);
+     glEnable(GL_LIGHT0);
+     glEnable(GL_DEPTH_TEST);
+
+     gear1 <span class="operator">=</span> makeGear(reflectance1<span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">4.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.7</span><span class="operator">,</span> <span class="number">20</span>);
+     gear2 <span class="operator">=</span> makeGear(reflectance2<span class="operator">,</span> <span class="number">0.5</span><span class="operator">,</span> <span class="number">2.0</span><span class="operator">,</span> <span class="number">2.0</span><span class="operator">,</span> <span class="number">0.7</span><span class="operator">,</span> <span class="number">10</span>);
+     gear3 <span class="operator">=</span> makeGear(reflectance3<span class="operator">,</span> <span class="number">1.3</span><span class="operator">,</span> <span class="number">2.0</span><span class="operator">,</span> <span class="number">0.5</span><span class="operator">,</span> <span class="number">0.7</span><span class="operator">,</span> <span class="number">10</span>);
+
+     glEnable(GL_NORMALIZE);
+     glClearColor(<span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span>);
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>paintGL()
+ {
+     glClear(GL_COLOR_BUFFER_BIT <span class="operator">|</span> GL_DEPTH_BUFFER_BIT);
+
+     glPushMatrix();
+     glRotated(xRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     glRotated(yRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     glRotated(zRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span>);
+
+     drawGear(gear1<span class="operator">,</span> <span class="operator">-</span><span class="number">3.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">2.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> gear1Rot <span class="operator">/</span> <span class="number">16.0</span>);
+     drawGear(gear2<span class="operator">,</span> <span class="operator">+</span><span class="number">3.1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">2.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">2.0</span> <span class="operator">*</span> (gear1Rot <span class="operator">/</span> <span class="number">16.0</span>) <span class="operator">-</span> <span class="number">9.0</span>);
+
+     glRotated(<span class="operator">+</span><span class="number">90.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     drawGear(gear3<span class="operator">,</span> <span class="operator">-</span><span class="number">3.1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1.8</span><span class="operator">,</span> <span class="operator">-</span><span class="number">2.2</span><span class="operator">,</span> <span class="operator">+</span><span class="number">2.0</span> <span class="operator">*</span> (gear1Rot <span class="operator">/</span> <span class="number">16.0</span>) <span class="operator">-</span> <span class="number">2.0</span>);
+
+     glPopMatrix();
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>resizeGL(<span class="type">int</span> width<span class="operator">,</span> <span class="type">int</span> height)
+ {
+     <span class="type">int</span> side <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(width<span class="operator">,</span> height);
+     glViewport((width <span class="operator">-</span> side) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> (height <span class="operator">-</span> side) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> side<span class="operator">,</span> side);
+
+     glMatrixMode(GL_PROJECTION);
+     glLoadIdentity();
+     glFrustum(<span class="operator">-</span><span class="number">1.0</span><span class="operator">,</span> <span class="operator">+</span><span class="number">1.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">5.0</span><span class="operator">,</span> <span class="number">60.0</span>);
+     glMatrixMode(GL_MODELVIEW);
+     glLoadIdentity();
+     glTranslated(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">40.0</span>);
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     lastPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type">int</span> dx <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">-</span> lastPos<span class="operator">.</span>x();
+     <span class="type">int</span> dy <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">-</span> lastPos<span class="operator">.</span>y();
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         setXRotation(xRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dy);
+         setYRotation(yRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dx);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightButton) {
+         setXRotation(xRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dy);
+         setZRotation(zRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dx);
+     }
+     lastPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>advanceGears()
+ {
+     gear1Rot <span class="operator">+</span><span class="operator">=</span> <span class="number">2</span> <span class="operator">*</span> <span class="number">16</span>;
+     updateGL();
+ }
+
+ GLuint GLWidget<span class="operator">::</span>makeGear(<span class="keyword">const</span> GLfloat <span class="operator">*</span>reflectance<span class="operator">,</span> GLdouble innerRadius<span class="operator">,</span>
+                           GLdouble outerRadius<span class="operator">,</span> GLdouble thickness<span class="operator">,</span>
+                           GLdouble toothSize<span class="operator">,</span> GLint toothCount)
+ {
+     <span class="keyword">const</span> <span class="type">double</span> Pi <span class="operator">=</span> <span class="number">3.14159265358979323846</span>;
+
+     GLuint list <span class="operator">=</span> glGenLists(<span class="number">1</span>);
+     glNewList(list<span class="operator">,</span> GL_COMPILE);
+     glMaterialfv(GL_FRONT<span class="operator">,</span> GL_AMBIENT_AND_DIFFUSE<span class="operator">,</span> reflectance);
+
+     GLdouble r0 <span class="operator">=</span> innerRadius;
+     GLdouble r1 <span class="operator">=</span> outerRadius <span class="operator">-</span> toothSize <span class="operator">/</span> <span class="number">2.0</span>;
+     GLdouble r2 <span class="operator">=</span> outerRadius <span class="operator">+</span> toothSize <span class="operator">/</span> <span class="number">2.0</span>;
+     GLdouble delta <span class="operator">=</span> (<span class="number">2.0</span> <span class="operator">*</span> Pi <span class="operator">/</span> toothCount) <span class="operator">/</span> <span class="number">4.0</span>;
+     GLdouble z <span class="operator">=</span> thickness <span class="operator">/</span> <span class="number">2.0</span>;
+     <span class="type">int</span> i<span class="operator">,</span> j;
+
+     glShadeModel(GL_FLAT);
+
+     <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">2</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         GLdouble sign <span class="operator">=</span> (i <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) <span class="operator">?</span> <span class="operator">+</span><span class="number">1.0</span> : <span class="operator">-</span><span class="number">1.0</span>;
+
+         glNormal3d(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> sign);
+
+         glBegin(GL_QUAD_STRIP);
+         <span class="keyword">for</span> (j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span><span class="operator">=</span> toothCount; <span class="operator">+</span><span class="operator">+</span>j) {
+             GLdouble angle <span class="operator">=</span> <span class="number">2.0</span> <span class="operator">*</span> Pi <span class="operator">*</span> j <span class="operator">/</span> toothCount;
+             glVertex3d(r0 <span class="operator">*</span> cos(angle)<span class="operator">,</span> r0 <span class="operator">*</span> sin(angle)<span class="operator">,</span> sign <span class="operator">*</span> z);
+             glVertex3d(r1 <span class="operator">*</span> cos(angle)<span class="operator">,</span> r1 <span class="operator">*</span> sin(angle)<span class="operator">,</span> sign <span class="operator">*</span> z);
+             glVertex3d(r0 <span class="operator">*</span> cos(angle)<span class="operator">,</span> r0 <span class="operator">*</span> sin(angle)<span class="operator">,</span> sign <span class="operator">*</span> z);
+             glVertex3d(r1 <span class="operator">*</span> cos(angle <span class="operator">+</span> <span class="number">3</span> <span class="operator">*</span> delta)<span class="operator">,</span> r1 <span class="operator">*</span> sin(angle <span class="operator">+</span> <span class="number">3</span> <span class="operator">*</span> delta)<span class="operator">,</span>
+                        sign <span class="operator">*</span> z);
+         }
+         glEnd();
+
+         glBegin(GL_QUADS);
+         <span class="keyword">for</span> (j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> toothCount; <span class="operator">+</span><span class="operator">+</span>j) {
+             GLdouble angle <span class="operator">=</span> <span class="number">2.0</span> <span class="operator">*</span> Pi <span class="operator">*</span> j <span class="operator">/</span> toothCount;
+             glVertex3d(r1 <span class="operator">*</span> cos(angle)<span class="operator">,</span> r1 <span class="operator">*</span> sin(angle)<span class="operator">,</span> sign <span class="operator">*</span> z);
+             glVertex3d(r2 <span class="operator">*</span> cos(angle <span class="operator">+</span> delta)<span class="operator">,</span> r2 <span class="operator">*</span> sin(angle <span class="operator">+</span> delta)<span class="operator">,</span>
+                        sign <span class="operator">*</span> z);
+             glVertex3d(r2 <span class="operator">*</span> cos(angle <span class="operator">+</span> <span class="number">2</span> <span class="operator">*</span> delta)<span class="operator">,</span> r2 <span class="operator">*</span> sin(angle <span class="operator">+</span> <span class="number">2</span> <span class="operator">*</span> delta)<span class="operator">,</span>
+                        sign <span class="operator">*</span> z);
+             glVertex3d(r1 <span class="operator">*</span> cos(angle <span class="operator">+</span> <span class="number">3</span> <span class="operator">*</span> delta)<span class="operator">,</span> r1 <span class="operator">*</span> sin(angle <span class="operator">+</span> <span class="number">3</span> <span class="operator">*</span> delta)<span class="operator">,</span>
+                        sign <span class="operator">*</span> z);
+         }
+         glEnd();
+     }
+
+     glBegin(GL_QUAD_STRIP);
+     <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> toothCount; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">for</span> (j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> <span class="number">2</span>; <span class="operator">+</span><span class="operator">+</span>j) {
+             GLdouble angle <span class="operator">=</span> <span class="number">2.0</span> <span class="operator">*</span> Pi <span class="operator">*</span> (i <span class="operator">+</span> (j <span class="operator">/</span> <span class="number">2.0</span>)) <span class="operator">/</span> toothCount;
+             GLdouble s1 <span class="operator">=</span> r1;
+             GLdouble s2 <span class="operator">=</span> r2;
+             <span class="keyword">if</span> (j <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>)
+                 <a href="qtalgorithms.html#qSwap">qSwap</a>(s1<span class="operator">,</span> s2);
+
+             glNormal3d(cos(angle)<span class="operator">,</span> sin(angle)<span class="operator">,</span> <span class="number">0.0</span>);
+             glVertex3d(s1 <span class="operator">*</span> cos(angle)<span class="operator">,</span> s1 <span class="operator">*</span> sin(angle)<span class="operator">,</span> <span class="operator">+</span>z);
+             glVertex3d(s1 <span class="operator">*</span> cos(angle)<span class="operator">,</span> s1 <span class="operator">*</span> sin(angle)<span class="operator">,</span> <span class="operator">-</span>z);
+
+             glNormal3d(s2 <span class="operator">*</span> sin(angle <span class="operator">+</span> delta) <span class="operator">-</span> s1 <span class="operator">*</span> sin(angle)<span class="operator">,</span>
+                        s1 <span class="operator">*</span> cos(angle) <span class="operator">-</span> s2 <span class="operator">*</span> cos(angle <span class="operator">+</span> delta)<span class="operator">,</span> <span class="number">0.0</span>);
+             glVertex3d(s2 <span class="operator">*</span> cos(angle <span class="operator">+</span> delta)<span class="operator">,</span> s2 <span class="operator">*</span> sin(angle <span class="operator">+</span> delta)<span class="operator">,</span> <span class="operator">+</span>z);
+             glVertex3d(s2 <span class="operator">*</span> cos(angle <span class="operator">+</span> delta)<span class="operator">,</span> s2 <span class="operator">*</span> sin(angle <span class="operator">+</span> delta)<span class="operator">,</span> <span class="operator">-</span>z);
+         }
+     }
+     glVertex3d(r1<span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="operator">+</span>z);
+     glVertex3d(r1<span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span>z);
+     glEnd();
+
+     glShadeModel(GL_SMOOTH);
+
+     glBegin(GL_QUAD_STRIP);
+     <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span><span class="operator">=</span> toothCount; <span class="operator">+</span><span class="operator">+</span>i) {
+         GLdouble angle <span class="operator">=</span> i <span class="operator">*</span> <span class="number">2.0</span> <span class="operator">*</span> Pi <span class="operator">/</span> toothCount;
+         glNormal3d(<span class="operator">-</span>cos(angle)<span class="operator">,</span> <span class="operator">-</span>sin(angle)<span class="operator">,</span> <span class="number">0.0</span>);
+         glVertex3d(r0 <span class="operator">*</span> cos(angle)<span class="operator">,</span> r0 <span class="operator">*</span> sin(angle)<span class="operator">,</span> <span class="operator">+</span>z);
+         glVertex3d(r0 <span class="operator">*</span> cos(angle)<span class="operator">,</span> r0 <span class="operator">*</span> sin(angle)<span class="operator">,</span> <span class="operator">-</span>z);
+     }
+     glEnd();
+
+     glEndList();
+
+     <span class="keyword">return</span> list;
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>drawGear(GLuint gear<span class="operator">,</span> GLdouble dx<span class="operator">,</span> GLdouble dy<span class="operator">,</span> GLdouble dz<span class="operator">,</span>
+                         GLdouble angle)
+ {
+     glPushMatrix();
+     glTranslated(dx<span class="operator">,</span> dy<span class="operator">,</span> dz);
+     glRotated(angle<span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span>);
+     glCallList(gear);
+     glPopMatrix();
+ }
+
+ <span class="type">void</span> GLWidget<span class="operator">::</span>normalizeAngle(<span class="type">int</span> <span class="operator">*</span>angle)
+ {
+     <span class="keyword">while</span> (<span class="operator">*</span>angle <span class="operator">&lt;</span> <span class="number">0</span>)
+         <span class="operator">*</span>angle <span class="operator">+</span><span class="operator">=</span> <span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>;
+     <span class="keyword">while</span> (<span class="operator">*</span>angle <span class="operator">&gt;</span> <span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>)
+         <span class="operator">*</span>angle <span class="operator">-</span><span class="operator">=</span> <span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>;
+ }</pre>
+</div>
+<!-- @@@opengl/grabber/glwidget.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

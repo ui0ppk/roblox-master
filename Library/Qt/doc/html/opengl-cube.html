@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- cube.qdoc -->
+  <title>Qt 4.8: Cube OpenGL ES 2.0 example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Cube OpenGL ES 2.0 example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#initializing-opengl-es-2-0">Initializing OpenGL ES 2.0</a></li>
+<li class="level1"><a href="#loading-textures-from-qt-resource-files">Loading textures from Qt Resource files</a></li>
+<li class="level1"><a href="#cube-geometry">Cube Geometry</a></li>
+<li class="level1"><a href="#perspective-projection">Perspective projection</a></li>
+<li class="level1"><a href="#orientation-of-the-3d-object">Orientation of the 3D object</a></li>
+</ul>
+</div>
+<h1 class="title">Cube OpenGL ES 2.0 example</h1>
+<span class="subtitle"></span>
+<!-- $$$opengl/cube-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="opengl-cube-geometryengine-cpp.html">opengl/cube/geometryengine.cpp</a></li>
+<li><a href="opengl-cube-geometryengine-h.html">opengl/cube/geometryengine.h</a></li>
+<li><a href="opengl-cube-mainwidget-cpp.html">opengl/cube/mainwidget.cpp</a></li>
+<li><a href="opengl-cube-mainwidget-h.html">opengl/cube/mainwidget.h</a></li>
+<li><a href="opengl-cube-main-cpp.html">opengl/cube/main.cpp</a></li>
+<li><a href="opengl-cube-cube-pro.html">opengl/cube/cube.pro</a></li>
+<li><a href="opengl-cube-shaders-qrc.html">opengl/cube/shaders.qrc</a></li>
+<li><a href="opengl-cube-textures-qrc.html">opengl/cube/textures.qrc</a></li>
+</ul>
+<p>The Cube OpenGL ES 2.0 example shows how to write mouse rotateable textured 3D cube using OpenGL ES 2.0 with Qt.<p>It shows how to handle polygon geometries efficiently and how to write simple vertex and fragment shader for programmable graphics pipeline. In addition it shows how to use quaternions for representing 3D object orientation.</p>
+<p>This example has been written for OpenGL ES 2.0 but it works also on desktop OpenGL because this example is simple enough and for the most parts desktop OpenGL API is same. It compiles also without OpenGL support but then it just shows a label stating that OpenGL support is required.</p>
+<p class="centerAlign"><img src="images/cube.png" alt="Screenshot of the Cube example running on N900" /></p><p>The example consist of two classes:</p>
+<ul>
+<li><tt>MainWidget</tt> extends <a href="qglwidget.html">QGLWidget</a> and contains OpenGL ES 2.0 initialization and drawing and mouse and timer event handling</li>
+<li><tt>GeometryEngine</tt> handles polygon geometries. Transfers polygon geometry to vertex buffer objects and draws geometries from vertex buffer objects.</li>
+</ul>
+<p>We'll start by initializing OpenGL ES 2.0 in <tt>MainWidget</tt>.</p>
+<a name="initializing-opengl-es-2-0"></a>
+<h2>Initializing OpenGL ES 2.0</h2>
+<p>Since OpenGL ES 2.0 doesn't support fixed graphics pipeline anymore it has to be implemented by ourselves. This makes graphics pipeline very flexible but in the same time it becomes more difficult because user has to implement graphics pipeline to get even the simplest example running. It also makes graphics pipeline more efficient because user can decide what kind of pipeline is needed for the application.</p>
+<p>First we have to implement vertex shader. It gets vertex data and model-view-projection matrix (MVP) as parameters. It transforms vertex position using MVP matrix to screen space and passes texture coordinate to fragment shader. Texture coordinate will be automatically interpolated on polygon faces.</p>
+<pre class="cpp"> void main()
+ {
+     // Calculate vertex position in screen space
+     gl_Position = mvp_matrix * a_position;
+
+     // Pass texture coordinate to fragment shader
+     // Value will be automatically interpolated to fragments inside polygon faces
+     v_texcoord = a_texcoord;
+ }</pre>
+<p>After that we need to implement second part of the graphics pipeline - fragment shader. For this exercise we need to implement fragment shader that handles texturing. It gets interpolated texture coordinate as a parameter and looks up fragment color from the given texture.</p>
+<pre class="cpp"> void main()
+ {
+     // Set fragment color from texture
+     gl_FragColor = texture2D(texture, v_texcoord);
+ }</pre>
+<p>Using <tt>QGLShaderProgram</tt> we can compile, link and bind shader code to graphics pipeline. This code uses Qt Resource files to access shader source code.</p>
+<pre class="cpp"> <span class="type">void</span> MainWidget<span class="operator">::</span>initShaders()
+ {
+     <span class="comment">// Overriding system locale until shaders are compiled</span>
+     setlocale(LC_NUMERIC<span class="operator">,</span> <span class="string">&quot;C&quot;</span>);
+
+     <span class="comment">// Compiling vertex shader</span>
+     <span class="keyword">if</span> (<span class="operator">!</span>program<span class="operator">-</span><span class="operator">&gt;</span>addShaderFromSourceFile(<span class="type"><a href="qglshader.html">QGLShader</a></span><span class="operator">::</span>Vertex<span class="operator">,</span> <span class="string">&quot;:/vshader.glsl&quot;</span>))
+         close();
+
+     <span class="comment">// Compiling fragment shader</span>
+     <span class="keyword">if</span> (<span class="operator">!</span>program<span class="operator">-</span><span class="operator">&gt;</span>addShaderFromSourceFile(<span class="type"><a href="qglshader.html">QGLShader</a></span><span class="operator">::</span>Fragment<span class="operator">,</span> <span class="string">&quot;:/fshader.glsl&quot;</span>))
+         close();
+
+     <span class="comment">// Linking shader pipeline</span>
+     <span class="keyword">if</span> (<span class="operator">!</span>program<span class="operator">-</span><span class="operator">&gt;</span>link())
+         close();
+
+     <span class="comment">// Binding shader pipeline for use</span>
+     <span class="keyword">if</span> (<span class="operator">!</span>program<span class="operator">-</span><span class="operator">&gt;</span>bind())
+         close();
+
+     <span class="comment">// Restore system locale</span>
+     setlocale(LC_ALL<span class="operator">,</span> <span class="string">&quot;&quot;</span>);
+ }</pre>
+<p>The following code enables depth buffering and back face culling.</p>
+<pre class="cpp">     <span class="comment">// Enable depth buffer</span>
+     glEnable(GL_DEPTH_TEST);
+
+     <span class="comment">// Enable back face culling</span>
+     glEnable(GL_CULL_FACE);</pre>
+<a name="loading-textures-from-qt-resource-files"></a>
+<h2>Loading textures from Qt Resource files</h2>
+<p><tt>QGLWidget</tt> interface implements methods for loading textures from <a href="qimage.html">QImage</a> to GL texture memory. We still need to use OpenGL provided functions for specifying the GL texture unit and configuring texture filtering options.</p>
+<pre class="cpp"> <span class="type">void</span> MainWidget<span class="operator">::</span>initTextures()
+ {
+     <span class="comment">// Loading cube.png to texture unit 0</span>
+     glActiveTexture(GL_TEXTURE0);
+     glEnable(GL_TEXTURE_2D);
+     texture <span class="operator">=</span> bindTexture(<span class="type"><a href="qimage.html">QImage</a></span>(<span class="string">&quot;:/cube.png&quot;</span>));
+
+     <span class="comment">// Set nearest filtering mode for texture minification</span>
+     glTexParameterf(GL_TEXTURE_2D<span class="operator">,</span> GL_TEXTURE_MIN_FILTER<span class="operator">,</span> GL_NEAREST);
+
+     <span class="comment">// Set bilinear filtering mode for texture magnification</span>
+     glTexParameterf(GL_TEXTURE_2D<span class="operator">,</span> GL_TEXTURE_MAG_FILTER<span class="operator">,</span> GL_LINEAR);
+
+     <span class="comment">// Wrap texture coordinates by repeating</span>
+     <span class="comment">// f.ex. texture coordinate (1.1, 1.2) is same as (0.1, 0.2)</span>
+     glTexParameterf(GL_TEXTURE_2D<span class="operator">,</span> GL_TEXTURE_WRAP_S<span class="operator">,</span> GL_REPEAT);
+     glTexParameterf(GL_TEXTURE_2D<span class="operator">,</span> GL_TEXTURE_WRAP_T<span class="operator">,</span> GL_REPEAT);
+ }</pre>
+<a name="cube-geometry"></a>
+<h2>Cube Geometry</h2>
+<p>There are many ways to render polygons in OpenGL but the most efficient way is to use only triangle strip primitives and render vertices from graphics hardware memory. OpenGL has a mechanism to create buffer objects to this memory area and transfer vertex data to these buffers. In OpenGL terminology these are referred as Vertex Buffer Objects (VBO).</p>
+<p class="centerAlign"><img src="images/cube_faces.png" alt="Cube faces and vertices" /></p><p>This is how cube faces break down to triangles. Vertices are ordered this way to get vertex ordering correct using triangle strips. OpenGL determines triangle front and back face based on vertex ordering. By default OpenGL uses counter-clockwise order for front faces. This information is used by back face culling which improves rendering performance by not rendering back faces of the triangles. This way graphics pipeline can omit rendering sides of the triangle that aren't facing towards screen.</p>
+<p>Creating vertex buffer objects and transferring data to them is quite simple using OpenGL provided functions.</p>
+<pre class="cpp">     <span class="comment">// Generate 2 VBOs</span>
+     glGenBuffers(<span class="number">2</span><span class="operator">,</span> vboIds);
+
+     <span class="comment">// Transfer vertex data to VBO 0</span>
+     glBindBuffer(GL_ARRAY_BUFFER<span class="operator">,</span> vboIds<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
+     glBufferData(GL_ARRAY_BUFFER<span class="operator">,</span> <span class="number">24</span> <span class="operator">*</span> <span class="keyword">sizeof</span>(VertexData)<span class="operator">,</span> vertices<span class="operator">,</span> GL_STATIC_DRAW);
+
+     <span class="comment">// Transfer index data to VBO 1</span>
+     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER<span class="operator">,</span> vboIds<span class="operator">[</span><span class="number">1</span><span class="operator">]</span>);
+     glBufferData(GL_ELEMENT_ARRAY_BUFFER<span class="operator">,</span> <span class="number">34</span> <span class="operator">*</span> <span class="keyword">sizeof</span>(GLushort)<span class="operator">,</span> indices<span class="operator">,</span> GL_STATIC_DRAW);</pre>
+<p>Drawing primitives from VBOs and telling programmable graphics pipeline how to locate vertex data requires few steps. First we need to bind VBOs to be used. After that we bind shader program attribute names and configure what kind of data it has in the bound VBO. Finally we'll draw triangle strip primitives using indices from the other VBO.</p>
+<pre class="cpp"> <span class="type">void</span> GeometryEngine<span class="operator">::</span>drawCubeGeometry(<span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span> <span class="operator">*</span>program)
+ {
+     <span class="comment">// Tell OpenGL which VBOs to use</span>
+     glBindBuffer(GL_ARRAY_BUFFER<span class="operator">,</span> vboIds<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
+     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER<span class="operator">,</span> vboIds<span class="operator">[</span><span class="number">1</span><span class="operator">]</span>);
+
+     <span class="comment">// Offset for position</span>
+     <span class="type">int</span> offset <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="comment">// Tell OpenGL programmable pipeline how to locate vertex position data</span>
+     <span class="type">int</span> vertexLocation <span class="operator">=</span> program<span class="operator">-</span><span class="operator">&gt;</span>attributeLocation(<span class="string">&quot;a_position&quot;</span>);
+     program<span class="operator">-</span><span class="operator">&gt;</span>enableAttributeArray(vertexLocation);
+     glVertexAttribPointer(vertexLocation<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> GL_FLOAT<span class="operator">,</span> GL_FALSE<span class="operator">,</span> <span class="keyword">sizeof</span>(VertexData)<span class="operator">,</span> (<span class="keyword">const</span> <span class="type">void</span> <span class="operator">*</span>)offset);
+
+     <span class="comment">// Offset for texture coordinate</span>
+     offset <span class="operator">+</span><span class="operator">=</span> <span class="keyword">sizeof</span>(QVector3D);
+
+     <span class="comment">// Tell OpenGL programmable pipeline how to locate vertex texture coordinate data</span>
+     <span class="type">int</span> texcoordLocation <span class="operator">=</span> program<span class="operator">-</span><span class="operator">&gt;</span>attributeLocation(<span class="string">&quot;a_texcoord&quot;</span>);
+     program<span class="operator">-</span><span class="operator">&gt;</span>enableAttributeArray(texcoordLocation);
+     glVertexAttribPointer(texcoordLocation<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> GL_FLOAT<span class="operator">,</span> GL_FALSE<span class="operator">,</span> <span class="keyword">sizeof</span>(VertexData)<span class="operator">,</span> (<span class="keyword">const</span> <span class="type">void</span> <span class="operator">*</span>)offset);
+
+     <span class="comment">// Draw cube geometry using indices from VBO 1</span>
+     glDrawElements(GL_TRIANGLE_STRIP<span class="operator">,</span> <span class="number">34</span><span class="operator">,</span> GL_UNSIGNED_SHORT<span class="operator">,</span> <span class="number">0</span>);
+ }</pre>
+<a name="perspective-projection"></a>
+<h2>Perspective projection</h2>
+<p>Using <tt>QMatrix4x4</tt> helper methods it's really easy to calculate perpective projection matrix. This matrix is used to project vertices to screen space.</p>
+<pre class="cpp"> <span class="type">void</span> MainWidget<span class="operator">::</span>resizeGL(<span class="type">int</span> w<span class="operator">,</span> <span class="type">int</span> h)
+ {
+     <span class="comment">// Set OpenGL viewport to cover whole widget</span>
+     glViewport(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> w<span class="operator">,</span> h);
+
+     <span class="comment">// Calculate aspect ratio</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> aspect <span class="operator">=</span> (<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>)w <span class="operator">/</span> ((<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>)h<span class="operator">?</span>h:<span class="number">1</span>);
+
+     <span class="comment">// Set near plane to 3.0, far plane to 7.0, field of view 45 degrees</span>
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> zNear <span class="operator">=</span> <span class="number">3.0</span><span class="operator">,</span> zFar <span class="operator">=</span> <span class="number">7.0</span><span class="operator">,</span> fov <span class="operator">=</span> <span class="number">45.0</span>;
+
+     <span class="comment">// Reset projection</span>
+     projection<span class="operator">.</span>setToIdentity();
+
+     <span class="comment">// Set perspective projection</span>
+     projection<span class="operator">.</span>perspective(fov<span class="operator">,</span> aspect<span class="operator">,</span> zNear<span class="operator">,</span> zFar);
+ }</pre>
+<a name="orientation-of-the-3d-object"></a>
+<h2>Orientation of the 3D object</h2>
+<p>Quaternions are handy way to represent orientation of the 3D object. Quaternions involve quite complex mathematics but fortunately all the necessary mathematics behind quaternions is implemented in <tt>QQuaternion</tt>. That allows us to store cube orientation in quaternion and rotating cube around given axis is quite simple.</p>
+<p>The following code calculates rotation axis and angular speed based on mouse events.</p>
+<pre class="cpp"> <span class="type">void</span> MainWidget<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e)
+ {
+     <span class="comment">// Saving mouse press position</span>
+     mousePressPosition <span class="operator">=</span> QVector2D(e<span class="operator">-</span><span class="operator">&gt;</span>posF());
+ }
+
+ <span class="type">void</span> MainWidget<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e)
+ {
+     <span class="comment">// Mouse release position - mouse press position</span>
+     QVector2D diff <span class="operator">=</span> QVector2D(e<span class="operator">-</span><span class="operator">&gt;</span>posF()) <span class="operator">-</span> mousePressPosition;
+
+     <span class="comment">// Rotation axis is perpendicular to the mouse position difference</span>
+     <span class="comment">// vector</span>
+     QVector3D n <span class="operator">=</span> QVector3D(diff<span class="operator">.</span>y()<span class="operator">,</span> diff<span class="operator">.</span>x()<span class="operator">,</span> <span class="number">0.0</span>)<span class="operator">.</span>normalized();
+
+     <span class="comment">// Accelerate angular speed relative to the length of the mouse sweep</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> acc <span class="operator">=</span> diff<span class="operator">.</span>length() <span class="operator">/</span> <span class="number">100.0</span>;
+
+     <span class="comment">// Calculate new rotation axis as weighted sum</span>
+     rotationAxis <span class="operator">=</span> (rotationAxis <span class="operator">*</span> angularSpeed <span class="operator">+</span> n <span class="operator">*</span> acc)<span class="operator">.</span>normalized();
+
+     <span class="comment">// Increase angular speed</span>
+     angularSpeed <span class="operator">+</span><span class="operator">=</span> acc;
+ }</pre>
+<p><tt>QBasicTimer</tt> is used to animate scene and update cube orientation. Rotations can be concatenated simply by multiplying quaternions.</p>
+<pre class="cpp"> <span class="type">void</span> MainWidget<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>e)
+ {
+     Q_UNUSED(e);
+
+     <span class="comment">// Decrease angular speed (friction)</span>
+     angularSpeed <span class="operator">*</span><span class="operator">=</span> <span class="number">0.99</span>;
+
+     <span class="comment">// Stop rotation when speed goes below threshold</span>
+     <span class="keyword">if</span> (angularSpeed <span class="operator">&lt;</span> <span class="number">0.01</span>)
+         angularSpeed <span class="operator">=</span> <span class="number">0.0</span>;
+     <span class="keyword">else</span> {
+         <span class="comment">// Update rotation</span>
+         rotation <span class="operator">=</span> <span class="type"><a href="qquaternion.html">QQuaternion</a></span><span class="operator">::</span>fromAxisAndAngle(rotationAxis<span class="operator">,</span> angularSpeed) <span class="operator">*</span> rotation;
+
+         <span class="comment">// Update scene</span>
+         updateGL();
+     }
+ }</pre>
+<p>Model-view matrix is calculated using the quaternion and by moving world by Z axis. This matrix is multiplied with the projection matrix to get MVP matrix for shader program.</p>
+<pre class="cpp">     <span class="comment">// Calculate model view transformation</span>
+     QMatrix4x4 matrix;
+     matrix<span class="operator">.</span>translate(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">5.0</span>);
+     matrix<span class="operator">.</span>rotate(rotation);
+
+     <span class="comment">// Set modelview-projection matrix</span>
+     program<span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;mvp_matrix&quot;</span><span class="operator">,</span> projection <span class="operator">*</span> matrix);</pre>
+</div>
+<!-- @@@opengl/cube -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

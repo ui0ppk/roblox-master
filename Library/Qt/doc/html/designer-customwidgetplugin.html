@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- customwidgetplugin.qdoc -->
+  <title>Qt 4.8: Custom Widget Plugin Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Custom Widget Plugin Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#preparation">Preparation</a></li>
+<li class="level1"><a href="#analogclock-class-definition-and-implementation">AnalogClock Class Definition and Implementation</a></li>
+<li class="level1"><a href="#analogclockplugin-class-definition">AnalogClockPlugin Class Definition</a></li>
+<li class="level1"><a href="#analogclockplugin-implementation">AnalogClockPlugin Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Custom Widget Plugin Example</h1>
+<span class="subtitle"></span>
+<!-- $$$designer/customwidgetplugin-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="designer-customwidgetplugin-analogclock-cpp.html">designer/customwidgetplugin/analogclock.cpp</a></li>
+<li><a href="designer-customwidgetplugin-analogclock-h.html">designer/customwidgetplugin/analogclock.h</a></li>
+<li><a href="designer-customwidgetplugin-customwidgetplugin-cpp.html">designer/customwidgetplugin/customwidgetplugin.cpp</a></li>
+<li><a href="designer-customwidgetplugin-customwidgetplugin-h.html">designer/customwidgetplugin/customwidgetplugin.h</a></li>
+<li><a href="designer-customwidgetplugin-customwidgetplugin-pro.html">designer/customwidgetplugin/customwidgetplugin.pro</a></li>
+</ul>
+<p>The Custom Widget example shows how to create a custom widget plugin for <i>Qt Designer</i>.<p class="centerAlign"><img src="images/customwidgetplugin-example.png" alt="" /></p><p>In this example, the custom widget used is based on the <a href="widgets-analogclock.html">Analog Clock example</a>, and does not provide any custom signals or slots.</p>
+<a name="preparation"></a>
+<h2>Preparation</h2>
+<p>To provide a custom widget that can be used with <i>Qt Designer</i>, we need to supply a self-contained implementation and provide a plugin interface. In this example, we reuse the <a href="widgets-analogclock.html">Analog Clock example</a> for convenience.</p>
+<p>Since custom widgets plugins rely on components supplied with <i>Qt Designer</i>, the project file that we use needs to contain information about <i>Qt Designer</i>'s library components:</p>
+<pre class="cpp"> TEMPLATE    = lib
+ CONFIG      += designer plugin</pre>
+<p>The <tt>TEMPLATE</tt> variable's value makes <tt>qmake</tt> create the custom widget as a library. Later, we will ensure that the widget will be recognized as a plugin by Qt by using the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro to export the relevant widget information.</p>
+<p>The <tt>CONFIG</tt> variable contains two values, <tt>designer</tt> and <tt>plugin</tt>:</p>
+<ul>
+<li><tt>designer</tt>: Since custom widgets plugins rely on components supplied with <i>Qt Designer</i>, this value ensures that our plugin links against <i>Qt Designer</i>'s library (<tt>libQtDesigner.so</tt>).</li>
+<li><tt>plugin</tt>: We also need to ensure that <tt>qmake</tt> considers the custom widget a plugin library.</li>
+</ul>
+<p>When Qt is configured to build in both debug and release modes, <i>Qt Designer</i> will be built in release mode. When this occurs, it is necessary to ensure that plugins are also built in release mode. For that reason we add the <tt>debug_and_release</tt> value to the <tt>CONFIG</tt> variable. Otherwise, if a plugin is built in a mode that is incompatible with <i>Qt Designer</i>, it won't be loaded and installed.</p>
+<p>The header and source files for the widget are declared in the usual way, and we provide an implementation of the plugin interface so that <i>Qt Designer</i> can use the custom widget:</p>
+<pre class="cpp"> HEADERS     = analogclock.h \
+               customwidgetplugin.h
+ SOURCES     = analogclock.cpp \
+               customwidgetplugin.cpp</pre>
+<p>It is also important to ensure that the plugin is installed in a location that is searched by <i>Qt Designer</i>. We do this by specifying a target path for the project and adding it to the list of items to install:</p>
+<pre class="cpp"> target.path = $$[QT_INSTALL_PLUGINS]/designer
+ INSTALLS += target</pre>
+<p>The custom widget is created as a library, and will be installed alongside the other <i>Qt Designer</i> plugins when the project is installed (using <tt>make install</tt> or an equivalent installation procedure). Later, we will ensure that it is recognized as a plugin by <i>Qt Designer</i> by using the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro to export the relevant widget information.</p>
+<p>Note that if you want the plugins to appear in a Visual Studio integration, the plugins must be built in release mode and their libraries must be copied into the plugin directory in the install path of the integration (for an example, see <tt>C:/program files/trolltech as/visual studio integration/plugins</tt>).</p>
+<p>For more information about plugins, see the <a href="plugins-howto.html">How to Create Qt Plugins</a> documentation.</p>
+<a name="analogclock-class-definition-and-implementation"></a>
+<h2>AnalogClock Class Definition and Implementation</h2>
+<p>The <tt>AnalogClock</tt> class is defined and implemented in exactly the same way as described in the <a href="widgets-analogclock.html">Analog Clock example</a>. Since the class is self-contained, and does not require any external configuration, it can be used without modification as a custom widget in <i>Qt Designer</i>.</p>
+<a name="analogclockplugin-class-definition"></a>
+<h2>AnalogClockPlugin Class Definition</h2>
+<p>The <tt>AnalogClock</tt> class is exposed to <i>Qt Designer</i> through the <tt>AnalogClockPlugin</tt> class. This class inherits from both <a href="qobject.html">QObject</a> and the <a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a> class, and implements an interface defined by <a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a>:</p>
+<pre class="cpp"> <span class="keyword">class</span> AnalogClockPlugin : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span>)
+
+ <span class="keyword">public</span>:
+     AnalogClockPlugin(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type">bool</span> isContainer() <span class="keyword">const</span>;
+     <span class="type">bool</span> isInitialized() <span class="keyword">const</span>;
+     <span class="type"><a href="qicon.html">QIcon</a></span> icon() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> domXml() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> group() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> includeFile() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> name() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> toolTip() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> whatsThis() <span class="keyword">const</span>;
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>createWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+     <span class="type">void</span> initialize(<span class="type"><a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a></span> <span class="operator">*</span>core);
+
+ <span class="keyword">private</span>:
+     <span class="type">bool</span> initialized;
+ };</pre>
+<p>The functions provide information about the widget that <i>Qt Designer</i> can use in the <a href="designer-to-know.html#widgetbox">widget box</a>. The <tt>initialized</tt> private member variable is used to record whether the plugin has been initialized by <i>Qt Designer</i>.</p>
+<p>Note that the only part of the class definition that is specific to this particular custom widget is the class name.</p>
+<a name="analogclockplugin-implementation"></a>
+<h2>AnalogClockPlugin Implementation</h2>
+<p>The class constructor simply calls the <a href="qobject.html">QObject</a> base class constructor and sets the <tt>initialized</tt> variable to <tt>false</tt>.</p>
+<pre class="cpp"> AnalogClockPlugin<span class="operator">::</span>AnalogClockPlugin(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qobject.html">QObject</a></span>(parent)
+ {
+     initialized <span class="operator">=</span> <span class="keyword">false</span>;
+ }</pre>
+<p><i>Qt Designer</i> will initialize the plugin when it is required by calling the <tt>initialize()</tt> function:</p>
+<pre class="cpp"> <span class="type">void</span> AnalogClockPlugin<span class="operator">::</span>initialize(<span class="type"><a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a></span> <span class="operator">*</span> <span class="comment">/* core */</span>)
+ {
+     <span class="keyword">if</span> (initialized)
+         <span class="keyword">return</span>;
+
+     initialized <span class="operator">=</span> <span class="keyword">true</span>;
+ }</pre>
+<p>In this example, the <tt>initialized</tt> private variable is tested, and only set to <tt>true</tt> if the plugin is not already initialized. Although, this plugin does not require any special code to be executed when it is initialized, we could include such code after the test for initialization.</p>
+<p>The <tt>isInitialized()</tt> function lets <i>Qt Designer</i> know whether the plugin is ready for use:</p>
+<pre class="cpp"> <span class="type">bool</span> AnalogClockPlugin<span class="operator">::</span>isInitialized() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> initialized;
+ }</pre>
+<p>Instances of the custom widget are supplied by the <tt>createWidget()</tt> function. The implementation for the analog clock is straightforward:</p>
+<pre class="cpp"> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>AnalogClockPlugin<span class="operator">::</span>createWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+ {
+     <span class="keyword">return</span> <span class="keyword">new</span> AnalogClock(parent);
+ }</pre>
+<p>In this case, the custom widget only requires a <tt>parent</tt> to be specified. If other arguments need to be supplied to the widget, they can be introduced here.</p>
+<p>The following functions provide information for <i>Qt Designer</i> to use to represent the widget in the widget box. The <tt>name()</tt> function returns the name of class that provides the custom widget:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> AnalogClockPlugin<span class="operator">::</span>name() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;AnalogClock&quot;</span>;
+ }</pre>
+<p>The <tt>group()</tt> function is used to describe the type of widget that the custom widget belongs to:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> AnalogClockPlugin<span class="operator">::</span>group() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;Display Widgets [Examples]&quot;</span>;
+ }</pre>
+<p>The widget plugin will be placed in a section identified by its group name in <i>Qt Designer</i>'s widget box. The icon used to represent the widget in the widget box is returned by the <tt>icon()</tt> function:</p>
+<pre class="cpp"> <span class="type"><a href="qicon.html">QIcon</a></span> AnalogClockPlugin<span class="operator">::</span>icon() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qicon.html">QIcon</a></span>();
+ }</pre>
+<p>In this case, we return a null icon to indicate that we have no icon that can be used to represent the widget.</p>
+<p>A tool tip and &quot;What's This?&quot; help can be supplied for the custom widget's entry in the widget box. The <tt>toolTip()</tt> function should return a short message describing the widget:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> AnalogClockPlugin<span class="operator">::</span>toolTip() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;
+ }</pre>
+<p>The <tt>whatsThis()</tt> function can return a longer description:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> AnalogClockPlugin<span class="operator">::</span>whatsThis() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;
+ }</pre>
+<p>The <tt>isContainer()</tt> function tells <i>Qt Designer</i> whether the widget is supposed to be used as a container for other widgets. If not, <i>Qt Designer</i> will not allow the user to place widgets inside it.</p>
+<pre class="cpp"> <span class="type">bool</span> AnalogClockPlugin<span class="operator">::</span>isContainer() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="keyword">false</span>;
+ }</pre>
+<p>Most widgets in Qt can contain child widgets, but it only makes sense to use dedicated container widgets for this purpose in <i>Qt Designer</i>. By returning <tt>false</tt>, we indicate that the custom widget cannot hold other widgets; if we returned true, <i>Qt Designer</i> would allow other widgets to be placed inside the analog clock and a layout to be defined.</p>
+<p>The <tt>domXml()</tt> function provides a way to include default settings for the widget in the standard XML format used by <i>Qt Designer</i>. In this case, we only specify the widget's geometry:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> AnalogClockPlugin<span class="operator">::</span>domXml() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;&lt;ui language=\&quot;c++\&quot;&gt;\n&quot;</span>
+            <span class="string">&quot; &lt;widget class=\&quot;AnalogClock\&quot; name=\&quot;analogClock\&quot;&gt;\n&quot;</span>
+            <span class="string">&quot;  &lt;property name=\&quot;geometry\&quot;&gt;\n&quot;</span>
+            <span class="string">&quot;   &lt;rect&gt;\n&quot;</span>
+            <span class="string">&quot;    &lt;x&gt;0&lt;/x&gt;\n&quot;</span>
+            <span class="string">&quot;    &lt;y&gt;0&lt;/y&gt;\n&quot;</span>
+            <span class="string">&quot;    &lt;width&gt;100&lt;/width&gt;\n&quot;</span>
+            <span class="string">&quot;    &lt;height&gt;100&lt;/height&gt;\n&quot;</span>
+            <span class="string">&quot;   &lt;/rect&gt;\n&quot;</span>
+            <span class="string">&quot;  &lt;/property&gt;\n&quot;</span>
+            <span class="string">&quot;  &lt;property name=\&quot;toolTip\&quot; &gt;\n&quot;</span>
+            <span class="string">&quot;   &lt;string&gt;The current time&lt;/string&gt;\n&quot;</span>
+            <span class="string">&quot;  &lt;/property&gt;\n&quot;</span>
+            <span class="string">&quot;  &lt;property name=\&quot;whatsThis\&quot; &gt;\n&quot;</span>
+            <span class="string">&quot;   &lt;string&gt;The analog clock widget displays the current time.&lt;/string&gt;\n&quot;</span>
+            <span class="string">&quot;  &lt;/property&gt;\n&quot;</span>
+            <span class="string">&quot; &lt;/widget&gt;\n&quot;</span>
+            <span class="string">&quot;&lt;/ui&gt;\n&quot;</span>;
+ }</pre>
+<p>If the widget provides a reasonable size hint, it is not necessary to define it here. In addition, returning an empty string instead of a <tt>&lt;widget&gt;</tt> element will tell <i>Qt Designer</i> not to install the widget in the widget box.</p>
+<p>To make the analog clock widget usable by applications, we implement the <tt>includeFile()</tt> function to return the name of the header file containing the custom widget class definition:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> AnalogClockPlugin<span class="operator">::</span>includeFile() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;analogclock.h&quot;</span>;
+ }</pre>
+<p>Finally, we use the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro to export the <tt>AnalogClockPlugin</tt> class for use with <i>Qt Designer</i>:</p>
+<pre class="cpp"> <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>(customwidgetplugin<span class="operator">,</span> AnalogClockPlugin)</pre>
+<p>This macro ensures that <i>Qt Designer</i> can access and construct the custom widget. Without this macro, there is no way for <i>Qt Designer</i> to use the widget.</p>
+<p>It is important to note that you can only use the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro once in any implementation. If you have several custom widgets in an implementation that you wish to make available to <i>Qt Designer</i>, you will need to implement <a href="qdesignercustomwidgetcollectioninterface.html">QDesignerCustomWidgetCollectionInterface</a>.</p>
+</div>
+<!-- @@@designer/customwidgetplugin -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

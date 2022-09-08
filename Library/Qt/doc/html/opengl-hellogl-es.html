@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- hellogl_es.qdoc -->
+  <title>Qt 4.8: Hello GL ES Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Hello GL ES Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#using-qglwidget">Using QGLWidget</a></li>
+<li class="level1"><a href="#porting-opengl-to-opengl-es">Porting OpenGL to OpenGL ES</a></li>
+<li class="level1"><a href="#using-qglpainter">Using QGLPainter</a></li>
+<li class="level1"><a href="#summary">Summary</a></li>
+</ul>
+</div>
+<h1 class="title">Hello GL ES Example</h1>
+<span class="subtitle"></span>
+<!-- $$$opengl/hellogl_es-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="opengl-hellogl-es-bubble-cpp.html">opengl/hellogl_es/bubble.cpp</a></li>
+<li><a href="opengl-hellogl-es-bubble-h.html">opengl/hellogl_es/bubble.h</a></li>
+<li><a href="opengl-hellogl-es-glwidget-cpp.html">opengl/hellogl_es/glwidget.cpp</a></li>
+<li><a href="opengl-hellogl-es-glwidget-h.html">opengl/hellogl_es/glwidget.h</a></li>
+<li><a href="opengl-hellogl-es-mainwindow-cpp.html">opengl/hellogl_es/mainwindow.cpp</a></li>
+<li><a href="opengl-hellogl-es-mainwindow-h.html">opengl/hellogl_es/mainwindow.h</a></li>
+<li><a href="opengl-hellogl-es-main-cpp.html">opengl/hellogl_es/main.cpp</a></li>
+<li><a href="opengl-hellogl-es-hellogl-es-pro.html">opengl/hellogl_es/hellogl_es.pro</a></li>
+<li><a href="opengl-hellogl-es-texture-qrc.html">opengl/hellogl_es/texture.qrc</a></li>
+</ul>
+<p>The Hello GL ES example is the <a href="opengl-hellogl.html">Hello GL Example</a> ported to OpenGL ES. It also included some effects from the OpenGL <a href="opengl-overpainting.html">Overpainting Example</a>.<p class="centerAlign"><img src="images/hellogl-es-example.png" alt="" /></p><p>A complete introduction to OpenGL ES and a description of all differences between OpenGL and OpenGL ES is out of the scope of this document; but we will describe some of the major issues and differences.</p>
+<p>Since Hello GL ES is a direct port of standard OpenGL code, it is a fairly good example for porting OpenGL code to OpenGL ES.</p>
+<a name="using-qglwidget"></a>
+<h2>Using QGLWidget</h2>
+<p><a href="qglwidget.html">QGLWidget</a> can be used for OpenGL ES similar to the way it is used with standard OpenGL; but there are some differences. We use EGL 1.0 to embedd the OpenGL ES window within the native window manager. In <a href="qglwidget.html#initializeGL">QGLWidget::initializeGL</a>() we initialize OpenGL ES.</p>
+<a name="porting-opengl-to-opengl-es"></a>
+<h2>Porting OpenGL to OpenGL ES</h2>
+<p>Since OpenGL ES is missing the immediate mode and does not support quads, we have to create triangle arrays.</p>
+<p>We create a quad by adding vertices to a <a href="qlist.html">QList</a> of vertices. We create both sides of the quad and hardcode a distance of 0.05f. We also compute the correct normal for each face and store them in another <a href="qlist.html">QList</a>.</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>quad(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> x1<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> y1<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> x2<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> y2<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> x3<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> y3<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> x4<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> y4)
+ {
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> nx<span class="operator">,</span> ny<span class="operator">,</span> nz;
+
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x1 <span class="operator">&lt;</span><span class="operator">&lt;</span> y1 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="operator">-</span><span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x2 <span class="operator">&lt;</span><span class="operator">&lt;</span> y2 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="operator">-</span><span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x4 <span class="operator">&lt;</span><span class="operator">&lt;</span> y4 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="operator">-</span><span class="number">0.05f</span>;
+
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x3 <span class="operator">&lt;</span><span class="operator">&lt;</span> y3 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="operator">-</span><span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x4 <span class="operator">&lt;</span><span class="operator">&lt;</span> y4 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="operator">-</span><span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x2 <span class="operator">&lt;</span><span class="operator">&lt;</span> y2 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="operator">-</span><span class="number">0.05f</span>;
+
+     CrossProduct(nx<span class="operator">,</span> ny<span class="operator">,</span> nz<span class="operator">,</span> x2 <span class="operator">-</span> x1<span class="operator">,</span> y2 <span class="operator">-</span> y1<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> x4 <span class="operator">-</span> x1<span class="operator">,</span> y4 <span class="operator">-</span> y1<span class="operator">,</span> <span class="number">0</span>);
+     Normalize(nx<span class="operator">,</span> ny<span class="operator">,</span> nz);
+
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x4 <span class="operator">&lt;</span><span class="operator">&lt;</span> y4 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x2 <span class="operator">&lt;</span><span class="operator">&lt;</span> y2 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x1 <span class="operator">&lt;</span><span class="operator">&lt;</span> y1 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">0.05f</span>;
+
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x2 <span class="operator">&lt;</span><span class="operator">&lt;</span> y2 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x4 <span class="operator">&lt;</span><span class="operator">&lt;</span> y4 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">0.05f</span>;
+     vertices <span class="operator">&lt;</span><span class="operator">&lt;</span> x3 <span class="operator">&lt;</span><span class="operator">&lt;</span> y3 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">0.05f</span>;
+
+     CrossProduct(nx<span class="operator">,</span> ny<span class="operator">,</span> nz<span class="operator">,</span> x2 <span class="operator">-</span> x4<span class="operator">,</span> y2 <span class="operator">-</span> y4<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> x1 <span class="operator">-</span> x4<span class="operator">,</span> y1 <span class="operator">-</span> y4<span class="operator">,</span> <span class="number">0</span>);
+     Normalize(nx<span class="operator">,</span> ny<span class="operator">,</span> nz);
+
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+     normals <span class="operator">&lt;</span><span class="operator">&lt;</span> nx <span class="operator">&lt;</span><span class="operator">&lt;</span> ny <span class="operator">&lt;</span><span class="operator">&lt;</span> nz;
+ }</pre>
+<p>And then we convert the complete list of vertexes and the list of normals into the native OpenGL ES format that we can use with the OpenGL ES API.</p>
+<pre class="cpp">     m_vertexNumber <span class="operator">=</span> vertices<span class="operator">.</span>size();
+     createdVertices <span class="operator">=</span> <span class="keyword">new</span> GLfloat<span class="operator">[</span>m_vertexNumber<span class="operator">]</span>;
+     createdNormals <span class="operator">=</span> <span class="keyword">new</span> GLfloat<span class="operator">[</span>m_vertexNumber<span class="operator">]</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>;i <span class="operator">&lt;</span> m_vertexNumber;i<span class="operator">+</span><span class="operator">+</span>) {
+       createdVertices<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> vertices<span class="operator">.</span>at(i) <span class="operator">*</span> <span class="number">2</span>;
+       createdNormals<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> normals<span class="operator">.</span>at(i);
+     }
+     vertices<span class="operator">.</span>clear();
+     normals<span class="operator">.</span>clear();
+ }</pre>
+<p>In <tt>paintQtLogo()</tt> we draw the triangle array using OpenGL ES. We use q_vertexTypeEnum to abstract the fact that our vertex and normal arrays are either in float or in fixed point format.</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>paintQtLogo()
+ {
+     glDisable(GL_TEXTURE_2D);
+     glEnableClientState(GL_VERTEX_ARRAY);
+     glVertexPointer(<span class="number">3</span><span class="operator">,</span>GL_FLOAT<span class="operator">,</span><span class="number">0</span><span class="operator">,</span> createdVertices);
+     glEnableClientState(GL_NORMAL_ARRAY);
+     glNormalPointer(GL_FLOAT<span class="operator">,</span><span class="number">0</span><span class="operator">,</span>createdNormals);
+     glDrawArrays(GL_TRIANGLES<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> m_vertexNumber <span class="operator">/</span> <span class="number">3</span>);
+ }</pre>
+<a name="using-qglpainter"></a>
+<h2>Using QGLPainter</h2>
+<p>Since the <tt>QGLPainter</tt> is slower for OpenGL ES we paint the bubbles with the rasterizer and cache them in a <a href="qimage.html">QImage</a>. This happends only once during the initialiazation.</p>
+<pre class="cpp"> <span class="type">void</span> Bubble<span class="operator">::</span>updateCache()
+ {
+     <span class="keyword">if</span> (cache)
+         <span class="keyword">delete</span> cache;
+     cache <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qimage.html">QImage</a></span>(<a href="qtglobal.html#qRound">qRound</a>(radius <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> <span class="number">2</span>)<span class="operator">,</span> <a href="qtglobal.html#qRound">qRound</a>(radius <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> <span class="number">2</span>)<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_ARGB32);
+     cache<span class="operator">-</span><span class="operator">&gt;</span>fill(<span class="number">0x00000000</span>);
+     <span class="type"><a href="qpainter.html">QPainter</a></span> p(cache);
+     p<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>HighQualityAntialiasing);
+     <span class="type"><a href="qpen.html">QPen</a></span> pen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     pen<span class="operator">.</span>setWidth(<span class="number">2</span>);
+     p<span class="operator">.</span>setPen(pen);
+     p<span class="operator">.</span>setBrush(brush);
+     p<span class="operator">.</span>drawEllipse(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type">int</span>(<span class="number">2</span><span class="operator">*</span>radius)<span class="operator">,</span> <span class="type">int</span>(<span class="number">2</span><span class="operator">*</span>radius));
+ }</pre>
+<p>For each bubble this <a href="qimage.html">QImage</a> is then drawn to the <a href="qglwidget.html">QGLWidget</a> by using the according <a href="qpainter.html">QPainter</a> with transparency enabled.</p>
+<pre class="cpp"> <span class="type">void</span> Bubble<span class="operator">::</span>drawBubble(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter)
+ {
+     painter<span class="operator">-</span><span class="operator">&gt;</span>save();
+     painter<span class="operator">-</span><span class="operator">&gt;</span>translate(position<span class="operator">.</span>x() <span class="operator">-</span> radius<span class="operator">,</span> position<span class="operator">.</span>y() <span class="operator">-</span> radius);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setOpacity(<span class="number">0.8</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawImage(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="operator">*</span>cache);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>restore();
+ }</pre>
+<p>Another difference beetwen OpenGL and OpenGL ES is that OpenGL ES does not support glPushAttrib(GL_ALL_ATTRIB_BITS). So we have to restore all the OpenGL states ourselves, after we created the <a href="qpainter.html">QPainter</a> in GLWidget::paintGL().</p>
+<pre class="cpp">     <span class="type"><a href="qpainter.html">QPainter</a></span> painter;
+     painter<span class="operator">.</span>begin(<span class="keyword">this</span>);
+
+     glMatrixMode(GL_PROJECTION);
+     glPushMatrix();
+     glLoadIdentity();</pre>
+<p>Setting up up the model view matrix and setting the right OpenGL states is done in the same way as for standard OpenGL.</p>
+<pre class="cpp">     glMatrixMode(GL_MODELVIEW);
+     glPushMatrix();
+     glMatrixMode(GL_TEXTURE);
+     glPushMatrix();
+
+     <span class="comment">//Since OpenGL ES does not support glPush/PopAttrib(GL_ALL_ATTRIB_BITS)</span>
+     <span class="comment">//we have to take care of the states ourselves</span>
+
+     glClearColor(<span class="number">0.1f</span><span class="operator">,</span> <span class="number">0.1f</span><span class="operator">,</span> <span class="number">0.2f</span><span class="operator">,</span> <span class="number">1.0f</span>);
+     glClear(GL_COLOR_BUFFER_BIT <span class="operator">|</span> GL_DEPTH_BUFFER_BIT);
+     glEnable(GL_TEXTURE_2D);
+
+     glTexParameterf(GL_TEXTURE_2D<span class="operator">,</span> GL_TEXTURE_MIN_FILTER<span class="operator">,</span> GL_LINEAR );
+     glTexParameterf(GL_TEXTURE_2D<span class="operator">,</span> GL_TEXTURE_MAG_FILTER<span class="operator">,</span> GL_LINEAR );
+     glEnable(GL_LIGHTING);
+     glEnable(GL_LIGHT0);
+
+     glShadeModel(GL_FLAT);
+     glFrontFace(GL_CW);
+     glCullFace(GL_FRONT);
+     glEnable(GL_CULL_FACE);
+     glEnable(GL_DEPTH_TEST);
+
+     glMatrixMode(GL_MODELVIEW);
+     glLoadIdentity();
+
+     glRotatef(m_fAngle<span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span><span class="operator">,</span> <span class="number">0.0f</span>);
+     glRotatef(m_fAngle<span class="operator">,</span> <span class="number">1.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span>);
+     glRotatef(m_fAngle<span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span>);
+     glScalef(m_fScale<span class="operator">,</span> m_fScale<span class="operator">,</span>m_fScale);
+     glTranslatef(<span class="number">0.0f</span><span class="operator">,</span><span class="operator">-</span><span class="number">0.2f</span><span class="operator">,</span><span class="number">0.0f</span>);
+
+     GLfloat matDiff<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {<span class="number">0.40f</span><span class="operator">,</span> <span class="number">1.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span>};
+     glMaterialfv(GL_FRONT_AND_BACK<span class="operator">,</span> GL_DIFFUSE<span class="operator">,</span> matDiff);
+
+     <span class="keyword">if</span> (qtLogo)
+         paintQtLogo();
+     <span class="keyword">else</span>
+         paintTexturedCube();</pre>
+<p>Now we have to restore the OpenGL state for the <a href="qpainter.html">QPainter</a>. This is not done automatically for OpenGL ES.</p>
+<pre class="cpp">     glMatrixMode(GL_MODELVIEW);
+     glPopMatrix();
+     glMatrixMode(GL_PROJECTION);
+     glPopMatrix();
+     glMatrixMode(GL_TEXTURE);
+     glPopMatrix();
+
+     glDisable(GL_LIGHTING);
+     glDisable(GL_LIGHT0);
+
+     glDisable(GL_DEPTH_TEST);
+     glDisable(GL_CULL_FACE);</pre>
+<p>Now we use the <a href="qpainter.html">QPainter</a> to draw the transparent bubbles.</p>
+<pre class="cpp">     <span class="keyword">if</span> (m_showBubbles)
+         foreach (Bubble <span class="operator">*</span>bubble<span class="operator">,</span> bubbles) {
+             bubble<span class="operator">-</span><span class="operator">&gt;</span>drawBubble(<span class="operator">&amp;</span>painter);
+     }</pre>
+<p>In the end, we calculate the framerate and display it using the <a href="qpainter.html">QPainter</a> again.</p>
+<pre class="cpp">     <span class="type"><a href="qstring.html">QString</a></span> framesPerSecond;
+     framesPerSecond<span class="operator">.</span>setNum(frames <span class="operator">/</span>(time<span class="operator">.</span>elapsed() <span class="operator">/</span> <span class="number">1000.0</span>)<span class="operator">,</span> <span class="char">'f'</span><span class="operator">,</span> <span class="number">2</span>);
+
+     painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+
+     painter<span class="operator">.</span>drawText(<span class="number">20</span><span class="operator">,</span> <span class="number">40</span><span class="operator">,</span> framesPerSecond <span class="operator">+</span> <span class="string">&quot; fps&quot;</span>);
+
+     painter<span class="operator">.</span>end();</pre>
+<p>After we finished all the drawing operations we swap the screen buffer.</p>
+<pre class="cpp">     swapBuffers();</pre>
+<a name="summary"></a>
+<h2>Summary</h2>
+<p>Similar to the <a href="opengl-hellogl.html">Hello GL Example</a>, we subclass <a href="qglwidget.html">QGLWidget</a> to render a 3D scene using OpenGL ES calls. <a href="qglwidget.html">QGLWidget</a> is a subclass of <a href="qwidget.html">QWidget</a>. Hence, its <a href="qglwidget.html">QGLWidget</a>'s subclasses can be placed in layouts and provided with interactive features just like normal custom widgets.</p>
+<p><a href="qglwidget.html">QGLWidget</a> allows pure OpenGL ES rendering to be mixed with <a href="qpainter.html">QPainter</a> calls, but care must be taken to maintain the state of the OpenGL ES implementation.</p>
+</div>
+<!-- @@@opengl/hellogl_es -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

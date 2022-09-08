@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+  <TITLE>Architecture - The Anchor Class</TITLE>
+</HEAD>
+<BODY>
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home"></A>
+<A HREF="../../"><IMG BORDER="0" ALT="libwww" SRC="../../../Icons/WWW/Lib48x"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/design48x" ALT="Architecture"></A>
+<H1>
+  The Anchor Class
+</H1>
+<P>
+The <A HREF="../../src/HTAnchor.html">Anchor Class</A> defines references
+to data objects which may be the sources or destinations of hypertext links.
+Another name for anchors would be URLs as an anchor represents all we know
+about a URL - including where it points to and who points to it.
+<P>
+The anchors are organized into a <EM>sub-web</EM> which represents the part
+of the web that the application (often the user) has been in touch with.
+In this sub-web, any anchor can be the source of zero, one, or many links
+and it may be the destination of zero, one, or many links. That is, any anchor
+can point to and be pointed to by any number of links. Having an anchor being
+the source of many links is often used in the <B>POST</B> method, where for
+example the same entity can be posted to a News group, a mailing list and
+a HTTP server. This is explained in the section on
+<A HREF="PostWeb.html">libwww PostWebs</A>.
+<P>
+All URLs are represented as anchors. An anchor contains all the information
+that we know about a particular URL - including &nbsp;the entity body if
+we happen to have down loaded the entity. As anchors often exist throughout
+the lifetime of the application, we must be able to flush the entity
+bodies&nbsp;from time to time so that we don't overflow the memory. Therefore,
+it is possible to have an anchor both with and without an entity body. If
+the data object is stored in the file cache or in memory, the parent anchor
+contains a link to it so the application can access it either directly or
+through the <A HREF="./#ClientCache">file cache manager</A>.
+<P>
+Just to make things a bit more complicated, we have two different sub classes
+of the Anchor class:
+<P>
+<DL>
+  <DT>
+    <EM>parent anchors</EM>
+  <DD>
+    Represents a complete URL. That is, the destination of a link pointing to
+    a parent anchor is the full contents of that URL. Parent anchors are used
+    to store all information about a URL, for example the content type, language,
+    and length.
+  <DT>
+    <EM>child anchors</EM>
+  <DD>
+    Represents a subpart of a URL. A subpart is declared by making a
+    <CODE>NAME</CODE> tag in the anchor declaration and a child anchor is the
+    destination of a link if the <CODE>HREF</CODE> link declaration contains
+    a <CODE>"#"</CODE> and a tag appended to the URI. Child anchors do <I>not</I>
+    contain any information about the data object itself. They only keep a handle
+    (or a "<CODE>tag</CODE>") pointing into the data object kept by the corresponding
+    parent anchor.
+</DL>
+<P>
+Every parent anchor points to a URL address which may or may not exist. In
+the case of posting an anchor to a remote server, the URL pointed to is yet
+to be created. The client can assign an address for the object but it might
+be overridden (or completely denied) by the remote server. The relationship
+between parent anchors and child anchors is illustrated in the figure.
+<P>
+<A NAME="Anchors"><IMG BORDER="0" SRC="Anchors.gif" ALT="Anchors" WIDTH="531" HEIGHT="367"></A>
+<P>
+<OL>
+  <LI>
+    Parent anchors keep a list of its children which is used to avoid having
+    multiple example of the same child and in the garbage collection of anchors.
+  <LI>
+    All child anchors have a pointer to their parent as only the parent anchors
+    keep information about the data object itself. Parent anchors simply have
+    a pointer to themselves.
+  <LI>
+    Every parent anchor points to a resource (URL) that may or may not exist.
+  <LI>
+    Parents can have an entity body associated with them. In this case anchor
+    <B>B</B> and <B>C</B> has an entity body (data object) but <B>A</B> hasn't
+    which can either be because the anchor has not yet been down loaded <I>or</I>
+    the entity body has been discarded from memory by the application.
+  <LI>
+    Any anchor can have any number of links pointing to a set of destinations
+    (URLs).This is a generalization of the normal URL concept that a URL is only
+    pointing to a single location, and in most situations there <I>is</I> only
+    one destination. However, &nbsp;multiple destinations can occur&nbsp;when
+    posting entities to multiple remote servers at the same time.
+  <LI>
+    This anchor has two destinations (parent anchors which each have a URL).
+    By default the main destination will be the one selected.
+  <LI>
+    Parent anchors keep a list of other anchors pointing to it. This information
+    is required if a single parent anchor (and its children) is removed from
+    the sub-web.
+</OL>
+<P>
+  <HR>
+<ADDRESS>
+  Henrik Frystyk, <A HREF="mailto:libwww@w3.org">libwww@w3.org</A>,
+  <P>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

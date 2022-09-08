@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativeanimation.cpp -->
+  <title>Qt 4.8: QML PropertyAnimation Element</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML PropertyAnimation Element</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML PropertyAnimation Element</h1>
+<span class="subtitle"></span>
+<!-- $$$PropertyAnimation-brief -->
+<p>The PropertyAnimation element animates changes in property values. <a href="#details">More...</a></p>
+<!-- @@@PropertyAnimation -->
+<p>Inherits <a href="qml-animation.html">Animation</a></p>
+<p>Inherited by <a href="qml-coloranimation.html">ColorAnimation</a>, <a href="qml-numberanimation.html">NumberAnimation</a>, <a href="qml-rotationanimation.html">RotationAnimation</a>, and <a href="qml-vector3danimation.html">Vector3dAnimation</a>.</p>
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-propertyanimation-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#duration-prop">duration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#easing.amplitude-prop">easing.amplitude</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#easing.overshoot-prop">easing.overshoot</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#easing.period-prop">easing.period</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#easing.type-prop">easing.type</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#exclude-prop">exclude</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#from-prop">from</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#properties-prop">properties</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#property-prop">property</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#target-prop">target</a></b></b> : Object</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#targets-prop">targets</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-propertyanimation.html#to-prop">to</a></b></b> : real</li>
+</ul>
+<!-- $$$PropertyAnimation-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>PropertyAnimation provides a way to animate changes to a property's value.</p>
+<p>It can be used to define animations in a number of ways:</p>
+<ul>
+<li>In a <a href="qml-transition.html">Transition</a><p>For example, to animate any objects that have changed their <tt>x</tt> or <tt>y</tt> properties as a result of a state change, using an <tt>InOutQuad</tt> easing curve:</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">rect</span>
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+
+     <span class="name">states</span>: <span class="name">State</span> {
+         <span class="name">name</span>: <span class="string">&quot;moved&quot;</span>
+         <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> { <span class="name">target</span>: <span class="name">rect</span>; <span class="name">x</span>: <span class="number">50</span> }
+     }
+
+     <span class="name">transitions</span>: <span class="name">Transition</span> {
+         <span class="type">PropertyAnimation</span> { <span class="name">properties</span>: <span class="string">&quot;x,y&quot;</span>; <span class="name">easing</span>.type: <span class="name">Easing</span>.<span class="name">InOutQuad</span> }
+     }
+ }</pre>
+</li>
+<li>In a <a href="qml-behavior.html">Behavior</a><p>For example, to animate all changes to a rectangle's <tt>x</tt> property:</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+
+     Behavior on <span class="name">x</span> { <span class="type">PropertyAnimation</span> {} }
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> { <span class="name">anchors</span>.fill: <span class="name">parent</span>; <span class="name">onClicked</span>: <span class="name">parent</span>.<span class="name">x</span> <span class="operator">=</span> <span class="number">50</span> }
+ }</pre>
+</li>
+<li>As a property value source<p>For example, to repeatedly animate the rectangle's <tt>x</tt> property:</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+
+     SequentialAnimation on <span class="name">x</span> {
+         <span class="name">loops</span>: <span class="name">Animation</span>.<span class="name">Infinite</span>
+         <span class="type">PropertyAnimation</span> { <span class="name">to</span>: <span class="number">50</span> }
+         <span class="type">PropertyAnimation</span> { <span class="name">to</span>: <span class="number">0</span> }
+     }
+ }</pre>
+</li>
+<li>In a signal handler<p>For example, to fade out <tt>theObject</tt> when clicked:</p>
+<pre class="qml"> <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+     <span class="name">anchors</span>.fill: <span class="name">theObject</span>
+     <span class="name">onClicked</span>: <span class="name">PropertyAnimation</span> { <span class="name">target</span>: <span class="name">theObject</span>; <span class="name">property</span>: <span class="string">&quot;opacity&quot;</span>; <span class="name">to</span>: <span class="number">0</span> }
+ }</pre>
+</li>
+<li>Standalone<p>For example, to animate <tt>rect</tt>'s <tt>width</tt> property over 500ms, from its current width to 30:</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">theRect</span>
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+
+     <span class="comment">// this is a standalone animation, it's not running by default</span>
+     <span class="type">PropertyAnimation</span> { <span class="name">id</span>: <span class="name">animation</span>; <span class="name">target</span>: <span class="name">theRect</span>; <span class="name">property</span>: <span class="string">&quot;width&quot;</span>; <span class="name">to</span>: <span class="number">30</span>; <span class="name">duration</span>: <span class="number">500</span> }
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> { <span class="name">anchors</span>.fill: <span class="name">parent</span>; <span class="name">onClicked</span>: <span class="name">animation</span>.<span class="name">running</span> <span class="operator">=</span> <span class="number">true</span> }
+ }</pre>
+</li>
+</ul>
+<p>Depending on how the animation is used, the set of properties normally used will be different. For more information see the individual property documentation, as well as the <a href="qdeclarativeanimation.html">QML Animation and Transitions</a> introduction.</p>
+<p>Note that PropertyAnimation inherits the abstract <a href="qml-animation.html">Animation</a> element. This includes additional properties and methods for controlling the animation.</p>
+<p><b>See also </b><a href="qdeclarativeanimation.html">QML Animation and Transitions</a> and Animation basics example.</p>
+<!-- @@@PropertyAnimation -->
+<h2>Property Documentation</h2>
+<!-- $$$duration -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="duration-prop"></a><span class="name">duration</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the duration of the animation, in milliseconds.</p>
+<p>The default value is 250.</p>
+</div></div><!-- @@@duration -->
+<br/>
+<!-- $$$easing.type -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="easing.type-prop"></a><span class="name">easing.type</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="easing.amplitude-prop"></a><span class="name">easing.amplitude</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="easing.overshoot-prop"></a><span class="name">easing.overshoot</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="easing.period-prop"></a><span class="name">easing.period</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>To specify an easing curve you need to specify at least the type. For some curves you can also specify amplitude, period and/or overshoot (more details provided after the table). The default easing curve is <tt>Easing.Linear</tt>.</p>
+<pre class="qml"> <span class="type"><a href="qml-propertyanimation.html">PropertyAnimation</a></span> { <span class="name">properties</span>: <span class="string">&quot;y&quot;</span>; <span class="name">easing</span>.type: <span class="name">Easing</span>.<span class="name">InOutElastic</span>; <span class="name">easing</span>.amplitude: <span class="number">2.0</span>; <span class="name">easing</span>.period: <span class="number">1.5</span> }</pre>
+<p>Available types are:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><tt>Easing.Linear</tt></td><td >Easing curve for a linear (t) function: velocity is constant.</td><td ><img src="images/qeasingcurve-linear.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InQuad</tt></td><td >Easing curve for a quadratic (t^2) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-inquad.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutQuad</tt></td><td >Easing curve for a quadratic (t^2) function: decelerating to zero velocity.</td><td ><img src="images/qeasingcurve-outquad.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutQuad</tt></td><td >Easing curve for a quadratic (t^2) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutquad.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInQuad</tt></td><td >Easing curve for a quadratic (t^2) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinquad.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InCubic</tt></td><td >Easing curve for a cubic (t^3) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-incubic.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutCubic</tt></td><td >Easing curve for a cubic (t^3) function: decelerating from zero velocity.</td><td ><img src="images/qeasingcurve-outcubic.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutCubic</tt></td><td >Easing curve for a cubic (t^3) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutcubic.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInCubic</tt></td><td >Easing curve for a cubic (t^3) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outincubic.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InQuart</tt></td><td >Easing curve for a quartic (t^4) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-inquart.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutQuart</tt></td><td >Easing curve for a quartic (t^4) function: decelerating from zero velocity.</td><td ><img src="images/qeasingcurve-outquart.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutQuart</tt></td><td >Easing curve for a quartic (t^4) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutquart.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInQuart</tt></td><td >Easing curve for a quartic (t^4) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinquart.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InQuint</tt></td><td >Easing curve for a quintic (t^5) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-inquint.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutQuint</tt></td><td >Easing curve for a quintic (t^5) function: decelerating from zero velocity.</td><td ><img src="images/qeasingcurve-outquint.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutQuint</tt></td><td >Easing curve for a quintic (t^5) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutquint.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInQuint</tt></td><td >Easing curve for a quintic (t^5) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinquint.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InSine</tt></td><td >Easing curve for a sinusoidal (sin(t)) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-insine.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutSine</tt></td><td >Easing curve for a sinusoidal (sin(t)) function: decelerating from zero velocity.</td><td ><img src="images/qeasingcurve-outsine.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutSine</tt></td><td >Easing curve for a sinusoidal (sin(t)) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutsine.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInSine</tt></td><td >Easing curve for a sinusoidal (sin(t)) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinsine.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InExpo</tt></td><td >Easing curve for an exponential (2^t) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-inexpo.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutExpo</tt></td><td >Easing curve for an exponential (2^t) function: decelerating from zero velocity.</td><td ><img src="images/qeasingcurve-outexpo.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutExpo</tt></td><td >Easing curve for an exponential (2^t) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutexpo.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInExpo</tt></td><td >Easing curve for an exponential (2^t) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinexpo.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InCirc</tt></td><td >Easing curve for a circular (sqrt(1-t^2)) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-incirc.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutCirc</tt></td><td >Easing curve for a circular (sqrt(1-t^2)) function: decelerating from zero velocity.</td><td ><img src="images/qeasingcurve-outcirc.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutCirc</tt></td><td >Easing curve for a circular (sqrt(1-t^2)) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutcirc.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInCirc</tt></td><td >Easing curve for a circular (sqrt(1-t^2)) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outincirc.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InElastic</tt></td><td >Easing curve for an elastic (exponentially decaying sine wave) function: accelerating from zero velocity. <br /> The peak amplitude can be set with the <i>amplitude</i> parameter, and the period of decay by the <i>period</i> parameter.</td><td ><img src="images/qeasingcurve-inelastic.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutElastic</tt></td><td >Easing curve for an elastic (exponentially decaying sine wave) function: decelerating from zero velocity. <br /> The peak amplitude can be set with the <i>amplitude</i> parameter, and the period of decay by the <i>period</i> parameter.</td><td ><img src="images/qeasingcurve-outelastic.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutElastic</tt></td><td >Easing curve for an elastic (exponentially decaying sine wave) function: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutelastic.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInElastic</tt></td><td >Easing curve for an elastic (exponentially decaying sine wave) function: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinelastic.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InBack</tt></td><td >Easing curve for a back (overshooting cubic function: (s+1)*t^3 - s*t^2) easing in: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-inback.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutBack</tt></td><td >Easing curve for a back (overshooting cubic function: (s+1)*t^3 - s*t^2) easing out: decelerating to zero velocity.</td><td ><img src="images/qeasingcurve-outback.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutBack</tt></td><td >Easing curve for a back (overshooting cubic function: (s+1)*t^3 - s*t^2) easing in/out: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutback.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInBack</tt></td><td >Easing curve for a back (overshooting cubic easing: (s+1)*t^3 - s*t^2) easing out/in: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinback.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InBounce</tt></td><td >Easing curve for a bounce (exponentially decaying parabolic bounce) function: accelerating from zero velocity.</td><td ><img src="images/qeasingcurve-inbounce.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutBounce</tt></td><td >Easing curve for a bounce (exponentially decaying parabolic bounce) function: decelerating from zero velocity.</td><td ><img src="images/qeasingcurve-outbounce.png" alt="" /></td></tr>
+<tr valign="top" class="even"><td ><tt>Easing.InOutBounce</tt></td><td >Easing curve for a bounce (exponentially decaying parabolic bounce) function easing in/out: acceleration until halfway, then deceleration.</td><td ><img src="images/qeasingcurve-inoutbounce.png" alt="" /></td></tr>
+<tr valign="top" class="odd"><td ><tt>Easing.OutInBounce</tt></td><td >Easing curve for a bounce (exponentially decaying parabolic bounce) function easing out/in: deceleration until halfway, then acceleration.</td><td ><img src="images/qeasingcurve-outinbounce.png" alt="" /></td></tr>
+</table>
+<p><tt>easing.amplitude</tt> is only applicable for bounce and elastic curves (curves of type <tt>Easing.InBounce</tt>, <tt>Easing.OutBounce</tt>, <tt>Easing.InOutBounce</tt>, <tt>Easing.OutInBounce</tt>, <tt>Easing.InElastic</tt>, <tt>Easing.OutElastic</tt>, <tt>Easing.InOutElastic</tt> or <tt>Easing.OutInElastic</tt>).</p>
+<p><tt>easing.overshoot</tt> is only applicable if <tt>easing.type</tt> is: <tt>Easing.InBack</tt>, <tt>Easing.OutBack</tt>, <tt>Easing.InOutBack</tt> or <tt>Easing.OutInBack</tt>.</p>
+<p><tt>easing.period</tt> is only applicable if easing.type is: <tt>Easing.InElastic</tt>, <tt>Easing.OutElastic</tt>, <tt>Easing.InOutElastic</tt> or <tt>Easing.OutInElastic</tt>.</p>
+<p>See the <a href="declarative-animation-easing.html">easing</a> example for a demonstration of the different easing settings.</p>
+</div></div><!-- @@@easing.type -->
+<br/>
+<!-- $$$exclude -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="exclude-prop"></a><span class="qmlreadonly">read-only</span><span class="name">exclude</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>This property holds the items not to be affected by this animation.</p>
+<p><b>See also </b><a href="qml-propertyanimation.html#targets-prop">PropertyAnimation::targets</a>.</p>
+</div></div><!-- @@@exclude -->
+<br/>
+<!-- $$$from -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="from-prop"></a><span class="name">from</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the starting value for the animation.</p>
+<p>If the <a href="qml-propertyanimation.html">PropertyAnimation</a> is defined within a <a href="qml-transition.html">Transition</a> or <a href="qml-behavior.html">Behavior</a>, this value defaults to the value defined in the starting state of the <a href="qml-transition.html">Transition</a>, or the current value of the property at the moment the <a href="qml-behavior.html">Behavior</a> is triggered.</p>
+<p><b>See also </b><a href="qdeclarativeanimation.html">QML Animation and Transitions</a>.</p>
+</div></div><!-- @@@from -->
+<br/>
+<!-- $$$properties -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="properties-prop"></a><span class="name">properties</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="targets-prop"></a><span class="name">targets</span> : <span class="type"><a href="qml-list.html">list</a></span>&lt;<span class="type">Object</span>&gt;</p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="property-prop"></a><span class="name">property</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="target-prop"></a><span class="name">target</span> : <span class="type">Object</span></p></td></tr></table></div><div class="qmldoc"><p>These properties are used as a set to determine which properties should be animated. The singular and plural forms are functionally identical, e.g&#x2e;</p>
+<pre class="qml"> <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">target</span>: <span class="name">theItem</span>; <span class="name">property</span>: <span class="string">&quot;x&quot;</span>; <span class="name">to</span>: <span class="number">500</span> }</pre>
+<p>has the same meaning as</p>
+<pre class="qml"> <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">targets</span>: <span class="name">theItem</span>; <span class="name">properties</span>: <span class="string">&quot;x&quot;</span>; <span class="name">to</span>: <span class="number">500</span> }</pre>
+<p>The singular forms are slightly optimized, so if you do have only a single target/property to animate you should try to use them.</p>
+<p>The <tt>targets</tt> property allows multiple targets to be set. For example, this animates the <tt>x</tt> property of both <tt>itemA</tt> and <tt>itemB</tt>:</p>
+<pre class="qml"> <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">targets</span>: [<span class="name">itemA</span>, <span class="name">itemB</span>]; <span class="name">properties</span>: <span class="string">&quot;x&quot;</span>; <span class="name">to</span>: <span class="number">500</span> }</pre>
+<p>In many cases these properties do not need to be explicitly specified, as they can be inferred from the animation framework:</p>
+<table class="generic" width="80%">
+ <tr valign="top" class="odd"><td >Value Source / Behavior</td><td >When an animation is used as a value source or in a Behavior, the default target and property name to be animated can both be inferred.<pre class="qml">    <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+        <span class="name">id</span>: <span class="name">theRect</span>
+        <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+        <span class="name">color</span>: <span class="name">Qt</span>.<span class="name">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)
+        NumberAnimation on <span class="name">x</span> { <span class="name">to</span>: <span class="number">500</span>; <span class="name">loops</span>: <span class="name">Animation</span>.<span class="name">Infinite</span> } <span class="comment">//animate theRect's x property</span>
+        Behavior on <span class="name">y</span> { <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> {} } <span class="comment">//animate theRect's y property</span>
+    }</pre>
+</td></tr>
+<tr valign="top" class="even"><td >Transition</td><td >When used in a transition, a property animation is assumed to match <i>all</i> targets but <i>no</i> properties. In practice, that means you need to specify at least the properties in order for the animation to do anything.<pre class="qml">    <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+        <span class="name">id</span>: <span class="name">theRect</span>
+        <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+        <span class="name">color</span>: <span class="name">Qt</span>.<span class="name">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)
+        <span class="type"><a href="qml-item.html">Item</a></span> { <span class="name">id</span>: <span class="name">uselessItem</span> }
+        <span class="name">states</span>: <span class="name">State</span> {
+            <span class="name">name</span>: <span class="string">&quot;state1&quot;</span>
+            <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> { <span class="name">target</span>: <span class="name">theRect</span>; <span class="name">x</span>: <span class="number">200</span>; <span class="name">y</span>: <span class="number">200</span>; <span class="name">z</span>: <span class="number">4</span> }
+            <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> { <span class="name">target</span>: <span class="name">uselessItem</span>; <span class="name">x</span>: <span class="number">10</span>; <span class="name">y</span>: <span class="number">10</span>; <span class="name">z</span>: <span class="number">2</span> }
+        }
+        <span class="name">transitions</span>: <span class="name">Transition</span> {
+            <span class="comment">//animate both theRect's and uselessItem's x and y to their final values</span>
+            <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">properties</span>: <span class="string">&quot;x,y&quot;</span> }
+
+            <span class="comment">//animate theRect's z to its final value</span>
+            <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">target</span>: <span class="name">theRect</span>; <span class="name">property</span>: <span class="string">&quot;z&quot;</span> }
+        }
+    }</pre>
+</td></tr>
+<tr valign="top" class="odd"><td >Standalone</td><td >When an animation is used standalone, both the target and property need to be explicitly specified.<pre class="qml">    <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+        <span class="name">id</span>: <span class="name">theRect</span>
+        <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+        <span class="name">color</span>: <span class="name">Qt</span>.<span class="name">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)
+        <span class="comment">//need to explicitly specify target and property</span>
+        <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">id</span>: <span class="name">theAnim</span>; <span class="name">target</span>: <span class="name">theRect</span>; <span class="name">property</span>: <span class="string">&quot;x&quot;</span>; <span class="name">to</span>: <span class="number">500</span> }
+        <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="name">onClicked</span>: <span class="name">theAnim</span>.<span class="name">start</span>()
+        }
+    }</pre>
+</td></tr>
+</table>
+<p>As seen in the above example, properties is specified as a comma-separated string of property names to animate.</p>
+<p><b>See also </b><a href="qml-propertyanimation.html#exclude-prop">exclude</a> and <a href="qdeclarativeanimation.html">QML Animation and Transitions</a>.</p>
+</div></div><!-- @@@properties -->
+<br/>
+<!-- $$$to -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="to-prop"></a><span class="name">to</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the end value for the animation.</p>
+<p>If the <a href="qml-propertyanimation.html">PropertyAnimation</a> is defined within a <a href="qml-transition.html">Transition</a> or <a href="qml-behavior.html">Behavior</a>, this value defaults to the value defined in the end state of the <a href="qml-transition.html">Transition</a>, or the value of the property change that triggered the <a href="qml-behavior.html">Behavior</a>.</p>
+<p><b>See also </b><a href="qdeclarativeanimation.html">QML Animation and Transitions</a>.</p>
+</div></div><!-- @@@to -->
+<br/>
+<p class="naviNextPrevious footerNavi">
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

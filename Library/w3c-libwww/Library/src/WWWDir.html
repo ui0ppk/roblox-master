@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww Directory Listings</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Declaration of W3C Sample Code Directory Listings
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This is the include file for the directory handling modules for parsing and
+presenting directory listings - often in the form of a HTML document.
+<PRE>
+#ifndef WWWDIR_H
+#define WWWDIR_H
+</PRE>
+<PRE>
+#ifdef __cplusplus
+extern "C" { 
+#endif
+</PRE>
+<H3>
+  System dependencies
+</H3>
+<P>
+The <A HREF="wwwsys.html">wwwsys.h</A> file includes system-specific include
+files and flags for I/O to network and disk. The only reason for this file
+is that the Internet world is more complicated than Posix and ANSI.
+<PRE>
+#include "<A HREF="wwwsys.html">wwwsys.h</A>"
+</PRE>
+<H3>
+  Directory listings
+</H3>
+<P>
+The directory manager generates directory listings for FTP and HTTP requests.
+This module contains the protocol independent code and it produces the HTML
+object. It is only included if either the <A HREF="HTFTP.html">FTP</A> or
+the <A HREF="HTFile.html">File</A> module is included.
+<PRE>
+#include "<A HREF="HTDir.html">HTDir.h</A>"
+</PRE>
+<H3>
+  Icons
+</H3>
+<P>
+No directory listings without icons! The WWWDir interface contains support
+for including references (URLs and ALT text tags) to icons in directory listings.
+The icons are selected as a function of the media type and the content encoding
+of the file in question. That is - you can set up icons for compressed files,
+postscript files etc. There is also a small set of specific icons representing
+directories etc.
+<P>
+<B>Note</B>: Icons are not set up by default! You must enable them yourself.
+The Library distribution contains a <A HREF="../../Icons/internal/">small
+set of default icons</A> which you can find at
+<CODE>$(datadir)/www-icons</CODE>, and they can be set up using the
+<A HREF="HTInit.html#icons">HTIconInit() initialization</A> function in the
+<A HREF="WWWInit.html">WWWInit startup interface</A>
+<PRE>#include "<A HREF="HTIcons.html">HTIcons.h</A>"
+</PRE>
+<H3>
+  File Descriptions
+</H3>
+<P>
+Descriptions appearing in <A HREF="HTDir.html">directory listings</A> are
+produced by this module. This may be overridden by another module for those
+who which descriptions to come from somewhere else. It's only HTTP directory
+listings that contain a description field (if enabled by the
+<A HREF="HTDir.html">Directory browsing module</A>.
+<PRE>
+#include "<A HREF="HTDescpt.html">HTDescpt</A>.h"
+</PRE>
+<P>
+End of DIR module
+<PRE>
+#ifdef __cplusplus
+} /* end extern C definitions */
+#endif
+
+#endif
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

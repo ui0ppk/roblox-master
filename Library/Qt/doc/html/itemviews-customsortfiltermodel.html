@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- customsortfiltermodel.qdoc -->
+  <title>Qt 4.8: Custom Sort/Filter Model Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Custom Sort/Filter Model Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#mysortfilterproxymodel-class-definition">MySortFilterProxyModel Class Definition</a></li>
+<li class="level1"><a href="#mysortfilterproxymodel-class-implementation">MySortFilterProxyModel Class Implementation</a></li>
+<li class="level1"><a href="#window-class-definition">Window Class Definition</a></li>
+<li class="level1"><a href="#window-class-implementation">Window Class Implementation</a></li>
+<li class="level1"><a href="#the-main-function">The Main() Function</a></li>
+</ul>
+</div>
+<h1 class="title">Custom Sort/Filter Model Example</h1>
+<span class="subtitle"></span>
+<!-- $$$itemviews/customsortfiltermodel-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="itemviews-customsortfiltermodel-mysortfilterproxymodel-cpp.html">itemviews/customsortfiltermodel/mysortfilterproxymodel.cpp</a></li>
+<li><a href="itemviews-customsortfiltermodel-mysortfilterproxymodel-h.html">itemviews/customsortfiltermodel/mysortfilterproxymodel.h</a></li>
+<li><a href="itemviews-customsortfiltermodel-window-cpp.html">itemviews/customsortfiltermodel/window.cpp</a></li>
+<li><a href="itemviews-customsortfiltermodel-window-h.html">itemviews/customsortfiltermodel/window.h</a></li>
+<li><a href="itemviews-customsortfiltermodel-main-cpp.html">itemviews/customsortfiltermodel/main.cpp</a></li>
+<li><a href="itemviews-customsortfiltermodel-customsortfiltermodel-pro.html">itemviews/customsortfiltermodel/customsortfiltermodel.pro</a></li>
+</ul>
+<p>The Custom Sort/Filter Model example illustrates how to subclass <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> to perform advanced sorting and filtering.<p class="centerAlign"><img src="images/customsortfiltermodel-example.png" alt="Screenshot of the Custom Sort/Filter Model Example" /></p><p>The <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> class provides support for sorting and filtering data passed between another model and a view.</p>
+<p>The model transforms the structure of a source model by mapping the model indexes it supplies to new indexes, corresponding to different locations, for views to use. This approach allows a given source model to be restructured as far as views are concerned, without requiring any transformations on the underlying data and without duplicating the data in memory.</p>
+<p>The Custom Sort/Filter Model example consists of two classes:</p>
+<ul>
+<li>The <tt>MySortFilterProxyModel</tt> class provides a custom proxy model.</li>
+<li>The <tt>Window</tt> class provides the main application window, using the custom proxy model to sort and filter a standard item model.</li>
+</ul>
+<p>We will first take a look at the <tt>MySortFilterProxyModel</tt> class to see how the custom proxy model is implemented, then we will take a look at the <tt>Window</tt> class to see how the model is used. Finally we will take a quick look at the <tt>main()</tt> function.</p>
+<a name="mysortfilterproxymodel-class-definition"></a>
+<h2>MySortFilterProxyModel Class Definition</h2>
+<p>The <tt>MySortFilterProxyModel</tt> class inherits the <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> class.</p>
+<p>Since <a href="qabstractproxymodel.html">QAbstractProxyModel</a> and its subclasses are derived from <a href="qabstractitemmodel.html">QAbstractItemModel</a>, much of the same advice about subclassing normal models also applies to proxy models.</p>
+<p>On the other hand, it is worth noting that many of <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>'s default implementations of functions are written so that they call the equivalent functions in the relevant source model. This simple proxying mechanism may need to be overridden for source models with more complex behavior; in this example we derive from the <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> class to ensure that our filter can recognize a valid range of dates, and to control the sorting behavior.</p>
+<pre class="cpp"> <span class="keyword">class</span> MySortFilterProxyModel : <span class="keyword">public</span> <span class="type"><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     MySortFilterProxyModel(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qdate.html">QDate</a></span> filterMinimumDate() <span class="keyword">const</span> { <span class="keyword">return</span> minDate; }
+     <span class="type">void</span> setFilterMinimumDate(<span class="keyword">const</span> <span class="type"><a href="qdate.html">QDate</a></span> <span class="operator">&amp;</span>date);
+
+     <span class="type"><a href="qdate.html">QDate</a></span> filterMaximumDate() <span class="keyword">const</span> { <span class="keyword">return</span> maxDate; }
+     <span class="type">void</span> setFilterMaximumDate(<span class="keyword">const</span> <span class="type"><a href="qdate.html">QDate</a></span> <span class="operator">&amp;</span>date);
+
+ <span class="keyword">protected</span>:
+     <span class="type">bool</span> filterAcceptsRow(<span class="type">int</span> sourceRow<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>sourceParent) <span class="keyword">const</span>;
+     <span class="type">bool</span> lessThan(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>left<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>right) <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     <span class="type">bool</span> dateInRange(<span class="keyword">const</span> <span class="type"><a href="qdate.html">QDate</a></span> <span class="operator">&amp;</span>date) <span class="keyword">const</span>;
+
+     <span class="type"><a href="qdate.html">QDate</a></span> minDate;
+     <span class="type"><a href="qdate.html">QDate</a></span> maxDate;
+ };</pre>
+<p>We want to be able to filter our data by specifying a given period of time. For that reason, we implement the custom <tt>setFilterMinimumDate()</tt> and <tt>setFilterMaximumDate()</tt> functions as well as the corresponding <tt>filterMinimumDate()</tt> and <tt>filterMaximumDate()</tt> functions. We reimplement <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>'s <a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow()</a> function to only accept rows with valid dates, and <a href="qsortfilterproxymodel.html#lessThan">QSortFilterProxyModel::lessThan</a>() to be able to sort the senders by their email adresses. Finally, we implement a <tt>dateInRange()</tt> convenience function that we will use to determine if a date is valid.</p>
+<a name="mysortfilterproxymodel-class-implementation"></a>
+<h2>MySortFilterProxyModel Class Implementation</h2>
+<p>The <tt>MySortFilterProxyModel</tt> constructor is trivial, passing the parent parameter on to the base class constructor:</p>
+<pre class="cpp"> MySortFilterProxyModel<span class="operator">::</span>MySortFilterProxyModel(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a></span>(parent)
+ {
+ }</pre>
+<p>The most interesting parts of the <tt>MySortFilterProxyModel</tt> implementation are the reimplementations of <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>'s <a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow()</a> and <a href="qsortfilterproxymodel.html#lessThan">lessThan()</a> functions. Let's first take a look at our customized <tt>lessThan()</tt> function.</p>
+<pre class="cpp"> <span class="type">bool</span> MySortFilterProxyModel<span class="operator">::</span>lessThan(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>left<span class="operator">,</span>
+                                       <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>right) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qvariant.html">QVariant</a></span> leftData <span class="operator">=</span> sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>data(left);
+     <span class="type"><a href="qvariant.html">QVariant</a></span> rightData <span class="operator">=</span> sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>data(right);</pre>
+<p>We want to sort the senders by their email adresses. The <a href="qsortfilterproxymodel.html#lessThan">lessThan()</a> function is used as the &lt; operator when sorting. The default implementation handles a collection of types including <a href="qdatetime.html">QDateTime</a> and String, but in order to be able to sort the senders by their email adresses we must first identify the adress within the given string:</p>
+<pre class="cpp">     <span class="keyword">if</span> (leftData<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>DateTime) {
+         <span class="keyword">return</span> leftData<span class="operator">.</span>toDateTime() <span class="operator">&lt;</span> rightData<span class="operator">.</span>toDateTime();
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qregexp.html">QRegExp</a></span> <span class="operator">*</span>emailPattern <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qregexp.html">QRegExp</a></span>(<span class="string">&quot;([\\w\\.]*@[\\w\\.]*)&quot;</span>);
+
+         <span class="type"><a href="qstring.html">QString</a></span> leftString <span class="operator">=</span> leftData<span class="operator">.</span>toString();
+         <span class="keyword">if</span>(left<span class="operator">.</span>column() <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> emailPattern<span class="operator">-</span><span class="operator">&gt;</span>indexIn(leftString) <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+             leftString <span class="operator">=</span> emailPattern<span class="operator">-</span><span class="operator">&gt;</span>cap(<span class="number">1</span>);
+
+         <span class="type"><a href="qstring.html">QString</a></span> rightString <span class="operator">=</span> rightData<span class="operator">.</span>toString();
+         <span class="keyword">if</span>(right<span class="operator">.</span>column() <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> emailPattern<span class="operator">-</span><span class="operator">&gt;</span>indexIn(rightString) <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+             rightString <span class="operator">=</span> emailPattern<span class="operator">-</span><span class="operator">&gt;</span>cap(<span class="number">1</span>);
+
+         <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>localeAwareCompare(leftString<span class="operator">,</span> rightString) <span class="operator">&lt;</span> <span class="number">0</span>;
+     }
+ }</pre>
+<p>We use <a href="qregexp.html">QRegExp</a> to define a pattern for the adresses we are looking for. The <a href="qregexp.html#indexIn">QRegExp::indexIn</a>() function attempts to find a match in the given string and returns the position of the first match, or -1 if there was no match. If the given string contains the pattern, we use <a href="qregexp.html">QRegExp</a>'s <a href="qregexp.html#cap">cap()</a> function to retrieve the actual adress. The <a href="qregexp.html#cap">cap()</a> function returns the text captured by the <i>nth</i> subexpression. The entire match has index 0 and the parenthesized subexpressions have indexes starting from 1 (excluding non-capturing parentheses).</p>
+<pre class="cpp"> <span class="type">bool</span> MySortFilterProxyModel<span class="operator">::</span>filterAcceptsRow(<span class="type">int</span> sourceRow<span class="operator">,</span>
+         <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>sourceParent) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index0 <span class="operator">=</span> sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>index(sourceRow<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> sourceParent);
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index1 <span class="operator">=</span> sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>index(sourceRow<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> sourceParent);
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index2 <span class="operator">=</span> sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>index(sourceRow<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> sourceParent);
+
+     <span class="keyword">return</span> (sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>data(index0)<span class="operator">.</span>toString()<span class="operator">.</span>contains(filterRegExp())
+             <span class="operator">|</span><span class="operator">|</span> sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>data(index1)<span class="operator">.</span>toString()<span class="operator">.</span>contains(filterRegExp()))
+            <span class="operator">&amp;</span><span class="operator">&amp;</span> dateInRange(sourceModel()<span class="operator">-</span><span class="operator">&gt;</span>data(index2)<span class="operator">.</span>toDate());
+ }</pre>
+<p>The <a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow()</a> function, on the other hand, is expected to return true if the given row should be included in the model. In our example, a row is accepted if either the subject or the sender contains the given regular expression, and the date is valid.</p>
+<pre class="cpp"> <span class="type">bool</span> MySortFilterProxyModel<span class="operator">::</span>dateInRange(<span class="keyword">const</span> <span class="type"><a href="qdate.html">QDate</a></span> <span class="operator">&amp;</span>date) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> (<span class="operator">!</span>minDate<span class="operator">.</span>isValid() <span class="operator">|</span><span class="operator">|</span> date <span class="operator">&gt;</span> minDate)
+            <span class="operator">&amp;</span><span class="operator">&amp;</span> (<span class="operator">!</span>maxDate<span class="operator">.</span>isValid() <span class="operator">|</span><span class="operator">|</span> date <span class="operator">&lt;</span> maxDate);
+ }</pre>
+<p>We use our custom <tt>dateInRange()</tt> function to determine if a date is valid.</p>
+<p>To be able to filter our data by specifying a given period of time, we also implement functions for getting and setting the minimum and maximum dates:</p>
+<pre class="cpp"> <span class="type">void</span> MySortFilterProxyModel<span class="operator">::</span>setFilterMinimumDate(<span class="keyword">const</span> <span class="type"><a href="qdate.html">QDate</a></span> <span class="operator">&amp;</span>date)
+ {
+     minDate <span class="operator">=</span> date;
+     invalidateFilter();
+ }
+
+ <span class="type">void</span> MySortFilterProxyModel<span class="operator">::</span>setFilterMaximumDate(<span class="keyword">const</span> <span class="type"><a href="qdate.html">QDate</a></span> <span class="operator">&amp;</span>date)
+ {
+     maxDate <span class="operator">=</span> date;
+     invalidateFilter();
+ }</pre>
+<p>The get functions, <tt>filterMinimumDate()</tt> and <tt>filterMaximumDate()</tt>, are trivial and implemented as inline function in the header file.</p>
+<p>This completes our custom proxy model. Let's see how we can use it in an application.</p>
+<a name="window-class-definition"></a>
+<h2>Window Class Definition</h2>
+<p>The <tt>CustomFilter</tt> class inherits <a href="qwidget.html">QWidget</a>, and provides this example's main application window:</p>
+<pre class="cpp"> <span class="keyword">class</span> Window : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Window();
+
+     <span class="type">void</span> setSourceModel(<span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> <span class="operator">*</span>model);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> textFilterChanged();
+     <span class="type">void</span> dateFilterChanged();
+
+ <span class="keyword">private</span>:
+     MySortFilterProxyModel <span class="operator">*</span>proxyModel;
+
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5 ) || defined(Q_WS_SIMULATOR)</span>
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>sourceWidget;
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>filterWidget;
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>proxyWidget;
+ <span class="preprocessor">#else</span>
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>sourceGroupBox;
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>proxyGroupBox;
+ <span class="preprocessor">#endif</span>
+     <span class="type"><a href="qtreeview.html">QTreeView</a></span> <span class="operator">*</span>sourceView;
+     <span class="type"><a href="qtreeview.html">QTreeView</a></span> <span class="operator">*</span>proxyView;
+     <span class="type"><a href="qcheckbox.html">QCheckBox</a></span> <span class="operator">*</span>filterCaseSensitivityCheckBox;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>filterPatternLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>fromLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>toLabel;
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>filterPatternLineEdit;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>filterSyntaxComboBox;
+     <span class="type"><a href="qdateedit.html">QDateEdit</a></span> <span class="operator">*</span>fromDateEdit;
+     <span class="type"><a href="qdateedit.html">QDateEdit</a></span> <span class="operator">*</span>toDateEdit;
+ };</pre>
+<p>We implement two private slots, <tt>textFilterChanged()</tt> and <tt>dateFilterChanged()</tt>, to respond to the user changing the filter pattern, case sensitivity or any of the dates. In addition, we implement a public <tt>setSourceModel()</tt> convenience function to set up the model/ view relation.</p>
+<a name="window-class-implementation"></a>
+<h2>Window Class Implementation</h2>
+<p>In this example, we have chosen to create and set the source model in the <tt>main</tt> () function (which we will come back to later). So when constructing the main application window, we assume that a source model already exists and start by creating an instance of our custom proxy model:</p>
+<pre class="cpp"> Window<span class="operator">::</span>Window()
+ {
+     proxyModel <span class="operator">=</span> <span class="keyword">new</span> MySortFilterProxyModel(<span class="keyword">this</span>);
+     proxyModel<span class="operator">-</span><span class="operator">&gt;</span>setDynamicSortFilter(<span class="keyword">true</span>);</pre>
+<p>We set the <a href="qsortfilterproxymodel.html#dynamicSortFilter-prop">dynamicSortFilter</a> property that holds whether the proxy model is dynamically sorted and filtered. By setting this property to true, we ensure that the model is sorted and filtered whenever the contents of the source model change.</p>
+<p>The main application window shows views of both the source model and the proxy model. The source view is quite simple:</p>
+<pre class="cpp"> sourceView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreeview.html">QTreeView</a></span>;
+ sourceView<span class="operator">-</span><span class="operator">&gt;</span>setRootIsDecorated(<span class="keyword">false</span>);
+ sourceView<span class="operator">-</span><span class="operator">&gt;</span>setAlternatingRowColors(<span class="keyword">true</span>);</pre>
+<p>The <a href="qtreeview.html">QTreeView</a> class provides a default model/view implementation of a tree view; our view implements a tree representation of items in the application's source model.</p>
+<pre class="cpp"> sourceLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(sourceView);
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+ sourceWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+ sourceWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(sourceLayout);
+ <span class="preprocessor">#else</span>
+ sourceGroupBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(tr(<span class="string">&quot;Original Model&quot;</span>));
+ sourceGroupBox<span class="operator">-</span><span class="operator">&gt;</span>setLayout(sourceLayout);
+ <span class="preprocessor">#endif</span></pre>
+<p>The <a href="qtreeview.html">QTreeView</a> class provides a default model/view implementation of a tree view; our view implements a tree representation of items in the application's source model. We add our view widget to a layout that we install on a corresponding group box.</p>
+<p>The proxy model view, on the other hand, contains several widgets controlling the various aspects of transforming the source model's data structure:</p>
+<pre class="cpp"> filterCaseSensitivityCheckBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span>(tr(<span class="string">&quot;Case sensitive filter&quot;</span>));
+ filterCaseSensitivityCheckBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+
+ filterPatternLineEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+ filterPatternLineEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;Grace|Sports&quot;</span>);
+
+ filterPatternLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;&amp;Filter pattern:&quot;</span>));
+ filterPatternLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(filterPatternLineEdit);
+
+ filterSyntaxComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+ filterSyntaxComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Regular expression&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qregexp.html">QRegExp</a></span><span class="operator">::</span>RegExp);
+ filterSyntaxComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Wildcard&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qregexp.html">QRegExp</a></span><span class="operator">::</span>Wildcard);
+ filterSyntaxComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Fixed string&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qregexp.html">QRegExp</a></span><span class="operator">::</span>FixedString);
+
+ fromDateEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdateedit.html">QDateEdit</a></span>;
+ fromDateEdit<span class="operator">-</span><span class="operator">&gt;</span>setDate(<span class="type"><a href="qdate.html">QDate</a></span>(<span class="number">1970</span><span class="operator">,</span> <span class="number">01</span><span class="operator">,</span> <span class="number">01</span>));
+ fromLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;F&amp;rom:&quot;</span>));
+ fromLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(fromDateEdit);
+
+ toDateEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdateedit.html">QDateEdit</a></span>;
+ toDateEdit<span class="operator">-</span><span class="operator">&gt;</span>setDate(<span class="type"><a href="qdate.html">QDate</a></span>(<span class="number">2099</span><span class="operator">,</span> <span class="number">12</span><span class="operator">,</span> <span class="number">31</span>));
+ toLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;&amp;To:&quot;</span>));
+ toLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(toDateEdit);
+
+ connect(filterPatternLineEdit<span class="operator">,</span> SIGNAL(textChanged(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(textFilterChanged()));
+ connect(filterSyntaxComboBox<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(textFilterChanged()));
+ connect(filterCaseSensitivityCheckBox<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(textFilterChanged()));
+ connect(fromDateEdit<span class="operator">,</span> SIGNAL(dateChanged(<span class="type"><a href="qdate.html">QDate</a></span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(dateFilterChanged()));
+ connect(toDateEdit<span class="operator">,</span> SIGNAL(dateChanged(<span class="type"><a href="qdate.html">QDate</a></span>))<span class="operator">,</span>
+ <span class="keyword">this</span><span class="operator">,</span> SLOT(dateFilterChanged()));</pre>
+<p>Note that whenever the user changes one of the filtering options, we must explicitly reapply the filter. This is done by connecting the various editors to functions that update the proxy model.</p>
+<pre class="cpp"> proxyView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreeview.html">QTreeView</a></span>;
+ proxyView<span class="operator">-</span><span class="operator">&gt;</span>setRootIsDecorated(<span class="keyword">false</span>);
+ proxyView<span class="operator">-</span><span class="operator">&gt;</span>setAlternatingRowColors(<span class="keyword">true</span>);
+ proxyView<span class="operator">-</span><span class="operator">&gt;</span>setModel(proxyModel);
+ proxyView<span class="operator">-</span><span class="operator">&gt;</span>setSortingEnabled(<span class="keyword">true</span>);
+ proxyView<span class="operator">-</span><span class="operator">&gt;</span>sortByColumn(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AscendingOrder);
+
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+ <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>filterLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterPatternLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterPatternLineEdit<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterSyntaxComboBox<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">2</span>);
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterCaseSensitivityCheckBox<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">3</span>);
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fromLabel<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span>);
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fromDateEdit<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(toLabel<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">0</span>);
+ filterLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(toDateEdit<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+
+ filterWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+ filterWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(filterLayout);
+
+ <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>proxyLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(proxyView);
+
+ proxyWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+ proxyWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(proxyLayout);
+ <span class="preprocessor">#else</span>
+ <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>proxyLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(proxyView<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">3</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterPatternLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterPatternLineEdit<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterSyntaxComboBox<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(filterCaseSensitivityCheckBox<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">3</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fromLabel<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">0</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fromDateEdit<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(toLabel<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">0</span>);
+ proxyLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(toDateEdit<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+
+ proxyGroupBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(tr(<span class="string">&quot;Sorted/Filtered Model&quot;</span>));
+ proxyGroupBox<span class="operator">-</span><span class="operator">&gt;</span>setLayout(proxyLayout);
+ <span class="preprocessor">#endif</span></pre>
+<p>The sorting will be handled by the view. All we have to do is to enable sorting for our proxy view by setting the <a href="qtreeview.html#sortingEnabled-prop">QTreeView::sortingEnabled</a> property (which is false by default). Then we add all the filtering widgets and the proxy view to a layout that we install on a corresponding group box.</p>
+<pre class="cpp"> <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+ <span class="type"><a href="qtabwidget.html">QTabWidget</a></span> <span class="operator">*</span>tabWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtabwidget.html">QTabWidget</a></span>;
+ tabWidget<span class="operator">-</span><span class="operator">&gt;</span>addTab(sourceWidget<span class="operator">,</span> <span class="string">&quot;Original&quot;</span>);
+ tabWidget<span class="operator">-</span><span class="operator">&gt;</span>addTab(filterWidget<span class="operator">,</span> <span class="string">&quot;Filters&quot;</span>);
+ tabWidget<span class="operator">-</span><span class="operator">&gt;</span>addTab(proxyWidget<span class="operator">,</span> <span class="string">&quot;Sorted&quot;</span>);
+
+ <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+ mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(tabWidget);
+ setLayout(mainLayout);
+ setWindowTitle(tr(<span class="string">&quot;Custom Model&quot;</span>));
+ <span class="preprocessor">#else</span>
+ <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+ mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(sourceGroupBox);
+ mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(proxyGroupBox);
+ setLayout(mainLayout);
+
+ setWindowTitle(tr(<span class="string">&quot;Custom Sort/Filter Model&quot;</span>));
+ resize(<span class="number">500</span><span class="operator">,</span> <span class="number">450</span>);
+ <span class="preprocessor">#endif</span>
+ }</pre>
+<p>Finally, after putting our two group boxes into another layout that we install on our main application widget, we customize the application window.</p>
+<p>As mentioned above, we create the source model in the <tt>main</tt> () function, calling the <tt>Window::setSourceModel()</tt> function to make the application use it:</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>setSourceModel(<span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> <span class="operator">*</span>model)
+ {
+     proxyModel<span class="operator">-</span><span class="operator">&gt;</span>setSourceModel(model);
+     sourceView<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
+ }</pre>
+<p>The <a href="qsortfilterproxymodel.html#setSourceModel">QSortFilterProxyModel::setSourceModel</a>() function makes the proxy model process the data in the given model, in this case out mail model. The <a href="qabstractitemview.html#setModel">setModel()</a> that the view widget inherits from the <a href="qabstractitemmodel.html">QAbstractItemModel</a> class, sets the model for the view to present. Note that the latter function will also create and set a new selection model.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>textFilterChanged()
+ {
+     <span class="type"><a href="qregexp.html">QRegExp</a></span><span class="operator">::</span>PatternSyntax syntax <span class="operator">=</span>
+             <span class="type"><a href="qregexp.html">QRegExp</a></span><span class="operator">::</span>PatternSyntax(filterSyntaxComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(
+                     filterSyntaxComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex())<span class="operator">.</span>toInt());
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CaseSensitivity caseSensitivity <span class="operator">=</span>
+             filterCaseSensitivityCheckBox<span class="operator">-</span><span class="operator">&gt;</span>isChecked() <span class="operator">?</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CaseSensitive
+                 : <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CaseInsensitive;
+
+     <span class="type"><a href="qregexp.html">QRegExp</a></span> regExp(filterPatternLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">,</span> caseSensitivity<span class="operator">,</span> syntax);
+     proxyModel<span class="operator">-</span><span class="operator">&gt;</span>setFilterRegExp(regExp);
+ }</pre>
+<p>The <tt>textFilterChanged()</tt> function is called whenever the user changes the filter pattern or the case sensitivity.</p>
+<p>We first retrieve the preferred syntax (the <a href="qregexp.html#PatternSyntax-enum">QRegExp::PatternSyntax</a> enum is used to interpret the meaning of the given pattern), then we determine the preferred case sensitivity. Based on these preferences and the current filter pattern, we set the proxy model's <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a> property. The <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a> property holds the regular expression used to filter the contents of the source model. Note that calling <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>'s <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp()</a> function also updates the model.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>dateFilterChanged()
+ {
+     proxyModel<span class="operator">-</span><span class="operator">&gt;</span>setFilterMinimumDate(fromDateEdit<span class="operator">-</span><span class="operator">&gt;</span>date());
+     proxyModel<span class="operator">-</span><span class="operator">&gt;</span>setFilterMaximumDate(toDateEdit<span class="operator">-</span><span class="operator">&gt;</span>date());
+ }</pre>
+<p>The <tt>dateFilterChanged()</tt> function is called whenever the user modifies the range of valid dates. We retrieve the new dates from the user interface, and call the corresponding functions (provided by our custom proxy model) to set the proxy model's minimum and maximum dates. As we explained above, calling these functions also updates the model.</p>
+<a name="the-main-function"></a>
+<h2>The Main() Function</h2>
+<p>In this example, we have separated the application from the source model by creating the model in the <tt>main</tt> () function. First we create the application, then we create the source model:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     Window window;
+     window<span class="operator">.</span>setSourceModel(createMailModel(<span class="operator">&amp;</span>window));
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN)</span>
+     window<span class="operator">.</span>showMaximized();
+ <span class="preprocessor">#else</span>
+     window<span class="operator">.</span>show();
+ <span class="preprocessor">#endif</span>
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>The <tt>createMailModel()</tt> function is a convenience function provided to simplify the constructor. All it does is to create and return a model describing a collection of emails. The model is an instance of the <a href="qstandarditemmodel.html">QStandardItemModel</a> class, i.e&#x2e;, a generic model for storing custom data typically used as a repository for standard Qt data types. Each mail description is added to the model using <tt>addMail()</tt>, another convenience function. See <a href="itemviews-customsortfiltermodel-main-cpp.html">main.cpp</a> for details.</p>
+</div>
+<!-- @@@itemviews/customsortfiltermodel -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

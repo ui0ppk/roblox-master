@@ -1,0 +1,263 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 13-Jul-1996 -->
+  <TITLE>W3C Sample Code Library libwww Default Initialization</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Default Initialization Methods
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+As mentioned in the <A HREF="../User/Architecture/">Library Architecture</A>,
+libwww consists of a small core and a large set of hooks for adding
+functionality. By itself, the core it not capable of performing any Web related
+tasks like accessing a HTTP server or parsing a HTML document. All this
+functionality must be registered by the application. This way, the core of
+libwww is kept application independent and can be used as the basic building
+block for any kind of Web application. The Library comes with a large set
+of default functions, for example for accessing HTTP and FTP servers, parsing
+<A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC
+822</A> headers etc. This module helps the application programmer setting
+up all this functionality, but it is important to note that none of it is
+<I>required</I> in order to use the Library.
+<P>
+This module is implemented by <A HREF="HTInit.c">HTInit.c</A>, and it is
+a part of the <A HREF="http://www.w3.org/Library/">W3C Sample Code
+Library</A>. You can also have a look at the other
+<A HREF="WWWInit.html">Initialization modules</A>.
+<PRE>
+#ifndef HTINIT_H
+#define HTINIT_H
+#include "<A HREF="WWWLib.html">WWWLib.h</A>"
+#include "<A HREF="WWWApp.html">WWWApp.h</A>"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  Default Transport Protocol Modules
+</H2>
+<P>
+Register the default set of transport protocols.
+<PRE>
+#include "<A HREF="WWWTrans.html">WWWTrans.h</A>"
+
+extern void HTTransportInit (void);
+</PRE>
+<H2>
+  Default Protocol Modules
+</H2>
+<P>
+Set up default bindings between access schemes and the set of protocol modules
+in the Library. The preemptive version registers all protocol modules to
+use blocking sockets.
+<PRE>
+#include "<A HREF="WWWHTTP.html">WWWHTTP.h</A>"
+#include "<A HREF="WWWFile.html">WWWFile.h</A>"
+#include "<A HREF="WWWFTP.html">WWWFTP.h</A>"
+#include "<A HREF="WWWGophe.html">WWWGophe.h</A>"
+#include "<A HREF="WWWTelnt.html">WWWTelnt.h</A>"
+#include "<A HREF="WWWNews.html">WWWNews.h</A>"
+
+#ifdef HT_DIRECT_WAIS
+#include "<A HREF="WWWWAIS.html">WWWWAIS.h</A>"
+#endif
+
+#ifndef FTP_PORT
+#define FTP_PORT	21
+#endif
+#ifndef NEWS_PORT
+#define NEWS_PORT	119
+#endif
+#ifndef GOPHER_PORT
+#define GOPHER_PORT	70
+#endif
+#ifndef WAIS_PORT
+#define WAIS_PORT	666
+#endif
+#ifndef HTTP_PORT
+#define HTTP_PORT	80
+#endif
+
+#define HTAccessInit	HTProtocolInit
+
+extern void HTProtocolInit (void);
+
+extern void HTProtocolPreemptiveInit (void);
+</PRE>
+<H2>
+  <A NAME="MIME">Default MIME Parsers</A>
+</H2>
+<P>
+The core doesn't have any built in MIME parsers, but many of the protocols
+need them. For instance, many elements of the library rely on the
+<CODE>Content-Length</CODE> being correctly set. <CODE>HTMIMEInit()</CODE>
+provides the minimal functionality needed for library reliabilty.
+<PRE>
+#include "WWWMIME.h"
+#include "WWWApp.h"
+
+extern void HTMIMEInit (void);
+</PRE>
+<H2>
+  Default Event Manager
+</H2>
+<P>
+libwww core does not have any default event loop - it has to be added by
+the application. However, it does come with an example implementation thta
+may be used. This implementation is based on a <CODE>select</CODE> system
+call using non-blocking and interleaved sockets.
+<PRE>
+#include "WWWApp.h"
+</PRE>
+<H2>
+  <A NAME="Converter">Default Media Type Conversions</A>
+</H2>
+<P>
+The <EM>Converters</EM> are used to convert a media type to another media
+type, or to present it on screen. This is a part of the stream stack algorithm.
+The Presenters are also used in the stream stack, but are initialized separately.
+<PRE>
+#include "<A HREF="WWWMIME.html">WWWMIME.h</A>"
+#include "<A HREF="WWWHTML.html">WWWHTML.h</A>"
+#include "<A HREF="WWWStream.html">WWWStream.h</A>"
+#include "<A HREF="WWWDir.html">WWWDir.h</A>"
+#include "<A HREF="WWWCache.html">WWWCache.h</A>"
+
+#ifdef HT_EXPAT
+#include "<A HREF="WWWXML.html">WWWXML.h</A>"
+#endif
+
+extern void HTConverterInit	(HTList * conversions);
+</PRE>
+<H3>
+  Presenters
+</H3>
+<P>
+The <EM>Presenters</EM> are used to present media types by calling
+external programs, for example,  a Postscript viewer. This is a part of
+the stream stack algorithm. The <I>Converters</I> are also used in the stream
+stack, but are initialized separately. The <I>Presenters</I> use the same
+include files as the <I>Converters</I>.
+<PRE>
+extern void HTPresenterInit	(HTList * conversions);
+</PRE>
+<H3>
+  Converters and Presenters
+</H3>
+<P>
+This function is only defined in order to preserve backward compatibility.
+<PRE>
+extern void HTFormatInit	(HTList * conversions);
+</PRE>
+<H2>
+  Default Transfer Encodings
+</H2>
+<P>
+Transfer encoders and decoders can handle encodings like <EM>chunked</EM>
+etc.
+<PRE>#include "<A HREF="WWWHTTP.html">WWWHTTP.h</A>"
+
+extern void HTTransferEncoderInit	(HTList * encodings);
+</PRE>
+<H2>
+  Default Content Encodings
+</H2>
+<P>
+Content encoders and decoders can handle encodings like <EM>deflate</EM>
+etc.
+<PRE>#include "<A HREF="WWWZip.html">WWWZip.h</A>"
+
+extern void HTContentEncoderInit	(HTList * encodings);
+</PRE>
+<H2>
+  Default BEFORE and AFTER Filters
+</H2>
+<P>
+This module provides a set of default <B>BEFORE</B> and <B>AFTER</B> filters
+that can be registered by the <A HREF="HTNet.html">Net manager</A> to be
+called before and after a request. All filters can be registered either to
+be called <I>globally</I> (all requests) or <I>locally</I> (pr request basis).
+<B>Not</B> done automaticly - may be done by application!
+<H3>
+  BEFORE Filters
+</H3>
+<P>
+The <I>BEFORE</I> filters handle <I>proxies</I>, <I>caches</I>, <I>rule
+files</I> etc. The filters are called in the order by which the are registered
+<PRE>#include "<A HREF="WWWApp.html">WWWApp.h</A>"
+
+extern void HTBeforeInit (void);
+</PRE>
+<H3>
+  AFTER Filters
+</H3>
+<P>
+The <I>AFTER</I> filters handle error messages, logging, redirection,
+authentication etc. The filters are called in the order by which the are
+registered
+<PRE>extern void HTAfterInit (void);
+</PRE>
+<H3>
+  BEFORE and AFTER Filters
+</H3>
+<P>
+This is just a short cut for registrating both <I>BEFORE</I> and <I>AFTER</I>
+at once
+<PRE>extern void HTNetInit (void);
+</PRE>
+<H2>
+  Default Access Authentication Modules
+</H2>
+<P>
+The <A HREF="HTAAUtil.html">Access Manager</A> which is implemented as a
+<I>BEFORE</I> and an <I>AFTER</I> filter (automatically registered in
+<CODE>HTNetInit()</CODE>) does not, by default, know of any access 
+authentication schemes. As everything else, this must be registered! This 
+function does the job and should be all you need.
+<PRE>extern void HTAAInit (void);
+</PRE>
+<H2>
+  Default Message and Dialog Functions
+</H2>
+<P>
+We register a set of alert messages Not done automaticly - may be done by
+application!
+<PRE>#include "<A HREF="WWWApp.html">WWWApp.h</A>"
+
+extern void HTAlertInit (void);
+</PRE>
+<H2>
+  Default Icons for Directory Listings
+</H2>
+<P>
+The <A HREF="WWWDir.html">WWWDir interface</A> contains support for including
+references (URLs and <CODE>ALT</CODE> text tags) to icons in directory listings.
+The icons are selected as a function of the media type and the content encoding
+of the file in question. That is - you can set up icons for compressed files,
+postscript files etc. There is also a small set of specific icons representing
+directories etc.
+<PRE>#include "<A HREF="WWWFile.html">WWWFile.h</A>"
+
+extern void HTIconInit (const char * url_prefix);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTINIT_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

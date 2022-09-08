@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- spinboxdelegate.qdoc -->
+  <title>Qt 4.8: Spin Box Delegate Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Spin Box Delegate Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#spinboxdelegate-class-definition">SpinBoxDelegate Class Definition</a></li>
+<li class="level1"><a href="#spinboxdelegate-class-implementation">SpinBoxDelegate Class Implementation</a></li>
+<li class="level1"><a href="#the-main-function">The Main Function</a></li>
+</ul>
+</div>
+<h1 class="title">Spin Box Delegate Example</h1>
+<span class="subtitle"></span>
+<!-- $$$itemviews/spinboxdelegate-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="itemviews-spinboxdelegate-delegate-cpp.html">itemviews/spinboxdelegate/delegate.cpp</a></li>
+<li><a href="itemviews-spinboxdelegate-delegate-h.html">itemviews/spinboxdelegate/delegate.h</a></li>
+<li><a href="itemviews-spinboxdelegate-main-cpp.html">itemviews/spinboxdelegate/main.cpp</a></li>
+<li><a href="itemviews-spinboxdelegate-spinboxdelegate-pro.html">itemviews/spinboxdelegate/spinboxdelegate.pro</a></li>
+</ul>
+<p>The Spin Box Delegate example shows how to create an editor for a custom delegate in the model/view framework by reusing a standard Qt editor widget.<p>The model/view framework provides a standard delegate that is used by default with the standard view classes. For most purposes, the selection of editor widgets available through this delegate is sufficient for editing text, boolean values, and other simple data types. However, for specific data types, it is sometimes necessary to use a custom delegate to either display the data in a specific way, or allow the user to edit it with a custom control.</p>
+<p class="centerAlign"><img src="images/spinboxdelegate-example.png" alt="" /></p><p>This concepts behind this example are covered in the <a href="model-view-programming.html#delegate-classes">Delegate Classes</a> chapter of the <a href="model-view-programming.html">Model/View Programming</a> overview.</p>
+<a name="spinboxdelegate-class-definition"></a>
+<h2>SpinBoxDelegate Class Definition</h2>
+<p>The definition of the delegate is as follows:</p>
+<pre class="cpp"> <span class="keyword">class</span> SpinBoxDelegate : <span class="keyword">public</span> <span class="type"><a href="qitemdelegate.html">QItemDelegate</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     SpinBoxDelegate(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>createEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                           <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+
+     <span class="type">void</span> setEditorData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+     <span class="type">void</span> setModelData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span> <span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> <span class="operator">*</span>model<span class="operator">,</span>
+                       <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+
+     <span class="type">void</span> updateEditorGeometry(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span>
+         <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+ };</pre>
+<p>The delegate class declares only those functions that are needed to create an editor widget, display it at the correct location in a view, and communicate with a model. Custom delegates can also provide their own painting code by reimplementing the <tt>paintEvent()</tt> function.</p>
+<a name="spinboxdelegate-class-implementation"></a>
+<h2>SpinBoxDelegate Class Implementation</h2>
+<p>Since the delegate is stateless, the constructor only needs to call the base class's constructor with the parent <a href="qobject.html">QObject</a> as its argument:</p>
+<pre class="cpp"> SpinBoxDelegate<span class="operator">::</span>SpinBoxDelegate(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qitemdelegate.html">QItemDelegate</a></span>(parent)
+ {
+ }</pre>
+<p>Since the delegate is a subclass of <a href="qitemdelegate.html">QItemDelegate</a>, the data it retrieves from the model is displayed in a default style, and we do not need to provide a custom <tt>paintEvent()</tt>.</p>
+<p>The <tt>createEditor()</tt> function returns an editor widget, in this case a spin box that restricts values from the model to integers from 0 to 100 inclusive.</p>
+<pre class="cpp"> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>SpinBoxDelegate<span class="operator">::</span>createEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span>
+     <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span><span class="comment">/* option */</span><span class="operator">,</span>
+     <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span><span class="comment">/* index */</span>) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>editor <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qspinbox.html">QSpinBox</a></span>(parent);
+     editor<span class="operator">-</span><span class="operator">&gt;</span>setMinimum(<span class="number">0</span>);
+     editor<span class="operator">-</span><span class="operator">&gt;</span>setMaximum(<span class="number">100</span>);
+
+     <span class="keyword">return</span> editor;
+ }</pre>
+<p>We install an event filter on the spin box to ensure that it behaves in a way that is consistent with other delegates. The implementation for the event filter is provided by the base class.</p>
+<p>The <tt>setEditorData()</tt> function reads data from the model, converts it to an integer value, and writes it to the editor widget.</p>
+<pre class="cpp"> <span class="type">void</span> SpinBoxDelegate<span class="operator">::</span>setEditorData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span>
+                                     <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="type">int</span> value <span class="operator">=</span> index<span class="operator">.</span>model()<span class="operator">-</span><span class="operator">&gt;</span>data(index<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>EditRole)<span class="operator">.</span>toInt();
+
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>spinBox <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qspinbox.html">QSpinBox</a></span><span class="operator">*</span><span class="operator">&gt;</span>(editor);
+     spinBox<span class="operator">-</span><span class="operator">&gt;</span>setValue(value);
+ }</pre>
+<p>Since the view treats delegates as ordinary <a href="qwidget.html">QWidget</a> instances, we have to use a static cast before we can set the value in the spin box.</p>
+<p>The <tt>setModelData()</tt> function reads the contents of the spin box, and writes it to the model.</p>
+<pre class="cpp"> <span class="type">void</span> SpinBoxDelegate<span class="operator">::</span>setModelData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span> <span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> <span class="operator">*</span>model<span class="operator">,</span>
+                                    <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>spinBox <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qspinbox.html">QSpinBox</a></span><span class="operator">*</span><span class="operator">&gt;</span>(editor);
+     spinBox<span class="operator">-</span><span class="operator">&gt;</span>interpretText();
+     <span class="type">int</span> value <span class="operator">=</span> spinBox<span class="operator">-</span><span class="operator">&gt;</span>value();
+
+     model<span class="operator">-</span><span class="operator">&gt;</span>setData(index<span class="operator">,</span> value<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>EditRole);
+ }</pre>
+<p>We call <a href="qabstractspinbox.html#interpretText">interpretText()</a> to make sure that we obtain the most up-to-date value in the spin box.</p>
+<p>The <tt>updateEditorGeometry()</tt> function updates the editor widget's geometry using the information supplied in the style option. This is the minimum that the delegate must do in this case.</p>
+<pre class="cpp"> <span class="type">void</span> SpinBoxDelegate<span class="operator">::</span>updateEditorGeometry(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span>
+     <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span><span class="comment">/* index */</span>) <span class="keyword">const</span>
+ {
+     editor<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(option<span class="operator">.</span>rect);
+ }</pre>
+<p>More complex editor widgets may divide the rectangle available in <tt>option.rect</tt> between different child widgets if required.</p>
+<a name="the-main-function"></a>
+<h2>The Main Function</h2>
+<p>This example is written in a slightly different way to many of the other examples supplied with Qt. To demonstrate the use of a custom editor widget in a standard view, it is necessary to set up a model containing some arbitrary data and a view to display it.</p>
+<p>We set up the application in the normal way, construct a standard item model to hold some data, set up a table view to use the data in the model, and construct a custom delegate to use for editing:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qstandarditemmodel.html">QStandardItemModel</a></span> model(<span class="number">4</span><span class="operator">,</span> <span class="number">2</span>);
+     <span class="type"><a href="qtableview.html">QTableView</a></span> tableView;
+     tableView<span class="operator">.</span>setModel(<span class="operator">&amp;</span>model);
+
+     SpinBoxDelegate delegate;
+     tableView<span class="operator">.</span>setItemDelegate(<span class="operator">&amp;</span>delegate);</pre>
+<p>The table view is informed about the delegate, and will use it to display each of the items. Since the delegate is a subclass of <a href="qitemdelegate.html">QItemDelegate</a>, each cell in the table will be rendered using standard painting operations.</p>
+<p>We insert some arbitrary data into the model for demonstration purposes:</p>
+<pre class="cpp">     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>row) {
+         <span class="keyword">for</span> (<span class="type">int</span> column <span class="operator">=</span> <span class="number">0</span>; column <span class="operator">&lt;</span> <span class="number">2</span>; <span class="operator">+</span><span class="operator">+</span>column) {
+             <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> model<span class="operator">.</span>index(row<span class="operator">,</span> column<span class="operator">,</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>());
+             model<span class="operator">.</span>setData(index<span class="operator">,</span> <span class="type"><a href="qvariant.html">QVariant</a></span>((row<span class="operator">+</span><span class="number">1</span>) <span class="operator">*</span> (column<span class="operator">+</span><span class="number">1</span>)));
+         }
+     }</pre>
+<p>Finally, the table view is displayed with a window title, and we start the application's event loop:</p>
+<pre class="cpp">     tableView<span class="operator">.</span>setWindowTitle(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Spin Box Delegate&quot;</span>));
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN)</span>
+     tableView<span class="operator">.</span>showMaximized();
+ <span class="preprocessor">#else</span>
+     tableView<span class="operator">.</span>show();
+ <span class="preprocessor">#endif</span>
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>Each of the cells in the table can now be edited in the usual way, but the spin box ensures that the data returned to the model is always constrained by the values allowed by the spin box delegate.</p>
+</div>
+<!-- @@@itemviews/spinboxdelegate -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

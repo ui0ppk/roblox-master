@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: spectrograph.cpp Example File (demos/spectrum/app/spectrograph.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">spectrograph.cpp Example File</h1>
+<span class="small-subtitle">demos/spectrum/app/spectrograph.cpp</span>
+<!-- $$$demos/spectrum/app/spectrograph.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;spectrograph.h&quot;</span>
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QMouseEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &lt;QTimerEvent&gt;</span>
+
+ <span class="keyword">const</span> <span class="type">int</span> NullTimerId <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+ <span class="keyword">const</span> <span class="type">int</span> NullIndex <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+ <span class="keyword">const</span> <span class="type">int</span> BarSelectionInterval <span class="operator">=</span> <span class="number">2000</span>;
+
+ Spectrograph<span class="operator">::</span>Spectrograph(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     :   <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+     <span class="operator">,</span>   m_barSelected(NullIndex)
+     <span class="operator">,</span>   m_timerId(NullTimerId)
+     <span class="operator">,</span>   m_lowFreq(<span class="number">0.0</span>)
+     <span class="operator">,</span>   m_highFreq(<span class="number">0.0</span>)
+ {
+     setMinimumHeight(<span class="number">100</span>);
+ }
+
+ Spectrograph<span class="operator">::</span><span class="operator">~</span>Spectrograph()
+ {
+
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span>setParams(<span class="type">int</span> numBars<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> lowFreq<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> highFreq)
+ {
+     Q_ASSERT(numBars <span class="operator">&gt;</span> <span class="number">0</span>);
+     Q_ASSERT(highFreq <span class="operator">&gt;</span> lowFreq);
+     m_bars<span class="operator">.</span>resize(numBars);
+     m_lowFreq <span class="operator">=</span> lowFreq;
+     m_highFreq <span class="operator">=</span> highFreq;
+     updateBars();
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>event)
+ {
+     Q_ASSERT(event<span class="operator">-</span><span class="operator">&gt;</span>timerId() <span class="operator">=</span><span class="operator">=</span> m_timerId);
+     Q_UNUSED(event) <span class="comment">// suppress warnings in release builds</span>
+     killTimer(m_timerId);
+     m_timerId <span class="operator">=</span> NullTimerId;
+     m_barSelected <span class="operator">=</span> NullIndex;
+     update();
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     Q_UNUSED(event)
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>fillRect(rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+
+     <span class="keyword">const</span> <span class="type">int</span> numBars <span class="operator">=</span> m_bars<span class="operator">.</span>count();
+
+     <span class="comment">// Highlight region of selected bar</span>
+     <span class="keyword">if</span> (m_barSelected <span class="operator">!</span><span class="operator">=</span> NullIndex <span class="operator">&amp;</span><span class="operator">&amp;</span> numBars) {
+         <span class="type"><a href="qrect.html">QRect</a></span> regionRect <span class="operator">=</span> rect();
+         regionRect<span class="operator">.</span>setLeft(m_barSelected <span class="operator">*</span> rect()<span class="operator">.</span>width() <span class="operator">/</span> numBars);
+         regionRect<span class="operator">.</span>setWidth(rect()<span class="operator">.</span>width() <span class="operator">/</span> numBars);
+         <span class="type"><a href="qcolor.html">QColor</a></span> regionColor(<span class="number">202</span><span class="operator">,</span> <span class="number">202</span><span class="operator">,</span> <span class="number">64</span>);
+         painter<span class="operator">.</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DiagCrossPattern);
+         painter<span class="operator">.</span>fillRect(regionRect<span class="operator">,</span> regionColor);
+         painter<span class="operator">.</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoBrush);
+     }
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> barColor(<span class="number">51</span><span class="operator">,</span> <span class="number">204</span><span class="operator">,</span> <span class="number">102</span>);
+     <span class="type"><a href="qcolor.html">QColor</a></span> clipColor(<span class="number">255</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">0</span>);
+
+     <span class="comment">// Draw the outline</span>
+     <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> gridColor <span class="operator">=</span> barColor<span class="operator">.</span>darker();
+     <span class="type"><a href="qpen.html">QPen</a></span> gridPen(gridColor);
+     painter<span class="operator">.</span>setPen(gridPen);
+     painter<span class="operator">.</span>drawLine(rect()<span class="operator">.</span>topLeft()<span class="operator">,</span> rect()<span class="operator">.</span>topRight());
+     painter<span class="operator">.</span>drawLine(rect()<span class="operator">.</span>topRight()<span class="operator">,</span> rect()<span class="operator">.</span>bottomRight());
+     painter<span class="operator">.</span>drawLine(rect()<span class="operator">.</span>bottomRight()<span class="operator">,</span> rect()<span class="operator">.</span>bottomLeft());
+     painter<span class="operator">.</span>drawLine(rect()<span class="operator">.</span>bottomLeft()<span class="operator">,</span> rect()<span class="operator">.</span>topLeft());
+
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span> dashes;
+     dashes <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">2</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">2</span>;
+     gridPen<span class="operator">.</span>setDashPattern(dashes);
+     painter<span class="operator">.</span>setPen(gridPen);
+
+     <span class="comment">// Draw vertical lines between bars</span>
+     <span class="keyword">if</span> (numBars) {
+         <span class="keyword">const</span> <span class="type">int</span> numHorizontalSections <span class="operator">=</span> numBars;
+         <span class="type"><a href="qline.html">QLine</a></span> line(rect()<span class="operator">.</span>topLeft()<span class="operator">,</span> rect()<span class="operator">.</span>bottomLeft());
+         <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">1</span>; i<span class="operator">&lt;</span>numHorizontalSections; <span class="operator">+</span><span class="operator">+</span>i) {
+             line<span class="operator">.</span>translate(rect()<span class="operator">.</span>width()<span class="operator">/</span>numHorizontalSections<span class="operator">,</span> <span class="number">0</span>);
+             painter<span class="operator">.</span>drawLine(line);
+         }
+     }
+
+     <span class="comment">// Draw horizontal lines</span>
+     <span class="keyword">const</span> <span class="type">int</span> numVerticalSections <span class="operator">=</span> <span class="number">10</span>;
+     <span class="type"><a href="qline.html">QLine</a></span> line(rect()<span class="operator">.</span>topLeft()<span class="operator">,</span> rect()<span class="operator">.</span>topRight());
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">1</span>; i<span class="operator">&lt;</span>numVerticalSections; <span class="operator">+</span><span class="operator">+</span>i) {
+         line<span class="operator">.</span>translate(<span class="number">0</span><span class="operator">,</span> rect()<span class="operator">.</span>height()<span class="operator">/</span>numVerticalSections);
+         painter<span class="operator">.</span>drawLine(line);
+     }
+
+     barColor <span class="operator">=</span> barColor<span class="operator">.</span>lighter();
+     barColor<span class="operator">.</span>setAlphaF(<span class="number">0.75</span>);
+     clipColor<span class="operator">.</span>setAlphaF(<span class="number">0.75</span>);
+
+     <span class="comment">// Draw the bars</span>
+     <span class="keyword">if</span> (numBars) {
+         <span class="comment">// Calculate width of bars and gaps</span>
+         <span class="keyword">const</span> <span class="type">int</span> widgetWidth <span class="operator">=</span> rect()<span class="operator">.</span>width();
+         <span class="keyword">const</span> <span class="type">int</span> barPlusGapWidth <span class="operator">=</span> widgetWidth <span class="operator">/</span> numBars;
+         <span class="keyword">const</span> <span class="type">int</span> barWidth <span class="operator">=</span> <span class="number">0.8</span> <span class="operator">*</span> barPlusGapWidth;
+         <span class="keyword">const</span> <span class="type">int</span> gapWidth <span class="operator">=</span> barPlusGapWidth <span class="operator">-</span> barWidth;
+         <span class="keyword">const</span> <span class="type">int</span> paddingWidth <span class="operator">=</span> widgetWidth <span class="operator">-</span> numBars <span class="operator">*</span> (barWidth <span class="operator">+</span> gapWidth);
+         <span class="keyword">const</span> <span class="type">int</span> leftPaddingWidth <span class="operator">=</span> (paddingWidth <span class="operator">+</span> gapWidth) <span class="operator">/</span> <span class="number">2</span>;
+         <span class="keyword">const</span> <span class="type">int</span> barHeight <span class="operator">=</span> rect()<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">2</span> <span class="operator">*</span> gapWidth;
+
+         <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>numBars; <span class="operator">+</span><span class="operator">+</span>i) {
+             <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> value <span class="operator">=</span> m_bars<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>value;
+             Q_ASSERT(value <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> value <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">1.0</span>);
+             <span class="type"><a href="qrect.html">QRect</a></span> bar <span class="operator">=</span> rect();
+             bar<span class="operator">.</span>setLeft(rect()<span class="operator">.</span>left() <span class="operator">+</span> leftPaddingWidth <span class="operator">+</span> (i <span class="operator">*</span> (gapWidth <span class="operator">+</span> barWidth)));
+             bar<span class="operator">.</span>setWidth(barWidth);
+             bar<span class="operator">.</span>setTop(rect()<span class="operator">.</span>top() <span class="operator">+</span> gapWidth <span class="operator">+</span> (<span class="number">1.0</span> <span class="operator">-</span> value) <span class="operator">*</span> barHeight);
+             bar<span class="operator">.</span>setBottom(rect()<span class="operator">.</span>bottom() <span class="operator">-</span> gapWidth);
+
+             <span class="type"><a href="qcolor.html">QColor</a></span> color <span class="operator">=</span> barColor;
+             <span class="keyword">if</span> (m_bars<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>clipped)
+                 color <span class="operator">=</span> clipColor;
+
+             painter<span class="operator">.</span>fillRect(bar<span class="operator">,</span> color);
+         }
+     }
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> pos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+     <span class="keyword">const</span> <span class="type">int</span> index <span class="operator">=</span> m_bars<span class="operator">.</span>count() <span class="operator">*</span> (pos<span class="operator">.</span>x() <span class="operator">-</span> rect()<span class="operator">.</span>left()) <span class="operator">/</span> rect()<span class="operator">.</span>width();
+     selectBar(index);
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span><a href="qtextstream.html#reset">reset</a>()
+ {
+     m_spectrum<span class="operator">.</span>reset();
+     spectrumChanged(m_spectrum);
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span>spectrumChanged(<span class="keyword">const</span> FrequencySpectrum <span class="operator">&amp;</span>spectrum)
+ {
+     m_spectrum <span class="operator">=</span> spectrum;
+     updateBars();
+ }
+
+ <span class="type">int</span> Spectrograph<span class="operator">::</span>barIndex(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> frequency) <span class="keyword">const</span>
+ {
+     Q_ASSERT(frequency <span class="operator">&gt;</span><span class="operator">=</span> m_lowFreq <span class="operator">&amp;</span><span class="operator">&amp;</span> frequency <span class="operator">&lt;</span> m_highFreq);
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> bandWidth <span class="operator">=</span> (m_highFreq <span class="operator">-</span> m_lowFreq) <span class="operator">/</span> m_bars<span class="operator">.</span>count();
+     <span class="keyword">const</span> <span class="type">int</span> index <span class="operator">=</span> (frequency <span class="operator">-</span> m_lowFreq) <span class="operator">/</span> bandWidth;
+     <span class="keyword">if</span>(index <span class="operator">&lt;</span><span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> index <span class="operator">&gt;</span><span class="operator">=</span> m_bars<span class="operator">.</span>count())
+         Q_ASSERT(<span class="keyword">false</span>);
+     <span class="keyword">return</span> index;
+ }
+
+ <span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span> Spectrograph<span class="operator">::</span>barRange(<span class="type">int</span> index) <span class="keyword">const</span>
+ {
+     Q_ASSERT(index <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> index <span class="operator">&lt;</span> m_bars<span class="operator">.</span>count());
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> bandWidth <span class="operator">=</span> (m_highFreq <span class="operator">-</span> m_lowFreq) <span class="operator">/</span> m_bars<span class="operator">.</span>count();
+     <span class="keyword">return</span> <span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(index <span class="operator">*</span> bandWidth<span class="operator">,</span> (index<span class="operator">+</span><span class="number">1</span>) <span class="operator">*</span> bandWidth);
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span>updateBars()
+ {
+     m_bars<span class="operator">.</span>fill(Bar());
+     FrequencySpectrum<span class="operator">::</span>const_iterator i <span class="operator">=</span> m_spectrum<span class="operator">.</span>begin();
+     <span class="keyword">const</span> FrequencySpectrum<span class="operator">::</span>const_iterator end <span class="operator">=</span> m_spectrum<span class="operator">.</span>end();
+     <span class="keyword">for</span> ( ; i <span class="operator">!</span><span class="operator">=</span> end; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">const</span> FrequencySpectrum<span class="operator">::</span>Element e <span class="operator">=</span> <span class="operator">*</span>i;
+         <span class="keyword">if</span> (e<span class="operator">.</span>frequency <span class="operator">&gt;</span><span class="operator">=</span> m_lowFreq <span class="operator">&amp;</span><span class="operator">&amp;</span> e<span class="operator">.</span>frequency <span class="operator">&lt;</span> m_highFreq) {
+             Bar <span class="operator">&amp;</span>bar <span class="operator">=</span> m_bars<span class="operator">[</span>barIndex(e<span class="operator">.</span>frequency)<span class="operator">]</span>;
+             bar<span class="operator">.</span>value <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(bar<span class="operator">.</span>value<span class="operator">,</span> e<span class="operator">.</span>amplitude);
+             bar<span class="operator">.</span>clipped <span class="operator">|</span><span class="operator">=</span> e<span class="operator">.</span>clipped;
+         }
+     }
+     update();
+ }
+
+ <span class="type">void</span> Spectrograph<span class="operator">::</span>selectBar(<span class="type">int</span> index) {
+     <span class="keyword">const</span> <span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span> frequencyRange <span class="operator">=</span> barRange(index);
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> message <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;%1 - %2 Hz&quot;</span>)
+                                 <span class="operator">.</span>arg(frequencyRange<span class="operator">.</span>first)
+                                 <span class="operator">.</span>arg(frequencyRange<span class="operator">.</span>second);
+     <span class="keyword">emit</span> infoMessage(message<span class="operator">,</span> BarSelectionInterval);
+
+     <span class="keyword">if</span> (NullTimerId <span class="operator">!</span><span class="operator">=</span> m_timerId)
+         killTimer(m_timerId);
+     m_timerId <span class="operator">=</span> startTimer(BarSelectionInterval);
+
+     m_barSelected <span class="operator">=</span> index;
+     update();
+ }</pre>
+</div>
+<!-- @@@demos/spectrum/app/spectrograph.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

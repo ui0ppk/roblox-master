@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmlevents.qdoc -->
+  <title>Qt 4.8: QML Signal and Handler Event System</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>QML Signal and Handler Event System</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="prev" href="qdeclarativefocus.html" />
+  <link rel="next" href="qmlreusablecomponents.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qdeclarativefocus.html">Keyboard Focus</a>
+<a class="nextPage" href="qmlreusablecomponents.html">Importing Reusable Components</a>
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#signals-and-handlers">Signals and Handlers</a></li>
+<li class="level2"><a href="#connecting-signals-to-methods-and-signals">Connecting Signals to Methods and Signals</a></li>
+<li class="level3"><a href="#signal-to-signal-connect">Signal to Signal Connect</a></li>
+<li class="level1"><a href="#c-additions">C++ Additions</a></li>
+</ul>
+</div>
+<h1 class="title">QML Signal and Handler Event System</h1>
+<span class="subtitle"></span>
+<!-- $$$qmlevents.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>QML utilizes Qt's <a href="metaobjects.html">meta-object</a> and <a href="signalsandslots.html">signals</a> systems. Signals and slots created using Qt in C++ are inheritely valid in QML.</p>
+<a name="qml-signals-and-handlers"></a><a name="signals-and-handlers"></a>
+<h2>Signals and Handlers</h2>
+<p>Signals provide a way to notify other objects when an event has occurred. For example, the <a href="qml-mousearea.html">MouseArea</a> <tt>clicked</tt> signal notifies other objects that the mouse has been clicked within the area.</p>
+<p>The syntax for defining a new signal is:</p>
+<p><tt>signal &lt;name&gt;[([&lt;type&gt; &lt;parameter name&gt;[, ..&#x2e;]])]</tt></p>
+<p>Attempting to declare two signals or methods with the same name in the same type block generates an error. However, a new signal may reuse the name of an existing signal on the type. (This should be done with caution, as the existing signal may be hidden and become inaccessible.)</p>
+<p>Here are various examples of signal declarations:</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     signal <span class="type">trigger</span>
+     signal <span class="type">send</span> (string notice)
+     signal <span class="type">perform</span> (string task, variant object)
+ }</pre>
+<p>If the signal has no parameters, the &quot;<tt>()</tt>&quot; brackets are optional. If parameters are used, the parameter types must be declared, as for the <tt>string</tt> and <tt>variant</tt> arguments of the <tt>perform</tt> signal.</p>
+<p>Adding a signal to an item automatically adds a <i>signal handler</i> as well. The signal hander is named <tt>on&lt;SignalName&gt;</tt>, with the first letter of the signal in uppercase. The previous signals have the following signal handlers:</p>
+<pre class="qml"> <span class="name">onTrigger</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;trigger signal emitted&quot;</span>)
+
+ <span class="name">onSend</span>: {
+     <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;send signal emitted with notice: &quot;</span> <span class="operator">+</span> <span class="name">notice</span>)
+ }
+
+ <span class="name">onPerform</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;perform signal emitted&quot;</span>)</pre>
+<p>Further, each QML properties have a <tt>&lt;property_name&gt;Changed</tt> signal and its corresponding <tt>on&lt;property_name&gt;Changed</tt> signal handler. As a result, property changes may notify other components for any changes.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">sprite</span>
+     <span class="name">width</span>: <span class="number">25</span>; <span class="name">height</span>: <span class="number">25</span>
+     <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">15</span>
+
+     <span class="name">onXChanged</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;x property changed, emitted xChanged signal&quot;</span>)
+     <span class="name">onYChanged</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;y property changed, emitted yChanged signal&quot;</span>)
+ }</pre>
+<p>To emit a signal, invoke it as a method. The signal handler binding is similar to a property binding and it is invoked when the signal is emitted. Use the defined argument names to access the respective arguments.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">messenger</span>
+
+     signal <span class="type">send</span>( string person, string notice)
+
+     <span class="name">onSend</span>: {
+         <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;For &quot;</span> <span class="operator">+</span> <span class="name">person</span> <span class="operator">+</span> <span class="string">&quot;, the notice is: &quot;</span> <span class="operator">+</span> <span class="name">notice</span>)
+     }
+
+     <span class="name">Component</span>.onCompleted: <span class="name">messenger</span>.<span class="name">send</span>(<span class="string">&quot;Tom&quot;</span>, <span class="string">&quot;the door is ajar.&quot;</span>)
+ }</pre>
+<p>Note that the <tt>Component.onCompleted</tt> is an <a href="propertybinding.html#attached-signalhandlers">attached signal handler</a>; it is invoked when the <a href="qml-component.html">Component</a> initialization is complete.</p>
+<a name="qml-connect-signals-to-method"></a><a name="connecting-signals-to-methods-and-signals"></a>
+<h3>Connecting Signals to Methods and Signals</h3>
+<p>Signal objects have a <tt>connect()</tt> method to a connect a signal either to a method or another signal. When a signal is connected to a method, the method is automatically invoked whenever the signal is emitted. (In Qt terminology, the method is a <i>slot</i> that is connected to the <i>signal</i>; all methods defined in QML are created as <a href="signalsandslots.html">Qt slots</a>.) This enables a signal to be received by a method instead of a <a href="qdeclarativeintroduction.html#signal-handlers">signal handler</a>.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">relay</span>
+
+     signal <span class="type">send</span>( string person, string notice)
+     <span class="name">onSend</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Send signal to: &quot;</span> <span class="operator">+</span> <span class="name">person</span> <span class="operator">+</span> <span class="string">&quot;, &quot;</span> <span class="operator">+</span> <span class="name">notice</span>)
+
+     <span class="name">Component</span>.onCompleted: {
+         <span class="name">relay</span>.<span class="name">send</span>.<span class="name">connect</span>(<span class="name">sendToPost</span>)
+         <span class="name">relay</span>.<span class="name">send</span>.<span class="name">connect</span>(<span class="name">sendToTelegraph</span>)
+         <span class="name">relay</span>.<span class="name">send</span>.<span class="name">connect</span>(<span class="name">sendToEmail</span>)
+         <span class="name">relay</span>.<span class="name">send</span>(<span class="string">&quot;Tom&quot;</span>, <span class="string">&quot;Happy Birthday&quot;</span>)
+     }
+
+     <span class="keyword">function</span> <span class="name">sendToPost</span>(<span class="name">person</span>, notice) {
+         <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Sending to post: &quot;</span> <span class="operator">+</span> <span class="name">person</span> <span class="operator">+</span> <span class="string">&quot;, &quot;</span> <span class="operator">+</span> <span class="name">notice</span>)
+     }
+     <span class="keyword">function</span> <span class="name">sendToTelegraph</span>(<span class="name">person</span>, notice) {
+         <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Sending to telegraph: &quot;</span> <span class="operator">+</span> <span class="name">person</span> <span class="operator">+</span> <span class="string">&quot;, &quot;</span> <span class="operator">+</span> <span class="name">notice</span>)
+     }
+     <span class="keyword">function</span> <span class="name">sendToEmail</span>(<span class="name">person</span>, notice) {
+         <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Sending to email: &quot;</span> <span class="operator">+</span> <span class="name">person</span> <span class="operator">+</span> <span class="string">&quot;, &quot;</span> <span class="operator">+</span> <span class="name">notice</span>)
+     }
+ }</pre>
+<p>The <tt>connect()</tt> method is appropriate when connecting a JavaScript method to a signal.</p>
+<p>There is a corresponding <tt>disconnect()</tt> method for removing connected signals.</p>
+<a name="signal-to-signal-connect"></a>
+<h4>Signal to Signal Connect</h4>
+<p>By connecting signals to other signals, the <tt>connect()</tt> method can form different signal chains.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">forwarder</span>
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+
+     signal <span class="type">send</span>()
+     <span class="name">onSend</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Send clicked&quot;</span>)
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">id</span>: <span class="name">mousearea</span>
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">onClicked</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;MouseArea clicked&quot;</span>)
+     }
+     <span class="name">Component</span>.onCompleted: {
+         <span class="name">mousearea</span>.<span class="name">clicked</span>.<span class="name">connect</span>(<span class="name">send</span>)
+     }
+ }</pre>
+<p>Whenever the <a href="qml-mousearea.html">MouseArea</a> <tt>clicked</tt> signal is emitted, the <tt>send</tt> signal will automatically be emitted as well.</p>
+<pre class="cpp"> output:
+     MouseArea clicked
+     Send clicked</pre>
+<a name="c-additions"></a>
+<h2>C++ Additions</h2>
+<p>Because QML uses Qt, a signal defined in C++ also works as a QML signal. The signal may be emitted in QML code or called as a method. In addition, the QML runtime automatically creates signal handlers for the C++ signals. For more signal control, the <tt>connect()</tt> method and the <a href="qml-connections.html">Connections</a> element may connect a C++ signal to another signal or method.</p>
+<p>For complete information on how to call C++ functions in QML, read the <a href="declarative-cppextensions-referenceexamples-signal.html">Extending QML - Signal Support Example</a>.</p>
+</div>
+<!-- @@@qmlevents.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qdeclarativefocus.html">Keyboard Focus</a>
+<a class="nextPage" href="qmlreusablecomponents.html">Importing Reusable Components</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

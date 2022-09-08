@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: mainwindow.cpp Example File (graphicsview/diagramscene/mainwindow.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">mainwindow.cpp Example File</h1>
+<span class="small-subtitle">graphicsview/diagramscene/mainwindow.cpp</span>
+<!-- $$$graphicsview/diagramscene/mainwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &lt;QLabel&gt;</span>
+
+ <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+ <span class="preprocessor">#include &quot;diagramitem.h&quot;</span>
+ <span class="preprocessor">#include &quot;diagramscene.h&quot;</span>
+ <span class="preprocessor">#include &quot;diagramtextitem.h&quot;</span>
+ <span class="preprocessor">#include &quot;arrow.h&quot;</span>
+
+ <span class="keyword">const</span> <span class="type">int</span> InsertTextButton <span class="operator">=</span> <span class="number">10</span>;
+
+ MainWindow<span class="operator">::</span>MainWindow()
+ {
+     createActions();
+     createToolBox();
+     createMenus();
+
+     scene <span class="operator">=</span> <span class="keyword">new</span> DiagramScene(itemMenu<span class="operator">,</span> <span class="keyword">this</span>);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setSceneRect(<span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">5000</span><span class="operator">,</span> <span class="number">5000</span>));
+     connect(scene<span class="operator">,</span> SIGNAL(itemInserted(DiagramItem<span class="operator">*</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(itemInserted(DiagramItem<span class="operator">*</span>)));
+     connect(scene<span class="operator">,</span> SIGNAL(textInserted(<span class="type"><a href="qgraphicstextitem.html">QGraphicsTextItem</a></span><span class="operator">*</span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(textInserted(<span class="type"><a href="qgraphicstextitem.html">QGraphicsTextItem</a></span><span class="operator">*</span>)));
+     connect(scene<span class="operator">,</span> SIGNAL(itemSelected(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">*</span>))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(itemSelected(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">*</span>)));
+     createToolbars();
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(toolBox);
+     view <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span>(scene);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(view);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     widget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     setCentralWidget(widget);
+     setWindowTitle(tr(<span class="string">&quot;Diagramscene&quot;</span>));
+     setUnifiedTitleAndToolBarOnMac(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>backgroundButtonGroupClicked(<span class="type"><a href="qabstractbutton.html">QAbstractButton</a></span> <span class="operator">*</span>button)
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qabstractbutton.html">QAbstractButton</a></span> <span class="operator">*</span><span class="operator">&gt;</span> buttons <span class="operator">=</span> backgroundButtonGroup<span class="operator">-</span><span class="operator">&gt;</span>buttons();
+     foreach (<span class="type"><a href="qabstractbutton.html">QAbstractButton</a></span> <span class="operator">*</span>myButton<span class="operator">,</span> buttons) {
+         <span class="keyword">if</span> (myButton <span class="operator">!</span><span class="operator">=</span> button)
+             myButton<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">false</span>);
+     }
+     <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> button<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="keyword">if</span> (text <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;Blue Grid&quot;</span>))
+         scene<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundBrush(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/images/background1.png&quot;</span>));
+     <span class="keyword">else</span> <span class="keyword">if</span> (text <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;White Grid&quot;</span>))
+         scene<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundBrush(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/images/background2.png&quot;</span>));
+     <span class="keyword">else</span> <span class="keyword">if</span> (text <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;Gray Grid&quot;</span>))
+         scene<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundBrush(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/images/background3.png&quot;</span>));
+     <span class="keyword">else</span>
+         scene<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundBrush(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/images/background4.png&quot;</span>));
+
+     scene<span class="operator">-</span><span class="operator">&gt;</span>update();
+     view<span class="operator">-</span><span class="operator">&gt;</span>update();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>buttonGroupClicked(<span class="type">int</span> id)
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qabstractbutton.html">QAbstractButton</a></span> <span class="operator">*</span><span class="operator">&gt;</span> buttons <span class="operator">=</span> buttonGroup<span class="operator">-</span><span class="operator">&gt;</span>buttons();
+     foreach (<span class="type"><a href="qabstractbutton.html">QAbstractButton</a></span> <span class="operator">*</span>button<span class="operator">,</span> buttons) {
+     <span class="keyword">if</span> (buttonGroup<span class="operator">-</span><span class="operator">&gt;</span>button(id) <span class="operator">!</span><span class="operator">=</span> button)
+         button<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">false</span>);
+     }
+     <span class="keyword">if</span> (id <span class="operator">=</span><span class="operator">=</span> InsertTextButton) {
+         scene<span class="operator">-</span><span class="operator">&gt;</span>setMode(DiagramScene<span class="operator">::</span>InsertText);
+     } <span class="keyword">else</span> {
+         scene<span class="operator">-</span><span class="operator">&gt;</span>setItemType(DiagramItem<span class="operator">::</span>DiagramType(id));
+         scene<span class="operator">-</span><span class="operator">&gt;</span>setMode(DiagramScene<span class="operator">::</span>InsertItem);
+     }
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>deleteItem()
+ {
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> scene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()) {
+         <span class="keyword">if</span> (item<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> Arrow<span class="operator">::</span>Type) {
+             scene<span class="operator">-</span><span class="operator">&gt;</span>removeItem(item);
+             Arrow <span class="operator">*</span>arrow <span class="operator">=</span> qgraphicsitem_cast<span class="operator">&lt;</span>Arrow <span class="operator">*</span><span class="operator">&gt;</span>(item);
+             arrow<span class="operator">-</span><span class="operator">&gt;</span>startItem()<span class="operator">-</span><span class="operator">&gt;</span>removeArrow(arrow);
+             arrow<span class="operator">-</span><span class="operator">&gt;</span>endItem()<span class="operator">-</span><span class="operator">&gt;</span>removeArrow(arrow);
+             <span class="keyword">delete</span> item;
+         }
+     }
+
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> scene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()) {
+          <span class="keyword">if</span> (item<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> DiagramItem<span class="operator">::</span>Type) {
+              qgraphicsitem_cast<span class="operator">&lt;</span>DiagramItem <span class="operator">*</span><span class="operator">&gt;</span>(item)<span class="operator">-</span><span class="operator">&gt;</span>removeArrows();
+          }
+          scene<span class="operator">-</span><span class="operator">&gt;</span>removeItem(item);
+          <span class="keyword">delete</span> item;
+      }
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>pointerGroupClicked(<span class="type">int</span>)
+ {
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setMode(DiagramScene<span class="operator">::</span>Mode(pointerTypeGroup<span class="operator">-</span><span class="operator">&gt;</span>checkedId()));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>bringToFront()
+ {
+     <span class="keyword">if</span> (scene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>selectedItem <span class="operator">=</span> scene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>first();
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> overlapItems <span class="operator">=</span> selectedItem<span class="operator">-</span><span class="operator">&gt;</span>collidingItems();
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> zValue <span class="operator">=</span> <span class="number">0</span>;
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> overlapItems) {
+         <span class="keyword">if</span> (item<span class="operator">-</span><span class="operator">&gt;</span>zValue() <span class="operator">&gt;</span><span class="operator">=</span> zValue <span class="operator">&amp;</span><span class="operator">&amp;</span>
+             item<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> DiagramItem<span class="operator">::</span>Type)
+             zValue <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>zValue() <span class="operator">+</span> <span class="number">0.1</span>;
+     }
+     selectedItem<span class="operator">-</span><span class="operator">&gt;</span>setZValue(zValue);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>sendToBack()
+ {
+     <span class="keyword">if</span> (scene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>selectedItem <span class="operator">=</span> scene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>first();
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> overlapItems <span class="operator">=</span> selectedItem<span class="operator">-</span><span class="operator">&gt;</span>collidingItems();
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> zValue <span class="operator">=</span> <span class="number">0</span>;
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> overlapItems) {
+         <span class="keyword">if</span> (item<span class="operator">-</span><span class="operator">&gt;</span>zValue() <span class="operator">&lt;</span><span class="operator">=</span> zValue <span class="operator">&amp;</span><span class="operator">&amp;</span>
+             item<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> DiagramItem<span class="operator">::</span>Type)
+             zValue <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>zValue() <span class="operator">-</span> <span class="number">0.1</span>;
+     }
+     selectedItem<span class="operator">-</span><span class="operator">&gt;</span>setZValue(zValue);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>itemInserted(DiagramItem <span class="operator">*</span>item)
+ {
+     pointerTypeGroup<span class="operator">-</span><span class="operator">&gt;</span>button(<span class="type">int</span>(DiagramScene<span class="operator">::</span>MoveItem))<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setMode(DiagramScene<span class="operator">::</span>Mode(pointerTypeGroup<span class="operator">-</span><span class="operator">&gt;</span>checkedId()));
+     buttonGroup<span class="operator">-</span><span class="operator">&gt;</span>button(<span class="type">int</span>(item<span class="operator">-</span><span class="operator">&gt;</span>diagramType()))<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">false</span>);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>textInserted(<span class="type"><a href="qgraphicstextitem.html">QGraphicsTextItem</a></span> <span class="operator">*</span>)
+ {
+     buttonGroup<span class="operator">-</span><span class="operator">&gt;</span>button(InsertTextButton)<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">false</span>);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setMode(DiagramScene<span class="operator">::</span>Mode(pointerTypeGroup<span class="operator">-</span><span class="operator">&gt;</span>checkedId()));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>currentFontChanged(<span class="keyword">const</span> <span class="type"><a href="qfont.html">QFont</a></span> <span class="operator">&amp;</span>)
+ {
+     handleFontChange();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>fontSizeChanged(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>)
+ {
+     handleFontChange();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>sceneScaleChanged(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>scale)
+ {
+     <span class="type">double</span> newScale <span class="operator">=</span> scale<span class="operator">.</span>left(scale<span class="operator">.</span>indexOf(tr(<span class="string">&quot;%&quot;</span>)))<span class="operator">.</span>toDouble() <span class="operator">/</span> <span class="number">100.0</span>;
+     <span class="type"><a href="qmatrix.html">QMatrix</a></span> oldMatrix <span class="operator">=</span> view<span class="operator">-</span><span class="operator">&gt;</span>matrix();
+     view<span class="operator">-</span><span class="operator">&gt;</span>resetMatrix();
+     view<span class="operator">-</span><span class="operator">&gt;</span>translate(oldMatrix<span class="operator">.</span>dx()<span class="operator">,</span> oldMatrix<span class="operator">.</span>dy());
+     view<span class="operator">-</span><span class="operator">&gt;</span>scale(newScale<span class="operator">,</span> newScale);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>textColorChanged()
+ {
+     textAction <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     fontColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(createColorToolButtonIcon(
+                 <span class="string">&quot;:/images/textpointer.png&quot;</span><span class="operator">,</span>
+                 qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span>(textAction<span class="operator">-</span><span class="operator">&gt;</span>data())));
+     textButtonTriggered();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>itemColorChanged()
+ {
+     fillAction <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     fillColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(createColorToolButtonIcon(
+                  <span class="string">&quot;:/images/floodfill.png&quot;</span><span class="operator">,</span>
+                  qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span>(fillAction<span class="operator">-</span><span class="operator">&gt;</span>data())));
+     fillButtonTriggered();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>lineColorChanged()
+ {
+     lineAction <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     lineColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(createColorToolButtonIcon(
+                  <span class="string">&quot;:/images/linecolor.png&quot;</span><span class="operator">,</span>
+                  qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span>(lineAction<span class="operator">-</span><span class="operator">&gt;</span>data())));
+     lineButtonTriggered();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>textButtonTriggered()
+ {
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setTextColor(qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span>(textAction<span class="operator">-</span><span class="operator">&gt;</span>data()));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>fillButtonTriggered()
+ {
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setItemColor(qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span>(fillAction<span class="operator">-</span><span class="operator">&gt;</span>data()));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>lineButtonTriggered()
+ {
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setLineColor(qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span>(lineAction<span class="operator">-</span><span class="operator">&gt;</span>data()));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>handleFontChange()
+ {
+     <span class="type"><a href="qfont.html">QFont</a></span> font <span class="operator">=</span> fontCombo<span class="operator">-</span><span class="operator">&gt;</span>currentFont();
+     font<span class="operator">.</span>setPointSize(fontSizeCombo<span class="operator">-</span><span class="operator">&gt;</span>currentText()<span class="operator">.</span>toInt());
+     font<span class="operator">.</span>setWeight(boldAction<span class="operator">-</span><span class="operator">&gt;</span>isChecked() <span class="operator">?</span> <span class="type"><a href="qfont.html">QFont</a></span><span class="operator">::</span>Bold : <span class="type"><a href="qfont.html">QFont</a></span><span class="operator">::</span>Normal);
+     font<span class="operator">.</span>setItalic(italicAction<span class="operator">-</span><span class="operator">&gt;</span>isChecked());
+     font<span class="operator">.</span>setUnderline(underlineAction<span class="operator">-</span><span class="operator">&gt;</span>isChecked());
+
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setFont(font);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>itemSelected(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item)
+ {
+     DiagramTextItem <span class="operator">*</span>textItem <span class="operator">=</span>
+     qgraphicsitem_cast<span class="operator">&lt;</span>DiagramTextItem <span class="operator">*</span><span class="operator">&gt;</span>(item);
+
+     <span class="type"><a href="qfont.html">QFont</a></span> font <span class="operator">=</span> textItem<span class="operator">-</span><span class="operator">&gt;</span>font();
+     <span class="type"><a href="qcolor.html">QColor</a></span> color <span class="operator">=</span> textItem<span class="operator">-</span><span class="operator">&gt;</span>defaultTextColor();
+     fontCombo<span class="operator">-</span><span class="operator">&gt;</span>setCurrentFont(font);
+     fontSizeCombo<span class="operator">-</span><span class="operator">&gt;</span>setEditText(<span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">.</span>setNum(font<span class="operator">.</span>pointSize()));
+     boldAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(font<span class="operator">.</span>weight() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qfont.html">QFont</a></span><span class="operator">::</span>Bold);
+     italicAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(font<span class="operator">.</span>italic());
+     underlineAction<span class="operator">-</span><span class="operator">&gt;</span>setChecked(font<span class="operator">.</span>underline());
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>about()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>about(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;About Diagram Scene&quot;</span>)<span class="operator">,</span>
+                        tr(<span class="string">&quot;The &lt;b&gt;Diagram Scene&lt;/b&gt; example shows &quot;</span>
+                           <span class="string">&quot;use of the graphics framework.&quot;</span>));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>createToolBox()
+ {
+     buttonGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qbuttongroup.html">QButtonGroup</a></span>(<span class="keyword">this</span>);
+     buttonGroup<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">false</span>);
+     connect(buttonGroup<span class="operator">,</span> SIGNAL(buttonClicked(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(buttonGroupClicked(<span class="type">int</span>)));
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createCellWidget(tr(<span class="string">&quot;Conditional&quot;</span>)<span class="operator">,</span>
+                                DiagramItem<span class="operator">::</span>Conditional)<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createCellWidget(tr(<span class="string">&quot;Process&quot;</span>)<span class="operator">,</span>
+                       DiagramItem<span class="operator">::</span>Step)<span class="operator">,</span><span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createCellWidget(tr(<span class="string">&quot;Input/Output&quot;</span>)<span class="operator">,</span>
+                       DiagramItem<span class="operator">::</span>Io)<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>textButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     textButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     buttonGroup<span class="operator">-</span><span class="operator">&gt;</span>addButton(textButton<span class="operator">,</span> InsertTextButton);
+     textButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/images/textpointer.png&quot;</span>)
+                         <span class="operator">.</span>scaled(<span class="number">30</span><span class="operator">,</span> <span class="number">30</span>)));
+     textButton<span class="operator">-</span><span class="operator">&gt;</span>setIconSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span>));
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>textLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     textLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(textButton<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+     textLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Text&quot;</span>))<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter);
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>textWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     textWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(textLayout);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(textWidget<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setRowStretch(<span class="number">3</span><span class="operator">,</span> <span class="number">10</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setColumnStretch(<span class="number">2</span><span class="operator">,</span> <span class="number">10</span>);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>itemWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     itemWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     backgroundButtonGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qbuttongroup.html">QButtonGroup</a></span>(<span class="keyword">this</span>);
+     connect(backgroundButtonGroup<span class="operator">,</span> SIGNAL(buttonClicked(<span class="type"><a href="qabstractbutton.html">QAbstractButton</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(backgroundButtonGroupClicked(<span class="type"><a href="qabstractbutton.html">QAbstractButton</a></span><span class="operator">*</span>)));
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>backgroundLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     backgroundLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createBackgroundCellWidget(tr(<span class="string">&quot;Blue Grid&quot;</span>)<span class="operator">,</span>
+                 <span class="string">&quot;:/images/background1.png&quot;</span>)<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     backgroundLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createBackgroundCellWidget(tr(<span class="string">&quot;White Grid&quot;</span>)<span class="operator">,</span>
+                 <span class="string">&quot;:/images/background2.png&quot;</span>)<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     backgroundLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createBackgroundCellWidget(tr(<span class="string">&quot;Gray Grid&quot;</span>)<span class="operator">,</span>
+                     <span class="string">&quot;:/images/background3.png&quot;</span>)<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     backgroundLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createBackgroundCellWidget(tr(<span class="string">&quot;No Grid&quot;</span>)<span class="operator">,</span>
+                 <span class="string">&quot;:/images/background4.png&quot;</span>)<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+
+     backgroundLayout<span class="operator">-</span><span class="operator">&gt;</span>setRowStretch(<span class="number">2</span><span class="operator">,</span> <span class="number">10</span>);
+     backgroundLayout<span class="operator">-</span><span class="operator">&gt;</span>setColumnStretch(<span class="number">2</span><span class="operator">,</span> <span class="number">10</span>);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>backgroundWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     backgroundWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(backgroundLayout);
+
+     toolBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbox.html">QToolBox</a></span>;
+     toolBox<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span>(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Maximum<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Ignored));
+     toolBox<span class="operator">-</span><span class="operator">&gt;</span>setMinimumWidth(itemWidget<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width());
+     toolBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(itemWidget<span class="operator">,</span> tr(<span class="string">&quot;Basic Flowchart Shapes&quot;</span>));
+     toolBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(backgroundWidget<span class="operator">,</span> tr(<span class="string">&quot;Backgrounds&quot;</span>));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>createActions()
+ {
+     toFrontAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/bringtofront.png&quot;</span>)<span class="operator">,</span>
+                                 tr(<span class="string">&quot;Bring to &amp;Front&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     toFrontAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Ctrl+F&quot;</span>));
+     toFrontAction<span class="operator">-</span><span class="operator">&gt;</span>setStatusTip(tr(<span class="string">&quot;Bring item to front&quot;</span>));
+     connect(toFrontAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(bringToFront()));
+
+     sendBackAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/sendtoback.png&quot;</span>)<span class="operator">,</span>
+                                  tr(<span class="string">&quot;Send to &amp;Back&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     sendBackAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Ctrl+B&quot;</span>));
+     sendBackAction<span class="operator">-</span><span class="operator">&gt;</span>setStatusTip(tr(<span class="string">&quot;Send item to back&quot;</span>));
+     connect(sendBackAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(sendToBack()));
+
+     deleteAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/delete.png&quot;</span>)<span class="operator">,</span>
+                                tr(<span class="string">&quot;&amp;Delete&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     deleteAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Delete&quot;</span>));
+     deleteAction<span class="operator">-</span><span class="operator">&gt;</span>setStatusTip(tr(<span class="string">&quot;Delete item from diagram&quot;</span>));
+     connect(deleteAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(deleteItem()));
+
+     exitAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;E&amp;xit&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     exitAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>Quit);
+     exitAction<span class="operator">-</span><span class="operator">&gt;</span>setStatusTip(tr(<span class="string">&quot;Quit Scenediagram example&quot;</span>));
+     connect(exitAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(close()));
+
+     boldAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Bold&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     boldAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap(<span class="string">&quot;:/images/bold.png&quot;</span>);
+     boldAction<span class="operator">-</span><span class="operator">&gt;</span>setIcon(<span class="type"><a href="qicon.html">QIcon</a></span>(pixmap));
+     boldAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Ctrl+B&quot;</span>));
+     connect(boldAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(handleFontChange()));
+
+     italicAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/italic.png&quot;</span>)<span class="operator">,</span>
+                                tr(<span class="string">&quot;Italic&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     italicAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     italicAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Ctrl+I&quot;</span>));
+     connect(italicAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(handleFontChange()));
+
+     underlineAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/underline.png&quot;</span>)<span class="operator">,</span>
+                                   tr(<span class="string">&quot;Underline&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     underlineAction<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     underlineAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Ctrl+U&quot;</span>));
+     connect(underlineAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(handleFontChange()));
+
+     aboutAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;A&amp;bout&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     aboutAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Ctrl+B&quot;</span>));
+     connect(aboutAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(about()));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>createMenus()
+ {
+     fileMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;File&quot;</span>));
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(exitAction);
+
+     itemMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Item&quot;</span>));
+     itemMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(deleteAction);
+     itemMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     itemMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(toFrontAction);
+     itemMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(sendBackAction);
+
+     aboutMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Help&quot;</span>));
+     aboutMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(aboutAction);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>createToolbars()
+ {
+     editToolBar <span class="operator">=</span> addToolBar(tr(<span class="string">&quot;Edit&quot;</span>));
+     editToolBar<span class="operator">-</span><span class="operator">&gt;</span>addAction(deleteAction);
+     editToolBar<span class="operator">-</span><span class="operator">&gt;</span>addAction(toFrontAction);
+     editToolBar<span class="operator">-</span><span class="operator">&gt;</span>addAction(sendBackAction);
+
+     fontCombo <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qfontcombobox.html">QFontComboBox</a></span>();
+     connect(fontCombo<span class="operator">,</span> SIGNAL(currentFontChanged(<span class="type"><a href="qfont.html">QFont</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(currentFontChanged(<span class="type"><a href="qfont.html">QFont</a></span>)));
+
+     fontSizeCombo <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     fontSizeCombo<span class="operator">-</span><span class="operator">&gt;</span>setEditable(<span class="keyword">true</span>);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">8</span>; i <span class="operator">&lt;</span> <span class="number">30</span>; i <span class="operator">=</span> i <span class="operator">+</span> <span class="number">2</span>)
+         fontSizeCombo<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">.</span>setNum(i));
+     <span class="type"><a href="qintvalidator.html">QIntValidator</a></span> <span class="operator">*</span>validator <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qintvalidator.html">QIntValidator</a></span>(<span class="number">2</span><span class="operator">,</span> <span class="number">64</span><span class="operator">,</span> <span class="keyword">this</span>);
+     fontSizeCombo<span class="operator">-</span><span class="operator">&gt;</span>setValidator(validator);
+     connect(fontSizeCombo<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(fontSizeChanged(<span class="type"><a href="qstring.html">QString</a></span>)));
+
+     fontColorToolButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     fontColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setPopupMode(<span class="type"><a href="qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>MenuButtonPopup);
+     fontColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setMenu(createColorMenu(SLOT(textColorChanged())<span class="operator">,</span>
+                                                  <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black));
+     textAction <span class="operator">=</span> fontColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>menu()<span class="operator">-</span><span class="operator">&gt;</span>defaultAction();
+     fontColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(createColorToolButtonIcon(
+     <span class="string">&quot;:/images/textpointer.png&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black));
+     fontColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setAutoFillBackground(<span class="keyword">true</span>);
+     connect(fontColorToolButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(textButtonTriggered()));
+
+     fillColorToolButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     fillColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setPopupMode(<span class="type"><a href="qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>MenuButtonPopup);
+     fillColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setMenu(createColorMenu(SLOT(itemColorChanged())<span class="operator">,</span>
+                          <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white));
+     fillAction <span class="operator">=</span> fillColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>menu()<span class="operator">-</span><span class="operator">&gt;</span>defaultAction();
+     fillColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(createColorToolButtonIcon(
+     <span class="string">&quot;:/images/floodfill.png&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white));
+     connect(fillColorToolButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(fillButtonTriggered()));
+
+     lineColorToolButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     lineColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setPopupMode(<span class="type"><a href="qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>MenuButtonPopup);
+     lineColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setMenu(createColorMenu(SLOT(lineColorChanged())<span class="operator">,</span>
+                                  <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black));
+     lineAction <span class="operator">=</span> lineColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>menu()<span class="operator">-</span><span class="operator">&gt;</span>defaultAction();
+     lineColorToolButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(createColorToolButtonIcon(
+         <span class="string">&quot;:/images/linecolor.png&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black));
+     connect(lineColorToolButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(lineButtonTriggered()));
+
+     textToolBar <span class="operator">=</span> addToolBar(tr(<span class="string">&quot;Font&quot;</span>));
+     textToolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontCombo);
+     textToolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontSizeCombo);
+     textToolBar<span class="operator">-</span><span class="operator">&gt;</span>addAction(boldAction);
+     textToolBar<span class="operator">-</span><span class="operator">&gt;</span>addAction(italicAction);
+     textToolBar<span class="operator">-</span><span class="operator">&gt;</span>addAction(underlineAction);
+
+     colorToolBar <span class="operator">=</span> addToolBar(tr(<span class="string">&quot;Color&quot;</span>));
+     colorToolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontColorToolButton);
+     colorToolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fillColorToolButton);
+     colorToolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(lineColorToolButton);
+
+     <span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>pointerButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     pointerButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     pointerButton<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+     pointerButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/pointer.png&quot;</span>));
+     <span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>linePointerButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     linePointerButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     linePointerButton<span class="operator">-</span><span class="operator">&gt;</span>setIcon(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/linepointer.png&quot;</span>));
+
+     pointerTypeGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qbuttongroup.html">QButtonGroup</a></span>(<span class="keyword">this</span>);
+     pointerTypeGroup<span class="operator">-</span><span class="operator">&gt;</span>addButton(pointerButton<span class="operator">,</span> <span class="type">int</span>(DiagramScene<span class="operator">::</span>MoveItem));
+     pointerTypeGroup<span class="operator">-</span><span class="operator">&gt;</span>addButton(linePointerButton<span class="operator">,</span>
+                                 <span class="type">int</span>(DiagramScene<span class="operator">::</span>InsertLine));
+     connect(pointerTypeGroup<span class="operator">,</span> SIGNAL(buttonClicked(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(pointerGroupClicked(<span class="type">int</span>)));
+
+     sceneScaleCombo <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> scales;
+     scales <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;50%&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;75%&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;100%&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;125%&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;150%&quot;</span>);
+     sceneScaleCombo<span class="operator">-</span><span class="operator">&gt;</span>addItems(scales);
+     sceneScaleCombo<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">2</span>);
+     connect(sceneScaleCombo<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(sceneScaleChanged(<span class="type"><a href="qstring.html">QString</a></span>)));
+
+     pointerToolbar <span class="operator">=</span> addToolBar(tr(<span class="string">&quot;Pointer type&quot;</span>));
+     pointerToolbar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(pointerButton);
+     pointerToolbar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(linePointerButton);
+     pointerToolbar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(sceneScaleCombo);
+ }
+
+ <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>MainWindow<span class="operator">::</span>createBackgroundCellWidget(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span>
+                         <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>image)
+ {
+     <span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     button<span class="operator">-</span><span class="operator">&gt;</span>setText(text);
+     button<span class="operator">-</span><span class="operator">&gt;</span>setIcon(<span class="type"><a href="qicon.html">QIcon</a></span>(image));
+     button<span class="operator">-</span><span class="operator">&gt;</span>setIconSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span>));
+     button<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     backgroundButtonGroup<span class="operator">-</span><span class="operator">&gt;</span>addButton(button);
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(button<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(text)<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     widget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     <span class="keyword">return</span> widget;
+ }
+
+ <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>MainWindow<span class="operator">::</span>createCellWidget(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span>
+                       DiagramItem<span class="operator">::</span>DiagramType type)
+ {
+
+     DiagramItem item(type<span class="operator">,</span> itemMenu);
+     <span class="type"><a href="qicon.html">QIcon</a></span> icon(item<span class="operator">.</span>image());
+
+     <span class="type"><a href="qtoolbutton.html">QToolButton</a></span> <span class="operator">*</span>button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>;
+     button<span class="operator">-</span><span class="operator">&gt;</span>setIcon(icon);
+     button<span class="operator">-</span><span class="operator">&gt;</span>setIconSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span>));
+     button<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     buttonGroup<span class="operator">-</span><span class="operator">&gt;</span>addButton(button<span class="operator">,</span> <span class="type">int</span>(type));
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(button<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(text)<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     widget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     <span class="keyword">return</span> widget;
+ }
+
+ <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>MainWindow<span class="operator">::</span>createColorMenu(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>slot<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span> defaultColor)
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span> colors;
+     colors <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow;
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> names;
+     names <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;black&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;white&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;red&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;blue&quot;</span>)
+           <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;yellow&quot;</span>);
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>colorMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(<span class="keyword">this</span>);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> colors<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(names<span class="operator">.</span>at(i)<span class="operator">,</span> <span class="keyword">this</span>);
+         action<span class="operator">-</span><span class="operator">&gt;</span>setData(colors<span class="operator">.</span>at(i));
+         action<span class="operator">-</span><span class="operator">&gt;</span>setIcon(createColorIcon(colors<span class="operator">.</span>at(i)));
+         connect(action<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+                 <span class="keyword">this</span><span class="operator">,</span> slot);
+         colorMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(action);
+         <span class="keyword">if</span> (colors<span class="operator">.</span>at(i) <span class="operator">=</span><span class="operator">=</span> defaultColor) {
+             colorMenu<span class="operator">-</span><span class="operator">&gt;</span>setDefaultAction(action);
+         }
+     }
+     <span class="keyword">return</span> colorMenu;
+ }
+
+ <span class="type"><a href="qicon.html">QIcon</a></span> MainWindow<span class="operator">::</span>createColorToolButtonIcon(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>imageFile<span class="operator">,</span>
+                         <span class="type"><a href="qcolor.html">QColor</a></span> color)
+ {
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap(<span class="number">50</span><span class="operator">,</span> <span class="number">80</span>);
+     pixmap<span class="operator">.</span>fill(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>transparent);
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="operator">&amp;</span>pixmap);
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> image(imageFile);
+     <span class="type"><a href="qrect.html">QRect</a></span> target(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">60</span>);
+     <span class="type"><a href="qrect.html">QRect</a></span> source(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">42</span><span class="operator">,</span> <span class="number">42</span>);
+     painter<span class="operator">.</span>fillRect(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">60</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">80</span>)<span class="operator">,</span> color);
+     painter<span class="operator">.</span>drawPixmap(target<span class="operator">,</span> image<span class="operator">,</span> source);
+
+     <span class="keyword">return</span> <span class="type"><a href="qicon.html">QIcon</a></span>(pixmap);
+ }
+
+ <span class="type"><a href="qicon.html">QIcon</a></span> MainWindow<span class="operator">::</span>createColorIcon(<span class="type"><a href="qcolor.html">QColor</a></span> color)
+ {
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap(<span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="operator">&amp;</span>pixmap);
+     painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     painter<span class="operator">.</span>fillRect(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>)<span class="operator">,</span> color);
+
+     <span class="keyword">return</span> <span class="type"><a href="qicon.html">QIcon</a></span>(pixmap);
+ }</pre>
+</div>
+<!-- @@@graphicsview/diagramscene/mainwindow.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

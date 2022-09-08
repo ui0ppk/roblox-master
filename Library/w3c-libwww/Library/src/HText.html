@@ -1,0 +1,263 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww Rich Hypertext Object</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  HyperText Object Builder
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This is the interface that &nbsp;you can use to build a parsed HTML object
+(called an hypertext object) as output of the <A HREF="HTML.html">libwww
+HTML parser</A>. It is based on callback functions that the application can
+register as needed in order to get the various events out of the HTML parser.
+These are the different events that can be registered:
+<A NAME="HyperText"></A>
+<UL>
+  <LI>
+    <A HREF="#ss">When parsing is about to start or terminate</A>
+  <LI>
+    <A HREF="#text">When a chunk of plain text has been found</A>
+  <LI>
+    <A HREF="#links">When a link has been found in some HTML element</A>
+  <LI>
+    <A HREF="#elements">When an HTML element is about to start or end</A>
+  <LI>
+    <A HREF="#unparsedElement">Handler for unparsed elements</A>
+  <LI>
+    <A HREF="#unparsedEntity">Handler for unparsed entities</A>
+</UL>
+<P>
+Building an hypertext object can contain references to stylesheets. Libwww
+doesn't come with a stylesheet implementation but it does have a
+<A HREF="HTStyle.html">generic stylesheet manager</A> which can be used for
+registering and looking up styles. As an example, you can see how the libwww
+<A HREF="../../Robot/src/HTRobot.c">robot</A> uses the link callout whereas
+the <A HREF="http://www.w3.org/LineMode/">Line Mode Browser</A> has a complete
+implementation in the <A HREF="http://www.w3.org/LineMode/src/GridText.html">
+GridText</A> module.
+<PRE>
+#ifndef HTEXT_H
+#define HTEXT_H
+
+#include "<A HREF="HTAnchor.html">HTAnchor.h</A>"
+#include "<A HREF="HTStream.html">HTStream.h</A>"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  <A NAME="htext">The HText Object</A>
+</H2>
+<P>
+The <TT>HText</TT> object is only known as a name to libwww - it isn't defined
+or used anywhere as an actual structure. The application can use the HText
+object to contain the information needed to build a parsed object - a hypertext
+object - as data arrives from the <A HREF="HTML.html">libwww HTML parser</A>.
+When a HText object is to be created, this module calls out to any registered
+creation method and in turn uses the newly created HText object in every
+subsequent call to any registered callback routine as the HTML stream is
+parsed.
+<PRE>
+typedef struct _HText HText;
+</PRE>
+<H2>
+  <A NAME="cd">Callback for Creating and Deleting an HText Object</A>
+</H2>
+<P>
+When an <A HREF="HTML.html">HTML stream</A> is created, the
+<A HREF="HTML.html">HTML parser</A> checks to see if there are any callbacks
+registered for handling the <A HREF="#htext">HText object</A>. If this is
+the case then the creation callback is called so that the application can
+create a new <A HREF="#htext">HText object</A>. After that the various callbacks
+are called (<A HREF="#HyperText">if registered</A>) as text comes in and
+gets parsed.
+<PRE>
+typedef HText * HText_new (
+	HTRequest *		request,
+	HTParentAnchor *	anchor,
+	HTStream *		output_stream);
+
+typedef BOOL HText_delete (HText * me);
+</PRE>
+<H3>
+  Register Creation/Deletion Callbacks
+</H3>
+<PRE>
+extern BOOL HText_registerCDCallback (HText_new *, HText_delete *);
+extern BOOL HText_unregisterCDCallback (void);
+</PRE>
+<H2>
+  <A NAME="ss">Callback for Start and Terminate Parsing</A>
+</H2>
+<P>
+The call sequence is the following: First <TT>HText_build</TT> is called
+with the status of <TT>HTEXT_BEGIN</TT>, then any combination of other append
+calls, and at the end <TT>HText_build</TT> is called with the termination
+status - if it terminated normally then the status is <TT>HTEXT_END</TT>,
+if the download was aborted the status is <TT>HTEXT_ABORT</TT>.
+<PRE>
+typedef enum _HTextStatus {
+    HTEXT_BEGIN,
+    HTEXT_END,
+    HTEXT_ABORT
+} HTextStatus;
+
+typedef void HText_build (HText * text, HTextStatus status);
+</PRE>
+<H3>
+  Register Start/End Callback
+</H3>
+<PRE>
+extern BOOL HText_registerBuildCallback (HText_build *);
+extern BOOL HText_unregisterBuildCallback (void);
+</PRE>
+<H2>
+  <A NAME="text">Callback for Handling Chunks of Text</A>
+</H2>
+<P>
+<STRONG>THE STRING IS NOT ZERO-TERMINATED!!!</STRONG> When plain text is
+found then it can be passed to the application via this function. HTML text
+is already stripped for unneeded white space whereas literal text isn't.
+The text is of course to be taken "relative" to which element is is found
+within - this is not checked by the HTML parser but can be checked by the
+application by using the <A HREF="#elements">Element callback function</A>.
+<PRE>
+typedef void HText_addText (
+	HText * 	text,
+	const char * 	buffer,
+	int		length);
+</PRE>
+<H3>
+  Register Text Callback
+</H3>
+<PRE>
+extern BOOL HText_registerTextCallback (HText_addText *);
+extern BOOL HText_unregisterTextCallback (void);
+</PRE>
+<H2>
+  <A NAME="links">Callback for Handling Hypertext Links</A>
+</H2>
+<P>
+Whenever a link is found in the HTML stream, be it from an anchor element,
+an inlined image, etc. then it is picked up and this called out to this function
+with the parameters necessary to be able to see what type of link it is (the
+element and the name of the attribute where it was found). The element number
+and attribute number are integers that are defined by the
+<A HREF="HTMLPDTD.html">HTML DTD used by the HTMl parser</A>. The
+<TT>present</TT> and <TT>value</TT> arrays contains all the
+<A HREF="HTMLPDTD.html">SGML attributes and values</A> found in the element
+untouched. Again, the array is defined by the <A HREF="HTMLPDTD.html">HTML
+DTD used by the HTML parser</A>.
+<PRE>
+typedef void HText_foundLink (
+	HText * 	text,
+	int		element_number,
+	int		attribute_number,
+	HTChildAnchor *	anchor,
+	const BOOL *	present,
+	const char **	value);
+</PRE>
+<H3>
+  Register Link Callback
+</H3>
+<PRE>
+extern BOOL HText_registerLinkCallback (HText_foundLink *);
+extern BOOL HText_unregisterLinkCallback (void);
+</PRE>
+<H2>
+  <A NAME="elements">Callback for Handling HTML Elements</A>
+</H2>
+<P>
+Whenever an element is found in the HTML stream, be it an IMG element, a
+BODY element, etc. then it is picked up and this called out to this function
+with the parameters necessary to be able to see what type of element it is.
+The element number and attribute number are integers that are defined by
+the <A HREF="HTMLPDTD.html">HTML DTD used by the HTMl parser</A>. The
+<TT>present</TT> and <TT>value</TT> arrays contains all the
+<A HREF="HTMLPDTD.html">SGML attributes and values</A> found in the element
+untouched. Again, the array is defined by the <A HREF="HTMLPDTD.html">HTML
+DTD used by the HTML parser</A>.
+<PRE>
+typedef void HText_beginElement (
+	HText * 	text,
+	int		element_number,
+	const BOOL *	present,
+	const char **	value);
+
+typedef void HText_endElement (
+	HText * 	text,
+	int		element_number);
+</PRE>
+<H3>
+  Register HTML Element Callback
+</H3>
+<PRE>
+extern BOOL HText_registerElementCallback (HText_beginElement *, HText_endElement *);
+extern BOOL HText_unregisterElementCallback (void);
+</PRE>
+<H2>
+  <A NAME="unparsedElement">Callback for Unparsed Elements</A>
+</H2>
+<P>
+Whenever an element is found which is not known by the HTML DTD, then the
+information is passed to the unparsed element handlers.
+<PRE>
+typedef void HText_unparsedBeginElement (
+	HText *		HText,
+	const char * 	buffer,
+	int		length);
+
+typedef void HText_unparsedEndElement (
+	HText *		HText,
+	const char * 	buffer,
+	int		length);
+</PRE>
+<H3>
+  Register Unparsed Element Callback
+</H3>
+<PRE>
+extern BOOL HText_registerUnparsedElementCallback (
+	HText_unparsedBeginElement *,
+	HText_unparsedEndElement *);
+extern BOOL HText_unregisterUnparsedElementCallback (void);
+</PRE>
+<H2>
+  <A NAME="unparsedEntity">Callback for Unparsed Entity</A>
+</H2>
+<P>
+Whenever an entity is found which is not known by the HTML DTD, then the
+information is passed to the default handler.
+<PRE>
+typedef void HText_unparsedEntity (
+	HText *		HText,
+	const char * 	buffer,
+	int		length);
+</PRE>
+<H3>
+  Register Unparsed Entity Callback
+</H3>
+<PRE>
+extern BOOL HText_registerUnparsedEntityCallback (HText_unparsedEntity *);
+extern BOOL HText_unregisterUnparsedEntityCallback (void);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTEXT_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

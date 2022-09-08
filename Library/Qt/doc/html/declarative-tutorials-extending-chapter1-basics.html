@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- extending-tutorial.qdoc -->
+  <title>Qt 4.8: Chapter 1: Creating a New Type</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>QML Examples &amp; Demos</li>
+<li>Chapter 1: Creating a New Type</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">Chapter 1: Creating a New Type</h1>
+<span class="subtitle"></span>
+<!-- $$$declarative/tutorials/extending/chapter1-basics-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="declarative-tutorials-extending-chapter1-basics-app-qml.html">declarative/tutorials/extending/chapter1-basics/app.qml</a></li>
+<li><a href="declarative-tutorials-extending-chapter1-basics-piechart-cpp.html">declarative/tutorials/extending/chapter1-basics/piechart.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter1-basics-piechart-h.html">declarative/tutorials/extending/chapter1-basics/piechart.h</a></li>
+<li><a href="declarative-tutorials-extending-chapter1-basics-main-cpp.html">declarative/tutorials/extending/chapter1-basics/main.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter1-basics-chapter1-basics-pro.html">declarative/tutorials/extending/chapter1-basics/chapter1-basics.pro</a></li>
+</ul>
+<p>A common task when extending QML is to provide a new QML type that supports some custom functionality beyond what is provided by the built-in <a href="qdeclarativeelements.html">QML Elements</a>. For example, this could be done to implement particular data models, or provide elements with custom painting and drawing capabilities, or access system features like network programming that are not accessible through built-in QML features.</p>
+<p>In this tutorial, we will show how to use the C++ classes in the Qt Declarative module to extend QML. The end result will be a simple Pie Chart display implemented by several custom QML types connected together through QML features like bindings and signals, and made available to the QML runtime through a plugin.</p>
+<p>To begin with, let's create a new QML type called &quot;PieChart&quot; that has two properties: a name and a color. We will make it available in a <a href="qdeclarativemodules.html">module</a> called &quot;Charts&quot;, with a module version of 1.0&#x2e;</p>
+<p>We want this <tt>PieChart</tt> type to be usable from QML like this:</p>
+<pre class="cpp"> import Charts <span class="number">1.0</span>
+
+ PieChart {
+     width: <span class="number">100</span>; height: <span class="number">100</span>
+     name: <span class="string">&quot;A simple pie chart&quot;</span>
+     color: <span class="string">&quot;red&quot;</span>
+ }</pre>
+<p>To do this, we need a C++ class that encapsulates this <tt>PieChart</tt> type and its two properties. Since QML makes extensive use of Qt's <a href="metaobjects.html#meta-object-system">meta object system</a>, this new class must:</p>
+<ul>
+<li>Inherit from <a href="qobject.html">QObject</a></li>
+<li>Declare its properties using the Q_PROPERTY macro</li>
+</ul>
+<p>Here is our <tt>PieChart</tt> class, defined in <tt>piechart.h</tt>:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDeclarativeItem&gt;</span>
+ <span class="preprocessor">#include &lt;QColor&gt;</span>
+
+ <span class="keyword">class</span> PieChart : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> name READ name WRITE setName)
+     Q_PROPERTY(<span class="type"><a href="qcolor.html">QColor</a></span> color READ color WRITE setColor)
+
+ <span class="keyword">public</span>:
+     PieChart(<span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qstring.html">QString</a></span> name() <span class="keyword">const</span>;
+     <span class="type">void</span> setName(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name);
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> color() <span class="keyword">const</span>;
+     <span class="type">void</span> setColor(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color);
+
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qstring.html">QString</a></span> m_name;
+     <span class="type"><a href="qcolor.html">QColor</a></span> m_color;
+ };</pre>
+<p>The class inherits from <a href="qdeclarativeitem.html">QDeclarativeItem</a> because we want to override <a href="qgraphicsitem.html#paint">QDeclarativeItem::paint</a>() in order to draw. If the class just represented some data type and was not an item that actually needed to be displayed, it could simply inherit from <a href="qobject.html">QObject</a>. Or, if we want to extend the functionality of an existing <a href="qobject.html">QObject</a>-based class, it could inherit from that class instead.</p>
+<p>The <tt>PieChart</tt> class defines the two properties, <tt>name</tt> and <tt>color</tt>, with the Q_PROPERTY macro, and overrides <a href="qgraphicsitem.html#paint">QDeclarativeItem::paint</a>(). The class implementation in <tt>piechart.cpp</tt> simply sets and returns the <tt>m_name</tt> and <tt>m_color</tt> values as appropriate, and implements <tt>paint()</tt> to draw a simple pie chart. It also turns off the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">QGraphicsItem::ItemHasNoContents</a> flag to enable painting:</p>
+<pre class="cpp"> PieChart<span class="operator">::</span>PieChart(<span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>(parent)
+ {
+     <span class="comment">// need to disable this flag to draw inside a QDeclarativeItem</span>
+     setFlag(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemHasNoContents<span class="operator">,</span> <span class="keyword">false</span>);
+ }
+ ...
+ <span class="type">void</span> PieChart<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>)
+ {
+     <span class="type"><a href="qpen.html">QPen</a></span> pen(m_color<span class="operator">,</span> <span class="number">2</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(pen);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setRenderHints(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">true</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawPie(boundingRect()<span class="operator">,</span> <span class="number">90</span> <span class="operator">*</span> <span class="number">16</span><span class="operator">,</span> <span class="number">290</span> <span class="operator">*</span> <span class="number">16</span>);
+ }</pre>
+<p>Now that we have defined the <tt>PieChart</tt> type, we will use it from QML. The <tt>app.qml</tt> file creates a <tt>PieChart</tt> item and display the pie chart's details using a standard QML <a href="qml-text.html">Text</a> item:</p>
+<pre class="qml"> import Charts 1.0
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">width</span>: <span class="number">300</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="type">PieChart</span> {
+         <span class="name">id</span>: <span class="name">aPieChart</span>
+         <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         <span class="name">name</span>: <span class="string">&quot;A simple pie chart&quot;</span>
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+     }
+
+     <span class="type"><a href="qml-text.html">Text</a></span> {
+         <span class="type">anchors</span> { <span class="name">bottom</span>: <span class="name">parent</span>.<span class="name">bottom</span>; <span class="name">horizontalCenter</span>: <span class="name">parent</span>.<span class="name">horizontalCenter</span>; <span class="name">bottomMargin</span>: <span class="number">20</span> }
+         <span class="name">text</span>: <span class="name">aPieChart</span>.<span class="name">name</span>
+     }
+ }</pre>
+<p>Notice that although the color is specified as a string in QML, it is automatically converted to a <a href="qcolor.html">QColor</a> object for the PieChart <tt>color</tt> property. Automatic conversions are provided for various other <a href="qdeclarativebasictypes.html">basic types</a>; for example, a string like &quot;640x480&quot; can be automatically converted to a <a href="qsize.html">QSize</a> value.</p>
+<p>We'll also create a C++ application that uses a <a href="qdeclarativeview.html">QDeclarativeView</a> to run and display <tt>app.qml</tt>. The application must register the <tt>PieChart</tt> type using the <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>() function, to allow it to be used from QML. If you don't register the type, <tt>app.qml</tt> won't be able to create a <tt>PieChart</tt>.</p>
+<p>Here is the application <tt>main.cpp</tt>:</p>
+<pre class="cpp"> <span class="preprocessor">#include &quot;piechart.h&quot;</span>
+ <span class="preprocessor">#include &lt;qdeclarative.h&gt;</span>
+ <span class="preprocessor">#include &lt;QDeclarativeView&gt;</span>
+ <span class="preprocessor">#include &lt;QApplication&gt;</span>
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     qmlRegisterType<span class="operator">&lt;</span>PieChart<span class="operator">&gt;</span>(<span class="string">&quot;Charts&quot;</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="string">&quot;PieChart&quot;</span>);
+
+     <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+     view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;app.qml&quot;</span>));
+     view<span class="operator">.</span>show();
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>This call to <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>() registers the <tt>PieChart</tt> type as a type called &quot;PieChart&quot;, in a module named &quot;Charts&quot;, with a module version of 1.0&#x2e;</p>
+<p>Lastly, we write a <tt>.pro</tt> project file that includes the files and the <tt>declarative</tt> library:</p>
+<pre class="cpp"> QT += declarative
+
+ HEADERS += piechart.h
+ SOURCES += piechart.cpp \
+            main.cpp</pre>
+<p>Now we can build and run the application:</p>
+<p class="centerAlign"><img src="images/extending-tutorial-chapter1.png" alt="" /></p><p>Try it yourself with the code in Qt's <tt>examples/tutorials/extending/chapter1-basics</tt> directory.</p>
+<p>At the moment, the <tt>app.qml</tt> is run from within a C++ application. This may seem odd if you're used to running QML files with the <a href="qmlviewer.html">QML Viewer</a>. Later on, we'll show how to create a plugin so that you can run <tt>app.qml</tt> using the <a href="qmlviewer.html">QML Viewer</a> instead.</p>
+</div>
+<!-- @@@declarative/tutorials/extending/chapter1-basics -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

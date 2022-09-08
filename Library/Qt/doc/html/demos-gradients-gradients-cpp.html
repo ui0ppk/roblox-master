@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: gradients.cpp Example File (demos/gradients/gradients.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">gradients.cpp Example File</h1>
+<span class="small-subtitle">demos/gradients/gradients.cpp</span>
+<!-- $$$demos/gradients/gradients.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;gradients.h&quot;</span>
+ <span class="preprocessor">#include &quot;hoverpoints.h&quot;</span>
+
+ ShadeWidget<span class="operator">::</span>ShadeWidget(ShadeType type<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span> m_shade_type(type)<span class="operator">,</span> m_alpha_gradient(<span class="type"><a href="qlineargradient.html">QLinearGradient</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>))
+ {
+
+     <span class="comment">// Checkers background</span>
+     <span class="keyword">if</span> (m_shade_type <span class="operator">=</span><span class="operator">=</span> ARGBShade) {
+         <span class="type"><a href="qpixmap.html">QPixmap</a></span> pm(<span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+         <span class="type"><a href="qpainter.html">QPainter</a></span> pmp(<span class="operator">&amp;</span>pm);
+         pmp<span class="operator">.</span>fillRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+         pmp<span class="operator">.</span>fillRect(<span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+         pmp<span class="operator">.</span>fillRect(<span class="number">0</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGray);
+         pmp<span class="operator">.</span>fillRect(<span class="number">10</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGray);
+         pmp<span class="operator">.</span>end();
+         <span class="type"><a href="qpalette.html">QPalette</a></span> pal <span class="operator">=</span> palette();
+         pal<span class="operator">.</span>setBrush(backgroundRole()<span class="operator">,</span> <span class="type"><a href="qbrush.html">QBrush</a></span>(pm));
+         setAutoFillBackground(<span class="keyword">true</span>);
+         setPalette(pal);
+
+     } <span class="keyword">else</span> {
+         setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_NoBackground);
+
+     }
+
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> points;
+     points <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0</span><span class="operator">,</span> sizeHint()<span class="operator">.</span>height())
+            <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(sizeHint()<span class="operator">.</span>width()<span class="operator">,</span> <span class="number">0</span>);
+
+     m_hoverPoints <span class="operator">=</span> <span class="keyword">new</span> HoverPoints(<span class="keyword">this</span><span class="operator">,</span> HoverPoints<span class="operator">::</span>CircleShape);
+ <span class="comment">//     m_hoverPoints-&gt;setConnectionType(HoverPoints::LineConnection);</span>
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setPoints(points);
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setPointLock(<span class="number">0</span><span class="operator">,</span> HoverPoints<span class="operator">::</span>LockToLeft);
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setPointLock(<span class="number">1</span><span class="operator">,</span> HoverPoints<span class="operator">::</span>LockToRight);
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setSortType(HoverPoints<span class="operator">::</span>XSort);
+
+     setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Preferred<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+
+     connect(m_hoverPoints<span class="operator">,</span> SIGNAL(pointsChanged(<span class="type"><a href="qpolygonf.html">QPolygonF</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SIGNAL(colorsChanged()));
+ }
+
+ <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> ShadeWidget<span class="operator">::</span>points() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>points();
+ }
+
+ <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> ShadeWidget<span class="operator">::</span>colorAt(<span class="type">int</span> x)
+ {
+     generateShade();
+
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> pts <span class="operator">=</span> m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>points();
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">1</span>; i <span class="operator">&lt;</span> pts<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (pts<span class="operator">.</span>at(i<span class="operator">-</span><span class="number">1</span>)<span class="operator">.</span>x() <span class="operator">&lt;</span><span class="operator">=</span> x <span class="operator">&amp;</span><span class="operator">&amp;</span> pts<span class="operator">.</span>at(i)<span class="operator">.</span>x() <span class="operator">&gt;</span><span class="operator">=</span> x) {
+             <span class="type"><a href="qlinef.html">QLineF</a></span> l(pts<span class="operator">.</span>at(i<span class="operator">-</span><span class="number">1</span>)<span class="operator">,</span> pts<span class="operator">.</span>at(i));
+             l<span class="operator">.</span>setLength(l<span class="operator">.</span>length() <span class="operator">*</span> ((x <span class="operator">-</span> l<span class="operator">.</span>x1()) <span class="operator">/</span> l<span class="operator">.</span>dx()));
+             <span class="keyword">return</span> m_shade<span class="operator">.</span>pixel(<a href="qtglobal.html#qRound">qRound</a>(<a href="qtglobal.html#qMin">qMin</a>(l<span class="operator">.</span>x2()<span class="operator">,</span> (<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(m_shade<span class="operator">.</span>width() <span class="operator">-</span> <span class="number">1</span>))))<span class="operator">,</span>
+                                  <a href="qtglobal.html#qRound">qRound</a>(<a href="qtglobal.html#qMin">qMin</a>(l<span class="operator">.</span>y2()<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(m_shade<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">1</span>))));
+         }
+     }
+     <span class="keyword">return</span> <span class="number">0</span>;
+ }
+
+ <span class="type">void</span> ShadeWidget<span class="operator">::</span>setGradientStops(<span class="keyword">const</span> <span class="type"><a href="qgradient.html#QGradientStops-typedef">QGradientStops</a></span> <span class="operator">&amp;</span>stops)
+ {
+     <span class="keyword">if</span> (m_shade_type <span class="operator">=</span><span class="operator">=</span> ARGBShade) {
+         m_alpha_gradient <span class="operator">=</span> <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">,</span> <span class="number">0</span>);
+
+         <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>stops<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+             <span class="type"><a href="qcolor.html">QColor</a></span> c <span class="operator">=</span> stops<span class="operator">.</span>at(i)<span class="operator">.</span>second;
+             m_alpha_gradient<span class="operator">.</span>setColorAt(stops<span class="operator">.</span>at(i)<span class="operator">.</span>first<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(c<span class="operator">.</span>red()<span class="operator">,</span> c<span class="operator">.</span>green()<span class="operator">,</span> c<span class="operator">.</span>blue()));
+         }
+
+         m_shade <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>();
+         generateShade();
+         update();
+     }
+ }
+
+ <span class="type">void</span> ShadeWidget<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>)
+ {
+     generateShade();
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="keyword">this</span>);
+     p<span class="operator">.</span>drawImage(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> m_shade);
+
+     p<span class="operator">.</span>setPen(<span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">146</span><span class="operator">,</span> <span class="number">146</span><span class="operator">,</span> <span class="number">146</span>));
+     p<span class="operator">.</span>drawRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> height() <span class="operator">-</span> <span class="number">1</span>);
+ }
+
+ <span class="type">void</span> ShadeWidget<span class="operator">::</span>generateShade()
+ {
+     <span class="keyword">if</span> (m_shade<span class="operator">.</span>isNull() <span class="operator">|</span><span class="operator">|</span> m_shade<span class="operator">.</span>size() <span class="operator">!</span><span class="operator">=</span> size()) {
+
+         <span class="keyword">if</span> (m_shade_type <span class="operator">=</span><span class="operator">=</span> ARGBShade) {
+             m_shade <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>(size()<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_ARGB32_Premultiplied);
+             m_shade<span class="operator">.</span>fill(<span class="number">0</span>);
+
+             <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="operator">&amp;</span>m_shade);
+             p<span class="operator">.</span>fillRect(rect()<span class="operator">,</span> m_alpha_gradient);
+
+             p<span class="operator">.</span>setCompositionMode(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_DestinationIn);
+             <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span> fade(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> height());
+             fade<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">255</span>));
+             fade<span class="operator">.</span>setColorAt(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+             p<span class="operator">.</span>fillRect(rect()<span class="operator">,</span> fade);
+
+         } <span class="keyword">else</span> {
+             m_shade <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>(size()<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_RGB32);
+             <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span> shade(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> height());
+             shade<span class="operator">.</span>setColorAt(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+
+             <span class="keyword">if</span> (m_shade_type <span class="operator">=</span><span class="operator">=</span> RedShade)
+                 shade<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red);
+             <span class="keyword">else</span> <span class="keyword">if</span> (m_shade_type <span class="operator">=</span><span class="operator">=</span> GreenShade)
+                 shade<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green);
+             <span class="keyword">else</span>
+                 shade<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue);
+
+             <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="operator">&amp;</span>m_shade);
+             p<span class="operator">.</span>fillRect(rect()<span class="operator">,</span> shade);
+         }
+     }
+
+ }
+
+ GradientEditor<span class="operator">::</span>GradientEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>vbox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="keyword">this</span>);
+     vbox<span class="operator">-</span><span class="operator">&gt;</span>setSpacing(<span class="number">1</span>);
+     vbox<span class="operator">-</span><span class="operator">&gt;</span>setMargin(<span class="number">1</span>);
+
+     m_red_shade <span class="operator">=</span> <span class="keyword">new</span> ShadeWidget(ShadeWidget<span class="operator">::</span>RedShade<span class="operator">,</span> <span class="keyword">this</span>);
+     m_green_shade <span class="operator">=</span> <span class="keyword">new</span> ShadeWidget(ShadeWidget<span class="operator">::</span>GreenShade<span class="operator">,</span> <span class="keyword">this</span>);
+     m_blue_shade <span class="operator">=</span> <span class="keyword">new</span> ShadeWidget(ShadeWidget<span class="operator">::</span>BlueShade<span class="operator">,</span> <span class="keyword">this</span>);
+     m_alpha_shade <span class="operator">=</span> <span class="keyword">new</span> ShadeWidget(ShadeWidget<span class="operator">::</span>ARGBShade<span class="operator">,</span> <span class="keyword">this</span>);
+
+     vbox<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_red_shade);
+     vbox<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_green_shade);
+     vbox<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_blue_shade);
+     vbox<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_alpha_shade);
+
+     connect(m_red_shade<span class="operator">,</span> SIGNAL(colorsChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(pointsUpdated()));
+     connect(m_green_shade<span class="operator">,</span> SIGNAL(colorsChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(pointsUpdated()));
+     connect(m_blue_shade<span class="operator">,</span> SIGNAL(colorsChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(pointsUpdated()));
+     connect(m_alpha_shade<span class="operator">,</span> SIGNAL(colorsChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(pointsUpdated()));
+ }
+
+ <span class="keyword">inline</span> <span class="keyword">static</span> <span class="type">bool</span> x_less_than(<span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>p1<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>p2)
+ {
+     <span class="keyword">return</span> p1<span class="operator">.</span>x() <span class="operator">&lt;</span> p2<span class="operator">.</span>x();
+ }
+
+ <span class="type">void</span> GradientEditor<span class="operator">::</span>pointsUpdated()
+ {
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> w <span class="operator">=</span> m_alpha_shade<span class="operator">-</span><span class="operator">&gt;</span>width();
+
+     <span class="type"><a href="qgradient.html#QGradientStops-typedef">QGradientStops</a></span> stops;
+
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> points;
+
+     points <span class="operator">+</span><span class="operator">=</span> m_red_shade<span class="operator">-</span><span class="operator">&gt;</span>points();
+     points <span class="operator">+</span><span class="operator">=</span> m_green_shade<span class="operator">-</span><span class="operator">&gt;</span>points();
+     points <span class="operator">+</span><span class="operator">=</span> m_blue_shade<span class="operator">-</span><span class="operator">&gt;</span>points();
+     points <span class="operator">+</span><span class="operator">=</span> m_alpha_shade<span class="operator">-</span><span class="operator">&gt;</span>points();
+
+     <a href="qtalgorithms.html#qSort">qSort</a>(points<span class="operator">.</span>begin()<span class="operator">,</span> points<span class="operator">.</span>end()<span class="operator">,</span> x_less_than);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>points<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> x <span class="operator">=</span> <span class="type">int</span>(points<span class="operator">.</span>at(i)<span class="operator">.</span>x());
+         <span class="keyword">if</span> (i<span class="operator">+</span><span class="number">1</span> <span class="operator">&lt;</span> points<span class="operator">.</span>size() <span class="operator">&amp;</span><span class="operator">&amp;</span> x <span class="operator">=</span><span class="operator">=</span> points<span class="operator">.</span>at(i<span class="operator">+</span><span class="number">1</span>)<span class="operator">.</span>x())
+             <span class="keyword">continue</span>;
+         <span class="type"><a href="qcolor.html">QColor</a></span> color((<span class="number">0x00ff0000</span> <span class="operator">&amp;</span> m_red_shade<span class="operator">-</span><span class="operator">&gt;</span>colorAt(<span class="type">int</span>(x))) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">16</span><span class="operator">,</span>
+                      (<span class="number">0x0000ff00</span> <span class="operator">&amp;</span> m_green_shade<span class="operator">-</span><span class="operator">&gt;</span>colorAt(<span class="type">int</span>(x))) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">8</span><span class="operator">,</span>
+                      (<span class="number">0x000000ff</span> <span class="operator">&amp;</span> m_blue_shade<span class="operator">-</span><span class="operator">&gt;</span>colorAt(<span class="type">int</span>(x)))<span class="operator">,</span>
+                      (<span class="number">0xff000000</span> <span class="operator">&amp;</span> m_alpha_shade<span class="operator">-</span><span class="operator">&gt;</span>colorAt(<span class="type">int</span>(x))) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">24</span>);
+
+         <span class="keyword">if</span> (x <span class="operator">/</span> w <span class="operator">&gt;</span> <span class="number">1</span>)
+             <span class="keyword">return</span>;
+
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(x <span class="operator">/</span> w<span class="operator">,</span> color);
+     }
+
+     m_alpha_shade<span class="operator">-</span><span class="operator">&gt;</span>setGradientStops(stops);
+
+     <span class="keyword">emit</span> gradientStopsChanged(stops);
+ }
+
+ <span class="keyword">static</span> <span class="type">void</span> set_shade_points(<span class="keyword">const</span> <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> <span class="operator">&amp;</span>points<span class="operator">,</span> ShadeWidget <span class="operator">*</span>shade)
+ {
+     shade<span class="operator">-</span><span class="operator">&gt;</span>hoverPoints()<span class="operator">-</span><span class="operator">&gt;</span>setPoints(points);
+     shade<span class="operator">-</span><span class="operator">&gt;</span>hoverPoints()<span class="operator">-</span><span class="operator">&gt;</span>setPointLock(<span class="number">0</span><span class="operator">,</span> HoverPoints<span class="operator">::</span>LockToLeft);
+     shade<span class="operator">-</span><span class="operator">&gt;</span>hoverPoints()<span class="operator">-</span><span class="operator">&gt;</span>setPointLock(points<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> HoverPoints<span class="operator">::</span>LockToRight);
+     shade<span class="operator">-</span><span class="operator">&gt;</span>update();
+ }
+
+ <span class="type">void</span> GradientEditor<span class="operator">::</span>setGradientStops(<span class="keyword">const</span> <span class="type"><a href="qgradient.html#QGradientStops-typedef">QGradientStops</a></span> <span class="operator">&amp;</span>stops)
+ {
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> pts_red<span class="operator">,</span> pts_green<span class="operator">,</span> pts_blue<span class="operator">,</span> pts_alpha;
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> h_red <span class="operator">=</span> m_red_shade<span class="operator">-</span><span class="operator">&gt;</span>height();
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> h_green <span class="operator">=</span> m_green_shade<span class="operator">-</span><span class="operator">&gt;</span>height();
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> h_blue <span class="operator">=</span> m_blue_shade<span class="operator">-</span><span class="operator">&gt;</span>height();
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> h_alpha <span class="operator">=</span> m_alpha_shade<span class="operator">-</span><span class="operator">&gt;</span>height();
+
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>stops<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> pos <span class="operator">=</span> stops<span class="operator">.</span>at(i)<span class="operator">.</span>first;
+         <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> color <span class="operator">=</span> stops<span class="operator">.</span>at(i)<span class="operator">.</span>second<span class="operator">.</span>rgba();
+         pts_red <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(pos <span class="operator">*</span> m_red_shade<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> h_red <span class="operator">-</span> <a href="qcolor.html#qRed">qRed</a>(color) <span class="operator">*</span> h_red <span class="operator">/</span> <span class="number">255</span>);
+         pts_green <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(pos <span class="operator">*</span> m_green_shade<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> h_green <span class="operator">-</span> <a href="qcolor.html#qGreen">qGreen</a>(color) <span class="operator">*</span> h_green <span class="operator">/</span> <span class="number">255</span>);
+         pts_blue <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(pos <span class="operator">*</span> m_blue_shade<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> h_blue <span class="operator">-</span> <a href="qcolor.html#qBlue">qBlue</a>(color) <span class="operator">*</span> h_blue <span class="operator">/</span> <span class="number">255</span>);
+         pts_alpha <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(pos <span class="operator">*</span> m_alpha_shade<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> h_alpha <span class="operator">-</span> <a href="qcolor.html#qAlpha">qAlpha</a>(color) <span class="operator">*</span> h_alpha <span class="operator">/</span> <span class="number">255</span>);
+     }
+
+     set_shade_points(pts_red<span class="operator">,</span> m_red_shade);
+     set_shade_points(pts_green<span class="operator">,</span> m_green_shade);
+     set_shade_points(pts_blue<span class="operator">,</span> m_blue_shade);
+     set_shade_points(pts_alpha<span class="operator">,</span> m_alpha_shade);
+
+ }
+
+ GradientWidget<span class="operator">::</span>GradientWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     setWindowTitle(tr(<span class="string">&quot;Gradients&quot;</span>));
+
+     m_renderer <span class="operator">=</span> <span class="keyword">new</span> GradientRenderer(<span class="keyword">this</span>);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>mainGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(<span class="keyword">this</span>);
+     mainGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Gradients&quot;</span>));
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>editorGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     editorGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Color Editor&quot;</span>));
+     m_editor <span class="operator">=</span> <span class="keyword">new</span> GradientEditor(editorGroup);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>typeGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     typeGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Gradient Type&quot;</span>));
+     m_linearButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qradiobutton.html">QRadioButton</a></span>(tr(<span class="string">&quot;Linear Gradient&quot;</span>)<span class="operator">,</span> typeGroup);
+     m_radialButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qradiobutton.html">QRadioButton</a></span>(tr(<span class="string">&quot;Radial Gradient&quot;</span>)<span class="operator">,</span> typeGroup);
+     m_conicalButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qradiobutton.html">QRadioButton</a></span>(tr(<span class="string">&quot;Conical Gradient&quot;</span>)<span class="operator">,</span> typeGroup);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>spreadGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     spreadGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Spread Method&quot;</span>));
+     m_padSpreadButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qradiobutton.html">QRadioButton</a></span>(tr(<span class="string">&quot;Pad Spread&quot;</span>)<span class="operator">,</span> spreadGroup);
+     m_reflectSpreadButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qradiobutton.html">QRadioButton</a></span>(tr(<span class="string">&quot;Reflect Spread&quot;</span>)<span class="operator">,</span> spreadGroup);
+     m_repeatSpreadButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qradiobutton.html">QRadioButton</a></span>(tr(<span class="string">&quot;Repeat Spread&quot;</span>)<span class="operator">,</span> spreadGroup);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>defaultsGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     defaultsGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Defaults&quot;</span>));
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>default1Button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;1&quot;</span>)<span class="operator">,</span> defaultsGroup);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>default2Button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;2&quot;</span>)<span class="operator">,</span> defaultsGroup);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>default3Button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;3&quot;</span>)<span class="operator">,</span> defaultsGroup);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>default4Button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Reset&quot;</span>)<span class="operator">,</span> editorGroup);
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>showSourceButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     showSourceButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Show Source&quot;</span>));
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>enableOpenGLButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Use OpenGL&quot;</span>));
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setChecked(m_renderer<span class="operator">-</span><span class="operator">&gt;</span>usesOpenGL());
+     <span class="keyword">if</span> (<span class="operator">!</span><span class="type"><a href="qglformat.html">QGLFormat</a></span><span class="operator">::</span>hasOpenGL())
+         enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
+ <span class="preprocessor">#endif</span>
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>whatsThisButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     whatsThisButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;What's This?&quot;</span>));
+     whatsThisButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+
+     <span class="comment">// Layouts</span>
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>(<span class="keyword">this</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_renderer);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(mainGroup);
+
+     mainGroup<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth(<span class="number">180</span>);
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(mainGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(editorGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(typeGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(spreadGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(defaultsGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(showSourceButton);
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(enableOpenGLButton);
+ <span class="preprocessor">#endif</span>
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(whatsThisButton);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>editorGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(editorGroup);
+     editorGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_editor);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>typeGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(typeGroup);
+     typeGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_linearButton);
+     typeGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_radialButton);
+     typeGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_conicalButton);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>spreadGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(spreadGroup);
+     spreadGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_padSpreadButton);
+     spreadGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_repeatSpreadButton);
+     spreadGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_reflectSpreadButton);
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>defaultsGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>(defaultsGroup);
+     defaultsGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(default1Button);
+     defaultsGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(default2Button);
+     defaultsGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(default3Button);
+     editorGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(default4Button);
+
+     connect(m_editor<span class="operator">,</span> SIGNAL(gradientStopsChanged(<span class="type"><a href="qgradient.html#QGradientStops-typedef">QGradientStops</a></span>))<span class="operator">,</span>
+             m_renderer<span class="operator">,</span> SLOT(setGradientStops(<span class="type"><a href="qgradient.html#QGradientStops-typedef">QGradientStops</a></span>)));
+
+     connect(m_linearButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setLinearGradient()));
+     connect(m_radialButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setRadialGradient()));
+     connect(m_conicalButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setConicalGradient()));
+
+     connect(m_padSpreadButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setPadSpread()));
+     connect(m_reflectSpreadButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setReflectSpread()));
+     connect(m_repeatSpreadButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setRepeatSpread()));
+
+     connect(default1Button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDefault1()));
+     connect(default2Button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDefault2()));
+     connect(default3Button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDefault3()));
+     connect(default4Button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDefault4()));
+
+     connect(showSourceButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(showSource()));
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     connect(enableOpenGLButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(enableOpenGL(<span class="type">bool</span>)));
+ <span class="preprocessor">#endif</span>
+     connect(whatsThisButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setDescriptionEnabled(<span class="type">bool</span>)));
+     connect(whatsThisButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span>
+             m_renderer<span class="operator">-</span><span class="operator">&gt;</span>hoverPoints()<span class="operator">,</span> SLOT(setDisabled(<span class="type">bool</span>)));
+     connect(m_renderer<span class="operator">,</span> SIGNAL(descriptionEnabledChanged(<span class="type">bool</span>))<span class="operator">,</span>
+             whatsThisButton<span class="operator">,</span> SLOT(setChecked(<span class="type">bool</span>)));
+     connect(m_renderer<span class="operator">,</span> SIGNAL(descriptionEnabledChanged(<span class="type">bool</span>))<span class="operator">,</span>
+             m_renderer<span class="operator">-</span><span class="operator">&gt;</span>hoverPoints()<span class="operator">,</span> SLOT(setDisabled(<span class="type">bool</span>)));
+
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>loadSourceFile(<span class="string">&quot;:res/gradients/gradients.cpp&quot;</span>);
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>loadDescription(<span class="string">&quot;:res/gradients/gradients.html&quot;</span>);
+
+     <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">50</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDefault1()));
+ }
+
+ <span class="type">void</span> GradientWidget<span class="operator">::</span>setDefault(<span class="type">int</span> config)
+ {
+     <span class="type"><a href="qgradient.html#QGradientStops-typedef">QGradientStops</a></span> stops;
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> points;
+     <span class="keyword">switch</span> (config) {
+     <span class="keyword">case</span> <span class="number">1</span>:
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.04</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff131360</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.08</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff202ccc</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.42</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff93d3f9</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.51</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xffb3e6ff</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.73</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xffffffec</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.92</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff5353d9</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.96</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff262666</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">1.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0</span>));
+         m_linearButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+         m_repeatSpreadButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+         <span class="keyword">break</span>;
+
+     <span class="keyword">case</span> <span class="number">2</span>:
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xffffffff</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.11</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xfff9ffa0</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.13</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xfff9ff99</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.14</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xfff3ff86</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.49</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff93b353</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.87</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff264619</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.96</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff0c1306</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">1.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0</span>));
+         m_radialButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+         m_padSpreadButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+         <span class="keyword">break</span>;
+
+     <span class="keyword">case</span> <span class="number">3</span>:
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.10</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xffe0cc73</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.17</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xffc6a006</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.46</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff600659</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.72</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff0680ac</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.92</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xffb9d9e6</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">1.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0</span>));
+         m_conicalButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+         m_padSpreadButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+         <span class="keyword">break</span>;
+
+     <span class="keyword">case</span> <span class="number">4</span>:
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">0.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xff000000</span>));
+         stops <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qgradient.html#QGradientStop-typedef">QGradientStop</a></span>(<span class="number">1.00</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromRgba(<span class="number">0xffffffff</span>));
+         <span class="keyword">break</span>;
+
+     <span class="keyword">default</span>:
+         <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;bad default: %d\n&quot;</span><span class="operator">,</span> config);
+         <span class="keyword">break</span>;
+     }
+
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> pts;
+     <span class="type">int</span> h_off <span class="operator">=</span> m_renderer<span class="operator">-</span><span class="operator">&gt;</span>width() <span class="operator">/</span> <span class="number">10</span>;
+     <span class="type">int</span> v_off <span class="operator">=</span> m_renderer<span class="operator">-</span><span class="operator">&gt;</span>height() <span class="operator">/</span> <span class="number">8</span>;
+     pts <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(m_renderer<span class="operator">-</span><span class="operator">&gt;</span>width() <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> m_renderer<span class="operator">-</span><span class="operator">&gt;</span>height() <span class="operator">/</span> <span class="number">2</span>)
+         <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(m_renderer<span class="operator">-</span><span class="operator">&gt;</span>width() <span class="operator">/</span> <span class="number">2</span> <span class="operator">-</span> h_off<span class="operator">,</span> m_renderer<span class="operator">-</span><span class="operator">&gt;</span>height() <span class="operator">/</span> <span class="number">2</span> <span class="operator">-</span> v_off);
+
+     m_editor<span class="operator">-</span><span class="operator">&gt;</span>setGradientStops(stops);
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>hoverPoints()<span class="operator">-</span><span class="operator">&gt;</span>setPoints(pts);
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>setGradientStops(stops);
+ }
+
+ GradientRenderer<span class="operator">::</span>GradientRenderer(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : ArthurFrame(parent)
+ {
+     m_hoverPoints <span class="operator">=</span> <span class="keyword">new</span> HoverPoints(<span class="keyword">this</span><span class="operator">,</span> HoverPoints<span class="operator">::</span>CircleShape);
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setPointSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">20</span><span class="operator">,</span> <span class="number">20</span>));
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setConnectionType(HoverPoints<span class="operator">::</span>NoConnection);
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setEditable(<span class="keyword">false</span>);
+
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qpointf.html">QPointF</a></span><span class="operator">&gt;</span> points;
+     points <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">100</span><span class="operator">,</span> <span class="number">100</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">200</span><span class="operator">,</span> <span class="number">200</span>);
+     m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>setPoints(points);
+
+     m_spread <span class="operator">=</span> <span class="type"><a href="qgradient.html">QGradient</a></span><span class="operator">::</span>PadSpread;
+     m_gradientType <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LinearGradientPattern;
+ }
+
+ <span class="type">void</span> GradientRenderer<span class="operator">::</span>setGradientStops(<span class="keyword">const</span> <span class="type"><a href="qgradient.html#QGradientStops-typedef">QGradientStops</a></span> <span class="operator">&amp;</span>stops)
+ {
+     m_stops <span class="operator">=</span> stops;
+     update();
+ }
+
+ <span class="type">void</span> GradientRenderer<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>)
+ {
+     setDescriptionEnabled(<span class="keyword">false</span>);
+ }
+
+ <span class="type">void</span> GradientRenderer<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>p)
+ {
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> pts <span class="operator">=</span> m_hoverPoints<span class="operator">-</span><span class="operator">&gt;</span>points();
+
+     <span class="type"><a href="qgradient.html">QGradient</a></span> g;
+
+     <span class="keyword">if</span> (m_gradientType <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LinearGradientPattern) {
+         g <span class="operator">=</span> <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span>(pts<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">,</span> pts<span class="operator">.</span>at(<span class="number">1</span>));
+
+     } <span class="keyword">else</span> <span class="keyword">if</span> (m_gradientType <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RadialGradientPattern) {
+         g <span class="operator">=</span> <span class="type"><a href="qradialgradient.html">QRadialGradient</a></span>(pts<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">,</span> <a href="qtglobal.html#qMin">qMin</a>(width()<span class="operator">,</span> height()) <span class="operator">/</span> <span class="number">3.0</span><span class="operator">,</span> pts<span class="operator">.</span>at(<span class="number">1</span>));
+
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qlinef.html">QLineF</a></span> l(pts<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">,</span> pts<span class="operator">.</span>at(<span class="number">1</span>));
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> angle <span class="operator">=</span> l<span class="operator">.</span>angle(<span class="type"><a href="qlinef.html">QLineF</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>));
+         <span class="keyword">if</span> (l<span class="operator">.</span>dy() <span class="operator">&gt;</span> <span class="number">0</span>)
+             angle <span class="operator">=</span> <span class="number">360</span> <span class="operator">-</span> angle;
+         g <span class="operator">=</span> <span class="type"><a href="qconicalgradient.html">QConicalGradient</a></span>(pts<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">,</span> angle);
+     }
+
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>m_stops<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i)
+         g<span class="operator">.</span>setColorAt(m_stops<span class="operator">.</span>at(i)<span class="operator">.</span>first<span class="operator">,</span> m_stops<span class="operator">.</span>at(i)<span class="operator">.</span>second);
+
+     g<span class="operator">.</span>setSpread(m_spread);
+
+     p<span class="operator">-</span><span class="operator">&gt;</span>setBrush(g);
+     p<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+
+     p<span class="operator">-</span><span class="operator">&gt;</span>drawRect(rect());
+
+ }</pre>
+</div>
+<!-- @@@demos/gradients/gradients.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NoOpt|Win32">
+      <Configuration>NoOpt</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{55A5EF65-000F-4DF4-A94D-C16634AAA405}</ProjectGuid>
+    <RootNamespace>RobloxStudioPrepForUpload</RootNamespace>
+    <SccProjectName>Perforce Project</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccProvider>MSSCCI:Perforce SCM</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+xcopy /h /e /k /q /y ..\RobloxStudio\bin\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+xcopy /h /e /k /q /y ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\content\
+xcopy /h /e /k /q /y ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\shaders\
+xcopy /h /e /k /q /y ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\BuiltInPlugins\
+xcopy /h /e /k /q /y ..\imageformats ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\imageformats\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\PlatformContent\pc\
+copy ..\VMProtect_2.13\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+copy ..\Installer\textureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\textureManifest.txt
+copy ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\Redist.zip
+rem ..\RobloxStudio\bin\$(Configuration)\RobloxStudio.exe -API ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\api.txt
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+xcopy /h /e /k /q /y ..\RobloxStudio\bin\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+xcopy /h /e /k /q /y ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\content\
+xcopy /h /e /k /q /y ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\shaders\
+xcopy /h /e /k /q /y ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\BuiltInPlugins\
+xcopy /h /e /k /q /y ..\imageformats ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\imageformats\
+xcopy /h /e /k /q /y ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\PlatformContent\pc\
+copy ..\VMProtect_2.13\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+copy ..\Installer\textureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\textureManifest.txt
+copy ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\Redist.zip
+rem ..\RobloxStudio\bin\$(Configuration)\RobloxStudio.exe -API ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\api.txt
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+xcopy /h /e /k /q /y ..\RobloxStudio\bin\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+xcopy /h /e /k /q /y ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\content\
+xcopy /h /e /k /q /y ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\shaders\
+xcopy /h /e /k /q /y ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\BuiltInPlugins\
+xcopy /h /e /k /q /y ..\imageformats ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\imageformats\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\PlatformContent\pc\
+copy ..\VMProtect_2.13\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\
+copy ..\Installer\textureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\textureManifest.txt
+copy ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\Redist.zip
+rem ..\RobloxStudio\bin\$(Configuration)\RobloxStudio.exe -API ..\UploadBits\$(Platform)-$(Configuration)-RobloxStudio\api.txt
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="..\Roblox.PrepForUpload\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RobloxStudio\RobloxStudio.vcxproj">
+      <Project>{1a12f1b1-ae89-4549-a46c-2069e95c329d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

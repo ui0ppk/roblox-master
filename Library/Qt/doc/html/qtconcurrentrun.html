@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtconcurrentrun.cpp -->
+  <title>Qt 4.8: &lt;QtConcurrentRun&gt; - Asynchronous Run</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#running-a-function-in-a-separate-thread">Running a Function in a Separate Thread</a></li>
+<li class="level1"><a href="#passing-arguments-to-the-function">Passing Arguments to the Function</a></li>
+<li class="level1"><a href="#returning-values-from-the-function">Returning Values from the Function</a></li>
+<li class="level1"><a href="#additional-api-features">Additional API Features</a></li>
+<li class="level2"><a href="#using-member-functions">Using Member Functions</a></li>
+<li class="level2"><a href="#using-bound-function-arguments">Using Bound Function Arguments</a></li>
+</ul>
+</div>
+<h1 class="title">&lt;QtConcurrentRun&gt; - Asynchronous Run</h1>
+<span class="subtitle"></span>
+<!-- $$$<QtConcurrentRun>-brief -->
+<p>The &lt;QtConcurrentRun&gt; header provides a way to run a function in a separate thread. <a href="#details">More...</a></p>
+<!-- @@@<QtConcurrentRun> -->
+<ul>
+</ul>
+<a name="Functionsx"></a>
+<h2>Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentrun.html#run">run</a></b> ( Function <i>function</i>, ... )</td></tr>
+</table>
+<!-- $$$<QtConcurrentRun>-description -->
+<div class="descr"> <a name="details"></a>
+<p>This function is a part of the <a href="threads-qtconcurrent.html">Qt Concurrent</a> framework.</p>
+<p>The <a href="qtconcurrentrun.html#run">QtConcurrent::run</a>() function runs a function in a separate thread. The return value of the function is made available through the <a href="qfuture.html">QFuture</a> API.</p>
+<a name="running-a-function-in-a-separate-thread"></a>
+<h2>Running a Function in a Separate Thread</h2>
+<p>To run a function in another thread, use <a href="qtconcurrentrun.html#run">QtConcurrent::run</a>():</p>
+<pre class="cpp"> <span class="keyword">extern</span> <span class="type">void</span> aFunction();
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>run(aFunction);</pre>
+<p>This will run <i>aFunction</i> in a separate thread obtained from the default <a href="qthreadpool.html">QThreadPool</a>. You can use the <a href="qfuture.html">QFuture</a> and <a href="qfuturewatcher.html">QFutureWatcher</a> classes to monitor the status of the function.</p>
+<a name="passing-arguments-to-the-function"></a>
+<h2>Passing Arguments to the Function</h2>
+<p>Passing arguments to the function is done by adding them to the <a href="qtconcurrentrun.html#run">QtConcurrent::run</a>() call immediately after the function name. For example:</p>
+<pre class="cpp"> <span class="keyword">extern</span> <span class="type">void</span> aFunctionWithArguments(<span class="type">int</span> arg1<span class="operator">,</span> <span class="type">double</span> arg2<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>string);
+
+ <span class="type">int</span> integer <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type">double</span> floatingPoint <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qstring.html">QString</a></span> string <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>run(aFunctionWithArguments<span class="operator">,</span> integer<span class="operator">,</span> floatingPoint<span class="operator">,</span> string);</pre>
+<p>A copy of each argument is made at the point where <a href="qtconcurrentrun.html#run">QtConcurrent::run</a>() is called, and these values are passed to the thread when it begins executing the function. Changes made to the arguments after calling <a href="qtconcurrentrun.html#run">QtConcurrent::run</a>() are <i>not</i> visible to the thread.</p>
+<a name="returning-values-from-the-function"></a>
+<h2>Returning Values from the Function</h2>
+<p>Any return value from the function is available via <a href="qfuture.html">QFuture</a>:</p>
+<pre class="cpp"> <span class="keyword">extern</span> <span class="type"><a href="qstring.html">QString</a></span> functionReturningAString();
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>run(functionReturningAString);
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ <span class="type"><a href="qstring.html">QString</a></span> result <span class="operator">=</span> future<span class="operator">.</span>result();</pre>
+<p>As documented above, passing arguments is done like this:</p>
+<pre class="cpp"> <span class="keyword">extern</span> <span class="type"><a href="qstring.html">QString</a></span> someFunction(<span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>input);
+
+ <span class="type"><a href="qbytearray.html">QByteArray</a></span> bytearray <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>run(someFunction<span class="operator">,</span> bytearray);
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ <span class="type"><a href="qstring.html">QString</a></span> result <span class="operator">=</span> future<span class="operator">.</span>result();</pre>
+<p>Note that the <a href="qfuture.html#result">QFuture::result</a>() function blocks and waits for the result to become available. Use <a href="qfuturewatcher.html">QFutureWatcher</a> to get notification when the function has finished execution and the result is available.</p>
+<a name="additional-api-features"></a>
+<h2>Additional API Features</h2>
+<a name="using-member-functions"></a>
+<h3>Using Member Functions</h3>
+<p><a href="qtconcurrentrun.html#run">QtConcurrent::run</a>() also accepts pointers to member functions. The first argument must be either a const reference or a pointer to an instance of the class. Passing by const reference is useful when calling const member functions; passing by pointer is useful for calling non-const member functions that modify the instance.</p>
+<p>For example, calling <a href="qbytearray.html#split">QByteArray::split</a>() (a const member function) in a separate thread is done like this:</p>
+<pre class="cpp"> <span class="comment">// call 'QList&lt;QByteArray&gt;  QByteArray::split(char sep) const' in a separate thread</span>
+ <span class="type"><a href="qbytearray.html">QByteArray</a></span> bytearray <span class="operator">=</span> <span class="string">&quot;hello world&quot;</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span> <span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>run(bytearray<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">::</span>split<span class="operator">,</span> <span class="char">','</span>);
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span> result <span class="operator">=</span> future<span class="operator">.</span>result();</pre>
+<p>Calling a non-const member function is done like this:</p>
+<pre class="cpp"> <span class="comment">// call 'void QImage::invertPixels(InvertMode mode)' in a separate thread</span>
+ <span class="type"><a href="qimage.html">QImage</a></span> image <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>run(<span class="operator">&amp;</span>image<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>invertPixels<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>InvertRgba);
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ future<span class="operator">.</span>waitForFinished();
+ <span class="comment">// At this point, the pixels in 'image' have been inverted</span></pre>
+<a name="using-bound-function-arguments"></a>
+<h3>Using Bound Function Arguments</h3>
+<p>Note that Qt does not provide support for bound functions. This is provided by 3rd party libraries like <a href="http://www.boost.org/libs/bind/bind.html">Boost</a> or <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1836.pdf">C++ TR1 Library Extensions</a>.</p>
+<p>You can use boost::bind() or std::tr1::bind() to <i>bind</i> a number of arguments to a function when called. There are number of reasons for doing this:</p>
+<ul>
+<li>To call a function that takes more than 5 arguments.</li>
+<li>To simplify calling a function with constant arguments.</li>
+<li>Changing the order of arguments.</li>
+</ul>
+<p>See the documentation for the relevant functions for details on how to use the bind API.</p>
+<p>Calling a bound function is done like this:</p>
+<pre class="cpp"> <span class="type">void</span> someFunction(<span class="type">int</span> arg1<span class="operator">,</span> <span class="type">double</span> arg2);
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>run(boost<span class="operator">::</span>bind(someFunction<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2.0</span>));
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span></pre>
+</div>
+<!-- @@@<QtConcurrentRun> -->
+<h2>Function Documentation</h2>
+<!-- $$$run[overload1]$$$runFunction... -->
+<h3 class="fn"><a name="run"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">run</span> ( <span class="type">Function</span> <i>function</i>, ... )</h3>
+<p>Runs <i>function</i> in a separate thread. The thread is taken from the global <a href="qthreadpool.html">QThreadPool</a>. Note that the function may not run immediately; the function will only be run when a thread is available.</p>
+<p>T is the same type as the return value of <i>function</i>. Non-void return values can be accessed via the <a href="qfuture.html#result">QFuture::result</a>() function.</p>
+<p>Note that the <a href="qfuture.html">QFuture</a> returned by QtConcurrent::run() does not support canceling, pausing, or progress reporting. The <a href="qfuture.html">QFuture</a> returned can only be used to query for the running/finished status and the return value of the function.</p>
+<!-- @@@run -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

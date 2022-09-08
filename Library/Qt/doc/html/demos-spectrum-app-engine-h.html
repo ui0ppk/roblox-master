@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: engine.h Example File (demos/spectrum/app/engine.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">engine.h Example File</h1>
+<span class="small-subtitle">demos/spectrum/app/engine.h</span>
+<!-- $$$demos/spectrum/app/engine.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef ENGINE_H</span>
+ <span class="preprocessor">#define ENGINE_H</span>
+
+ <span class="preprocessor">#include &quot;spectrum.h&quot;</span>
+ <span class="preprocessor">#include &quot;spectrumanalyser.h&quot;</span>
+ <span class="preprocessor">#include &quot;wavfile.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QObject&gt;</span>
+ <span class="preprocessor">#include &lt;QByteArray&gt;</span>
+ <span class="preprocessor">#include &lt;QBuffer&gt;</span>
+ <span class="preprocessor">#include &lt;QVector&gt;</span>
+ <span class="preprocessor">#include &lt;QtMultimedia/QAudioDeviceInfo&gt;</span>
+ <span class="preprocessor">#include &lt;QtMultimedia/QAudioFormat&gt;</span>
+
+ <span class="preprocessor">#ifdef DUMP_CAPTURED_AUDIO</span>
+ <span class="preprocessor">#define DUMP_DATA</span>
+ <span class="preprocessor">#endif</span>
+
+ <span class="preprocessor">#ifdef DUMP_SPECTRUM</span>
+ <span class="preprocessor">#define DUMP_DATA</span>
+ <span class="preprocessor">#endif</span>
+
+ <span class="preprocessor">#ifdef DUMP_DATA</span>
+ <span class="preprocessor">#include &lt;QDir&gt;</span>
+ <span class="preprocessor">#endif</span>
+
+ <span class="keyword">class</span> FrequencySpectrum;
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qaudioinput.html">QAudioInput</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qaudiooutput.html">QAudioOutput</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qfile.html">QFile</a></span>)
+
+ <span class="comment">/**
+  * This class interfaces with the QtMultimedia audio classes, and also with
+  * the SpectrumAnalyser class.  Its role is to manage the capture and playback
+  * of audio data, meanwhile performing real-time analysis of the audio level
+  * and frequency spectrum.
+  */</span>
+ <span class="keyword">class</span> Engine : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span> {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     Engine(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="operator">~</span>Engine();
+
+     <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">&gt;</span><span class="operator">&amp;</span> availableAudioInputDevices() <span class="keyword">const</span>
+                                     { <span class="keyword">return</span> m_availableAudioInputDevices; }
+
+     <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">&gt;</span><span class="operator">&amp;</span> availableAudioOutputDevices() <span class="keyword">const</span>
+                                     { <span class="keyword">return</span> m_availableAudioOutputDevices; }
+
+     <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>Mode mode() <span class="keyword">const</span>       { <span class="keyword">return</span> m_mode; }
+     <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state() <span class="keyword">const</span>     { <span class="keyword">return</span> m_state; }
+
+     <span class="comment">/**
+      * \return Current audio format
+      * \note May be QAudioFormat() if engine is not initialized
+      */</span>
+     <span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span><span class="operator">&amp;</span> format() <span class="keyword">const</span>  { <span class="keyword">return</span> m_format; }
+
+     <span class="comment">/**
+      * Stop any ongoing recording or playback, and reset to ground state.
+      */</span>
+     <span class="type">void</span> reset();
+
+     <span class="comment">/**
+      * Load data from WAV file
+      */</span>
+     <span class="type">bool</span> loadFile(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName);
+
+     <span class="comment">/**
+      * Generate tone
+      */</span>
+     <span class="type">bool</span> generateTone(<span class="keyword">const</span> Tone <span class="operator">&amp;</span>tone);
+
+     <span class="comment">/**
+      * Generate tone
+      */</span>
+     <span class="type">bool</span> generateSweptTone(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> amplitude);
+
+     <span class="comment">/**
+      * Initialize for recording
+      */</span>
+     <span class="type">bool</span> initializeRecord();
+
+     <span class="comment">/**
+      * Position of the audio input device.
+      * \return Position in bytes.
+      */</span>
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> recordPosition() <span class="keyword">const</span>   { <span class="keyword">return</span> m_recordPosition; }
+
+     <span class="comment">/**
+      * RMS level of the most recently processed set of audio samples.
+      * \return Level in range (0.0, 1.0)
+      */</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rmsLevel() <span class="keyword">const</span>          { <span class="keyword">return</span> m_rmsLevel; }
+
+     <span class="comment">/**
+      * Peak level of the most recently processed set of audio samples.
+      * \return Level in range (0.0, 1.0)
+      */</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> peakLevel() <span class="keyword">const</span>         { <span class="keyword">return</span> m_peakLevel; }
+
+     <span class="comment">/**
+      * Position of the audio output device.
+      * \return Position in bytes.
+      */</span>
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> playPosition() <span class="keyword">const</span>     { <span class="keyword">return</span> m_playPosition; }
+
+     <span class="comment">/**
+      * Length of the internal engine buffer.
+      * \return Buffer length in bytes.
+      */</span>
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> bufferLength() <span class="keyword">const</span>;
+
+     <span class="comment">/**
+      * Amount of data held in the buffer.
+      * \return Data length in bytes.
+      */</span>
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> dataLength() <span class="keyword">const</span>       { <span class="keyword">return</span> m_dataLength; }
+
+     <span class="comment">/**
+      * Set window function applied to audio data before spectral analysis.
+      */</span>
+     <span class="type">void</span> setWindowFunction(WindowFunction type);
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> startRecording();
+     <span class="type">void</span> startPlayback();
+     <span class="type">void</span> suspend();
+     <span class="type">void</span> setAudioInputDevice(<span class="keyword">const</span> <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> <span class="operator">&amp;</span>device);
+     <span class="type">void</span> setAudioOutputDevice(<span class="keyword">const</span> <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span> <span class="operator">&amp;</span>device);
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> stateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>Mode mode<span class="operator">,</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state);
+
+     <span class="comment">/**
+      * Informational message for non-modal display
+      */</span>
+     <span class="type">void</span> infoMessage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>message<span class="operator">,</span> <span class="type">int</span> durationMs);
+
+     <span class="comment">/**
+      * Error message for modal display
+      */</span>
+     <span class="type">void</span> errorMessage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>heading<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>detail);
+
+     <span class="comment">/**
+      * Format of audio data has changed
+      */</span>
+     <span class="type">void</span> formatChanged(<span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> <span class="operator">&amp;</span>format);
+
+     <span class="comment">/**
+      * Length of buffer has changed.
+      * \param duration Duration in microseconds
+      */</span>
+     <span class="type">void</span> bufferLengthChanged(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> duration);
+
+     <span class="comment">/**
+      * Amount of data in buffer has changed.
+      * \param Length of data in bytes
+      */</span>
+     <span class="type">void</span> dataLengthChanged(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> duration);
+
+     <span class="comment">/**
+      * Position of the audio input device has changed.
+      * \param position Position in bytes
+      */</span>
+     <span class="type">void</span> recordPositionChanged(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position);
+
+     <span class="comment">/**
+      * Position of the audio output device has changed.
+      * \param position Position in bytes
+      */</span>
+     <span class="type">void</span> playPositionChanged(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position);
+
+     <span class="comment">/**
+      * Level changed
+      * \param rmsLevel RMS level in range 0.0 - 1.0
+      * \param peakLevel Peak level in range 0.0 - 1.0
+      * \param numSamples Number of audio samples analyzed
+      */</span>
+     <span class="type">void</span> levelChanged(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rmsLevel<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> peakLevel<span class="operator">,</span> <span class="type">int</span> numSamples);
+
+     <span class="comment">/**
+      * Spectrum has changed.
+      * \param position Position of start of window in bytes
+      * \param length   Length of window in bytes
+      * \param spectrum Resulting frequency spectrum
+      */</span>
+     <span class="type">void</span> spectrumChanged(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> length<span class="operator">,</span> <span class="keyword">const</span> FrequencySpectrum <span class="operator">&amp;</span>spectrum);
+
+     <span class="comment">/**
+      * Buffer containing audio data has changed.
+      * \param position Position of start of buffer in bytes
+      * \param buffer   Buffer
+      */</span>
+     <span class="type">void</span> bufferChanged(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> length<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>buffer);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> audioNotify();
+     <span class="type">void</span> audioStateChanged(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state);
+     <span class="type">void</span> audioDataReady();
+     <span class="type">void</span> spectrumChanged(<span class="keyword">const</span> FrequencySpectrum <span class="operator">&amp;</span>spectrum);
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> resetAudioDevices();
+     <span class="type">bool</span> initialize();
+     <span class="type">bool</span> selectFormat();
+     <span class="type">void</span> stopRecording();
+     <span class="type">void</span> stopPlayback();
+     <span class="type">void</span> setState(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state);
+     <span class="type">void</span> setState(<span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>Mode mode<span class="operator">,</span> <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State state);
+     <span class="type">void</span> setFormat(<span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> <span class="operator">&amp;</span>format);
+     <span class="type">void</span> setRecordPosition(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type">bool</span> forceEmit <span class="operator">=</span> <span class="keyword">false</span>);
+     <span class="type">void</span> setPlayPosition(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type">bool</span> forceEmit <span class="operator">=</span> <span class="keyword">false</span>);
+     <span class="type">void</span> calculateLevel(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> length);
+     <span class="type">void</span> calculateSpectrum(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> position);
+     <span class="type">void</span> setLevel(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rmsLevel<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> peakLevel<span class="operator">,</span> <span class="type">int</span> numSamples);
+
+ <span class="preprocessor">#ifdef DUMP_DATA</span>
+     <span class="type">void</span> createOutputDir();
+     <span class="type"><a href="qstring.html">QString</a></span> outputPath() <span class="keyword">const</span> { <span class="keyword">return</span> m_outputDir<span class="operator">.</span>path(); }
+ <span class="preprocessor">#endif</span>
+
+ <span class="preprocessor">#ifdef DUMP_CAPTURED_AUDIO</span>
+     <span class="type">void</span> dumpData();
+ <span class="preprocessor">#endif</span>
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>Mode        m_mode;
+     <span class="type"><a href="qaudio.html">QAudio</a></span><span class="operator">::</span>State       m_state;
+
+     <span class="type">bool</span>                m_generateTone;
+     SweptTone           m_tone;
+
+     WavFile<span class="operator">*</span>            m_file;
+     <span class="comment">// We need a second file handle via which to read data into m_buffer</span>
+     <span class="comment">// for analysis</span>
+     WavFile<span class="operator">*</span>            m_analysisFile;
+
+     <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span>        m_format;
+
+     <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">&gt;</span> m_availableAudioInputDevices;
+     <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span>    m_audioInputDevice;
+     <span class="type"><a href="qaudioinput.html">QAudioInput</a></span><span class="operator">*</span>        m_audioInput;
+     <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">*</span>          m_audioInputIODevice;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>              m_recordPosition;
+
+     <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span><span class="operator">&gt;</span> m_availableAudioOutputDevices;
+     <span class="type"><a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a></span>    m_audioOutputDevice;
+     <span class="type"><a href="qaudiooutput.html">QAudioOutput</a></span><span class="operator">*</span>       m_audioOutput;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>              m_playPosition;
+     <span class="type"><a href="qbuffer.html">QBuffer</a></span>             m_audioOutputIODevice;
+
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span>          m_buffer;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>              m_bufferPosition;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>              m_bufferLength;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>              m_dataLength;
+
+     <span class="type">int</span>                 m_levelBufferLength;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>               m_rmsLevel;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>               m_peakLevel;
+
+     <span class="type">int</span>                 m_spectrumBufferLength;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span>          m_spectrumBuffer;
+     SpectrumAnalyser    m_spectrumAnalyser;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>              m_spectrumPosition;
+
+     <span class="type">int</span>                 m_count;
+
+ <span class="preprocessor">#ifdef DUMP_DATA</span>
+     <span class="type"><a href="qdir.html">QDir</a></span>                m_outputDir;
+ <span class="preprocessor">#endif</span>
+
+ };
+
+ <span class="preprocessor">#endif // ENGINE_H</span></pre>
+</div>
+<!-- @@@demos/spectrum/app/engine.h -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

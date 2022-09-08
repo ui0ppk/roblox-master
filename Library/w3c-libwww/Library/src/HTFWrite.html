@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 19-May-1996 -->
+  <TITLE>W3C Sample Code Library libwww ANSI C File Streams</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Basic ANSI C File Writer Stream
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This module contains a basic file writer stream that can be used to
+dump data objects to local disk. See also the various subclasses of
+this basic stream which can be used to do save-as, save-and-callback etc. 
+in the <A HREF="HTFSave.html">HTFSave module</A>
+<P>
+This module is implemented by <A HREF="HTFWrite.c">HTFWrite.c</A>, and it
+is a part of the <A HREF="http://www.w3.org/Library/">W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTFWRITE_H
+#define HTFWRITE_H
+
+#include "HTStream.h"
+#include "HTReq.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  <A NAME="write">Basic ANSI C File Writer Stream</A>
+</H2>
+<P>
+This function puts up a new stream given an <I>open</I> file descripter.
+If the file is <I>not</I> to be closed afterwards, then set
+<CODE>leave_open=NO</CODE>.
+<PRE>
+extern HTStream * HTFWriter_new	(
+        HTRequest * request,
+	FILE * fp,
+	BOOL leave_open);
+</PRE>
+
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTFWRITE_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

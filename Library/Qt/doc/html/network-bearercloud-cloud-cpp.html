@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: cloud.cpp Example File (network/bearercloud/cloud.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">cloud.cpp Example File</h1>
+<span class="small-subtitle">network/bearercloud/cloud.cpp</span>
+<!-- $$$network/bearercloud/cloud.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;cloud.h&quot;</span>
+ <span class="preprocessor">#include &quot;bearercloud.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;qnetworksession.h&gt;</span>
+
+ <span class="preprocessor">#include &lt;QGraphicsTextItem&gt;</span>
+ <span class="preprocessor">#include &lt;QGraphicsSvgItem&gt;</span>
+ <span class="preprocessor">#include &lt;QGraphicsSceneMouseEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QSvgRenderer&gt;</span>
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
+
+ <span class="keyword">static</span> <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerType<span class="operator">,</span> <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span> <span class="operator">*</span><span class="operator">&gt;</span> svgCache;
+
+ Cloud<span class="operator">::</span>Cloud(<span class="keyword">const</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span> <span class="operator">&amp;</span>config<span class="operator">,</span> <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>parent)
+ :   <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span>(parent)<span class="operator">,</span> configuration(config)<span class="operator">,</span> deleteAfterAnimation(<span class="keyword">false</span>)
+ {
+     session <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span>(configuration<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(session<span class="operator">,</span> SIGNAL(newConfigurationActivated())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(newConfigurationActivated()));
+     connect(session<span class="operator">,</span> SIGNAL(stateChanged(<span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>State))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(stateChanged(<span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>State)));
+
+     setFlag(ItemIsMovable);
+ <span class="preprocessor">#if (QT_VERSION &gt;= QT_VERSION_CHECK(4, 6, 0))</span>
+     setFlag(ItemSendsGeometryChanges);
+ <span class="preprocessor">#endif</span>
+     setZValue(<span class="number">1</span>);
+
+     icon <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgraphicssvgitem.html">QGraphicsSvgItem</a></span>(<span class="keyword">this</span>);
+     text <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgraphicstextitem.html">QGraphicsTextItem</a></span>(<span class="keyword">this</span>);
+
+     currentScale <span class="operator">=</span> <span class="number">0</span>;
+     finalScale <span class="operator">=</span> <span class="number">1</span>;
+     setTransform(<span class="type"><a href="qtransform.html">QTransform</a></span><span class="operator">::</span>fromScale(currentScale<span class="operator">,</span> currentScale)<span class="operator">,</span> <span class="keyword">false</span>);
+     setOpacity(<span class="number">0</span>);
+
+     newConfigurationActivated();
+ }
+
+ Cloud<span class="operator">::</span><span class="operator">~</span>Cloud()
+ {
+ }
+
+ <span class="type">void</span> Cloud<span class="operator">::</span>setFinalScale(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> factor)
+ {
+     finalScale <span class="operator">=</span> factor;
+ }
+
+ <span class="type">void</span> Cloud<span class="operator">::</span>setDeleteAfterAnimation(<span class="type">bool</span> deleteAfter)
+ {
+     deleteAfterAnimation <span class="operator">=</span> deleteAfter;
+ }
+
+ <span class="type">void</span> Cloud<span class="operator">::</span>calculateForces()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>scene() <span class="operator">|</span><span class="operator">|</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>mouseGrabberItem() <span class="operator">=</span><span class="operator">=</span> <span class="keyword">this</span>) {
+         newPos <span class="operator">=</span> pos();
+         <span class="keyword">return</span>;
+     }
+
+     <span class="comment">// sum up all the forces push this item away</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> xvel <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> yvel <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type"><a href="qlinef.html">QLineF</a></span> orbitForce;
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>items()) {
+         <span class="comment">// other clouds</span>
+         Cloud <span class="operator">*</span>cloud <span class="operator">=</span> qgraphicsitem_cast<span class="operator">&lt;</span>Cloud <span class="operator">*</span><span class="operator">&gt;</span>(item);
+         <span class="keyword">if</span> (<span class="operator">!</span>cloud <span class="operator">&amp;</span><span class="operator">&amp;</span> item<span class="operator">-</span><span class="operator">&gt;</span>data(<span class="number">0</span>) <span class="operator">!</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;This Device&quot;</span>))
+             <span class="keyword">continue</span>;
+
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> factor <span class="operator">=</span> <span class="number">1.0</span>;
+
+         <span class="type"><a href="qlinef.html">QLineF</a></span> line(cloud <span class="operator">?</span> item<span class="operator">-</span><span class="operator">&gt;</span>mapToScene(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>) : <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> mapToScene(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+         <span class="keyword">if</span> (item<span class="operator">-</span><span class="operator">&gt;</span>data(<span class="number">0</span>) <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;This Device&quot;</span>))
+             orbitForce <span class="operator">=</span> line;
+
+         <span class="keyword">if</span> (cloud)
+             factor <span class="operator">=</span> cloud<span class="operator">-</span><span class="operator">&gt;</span>currentScale;
+
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dx <span class="operator">=</span> line<span class="operator">.</span>dx();
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dy <span class="operator">=</span> line<span class="operator">.</span>dy();
+         <span class="type">double</span> l <span class="operator">=</span> <span class="number">2.0</span> <span class="operator">*</span> (dx <span class="operator">*</span> dx <span class="operator">+</span> dy <span class="operator">*</span> dy);
+         <span class="keyword">if</span> (l <span class="operator">&gt;</span> <span class="number">0</span>) {
+             xvel <span class="operator">+</span><span class="operator">=</span> factor <span class="operator">*</span> dx <span class="operator">*</span> <span class="number">200.0</span> <span class="operator">/</span> l;
+             yvel <span class="operator">+</span><span class="operator">=</span> factor <span class="operator">*</span> dy <span class="operator">*</span> <span class="number">200.0</span> <span class="operator">/</span> l;
+         }
+     }
+
+     <span class="comment">// tendency to stay at a fixed orbit</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> orbit <span class="operator">=</span> getRadiusForState(configuration<span class="operator">.</span>state());
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> distance <span class="operator">=</span> orbitForce<span class="operator">.</span>length();
+
+     <span class="type"><a href="qlinef.html">QLineF</a></span> unit <span class="operator">=</span> orbitForce<span class="operator">.</span>unitVector();
+
+     orbitForce<span class="operator">.</span>setLength(xvel <span class="operator">*</span> unit<span class="operator">.</span>dx() <span class="operator">+</span> yvel <span class="operator">*</span> unit<span class="operator">.</span>dy());
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> w <span class="operator">=</span> <span class="number">2</span> <span class="operator">-</span> exp(<span class="operator">-</span>pow(distance<span class="operator">-</span>orbit<span class="operator">,</span> <span class="number">2</span>)<span class="operator">/</span>(<span class="number">2</span> <span class="operator">*</span> <span class="number">50</span>));
+
+     <span class="keyword">if</span> (distance <span class="operator">&lt;</span> orbit) {
+         xvel <span class="operator">+</span><span class="operator">=</span> orbitForce<span class="operator">.</span>dx() <span class="operator">*</span> w;
+         yvel <span class="operator">+</span><span class="operator">=</span> orbitForce<span class="operator">.</span>dy() <span class="operator">*</span> w;
+     } <span class="keyword">else</span> {
+         xvel <span class="operator">-</span><span class="operator">=</span> orbitForce<span class="operator">.</span>dx() <span class="operator">*</span> w;
+         yvel <span class="operator">-</span><span class="operator">=</span> orbitForce<span class="operator">.</span>dy() <span class="operator">*</span> w;
+     }
+
+     <span class="keyword">if</span> (<a href="qtglobal.html#qAbs">qAbs</a>(xvel) <span class="operator">&lt;</span> <span class="number">0.1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> <a href="qtglobal.html#qAbs">qAbs</a>(yvel) <span class="operator">&lt;</span> <span class="number">0.1</span>)
+         xvel <span class="operator">=</span> yvel <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="type"><a href="qrectf.html">QRectF</a></span> sceneRect <span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>sceneRect();
+     newPos <span class="operator">=</span> pos() <span class="operator">+</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(xvel<span class="operator">,</span> yvel);
+     newPos<span class="operator">.</span>setX(<a href="qtglobal.html#qMin">qMin</a>(<a href="qtglobal.html#qMax">qMax</a>(newPos<span class="operator">.</span>x()<span class="operator">,</span> sceneRect<span class="operator">.</span>left() <span class="operator">+</span> <span class="number">10</span>)<span class="operator">,</span> sceneRect<span class="operator">.</span>right() <span class="operator">-</span> <span class="number">10</span>));
+     newPos<span class="operator">.</span>setY(<a href="qtglobal.html#qMin">qMin</a>(<a href="qtglobal.html#qMax">qMax</a>(newPos<span class="operator">.</span>y()<span class="operator">,</span> sceneRect<span class="operator">.</span>top() <span class="operator">+</span> <span class="number">10</span>)<span class="operator">,</span> sceneRect<span class="operator">.</span>bottom() <span class="operator">-</span> <span class="number">10</span>));
+ }
+
+ <span class="type">bool</span> Cloud<span class="operator">::</span>advance()
+ {
+     <span class="keyword">static</span> <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> scaleDelta <span class="operator">=</span> <span class="number">0.01</span>;
+
+     <span class="type">bool</span> animated <span class="operator">=</span> <span class="keyword">false</span>;
+
+     <span class="keyword">if</span> (currentScale <span class="operator">&lt;</span> finalScale) {
+         animated <span class="operator">=</span> <span class="keyword">true</span>;
+         currentScale <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(currentScale <span class="operator">+</span> scaleDelta<span class="operator">,</span> finalScale);
+         setTransform(<span class="type"><a href="qtransform.html">QTransform</a></span><span class="operator">::</span>fromScale(currentScale<span class="operator">,</span> currentScale)<span class="operator">,</span> <span class="keyword">false</span>);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (currentScale <span class="operator">&gt;</span> finalScale) {
+         animated <span class="operator">=</span> <span class="keyword">true</span>;
+         currentScale <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(currentScale <span class="operator">-</span> scaleDelta<span class="operator">,</span> finalScale);
+         setTransform(<span class="type"><a href="qtransform.html">QTransform</a></span><span class="operator">::</span>fromScale(currentScale<span class="operator">,</span> currentScale)<span class="operator">,</span> <span class="keyword">false</span>);
+     }
+
+     <span class="keyword">if</span> (newPos <span class="operator">!</span><span class="operator">=</span> pos()) {
+         setPos(newPos);
+         animated <span class="operator">=</span> <span class="keyword">true</span>;
+     }
+
+     <span class="keyword">if</span> (opacity() <span class="operator">!</span><span class="operator">=</span> finalOpacity) {
+         animated <span class="operator">=</span> <span class="keyword">true</span>;
+         <span class="keyword">if</span> (<a href="qtglobal.html#qAbs">qAbs</a>(finalScale <span class="operator">-</span> currentScale) <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+             <span class="comment">// use scale as reference</span>
+             setOpacity(opacity() <span class="operator">+</span> scaleDelta <span class="operator">*</span> (finalOpacity <span class="operator">-</span> opacity()) <span class="operator">/</span>
+                        <a href="qtglobal.html#qAbs">qAbs</a>(finalScale <span class="operator">-</span> currentScale));
+         } <span class="keyword">else</span> {
+             setOpacity(finalOpacity);
+         }
+     }
+
+     <span class="keyword">if</span> (<span class="operator">!</span>animated <span class="operator">&amp;</span><span class="operator">&amp;</span> deleteAfterAnimation)
+         deleteLater();
+
+     <span class="keyword">return</span> animated;
+ }
+
+ <span class="type"><a href="qrectf.html">QRectF</a></span> Cloud<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> childrenBoundingRect();
+ }
+
+ <span class="type">void</span> Cloud<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>)
+ {
+ }
+
+ <span class="type"><a href="qvariant.html">QVariant</a></span> Cloud<span class="operator">::</span>itemChange(GraphicsItemChange change<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value)
+ {
+     <span class="keyword">switch</span> (change) {
+     <span class="keyword">case</span> ItemPositionHasChanged:
+         <span class="keyword">if</span> (BearerCloud <span class="operator">*</span>bearercloud <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>BearerCloud <span class="operator">*</span><span class="operator">&gt;</span>(scene()))
+             bearercloud<span class="operator">-</span><span class="operator">&gt;</span>cloudMoved();
+     <span class="keyword">default</span>:
+         ;
+     };
+
+     <span class="keyword">return</span> <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>itemChange(change<span class="operator">,</span> value);
+ }
+
+ <span class="type">void</span> Cloud<span class="operator">::</span>mouseDoubleClickEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         <span class="keyword">if</span> (session<span class="operator">-</span><span class="operator">&gt;</span>isOpen())
+             session<span class="operator">-</span><span class="operator">&gt;</span>close();
+         <span class="keyword">else</span>
+             session<span class="operator">-</span><span class="operator">&gt;</span>open();
+
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+ }
+
+ <span class="type">void</span> Cloud<span class="operator">::</span>stateChanged(<span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>State state)
+ {
+     <span class="keyword">if</span> (configuration<span class="operator">.</span>name()<span class="operator">.</span>isEmpty())
+         finalOpacity <span class="operator">=</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">0.1</span>);
+     <span class="keyword">else</span> <span class="keyword">if</span> (session<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>NotAvailable)
+         finalOpacity <span class="operator">=</span> <span class="number">0.5</span>;
+     <span class="keyword">else</span>
+         finalOpacity <span class="operator">=</span> <span class="number">1.0</span>;
+
+ <span class="preprocessor">#if !defined(Q_WS_MAEMO_5) &amp;&amp; !defined(Q_WS_MAEMO_6) &amp;&amp; \
+     !defined(Q_OS_SYMBIAN) &amp;&amp; !defined(Q_OS_WINCE)</span>
+     <span class="type"><a href="qstring.html">QString</a></span> tooltip;
+
+     <span class="keyword">if</span> (configuration<span class="operator">.</span>name()<span class="operator">.</span>isEmpty())
+         tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;b&gt;HIDDEN NETWORK&lt;/b&gt;&lt;br&gt;&quot;</span>);
+     <span class="keyword">else</span>
+         tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&quot;</span>)<span class="operator">.</span>arg(configuration<span class="operator">.</span>name());
+
+ <span class="preprocessor">#ifndef QT_NO_NETWORKINTERFACE</span>
+     <span class="keyword">const</span> <span class="type"><a href="qnetworkinterface.html">QNetworkInterface</a></span> interface <span class="operator">=</span> session<span class="operator">-</span><span class="operator">&gt;</span>interface();
+     <span class="keyword">if</span> (interface<span class="operator">.</span>isValid())
+         tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;br&gt;Interface: %1&quot;</span>)<span class="operator">.</span>arg(interface<span class="operator">.</span>humanReadableName());
+     tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;br&gt;Id: %1&quot;</span>)<span class="operator">.</span>arg(configuration<span class="operator">.</span>identifier());
+ <span class="preprocessor">#endif</span>
+
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> bearerTypeName <span class="operator">=</span> configuration<span class="operator">.</span>bearerTypeName();
+     <span class="keyword">if</span> (<span class="operator">!</span>bearerTypeName<span class="operator">.</span>isEmpty())
+         tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;br&gt;Bearer: %1&quot;</span>)<span class="operator">.</span>arg(bearerTypeName);
+
+     <span class="type"><a href="qstring.html">QString</a></span> s <span class="operator">=</span> tr(<span class="string">&quot;&lt;br&gt;State: %1 (%2)&quot;</span>);
+     <span class="keyword">switch</span> (state) {
+     <span class="keyword">case</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>Invalid:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Invalid&quot;</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>NotAvailable:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Not Available&quot;</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>Connecting:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Connecting&quot;</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>Connected:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Connected&quot;</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>Closing:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Closing&quot;</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>Disconnected:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Disconnected&quot;</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span><span class="operator">::</span>Roaming:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Roaming&quot;</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Unknown&quot;</span>));
+     }
+
+     <span class="keyword">if</span> (session<span class="operator">-</span><span class="operator">&gt;</span>isOpen())
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Open&quot;</span>));
+     <span class="keyword">else</span>
+         s <span class="operator">=</span> s<span class="operator">.</span>arg(tr(<span class="string">&quot;Closed&quot;</span>));
+
+     tooltip <span class="operator">+</span><span class="operator">=</span> s;
+
+     tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;br&gt;&lt;br&gt;Active time: %1 seconds&quot;</span>)<span class="operator">.</span>arg(session<span class="operator">-</span><span class="operator">&gt;</span>activeTime());
+     tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;br&gt;Received data: %1 bytes&quot;</span>)<span class="operator">.</span>arg(session<span class="operator">-</span><span class="operator">&gt;</span>bytesReceived());
+     tooltip <span class="operator">+</span><span class="operator">=</span> tr(<span class="string">&quot;&lt;br&gt;Sent data: %1 bytes&quot;</span>)<span class="operator">.</span>arg(session<span class="operator">-</span><span class="operator">&gt;</span>bytesWritten());
+
+     setToolTip(tooltip);
+ <span class="preprocessor">#else</span>
+     Q_UNUSED(state);
+ <span class="preprocessor">#endif</span>
+ }
+
+ <span class="type">void</span> Cloud<span class="operator">::</span>newConfigurationActivated()
+ {
+     <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerType bearerType <span class="operator">=</span> configuration<span class="operator">.</span>bearerType();
+     <span class="keyword">if</span> (<span class="operator">!</span>svgCache<span class="operator">.</span>contains(bearerType)) {
+         <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span> <span class="operator">*</span>renderer <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">switch</span> (bearerType) {
+         <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerWLAN:
+             renderer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span>(QLatin1String(<span class="string">&quot;:wlan.svg&quot;</span>));
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerEthernet:
+             renderer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span>(QLatin1String(<span class="string">&quot;:lan.svg&quot;</span>));
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>Bearer2G:
+             renderer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span>(QLatin1String(<span class="string">&quot;:cell.svg&quot;</span>));
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerBluetooth:
+             renderer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span>(QLatin1String(<span class="string">&quot;:bluetooth.svg&quot;</span>));
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerCDMA2000:
+         <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerWCDMA:
+         <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>BearerHSPA:
+             renderer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span>(QLatin1String(<span class="string">&quot;:umts.svg&quot;</span>));
+             <span class="keyword">break</span>;
+         <span class="keyword">default</span>:
+             renderer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsvgrenderer.html">QSvgRenderer</a></span>(QLatin1String(<span class="string">&quot;:unknown.svg&quot;</span>));
+         }
+
+         <span class="keyword">if</span> (renderer)
+             svgCache<span class="operator">.</span>insert(bearerType<span class="operator">,</span> renderer);
+     }
+
+     icon<span class="operator">-</span><span class="operator">&gt;</span>setSharedRenderer(svgCache<span class="operator">[</span>bearerType<span class="operator">]</span>);
+
+     <span class="keyword">if</span> (configuration<span class="operator">.</span>name()<span class="operator">.</span>isEmpty()) {
+         text<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(tr(<span class="string">&quot;HIDDEN NETWORK&quot;</span>));
+     } <span class="keyword">else</span> {
+         <span class="keyword">if</span> (configuration<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>ServiceNetwork)
+             text<span class="operator">-</span><span class="operator">&gt;</span>setHtml(<span class="string">&quot;&lt;b&gt;&quot;</span> <span class="operator">+</span> configuration<span class="operator">.</span>name() <span class="operator">+</span> <span class="string">&quot;&lt;/b&gt;&quot;</span>);
+         <span class="keyword">else</span>
+             text<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(configuration<span class="operator">.</span>name());
+     }
+
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> height <span class="operator">=</span> icon<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height() <span class="operator">+</span> text<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height();
+
+     icon<span class="operator">-</span><span class="operator">&gt;</span>setPos(icon<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>width() <span class="operator">/</span> <span class="operator">-</span><span class="number">2</span><span class="operator">,</span> height <span class="operator">/</span> <span class="operator">-</span><span class="number">2</span>);
+
+     text<span class="operator">-</span><span class="operator">&gt;</span>setPos(text<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>width() <span class="operator">/</span> <span class="operator">-</span><span class="number">2</span><span class="operator">,</span>
+                  height <span class="operator">/</span> <span class="number">2</span> <span class="operator">-</span> text<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height());
+
+     stateChanged(session<span class="operator">-</span><span class="operator">&gt;</span>state());
+ }
+
+ <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> Cloud<span class="operator">::</span>getRadiusForState(<span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>StateFlags state)
+ {
+     <span class="keyword">switch</span> (state) {
+     <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>Active:
+         <span class="keyword">return</span> <span class="number">100</span>;
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>Discovered:
+         <span class="keyword">return</span> <span class="number">150</span>;
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>Defined:
+         <span class="keyword">return</span> <span class="number">200</span>;
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>Undefined:
+         <span class="keyword">return</span> <span class="number">250</span>;
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="keyword">return</span> <span class="number">300</span>;
+     }
+ }</pre>
+</div>
+<!-- @@@network/bearercloud/cloud.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

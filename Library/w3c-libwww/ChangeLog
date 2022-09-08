@@ -1,0 +1,609 @@
+Changes with libwww 5.4.1
+
+2017-06-23	 Jose Kahan <jose@w3.org>
+
+	* Removed the expat source code in favor of linking against
+	the global system expat library to avoid having to track
+	security advisories in that library
+
+2017-01-04	 Jose Kahan <jose@w3.org>
+
+	* Updated expat to 2.2.0
+	* Updated autotools to the current versions
+
+2006-12-04       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/HTSQL.c: add missing mysql_init to HTSQL_connect reported by Xavier Torne
+
+2006-12-03       Vic Bancroft <bancroft@america.net>
+
+	* configure.ac, Library/src/Makefile.am, Library/cvs2sql/Makefile.am,
+	  Robot/src/Makefile.am:
+	  modify configure scripts for mysql_config based autoconf processing
+	* Library/src/HTSQL.c, Library/src/HTSQL.html, Library/src/HTSQLLog.c: remove
+	  mysql directory from include directiv
+
+2006-12-02       Vic Bancroft <bancroft@america.net>
+
+	* Robot/src/RobotMain.c: added flag MR_KEEP_META for -lm last modified option
+	  detected by Jan Hutaø
+
+2006-11-29       Vic Bancroft <bancroft@america.net>
+
+	* Robot/src/RobotMain.c: added flag MR_KEEP_META for -title option
+	  detected by Jan Hutaø
+
+2006-07-09       Vic Bancroft <bancroft@america.net>
+
+	* close leak in HTBound process_boundary() detected by Sam Varshavchik
+	  using valgrind; excised old #if 0 snippets from HTMIME.c
+
+2006-06-18       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/HTCookie.c: add private function HTCookie_splitPair to
+	  split a KEY=VALUE pair, from Jesse Morgan
+
+2006-03-14       Vic Bancroft <bancroft@america.net>
+
+	* configure.ac: remove unecessary check for appkit.h as
+	  suggested by Roger Persson
+
+2006-03-12       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/wwwsys.html: change genuine angle bracket characters
+	  into the angle bracket entities, thanks to Bobby Jack
+
+2005-11-11       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/HT*.html, Library/src/SSL/HT*.html: wrap
+	  all header files with extern "C"
+	* Library/src/HTFile, configure.ac: add a basis for
+	  addressing Ben's security concerns
+
+2005-10-16       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/HTBound.c: libwww security advisory fix from
+	  Sam Varshavchik, fix double-counting of processed bytes,
+	  rewrote HTBoundary_put_block, to fix problematic HTTP 1.1
+	  byte range requests
+
+2005-08-01       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/: HTAlert.c, HTHeader.c, HTInit.c, HTNet.c,
+	  HTProfil.c, HTProt.c, HTTrans.c: Patch to greatly speed up
+	  repeated requests, from Arthur Smith
+
+2005-07-25       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/HTSQL.c: modifications to compile without using
+	  deprecated mysql functions
+	* config/: config.sub, ltmain.sh: updates for recent version of
+	  libtool
+
+2005-04-04       Jose Kahan <jose@w3.org>
+
+	* INSTALL.html, Library/src/HTEvtLst.c: cleaning
+
+2005-03-09       Vic Bancroft <bancroft@america.net>
+
+	* libwww-config.in: include -lwwwssl, thanks to mgoddard at
+	  itgs-presearch.com
+
+2005-02-28       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/SSL/HTSSLWriter.c: avoids an eternal loop in libwww
+	  (thanks to Steinar Bang)
+
+2005-02-27       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/SSL/HTSSL.html, Robot/src/RobotMain.c: fix for webbot
+	  -v option check and documentation addition
+	* configure.ac, Library/src/SSL/HTSSL.c,
+	  Library/src/SSL/windows/wwwssl.def, Robot/src/HTRobMan.html,
+	  Robot/src/Makefile.am, Robot/src/RobotMain.c: basic support for
+	  client side certificates using PEM format
+
+2005-01-23       Vic Bancroft <bancroft@america.net>
+
+	* Library/src/SSL/: HTSSL.c, HTSSLReader.c, HTSSLWriter.c: add
+	  openssl to include for ssl.h and rand.h
+	* config/: config.guess, config.sub, ltmain.sh: update after
+	  running libtoolize
+	* Robot/src/Makefile.am: use SSL directory for libwwwssl.la
+	* Robot/src/RobotMain.c: include HTSSL.h
+	* configure.ac: fix aclocal underquoting warnings
+	* Robot/src/: RobotMain.c, Makefile.am: update to enable https
+	  protocol
+
+2005-01-05       Martin Duerst <duerst@w3.org>
+
+	* Library/src/HTTPReq.c: fixed , to _ in HTTRACE call
+	* Library/src/HTTPReq.c: removed LIBWWW_USEIDN, because unnecessary
+	* modules/idn/unicode_template.c: forgot one file
+	* Library/src/HTDNS.html: moved IDN to main branch
+	* Library/src/HTDNS.c: moved IDN to main branch
+	* Library/src/HTTPReq.c: added "LIBWWW_USEIDN" conditional
+	* Library/src/HTTPReq.c: moved IDN to main branch
+
+2004-01-29       Jose Kahan <jose@w3.org>
+
+	* Library/Overview.html: JK: Added the libwww survey results
+
+
+Changes with libwww 5.40
+
+2003-11-17      Jose Kahan <jose@w3.org>
+
+        * Added a public patch to expat that kept if from compiling 
+          under C++ (misplaced enum). 
+          http://downloads.linuxfromscratch.org/blfs-patches/
+             expat-1.95.6.patch
+
+2003-04-18      Jose Kahan <jose@w3.org>
+
+	* Richard Atterer: HTHost_killpipe() didn't behave correctly:
+          The private function killPipeLine() called by it wasn't 
+          closing the HTTP/1.1 pipelined connection. This could cause
+	  many problems:
+
+	  - We call HTHost_killPipe() while the pipeline is active, in 
+            the middle of a download
+  	  - The requests of the pipeline are removed from the queue,
+            but the connection is still open
+          - Instead of executing the main loop, we *immediately* 
+            start another request for the same host.
+          - Because the connection is still up, the request is 
+            added to the pipeline and the HTTP request headers are 
+            sent off
+          - The new request's event object now "listens" to the connection
+          - Instead of the HTTP reply headers it expects, it only gets 
+            what it thinks is "garbage" - in fact, it is the remaining 
+            data of the request which was aborted by HTHost_killPipe() 
+            earlier
+          - libwww concludes that "this is a HTTP 0.9 or earlier host" 
+            and aborts the new request with an error :-(
+
+	  The solution was to close the connection inside killPipeline(), 
+          but only if the pipeline isn't idle, i.e. it contains 1 or 
+          more requests.
+
+2003-04-14      Jose Kahan <jose@w3.org>
+
+        * The previous patch made a call to strcasecmp which isn't 
+          portable under Windows. Changed its call to libwww's strcasecomp.
+
+2003-04-10	Jose Kahan <jose@w3.org>
+
+	* The generation of a Digest Authentication answer didn't work
+	  if the server sent a QoP with two options, rather than a single
+	  one. As we didn't handle auth-int anyway, I made auth the only 
+	  available one.
+
+2003-03-21	Jose Kahan <jose@w3.org>
+
+	* Updated expat to version 0.96.6
+	* Updated the autoconf tools to the latest versions (2.5x, 1.5x)
+
+2003-03-19      Jose Kahan <jose@w3.org>
+
+	* Changed the order between -lwwwxml and -lwwwapp in libwww-config
+	  as suggested by Frank Traenkle.
+	
+Changes with libwww 5.3.2
+
+2002-06-06	Jose Kahan <jose@w3.org>
+
+	* Make the make dist generate a .tgz file.
+
+2002-06-05	Jose Kahan <jose@w3.org>
+
+	* The Library/User/Extrnals.html file (a list of all exported
+ 	  functions and variables) wasn't being generated with the
+	  consequence that make failed.
+
+2002-06-05	Jose Kahan <jose@w3.org>
+
+        * Updated the auto-tools files in ~/libwww and ~/libwww/config
+	  to the latest versions (autoconf 2.13, libtool 1.4.2a, automake
+	   1.4-p4). If when compiling you see warning messages saying:
+	    libtool: test =: unary operator expected
+  	  it means you're running an old version of libtool. If you
+          cannot update this tool, then, go to the libwww directory and type:
+		libtoolize -c -f
+          then bootstrap the library again. This will fix your problem.
+
+2002-06-05	Richard Atterer <libwww@list02.atterer.net>
+
+	* Patched configure.in and wwwsys.html for building libwww
+          on mingw32 (a version of GCC that doesn't make produced 
+          binaries depend on the Cygwin DLL).
+          See http://lists.w3.org/Archives/Public/www-lib/2002AprJun/0053.html.
+
+2002-06-04      Thurog <thurog@gmx.de>
+
+	* Patched configure.in to avoid a broken configure error in
+	  autoconf 2.5.3. 
+	  See http://lists.w3.org/Archives/Public/www-lib/2002AprJun/0034.html.
+	
+2002-05-29      Manuele Kirsch <mkirsch@terra.com.br>
+
+	* Fixes for windows plataform concerning WebDAV and Extension
+	  methods. In HTMethod and HTRequest, functions defined for 
+	  the Extension Methods are now defined always, but return 
+	  fail values when HT_EXT is not defined. In addition, the 
+	  files "Library/src/WWWDAV.html" and "Library/src/windows/wwwdav.files"
+	  have been added. These files and modifications were needed 
+	  to produce the correct "*.def" files, for windows plataform.
+
+2002-05-29      Jose Kahan <jose@w3.org>
+
+	* Created the necessary makefiles and changed the windows 
+	  project files for WebDAV and Extension methods.
+
+2002-05-28      Manuele Kirsch <mkirsch@terra.com.br>
+
+	* Minor fixes concerning WebDAV module and Extension methods. At 
+	  src/HTTP.c source file, the 207 status codes has now the result 
+	  HT_MULTI_STATUS (line 310), and in Examples/davsample.c,
+	  options "-l", "-c" and "-m" can not anymore produce "Segment dump"  
+	  error when an command line argument is missing. 
+
+	* Concerning to Extension Methods, the definitions of 
+	  HTMethod_hasEntity macro into HTMethods.html have been changed
+	  to improve the code readability.
+
+2002-03-19      Manuele Kirsch <Manuele.Kirsch_Pinheiro@inrialpes.fr>
+
+	* The WebDAV module has been changed to use HTRequest entity 
+	  and PostCallback to send all message bodies in its requests.
+
+	* Extension methods have been changed - now the application
+	  may chose, when register an extension method, between use
+	  "Expect: 100-continue" heander and HTRequest Entity, or the
+	  new message body present in HTRequest. When using the first
+	  one, the application must set a PostCallback, and when using
+	  the second, it may set a small message body to be sent with
+	  the request. This last may be used to other protocols, other
+	  than HTTP. 
+
+	* Added a new example (myext2.c) that shows how to set the
+	  extension methods and how to use it with "Expect: 100-contine"
+	  and with message body. 
+
+2002-03-08      Manuele Kirsch <Manuele.Kirsch_Pinheiro@inrialpes.fr>
+
+	* Added new methods in HTMethod enumeration. There are the 7
+	  methods defined in WebDAV protocol (LOCK,UNLOCK,PROPFIND,
+	  PROPPATCH,MKCOL,COPY and MOVE), and also 7 extension methods 
+	  (METHOD_EXT_0 to METHOD_EXT_6). These methods are undefined 
+	  methods that can be set/unset for the applications using two 
+	  new functions introduced to HTMethod module 
+	  ("HTMethod_setExtensionMethod" and "HTMethod_deleteExtensionMethod").
+	  Those extension methods are available only if configure used
+	  --with-extension option (which define HT_EXT).
+
+	* Added new fields to HTRequest structure: a message body array,
+	  its length and format. HTTPGenMake functions in HTTPGen.c has
+	  been changed to include Content-Type and Content-Lenght headers
+	  if messageBody field and messageBodyType/messageBodyFormat are
+	  set. It also send this message body only if it is set. This 
+	  message body may be use for XML message bodies (indeed, it is
+	  used by some DAV methods in HTDAV module). These modifications
+	  are activated only if HT_DAV or HT_EXT are defined.
+	  
+	* Added a new module HTDAV with high level functions for WebDAV 
+	  protocol. It is defined in HTDAV.h/html and implemented in 
+	  HTDAV.c. This is only enabled with "--with-dav" option in 
+	  configure procedure (this option will define HT_DAV). An example 
+	  of use (davsample.c) have been included in Library/Examples.  
+
+	* Added new status codes (in HTUtils.h/html) and error codes (in
+	  HTError.h/html) defined by WebDAV protocol (102,207,422,423,424
+	  and 507). This codes are activated only if HT_DAV is defined.
+
+2002-03-21      Jose Kahan <jose@w3.org>
+
+	* Added the HTDNS.c configure patches for the reentrant call to
+	  gethostbynamer function. (sorry, I can't find the name of
+	  the person who contributed this patch right now).
+	
+2001-08-30      Jose Kahan <jose@w3.org>
+
+	* Added a new field in the HTRequest structure for specifying
+	  a user defined Content-Location. This allows to use the library
+	  functions to access a resource, while in fact the request sent
+	  to the server is made to the value of the user defined 
+	  Content-Location. This sound silly, but it allows to keep the
+	  libwww state coherent and it doesn't break the requests like
+	  the previous (and banned since long time) real content-location
+	  handling. To avoid confusion, this field is called
+	  default_put_name. See HTReqMan.h for the name of the functions
+	  that handle this field.
+
+	* New public function in HTCache.c to reset the value of a cache
+	  entry and delete the cached file. This is interesting when 
+	  we want to keep a cache entry, but force the cache entry to be
+	  refreshed.  HTCache_resetMeta ().
+
+2001-08-14	Jose Kahan <jose@w3.org>
+
+	* HTProfile_newPreemptiveClient wasn't intializing the 
+	  default event loop in all cases (bug reported by
+	  Olivier Steinau).
+
+2001-03-14	Jose Kahan <jose@w3.org>
+
+	* Digest authentication didn't work well with pipelining requests.
+	  Only one of such requests got the stale nonce. The other 401
+	  were being re-interpreted as if the user had given a wrong
+	  login name or password. To fix this, we try to infer a stale 
+	  nonce if the previous nonce and the new one sent by the server
+	  are different and a wrong login name/password if they are the
+	  same. The patch is in HTAABrow.c. 
+	  I also added a second bug fix in the same patch as not all 
+	  pipelined requests seem to go thru the first authentication filter.
+	
+2001-03-09	Jose Kahan <jose@w3.org>
+
+	* Digest authentication wasn't being compiled by default in Win32
+	  because windows/config.h was missing the HT_MD5 define.
+	
+2001-03-06      Serge Adda <sAdda@infovista.com>
+	
+	* HTAnchor bug. HTAnchor_delete wasn't removing the reference to
+	  the deleted anchor. This caused a bug whenever requesting another
+	  anchor for the same URL. Thanks to Anton Belov for having
+	  reported the problem and to Serge for his patch. See
+	  http://lists.w3.org/Archives/Public/www-lib/2001JanMar/0133.html.
+	  
+
+2001-03-06      Stefan Wiesner <sw@ais-ag.de>
+
+	* Timer bug. There was a bug in the code of function HTTimer_new
+	  if a timer is already expired when HTTimer_new is called. See
+	  http://lists.w3.org/Archives/Public/www-lib/2001JanMar/0123.html
+	  for the full analysis.
+	  
+	
+2001-02-26	Jose Kahan <jose@w3.org>
+
+	* Cache bug. An HTResponse object was being freed repetively inside
+	  a while loop, when reading a cached metadata in meta_read(). I 
+	  moved the delete to outside this function.
+
+Changes with libwww 5.3.2
+	
+2000-12-19	Jose Kahan <jose@w3.org>
+
+	* Compilation fix: two prototypes in HTResponse.html were declared
+	  as PUBLIC, instead of as external.
+	  Updated the copyright date of the WinCommander
+	  Fixed runtime crashes with the following example applications:
+	      chunk.c chunkbody.c getheaders.c head.c multichunk.c
+
+2000-12-18	Jose Kahan <jose@w3.org>
+
+	* Compilation fix: The HTMIME_anchor2response() function
+	  added a dependency between the cache and mime mini-libs.
+	  I changed the call to a stream converter (HTCacheCopyHeaders)
+	  to make it optional and to avoid the dependency. The converter
+	  is initialized in HTInit.c:HTConverterInit.
+
+2000-12-14	Jose Kahan <jose@w3.org>
+	
+	* Bug fix: make dist didn't work because of a recurrent rule
+	  in the ComLine make file (it tried to use www to create a
+	  documentation file).
+ 
+2000-12-13	Jose Kahan <jose@w3.org>
+
+	* Bug fix: When objects were retrieved from the cache, the
+	  response object didn't have a copy of the request headers.
+	  These headers were only found in the anchor associated to
+	  the request. In order to make a coherent behavior, I made
+	  a new function HTMIME.c:HTMIME_anchor2response() that copies
+	  the headers from one object to the other. Well, more than a 
+	  copy, it adds a link to the headers. I call this function in
+	  HTCache:CacheCleanup when it succesfully retrieved an object
+	  from the cache. Result, you can now use the response object 
+	  in both cases.
+
+2000-10-30	Jose Kahan <jose@w3.org>
+	
+	* Enhancement, added a new field to the HTResponse object to
+	  store the HTTP reason sent by the server. Two new functions to 
+  	  get it/set it: HTResponse_reason(), HTResponse_setReason()
+
+2000-09-01 	Wayne Davison <wayne@clari.net>
+
+	* HTAccess.c: Typo fix
+	* HTChunk.c, HTChunk.html: new function, HTChunk_fromBuffer for
+	  creating a chunk from an existing  block of memory, without having
+	  to allocate more memory.
+
+2000-09-01      Peter Stamfest <peter.stamfest@eunet.at>
+
+	* Makefile.am: corrected a DESTDIR problem
+
+2000-09-01      Jose Kahan <jose@w3.org>
+
+	* config.h: Updated the libwww version
+
+2000-09-01 	Zhu Qun-Ying <qunying@yahoo.com>
+
+	* config.h: BUG FIX: wrong closing comment
+
+2000-08-30 	Arthur Barstow <barstow@w3.org>
+
+	* HTRDF.c: BUG FIX: nested typedNode constructs with
+	  attributes caused re-using a free'd pointer.
+
+	* HTRDF.c: per a request from the Redland RDF project, added 
+	  a void * context parameter to HTRDF_parse{File,Buffer}.  
+	  The application-specific context will be available in the 
+	  triple callback handler.
+	
+	* HTRDF.html - updated to API changes mentioned above
+
+	* Library/Examples/ updated rdf_parse_{file,buffer} programs
+	  to reflect the above API changes.
+
+2000-08-29 	Jose Kahan <jose@w3.org>
+
+	* Temporarily commented the XML structured stream in HTXML.c
+	  (HTXMLStructured_new) and its related code, as it creates
+	  a dependency with the libwwwxml mini-library. If this code
+	  is still useful, it should go into another module, HTSXML.c
+	  to avoid the forced dependency.
+	
+2000-08-28 	Jose Kahan <jose@w3.org>
+
+	* Updated expat to the test version 19990728, as this version
+	  adds some interesting API extensions and is now being widely
+	  used by other projects, including the Perl XML modules. The
+	  previous version is CVS tagged as expat-1-1.
+	
+2000-08-18 	Arthur Barstow <barstow@w3.org>
+
+	* HTRDF.c: Added a new public API HTRDF_parseBuffer.  It
+	  parses an arbitrary buffer (char *) of RDF.
+
+	* HTRDF.c: Changed the name of HTRDFParseFile to HTRDF_parseFile.
+	  it now returns BOOL instead of char * to be consistent with
+	  other RDF parser APIs.
+
+	* HTRDF.html - updated to HTRDF.c changes mentioned above
+
+	* Library/Examples/: added two new example programs:
+
+	  1. rdf_parse_file - demos/tests HTRDF_parseFile()
+	  2. rdf_parse_buffer - demos/tests HTRDF_parseBuffer()
+
+	* configure.in - added the two new programs above
+
+	* Library/Examples/Makefile.am - added the two new programs
+
+2000-08-17 	Arthur Barstow <barstow@w3.org>
+
+	* HTRDF.c: Fixed a memory leak.  (HTElement structures for elements
+	  within a property with parseType="Literal" were not free'd
+	  after the parser was done.)
+
+	* HTRDF.c: Bug fixes. Added code to circumvent calls to HTSAlloc 
+	  (via StrAllocCopy) when the src and dest were identical (this 
+	  causes a free'd pointer to be used) or both NULL.
+
+	* HTRDF.c: Changed addMarkup{Add,End} to make one call to 
+	  StrAllocMCat instead of multiple StrAllocCat calls.
+
+2000-08-11 	Jose Kahan <jose@w3.org>
+
+	* Memory leak. The HTPlain (HTPlain.c) stream wasn't freeing the
+	  HTTextImp (me->text) object in the HTPlain_free and
+	  HTPlain_abort. I found the bug while running the robot
+	  thru Insure and found the fix by seeing what was being
+	  done in the HTML (HTML.c) stream.
+
+	* The make dist command wasn't copying the .c, .files, and .mak
+	  files found in the Library/src/windows. As a result, the tar files
+	  created with this command were missing those files. The problem
+	  came from some wrong assumptions in the Makefile.am of the
+	  windows directory.
+	
+2000-08-11 	Wayne Davison <wayne@clari.net>
+
+	* Added two new functions to HTHash.c, HTHashtable_removeObject()
+	  and HTHashTable_walk. The first one allows to delete individual
+	  elements from a hash-table, the second one allows to walk
+	  throug all associated elements in a table without having to ask 
+	  for a list of all keys and then looking each one up. See
+	  http://lists.w3.org/Archives/Public/www-lib/2000JulSep/0146.html
+	  for a more detaile description on how to use these functions.
+	  
+	* I got rid of a few useless variable initializations in HTHash.c
+	  (when the variables were being set to a value immediately
+	  following the init value).
+
+	* I removed some superfluous spaces that I saw.  
+
+2000-08-10 	Wayne Davison <wayne@clari.net>
+
+	* Since "cvs update" was complaining about a bunch of generated
+	  files in the Library/src dir, I tweaked it to ignore the *.la
+	  files and the .libs dir.
+
+2000-08-10	Jose Kahan <jose@w3.org>
+
+	* Because (IMO) of a very imbricated protocol stack, the Robot
+	  could hang when accessing local files, as it become starved
+	  on its own sockets. I fixed the problem by adding a new
+	  state in HTFile:FileEvent() to take into account the case when
+	  a request goes pending. This is mostly based on a previous 
+	  (not commited) patch by Kinuko Yasuda, plus some long debugging to
+	  find out what was happening and a fix to a memory bug that the
+	  other patch had.
+
+2000-08-08 	Wayne Davison <wayne@clari.net>
+	
+	* New HTChunk_setSize function to allow to set the size of a
+	  chunk object upwards or downwards. (HTChunk_truncate() still
+	  exists and still enforces the sizing of the string downwards.)
+	  Both these string-sizing functions only zero the relevant bytes
+	  in the "size" region (if the string is being shortened).  Note
+	  that HTChunk_clear() was left unchanged -- it still clears all of
+	  the Chunk's allocated memory.
+	
+	* Fixed the HT_OUTOFMEM() calls in HTChunk_ensure() to have the
+	  proper location string.
+	
+	* Some code in HTBind.c was optimized to use HTChunk_truncate().
+	
+	* HTFTP.c and HTNews.c was optimized to use HTChunk_setSize()
+	  rather than using HTChunk_ensure() and writing data past the "size".
+
+	* Optimized the code in HTMIME.c and HTML.c to use
+	  HTChunk_truncate(chunk,0) rather than HTChunk_clear(chunk).
+
+	* Documented the new HTChunk_setSize() function.
+
+	* Improved the comments for HTChunk_clear().
+
+	* Fixed the comments for HTChunk_ensure() (it was describing the
+	  extra-size parameter incorrectly).
+
+	* Fixed the comments for HTChunk_toString() (to indicate that the
+	  function destroys the chunk when handing off the CString data).
+
+	* Fixed a few spelling errors in HTChunk.html.
+
+	* Note: There are probably other places in the code that could be
+	  optimized to use truncate rather than clear, but I didn't have 
+	  time to check each one to see if the chunk's data was properly 
+	  respecting the size indicator or not.
+
+2000-08-09	Jose Kahan <jose@w3.org>
+
+	* Updated the "how to bootstrap section" with instructions on what to
+	  do if libtool and aclocal are installed in different directories.
+	  Thanks to Ken Olum and James Henstrige for the tips.
+
+2000-08-08	Jens Meggers <jens@meggers.com>
+
+	* The cache garbage collector (HTCacheGarbage()) could go into an
+	  endless loop when it tried to removed locked entries. The problem
+	  was that it wasn't checking the return code of HTCache_remove().
+
+2000-08-07 	Wayne Davison <wayne@clari.net>
+
+	* Changed the macro argument from "data" to "dp" in 
+	  HTArray_firstObject() and HTArray_nextObject(). These macros
+	  are defined such that if the caller doesn't pass in a variable
+	  named exactly "data" as the second parameter, there will either be a
+	  syntax error generated during the compilation OR the wrong structure 
+	  element will get referenced.  This is because the macro argument 
+	  "data" was the same name as the HTArray structure element that was
+	  being referenced in the macro.
+
+Changes with previous versions
+
+	* No info available (this log was started with version 5.3.2)

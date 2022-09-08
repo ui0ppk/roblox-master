@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<TITLE>Using the W3C Sample Code Library</TITLE>
+<!-- Changed by: Henrik Frystyk Nielsen,  4-Dec-1995 -->
+</HEAD>  
+<BODY>
+
+<A HREF="../../../"><IMG BORDER="0" SRC="../../../Icons/WWW/w3c_home" ALT="W3C"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/guide48x" ALT="Using"></A>
+
+<H1>The Access Manager</H1>
+
+At this point most of the design issues have been addressed and the
+Library it is now possible to use the Library to exchange information
+between the application an the Internet. The Library provides a set of
+functions that can be used to request a URI either on a remote server or
+on the local file system. The access method binds the URL with a
+specific protocol module as described in section
+<A HREF="#access">Access Methods</A> and the stream chains defines the
+data flow for incoming and outgoing data.</P>
+
+
+<H2>Searching a URL</H2>
+
+<B>MORE</B>
+
+<H2>Receiving an Entity</H2>
+
+<B>MORE</B>
+
+<H2>Sending an Entity</H2>
+
+<B>MORE</B>
+
+<H2>Return Codes from the Access manager</H2>
+
+The access manager has a standard set of return codes that the
+application can use for diagnostics. They should only be used as
+indications of the result as a more detailed description of any error
+situation is registered  in the error handler. The set of codes are:</P>
+
+<DL>
+
+<DT><CODE>HT_LOADED</CODE>
+<DD>A generic success code that indicates that the request has been
+fulfilled
+
+<DT><CODE>HT_NO_DATA</CODE>
+
+<DD>Partly a success code, but no document has been retrieved and a
+client application is encouraged to maintain the previous document view
+as the current view. A <CODE>HT_NO_DATA</CODE> code might be the result
+when a  telnet session is started etc.
+
+<DT><CODE>HT_ERROR</CODE>
+
+<DD>An error has occured and the request could not be fulfilled
+
+<DT><CODE>HT_RETRY</CODE>
+
+<DD>The remote server is temporarily unavailable and no more requests
+should be issued to the server before the calendar time indicated in
+<CODE>HTRequest-&gt;retry_after</CODE> field. No action is taken by the
+Library to automatically retry the request, this is uniquely for the
+application to decide. 
+
+<DT><CODE>HT_WOULD_BLOCK</CODE>
+
+<DD>An I/O operation would block and the request must pause. As the
+request is not yet terminated, the operation will continue at a later
+time when the blocking situation has ceased to exist.
+
+</DL>
+
+<H2>Context Swapping</H2>
+
+In a multithreaded environment it is necessary to keep track of the context of each simultanous
+requests issued to the Library as the response might return in another order than the one they were
+issued. The Library allows such a context registration in the <A
+HREF="../../src/HTReq.html">HTRequest object</A> by providing the registration mechanism
+of a call back function and a pointer to an arbitrary data object to be passed to that call back
+function. <P>
+
+
+<P>
+<HR>
+<ADDRESS>Henrik Frystyk, <A HREF="mailto:libwww@w3.org">libwww@w3.org</A>,
+@(#) $Id$
+</ADDRESS>
+</BODY>
+</HTML> 

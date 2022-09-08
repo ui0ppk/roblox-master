@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<TITLE>The HTML DTD -- software interface in libwww</TITLE>
+</HEAD>
+<BODY>
+
+<H1>HTML DTD - Software Interface</H1>
+
+<PRE>
+/*
+**	(c) COPYRIGHT CERN 1994.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+
+SGML purists should excuse the use of the term "DTD" in this file to
+represent DTD-related information which is not exactly a DTD itself.
+The C modular structure doesn't work very well here, as the dtd is
+partly in the .h and partly in the .c which are not very independent.
+Tant pis!. <P>
+
+This module a part of the <A
+HREF="http://info.cern.ch/hypertext/WWW/Library/User/Guide/Guide.html">
+Library of Common Code</A>.
+
+<PRE>
+#ifndef HTMLDTD_H
+#define HTMLDTD_H
+
+#include "sysdep.h"
+#include "HTUtils.h"
+#include <A
+NAME="z3" HREF="SGML.html">"SGML.h"</A>
+
+</PRE>
+<H2>Element Numbers</H2>
+<PRE>
+</PRE>Must Match all tables by element!
+These include tables in <A
+NAME="z1" HREF="HTMLDTD.c">HTMLDTD.c</A>
+and code in <A
+NAME="z0" HREF="HTML.c">HTML.c</A> . 
+<PRE>typedef enum _HTMLElement {
+	HTML_A, 	HTML_ADDRESS,
+	HTML_B,		HTML_BLOCKQUOTE,	HTML_BODY,
+	HTML_BR,
+	HTML_CITE,	HTML_CODE,	HTML_COMMENT,
+	HTML_DD, 	HTML_DFN,	HTML_DIR,
+ 	HTML_DL, 	HTML_DLC,	HTML_DT,
+	HTML_EM,
+	HTML_HEAD,
+	HTML_H1, 	HTML_H2, 	HTML_H3,
+	HTML_H4,	HTML_H5, 	HTML_H6, 	HTML_H7,
+	HTML_HR,
+	HTML_HTML,
+	HTML_I,		HTML_IMG,	HTML_ISINDEX,
+ 	HTML_KBD,	
+	HTML_LI, 	HTML_LINK,	HTML_LISTING,
+	HTML_MENU,	HTML_NEXTID,
+	HTML_OL,	HTML_P,		HTML_PLAINTEXT, HTML_PRE,
+	HTML_SAMP,	HTML_STRONG,
+	HTML_TITLE,	HTML_TT,
+	HTML_U,		HTML_UL,
+	HTML_VAR,	HTML_XMP } HTMLElement;
+
+#define HTML_ELEMENTS 47 
+
+</PRE>
+<H2>Attribute numbers</H2>
+<PRE>
+</PRE>Identifier is HTML_&lt;element>_&lt;attribute>.
+These must match the tables in <A
+NAME="z2" HREF="HTMLDTD.c">HTMLDTD.c</A>
+!
+<PRE>#define HTML_A_HREF 		0
+#define HTML_A_NAME 		1
+#define HTML_A_REL		2
+#define HTML_A_REV		3
+#define HTML_A_TITLE		4
+#define HTML_A_TYPE 		5
+#define HTML_A_URN		6
+#define HTML_A_ATTRIBUTES	7
+
+#define DL_COMPACT 0
+
+#define HTML_IMG_ALIGN		0
+
+#define HTML_IMG_ALT		1
+#define HTML_IMG_ISMAP		2	/* Obsolete but supported */
+#define HTML_IMG_SRC 		3
+#define HTML_IMG_ATTRIBUTES	4
+
+#define HTML_NEXTID_ATTRIBUTES  1
+#define HTML_NEXTID_N 0
+
+#define HTML_PRE_WIDTH		0
+#define HTML_PRE_ATTRIBUTES	1
+
+extern CONST SGML_dtd HTML_dtd;
+
+
+</PRE>
+<H2>Start anchor element</H2>It is kinda convenient to have a
+particulr routine for starting an
+anchor element, as everything else
+for HTML is simple anyway.
+<H3>On entry</H3>targetstream poinst to a structured
+stream object.<P>
+name and href point to attribute
+strings or are NULL if the attribute
+is to be omitted.
+<PRE>extern void HTStartAnchor PARAMS((
+		HTStructured * targetstream,
+		CONST char *  	name,
+		CONST char *  	href));
+
+
+#endif /* HTMLDTD_H */
+
+
+</PRE>
+<H2>Specify next ID to be used</H2>This is anoter convenience routine,
+for specifying the next ID to be
+used by an editor in the series z1.
+z2,...
+<PRE>extern void HTNextID PARAMS((HTStructured * targetStream, int n));
+
+</PRE>End of module definition</BODY>
+</HTML>

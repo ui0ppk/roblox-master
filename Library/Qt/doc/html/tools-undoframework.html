@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- undoframework.qdoc -->
+  <title>Qt 4.8: Undo Framework Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Undo Framework Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#mainwindow-class-definition">MainWindow Class Definition</a></li>
+<li class="level1"><a href="#mainwindow-class-implementation">MainWindow Class Implementation</a></li>
+<li class="level1"><a href="#addcommand-class-definition">AddCommand Class Definition</a></li>
+<li class="level1"><a href="#addcommand-class-implementation">AddCommand Class Implementation</a></li>
+<li class="level1"><a href="#deletecommand-class-definition">DeleteCommand Class Definition</a></li>
+<li class="level1"><a href="#deletecommand-class-implementation">DeleteCommand Class Implementation</a></li>
+<li class="level1"><a href="#movecommand-class-definition">MoveCommand Class Definition</a></li>
+<li class="level1"><a href="#movecommand-class-implementation">MoveCommand Class Implementation</a></li>
+<li class="level1"><a href="#diagramscene-class-definition">DiagramScene Class Definition</a></li>
+<li class="level1"><a href="#the-function">The <tt>main()</tt> Function</a></li>
+</ul>
+</div>
+<h1 class="title">Undo Framework Example</h1>
+<span class="subtitle"></span>
+<!-- $$$tools/undoframework-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="tools-undoframework-commands-cpp.html">tools/undoframework/commands.cpp</a></li>
+<li><a href="tools-undoframework-commands-h.html">tools/undoframework/commands.h</a></li>
+<li><a href="tools-undoframework-diagramitem-cpp.html">tools/undoframework/diagramitem.cpp</a></li>
+<li><a href="tools-undoframework-diagramitem-h.html">tools/undoframework/diagramitem.h</a></li>
+<li><a href="tools-undoframework-diagramscene-cpp.html">tools/undoframework/diagramscene.cpp</a></li>
+<li><a href="tools-undoframework-diagramscene-h.html">tools/undoframework/diagramscene.h</a></li>
+<li><a href="tools-undoframework-mainwindow-cpp.html">tools/undoframework/mainwindow.cpp</a></li>
+<li><a href="tools-undoframework-mainwindow-h.html">tools/undoframework/mainwindow.h</a></li>
+<li><a href="tools-undoframework-main-cpp.html">tools/undoframework/main.cpp</a></li>
+<li><a href="tools-undoframework-undoframework-pro.html">tools/undoframework/undoframework.pro</a></li>
+<li><a href="tools-undoframework-undoframework-qrc.html">tools/undoframework/undoframework.qrc</a></li>
+</ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/tools/undoframework/images/cross.png">tools/undoframework/images/cross.png</a></li>
+</ul>
+<p>The Undo Framework example shows how to implement undo/redo functionality with the Qt undo framework.<p class="centerAlign"><img src="images/undoframeworkexample.png" alt="The Undo Diagram Example" /></p><p>In the Qt undo framework, all actions that the user performs are implemented in classes that inherit <a href="qundocommand.html">QUndoCommand</a>. An undo command class knows how to both <a href="qundocommand.html#redo">redo()</a> - or just do the first time - and <a href="qundocommand.html#undo">undo()</a> an action. For each action the user performs, a command is placed on a <a href="qundostack.html">QUndoStack</a>. Since the stack contains all commands executed (stacked in chronological order) on the document, it can roll the state of the document backwards and forwards by undoing and redoing its commands. See the <a href="qundo.html">overview document</a> for a high-level introduction to the undo framework.</p>
+<p>The undo example implements a simple diagram application. It is possible to add and delete items, which are either box or rectangular shaped, and move the items by dragging them with the mouse. The undo stack is shown in a <a href="qundoview.html">QUndoView</a>, which is a list in which the commands are shown as list items. Undo and redo are available through the edit menu. The user can also select a command from the undo view.</p>
+<p>We use the <a href="graphicsview.html">graphics view framework</a> to implement the diagram. We only treat the related code briefly as the framework has examples of its own (e.g&#x2e;, the <a href="graphicsview-diagramscene.html">Diagram Scene Example</a>).</p>
+<p>The example consists of the following classes:</p>
+<ul>
+<li><tt>MainWindow</tt> is the main window and arranges the example's widgets. It creates the commands based on user input and keeps them on the command stack.</li>
+<li><tt>AddCommand</tt> adds an item to the scene.</li>
+<li><tt>DeleteCommand</tt> deletes an item from the scene.</li>
+<li><tt>MoveCommand</tt> when an item is moved the MoveCommand keeps record of the start and stop positions of the move, and it moves the item according to these when <tt>redo()</tt> and <tt>undo()</tt> is called.</li>
+<li><tt>DiagramScene</tt> inherits <a href="qgraphicsscene.html">QGraphicsScene</a> and emits signals for the <tt>MoveComands</tt> when an item is moved.</li>
+<li><tt>DiagramItem</tt> inherits <a href="qgraphicspolygonitem.html">QGraphicsPolygonItem</a> and represents an item in the diagram.</li>
+</ul>
+<a name="mainwindow-class-definition"></a>
+<h2>MainWindow Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     MainWindow();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> itemMoved(DiagramItem <span class="operator">*</span>movedDiagram<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>moveStartPosition);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> deleteItem();
+     <span class="type">void</span> addBox();
+     <span class="type">void</span> addTriangle();
+     <span class="type">void</span> about();
+     <span class="type">void</span> itemMenuAboutToShow();
+     <span class="type">void</span> itemMenuAboutToHide();
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> createActions();
+     <span class="type">void</span> createMenus();
+     <span class="type">void</span> createUndoView();
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>deleteAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>addBoxAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>addTriangleAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>undoAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>redoAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>exitAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aboutAction;
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>fileMenu;
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>editMenu;
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>itemMenu;
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>helpMenu;
+
+     DiagramScene <span class="operator">*</span>diagramScene;
+     <span class="type"><a href="qundostack.html">QUndoStack</a></span> <span class="operator">*</span>undoStack;
+     <span class="type"><a href="qundoview.html">QUndoView</a></span> <span class="operator">*</span>undoView;
+ };</pre>
+<p>The <tt>MainWindow</tt> class maintains the undo stack, i.e&#x2e;, it creates <a href="qundocommand.html">QUndoCommand</a>s and pushes and pops them from the stack when it receives the <tt>triggered()</tt> signal from <tt>undoAction</tt> and <tt>redoAction</tt>.</p>
+<a name="mainwindow-class-implementation"></a>
+<h2>MainWindow Class Implementation</h2>
+<p>We will start with a look at the constructor:</p>
+<pre class="cpp"> MainWindow<span class="operator">::</span>MainWindow()
+ {
+     undoStack <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qundostack.html">QUndoStack</a></span>(<span class="keyword">this</span>);
+
+     createActions();
+     createMenus();
+
+     createUndoView();
+
+     diagramScene <span class="operator">=</span> <span class="keyword">new</span> DiagramScene();
+     <span class="type"><a href="qbrush.html">QBrush</a></span> pixmapBrush(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/images/cross.png&quot;</span>)<span class="operator">.</span>scaled(<span class="number">30</span><span class="operator">,</span> <span class="number">30</span>));
+     diagramScene<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundBrush(pixmapBrush);
+     diagramScene<span class="operator">-</span><span class="operator">&gt;</span>setSceneRect(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">500</span><span class="operator">,</span> <span class="number">500</span>));
+
+     connect(diagramScene<span class="operator">,</span> SIGNAL(itemMoved(DiagramItem<span class="operator">*</span><span class="operator">,</span><span class="type"><a href="qpointf.html">QPointF</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(itemMoved(DiagramItem<span class="operator">*</span><span class="operator">,</span><span class="type"><a href="qpointf.html">QPointF</a></span>)));
+
+     setWindowTitle(<span class="string">&quot;Undo Framework&quot;</span>);
+     <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span> <span class="operator">*</span>view <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span>(diagramScene);
+     setCentralWidget(view);
+     resize(<span class="number">700</span><span class="operator">,</span> <span class="number">500</span>);
+ }</pre>
+<p>In the constructor, we set up the DiagramScene and <a href="qgraphicsview.html">QGraphicsView</a>.</p>
+<p>Here is the <tt>createUndoView()</tt> function:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createUndoView()
+ {
+     undoView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qundoview.html">QUndoView</a></span>(undoStack);
+     undoView<span class="operator">-</span><span class="operator">&gt;</span>setWindowTitle(tr(<span class="string">&quot;Command List&quot;</span>));
+     undoView<span class="operator">-</span><span class="operator">&gt;</span>show();
+     undoView<span class="operator">-</span><span class="operator">&gt;</span>setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_QuitOnClose<span class="operator">,</span> <span class="keyword">false</span>);
+ }</pre>
+<p>The <a href="qundoview.html">QUndoView</a> is a widget that display the text, which is set with the <a href="qundocommand.html#setText">setText()</a> function, for each <a href="qundocommand.html">QUndoCommand</a> in the undo stack in a list.</p>
+<p>Here is the <tt>createActions()</tt> function:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createActions()
+ {
+     deleteAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Delete Item&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     deleteAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Del&quot;</span>));
+     connect(deleteAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(deleteItem()));
+     ...
+     undoAction <span class="operator">=</span> undoStack<span class="operator">-</span><span class="operator">&gt;</span>createUndoAction(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;&amp;Undo&quot;</span>));
+     undoAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>Undo);
+
+     redoAction <span class="operator">=</span> undoStack<span class="operator">-</span><span class="operator">&gt;</span>createRedoAction(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;&amp;Redo&quot;</span>));
+     redoAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>Redo);</pre>
+<p>The <tt>createActions()</tt> function sets up all the examples actions in the manner shown above. The <a href="qundostack.html#createUndoAction">createUndoAction()</a> and <a href="qundostack.html#createRedoAction">createRedoAction()</a> helps us crate actions that are disabled and enabled based on the state of the stack. Also, the text of the action will be updated automatically based on the <a href="qundocommand.html#text">text()</a> of the undo commands. For the other actions we have implemented slots in the <tt>MainWindow</tt> class.</p>
+<p>Here is the <tt>createMenus()</tt> function:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createMenus()
+ {
+     ...
+     editMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Edit&quot;</span>));
+     editMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(undoAction);
+     editMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(redoAction);
+     editMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     editMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(deleteAction);
+     connect(editMenu<span class="operator">,</span> SIGNAL(aboutToShow())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(itemMenuAboutToShow()));
+     connect(editMenu<span class="operator">,</span> SIGNAL(aboutToHide())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(itemMenuAboutToHide()));
+     ...
+ }</pre>
+<p>We have to use the <a href="qmenu.html">QMenu</a> <tt>aboutToShow()</tt> and <tt>aboutToHide()</tt> signals since we only want <tt>deleteAction</tt> to be enabled when we have selected an item.</p>
+<p>Here is the <tt>itemMoved()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>itemMoved(DiagramItem <span class="operator">*</span>movedItem<span class="operator">,</span>
+                            <span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>oldPosition)
+ {
+     undoStack<span class="operator">-</span><span class="operator">&gt;</span>push(<span class="keyword">new</span> MoveCommand(movedItem<span class="operator">,</span> oldPosition));
+ }</pre>
+<p>We simply push a MoveCommand on the stack, which calls <tt>redo()</tt> on it.</p>
+<p>Here is the <tt>deleteItem()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>deleteItem()
+ {
+     <span class="keyword">if</span> (diagramScene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>deleteCommand <span class="operator">=</span> <span class="keyword">new</span> DeleteCommand(diagramScene);
+     undoStack<span class="operator">-</span><span class="operator">&gt;</span>push(deleteCommand);
+ }</pre>
+<p>An item must be selected to be deleted. We need to check if it is selected as the <tt>deleteAction</tt> may be enabled even if an item is not selected. This can happen as we do not catch a signal or event when an item is selected.</p>
+<p>Here is the <tt>itemMenuAboutToShow()</tt> and itemMenuAboutToHide() slots:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>itemMenuAboutToHide()
+ {
+     deleteAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>itemMenuAboutToShow()
+ {
+     deleteAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="operator">!</span>diagramScene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>isEmpty());
+ }</pre>
+<p>We implement <tt>itemMenuAboutToShow()</tt> and <tt>itemMenuAboutToHide()</tt> to get a dynamic item menu. These slots are connected to the <a href="qmenu.html#aboutToShow">aboutToShow()</a> and <a href="qmenu.html#aboutToHide">aboutToHide()</a> signals. We need this to disable or enable the <tt>deleteAction</tt>.</p>
+<p>Here is the <tt>addBox()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>addBox()
+ {
+     <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>addCommand <span class="operator">=</span> <span class="keyword">new</span> AddCommand(DiagramItem<span class="operator">::</span>Box<span class="operator">,</span> diagramScene);
+     undoStack<span class="operator">-</span><span class="operator">&gt;</span>push(addCommand);
+ }</pre>
+<p>The <tt>addBox()</tt> function creates an AddCommand and pushes it on the undo stack.</p>
+<p>Here is the <tt>addTriangle()</tt> sot:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>addTriangle()
+ {
+     <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>addCommand <span class="operator">=</span> <span class="keyword">new</span> AddCommand(DiagramItem<span class="operator">::</span>Triangle<span class="operator">,</span>
+                                               diagramScene);
+     undoStack<span class="operator">-</span><span class="operator">&gt;</span>push(addCommand);
+ }</pre>
+<p>The <tt>addTriangle()</tt> function creates an AddCommand and pushes it on the undo stack.</p>
+<p>Here is the implementation of <tt>about()</tt>:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>about()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>about(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;About Undo&quot;</span>)<span class="operator">,</span>
+                        tr(<span class="string">&quot;The &lt;b&gt;Undo&lt;/b&gt; example demonstrates how to &quot;</span>
+                           <span class="string">&quot;use Qt's undo framework.&quot;</span>));
+ }</pre>
+<p>The about slot is triggered by the <tt>aboutAction</tt> and displays an about box for the example.</p>
+<a name="addcommand-class-definition"></a>
+<h2>AddCommand Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> AddCommand : <span class="keyword">public</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span>
+ {
+ <span class="keyword">public</span>:
+     AddCommand(DiagramItem<span class="operator">::</span>DiagramType addType<span class="operator">,</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>graphicsScene<span class="operator">,</span>
+                <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="operator">~</span>AddCommand();
+
+     <span class="type">void</span> undo();
+     <span class="type">void</span> redo();
+
+ <span class="keyword">private</span>:
+     DiagramItem <span class="operator">*</span>myDiagramItem;
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>myGraphicsScene;
+     <span class="type"><a href="qpointf.html">QPointF</a></span> initialPosition;
+ };</pre>
+<p>The <tt>AddCommand</tt> class adds DiagramItem graphics items to the DiagramScene.</p>
+<a name="addcommand-class-implementation"></a>
+<h2>AddCommand Class Implementation</h2>
+<p>We start with the constructor:</p>
+<pre class="cpp"> AddCommand<span class="operator">::</span>AddCommand(DiagramItem<span class="operator">::</span>DiagramType addType<span class="operator">,</span>
+                        <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>scene<span class="operator">,</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qundocommand.html">QUndoCommand</a></span>(parent)
+ {
+     <span class="keyword">static</span> <span class="type">int</span> itemCount <span class="operator">=</span> <span class="number">0</span>;
+
+     myGraphicsScene <span class="operator">=</span> scene;
+     myDiagramItem <span class="operator">=</span> <span class="keyword">new</span> DiagramItem(addType);
+     initialPosition <span class="operator">=</span> <span class="type"><a href="qpointf.html">QPointF</a></span>((itemCount <span class="operator">*</span> <span class="number">15</span>) <span class="operator">%</span> <span class="type">int</span>(scene<span class="operator">-</span><span class="operator">&gt;</span>width())<span class="operator">,</span>
+                               (itemCount <span class="operator">*</span> <span class="number">15</span>) <span class="operator">%</span> <span class="type">int</span>(scene<span class="operator">-</span><span class="operator">&gt;</span>height()));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>update();
+     <span class="operator">+</span><span class="operator">+</span>itemCount;
+     setText(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Add %1&quot;</span>)
+         <span class="operator">.</span>arg(createCommandString(myDiagramItem<span class="operator">,</span> initialPosition)));
+ }</pre>
+<p>We first create the DiagramItem to add to the DiagramScene. The <a href="qundocommand.html#setText">setText()</a> function let us set a <a href="qstring.html">QString</a> that describes the command. We use this to get custom messages in the <a href="qundoview.html">QUndoView</a> and in the menu of the main window.</p>
+<pre class="cpp"> <span class="type">void</span> AddCommand<span class="operator">::</span>undo()
+ {
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>removeItem(myDiagramItem);
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>update();
+ }</pre>
+<p><tt>undo()</tt> removes the item from the scene.</p>
+<pre class="cpp"> <span class="type">void</span> AddCommand<span class="operator">::</span>redo()
+ {
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>addItem(myDiagramItem);
+     myDiagramItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(initialPosition);
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>clearSelection();
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>update();
+ }</pre>
+<p>We set the position of the item as we do not do this in the constructor.</p>
+<a name="deletecommand-class-definition"></a>
+<h2>DeleteCommand Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> DeleteCommand : <span class="keyword">public</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span>
+ {
+ <span class="keyword">public</span>:
+     DeleteCommand(<span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>graphicsScene<span class="operator">,</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type">void</span> undo();
+     <span class="type">void</span> redo();
+
+ <span class="keyword">private</span>:
+     DiagramItem <span class="operator">*</span>myDiagramItem;
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>myGraphicsScene;
+ };</pre>
+<p>The DeleteCommand class implements the functionality to remove an item from the scene.</p>
+<a name="deletecommand-class-implementation"></a>
+<h2>DeleteCommand Class Implementation</h2>
+<pre class="cpp"> DeleteCommand<span class="operator">::</span>DeleteCommand(<span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>scene<span class="operator">,</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qundocommand.html">QUndoCommand</a></span>(parent)
+ {
+     myGraphicsScene <span class="operator">=</span> scene;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> list <span class="operator">=</span> myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>selectedItems();
+     list<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setSelected(<span class="keyword">false</span>);
+     myDiagramItem <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span>DiagramItem <span class="operator">*</span><span class="operator">&gt;</span>(list<span class="operator">.</span>first());
+     setText(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Delete %1&quot;</span>)
+         <span class="operator">.</span>arg(createCommandString(myDiagramItem<span class="operator">,</span> myDiagramItem<span class="operator">-</span><span class="operator">&gt;</span>pos())));
+ }</pre>
+<p>We know that there must be one selected item as it is not possible to create a DeleteCommand unless the item to be deleted is selected and that only one item can be selected at any time. The item must be unselected if it is inserted back into the scene.</p>
+<pre class="cpp"> <span class="type">void</span> DeleteCommand<span class="operator">::</span>undo()
+ {
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>addItem(myDiagramItem);
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>update();
+ }</pre>
+<p>The item is simply reinserted into the scene.</p>
+<pre class="cpp"> <span class="type">void</span> DeleteCommand<span class="operator">::</span>redo()
+ {
+     myGraphicsScene<span class="operator">-</span><span class="operator">&gt;</span>removeItem(myDiagramItem);
+ }</pre>
+<p>The item is removed from the scene.</p>
+<a name="movecommand-class-definition"></a>
+<h2>MoveCommand Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> MoveCommand : <span class="keyword">public</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span>
+ {
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> { Id <span class="operator">=</span> <span class="number">1234</span> };
+
+     MoveCommand(DiagramItem <span class="operator">*</span>diagramItem<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>oldPos<span class="operator">,</span>
+                 <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type">void</span> undo();
+     <span class="type">void</span> redo();
+     <span class="type">bool</span> mergeWith(<span class="keyword">const</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>command);
+     <span class="type">int</span> id() <span class="keyword">const</span> { <span class="keyword">return</span> Id; }
+
+ <span class="keyword">private</span>:
+     DiagramItem <span class="operator">*</span>myDiagramItem;
+     <span class="type"><a href="qpointf.html">QPointF</a></span> myOldPos;
+     <span class="type"><a href="qpointf.html">QPointF</a></span> newPos;
+ };</pre>
+<p>The <a href="qundocommand.html#mergeWith">mergeWith()</a> is reimplemented to make consecutive moves of an item one MoveCommand, i.e, the item will be moved back to the start position of the first move.</p>
+<a name="movecommand-class-implementation"></a>
+<h2>MoveCommand Class Implementation</h2>
+<p>The constructor of MoveCommand looks like this:</p>
+<pre class="cpp"> MoveCommand<span class="operator">::</span>MoveCommand(DiagramItem <span class="operator">*</span>diagramItem<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>oldPos<span class="operator">,</span>
+                  <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qundocommand.html">QUndoCommand</a></span>(parent)
+ {
+     myDiagramItem <span class="operator">=</span> diagramItem;
+     newPos <span class="operator">=</span> diagramItem<span class="operator">-</span><span class="operator">&gt;</span>pos();
+     myOldPos <span class="operator">=</span> oldPos;
+ }</pre>
+<p>We save both the old and new positions for undo and redo respectively.</p>
+<pre class="cpp"> <span class="type">void</span> MoveCommand<span class="operator">::</span>undo()
+ {
+     myDiagramItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(myOldPos);
+     myDiagramItem<span class="operator">-</span><span class="operator">&gt;</span>scene()<span class="operator">-</span><span class="operator">&gt;</span>update();
+     setText(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Move %1&quot;</span>)
+         <span class="operator">.</span>arg(createCommandString(myDiagramItem<span class="operator">,</span> newPos)));
+ }</pre>
+<p>We simply set the items old position and update the scene.</p>
+<pre class="cpp"> <span class="type">void</span> MoveCommand<span class="operator">::</span>redo()
+ {
+     myDiagramItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(newPos);
+     setText(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Move %1&quot;</span>)
+         <span class="operator">.</span>arg(createCommandString(myDiagramItem<span class="operator">,</span> newPos)));
+ }</pre>
+<p>We set the item to its new position.</p>
+<pre class="cpp"> <span class="type">bool</span> MoveCommand<span class="operator">::</span>mergeWith(<span class="keyword">const</span> <span class="type"><a href="qundocommand.html">QUndoCommand</a></span> <span class="operator">*</span>command)
+ {
+     <span class="keyword">const</span> MoveCommand <span class="operator">*</span>moveCommand <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="keyword">const</span> MoveCommand <span class="operator">*</span><span class="operator">&gt;</span>(command);
+     DiagramItem <span class="operator">*</span>item <span class="operator">=</span> moveCommand<span class="operator">-</span><span class="operator">&gt;</span>myDiagramItem;
+
+     <span class="keyword">if</span> (myDiagramItem <span class="operator">!</span><span class="operator">=</span> item)
+     <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     newPos <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>pos();
+     setText(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Move %1&quot;</span>)
+         <span class="operator">.</span>arg(createCommandString(myDiagramItem<span class="operator">,</span> newPos)));
+
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>Whenever a MoveCommand is created, this function is called to check if it should be merged with the previous command. It is the previous command object that is kept on the stack. The function returns true if the command is merged; otherwise false.</p>
+<p>We first check whether it is the same item that has been moved twice, in which case we merge the commands. We update the position of the item so that it will take the last position in the move sequence when undone.</p>
+<a name="diagramscene-class-definition"></a>
+<h2>DiagramScene Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> DiagramScene : <span class="keyword">public</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     DiagramScene(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> itemMoved(DiagramItem <span class="operator">*</span>movedItem<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>movedFromPosition);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>movingItem;
+     <span class="type"><a href="qpointf.html">QPointF</a></span> oldPos;
+ };</pre>
+<p>The DiagramScene implements the functionality to move a DiagramItem with the mouse. It emits a signal when a move is completed. This is caught by the <tt>MainWindow</tt>, which makes MoveCommands. We do not examine the implementation of DiagramScene as it only deals with graphics framework issues.</p>
+<a name="the-function"></a>
+<h2>The <tt>main()</tt> Function</h2>
+<p>The <tt>main()</tt> function of the program looks like this:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argv<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>args<span class="operator">[</span><span class="operator">]</span>)
+ {
+     Q_INIT_RESOURCE(undoframework);
+
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argv<span class="operator">,</span> args);
+
+     MainWindow mainWindow;
+     mainWindow<span class="operator">.</span>show();
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>We draw a grid in the background of the DiagramScene, so we use a resource file. The rest of the function creates the <tt>MainWindow</tt> and shows it as a top level window.</p>
+</div>
+<!-- @@@tools/undoframework -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

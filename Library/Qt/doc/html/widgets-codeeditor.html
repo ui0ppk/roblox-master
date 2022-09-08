@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- codeeditor.qdoc -->
+  <title>Qt 4.8: Code Editor Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Code Editor Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-linenumberarea-class">The LineNumberArea Class</a></li>
+<li class="level1"><a href="#codeeditor-class-definition">CodeEditor Class Definition</a></li>
+<li class="level1"><a href="#codeeditor-class-implementation">CodeEditor Class Implementation</a></li>
+<li class="level1"><a href="#suggestions-for-extending-the-code-editor">Suggestions for Extending the Code Editor</a></li>
+</ul>
+</div>
+<h1 class="title">Code Editor Example</h1>
+<span class="subtitle"></span>
+<!-- $$$widgets/codeeditor-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="widgets-codeeditor-codeeditor-cpp.html">widgets/codeeditor/codeeditor.cpp</a></li>
+<li><a href="widgets-codeeditor-codeeditor-h.html">widgets/codeeditor/codeeditor.h</a></li>
+<li><a href="widgets-codeeditor-main-cpp.html">widgets/codeeditor/main.cpp</a></li>
+<li><a href="widgets-codeeditor-codeeditor-pro.html">widgets/codeeditor/codeeditor.pro</a></li>
+</ul>
+<p>The Code Editor example shows how to create a simple editor that has line numbers and that highlights the current line.<p class="centerAlign"><img src="images/codeeditor-example.png" alt="" /></p><p>As can be seen from the image, the editor displays the line numbers in an area to the left of the area for editing. The editor will highlight the line containing the cursor.</p>
+<p>We implement the editor in <tt>CodeEditor</tt>, which is a widget that inherits <a href="qplaintextedit.html">QPlainTextEdit</a>. We keep a separate widget in <tt>CodeEditor</tt> (<tt>LineNumberArea</tt>) onto which we draw the line numbers.</p>
+<p><a href="qplaintextedit.html">QPlainTextEdit</a> inherits from <a href="qabstractscrollarea.html">QAbstractScrollArea</a>, and editing takes place within its <a href="qabstractscrollarea.html#viewport">viewport()</a>'s margins. We make room for our line number area by setting the left margin of the viewport to the size we need to draw the line numbers.</p>
+<p>When it comes to editing code, we prefer <a href="qplaintextedit.html">QPlainTextEdit</a> over <a href="qtextedit.html">QTextEdit</a> because it is optimized for handling plain text. See the <a href="qplaintextedit.html">QPlainTextEdit</a> class description for details.</p>
+<p><a href="qplaintextedit.html">QPlainTextEdit</a> lets us add selections in addition to the selection the user can make with the mouse or keyboard. We use this functionality to highlight the current line. More on this later.</p>
+<p>We will now move on to the definitions and implementations of <tt>CodeEditor</tt> and <tt>LineNumberArea</tt>. Let's start with the <tt>LineNumberArea</tt> class.</p>
+<a name="the-linenumberarea-class"></a>
+<h2>The LineNumberArea Class</h2>
+<p>We paint the line numbers on this widget, and place it over the <tt>CodeEditor</tt>'s <a href="qabstractscrollarea.html#viewport">viewport()</a>'s left margin area.</p>
+<p>We need to use protected functions in <a href="qplaintextedit.html">QPlainTextEdit</a> while painting the area. So to keep things simple, we paint the area in the <tt>CodeEditor</tt> class. The area also asks the editor to calculate its size hint.</p>
+<p>Note that we could simply paint the line numbers directly on the code editor, and drop the LineNumberArea class. However, the <a href="qwidget.html">QWidget</a> class helps us to <a href="qwidget.html#scroll">scroll()</a> its contents. Also, having a separate widget is the right choice if we wish to extend the editor with breakpoints or other code editor features. The widget would then help in the handling of mouse events.</p>
+<pre class="cpp"> <span class="keyword">class</span> LineNumberArea : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+ <span class="keyword">public</span>:
+     LineNumberArea(CodeEditor <span class="operator">*</span>editor) : <span class="type"><a href="qwidget.html">QWidget</a></span>(editor) {
+         codeEditor <span class="operator">=</span> editor;
+     }
+
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span> {
+         <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(codeEditor<span class="operator">-</span><span class="operator">&gt;</span>lineNumberAreaWidth()<span class="operator">,</span> <span class="number">0</span>);
+     }
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event) {
+         codeEditor<span class="operator">-</span><span class="operator">&gt;</span>lineNumberAreaPaintEvent(event);
+     }
+
+ <span class="keyword">private</span>:
+     CodeEditor <span class="operator">*</span>codeEditor;
+ };</pre>
+<a name="codeeditor-class-definition"></a>
+<h2>CodeEditor Class Definition</h2>
+<p>Here is the code editor's class definition:</p>
+<pre class="cpp"> <span class="keyword">class</span> CodeEditor : <span class="keyword">public</span> <span class="type"><a href="qplaintextedit.html">QPlainTextEdit</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     CodeEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type">void</span> lineNumberAreaPaintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">int</span> lineNumberAreaWidth();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> updateLineNumberAreaWidth(<span class="type">int</span> newBlockCount);
+     <span class="type">void</span> highlightCurrentLine();
+     <span class="type">void</span> updateLineNumberArea(<span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span><span class="operator">,</span> <span class="type">int</span>);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>lineNumberArea;
+ };</pre>
+<p>In the editor we resize and draw the line numbers on the <tt>LineNumberArea</tt>. We need to do this when the number of lines in the editor changes, and when the editor's viewport() is scrolled. Of course, it is also done when the editor's size changes. We do this in <tt>updateLineNumberWidth()</tt> and <tt>updateLineNumberArea()</tt>.</p>
+<p>Whenever, the cursor's position changes, we highlight the current line in <tt>highlightCurrentLine()</tt>.</p>
+<a name="codeeditor-class-implementation"></a>
+<h2>CodeEditor Class Implementation</h2>
+<p>We will now go through the code editors implementation, starting off with the constructor.</p>
+<pre class="cpp"> CodeEditor<span class="operator">::</span>CodeEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent) : <span class="type"><a href="qplaintextedit.html">QPlainTextEdit</a></span>(parent)
+ {
+     lineNumberArea <span class="operator">=</span> <span class="keyword">new</span> LineNumberArea(<span class="keyword">this</span>);
+
+     connect(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(blockCountChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(updateLineNumberAreaWidth(<span class="type">int</span>)));
+     connect(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(updateRequest(<span class="type"><a href="qrect.html">QRect</a></span><span class="operator">,</span><span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(updateLineNumberArea(<span class="type"><a href="qrect.html">QRect</a></span><span class="operator">,</span><span class="type">int</span>)));
+     connect(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(cursorPositionChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(highlightCurrentLine()));
+
+     updateLineNumberAreaWidth(<span class="number">0</span>);
+     highlightCurrentLine();
+ }</pre>
+<p>In the constructor we connect our slots to signals in <a href="qplaintextedit.html">QPlainTextEdit</a>. It is necessary to calculate the line number area width and highlight the first line when the editor is created.</p>
+<pre class="cpp"> <span class="type">int</span> CodeEditor<span class="operator">::</span>lineNumberAreaWidth()
+ {
+     <span class="type">int</span> digits <span class="operator">=</span> <span class="number">1</span>;
+     <span class="type">int</span> max <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="number">1</span><span class="operator">,</span> blockCount());
+     <span class="keyword">while</span> (max <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">10</span>) {
+         max <span class="operator">/</span><span class="operator">=</span> <span class="number">10</span>;
+         <span class="operator">+</span><span class="operator">+</span>digits;
+     }
+
+     <span class="type">int</span> space <span class="operator">=</span> <span class="number">3</span> <span class="operator">+</span> fontMetrics()<span class="operator">.</span>width(QLatin1Char(<span class="char">'9'</span>)) <span class="operator">*</span> digits;
+
+     <span class="keyword">return</span> space;
+ }</pre>
+<p>The <tt>lineNumberAreaWidth()</tt> function calculates the width of the <tt>LineNumberArea</tt> widget. We take the number of digits in the last line of the editor and multiply that with the maximum width of a digit.</p>
+<pre class="cpp"> <span class="type">void</span> CodeEditor<span class="operator">::</span>updateLineNumberAreaWidth(<span class="type">int</span> <span class="comment">/* newBlockCount */</span>)
+ {
+     setViewportMargins(lineNumberAreaWidth()<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+ }</pre>
+<p>When we update the width of the line number area, we simply call <a href="qabstractscrollarea.html#setViewportMargins">QAbstractScrollArea::setViewportMargins</a>().</p>
+<pre class="cpp"> <span class="type">void</span> CodeEditor<span class="operator">::</span>updateLineNumberArea(<span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect<span class="operator">,</span> <span class="type">int</span> dy)
+ {
+     <span class="keyword">if</span> (dy)
+         lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>scroll(<span class="number">0</span><span class="operator">,</span> dy);
+     <span class="keyword">else</span>
+         lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>update(<span class="number">0</span><span class="operator">,</span> rect<span class="operator">.</span>y()<span class="operator">,</span> lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> rect<span class="operator">.</span>height());
+
+     <span class="keyword">if</span> (rect<span class="operator">.</span>contains(viewport()<span class="operator">-</span><span class="operator">&gt;</span>rect()))
+         updateLineNumberAreaWidth(<span class="number">0</span>);
+ }</pre>
+<p>This slot is invoked when the editors viewport has been scrolled. The <a href="qrect.html">QRect</a> given as argument is the part of the editing area that is do be updated (redrawn). <tt>dy</tt> holds the number of pixels the view has been scrolled vertically.</p>
+<pre class="cpp"> <span class="type">void</span> CodeEditor<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>e)
+ {
+     <span class="type"><a href="qplaintextedit.html">QPlainTextEdit</a></span><span class="operator">::</span>resizeEvent(e);
+
+     <span class="type"><a href="qrect.html">QRect</a></span> cr <span class="operator">=</span> contentsRect();
+     lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(<span class="type"><a href="qrect.html">QRect</a></span>(cr<span class="operator">.</span>left()<span class="operator">,</span> cr<span class="operator">.</span>top()<span class="operator">,</span> lineNumberAreaWidth()<span class="operator">,</span> cr<span class="operator">.</span>height()));
+ }</pre>
+<p>When the size of the editor changes, we also need to resize the line number area.</p>
+<pre class="cpp"> <span class="type">void</span> CodeEditor<span class="operator">::</span>highlightCurrentLine()
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qtextedit.html">QTextEdit</a></span><span class="operator">::</span>ExtraSelection<span class="operator">&gt;</span> extraSelections;
+
+     <span class="keyword">if</span> (<span class="operator">!</span>isReadOnly()) {
+         <span class="type"><a href="qtextedit.html">QTextEdit</a></span><span class="operator">::</span>ExtraSelection selection;
+
+         <span class="type"><a href="qcolor.html">QColor</a></span> lineColor <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow)<span class="operator">.</span>lighter(<span class="number">160</span>);
+
+         selection<span class="operator">.</span>format<span class="operator">.</span>setBackground(lineColor);
+         selection<span class="operator">.</span>format<span class="operator">.</span>setProperty(<span class="type"><a href="qtextformat.html">QTextFormat</a></span><span class="operator">::</span>FullWidthSelection<span class="operator">,</span> <span class="keyword">true</span>);
+         selection<span class="operator">.</span>cursor <span class="operator">=</span> textCursor();
+         selection<span class="operator">.</span>cursor<span class="operator">.</span>clearSelection();
+         extraSelections<span class="operator">.</span>append(selection);
+     }
+
+     setExtraSelections(extraSelections);
+ }</pre>
+<p>When the cursor position changes, we highlight the current line, i.e&#x2e;, the line containing the cursor.</p>
+<p><a href="qplaintextedit.html">QPlainTextEdit</a> gives the possibility to have more than one selection at the same time. we can set the character format (<a href="qtextcharformat.html">QTextCharFormat</a>) of these selections. We clear the cursors selection before setting the new new QPlainTextEdit::ExtraSelection, else several lines would get highlighted when the user selects multiple lines with the mouse.</p>
+<p>One sets the selection with a text cursor. When using the FullWidthSelection property, the current cursor text block (line) will be selected. If you want to select just a portion of the text block, the cursor should be moved with <a href="qtextcursor.html#movePosition">QTextCursor::movePosition</a>() from a position set with <a href="qtextcursor.html#setPosition">setPosition()</a>.</p>
+<pre class="cpp"> <span class="type">void</span> CodeEditor<span class="operator">::</span>lineNumberAreaPaintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(lineNumberArea);
+     painter<span class="operator">.</span>fillRect(event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);</pre>
+<p>The <tt>lineNumberAreaPaintEvent()</tt> is called from <tt>LineNumberArea</tt> whenever it receives a paint event. We start off by painting the widget's background.</p>
+<pre class="cpp">     <span class="type"><a href="qtextblock.html">QTextBlock</a></span> block <span class="operator">=</span> firstVisibleBlock();
+     <span class="type">int</span> blockNumber <span class="operator">=</span> block<span class="operator">.</span>blockNumber();
+     <span class="type">int</span> top <span class="operator">=</span> (<span class="type">int</span>) blockBoundingGeometry(block)<span class="operator">.</span>translated(contentOffset())<span class="operator">.</span>top();
+     <span class="type">int</span> bottom <span class="operator">=</span> top <span class="operator">+</span> (<span class="type">int</span>) blockBoundingRect(block)<span class="operator">.</span>height();</pre>
+<p>We will now loop through all visible lines and paint the line numbers in the extra area for each line. Notice that in a plain text edit each line will consist of one <a href="qtextblock.html">QTextBlock</a>; though, if line wrapping is enabled, a line may span several rows in the text edit's viewport.</p>
+<p>We get the top and bottom y-coordinate of the first text block, and adjust these values by the height of the current text block in each iteration in the loop.</p>
+<pre class="cpp">     <span class="keyword">while</span> (block<span class="operator">.</span>isValid() <span class="operator">&amp;</span><span class="operator">&amp;</span> top <span class="operator">&lt;</span><span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">.</span>bottom()) {
+         <span class="keyword">if</span> (block<span class="operator">.</span>isVisible() <span class="operator">&amp;</span><span class="operator">&amp;</span> bottom <span class="operator">&gt;</span><span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">.</span>top()) {
+             <span class="type"><a href="qstring.html">QString</a></span> number <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(blockNumber <span class="operator">+</span> <span class="number">1</span>);
+             painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+             painter<span class="operator">.</span>drawText(<span class="number">0</span><span class="operator">,</span> top<span class="operator">,</span> lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> fontMetrics()<span class="operator">.</span>height()<span class="operator">,</span>
+                              <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight<span class="operator">,</span> number);
+         }
+
+         block <span class="operator">=</span> block<span class="operator">.</span>next();
+         top <span class="operator">=</span> bottom;
+         bottom <span class="operator">=</span> top <span class="operator">+</span> (<span class="type">int</span>) blockBoundingRect(block)<span class="operator">.</span>height();
+         <span class="operator">+</span><span class="operator">+</span>blockNumber;
+     }
+ }</pre>
+<p>Notice that we check if the block is visible in addition to check if it is in the areas viewport - a block can, for example, be hidden by a window placed over the text edit.</p>
+<a name="suggestions-for-extending-the-code-editor"></a>
+<h2>Suggestions for Extending the Code Editor</h2>
+<p>No self-respecting code editor is without a syntax highligther; the <a href="richtext-syntaxhighlighter.html">Syntax Highlighter Example</a> shows how to create one.</p>
+<p>In addition to line numbers, you can add more to the extra area, for instance, break points.</p>
+<p><a href="qsyntaxhighlighter.html">QSyntaxHighlighter</a> gives the possibility to add user data to each text block with <a href="qsyntaxhighlighter.html#setCurrentBlockUserData">setCurrentBlockUserData()</a>. This can be used to implement parenthesis matching. In the <tt>highlightCurrentLine()</tt>, the data of the currentBlock() can be fetched with <a href="qtextblock.html#userData">QTextBlock::userData</a>(). Matching parentheses can be highlighted with an extra selection. The &quot;Matching Parentheses with <a href="qsyntaxhighlighter.html">QSyntaxHighlighter</a>&quot; article in Qt Quarterly 31 implements this. You find it here: <a href="http://doc.qt.nokia.com/qq/">http://doc.qt.nokia.com/qq/</a>.</p>
+<p>The line number area is now painted every time the cursor blinks (because we connect <a href="qplaintextedit.html#updateRequest">updateRequest()</a> to <tt>updateLineNumberArea()</tt>). We can avoid this by introducing a new member variable to CodeEditor that keeps track of when the update request comes from a cursor blink (in which case we do not repaint). The code below requires the <tt>m_countCache</tt> variable, which is a <a href="qpair.html">QPair</a>&lt;int, int&gt; initialized with <tt>-1</tt> for both <a href="qpair.html#first-var">first</a> and <a href="qpair.html#second-var">second</a>.</p>
+<pre class="cpp"> <span class="type">void</span> CodeEditor<span class="operator">::</span>updateLineNumberArea(<span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect<span class="operator">,</span> <span class="type">int</span> dy)
+ {
+     <span class="keyword">if</span> (dy) {
+         lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>scroll(<span class="number">0</span><span class="operator">,</span> dy);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (m_countCache<span class="operator">.</span>first <span class="operator">!</span><span class="operator">=</span> blockCount()
+                <span class="operator">|</span><span class="operator">|</span> m_countCache<span class="operator">.</span>second <span class="operator">!</span><span class="operator">=</span> textCursor()<span class="operator">.</span>block()<span class="operator">.</span>lineCount()) {
+         lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>update(<span class="number">0</span><span class="operator">,</span> rect<span class="operator">.</span>y()<span class="operator">,</span> lineNumberArea<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> rect<span class="operator">.</span>height());
+         m_countCache<span class="operator">.</span>first <span class="operator">=</span> blockCount();
+         m_countCache<span class="operator">.</span>second <span class="operator">=</span> textCursor()<span class="operator">.</span>block()<span class="operator">.</span>lineCount();
+     }
+
+     <span class="keyword">if</span> (rect<span class="operator">.</span>contains(viewport()<span class="operator">-</span><span class="operator">&gt;</span>rect()))
+         updateLineNumberAreaWidth(<span class="number">0</span>);
+ }</pre>
+</div>
+<!-- @@@widgets/codeeditor -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

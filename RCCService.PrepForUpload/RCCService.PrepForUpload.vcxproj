@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NoOpt|Win32">
+      <Configuration>NoOpt</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{67418802-8BFA-40C5-8C24-BB1744FA9421}</ProjectGuid>
+    <RootNamespace>RCCServicePrepForUpload</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+xcopy /h /e /k /q ..\RCCService\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+xcopy /h /e /k /q ..\content ..\UploadBits\$(Platform)-$(Configuration)-RCCService\content\
+xcopy /h /e /k /q ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RCCService\shaders\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RCCService\Redist.zip
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+xcopy /h /e /k /q ..\RCCService\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+xcopy /h /e /k /q ..\content ..\UploadBits\$(Platform)-$(Configuration)-RCCService\content\
+xcopy /h /e /k /q ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RCCService\shaders\
+xcopy /h /e /k /q ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RCCService\PlatformContent\pc\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RCCService\Redist.zip
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+xcopy /h /e /k /q ..\RCCService\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RCCService\
+xcopy /h /e /k /q ..\content ..\UploadBits\$(Platform)-$(Configuration)-RCCService\content\
+xcopy /h /e /k /q ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RCCService\shaders\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RCCService\Redist.zip
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="..\Roblox.PrepForUpload\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RCCService\RCCService.vcxproj">
+      <Project>{6dd8fdca-db72-4886-af4a-4a85611edf37}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

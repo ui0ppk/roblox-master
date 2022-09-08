@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- threadedfortuneserver.qdoc -->
+  <title>Qt 4.8: Threaded Fortune Server Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Threaded Fortune Server Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">Threaded Fortune Server Example</h1>
+<span class="subtitle"></span>
+<!-- $$$network/threadedfortuneserver-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="network-threadedfortuneserver-dialog-cpp.html">network/threadedfortuneserver/dialog.cpp</a></li>
+<li><a href="network-threadedfortuneserver-dialog-h.html">network/threadedfortuneserver/dialog.h</a></li>
+<li><a href="network-threadedfortuneserver-fortuneserver-cpp.html">network/threadedfortuneserver/fortuneserver.cpp</a></li>
+<li><a href="network-threadedfortuneserver-fortuneserver-h.html">network/threadedfortuneserver/fortuneserver.h</a></li>
+<li><a href="network-threadedfortuneserver-fortunethread-cpp.html">network/threadedfortuneserver/fortunethread.cpp</a></li>
+<li><a href="network-threadedfortuneserver-fortunethread-h.html">network/threadedfortuneserver/fortunethread.h</a></li>
+<li><a href="network-threadedfortuneserver-main-cpp.html">network/threadedfortuneserver/main.cpp</a></li>
+<li><a href="network-threadedfortuneserver-threadedfortuneserver-pro.html">network/threadedfortuneserver/threadedfortuneserver.pro</a></li>
+</ul>
+<p>The Threaded Fortune Server example shows how to create a server for a simple network service that uses threads to handle requests from different clients.<p>The example is intended to be run alongside the Fortune Client example.</p>
+<p class="centerAlign"><img src="images/threadedfortuneserver-example.png" alt="" /></p><p>The implementation of this example is similar to that of the <a href="network-fortuneserver.html">Fortune Server</a> example, but here we will implement a subclass of <a href="qtcpserver.html">QTcpServer</a> that starts each connection in a different thread.</p>
+<p>For this we need two classes: FortuneServer, a <a href="qtcpserver.html">QTcpServer</a> subclass, and FortuneThread, which inherits <a href="qthread.html">QThread</a>.</p>
+<pre class="cpp"> <span class="keyword">class</span> FortuneServer : <span class="keyword">public</span> <span class="type"><a href="qtcpserver.html">QTcpServer</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     FortuneServer(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> incomingConnection(<span class="type">int</span> socketDescriptor);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> fortunes;
+ };</pre>
+<p>FortuneServer inherits <a href="qtcpserver.html">QTcpServer</a> and reimplements <a href="qtcpserver.html#incomingConnection">QTcpServer::incomingConnection</a>(). We also use it for storing the list of random fortunes.</p>
+<pre class="cpp"> FortuneServer<span class="operator">::</span>FortuneServer(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qtcpserver.html">QTcpServer</a></span>(parent)
+ {
+     fortunes <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;You've been leading a dog's life. Stay off the furniture.&quot;</span>)
+              <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;You've got to think about tomorrow.&quot;</span>)
+              <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;You will be surprised by a loud noise.&quot;</span>)
+              <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;You will feel hungry again in another hour.&quot;</span>)
+              <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;You might have mail.&quot;</span>)
+              <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;You cannot kill time without injuring eternity.&quot;</span>)
+              <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;Computers are not intelligent. They only think they are.&quot;</span>);
+ }</pre>
+<p>We use FortuneServer's constructor to simply generate the list of fortunes.</p>
+<pre class="cpp"> <span class="type">void</span> FortuneServer<span class="operator">::</span>incomingConnection(<span class="type">int</span> socketDescriptor)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> fortune <span class="operator">=</span> fortunes<span class="operator">.</span>at(qrand() <span class="operator">%</span> fortunes<span class="operator">.</span>size());
+     FortuneThread <span class="operator">*</span>thread <span class="operator">=</span> <span class="keyword">new</span> FortuneThread(socketDescriptor<span class="operator">,</span> fortune<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(thread<span class="operator">,</span> SIGNAL(finished())<span class="operator">,</span> thread<span class="operator">,</span> SLOT(deleteLater()));
+     thread<span class="operator">-</span><span class="operator">&gt;</span>start();
+ }</pre>
+<p>Our implementation of <a href="qtcpserver.html#incomingConnection">QTcpServer::incomingConnection</a>() creates a FortuneThread object, passing the incoming socket descriptor and a random fortune to FortuneThread's constructor. By connecting FortuneThread's finished() signal to <a href="qobject.html#deleteLater">QObject::deleteLater</a>(), we ensure that the thread gets deleted once it has finished. We can then call <a href="qthread.html#start">QThread::start</a>(), which starts the thread.</p>
+<pre class="cpp"> <span class="keyword">class</span> FortuneThread : <span class="keyword">public</span> <span class="type"><a href="qthread.html">QThread</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     FortuneThread(<span class="type">int</span> socketDescriptor<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fortune<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent);
+
+     <span class="type">void</span> run();
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> error(<span class="type"><a href="qtcpsocket.html">QTcpSocket</a></span><span class="operator">::</span>SocketError socketError);
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> socketDescriptor;
+     <span class="type"><a href="qstring.html">QString</a></span> text;
+ };</pre>
+<p>Moving on to the FortuneThread class, this is a <a href="qthread.html">QThread</a> subclass whose job is to write the fortune to the connected socket. The class reimplements <a href="qthread.html#run">QThread::run</a>(), and it has a signal for reporting errors.</p>
+<pre class="cpp"> FortuneThread<span class="operator">::</span>FortuneThread(<span class="type">int</span> socketDescriptor<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fortune<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qthread.html">QThread</a></span>(parent)<span class="operator">,</span> socketDescriptor(socketDescriptor)<span class="operator">,</span> text(fortune)
+ {
+ }</pre>
+<p>FortuneThread's constructor simply stores the socket descriptor and fortune text, so that they are available for run() later on.</p>
+<pre class="cpp"> <span class="type">void</span> FortuneThread<span class="operator">::</span>run()
+ {
+     <span class="type"><a href="qtcpsocket.html">QTcpSocket</a></span> tcpSocket;</pre>
+<p>The first thing our run() function does is to create a <a href="qtcpsocket.html">QTcpSocket</a> object on the stack. What's worth noticing is that we are creating this object inside the thread, which automatically associates the socket to the thread's event loop. This ensures that Qt will not try to deliver events to our socket from the main thread while we are accessing it from FortuneThread::run().</p>
+<pre class="cpp">     <span class="keyword">if</span> (<span class="operator">!</span>tcpSocket<span class="operator">.</span>setSocketDescriptor(socketDescriptor)) {
+         <span class="keyword">emit</span> error(tcpSocket<span class="operator">.</span>error());
+         <span class="keyword">return</span>;
+     }</pre>
+<p>The socket is initialized by calling <a href="qabstractsocket.html#setSocketDescriptor">QTcpSocket::setSocketDescriptor</a>(), passing our socket descriptor as an argument. We expect this to succeed, but just to be sure, (although unlikely, the system may run out of resources,) we catch the return value and report any error.</p>
+<pre class="cpp">     <span class="type"><a href="qbytearray.html">QByteArray</a></span> block;
+     <span class="type"><a href="qdatastream.html">QDataStream</a></span> out(<span class="operator">&amp;</span>block<span class="operator">,</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly);
+     out<span class="operator">.</span>setVersion(<span class="type"><a href="qdatastream.html">QDataStream</a></span><span class="operator">::</span>Qt_4_0);
+     out <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>)<span class="number">0</span>;
+     out <span class="operator">&lt;</span><span class="operator">&lt;</span> text;
+     out<span class="operator">.</span>device()<span class="operator">-</span><span class="operator">&gt;</span>seek(<span class="number">0</span>);
+     out <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>)(block<span class="operator">.</span>size() <span class="operator">-</span> <span class="keyword">sizeof</span>(<span class="type"><a href="qtglobal.html#quint16-typedef">quint16</a></span>));</pre>
+<p>As with the <a href="network-fortuneserver.html">Fortune Server</a> example, we encode the fortune into a <a href="qbytearray.html">QByteArray</a> using <a href="qdatastream.html">QDataStream</a>.</p>
+<pre class="cpp">     tcpSocket<span class="operator">.</span>write(block);
+     tcpSocket<span class="operator">.</span>disconnectFromHost();
+     tcpSocket<span class="operator">.</span>waitForDisconnected();
+ }</pre>
+<p>But unlike the previous example, we finish off by calling <a href="qabstractsocket.html#waitForDisconnected">QTcpSocket::waitForDisconnected</a>(), which blocks the calling thread until the socket has disconnected. Because we are running in a separate thread, the GUI will remain responsive.</p>
+</div>
+<p><b>See also </b><a href="network-fortuneserver.html">Fortune Server Example</a>, <a href="network-fortuneclient.html">Fortune Client Example</a>, and <a href="network-blockingfortuneclient.html">Blocking Fortune Client Example</a>.</p>
+<!-- @@@network/threadedfortuneserver -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

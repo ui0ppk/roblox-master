@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- addressbook.qdoc -->
+  <title>Qt 4.8: Part 4 - Editing and Removing Addresses</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Part 4 - Editing and Removing Addresses</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#defining-the-addressbook-class">Defining the AddressBook Class</a></li>
+<li class="level1"><a href="#implementing-the-addressbook-class">Implementing the AddressBook Class</a></li>
+<li class="level2"><a href="#updating-the-user-interface">Updating the User Interface</a></li>
+</ul>
+</div>
+<h1 class="title">Part 4 - Editing and Removing Addresses</h1>
+<span class="subtitle"></span>
+<!-- $$$tutorials/addressbook/part4-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="tutorials-addressbook-part4-addressbook-cpp.html">tutorials/addressbook/part4/addressbook.cpp</a></li>
+<li><a href="tutorials-addressbook-part4-addressbook-h.html">tutorials/addressbook/part4/addressbook.h</a></li>
+<li><a href="tutorials-addressbook-part4-main-cpp.html">tutorials/addressbook/part4/main.cpp</a></li>
+<li><a href="tutorials-addressbook-part4-part4-pro.html">tutorials/addressbook/part4/part4.pro</a></li>
+</ul>
+<p>Now we look at ways to modify the contents of contacts stored in the address book.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-screenshot.png" alt="" /></p><p>We now have an address book that not only holds contacts in an organized manner, but also allows navigation. It would be convenient to include edit and remove functions so that a contact's details can be changed when needed. However, this requires a little improvement, in the form of enums. We defined two modes: <tt>AddingMode</tt> and <tt>NavigationMode</tt>, but they were not defined as enum values. Instead, we enabled and disabled the corresponding buttons manually, resulting in multiple lines of repeated code.</p>
+<p>Here we define the <tt>Mode</tt> enum with three different values:</p>
+<ul>
+<li><tt>NavigationMode</tt>,</li>
+<li><tt>AddingMode</tt>, and</li>
+<li><tt>EditingMode</tt>.</li>
+</ul>
+<a name="defining-the-addressbook-class"></a>
+<h2>Defining the AddressBook Class</h2>
+<p>The <tt>addressbook.h</tt> file is updated to contain the <tt>Mode</tt> enum:</p>
+<pre class="cpp">     <span class="keyword">enum</span> Mode { NavigationMode<span class="operator">,</span> AddingMode<span class="operator">,</span> EditingMode };</pre>
+<p>We also add two new slots, <tt>editContact()</tt> and <tt>removeContact()</tt>, to our current list of public slots.</p>
+<pre class="cpp">     <span class="type">void</span> editContact();
+     <span class="type">void</span> removeContact();</pre>
+<p>In order to switch between modes, we introduce the <tt>updateInterface()</tt> function to control the enabling and disabling of all <a href="qpushbutton.html">QPushButton</a> objects. We also add two new push buttons, <tt>editButton</tt> and <tt>removeButton</tt>, for the edit and remove functions mentioned earlier.</p>
+<pre class="cpp">     <span class="type">void</span> updateInterface(Mode mode);
+     ...
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>editButton;
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>removeButton;
+     ...
+     Mode currentMode;</pre>
+<p>Lastly, we declare <tt>currentMode</tt> to keep track of the enum's current mode.</p>
+<a name="implementing-the-addressbook-class"></a>
+<h2>Implementing the AddressBook Class</h2>
+<p>We now implement the mode-changing features of the address book. The <tt>editButton</tt> and <tt>removeButton</tt> are instantiated and disabled by default. The address book starts with zero contacts in memory.</p>
+<pre class="cpp">     editButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Edit&quot;</span>));
+     editButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     removeButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Remove&quot;</span>));
+     removeButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);</pre>
+<p>These buttons are then connected to their respective slots, <tt>editContact()</tt> and <tt>removeContact()</tt>, and we add them to <tt>buttonLayout1</tt>.</p>
+<pre class="cpp">     connect(editButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(editContact()));
+     connect(removeButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(removeContact()));
+     ...
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(editButton);
+     buttonLayout1<span class="operator">-</span><span class="operator">&gt;</span>addWidget(removeButton);</pre>
+<p>The <tt>editContact()</tt> function stores the contact's old details in <tt>oldName</tt> and <tt>oldAddress</tt>, before switching the mode to <tt>EditingMode</tt>. In this mode, the <tt>submitButton</tt> and <tt>cancelButton</tt> are both enabled, hence, the user can change the contact's details and click either button.</p>
+<pre class="cpp"> <span class="type">void</span> AddressBook<span class="operator">::</span>editContact()
+ {
+     oldName <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     oldAddress <span class="operator">=</span> addressText<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
+
+     updateInterface(EditingMode);
+ }</pre>
+<p>The <tt>submitContact()</tt> function has been divided in two with an <tt>if-else</tt> statement. We check <tt>currentMode</tt> to see if it's in <tt>AddingMode</tt>. If it is, we proceed with our adding process.</p>
+<pre class="cpp"> <span class="type">void</span> AddressBook<span class="operator">::</span>submitContact()
+ {
+     ...
+     <span class="keyword">if</span> (currentMode <span class="operator">=</span><span class="operator">=</span> AddingMode) {
+
+         <span class="keyword">if</span> (<span class="operator">!</span>contacts<span class="operator">.</span>contains(name)) {
+             contacts<span class="operator">.</span>insert(name<span class="operator">,</span> address);
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Add Successful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;\&quot;%1\&quot; has been added to your address book.&quot;</span>)<span class="operator">.</span>arg(name));
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Add Unsuccessful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;Sorry, \&quot;%1\&quot; is already in your address book.&quot;</span>)<span class="operator">.</span>arg(name));
+         }</pre>
+<p>Otherwise, we check to see if <tt>currentMode</tt> is in <tt>EditingMode</tt>. If it is, we compare <tt>oldName</tt> with <tt>name</tt>. If the name has changed, we remove the old contact from <tt>contacts</tt> and insert the newly updated contact.</p>
+<pre class="cpp">     } <span class="keyword">else</span> <span class="keyword">if</span> (currentMode <span class="operator">=</span><span class="operator">=</span> EditingMode) {
+
+         <span class="keyword">if</span> (oldName <span class="operator">!</span><span class="operator">=</span> name) {
+             <span class="keyword">if</span> (<span class="operator">!</span>contacts<span class="operator">.</span>contains(name)) {
+                 <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Edit Successful&quot;</span>)<span class="operator">,</span>
+                     tr(<span class="string">&quot;\&quot;%1\&quot; has been edited in your address book.&quot;</span>)<span class="operator">.</span>arg(oldName));
+                 contacts<span class="operator">.</span>remove(oldName);
+                 contacts<span class="operator">.</span>insert(name<span class="operator">,</span> address);
+             } <span class="keyword">else</span> {
+                 <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Edit Unsuccessful&quot;</span>)<span class="operator">,</span>
+                     tr(<span class="string">&quot;Sorry, \&quot;%1\&quot; is already in your address book.&quot;</span>)<span class="operator">.</span>arg(name));
+             }
+         } <span class="keyword">else</span> <span class="keyword">if</span> (oldAddress <span class="operator">!</span><span class="operator">=</span> address) {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Edit Successful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;\&quot;%1\&quot; has been edited in your address book.&quot;</span>)<span class="operator">.</span>arg(name));
+             contacts<span class="operator">[</span>name<span class="operator">]</span> <span class="operator">=</span> address;
+         }
+     }
+
+     updateInterface(NavigationMode);
+ }</pre>
+<p>If only the address has changed (i.e&#x2e;, <tt>oldAddress</tt> is not the same as <tt>address</tt>), we update the contact's address. Lastly, we set <tt>currentMode</tt> to <tt>NavigationMode</tt>. This is an important step as it re-enables all the disabled push buttons.</p>
+<p>To remove a contact from the address book, we implement the <tt>removeContact()</tt> function. This function checks to see if the contact exists in <tt>contacts</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> AddressBook<span class="operator">::</span>removeContact()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> nameLine<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type"><a href="qstring.html">QString</a></span> address <span class="operator">=</span> addressText<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
+
+     <span class="keyword">if</span> (contacts<span class="operator">.</span>contains(name)) {
+
+         <span class="type">int</span> button <span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>question(<span class="keyword">this</span><span class="operator">,</span>
+             tr(<span class="string">&quot;Confirm Remove&quot;</span>)<span class="operator">,</span>
+             tr(<span class="string">&quot;Are you sure you want to remove \&quot;%1\&quot;?&quot;</span>)<span class="operator">.</span>arg(name)<span class="operator">,</span>
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes <span class="operator">|</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>No);
+
+         <span class="keyword">if</span> (button <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes) {
+
+             previous();
+             contacts<span class="operator">.</span>remove(name);
+
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Remove Successful&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;\&quot;%1\&quot; has been removed from your address book.&quot;</span>)<span class="operator">.</span>arg(name));
+         }
+     }
+
+     updateInterface(NavigationMode);
+ }</pre>
+<p>If it does, we display a <a href="qmessagebox.html">QMessageBox</a>, to confirm the removal with the user. Once the user has confirmed, we call <tt>previous()</tt> to ensure that the user interface shows another contact, and we remove the contact using <a href="qmap.html">QMap</a>'s <a href="qmap.html#remove">remove()</a> function. As a courtesy, we display a <a href="qmessagebox.html">QMessageBox</a> to inform the user. Both the message boxes used in this function are shown below:</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part4-remove.png" alt="" /></p><a name="updating-the-user-interface"></a>
+<h3>Updating the User Interface</h3>
+<p>We mentioned the <tt>updateInterface()</tt> function earlier as a means to enable and disable the push buttons depending on the current mode. The function updates the current mode according to the <tt>mode</tt> argument passed to it, assigning it to <tt>currentMode</tt> before checking its value.</p>
+<p>Each of the push buttons is then enabled or disabled, depending on the current mode. The code for <tt>AddingMode</tt> and <tt>EditingMode</tt> is shown below:</p>
+<pre class="cpp"> <span class="type">void</span> AddressBook<span class="operator">::</span>updateInterface(Mode mode)
+ {
+     currentMode <span class="operator">=</span> mode;
+
+     <span class="keyword">switch</span> (currentMode) {
+
+     <span class="keyword">case</span> AddingMode:
+     <span class="keyword">case</span> EditingMode:
+
+         nameLine<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">false</span>);
+         nameLine<span class="operator">-</span><span class="operator">&gt;</span>setFocus(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>OtherFocusReason);
+         addressText<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">false</span>);
+
+         addButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         editButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         removeButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+
+         nextButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+
+         submitButton<span class="operator">-</span><span class="operator">&gt;</span>show();
+         cancelButton<span class="operator">-</span><span class="operator">&gt;</span>show();
+         <span class="keyword">break</span>;</pre>
+<p>For <tt>NavigationMode</tt>, however, we include conditions within the parameters of the <a href="qwidget.html#enabled-prop">QPushButton::setEnabled</a>() function. This is to ensure that <tt>editButton</tt> and <tt>removeButton</tt> are enabled when there is at least one contact in the address book; <tt>nextButton</tt> and <tt>previousButton</tt> are only enabled when there is more than one contact in the address book.</p>
+<pre class="cpp">     <span class="keyword">case</span> NavigationMode:
+
+         <span class="keyword">if</span> (contacts<span class="operator">.</span>isEmpty()) {
+             nameLine<span class="operator">-</span><span class="operator">&gt;</span>clear();
+             addressText<span class="operator">-</span><span class="operator">&gt;</span>clear();
+         }
+
+         nameLine<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
+         addressText<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
+         addButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+
+         <span class="type">int</span> number <span class="operator">=</span> contacts<span class="operator">.</span>size();
+         editButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">1</span>);
+         removeButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">1</span>);
+         nextButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span> <span class="number">1</span>);
+         previousButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(number <span class="operator">&gt;</span><span class="number">1</span> );
+
+         submitButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
+         cancelButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
+         <span class="keyword">break</span>;
+     }
+ }</pre>
+<p>By setting the mode and updating the user interface in the same function, we avoid the possibility of the user interface getting out of sync with the internal state of the application.</p>
+</div>
+<!-- @@@tutorials/addressbook/part4 -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+// RobloxProxy.idl : IDL source for RobloxProxy
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RobloxProxy.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(699F0898-B7BC-4DE5-AFEE-0EC38AD42240),
+	dual,
+	nonextensible,
+	helpstring("ILauncher Interface"),
+	pointer_default(unique)
+]
+interface ILauncher : IDispatch{
+	[id(1), helpstring("method StartGame")] HRESULT StartGame([in] BSTR authenticationUrl, [in] BSTR script);
+	[id(2), helpstring("method HelloWorld")] HRESULT HelloWorld(void);
+	[id(3), helpstring("method Hello")] HRESULT Hello([out,retval] BSTR* result);
+	[propget, id(4), helpstring("property InstallHost")] HRESULT InstallHost([out, retval] BSTR* pVal);
+	[id(5), helpstring("method Update")] HRESULT Update(void);
+	[propput, id(6), helpstring("property AuthenticationTicket")] HRESULT AuthenticationTicket([in] BSTR newVal);
+	[propget, id(7), helpstring("property IsUpToDate")] HRESULT IsUpToDate([out,retval] VARIANT_BOOL* result);
+	[id(8), helpstring("method PreStartGame")] HRESULT PreStartGame(void);
+	[propget, id(9), helpstring("property IsGameStarted")] HRESULT IsGameStarted([out,retval] VARIANT_BOOL* result);
+	[id(10), helpstring("method SetSilentModeEnabled")] HRESULT SetSilentModeEnabled([in] VARIANT_BOOL silentModeEnbled);
+	[id(11), helpstring("property GetKeyValue")] HRESULT GetKeyValue([in] BSTR key, [out, retval] BSTR* pVal);
+	[id(12), helpstring("property SetKeyValue")] HRESULT SetKeyValue([in] BSTR key, [in] BSTR val);
+	[id(13), helpstring("property DeleteKeyValue")] HRESULT DeleteKeyValue([in] BSTR key);
+	[id(14), helpstring("property SetStartInHiddenMode")] HRESULT SetStartInHiddenMode([in] VARIANT_BOOL hiddenModeEnabled);
+	[id(15), helpstring("method UnhideApp")] HRESULT UnhideApp();
+	[id(16), helpstring("method to bring app on top")] HRESULT BringAppToFront();
+	[id(17), helpstring("method to reset plugin state before game launch")] HRESULT ResetLaunchState();
+	[id(18), helpstring("method to inform about edit mode start")] HRESULT SetEditMode();
+	[id(19), helpstring("property to get plugin version")] HRESULT Get_Version([out, retval] BSTR* pVal);
+};
+[
+	uuid(731B317A-E2B8-4BF7-A2C4-B47C225DDAFF),
+	version(1.0),
+	helpstring("RobloxProxy 1.0 Type Library")
+]
+library RobloxProxyLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(6E9600BE-5654-47F0-9A68-D6DC25FADC55),
+		helpstring("_ILauncherEvents Interface")
+	]
+	dispinterface _ILauncherEvents
+	{
+		properties:
+		methods:
+	};
+	[
+#ifdef _WIN64
+		uuid(DEE03C2B-0C0C-41A9-9877-FD4B4D7B6EA3),
+#else
+		uuid(76D50904-6780-4c8b-8986-1A7EE0B1716D),
+#endif
+		helpstring("Launcher Class")
+	]
+	coclass Launcher
+	{
+		[default] interface ILauncher;
+		[default, source] dispinterface _ILauncherEvents;
+	};
+};

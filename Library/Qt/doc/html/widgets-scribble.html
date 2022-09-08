@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- scribble.qdoc -->
+  <title>Qt 4.8: Scribble Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Scribble Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#scribblearea-class-definition">ScribbleArea Class Definition</a></li>
+<li class="level1"><a href="#scribblearea-class-implementation">ScribbleArea Class Implementation</a></li>
+<li class="level1"><a href="#mainwindow-class-definition">MainWindow Class Definition</a></li>
+<li class="level1"><a href="#mainwindow-class-implementation">MainWindow Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Scribble Example</h1>
+<span class="subtitle"></span>
+<!-- $$$widgets/scribble-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="widgets-scribble-mainwindow-cpp.html">widgets/scribble/mainwindow.cpp</a></li>
+<li><a href="widgets-scribble-mainwindow-h.html">widgets/scribble/mainwindow.h</a></li>
+<li><a href="widgets-scribble-scribblearea-cpp.html">widgets/scribble/scribblearea.cpp</a></li>
+<li><a href="widgets-scribble-scribblearea-h.html">widgets/scribble/scribblearea.h</a></li>
+<li><a href="widgets-scribble-main-cpp.html">widgets/scribble/main.cpp</a></li>
+<li><a href="widgets-scribble-scribble-pro.html">widgets/scribble/scribble.pro</a></li>
+</ul>
+<p>The Scribble example shows how to reimplement some of <a href="qwidget.html">QWidget</a>'s event handlers to receive the events generated for the application's widgets.<p>We reimplement the mouse event handlers to implement drawing, the paint event handler to update the application and the resize event handler to optimize the application's appearance. In addition we reimplement the close event handler to intercept the close events before terminating the application.</p>
+<p>The example also demonstrates how to use <a href="qpainter.html">QPainter</a> to draw an image in real time, as well as to repaint widgets.</p>
+<p class="centerAlign"><img src="images/scribble-example.png" alt="Screenshot of the Scribble example" /></p><p>With the Scribble application the users can draw an image. The <b>File</b> menu gives the users the possibility to open and edit an existing image file, save an image and exit the application. While drawing, the <b>Options</b> menu allows the users to to choose the pen color and pen width, as well as clear the screen. In addition the <b>Help</b> menu provides the users with information about the Scribble example in particular, and about Qt in general.</p>
+<p>The example consists of two classes:</p>
+<ul>
+<li><tt>ScribbleArea</tt> is a custom widget that displays a <a href="qimage.html">QImage</a> and allows to the user to draw on it.</li>
+<li><tt>MainWindow</tt> provides a menu above the <tt>ScribbleArea</tt>.</li>
+</ul>
+<p>We will start by reviewing the <tt>ScribbleArea</tt> class. Then we will review the <tt>MainWindow</tt> class, which uses <tt>ScribbleArea</tt>.</p>
+<a name="scribblearea-class-definition"></a>
+<h2>ScribbleArea Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> ScribbleArea : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     ScribbleArea(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type">bool</span> openImage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName);
+     <span class="type">bool</span> saveImage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>fileFormat);
+     <span class="type">void</span> setPenColor(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>newColor);
+     <span class="type">void</span> setPenWidth(<span class="type">int</span> newWidth);
+
+     <span class="type">bool</span> isModified() <span class="keyword">const</span> { <span class="keyword">return</span> modified; }
+     <span class="type"><a href="qcolor.html">QColor</a></span> penColor() <span class="keyword">const</span> { <span class="keyword">return</span> myPenColor; }
+     <span class="type">int</span> penWidth() <span class="keyword">const</span> { <span class="keyword">return</span> myPenWidth; }
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> clearImage();
+     <span class="type">void</span> print();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> drawLineTo(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>endPoint);
+     <span class="type">void</span> resizeImage(<span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">*</span>image<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qsize.html">QSize</a></span> <span class="operator">&amp;</span>newSize);
+
+     <span class="type">bool</span> modified;
+     <span class="type">bool</span> scribbling;
+     <span class="type">int</span> myPenWidth;
+     <span class="type"><a href="qcolor.html">QColor</a></span> myPenColor;
+     <span class="type"><a href="qimage.html">QImage</a></span> image;
+     <span class="type"><a href="qpoint.html">QPoint</a></span> lastPoint;
+ };</pre>
+<p>The <tt>ScribbleArea</tt> class inherits from <a href="qwidget.html">QWidget</a>. We reimplement the <tt>mousePressEvent()</tt>, <tt>mouseMoveEvent()</tt> and <tt>mouseReleaseEvent()</tt> functions to implement the drawing. We reimplement the <tt>paintEvent()</tt> function to update the scribble area, and the <tt>resizeEvent()</tt> function to ensure that the <a href="qimage.html">QImage</a> on which we draw is at least as large as the widget at any time.</p>
+<p>We need several public functions: <tt>openImage()</tt> loads an image from a file into the scribble area, allowing the user to edit the image; <tt>save()</tt> writes the currently displayed image to file; <tt>clearImage()</tt> slot clears the image displayed in the scribble area. We need the private <tt>drawLineTo()</tt> function to actually do the drawing, and <tt>resizeImage()</tt> to change the size of a <a href="qimage.html">QImage</a>. The <tt>print()</tt> slot handles printing.</p>
+<p>We also need the following private variables:</p>
+<ul>
+<li><tt>modified</tt> is <tt>true</tt> if there are unsaved changes to the image displayed in the scribble area.</li>
+<li><tt>scribbling</tt> is <tt>true</tt> while the user is pressing the left mouse button within the scribble area.</li>
+<li><tt>penWidth</tt> and <tt>penColor</tt> hold the currently set width and color for the pen used in the application.</li>
+<li><tt>image</tt> stores the image drawn by the user.</li>
+<li><tt>lastPoint</tt> holds the position of the cursor at the last mouse press or mouse move event.</li>
+</ul>
+<a name="scribblearea-class-implementation"></a>
+<h2>ScribbleArea Class Implementation</h2>
+<pre class="cpp"> ScribbleArea<span class="operator">::</span>ScribbleArea(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_StaticContents);
+     modified <span class="operator">=</span> <span class="keyword">false</span>;
+     scribbling <span class="operator">=</span> <span class="keyword">false</span>;
+     myPenWidth <span class="operator">=</span> <span class="number">1</span>;
+     myPenColor <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue;
+ }</pre>
+<p>In the constructor, we set the <a href="qt.html#WidgetAttribute-enum">Qt::WA_StaticContents</a> attribute for the widget, indicating that the widget contents are rooted to the top-left corner and don't change when the widget is resized. Qt uses this attribute to optimize paint events on resizes. This is purely an optimization and should only be used for widgets whose contents are static and rooted to the top-left corner.</p>
+<pre class="cpp"> <span class="type">bool</span> ScribbleArea<span class="operator">::</span>openImage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
+ {
+     <span class="type"><a href="qimage.html">QImage</a></span> loadedImage;
+     <span class="keyword">if</span> (<span class="operator">!</span>loadedImage<span class="operator">.</span>load(fileName))
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     <span class="type"><a href="qsize.html">QSize</a></span> newSize <span class="operator">=</span> loadedImage<span class="operator">.</span>size()<span class="operator">.</span>expandedTo(size());
+     resizeImage(<span class="operator">&amp;</span>loadedImage<span class="operator">,</span> newSize);
+     image <span class="operator">=</span> loadedImage;
+     modified <span class="operator">=</span> <span class="keyword">false</span>;
+     update();
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>In the <tt>openImage()</tt> function, we load the given image. Then we resize the loaded <a href="qimage.html">QImage</a> to be at least as large as the widget in both directions using the private <tt>resizeImage()</tt> function and we set the <tt>image</tt> member variable to be the loaded image. At the end, we call <a href="qwidget.html#update">QWidget::update</a>() to schedule a repaint.</p>
+<pre class="cpp"> <span class="type">bool</span> ScribbleArea<span class="operator">::</span>saveImage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>fileFormat)
+ {
+     <span class="type"><a href="qimage.html">QImage</a></span> visibleImage <span class="operator">=</span> image;
+     resizeImage(<span class="operator">&amp;</span>visibleImage<span class="operator">,</span> size());
+
+     <span class="keyword">if</span> (visibleImage<span class="operator">.</span>save(fileName<span class="operator">,</span> fileFormat)) {
+         modified <span class="operator">=</span> <span class="keyword">false</span>;
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     } <span class="keyword">else</span> {
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+     }
+ }</pre>
+<p>The <tt>saveImage()</tt> function creates a <a href="qimage.html">QImage</a> object that covers only the visible section of the actual <tt>image</tt> and saves it using <a href="qimage.html#save">QImage::save</a>(). If the image is successfully saved, we set the scribble area's <tt>modified</tt> variable to <tt>false</tt>, because there is no unsaved data.</p>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>setPenColor(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>newColor)
+ {
+     myPenColor <span class="operator">=</span> newColor;
+ }
+
+ <span class="type">void</span> ScribbleArea<span class="operator">::</span>setPenWidth(<span class="type">int</span> newWidth)
+ {
+     myPenWidth <span class="operator">=</span> newWidth;
+ }</pre>
+<p>The <tt>setPenColor()</tt> and <tt>setPenWidth()</tt> functions set the current pen color and width. These values will be used for future drawing operations.</p>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>clearImage()
+ {
+     image<span class="operator">.</span>fill(<a href="qcolor.html#qRgb">qRgb</a>(<span class="number">255</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">255</span>));
+     modified <span class="operator">=</span> <span class="keyword">true</span>;
+     update();
+ }</pre>
+<p>The public <tt>clearImage()</tt> slot clears the image displayed in the scribble area. We simply fill the entire image with white, which corresponds to RGB value (255, 255, 255). As usual when we modify the image, we set <tt>modified</tt> to <tt>true</tt> and schedule a repaint.</p>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         lastPoint <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+         scribbling <span class="operator">=</span> <span class="keyword">true</span>;
+     }
+ }
+
+ <span class="type">void</span> ScribbleArea<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> ((event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) <span class="operator">&amp;</span><span class="operator">&amp;</span> scribbling)
+         drawLineTo(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+ }
+
+ <span class="type">void</span> ScribbleArea<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton <span class="operator">&amp;</span><span class="operator">&amp;</span> scribbling) {
+         drawLineTo(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+         scribbling <span class="operator">=</span> <span class="keyword">false</span>;
+     }
+ }</pre>
+<p>For mouse press and mouse release events, we use the <a href="qmouseevent.html#button">QMouseEvent::button</a>() function to find out which button caused the event. For mose move events, we use <a href="qmouseevent.html#buttons">QMouseEvent::buttons</a>() to find which buttons are currently held down (as an OR-combination).</p>
+<p>If the users press the left mouse button, we store the position of the mouse cursor in <tt>lastPoint</tt>. We also make a note that the user is currently scribbling. (The <tt>scribbling</tt> variable is necessary because we can't assume that a mouse move and mouse release event is always preceded by a mouse press event on the same widget.)</p>
+<p>If the user moves the mouse with the left button pressed down or releases the button, we call the private <tt>drawLineTo()</tt> function to draw.</p>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     <span class="type"><a href="qrect.html">QRect</a></span> dirtyRect <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>rect();
+     painter<span class="operator">.</span>drawImage(dirtyRect<span class="operator">,</span> image<span class="operator">,</span> dirtyRect);
+ }</pre>
+<p>In the reimplementation of the <a href="qwidget.html#paintEvent">paintEvent()</a> function, we simply create a <a href="qpainter.html">QPainter</a> for the scribble area, and draw the image.</p>
+<p>At this point, you might wonder why we don't just draw directly onto the widget instead of drawing in a <a href="qimage.html">QImage</a> and copying the <a href="qimage.html">QImage</a> onto screen in <tt>paintEvent()</tt>. There are at least three good reasons for this:</p>
+<ul>
+<li>The window system requires us to be able to redraw the widget <i>at any time</i>. For example, if the window is minimized and restored, the window system might have forgotten the contents of the widget and send us a paint event. In other words, we can't rely on the window system to remember our image.</li>
+<li>Qt normally doesn't allow us to paint outside of <tt>paintEvent()</tt>. In particular, we can't paint from the mouse event handlers. (This behavior can be changed using the <a href="qt.html#WidgetAttribute-enum">Qt::WA_PaintOnScreen</a> widget attribute, though.)</li>
+<li>If initialized properly, a <a href="qimage.html">QImage</a> is guaranteed to use 8-bit for each color channel (red, green, blue, and alpha), whereas a <a href="qwidget.html">QWidget</a> might have a lower color depth, depending on the monitor configuration. This means that if we load a 24-bit or 32-bit image and paint it onto a <a href="qwidget.html">QWidget</a>, then copy the <a href="qwidget.html">QWidget</a> into a <a href="qimage.html">QImage</a> again, we might lose some information.</li>
+</ul>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (width() <span class="operator">&gt;</span> image<span class="operator">.</span>width() <span class="operator">|</span><span class="operator">|</span> height() <span class="operator">&gt;</span> image<span class="operator">.</span>height()) {
+         <span class="type">int</span> newWidth <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(width() <span class="operator">+</span> <span class="number">128</span><span class="operator">,</span> image<span class="operator">.</span>width());
+         <span class="type">int</span> newHeight <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(height() <span class="operator">+</span> <span class="number">128</span><span class="operator">,</span> image<span class="operator">.</span>height());
+         resizeImage(<span class="operator">&amp;</span>image<span class="operator">,</span> <span class="type"><a href="qsize.html">QSize</a></span>(newWidth<span class="operator">,</span> newHeight));
+         update();
+     }
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>resizeEvent(event);
+ }</pre>
+<p>When the user starts the Scribble application, a resize event is generated and an image is created and displayed in the scribble area. We make this initial image slightly larger than the application's main window and scribble area, to avoid always resizing the image when the user resizes the main window (which would be very inefficient). But when the main window becomes larger than this initial size, the image needs to be resized.</p>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>drawLineTo(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>endPoint)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="operator">&amp;</span>image);
+     painter<span class="operator">.</span>setPen(<span class="type"><a href="qpen.html">QPen</a></span>(myPenColor<span class="operator">,</span> myPenWidth<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SolidLine<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundCap<span class="operator">,</span>
+                         <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundJoin));
+     painter<span class="operator">.</span>drawLine(lastPoint<span class="operator">,</span> endPoint);
+     modified <span class="operator">=</span> <span class="keyword">true</span>;
+
+     <span class="type">int</span> rad <span class="operator">=</span> (myPenWidth <span class="operator">/</span> <span class="number">2</span>) <span class="operator">+</span> <span class="number">2</span>;
+     update(<span class="type"><a href="qrect.html">QRect</a></span>(lastPoint<span class="operator">,</span> endPoint)<span class="operator">.</span>normalized()
+                                      <span class="operator">.</span>adjusted(<span class="operator">-</span>rad<span class="operator">,</span> <span class="operator">-</span>rad<span class="operator">,</span> <span class="operator">+</span>rad<span class="operator">,</span> <span class="operator">+</span>rad));
+     lastPoint <span class="operator">=</span> endPoint;
+ }</pre>
+<p>In <tt>drawLineTo()</tt>, we draw a line from the point where the mouse was located when the last mouse press or mouse move occurred, we set <tt>modified</tt> to true, we generate a repaint event, and we update <tt>lastPoint</tt> so that next time <tt>drawLineTo()</tt> is called, we continue drawing from where we left.</p>
+<p>We could call the <tt>update()</tt> function with no parameter, but as an easy optimization we pass a <a href="qrect.html">QRect</a> that specifies the rectangle inside the scribble are needs updating, to avoid a complete repaint of the widget.</p>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>resizeImage(<span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">*</span>image<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qsize.html">QSize</a></span> <span class="operator">&amp;</span>newSize)
+ {
+     <span class="keyword">if</span> (image<span class="operator">-</span><span class="operator">&gt;</span>size() <span class="operator">=</span><span class="operator">=</span> newSize)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qimage.html">QImage</a></span> newImage(newSize<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_RGB32);
+     newImage<span class="operator">.</span>fill(<a href="qcolor.html#qRgb">qRgb</a>(<span class="number">255</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">255</span>));
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="operator">&amp;</span>newImage);
+     painter<span class="operator">.</span>drawImage(<span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> <span class="operator">*</span>image);
+     <span class="operator">*</span>image <span class="operator">=</span> newImage;
+ }</pre>
+<p><a href="qimage.html">QImage</a> has no nice API for resizing an image. There's a <a href="qimage.html#copy">QImage::copy</a>() function that could do the trick, but when used to expand an image, it fills the new areas with black, whereas we want white.</p>
+<p>So the trick is to create a brand new <a href="qimage.html">QImage</a> with the right size, to fill it with white, and to draw the old image onto it using <a href="qpainter.html">QPainter</a>. The new image is given the <a href="qimage.html#Format-enum">QImage::Format_RGB32</a> format, which means that each pixel is stored as 0xffRRGGBB (where RR, GG, and BB are the red, green and blue color channels, ff is the hexadecimal value 255).</p>
+<p>Printing is handled by the <tt>print()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> ScribbleArea<span class="operator">::</span>print()
+ {
+ <span class="preprocessor">#ifndef QT_NO_PRINTER</span>
+     <span class="type"><a href="qprinter.html">QPrinter</a></span> printer(<span class="type"><a href="qprinter.html">QPrinter</a></span><span class="operator">::</span>HighResolution);
+
+     <span class="type"><a href="qprintdialog.html">QPrintDialog</a></span> <span class="operator">*</span>printDialog <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qprintdialog.html">QPrintDialog</a></span>(<span class="operator">&amp;</span>printer<span class="operator">,</span> <span class="keyword">this</span>);</pre>
+<p>We construct a high resolution <a href="qprinter.html">QPrinter</a> object for the required output format, using a <a href="qprintdialog.html">QPrintDialog</a> to ask the user to specify a page size and indicate how the output should be formatted on the page.</p>
+<p>If the dialog is accepted, we perform the task of printing to the paint device:</p>
+<pre class="cpp">     <span class="keyword">if</span> (printDialog<span class="operator">-</span><span class="operator">&gt;</span>exec() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted) {
+         <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="operator">&amp;</span>printer);
+         <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> painter<span class="operator">.</span>viewport();
+         <span class="type"><a href="qsize.html">QSize</a></span> size <span class="operator">=</span> image<span class="operator">.</span>size();
+         size<span class="operator">.</span>scale(rect<span class="operator">.</span>size()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeepAspectRatio);
+         painter<span class="operator">.</span>setViewport(rect<span class="operator">.</span>x()<span class="operator">,</span> rect<span class="operator">.</span>y()<span class="operator">,</span> size<span class="operator">.</span>width()<span class="operator">,</span> size<span class="operator">.</span>height());
+         painter<span class="operator">.</span>setWindow(image<span class="operator">.</span>rect());
+         painter<span class="operator">.</span>drawImage(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> image);
+     }
+ <span class="preprocessor">#endif // QT_NO_PRINTER</span>
+ }</pre>
+<p>Printing an image to a file in this way is simply a matter of painting onto the <a href="qprinter.html">QPrinter</a>. We scale the image to fit within the available space on the page before painting it onto the paint device.</p>
+<a name="mainwindow-class-definition"></a>
+<h2>MainWindow Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     MainWindow();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> closeEvent(<span class="type"><a href="qcloseevent.html">QCloseEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> open();
+     <span class="type">void</span> save();
+     <span class="type">void</span> penColor();
+     <span class="type">void</span> penWidth();
+     <span class="type">void</span> about();
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> createActions();
+     <span class="type">void</span> createMenus();
+     <span class="type">bool</span> maybeSave();
+     <span class="type">bool</span> saveFile(<span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>fileFormat);
+
+     ScribbleArea <span class="operator">*</span>scribbleArea;
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>saveAsMenu;
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>fileMenu;
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>optionMenu;
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>helpMenu;
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>openAct;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span> saveAsActs;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>exitAct;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>penColorAct;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>penWidthAct;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>printAct;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>clearScreenAct;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aboutAct;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aboutQtAct;
+ };</pre>
+<p>The <tt>MainWindow</tt> class inherits from <a href="qmainwindow.html">QMainWindow</a>. We reimplement the <a href="qwidget.html#closeEvent">closeEvent()</a> handler from <a href="qwidget.html">QWidget</a>. The <tt>open()</tt>, <tt>save()</tt>, <tt>penColor()</tt> and <tt>penWidth()</tt> slots correspond to menu entries. In addition we create four private functions.</p>
+<p>We use the boolean <tt>maybeSave()</tt> function to check if there are any unsaved changes. If there are unsaved changes, we give the user the opportunity to save these changes. The function returns <tt>false</tt> if the user clicks <b>Cancel</b>. We use the <tt>saveFile()</tt> function to let the user save the image currently displayed in the scribble area.</p>
+<a name="mainwindow-class-implementation"></a>
+<h2>MainWindow Class Implementation</h2>
+<pre class="cpp"> MainWindow<span class="operator">::</span>MainWindow()
+ {
+     scribbleArea <span class="operator">=</span> <span class="keyword">new</span> ScribbleArea;
+     setCentralWidget(scribbleArea);
+
+     createActions();
+     createMenus();
+
+     setWindowTitle(tr(<span class="string">&quot;Scribble&quot;</span>));
+     resize(<span class="number">500</span><span class="operator">,</span> <span class="number">500</span>);
+ }</pre>
+<p>In the constructor, we create a scribble area which we make the central widget of the <tt>MainWindow</tt> widget. Then we create the associated actions and menus.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>closeEvent(<span class="type"><a href="qcloseevent.html">QCloseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (maybeSave()) {
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     } <span class="keyword">else</span> {
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+     }
+ }</pre>
+<p>Close events are sent to widgets that the users want to close, usually by clicking <b>File|Exit</b> or by clicking the <b>X</b> title bar button. By reimplementing the event handler, we can intercept attempts to close the application.</p>
+<p>In this example, we use the close event to ask the user to save any unsaved changes. The logic for that is located in the <tt>maybeSave()</tt> function. If <tt>maybeSave()</tt> returns true, there are no modifications or the users successfully saved them, and we accept the event. The application can then terminate normally. If <tt>maybeSave()</tt> returns false, the user clicked <b>Cancel</b>, so we &quot;ignore&quot; the event, leaving the application unaffected by it.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>open()
+ {
+     <span class="keyword">if</span> (maybeSave()) {
+         <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getOpenFileName(<span class="keyword">this</span><span class="operator">,</span>
+                                    tr(<span class="string">&quot;Open File&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>currentPath());
+         <span class="keyword">if</span> (<span class="operator">!</span>fileName<span class="operator">.</span>isEmpty())
+             scribbleArea<span class="operator">-</span><span class="operator">&gt;</span>openImage(fileName);
+     }
+ }</pre>
+<p>In the <tt>open()</tt> slot we first give the user the opportunity to save any modifications to the currently displayed image, before a new image is loaded into the scribble area. Then we ask the user to choose a file and we load the file in the <tt>ScribbleArea</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>save()
+ {
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> fileFormat <span class="operator">=</span> action<span class="operator">-</span><span class="operator">&gt;</span>data()<span class="operator">.</span>toByteArray();
+     saveFile(fileFormat);
+ }</pre>
+<p>The <tt>save()</tt> slot is called when the users choose the <b>Save As</b> menu entry, and then choose an entry from the format menu. The first thing we need to do is to find out which action sent the signal using <a href="qobject.html#sender">QObject::sender</a>(). This function returns the sender as a <a href="qobject.html">QObject</a> pointer. Since we know that the sender is an action object, we can safely cast the <a href="qobject.html">QObject</a>. We could have used a C-style cast or a C++ <tt>static_cast&lt;&gt;()</tt>, but as a defensive programming technique we use a <a href="qobject.html#qobject_cast">qobject_cast</a>(). The advantage is that if the object has the wrong type, a null pointer is returned. Crashes due to null pointers are much easier to diagnose than crashes due to unsafe casts.</p>
+<p>Once we have the action, we extract the chosen format using <a href="qaction.html#data">QAction::data</a>(). (When the actions are created, we use <a href="qaction.html#setData">QAction::setData</a>() to set our own custom data attached to the action, as a <a href="qvariant.html">QVariant</a>. More on this when we review <tt>createActions()</tt>.)</p>
+<p>Now that we know the format, we call the private <tt>saveFile()</tt> function to save the currently displayed image.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>penColor()
+ {
+     <span class="type"><a href="qcolor.html">QColor</a></span> newColor <span class="operator">=</span> <span class="type"><a href="qcolordialog.html">QColorDialog</a></span><span class="operator">::</span>getColor(scribbleArea<span class="operator">-</span><span class="operator">&gt;</span>penColor());
+     <span class="keyword">if</span> (newColor<span class="operator">.</span>isValid())
+         scribbleArea<span class="operator">-</span><span class="operator">&gt;</span>setPenColor(newColor);
+ }</pre>
+<p>We use the <tt>penColor()</tt> slot to retrieve a new color from the user with a <a href="qcolordialog.html">QColorDialog</a>. If the user chooses a new color, we make it the scribble area's color.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>penWidth()
+ {
+     <span class="type">bool</span> ok;
+     <span class="type">int</span> newWidth <span class="operator">=</span> <span class="type"><a href="qinputdialog.html">QInputDialog</a></span><span class="operator">::</span>getInteger(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Scribble&quot;</span>)<span class="operator">,</span>
+                                             tr(<span class="string">&quot;Select pen width:&quot;</span>)<span class="operator">,</span>
+                                             scribbleArea<span class="operator">-</span><span class="operator">&gt;</span>penWidth()<span class="operator">,</span>
+                                             <span class="number">1</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>ok);
+     <span class="keyword">if</span> (ok)
+         scribbleArea<span class="operator">-</span><span class="operator">&gt;</span>setPenWidth(newWidth);
+ }</pre>
+<p>To retrieve a new pen width in the <tt>penWidth()</tt> slot, we use <a href="qinputdialog.html">QInputDialog</a>. The <a href="qinputdialog.html">QInputDialog</a> class provides a simple convenience dialog to get a single value from the user. We use the static <a href="qinputdialog.html#getInt">QInputDialog::getInt</a>() function, which combines a <a href="qlabel.html">QLabel</a> and a <a href="qspinbox.html">QSpinBox</a>. The <a href="qspinbox.html">QSpinBox</a> is initialized with the scribble area's pen width, allows a range from 1 to 50, a step of 1 (meaning that the up and down arrow increment or decrement the value by 1).</p>
+<p>The boolean <tt>ok</tt> variable will be set to <tt>true</tt> if the user clicked <b>OK</b> and to <tt>false</tt> if the user pressed <b>Cancel</b>.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>about()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>about(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;About Scribble&quot;</span>)<span class="operator">,</span>
+             tr(<span class="string">&quot;&lt;p&gt;The &lt;b&gt;Scribble&lt;/b&gt; example shows how to use QMainWindow as the &quot;</span>
+                <span class="string">&quot;base widget for an application, and how to reimplement some of &quot;</span>
+                <span class="string">&quot;QWidget's event handlers to receive the events generated for &quot;</span>
+                <span class="string">&quot;the application's widgets:&lt;/p&gt;&lt;p&gt; We reimplement the mouse event &quot;</span>
+                <span class="string">&quot;handlers to facilitate drawing, the paint event handler to &quot;</span>
+                <span class="string">&quot;update the application and the resize event handler to optimize &quot;</span>
+                <span class="string">&quot;the application's appearance. In addition we reimplement the &quot;</span>
+                <span class="string">&quot;close event handler to intercept the close events before &quot;</span>
+                <span class="string">&quot;terminating the application.&lt;/p&gt;&lt;p&gt; The example also demonstrates &quot;</span>
+                <span class="string">&quot;how to use QPainter to draw an image in real time, as well as &quot;</span>
+                <span class="string">&quot;to repaint widgets.&lt;/p&gt;&quot;</span>));
+ }</pre>
+<p>We implement the <tt>about()</tt> slot to create a message box describing what the example is designed to show.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createActions()
+ {
+     openAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Open...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     openAct<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>Open);
+     connect(openAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(open()));
+
+     foreach (<span class="type"><a href="qbytearray.html">QByteArray</a></span> format<span class="operator">,</span> <span class="type"><a href="qimagewriter.html">QImageWriter</a></span><span class="operator">::</span>supportedImageFormats()) {
+         <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> tr(<span class="string">&quot;%1...&quot;</span>)<span class="operator">.</span>arg(<span class="type"><a href="qstring.html">QString</a></span>(format)<span class="operator">.</span>toUpper());
+
+         <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(text<span class="operator">,</span> <span class="keyword">this</span>);
+         action<span class="operator">-</span><span class="operator">&gt;</span>setData(format);
+         connect(action<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(save()));
+         saveAsActs<span class="operator">.</span>append(action);
+     }
+
+     printAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Print...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(printAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> scribbleArea<span class="operator">,</span> SLOT(print()));
+
+     exitAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;E&amp;xit&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     exitAct<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>Quit);
+     connect(exitAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(close()));
+
+     penColorAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Pen Color...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(penColorAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(penColor()));
+
+     penWidthAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Pen &amp;Width...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(penWidthAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(penWidth()));
+
+     clearScreenAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Clear Screen&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     clearScreenAct<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(tr(<span class="string">&quot;Ctrl+L&quot;</span>));
+     connect(clearScreenAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span>
+             scribbleArea<span class="operator">,</span> SLOT(clearImage()));
+
+     aboutAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;About&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(aboutAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(about()));
+
+     aboutQtAct <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;About &amp;Qt&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(aboutQtAct<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> qApp<span class="operator">,</span> SLOT(aboutQt()));
+ }</pre>
+<p>In the <tt>createAction()</tt> function we create the actions representing the menu entries and connect them to the appropiate slots. In particular we create the actions found in the <b>Save As</b> sub-menu. We use <a href="qimagewriter.html#supportedImageFormats">QImageWriter::supportedImageFormats</a>() to get a list of the supported formats (as a <a href="qlist.html">QList</a>&lt;<a href="qbytearray.html">QByteArray</a>&gt;).</p>
+<p>Then we iterate through the list, creating an action for each format. We call <a href="qaction.html#setData">QAction::setData</a>() with the file format, so we can retrieve it later as <a href="qaction.html#data">QAction::data</a>(). We could also have deduced the file format from the action's text, by truncating the &quot;..&#x2e;&quot;, but that would have been inelegant.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createMenus()
+ {
+     saveAsMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(tr(<span class="string">&quot;&amp;Save As&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     foreach (<span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action<span class="operator">,</span> saveAsActs)
+         saveAsMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(action);
+
+     fileMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(tr(<span class="string">&quot;&amp;File&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(openAct);
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(saveAsMenu);
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(printAct);
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(exitAct);
+
+     optionMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(tr(<span class="string">&quot;&amp;Options&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     optionMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(penColorAct);
+     optionMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(penWidthAct);
+     optionMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     optionMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(clearScreenAct);
+
+     helpMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(tr(<span class="string">&quot;&amp;Help&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     helpMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(aboutAct);
+     helpMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(aboutQtAct);
+
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(fileMenu);
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(optionMenu);
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(helpMenu);
+ }</pre>
+<p>In the <tt>createMenu()</tt> function, we add the previously created format actions to the <tt>saveAsMenu</tt>. Then we add the rest of the actions as well as the <tt>saveAsMenu</tt> sub-menu to the <b>File</b>, <b>Options</b> and <b>Help</b> menus.</p>
+<p>The <a href="qmenu.html">QMenu</a> class provides a menu widget for use in menu bars, context menus, and other popup menus. The <a href="qmenubar.html">QMenuBar</a> class provides a horizontal menu bar with a list of pull-down <a href="qmenu.html">QMenu</a>s. At the end we put the <b>File</b> and <b>Options</b> menus in the <tt>MainWindow</tt>'s menu bar, which we retrieve using the <a href="qmainwindow.html#menuBar">QMainWindow::menuBar</a>() function.</p>
+<pre class="cpp"> <span class="type">bool</span> MainWindow<span class="operator">::</span>maybeSave()
+ {
+     <span class="keyword">if</span> (scribbleArea<span class="operator">-</span><span class="operator">&gt;</span>isModified()) {
+        <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>StandardButton ret;
+        ret <span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Scribble&quot;</span>)<span class="operator">,</span>
+                           tr(<span class="string">&quot;The image has been modified.\n&quot;</span>
+                              <span class="string">&quot;Do you want to save your changes?&quot;</span>)<span class="operator">,</span>
+                           <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Save <span class="operator">|</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Discard
+                           <span class="operator">|</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Cancel);
+         <span class="keyword">if</span> (ret <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Save) {
+             <span class="keyword">return</span> saveFile(<span class="string">&quot;png&quot;</span>);
+         } <span class="keyword">else</span> <span class="keyword">if</span> (ret <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Cancel) {
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+         }
+     }
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>In <tt>mayBeSave()</tt>, we check if there are any unsaved changes. If there are any, we use <a href="qmessagebox.html">QMessageBox</a> to give the user a warning that the image has been modified and the opportunity to save the modifications.</p>
+<p>As with <a href="qcolordialog.html">QColorDialog</a> and <a href="qfiledialog.html">QFileDialog</a>, the easiest way to create a <a href="qmessagebox.html">QMessageBox</a> is to use its static functions. <a href="qmessagebox.html">QMessageBox</a> provides a range of different messages arranged along two axes: severity (question, information, warning and critical) and complexity (the number of necessary response buttons). Here we use the <tt>warning()</tt> function sice the message is rather important.</p>
+<p>If the user chooses to save, we call the private <tt>saveFile()</tt> function. For simplicitly, we use PNG as the file format; the user can always press <b>Cancel</b> and save the file using another format.</p>
+<p>The <tt>maybeSave()</tt> function returns <tt>false</tt> if the user clicks <b>Cancel</b>; otherwise it returns <tt>true</tt>.</p>
+<pre class="cpp"> <span class="type">bool</span> MainWindow<span class="operator">::</span>saveFile(<span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>fileFormat)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> initialPath <span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>currentPath() <span class="operator">+</span> <span class="string">&quot;/untitled.&quot;</span> <span class="operator">+</span> fileFormat;
+
+     <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getSaveFileName(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Save As&quot;</span>)<span class="operator">,</span>
+                                initialPath<span class="operator">,</span>
+                                tr(<span class="string">&quot;%1 Files (*.%2);;All Files (*)&quot;</span>)
+                                <span class="operator">.</span>arg(<span class="type"><a href="qstring.html">QString</a></span>(fileFormat<span class="operator">.</span>toUpper()))
+                                <span class="operator">.</span>arg(<span class="type"><a href="qstring.html">QString</a></span>(fileFormat)));
+     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+     } <span class="keyword">else</span> {
+         <span class="keyword">return</span> scribbleArea<span class="operator">-</span><span class="operator">&gt;</span>saveImage(fileName<span class="operator">,</span> fileFormat);
+     }
+ }</pre>
+<p>In <tt>saveFile()</tt>, we pop up a file dialog with a file name suggestion. The static <a href="qfiledialog.html#getSaveFileName">QFileDialog::getSaveFileName</a>() function returns a file name selected by the user. The file does not have to exist.</p>
+</div>
+<!-- @@@widgets/scribble -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

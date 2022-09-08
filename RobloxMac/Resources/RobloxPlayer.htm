@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Roblox</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
+        type="text/javascript"></script>
+
+</head>
+<body id="BODY1" style="padding: 0; margin: 0">
+    <!-- Main -->
+    <div id="Main" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; margin-bottom: 40px;
+        margin-right: 200px; padding: 0 1px 1px 0">
+    </div>
+    <!-- TODO: nuke the Panel div when we don't need it for debugging -->
+    <div id="Panel" style="position: absolute; top: 0; right: 0; bottom: 0; width: 200px;
+        margin-bottom: 40px; overflow: auto; border-left-style: solid; border-width: 1px">
+        <div id="outputPanel" style="width: 100%">
+        </div>
+
+        <script type="text/javascript">
+            var traces = new Array();
+            var traceIndex = 19;
+            function trace(message) {
+                var div = $('<div></div>')
+                div.text(message);
+                div.appendTo(outputPanel);
+
+                if (traces.length < 20)
+                    traces.push(div);
+                else {
+                    traceIndex = traceIndex + 1;
+                    if (traceIndex == 20)
+                        traceIndex = 0;
+                    traces[traceIndex].remove();
+                    traces[traceIndex] = div;
+                }
+            }
+        </script>
+
+    </div>
+    <!-- Taskbar -->
+    <div id="Taskbar" style="background-color: Window; padding: 5px; height: 30px; position: absolute;
+        left: 0; right: 0; bottom: 0; position: absolute; bottom: 0; left: 0; border-width: 1px;
+        border-top-style: solid">
+        <div id="CommonButtons" style="float: right; margin: 5px">
+            <button onclick="window.external.IsFullscreen = !window.external.IsFullscreen; return false">
+                Fullscreen</button>
+            <button onclick="focusContent(); window.external.Quit(); return false">
+                Quit</button>
+        </div>
+        <div id="block" style="float: right; background-color: #abc; width: 20px; height: 20px;
+            margin: 5px">
+        </div>
+
+        <script type="text/javascript">
+            function animateGrow() {
+                $(block).animate({ width: "+=20px" }, { duration: "slow", complete: animateShrink });
+            }
+            function animateShrink() {
+                $(block).animate({ width: "-=20px" }, { duration: "slow", complete: animateGrow });
+            }
+            $(animateGrow);
+        </script>
+
+        <div id="GameButtons" style="display: inline">
+            <button onclick="roblox3D.DoVerb('ReportAbuse'); return false" style="display: inline">
+                Report Abuse</button>
+            <button onclick="showWeb(); return false">
+                Leave Game</button>
+            <div id="FPS" style="display: inline">
+            </div>
+        </div>
+        <div id="WebButtons" style="display: none">
+            <button id="playButton" onclick="play(); return false" style="display: inline">
+                Play</button>
+            <button id="Button2" onclick="createView(100); return false" style="display: inline">
+                CreateView 100</button>
+        </div>
+    </div>
+    <!-- Scripts -->
+
+    <script type="text/javascript">
+        var content;
+
+        function focusContent() {
+            // TODO: This code is ugly
+            if (document.getElementById('roblox3D'))
+                document.getElementById('roblox3D').focus();
+            else if (document.getElementById('robloxFrame'))
+                document.getElementById('robloxFrame').focus();
+        }
+
+        var windowed = true;
+        function create3D(callback) {
+            if (content)
+                $(content).remove();
+            $(WebButtons).hide('slow', function() {
+                Main.innerHTML = '<object id="roblox3D" classid="CLSID:D7EB14E2-66D2-4A6E-A50A-666CBE7A7621" width="100%" height="100%"><param name="windowed" value="' + (windowed ? 'true' : 'false') + '"></object>';
+                windowed = !windowed;
+                content = $(roblox3D);
+
+                roblox3D.WhenReady({
+                    success: function(result) {
+                        focusContent();
+                        callback();
+                        $(GameButtons).show();
+                    },
+                    error: showWeb
+                });
+            });
+        }
+
+        function createView(count) {
+            if (count == 0)
+                return;
+            create3D(function() {
+                window.setTimeout(function() {
+                    trace("CreateView " + count);
+                    showWeb(function() {
+                        window.setTimeout(function() {
+                            createView(count - 1);
+                        }, 1000);
+                    });
+                }, 1000);
+            });
+        }
+
+        function getRobloxBrowserUrl() {
+            var iframe = document.getElementById("robloxFrame");
+            return iframe.contentWindow.location.href;
+        }
+
+        // Displays the web browser in an ifram
+        function showWeb(callback) {
+            if (document.getElementById('roblox3D'))
+                roblox3D.ShutDown();
+            if (content)
+                $(content).remove();
+            $(GameButtons).hide('slow', function() {
+                content = $('<iframe id="robloxFrame" width="100%" frameborder="0" />');
+
+                var loaded = false;
+                // Define a callback to handle iframe loads and to update the Play button
+                $(content).load(function() {
+                    if (loaded)
+                        return;
+                    loaded = true;
+
+                    $(WebButtons).show('slow');
+
+                    if (callback)
+                        callback();
+                });
+
+                // TODO: Replace "http://www.roblox.com/" with proper domain
+                $(content).attr('src', "http://www.roblox.com/Games.aspx");
+                $(content).appendTo(Main);
+
+                // Handle resize events:
+                $(content).height($(Main).height());
+                // TODO: This only works if the window resizes. If other elements in the layout changes
+                //       then it won't get notified
+                $(window).resize(function() {
+                    $(content).height($(Main).height());
+                });
+            });
+        }
+
+        function errorAlert(message, stack) {
+            var s = message + '\n' + stack;
+            alert(s);
+        }
+
+        function bindFPS() {
+            roblox3D.Lua("f = ... while true do local render = stats():FindFirstChild('Render') if render then f(render['3D CPU Total']:GetValueString()) end wait(1) end", {
+                args: [function(value) {
+                    if (value != '?' && roblox3D.IsWindowless)
+                        value = value + " windowless";
+                    FPS.innerText = value;
+                } ],
+                error: errorAlert
+            });
+        }
+
+        // Loads a the 3D view and then loads a game based on what was displayed in the iframe
+        function play() {
+            // TODO: getRobloxBrowserUrl().match() to find the place ID
+            // TODO: Replace "http://www.roblox.com/" with proper domain
+            var gameUrl = 'http://www.roblox.com/Asset/?id=1437';
+
+            create3D(function() {
+                bindFPS();
+                return;
+                // TODO: Replace "http://www.roblox.com/" with proper domain
+                // TODO: Replace visit script with multiplayer join (should be done with jquery or json or something)
+                roblox3D.Lua("gameUrl = ... game:Load(gameUrl)", {
+                    args: [gameUrl],
+                    success: function() {
+                        roblox3D.Lua("http://www.roblox.com/game/visit.ashx");
+                    },
+                    error: function(message, stack) { alert(stack); }
+                });
+            });
+        }
+
+        // TODO: Nuke this when the Panel div goes away
+        window.external.onStandardOut = function(type, message) { trace(message); };
+
+        // Startup:
+        $(play);    
+    </script>
+
+</body>
+</html>

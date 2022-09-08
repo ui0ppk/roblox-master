@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>W3C Sample Code Library libwww FTP CLIENT</TITLE>
+<!-- Changed by: Henrik Frystyk Nielsen, 23-Mar-1996 -->
+<NEXTID N="z1">
+</HEAD>
+<BODY>
+
+<H1>FTP access functions</H1>
+
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+
+This is the FTP load module that handles all communication with
+FTP-servers. <P>
+
+This module is implemented by <A HREF="HTFTP.c">HTFTP.c</A>, and it is
+a part of the <A HREF="http://www.w3.org/Library/">W3C
+Sample Code Library</A>.
+
+<PRE>
+#ifndef HTFTP_H
+#define HTFTP_H
+#include "HTProt.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+
+extern HTProtCallback HTLoadFTP;
+
+typedef enum _FTPServerType {
+    FTP_GENERIC 	= 0x1,
+    FTP_MACHTEN		= 0x2,
+    FTP_UNIX		= 0x4,
+    FTP_VMS		= 0x8,
+    FTP_CMS		= 0x10,
+    FTP_DCTS		= 0x20,
+    FTP_TCPC		= 0x40,
+    FTP_PETER_LEWIS	= 0x80,
+    FTP_NCSA		= 0x200,
+    FTP_WINNT		= 0x400,
+    FTP_UNSURE		= 0x8000
+} FTPServerType;
+
+#define MAX_FTP_LINE	128			 /* Don't use more than this */
+</PRE>
+
+<H2>
+  Global Transfer Mode
+</H2>
+
+Can be used to set the default transfer mode overruling what may be
+indicated in the FTP URL.<P>
+Added by Neil Griffin, <a href="http://www.gainsoft.com">GAIN Software</a>
+
+<PRE>
+typedef enum _FTPTransferMode {
+    FTP_DEFAULT_TRANSFER_MODE   = 0,
+    FTP_ASCII_TRANSFER_MODE     = 1,
+    FTP_BINARY_TRANSFER_MODE    = 2,
+    FTP_DIR_TRANSFER_MODE       = 3
+} FTPTransferMode;
+
+extern FTPTransferMode HTFTP_transferMode (void);
+extern void HTFTP_setTransferMode (FTPTransferMode mode);
+</PRE>
+
+<H2>
+  Global Control Mode
+</H2>
+
+Can be used to set the default control modes for various FTP settings
+like always aski for user name and password, etc.
+
+<PRE>
+typedef enum _FTPControlMode {
+    FTP_DEFAULT_CONTROL_MODE   = 0,
+    FTP_ALWAYS_ASK_UID_PW      = 1
+} FTPControlMode;
+
+extern FTPControlMode HTFTP_controlMode (void);
+extern void HTFTP_setControlMode (FTPControlMode mode);
+</PRE>
+
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTFTP_H */
+</PRE>
+
+<HR>
+<ADDRESS>
+@(#) $Id$
+</ADDRESS>
+</BODY>
+</HTML>

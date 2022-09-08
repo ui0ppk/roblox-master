@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- mousecalibration.qdoc -->
+  <title>Qt 4.8: Mouse Calibration Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Mouse Calibration Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-main-program">The Main Program</a></li>
+<li class="level1"><a href="#calibration-class-definition">Calibration Class Definition</a></li>
+<li class="level1"><a href="#calibration-class-implementation">Calibration Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Mouse Calibration Example</h1>
+<span class="subtitle"></span>
+<!-- $$$qws/mousecalibration-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="qws-mousecalibration-calibration-cpp.html">qws/mousecalibration/calibration.cpp</a></li>
+<li><a href="qws-mousecalibration-calibration-h.html">qws/mousecalibration/calibration.h</a></li>
+<li><a href="qws-mousecalibration-scribblewidget-cpp.html">qws/mousecalibration/scribblewidget.cpp</a></li>
+<li><a href="qws-mousecalibration-scribblewidget-h.html">qws/mousecalibration/scribblewidget.h</a></li>
+<li><a href="qws-mousecalibration-main-cpp.html">qws/mousecalibration/main.cpp</a></li>
+<li><a href="qws-mousecalibration-mousecalibration-pro.html">qws/mousecalibration/mousecalibration.pro</a></li>
+</ul>
+<p>The Mouse Calibration example demonstrates how to write a simple program using the mechanisms provided by the <a href="qwsmousehandler.html">QWSMouseHandler</a> class to calibrate the mouse handler in <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>.<p>Calibration is the process of mapping between physical (i.e&#x2e; device) coordinates and logical coordinates.</p>
+<p>The example consists of two classes in addition to the main program:</p>
+<ul>
+<li><tt>Calibration</tt> is a dialog widget that retrieves the device coordinates.</li>
+<li><tt>ScribbleWidget</tt> is a minimal drawing program used to let the user test the new mouse settings.</li>
+</ul>
+<p>First we will review the main program, then we will take a look at the <tt>Calibration</tt> class. The <tt>ScribbleWidget</tt> class is only a help tool in this context, and will not be covered here.</p>
+<a name="the-main-program"></a>
+<h2>The Main Program</h2>
+<p>The program starts by presenting a message box informing the user of what is going to happen:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span><span class="operator">*</span>argv)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv<span class="operator">,</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>GuiServer);
+
+     <span class="keyword">if</span> (<span class="operator">!</span><span class="type"><a href="qwsserver.html">QWSServer</a></span><span class="operator">::</span>mouseHandler())
+         <a href="qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;No mouse handler installed&quot;</span>);
+
+     {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span> message;
+         message<span class="operator">.</span>setText(<span class="string">&quot;&lt;p&gt;Please press once at each of the marks &quot;</span>
+                         <span class="string">&quot;shown in the next screen.&lt;/p&gt;&quot;</span>
+                         <span class="string">&quot;&lt;p&gt;This messagebox will timout after 10 seconds &quot;</span>
+                         <span class="string">&quot;if you are unable to close it.&lt;/p&gt;&quot;</span>);
+         <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">10</span> <span class="operator">*</span> <span class="number">1000</span><span class="operator">,</span> <span class="operator">&amp;</span>message<span class="operator">,</span> SLOT(accept()));
+         message<span class="operator">.</span>exec();
+     }</pre>
+<p>The <a href="qmessagebox.html">QMessageBox</a> class provides a modal dialog with a range of different messages, roughly arranged along two axes: severity and complexity. The message box has a different icon for each of the severity levels, but the icon must be specified explicitly. In our case we use the default <a href="qmessagebox.html#Icon-enum">QMessageBox::NoIcon</a> value. In addition we use the default complexity, i.e&#x2e; a message box showing the given text and an <b>OK</b> button.</p>
+<p>At this stage in the program, the mouse could be completely uncalibrated, making the user unable to press the <b>OK</b> button. For that reason we use the static <a href="qtimer.html#singleShot">QTimer::singleShot</a>() function to make the message box disappear after 10 seconds. The <a href="qtimer.html">QTimer</a> class provides repetitive and single-shot timers: The single shot function calls the given slot after the specified interval.</p>
+<pre class="cpp">     Calibration cal;
+     cal<span class="operator">.</span>exec();</pre>
+<p>Next, we create an instance of the <tt>Calibration</tt> class which is a dialog widget retrieving the required sample coordinates: The dialog sequentially presents five marks for the user to press, storing the device coordinates for the mouse press events.</p>
+<pre class="cpp">     {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span> message;
+         message<span class="operator">.</span>setText(<span class="string">&quot;&lt;p&gt;The next screen will let you test the calibration &quot;</span>
+                         <span class="string">&quot;by drawing into a widget.&lt;/p&gt;&lt;p&gt;This program will &quot;</span>
+                         <span class="string">&quot;automatically close after 20 seconds.&lt;p&gt;&quot;</span>);
+         <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">10</span> <span class="operator">*</span> <span class="number">1000</span><span class="operator">,</span> <span class="operator">&amp;</span>message<span class="operator">,</span> SLOT(accept()));
+         message<span class="operator">.</span>exec();
+     }
+
+     ScribbleWidget scribble;
+     scribble<span class="operator">.</span>showMaximized();
+     scribble<span class="operator">.</span>show();
+
+     app<span class="operator">.</span>setActiveWindow(<span class="operator">&amp;</span>scribble);
+     <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">20</span> <span class="operator">*</span> <span class="number">1000</span><span class="operator">,</span> <span class="operator">&amp;</span>app<span class="operator">,</span> SLOT(quit()));
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>When the calibration dialog returns, we let the user test the new mouse settings by drawing onto a <tt>ScribbleWidget</tt> object. Since the mouse still can be uncalibrated, we continue to use the <a href="qmessagebox.html">QMessageBox</a> and <a href="qtimer.html">QTimer</a> classes to inform the user about the program's progress.</p>
+<p>An improved calibration tool would let the user choose between accepting the new calibration, reverting to the old one, and restarting the calibration.</p>
+<a name="calibration-class-definition"></a>
+<h2>Calibration Class Definition</h2>
+<p>The <tt>Calibration</tt> class inherits from <a href="qdialog.html">QDialog</a> and is responsible for retrieving the device coordinates from the user.</p>
+<pre class="cpp"> <span class="keyword">class</span> Calibration : <span class="keyword">public</span> <span class="type"><a href="qdialog.html">QDialog</a></span>
+ {
+ <span class="keyword">public</span>:
+     Calibration();
+     <span class="operator">~</span>Calibration();
+     <span class="type">int</span> exec();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span><span class="operator">*</span>);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span><span class="operator">*</span>);
+     <span class="type">void</span> accept();
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a></span> data;
+     <span class="type">int</span> pressCount;
+ };</pre>
+<p>We reimplement <a href="qdialog.html">QDialog</a>'s <a href="qdialog.html#exec">exec()</a> and <a href="qdialog.html#accept">accept()</a> slots, and <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#paintEvent">paintEvent()</a> and <a href="qwidget.html#mouseReleaseEvent">mouseReleaseEvent()</a> functions.</p>
+<p>In addition, we declare a couple of private variables, <tt>data</tt> and <tt>pressCount</tt>, holding the <tt>Calibration</tt> object's number of mouse press events and current calibration data. The <tt>pressCount</tt> variable is a convenience variable, while the <tt>data</tt> is a <a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a> object (storing the physical and logical coordinates) that is passed to the mouse handler. The <a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a> class is simply a container for calibration data.</p>
+<a name="calibration-class-implementation"></a>
+<h2>Calibration Class Implementation</h2>
+<p>In the constructor we first ensure that the <tt>Calibration</tt> dialog fills up the entire screen, has focus and will receive mouse events (the latter by making the dialog modal):</p>
+<pre class="cpp"> Calibration<span class="operator">::</span>Calibration()
+ {
+     <span class="type"><a href="qrect.html">QRect</a></span> desktop <span class="operator">=</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>desktop()<span class="operator">-</span><span class="operator">&gt;</span>geometry();
+     desktop<span class="operator">.</span>moveTo(<span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+     setGeometry(desktop);
+
+     setFocusPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>StrongFocus);
+     setFocus();
+     setModal(<span class="keyword">true</span>);</pre>
+<p>Then we initialize the <a href="qwspointercalibrationdata.html#screenPoints-var">screenPoints</a> array:</p>
+<pre class="cpp">     <span class="type">int</span> width <span class="operator">=</span> qt_screen<span class="operator">-</span><span class="operator">&gt;</span>deviceWidth();
+     <span class="type">int</span> height <span class="operator">=</span> qt_screen<span class="operator">-</span><span class="operator">&gt;</span>deviceHeight();
+
+     <span class="type">int</span> dx <span class="operator">=</span> width <span class="operator">/</span> <span class="number">10</span>;
+     <span class="type">int</span> dy <span class="operator">=</span> height <span class="operator">/</span> <span class="number">10</span>;
+
+     <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">*</span>points <span class="operator">=</span> data<span class="operator">.</span>screenPoints;
+     points<span class="operator">[</span><span class="type"><a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a></span><span class="operator">::</span>TopLeft<span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(dx<span class="operator">,</span> dy);
+     points<span class="operator">[</span><span class="type"><a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a></span><span class="operator">::</span>BottomLeft<span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(dx<span class="operator">,</span> height <span class="operator">-</span> dy);
+     points<span class="operator">[</span><span class="type"><a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a></span><span class="operator">::</span>BottomRight<span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(width <span class="operator">-</span> dx<span class="operator">,</span> height <span class="operator">-</span> dy);
+     points<span class="operator">[</span><span class="type"><a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a></span><span class="operator">::</span>TopRight<span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(width <span class="operator">-</span> dx<span class="operator">,</span> dy);
+     points<span class="operator">[</span><span class="type"><a href="qwspointercalibrationdata.html">QWSPointerCalibrationData</a></span><span class="operator">::</span>Center<span class="operator">]</span> <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(width <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> height <span class="operator">/</span> <span class="number">2</span>);</pre>
+<p>In order to specify the calibration, the <a href="qwspointercalibrationdata.html#screenPoints-var">screenPoints</a> array must contain the screen coordinates for the logical positions represented by the <a href="qwspointercalibrationdata.html#Location-enum">QWSPointerCalibrationData::Location</a> enum (e.g&#x2e; <a href="qwspointercalibrationdata.html#Location-enum">QWSPointerCalibrationData::TopLeft</a>). Since non-linearity is expected to increase on the edge of the screen, all points are kept 10 percent within the screen. The <tt>qt_screen</tt> pointer is a reference to the screen device. There can only be one screen device per application.</p>
+<pre class="cpp">     pressCount <span class="operator">=</span> <span class="number">0</span>;
+ }</pre>
+<p>Finally, we initialize the variable which keeps track of the number of mouse press events we have received.</p>
+<pre class="cpp"> Calibration<span class="operator">::</span><span class="operator">~</span>Calibration()
+ {
+ }</pre>
+<p>The destructor is trivial.</p>
+<pre class="cpp"> <span class="type">int</span> Calibration<span class="operator">::</span>exec()
+ {
+     <span class="type"><a href="qwsserver.html">QWSServer</a></span><span class="operator">::</span>mouseHandler()<span class="operator">-</span><span class="operator">&gt;</span>clearCalibration();
+     grabMouse();
+     activateWindow();
+     <span class="type">int</span> ret <span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>exec();
+     releaseMouse();
+     <span class="keyword">return</span> ret;
+ }</pre>
+<p>The reimplementation of the <a href="qdialog.html#exec">QDialog::exec</a>() slot is called from the main program.</p>
+<p>First we clear the current calibration making the following mouse event delivered in raw device coordinates. Then we call the <a href="qwidget.html#grabMouse">QWidget::grabMouse</a>() function to make sure no mouse events are lost, and the <a href="qwidget.html#activateWindow">QWidget::activateWindow</a>() function to make the top-level widget containing this dialog, the active window. When the call to the <a href="qdialog.html#exec">QDialog::exec</a>() base function returns, we call <a href="qwidget.html#releaseMouse">QWidget::releaseMouse</a>() to release the mouse grab before the function returns.</p>
+<pre class="cpp"> <span class="type">void</span> Calibration<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span><span class="operator">*</span>)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="keyword">this</span>);
+     p<span class="operator">.</span>fillRect(rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+
+     <span class="type"><a href="qpoint.html">QPoint</a></span> point <span class="operator">=</span> data<span class="operator">.</span>screenPoints<span class="operator">[</span>pressCount<span class="operator">]</span>;
+
+     <span class="comment">// Map to logical coordinates in case the screen is transformed</span>
+     <span class="type"><a href="qsize.html">QSize</a></span> screenSize(qt_screen<span class="operator">-</span><span class="operator">&gt;</span>deviceWidth()<span class="operator">,</span> qt_screen<span class="operator">-</span><span class="operator">&gt;</span>deviceHeight());
+     point <span class="operator">=</span> qt_screen<span class="operator">-</span><span class="operator">&gt;</span>mapFromDevice(point<span class="operator">,</span> screenSize);
+
+     p<span class="operator">.</span>fillRect(point<span class="operator">.</span>x() <span class="operator">-</span> <span class="number">6</span><span class="operator">,</span> point<span class="operator">.</span>y() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> <span class="number">13</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     p<span class="operator">.</span>fillRect(point<span class="operator">.</span>x() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> point<span class="operator">.</span>y() <span class="operator">-</span> <span class="number">6</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">13</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+ }</pre>
+<p>The <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() function is reimplemented to receive the widget's paint events. A paint event is a request to repaint all or parts of the widget. It can happen as a result of <a href="qwidget.html#repaint">QWidget::repaint</a>() or <a href="qwidget.html#update">QWidget::update</a>(), or because the widget was obscured and has now been uncovered, or for many other reasons. In our reimplementation of the function we simply draw a cross at the next point the user should press.</p>
+<pre class="cpp"> <span class="type">void</span> Calibration<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="comment">// Map from device coordinates in case the screen is transformed</span>
+     <span class="type"><a href="qsize.html">QSize</a></span> screenSize(qt_screen<span class="operator">-</span><span class="operator">&gt;</span>width()<span class="operator">,</span> qt_screen<span class="operator">-</span><span class="operator">&gt;</span>height());
+     <span class="type"><a href="qpoint.html">QPoint</a></span> p <span class="operator">=</span> qt_screen<span class="operator">-</span><span class="operator">&gt;</span>mapToDevice(event<span class="operator">-</span><span class="operator">&gt;</span>pos()<span class="operator">,</span> screenSize);
+
+     data<span class="operator">.</span>devPoints<span class="operator">[</span>pressCount<span class="operator">]</span> <span class="operator">=</span> p;
+
+     <span class="keyword">if</span> (<span class="operator">+</span><span class="operator">+</span>pressCount <span class="operator">&lt;</span> <span class="number">5</span>)
+         repaint();
+     <span class="keyword">else</span>
+         accept();
+ }</pre>
+<p>We then reimplement the <a href="qwidget.html#mouseReleaseEvent">QWidget::mouseReleaseEvent</a>() function to receive the widget's move events, using the <a href="qmouseevent.html">QMouseEvent</a> object passed as parameter to find the coordinates the user pressed, and update the <a href="qwspointercalibrationdata.html#devPoints-var">QWSPointerCalibrationData::devPoints</a> array.</p>
+<p>In order to complete the mapping between logical and physical coordinates, the <a href="qwspointercalibrationdata.html#devPoints-var">devPoints</a> array must contain the raw device coordinates for the logical positions represented by the <a href="qwspointercalibrationdata.html#Location-enum">QWSPointerCalibrationData::Location</a> enum (e.g&#x2e; <a href="qwspointercalibrationdata.html#Location-enum">QWSPointerCalibrationData::TopLeft</a>)</p>
+<p>We continue by drawing the next cross, or close the dialog by calling the <a href="qdialog.html#accept">QDialog::accept</a>() slot if we have collected all the required coordinate samples.</p>
+<pre class="cpp"> <span class="type">void</span> Calibration<span class="operator">::</span>accept()
+ {
+     Q_ASSERT(pressCount <span class="operator">=</span><span class="operator">=</span> <span class="number">5</span>);
+     <span class="type"><a href="qwsserver.html">QWSServer</a></span><span class="operator">::</span>mouseHandler()<span class="operator">-</span><span class="operator">&gt;</span>calibrate(<span class="operator">&amp;</span>data);
+     <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>accept();
+ }</pre>
+<p>Our reimplementation of the <a href="qdialog.html#accept">QDialog::accept</a>() slot simply activate the new calibration data using the <a href="qwsmousehandler.html#calibrate">QWSMouseHandler::calibrate</a>() function. We also use the <a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>() macro to ensure that the number of required samples are present.</p>
+</div>
+<!-- @@@qws/mousecalibration -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

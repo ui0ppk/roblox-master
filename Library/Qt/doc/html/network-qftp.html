@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ftp.qdoc -->
+  <title>Qt 4.8: FTP Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>FTP Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#ftpwindow-class-definition">FtpWindow Class Definition</a></li>
+<li class="level1"><a href="#ftpwindow-class-implementation">FtpWindow Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">FTP Example</h1>
+<span class="subtitle"></span>
+<!-- $$$network/qftp-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="network-qftp-ftpwindow-cpp.html">network/qftp/ftpwindow.cpp</a></li>
+<li><a href="network-qftp-ftpwindow-h.html">network/qftp/ftpwindow.h</a></li>
+<li><a href="network-qftp-main-cpp.html">network/qftp/main.cpp</a></li>
+<li><a href="network-qftp-ftp-qrc.html">network/qftp/ftp.qrc</a></li>
+<li><a href="network-qftp-qftp-pro.html">network/qftp/qftp.pro</a></li>
+</ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/network/qftp/images/cdtoparent.png">network/qftp/images/cdtoparent.png</a></li>
+<li><a href="images/used-in-examples/network/qftp/images/dir.png">network/qftp/images/dir.png</a></li>
+<li><a href="images/used-in-examples/network/qftp/images/file.png">network/qftp/images/file.png</a></li>
+</ul>
+<p>The FTP example demonstrates a simple FTP client that can be used to list the available files on an FTP server and download them.<p class="centerAlign"><img src="images/ftp-example.png" alt="" /></p><p>The user of the example can enter the address or hostname of an FTP server in the <b>Ftp Server</b> line edit, and then push the <b>Connect</b> button to connect to it. A list of the server's top-level directory is then presented in the <b>File List</b> tree view. If the selected item in the view is a file, the user can download it by pushing the <b>Download</b> button. An item representing a directory can be double clicked with the mouse to show the contents of that directory in the view.</p>
+<p>The functionality required for the example is implemented in the <a href="qftp.html">QFtp</a> class, which provides an easy, high-level interface to the file transfer protocol. FTP operations are requested through <a href="qftp.html#Command-enum">QFtp::Command</a>s. The operations are asynchronous. <a href="qftp.html">QFtp</a> will notify us through signals when commands are started and finished.</p>
+<p>We have one class, <tt>FtpWindow</tt>, which sets up the GUI and handles the FTP functionality. We will now go through its definition and implementation - focusing on the code concerning FTP. The code for managing the GUI is explained in other examples.</p>
+<a name="ftpwindow-class-definition"></a>
+<h2>FtpWindow Class Definition</h2>
+<p>The <tt>FtpWindow</tt> class displays a window, in which the user can connect to and browse the contents of an FTP server. The slots of <tt>FtpWindow</tt> are connected to its widgets, and contain the functionality for managing the FTP connection. We also connect to signals in <a href="qftp.html">QFtp</a>, which tells us when the <a href="qftp.html#Command-enum">commands</a> we request are finished, the progress of current commands, and information about files on the server.</p>
+<pre class="cpp"> <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> connectOrDisconnect();
+     <span class="type">void</span> downloadFile();
+     <span class="type">void</span> cancelDownload();
+     <span class="type">void</span> connectToFtp();
+
+     <span class="type">void</span> ftpCommandFinished(<span class="type">int</span> commandId<span class="operator">,</span> <span class="type">bool</span> error);
+     <span class="type">void</span> addToList(<span class="keyword">const</span> <span class="type"><a href="qurlinfo.html">QUrlInfo</a></span> <span class="operator">&amp;</span>urlInfo);
+     <span class="type">void</span> processItem(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> <span class="type">int</span> column);
+     <span class="type">void</span> cdToParent();
+     <span class="type">void</span> updateDataTransferProgress(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> readBytes<span class="operator">,</span>
+                                     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> totalBytes);
+     <span class="type">void</span> enableDownloadButton();
+     <span class="type">void</span> enableConnectButton();</pre>
+<p>We will look at each slot when we examine the <tt>FtpWindow</tt> implementation in the next section. We also make use of a few private variables:</p>
+<pre class="cpp">     <span class="type"><a href="qhash.html">QHash</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type">bool</span><span class="operator">&gt;</span> isDirectory;
+     <span class="type"><a href="qstring.html">QString</a></span> currentPath;
+     <span class="type"><a href="qftp.html">QFtp</a></span> <span class="operator">*</span>ftp;
+     <span class="type"><a href="qfile.html">QFile</a></span> <span class="operator">*</span>file;
+
+     <span class="type"><a href="qnetworksession.html">QNetworkSession</a></span> <span class="operator">*</span>networkSession;
+     <span class="type"><a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a></span> manager;</pre>
+<p>The <tt>isDirectory</tt> hash keeps a history of all entries explored on the FTP server, and registers whether an entry represents a directory or a file. We use the <a href="qfile.html">QFile</a> object to download files from the FTP server.</p>
+<a name="ftpwindow-class-implementation"></a>
+<h2>FtpWindow Class Implementation</h2>
+<p>We skip the <tt>FtpWindow</tt> constructor as it only contains code for setting up the GUI, which is explained in other examples.</p>
+<p>We move on to the slots, starting with <tt>connectOrDisconnect()</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>connectOrDisconnect()
+ {
+     <span class="keyword">if</span> (ftp) {
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>abort();
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>deleteLater();
+         ftp <span class="operator">=</span> <span class="number">0</span>;</pre>
+<p>If <tt>ftp</tt> is already pointing to a <a href="qftp.html">QFtp</a> object, we <a href="qftp.html#Command-enum">QFtp::Close</a> its FTP connection and delete the object it points to. Note that we do not delete the object using standard C++ <tt>delete</tt> as we need it to finish its abort operation.</p>
+<pre class="qml">     ...
+     ftp <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qftp.html">QFtp</a></span>(<span class="keyword">this</span>);
+     connect(ftp<span class="operator">,</span> SIGNAL(commandFinished(<span class="type">int</span><span class="operator">,</span><span class="type">bool</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(ftpCommandFinished(<span class="type">int</span><span class="operator">,</span><span class="type">bool</span>)));
+     connect(ftp<span class="operator">,</span> SIGNAL(listInfo(<span class="type"><a href="qurlinfo.html">QUrlInfo</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(addToList(<span class="type"><a href="qurlinfo.html">QUrlInfo</a></span>)));
+     connect(ftp<span class="operator">,</span> SIGNAL(dataTransferProgress(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span><span class="operator">,</span><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(updateDataTransferProgress(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span><span class="operator">,</span><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span>)));
+
+     fileList<span class="operator">-</span><span class="operator">&gt;</span>clear();
+     currentPath<span class="operator">.</span>clear();
+     isDirectory<span class="operator">.</span>clear();</pre>
+<p>If we get here, <tt>connectOrDisconnect()</tt> was called to establish a new FTP connection. We create a new <a href="qftp.html">QFtp</a> for our new connection, and connect its signals to slots in <tt>FtpWindow</tt>. The <a href="qftp.html#listInfo">listInfo()</a> signal is emitted whenever information about a single file on the sever has been resolved. This signal is sent when we ask <a href="qftp.html">QFtp</a> to <a href="qftp.html#list">list()</a> the contents of a directory. Finally, the <a href="qftp.html#dataTransferProgress">dataTransferProgress()</a> signal is emitted repeatedly during an FTP file transfer, giving us progress reports.</p>
+<pre class="cpp">     <span class="type"><a href="qurl.html">QUrl</a></span> url(ftpServerLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text());
+     <span class="keyword">if</span> (<span class="operator">!</span>url<span class="operator">.</span>isValid() <span class="operator">|</span><span class="operator">|</span> url<span class="operator">.</span>scheme()<span class="operator">.</span>toLower() <span class="operator">!</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;ftp&quot;</span>)) {
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>connectToHost(ftpServerLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">,</span> <span class="number">21</span>);
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>login();
+     } <span class="keyword">else</span> {
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>connectToHost(url<span class="operator">.</span>host()<span class="operator">,</span> url<span class="operator">.</span>port(<span class="number">21</span>));
+
+         <span class="keyword">if</span> (<span class="operator">!</span>url<span class="operator">.</span>userName()<span class="operator">.</span>isEmpty())
+             ftp<span class="operator">-</span><span class="operator">&gt;</span>login(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromPercentEncoding(url<span class="operator">.</span>userName()<span class="operator">.</span>toLatin1())<span class="operator">,</span> url<span class="operator">.</span>password());
+         <span class="keyword">else</span>
+             ftp<span class="operator">-</span><span class="operator">&gt;</span>login();
+         <span class="keyword">if</span> (<span class="operator">!</span>url<span class="operator">.</span>path()<span class="operator">.</span>isEmpty())
+             ftp<span class="operator">-</span><span class="operator">&gt;</span>cd(url<span class="operator">.</span>path());
+     }</pre>
+<p>The <b>Ftp Server</b> line edit contains the IP address or hostname of the server to which we want to connect. We first check that the URL is a valid FTP sever address. If it isn't, we still try to connect using the plain text in <tt>ftpServerLineEdit</tt>. In either case, we assume that port <tt>21</tt> is used.</p>
+<p>If the URL does not contain a user name and password, we use <a href="qftp.html#login">QFtp::login</a>(), which will attempt to log into the FTP sever as an anonymous user. The <a href="qftp.html">QFtp</a> object will now notify us when it has connected to the FTP server; it will also send a signal if it fails to connect or the username and password were rejected.</p>
+<p>We move on to the <tt>downloadFile()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>downloadFile()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> fileList<span class="operator">-</span><span class="operator">&gt;</span>currentItem()<span class="operator">-</span><span class="operator">&gt;</span>text(<span class="number">0</span>);
+     ...
+     file <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qfile.html">QFile</a></span>(fileName);
+     <span class="keyword">if</span> (<span class="operator">!</span>file<span class="operator">-</span><span class="operator">&gt;</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly)) {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;FTP&quot;</span>)<span class="operator">,</span>
+                                  tr(<span class="string">&quot;Unable to save the file %1: %2.&quot;</span>)
+                                  <span class="operator">.</span>arg(fileName)<span class="operator">.</span>arg(file<span class="operator">-</span><span class="operator">&gt;</span>errorString()));
+         <span class="keyword">delete</span> file;
+         <span class="keyword">return</span>;
+     }
+
+     ftp<span class="operator">-</span><span class="operator">&gt;</span>get(fileList<span class="operator">-</span><span class="operator">&gt;</span>currentItem()<span class="operator">-</span><span class="operator">&gt;</span>text(<span class="number">0</span>)<span class="operator">,</span> file);
+
+     progressDialog<span class="operator">-</span><span class="operator">&gt;</span>setLabelText(tr(<span class="string">&quot;Downloading %1...&quot;</span>)<span class="operator">.</span>arg(fileName));
+     downloadButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     progressDialog<span class="operator">-</span><span class="operator">&gt;</span>exec();
+ }</pre>
+<p>We first fetch the name of the file, which we find in the selected item of <tt>fileList</tt>. We then start the download by using <a href="qftp.html#get">QFtp::get</a>(). <a href="qftp.html">QFtp</a> will send progress signals during the download and a signal when the download is completed.</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>cancelDownload()
+ {
+     ftp<span class="operator">-</span><span class="operator">&gt;</span>abort();
+
+     <span class="keyword">if</span> (file<span class="operator">-</span><span class="operator">&gt;</span>exists()) {
+         file<span class="operator">-</span><span class="operator">&gt;</span>close();
+         file<span class="operator">-</span><span class="operator">&gt;</span>remove();
+     }
+     <span class="keyword">delete</span> file;
+ }</pre>
+<p><a href="qftp.html">QFtp</a> supports canceling the download of files. We make sure that any file that is currently being written to is closed and removed, and tidy up by deleting the file object.</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>ftpCommandFinished(<span class="type">int</span><span class="operator">,</span> <span class="type">bool</span> error)
+ {
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
+     setCursor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ArrowCursor);
+ <span class="preprocessor">#endif</span>
+
+     <span class="keyword">if</span> (ftp<span class="operator">-</span><span class="operator">&gt;</span>currentCommand() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qftp.html">QFtp</a></span><span class="operator">::</span>ConnectToHost) {
+         <span class="keyword">if</span> (error) {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;FTP&quot;</span>)<span class="operator">,</span>
+                                      tr(<span class="string">&quot;Unable to connect to the FTP server &quot;</span>
+                                         <span class="string">&quot;at %1. Please check that the host &quot;</span>
+                                         <span class="string">&quot;name is correct.&quot;</span>)
+                                      <span class="operator">.</span>arg(ftpServerLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text()));
+             connectOrDisconnect();
+             <span class="keyword">return</span>;
+         }
+         statusLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Logged onto %1.&quot;</span>)
+                              <span class="operator">.</span>arg(ftpServerLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text()));
+         fileList<span class="operator">-</span><span class="operator">&gt;</span>setFocus();
+         downloadButton<span class="operator">-</span><span class="operator">&gt;</span>setDefault(<span class="keyword">true</span>);
+         connectButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+         <span class="keyword">return</span>;
+     }</pre>
+<p>The <tt>ftpCommandFinished()</tt> slot is called when <a href="qftp.html">QFtp</a> has finished a <a href="qftp.html#Command-enum">QFtp::Command</a>. If an error occurred during the command, <a href="qftp.html">QFtp</a> will set <tt>error</tt> to one of the values in the <a href="qftp.html#Error-enum">QFtp::Error</a> enum; otherwise, <tt>error</tt> is zero.</p>
+<pre class="cpp">     <span class="keyword">if</span> (ftp<span class="operator">-</span><span class="operator">&gt;</span>currentCommand() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qftp.html">QFtp</a></span><span class="operator">::</span>Login)
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>list();</pre>
+<p>After login, the <a href="qftp.html#list">QFtp::list</a>() function will list the top-level directory on the server. addToList() is connected to <a href="qftp.html#listInfo">QFtp::listInfo</a>(), and will be invoked for each entry in that directory.</p>
+<pre class="cpp">     <span class="keyword">if</span> (ftp<span class="operator">-</span><span class="operator">&gt;</span>currentCommand() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qftp.html">QFtp</a></span><span class="operator">::</span>Get) {
+         <span class="keyword">if</span> (error) {
+             statusLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Canceled download of %1.&quot;</span>)
+                                  <span class="operator">.</span>arg(file<span class="operator">-</span><span class="operator">&gt;</span>fileName()));
+             file<span class="operator">-</span><span class="operator">&gt;</span>close();
+             file<span class="operator">-</span><span class="operator">&gt;</span>remove();
+         } <span class="keyword">else</span> {
+             statusLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Downloaded %1 to current directory.&quot;</span>)
+                                  <span class="operator">.</span>arg(file<span class="operator">-</span><span class="operator">&gt;</span>fileName()));
+             file<span class="operator">-</span><span class="operator">&gt;</span>close();
+         }
+         <span class="keyword">delete</span> file;
+         enableDownloadButton();
+         progressDialog<span class="operator">-</span><span class="operator">&gt;</span>hide();</pre>
+<p>When a <a href="qftp.html#Command-enum">Get</a> command is finished, a file has finished downloading (or an error occurred during the download).</p>
+<pre class="cpp">     } <span class="keyword">else</span> <span class="keyword">if</span> (ftp<span class="operator">-</span><span class="operator">&gt;</span>currentCommand() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qftp.html">QFtp</a></span><span class="operator">::</span>List) {
+         <span class="keyword">if</span> (isDirectory<span class="operator">.</span>isEmpty()) {
+             fileList<span class="operator">-</span><span class="operator">&gt;</span>addTopLevelItem(<span class="keyword">new</span> <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span>(<span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;&lt;empty&gt;&quot;</span>)));
+             fileList<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         }
+     }</pre>
+<p>After a <a href="qftp.html#Command-enum">List</a> command is performed, we have to check if no entries were found (in which case our <tt>addToList()</tt> function would not have been called).</p>
+<p>Let's continue with the <tt>addToList()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>addToList(<span class="keyword">const</span> <span class="type"><a href="qurlinfo.html">QUrlInfo</a></span> <span class="operator">&amp;</span>urlInfo)
+ {
+     <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span>;
+     item<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">0</span><span class="operator">,</span> urlInfo<span class="operator">.</span>name());
+     item<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(urlInfo<span class="operator">.</span>size()));
+     item<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">2</span><span class="operator">,</span> urlInfo<span class="operator">.</span>owner());
+     item<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">3</span><span class="operator">,</span> urlInfo<span class="operator">.</span>group());
+     item<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">4</span><span class="operator">,</span> urlInfo<span class="operator">.</span>lastModified()<span class="operator">.</span>toString(<span class="string">&quot;MMM dd yyyy&quot;</span>));
+
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap(urlInfo<span class="operator">.</span>isDir() <span class="operator">?</span> <span class="string">&quot;:/images/dir.png&quot;</span> : <span class="string">&quot;:/images/file.png&quot;</span>);
+     item<span class="operator">-</span><span class="operator">&gt;</span>setIcon(<span class="number">0</span><span class="operator">,</span> pixmap);
+
+     isDirectory<span class="operator">[</span>urlInfo<span class="operator">.</span>name()<span class="operator">]</span> <span class="operator">=</span> urlInfo<span class="operator">.</span>isDir();
+     fileList<span class="operator">-</span><span class="operator">&gt;</span>addTopLevelItem(item);
+     <span class="keyword">if</span> (<span class="operator">!</span>fileList<span class="operator">-</span><span class="operator">&gt;</span>currentItem()) {
+         fileList<span class="operator">-</span><span class="operator">&gt;</span>setCurrentItem(fileList<span class="operator">-</span><span class="operator">&gt;</span>topLevelItem(<span class="number">0</span>));
+         fileList<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+     }
+ }</pre>
+<p>When a new file has been resolved during a <a href="qftp.html#Command-enum">QFtp::List</a> command, this slot is invoked with a <a href="qurlinfo.html">QUrlInfo</a> describing the file. We create a separate row for the file in <tt>fileList</tt>. If <tt>fileList</tt> does not have a current item, we set the new item to be the current item.</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>processItem(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> <span class="type">int</span> <span class="comment">/*column*/</span>)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>text(<span class="number">0</span>);
+     <span class="keyword">if</span> (isDirectory<span class="operator">.</span>value(name)) {
+         fileList<span class="operator">-</span><span class="operator">&gt;</span>clear();
+         isDirectory<span class="operator">.</span>clear();
+         currentPath <span class="operator">+</span><span class="operator">=</span> <span class="char">'/'</span>;
+         currentPath <span class="operator">+</span><span class="operator">=</span> name;
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>cd(name);
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>list();
+         cdToParentButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
+         setCursor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WaitCursor);
+ <span class="preprocessor">#endif</span>
+         <span class="keyword">return</span>;
+     }
+ }</pre>
+<p>The <tt>processItem()</tt> slot is called when an item is double clicked in the <b>File List</b>. If the item represents a directory, we want to load the contents of that directory with <a href="qftp.html#list">QFtp::list</a>().</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>cdToParent()
+ {
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
+     setCursor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WaitCursor);
+ <span class="preprocessor">#endif</span>
+     fileList<span class="operator">-</span><span class="operator">&gt;</span>clear();
+     isDirectory<span class="operator">.</span>clear();
+     currentPath <span class="operator">=</span> currentPath<span class="operator">.</span>left(currentPath<span class="operator">.</span>lastIndexOf(<span class="char">'/'</span>));
+     <span class="keyword">if</span> (currentPath<span class="operator">.</span>isEmpty()) {
+         cdToParentButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>cd(<span class="string">&quot;/&quot;</span>);
+     } <span class="keyword">else</span> {
+         ftp<span class="operator">-</span><span class="operator">&gt;</span>cd(currentPath);
+     }
+     ftp<span class="operator">-</span><span class="operator">&gt;</span>list();
+ }</pre>
+<p><tt>cdToParent()</tt> is invoked when the user requests to go to the parent directory of the one displayed in the file list. After changing the directory, we <a href="qftp.html#Command-enum">QFtp::List</a> its contents.</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>updateDataTransferProgress(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> readBytes<span class="operator">,</span>
+                                            <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> totalBytes)
+ {
+     progressDialog<span class="operator">-</span><span class="operator">&gt;</span>setMaximum(totalBytes);
+     progressDialog<span class="operator">-</span><span class="operator">&gt;</span>setValue(readBytes);
+ }</pre>
+<p>The <tt>updateDataTransferProgress()</tt> slot is called regularly by <a href="qftp.html#dataTransferProgress">QFtp::dataTransferProgress</a>() when a file download is in progress. We use a <a href="qprogressdialog.html">QProgressDialog</a> to show the download progression to the user.</p>
+<pre class="cpp"> <span class="type">void</span> FtpWindow<span class="operator">::</span>enableDownloadButton()
+ {
+     <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>current <span class="operator">=</span> fileList<span class="operator">-</span><span class="operator">&gt;</span>currentItem();
+     <span class="keyword">if</span> (current) {
+         <span class="type"><a href="qstring.html">QString</a></span> currentFile <span class="operator">=</span> current<span class="operator">-</span><span class="operator">&gt;</span>text(<span class="number">0</span>);
+         downloadButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="operator">!</span>isDirectory<span class="operator">.</span>value(currentFile));
+     } <span class="keyword">else</span> {
+         downloadButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     }
+ }</pre>
+<p>The <tt>enableDownloadButton()</tt> is called whenever the current item in <tt>fileList</tt> changes. If the item represents a file, the <b>Enable Download</b> Button should be enabled; otherwise, it is disabled.</p>
+</div>
+<!-- @@@network/qftp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

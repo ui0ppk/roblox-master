@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>Using the W3C Sample Code Library</TITLE>
+<!-- Changed by: Henrik Frystyk Nielsen, 15-Nov-1995 -->
+</HEAD>  
+<BODY>
+
+<A HREF="../../../"><IMG BORDER="0" SRC="../../../Icons/WWW/w3c_home" ALT="W3C"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/guide48x" ALT="Using"></A>
+
+<H1>Application Specific Core Modules</H1>
+
+We have now almost finised the description of the W3C Sample Code Core - we only need the last module
+which we will describe in this section. The module is called <A
+HREF="../../src/HTAlert.htm">HTAlert</A> and it contains the functionality for prompting
+the user for feedback or for reporting messages from the Library. As mentioned many times in this
+guide, the Library has been designed to be as portable as possible. This means that the actual
+implementation of this module is very simple and does only use ANSI C I/O functions. However, the
+can be overridden by more complex applications, for example using a GUI window manager. <P>
+
+The <A HREF="../../src/HTAlert.html">Alert module</A> is a part of the core as the rest
+of the core files depend on it. Hence the definition of the module must be provided either by the
+internal or an external definition. A C Library module can be overriding by redefining all external
+references (normally declared in the include file) by new definitions in an application module. By
+doing this the linker takes the new definition of the module instead of the Library version and
+links it into the final executable file.  The declaration (the include file) stays the same, but the
+definition has changed. The application module does not need to be called the same as the Library
+module, only the external references.  External references are both global variables and public
+functions visible to other modules. As an example, the following module:</P>
+
+<PRE>
+	/* Library.c */
+	char GlobalFlag;
+	int GlobalFunction(void)
+	{
+		/* Library src */
+	}
+</PRE>
+
+with the declaration file:</P>
+
+<PRE>
+	/* Library.h */
+	extern char GlobalFlag;
+	extern int GlobalFunction(void);
+</PRE>
+
+can get a new definition module</P>
+
+<PRE>
+	/* Application.c */
+	char GlobalFlag;
+	int GlobalFunction(void)
+	{
+		/* Application src */
+	}
+</PRE>
+
+which will then be linked into the executable program. By using this method, the application can
+easily provide its own user interface (if any) and still be able to use the Library.</P>
+
+<P>
+<HR>
+<ADDRESS>Henrik Frystyk, <A HREF="mailto:libwww@w3.org">libwww@w3.org</A>,
+@(#) $Id$
+</ADDRESS>
+</BODY>
+</HTML> 

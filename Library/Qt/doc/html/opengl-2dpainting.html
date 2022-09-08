@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- 2dpainting.qdoc -->
+  <title>Qt 4.8: 2D Painting Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>2D Painting Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#helper-class-definition">Helper Class Definition</a></li>
+<li class="level1"><a href="#helper-class-implementation">Helper Class Implementation</a></li>
+<li class="level1"><a href="#widget-class-definition">Widget Class Definition</a></li>
+<li class="level1"><a href="#widget-class-implementation">Widget Class Implementation</a></li>
+<li class="level1"><a href="#glwidget-class-definition">GLWidget Class Definition</a></li>
+<li class="level1"><a href="#glwidget-class-implementation">GLWidget Class Implementation</a></li>
+<li class="level1"><a href="#window-class-definition">Window Class Definition</a></li>
+<li class="level1"><a href="#window-class-implementation">Window Class Implementation</a></li>
+<li class="level1"><a href="#running-the-example">Running the Example</a></li>
+</ul>
+</div>
+<h1 class="title">2D Painting Example</h1>
+<span class="subtitle"></span>
+<!-- $$$opengl/2dpainting-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="opengl-2dpainting-glwidget-cpp.html">opengl/2dpainting/glwidget.cpp</a></li>
+<li><a href="opengl-2dpainting-glwidget-h.html">opengl/2dpainting/glwidget.h</a></li>
+<li><a href="opengl-2dpainting-helper-cpp.html">opengl/2dpainting/helper.cpp</a></li>
+<li><a href="opengl-2dpainting-helper-h.html">opengl/2dpainting/helper.h</a></li>
+<li><a href="opengl-2dpainting-widget-cpp.html">opengl/2dpainting/widget.cpp</a></li>
+<li><a href="opengl-2dpainting-widget-h.html">opengl/2dpainting/widget.h</a></li>
+<li><a href="opengl-2dpainting-window-cpp.html">opengl/2dpainting/window.cpp</a></li>
+<li><a href="opengl-2dpainting-window-h.html">opengl/2dpainting/window.h</a></li>
+<li><a href="opengl-2dpainting-main-cpp.html">opengl/2dpainting/main.cpp</a></li>
+<li><a href="opengl-2dpainting-2dpainting-pro.html">opengl/2dpainting/2dpainting.pro</a></li>
+</ul>
+<p>The 2D Painting example shows how <a href="qpainter.html">QPainter</a> and <a href="qglwidget.html">QGLWidget</a> can be used together to display accelerated 2D graphics on supported hardware.<p class="centerAlign"><img src="images/2dpainting-example.png" alt="" /></p><p>The <a href="qpainter.html">QPainter</a> class is used to draw 2D graphics primitives onto paint devices provided by <a href="qpaintdevice.html">QPaintDevice</a> subclasses, such as <a href="qwidget.html">QWidget</a> and <a href="qimage.html">QImage</a>.</p>
+<p>Since <a href="qglwidget.html">QGLWidget</a> is a subclass of <a href="qwidget.html">QWidget</a>, it is possible to reimplement its <a href="qwidget.html#paintEvent">paintEvent()</a> and use <a href="qpainter.html">QPainter</a> to draw on the device, just as you would with a <a href="qwidget.html">QWidget</a>. The only difference is that the painting operations will be accelerated in hardware if it is supported by your system's OpenGL drivers.</p>
+<p>In this example, we perform the same painting operations on a <a href="qwidget.html">QWidget</a> and a <a href="qglwidget.html">QGLWidget</a>. The <a href="qwidget.html">QWidget</a> is shown with anti-aliasing enabled, and the <a href="qglwidget.html">QGLWidget</a> will also use anti-aliasing if the required extensions are supported by your system's OpenGL driver.</p>
+<a name="overview"></a>
+<h2>Overview</h2>
+<p>To be able to compare the results of painting onto a <a href="qglwidget.html">QGLWidget</a> subclass with native drawing in a <a href="qwidget.html">QWidget</a> subclass, we want to show both kinds of widget side by side. To do this, we derive subclasses of <a href="qwidget.html">QWidget</a> and <a href="qglwidget.html">QGLWidget</a>, using a separate <tt>Helper</tt> class to perform the same painting operations for each, and lay them out in a top-level widget, itself provided a the <tt>Window</tt> class.</p>
+<a name="helper-class-definition"></a>
+<h2>Helper Class Definition</h2>
+<p>In this example, the painting operations are performed by a helper class. We do this because we want the same painting operations to be performed for both our <a href="qwidget.html">QWidget</a> subclass and the <a href="qglwidget.html">QGLWidget</a> subclass.</p>
+<p>The <tt>Helper</tt> class is minimal:</p>
+<pre class="cpp"> <span class="keyword">class</span> Helper
+ {
+ <span class="keyword">public</span>:
+     Helper();
+
+ <span class="keyword">public</span>:
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event<span class="operator">,</span> <span class="type">int</span> elapsed);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qbrush.html">QBrush</a></span> background;
+     <span class="type"><a href="qbrush.html">QBrush</a></span> circleBrush;
+     <span class="type"><a href="qfont.html">QFont</a></span> textFont;
+     <span class="type"><a href="qpen.html">QPen</a></span> circlePen;
+     <span class="type"><a href="qpen.html">QPen</a></span> textPen;
+ };</pre>
+<p>Apart from the constructor, it only provides a <tt>paint()</tt> function to paint using a painter supplied by one of our widget subclasses.</p>
+<a name="helper-class-implementation"></a>
+<h2>Helper Class Implementation</h2>
+<p>The constructor of the class sets up the resources it needs to paint content onto a widget:</p>
+<pre class="cpp"> Helper<span class="operator">::</span>Helper()
+ {
+     <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span> gradient(<span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span>)<span class="operator">,</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">80</span><span class="operator">,</span> <span class="number">20</span>));
+     gradient<span class="operator">.</span>setColorAt(<span class="number">0.0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     gradient<span class="operator">.</span>setColorAt(<span class="number">1.0</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0xa6</span><span class="operator">,</span> <span class="number">0xce</span><span class="operator">,</span> <span class="number">0x39</span>));
+
+     background <span class="operator">=</span> <span class="type"><a href="qbrush.html">QBrush</a></span>(<span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">64</span><span class="operator">,</span> <span class="number">32</span><span class="operator">,</span> <span class="number">64</span>));
+     circleBrush <span class="operator">=</span> <span class="type"><a href="qbrush.html">QBrush</a></span>(gradient);
+     circlePen <span class="operator">=</span> <span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     circlePen<span class="operator">.</span>setWidth(<span class="number">1</span>);
+     textPen <span class="operator">=</span> <span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     textFont<span class="operator">.</span>setPixelSize(<span class="number">50</span>);
+ }</pre>
+<p>The actual painting is performed in the <tt>paint()</tt> function. This takes a <a href="qpainter.html">QPainter</a> that has already been set up to paint onto a paint device (either a <a href="qwidget.html">QWidget</a> or a <a href="qglwidget.html">QGLWidget</a>), a <a href="qpaintevent.html">QPaintEvent</a> that provides information about the region to be painted, and a measure of the elapsed time (in milliseconds) since the paint device was last updated.</p>
+<pre class="cpp"> <span class="type">void</span> Helper<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event<span class="operator">,</span> <span class="type">int</span> elapsed)
+ {
+     painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">,</span> background);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>translate(<span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);</pre>
+<p>We begin painting by filling in the region contained in the paint event before translating the origin of the coordinate system so that the rest of the painting operations will be displaced towards the center of the paint device.</p>
+<p>We draw a spiral pattern of circles, using the elapsed time specified to animate them so that they appear to move outward and around the coordinate system's origin:</p>
+<pre class="cpp">     painter<span class="operator">-</span><span class="operator">&gt;</span>save();
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(circleBrush);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(circlePen);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>rotate(elapsed <span class="operator">*</span> <span class="number">0.030</span>);
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> r <span class="operator">=</span> elapsed<span class="operator">/</span><span class="number">1000.0</span>;
+     <span class="type">int</span> n <span class="operator">=</span> <span class="number">30</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> n; <span class="operator">+</span><span class="operator">+</span>i) {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>rotate(<span class="number">30</span>);
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> radius <span class="operator">=</span> <span class="number">0</span> <span class="operator">+</span> <span class="number">120.0</span><span class="operator">*</span>((i<span class="operator">+</span>r)<span class="operator">/</span>n);
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> circleRadius <span class="operator">=</span> <span class="number">1</span> <span class="operator">+</span> ((i<span class="operator">+</span>r)<span class="operator">/</span>n)<span class="operator">*</span><span class="number">20</span>;
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="type"><a href="qrectf.html">QRectF</a></span>(radius<span class="operator">,</span> <span class="operator">-</span>circleRadius<span class="operator">,</span>
+                                     circleRadius<span class="operator">*</span><span class="number">2</span><span class="operator">,</span> circleRadius<span class="operator">*</span><span class="number">2</span>));
+     }
+     painter<span class="operator">-</span><span class="operator">&gt;</span>restore();</pre>
+<p>Since the coordinate system is rotated many times during this process, we <a href="qpainter.html#save">save()</a> the <a href="qpainter.html">QPainter</a>'s state beforehand and <a href="qpainter.html#restore">restore()</a> it afterwards.</p>
+<pre class="cpp">     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(textPen);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setFont(textFont);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawText(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="operator">-</span><span class="number">50</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">100</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter<span class="operator">,</span> <span class="string">&quot;Qt&quot;</span>);
+ }</pre>
+<p>We draw some text at the origin to complete the effect.</p>
+<a name="widget-class-definition"></a>
+<h2>Widget Class Definition</h2>
+<p>The <tt>Widget</tt> class provides a basic custom widget that we use to display the simple animation painted by the <tt>Helper</tt> class.</p>
+<pre class="cpp"> <span class="keyword">class</span> Helper;
+ <span class="keyword">class</span> <span class="type"><a href="qpaintevent.html">QPaintEvent</a></span>;
+
+ <span class="keyword">class</span> Widget : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Widget(Helper <span class="operator">*</span>helper<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> animate();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     Helper <span class="operator">*</span>helper;
+     <span class="type">int</span> elapsed;
+ };</pre>
+<p>Apart from the constructor, it only contains a <a href="qwidget.html#paintEvent">paintEvent()</a> function, that lets us draw customized content, and a slot that is used to animate its contents. One member variable keeps track of the <tt>Helper</tt> that the widget uses to paint its contents, and the other records the elapsed time since it was last updated.</p>
+<a name="widget-class-implementation"></a>
+<h2>Widget Class Implementation</h2>
+<p>The constructor only initializes the member variables, storing the <tt>Helper</tt> object supplied and calling the base class's constructor, and enforces a fixed size for the widget:</p>
+<pre class="cpp"> Widget<span class="operator">::</span>Widget(Helper <span class="operator">*</span>helper<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span> helper(helper)
+ {
+     elapsed <span class="operator">=</span> <span class="number">0</span>;
+     setFixedSize(<span class="number">200</span><span class="operator">,</span> <span class="number">200</span>);
+ }</pre>
+<p>The <tt>animate()</tt> slot is called whenever a timer, which we define later, times out:</p>
+<pre class="cpp"> <span class="type">void</span> Widget<span class="operator">::</span>animate()
+ {
+     elapsed <span class="operator">=</span> (elapsed <span class="operator">+</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">*</span><span class="operator">&gt;</span>(sender())<span class="operator">-</span><span class="operator">&gt;</span>interval()) <span class="operator">%</span> <span class="number">1000</span>;
+     repaint();
+ }</pre>
+<p>Here, we determine the interval that has elapsed since the timer last timed out, and we add it to any existing value before repainting the widget. Since the animation used in the <tt>Helper</tt> class loops every second, we can use the modulo operator to ensure that the <tt>elapsed</tt> variable is always less than 1000.</p>
+<p>Since the <tt>Helper</tt> class does all of the actual painting, we only have to implement a paint event that sets up a <a href="qpainter.html">QPainter</a> for the widget and calls the helper's <tt>paint()</tt> function:</p>
+<pre class="cpp"> <span class="type">void</span> Widget<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter;
+     painter<span class="operator">.</span>begin(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+     helper<span class="operator">-</span><span class="operator">&gt;</span>paint(<span class="operator">&amp;</span>painter<span class="operator">,</span> event<span class="operator">,</span> elapsed);
+     painter<span class="operator">.</span>end();
+ }</pre>
+<a name="glwidget-class-definition"></a>
+<h2>GLWidget Class Definition</h2>
+<p>The <tt>GLWidget</tt> class definition is basically the same as the <tt>Widget</tt> class except that it is derived from <a href="qglwidget.html">QGLWidget</a>.</p>
+<pre class="cpp"> <span class="keyword">class</span> Helper;
+ <span class="keyword">class</span> <span class="type"><a href="qpaintevent.html">QPaintEvent</a></span>;
+ <span class="keyword">class</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+
+ <span class="keyword">class</span> GLWidget : <span class="keyword">public</span> <span class="type"><a href="qglwidget.html">QGLWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     GLWidget(Helper <span class="operator">*</span>helper<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> animate();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     Helper <span class="operator">*</span>helper;
+     <span class="type">int</span> elapsed;
+ };</pre>
+<p>Again, the member variables record the <tt>Helper</tt> used to paint the widget and the elapsed time since the previous update.</p>
+<a name="glwidget-class-implementation"></a>
+<h2>GLWidget Class Implementation</h2>
+<p>The constructor differs a little from the <tt>Widget</tt> class's constructor:</p>
+<pre class="cpp"> GLWidget<span class="operator">::</span>GLWidget(Helper <span class="operator">*</span>helper<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qglwidget.html">QGLWidget</a></span>(<span class="type"><a href="qglformat.html">QGLFormat</a></span>(QGL<span class="operator">::</span>SampleBuffers)<span class="operator">,</span> parent)<span class="operator">,</span> helper(helper)
+ {
+     elapsed <span class="operator">=</span> <span class="number">0</span>;
+     setFixedSize(<span class="number">200</span><span class="operator">,</span> <span class="number">200</span>);
+     setAutoFillBackground(<span class="keyword">false</span>);
+ }</pre>
+<p>As well as initializing the <tt>elapsed</tt> member variable and storing the <tt>Helper</tt> object used to paint the widget, the base class's constructor is called with the format that specifies the <a href="qgl.html#FormatOption-enum">QGL::SampleBuffers</a> flag. This enables anti-aliasing if it is supported by your system's OpenGL driver.</p>
+<p>The <tt>animate()</tt> slot is exactly the same as that provided by the <tt>Widget</tt> class:</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>animate()
+ {
+     elapsed <span class="operator">=</span> (elapsed <span class="operator">+</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">*</span><span class="operator">&gt;</span>(sender())<span class="operator">-</span><span class="operator">&gt;</span>interval()) <span class="operator">%</span> <span class="number">1000</span>;
+     repaint();
+ }</pre>
+<p>The <tt>paintEvent()</tt> is almost the same as that found in the <tt>Widget</tt> class:</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter;
+     painter<span class="operator">.</span>begin(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+     helper<span class="operator">-</span><span class="operator">&gt;</span>paint(<span class="operator">&amp;</span>painter<span class="operator">,</span> event<span class="operator">,</span> elapsed);
+     painter<span class="operator">.</span>end();
+ }</pre>
+<p>Since anti-aliasing will be enabled if available, we only need to set up a <a href="qpainter.html">QPainter</a> on the widget and call the helper's <tt>paint()</tt> function to display the widget's contents.</p>
+<a name="window-class-definition"></a>
+<h2>Window Class Definition</h2>
+<p>The <tt>Window</tt> class has a basic, minimal definition:</p>
+<pre class="cpp"> <span class="keyword">class</span> Window : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Window();
+
+ <span class="keyword">private</span>:
+     Helper helper;
+ };</pre>
+<p>It contains a single <tt>Helper</tt> object that will be shared between all widgets.</p>
+<a name="window-class-implementation"></a>
+<h2>Window Class Implementation</h2>
+<p>The constructor does all the work, creating a widget of each type and inserting them with labels into a layout:</p>
+<pre class="cpp"> Window<span class="operator">::</span>Window()
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>()
+ {
+     Widget <span class="operator">*</span>native <span class="operator">=</span> <span class="keyword">new</span> Widget(<span class="operator">&amp;</span>helper<span class="operator">,</span> <span class="keyword">this</span>);
+     GLWidget <span class="operator">*</span>openGL <span class="operator">=</span> <span class="keyword">new</span> GLWidget(<span class="operator">&amp;</span>helper<span class="operator">,</span> <span class="keyword">this</span>);
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>nativeLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Native&quot;</span>));
+     nativeLabel<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>openGLLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;OpenGL&quot;</span>));
+     openGLLabel<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(native<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(openGL<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nativeLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(openGLLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     setLayout(layout);
+
+     <span class="type"><a href="qtimer.html">QTimer</a></span> <span class="operator">*</span>timer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>(<span class="keyword">this</span>);
+     connect(timer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> native<span class="operator">,</span> SLOT(animate()));
+     connect(timer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> openGL<span class="operator">,</span> SLOT(animate()));
+     timer<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="number">50</span>);
+
+     setWindowTitle(tr(<span class="string">&quot;2D Painting on Native and OpenGL Widgets&quot;</span>));
+ }</pre>
+<p>A timer with a 50 millisecond time out is constructed for animation purposes, and connected to the <tt>animate()</tt> slots of the <tt>Widget</tt> and <tt>GLWidget</tt> objects. Once started, the widgets should be updated at around 20 frames per second.</p>
+<a name="running-the-example"></a>
+<h2>Running the Example</h2>
+<p>The example shows the same painting operations performed at the same time in a <tt>Widget</tt> and a <tt>GLWidget</tt>. The quality and speed of rendering in the <tt>GLWidget</tt> depends on the level of support for multisampling and hardware acceleration that your system's OpenGL driver provides. If support for either of these is lacking, the driver may fall back on a software renderer that may trade quality for speed.</p>
+</div>
+<!-- @@@opengl/2dpainting -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

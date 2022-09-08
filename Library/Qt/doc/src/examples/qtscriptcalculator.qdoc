@@ -1,0 +1,88 @@
+/****************************************************************************
+**
+** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+** Contact: http://www.qt-project.org/legal
+**
+** This file is part of the documentation of the Qt Toolkit.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and Digia.  For licensing terms and
+** conditions see http://qt.digia.com/licensing.  For further information
+** use the contact form at http://qt.digia.com/contact-us.
+**
+** GNU Free Documentation License Usage
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file.  Please review the following information to ensure
+** the GNU Free Documentation License version 1.3 requirements
+** will be met: http://www.gnu.org/copyleft/fdl.html.
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \example script/calculator
+    \title QtScript Calculator Example
+
+    \brief In the QtScript Calculator example, we show how to implement the
+    functionality of a calculator widget.
+
+    \image qtscript-calculator-example.png
+
+    The program logic in this example is a fairly straight port of the logic in the C++ \l{Calculator Example}.
+    The graphical user interface is defined in a UI file.
+
+    The C++ part of the example consists of four steps:
+    \list
+    \o Evaluate the script code that defines the \c{Calculator} class.
+
+    \snippet examples/script/calculator/main.cpp 0a
+    \snippet examples/script/calculator/main.cpp 0b
+
+    \o Create a widget from the UI file using QUiLoader.
+
+    \snippet examples/script/calculator/main.cpp 1
+
+    \o Call the Calculator constructor function to create a new \c{Calculator} script object, passing the widget as argument.
+
+    \snippet examples/script/calculator/main.cpp 2
+
+    \o Show the widget and start the application event loop.
+
+    \snippet examples/script/calculator/main.cpp 3
+
+    \endlist
+
+    On the script side, the \c{Calculator} constructor function
+    initializes the instance variables of the new \c{Calculator}
+    object, and connects the clicked() signal of the form's buttons
+    to corresponding functions defined in the \c{Calculator} prototype
+    object; the effect is that when a button is clicked, the proper
+    script function will be invoked to carry out the operation.
+
+    \snippet examples/script/calculator/calculator.js 0
+
+    A \c{Calculator} object is just a plain script object; it is not
+    a widget. Instead, it stores a reference to the calculator form
+    (the widget) in an instance variable, \c{ui}. The calculator
+    script functions can access components of the form by referring
+    to the proper children of the \c{ui} member.
+
+    \snippet examples/script/calculator/calculator.js 1
+
+    The digitClicked() function is called when a digit button is
+    clicked, with the input digit as argument.
+
+    \snippet examples/script/calculator/calculator.js 2
+
+    The changeSign() function shows how we retrieve the text property
+    of the calculator's display, change it appropriately, and write
+    back the new value.
+
+
+*/

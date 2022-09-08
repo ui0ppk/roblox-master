@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- openvg.qdoc -->
+  <title>Qt 4.8: OpenVG Rendering in Qt</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>OpenVG Rendering in Qt</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#building-qt-with-openvg-support">Building Qt with OpenVG support</a></li>
+<li class="level1"><a href="#using-the-openvg-graphics-system">Using the OpenVG graphics system</a></li>
+<li class="level1"><a href="#supported-features">Supported features</a></li>
+<li class="level2"><a href="#context-modes">Context modes</a></li>
+<li class="level2"><a href="#transformation-matrices">Transformation matrices</a></li>
+<li class="level2"><a href="#composition-modes">Composition modes</a></li>
+<li class="level2"><a href="#pens-and-brushes">Pens and brushes</a></li>
+<li class="level2"><a href="#rectangles-lines-and-points">Rectangles, lines, and points</a></li>
+<li class="level2"><a href="#polygons-and-ellipses">Polygons and Ellipses</a></li>
+<li class="level2"><a href="#other-objects">Other Objects</a></li>
+<li class="level2"><a href="#clipping">Clipping</a></li>
+<li class="level2"><a href="#opacity">Opacity</a></li>
+<li class="level2"><a href="#text-drawing">Text Drawing</a></li>
+<li class="level2"><a href="#pixmaps">Pixmaps</a></li>
+<li class="level2"><a href="#pixmap-filters">Pixmap filters</a></li>
+<li class="level2"><a href="#scrolling">Scrolling</a></li>
+<li class="level1"><a href="#known-issues">Known issues</a></li>
+</ul>
+</div>
+<h1 class="title">OpenVG Rendering in Qt</h1>
+<span class="subtitle"></span>
+<!-- $$$openvg.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>OpenVG is a standard API from the <a href="http://www.khronos.org/openvg">Khronos Group</a> for accelerated 2D vector graphics that is appearing in an increasing number of embedded devices. The <a href="qtopenvg.html">QtOpenVG</a> plugin provides support for OpenVG painting.</p>
+<p>OpenVG is optimized for 2D vector operations, and closely matches the functionality in <a href="qpainter.html">QPainter</a>. It can therefore be an excellent substitute for the default raster-based <a href="qpaintengine.html">QPaintEngine</a> on hardware that supports OpenVG.</p>
+<a name="building-qt-with-openvg-support"></a>
+<h2>Building Qt with OpenVG support</h2>
+<p>OpenVG support can be enabled by passing the <tt>-openvg</tt> option to configure. It is assumed that the following qmake variables are set to appropriate values in the qmake.conf file for your platform:</p>
+<ul>
+<li><a href="qmake-variable-reference.html#qmake-incdir-openvg">QMAKE_INCDIR_OPENVG</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libdir-openvg">QMAKE_LIBDIR_OPENVG</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libs-openvg">QMAKE_LIBS_OPENVG</a></li>
+</ul>
+<p>Most OpenVG implementations are based on EGL, so the following variables may also need to be set:</p>
+<ul>
+<li><a href="qmake-variable-reference.html#qmake-incdir-egl">QMAKE_INCDIR_EGL</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libdir-egl">QMAKE_LIBDIR_EGL</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libs-egl">QMAKE_LIBS_EGL</a></li>
+</ul>
+<p>See <a href="qmake-variable-reference.html">qmake Variable Reference</a> for more information on these variables.</p>
+<p>Two kinds of OpenVG engines are currently supported: EGL based, and engines built on top of OpenGL such as <a href="http://sourceforge.net/projects/shivavg">ShivaVG</a>. EGL based engines are preferred.</p>
+<p>It is assumed that the EGL implementation has some way to turn a <a href="qwidget.html#winId">QWidget::winId</a>() into an EGL rendering surface with <tt>eglCreateWindowSurface()</tt>. If this is not the case, then modifications may be needed to the code under <tt>src/gui/egl</tt> and <tt>src/plugins/graphicssystems/openvg</tt> to accomodate the EGL implementation.</p>
+<p>The ShivaVG graphics system under <tt>src/plugins/graphicssystems/shivavg</tt> is an example of how to integrate a non-EGL implementation of OpenVG into Qt. It is currently only supported with Qt/X11 and being an example only, the resulting screen output may not be as good as with other OpenVG engines.</p>
+<a name="using-the-openvg-graphics-system"></a>
+<h2>Using the OpenVG graphics system</h2>
+<p>Once the graphics system plugin has been built and installed, applications can be run as follows to use the plugin:</p>
+<pre class="cpp"> app <span class="operator">-</span>graphicssystem OpenVG</pre>
+<p>If ShivaVG is being used, then substitute <tt>ShivaVG</tt> instead of <tt>OpenVG</tt> in the line above.</p>
+<p>If the plugin fails to load, try setting the <tt>QT_DEBUG_PLUGINS</tt> environment variable to 1 and try again. Usually the plugin cannot be loaded because Qt cannot locate it in the directory <tt>plugins/graphicssystems</tt> within the Qt installation, or the dynamic library path does not include the directory containing the system's <tt>libOpenVG.so</tt> library.</p>
+<a name="supported-features"></a>
+<h2>Supported features</h2>
+<a name="context-modes"></a>
+<h3>Context modes</h3>
+<p>The default configuration is &quot;single-context&quot; mode, where a single EGLContext object is used for all drawing, regardless of the surface. Multiple EGLSurfaces are created, one for each window surface or pixmap. eglMakeCurrent() is called with the same EGLContext every time, but a different EGLSurface.</p>
+<p>Single-context mode is necessary for QPixmapData to be implemented in terms of a VGImage. If single-context mode is not enabled, then QPixmapData will use the fallback QRasterPixmapData implementation, which is less efficient performance-wise.</p>
+<p>Single-context mode can be disabled with the QVG_NO_SINGLE_CONTEXT define if the OpenVG engine does not support one context with multiple surfaces.</p>
+<a name="transformation-matrices"></a>
+<h3>Transformation matrices</h3>
+<p>All affine and projective transformation matrices are supported.</p>
+<p>QVGPaintEngine will use the engine to accelerate affine transformation matrices only. When a projective transformation matrix is used, QVGPaintEngine will transform the coordinates before passing them to the engine. This will probably incur a performance penalty.</p>
+<p>Pixmaps and images are always transformed by the engine, because OpenVG specifies that projective transformations must work for images.</p>
+<p>It is recommended that client applications should avoid using projective transformations for non-image elements in performance critical code.</p>
+<a name="composition-modes"></a>
+<h3>Composition modes</h3>
+<p>The following composition modes are supported:</p>
+<ul>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceOver</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_DestinationOver</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Source</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceIn</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_DestinationIn</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Plus</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Multiply</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Screen</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Darken</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Lighten</a></li>
+</ul>
+<p>The other members of <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a> are not supported unless the <tt>VG_KHR_advanced_blending</tt> extension is present, in which case the following additional modes are supported:</p>
+<ul>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Overlay</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_ColorDodge</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_ColorBurn</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_HardLight</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SoftLight</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Difference</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Exclusion</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceOut</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_DestinationOut</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceAtop</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_DestinationAtop</a></li>
+<li><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_Xor</a></li>
+</ul>
+<p>Any attempt to set an unsupported mode will result in the actual mode being set to <a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode_SourceOver</a>. Client applications should avoid using unsupported modes.</p>
+<a name="pens-and-brushes"></a>
+<h3>Pens and brushes</h3>
+<p>All pen styles are supported, including cosmetic pens.</p>
+<p>All brush styles are supported except for conical gradients, which are not supported by OpenVG 1.1&#x2e; Conical gradients will be converted into a solid color brush corresponding to the first color in the gradient's color ramp.</p>
+<p>Affine matrices are supported for brush transforms, but not projective matrices.</p>
+<a name="rectangles-lines-and-points"></a>
+<h3>Rectangles, lines, and points</h3>
+<p>Rectangles, lines, and rounded rectangles use cached VGPath objects to try to accelerate drawing operations. vgModifyPathCoords() is used to modify the co-ordinates in the cached VGPath object each time fillRect(), drawRects(), drawLines(), or drawRoundedRect() is called.</p>
+<p>If the engine does not implement vgModifyPathCoords() properly, then the QVG_NO_MODIFY_PATH define can be set to disable path caching. This will incur a performance penalty.</p>
+<p>Points are implemented as lines from the point to itself. The cached line drawing VGPath object is used when drawing points.</p>
+<a name="polygons-and-ellipses"></a>
+<h3>Polygons and Ellipses</h3>
+<p>Polygon and ellipse drawing creates a new VGPath object every time drawPolygon() or drawEllipse() is called. If the client application is making heavy use of these functions, the constant creation and destruction of VGPath objects could have an impact on performance.</p>
+<p>If a projective transformation is active, ellipses are converted into cubic curves prior to transformation, which may further impact performance.</p>
+<p>Client applications should avoid polygon and ellipse drawing in performance critical code if possible.</p>
+<a name="other-objects"></a>
+<h3>Other Objects</h3>
+<p>Most other objects (arcs, pies, etc) use drawPath(), which takes a <a href="qpainterpath.html">QPainterPath</a> argument. The default implementation in QPainterEngineEx converts the <a href="qpainterpath.html">QPainterPath</a> into a QVectorPath and then calls draw(), which in turn converts the QVectorPath into a VGPath for drawing.</p>
+<p>To reduce the overhead, we have overridden drawPath() in QVGPaintEngine to convert <a href="qpainterpath.html">QPainterPath</a>'s directly into VGPath's. This should help improve performance compared to the default implementation.</p>
+<p>Client applications should try to avoid these types of objects in performance critical code because of the <a href="qpainterpath.html">QPainterPath</a> to VGPath conversion cost.</p>
+<a name="clipping"></a>
+<h3>Clipping</h3>
+<p>Clipping with <a href="qrect.html">QRect</a>, <a href="qrectf.html">QRectF</a>, and <a href="qregion.html">QRegion</a> objects is supported on all OpenVG engines with vgMask() if the transformation matrix is the identity or a simple origin translation.</p>
+<p>Clipping with an arbitrary <a href="qpainterpath.html">QPainterPath</a>, or setting the clip region when the transformation matrix is simple, is supported only if the OpenVG engine has the vgRenderToMask() function (OpenVG 1.1 and higher).</p>
+<p>The QVG_NO_RENDER_TO_MASK define will disable the use of vgRenderToMask().</p>
+<p>The QVG_SCISSOR_CLIP define will disable clipping with vgMask() or vgRenderToMask() and instead use the scissor rectangle list to perform clipping. Clipping with an arbitrary <a href="qpainterpath.html">QPainterPath</a> will need to convert the path into a series of rectangles. If the number of rectangles exceeds VG_MAX_SCISSOR_RECTS, then the results will not be exact.</p>
+<p>The QVG_SCISSOR_CLIP define should only be used if the OpenVG engine does not support vgMask() or vgRenderToMask().</p>
+<a name="opacity"></a>
+<h3>Opacity</h3>
+<p>Opacity is supported for all drawing operations. Solid color pens, solid color brushes, gradient brushes, and image drawing with drawPixmap() and drawImage() will probably have the best performance compared to other kinds of pens and brushes.</p>
+<a name="text-drawing"></a>
+<h3>Text Drawing</h3>
+<p>If OpenVG 1.1 is used, the paint engine will use VG fonts to cache glyphs while drawing. If the engine does not support VG fonts correctly, QVG_NO_DRAW_GLYPHS can be defined to disable this mode. Text drawing performance will suffer if VG fonts are not used.</p>
+<p>By default, image-based glyphs are used. If QVG_NO_IMAGE_GLYPHS is defined, then path-based glyphs will be used instead. QVG_NO_IMAGE_GLYPHS is ignored if QVG_NO_DRAW_GLYPHS is defined.</p>
+<p>If path-based glyphs are used, then the OpenVG engine will need to support hinting to render text with good results. Image-based glyphs avoids the need for hinting and will usually give better results than path-based glyphs.</p>
+<a name="pixmaps"></a>
+<h3>Pixmaps</h3>
+<p>In single-context mode, pixmaps will be implemented using VGImage unless QVG_NO_PIXMAP_DATA is defined.</p>
+<p>QVGPixmapData will convert <a href="qimage.html">QImage</a>'s into VGImage's when the application calls drawPixmap(), and the pixmap will be kept in VGImage form for the lifetime of the QVGPixmapData object. When the application tries to paint into a <a href="qpixmap.html">QPixmap</a> with <a href="qpainter.html">QPainter</a>, the data will be converted back into a <a href="qimage.html">QImage</a> and the raster paint engine will be used to render into the <a href="qimage.html">QImage</a>.</p>
+<p>This arrangement optimizes for the case of drawing the same static pixmap over and over (e.g&#x2e; for icons), but does not optimize the case of drawing into pixmaps.</p>
+<p>Bitmaps must use QRasterPixmapData. They are not accelerated with VGImage at present.</p>
+<a name="pixmap-filters"></a>
+<h3>Pixmap filters</h3>
+<p>Convolution, colorize, drop shadow, and blur filters are accelerated using OpenVG operations.</p>
+<a name="scrolling"></a>
+<h3>Scrolling</h3>
+<p>By default, accelerated scrolling is not enabled because the impact on performance is very much tied to the hardware platform. To enable accelerated scrolling, you should ensure that QVG_BUFFER_SCROLLING is defined when compiling the <a href="qtopenvg.html">QtOpenVG</a> module.</p>
+<p>You should only enable this feature if vgCopyPixels() is known to be efficient on your hardware platform.</p>
+<a name="known-issues"></a>
+<h2>Known issues</h2>
+<p>Performance of copying the contents of an OpenVG-rendered window to the screen needs platform-specific work in the QVGWindowSurface class.</p>
+<p>Clipping with arbitrary non-rectangular paths only works on engines that support vgRenderToMask(). Simple rectangular paths are supported on all engines that correctly implement vgMask().</p>
+<p>The paint engine is not yet thread-safe, so it is not recommended for use in threaded Qt applications that draw from multiple threads. Drawing should be limited to the main GUI thread.</p>
+<p>Performance of projective matrices for non-image drawing is not as good as for affine matrices.</p>
+<p><a href="qpixmap.html">QPixmap</a>'s are implemented as VGImage objects so that they can be quickly rendered with drawPixmap(). Rendering into a <a href="qpixmap.html">QPixmap</a> using <a href="qpainter.html">QPainter</a> will use the default Qt raster paint engine on a <a href="qimage.html">QImage</a> copy of the <a href="qpixmap.html">QPixmap</a>, and will not be accelerated. This issue may be addressed in a future version of the engine.</p>
+<p>ShivaVG support is highly experimental and limited to Qt/X11. It is provided as an example of how to integrate a non-EGL engine.</p>
+</div>
+<!-- @@@openvg.html -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

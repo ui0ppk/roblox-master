@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtscriptcustomclass.qdoc -->
+  <title>Qt 4.8: Custom Script Class Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Custom Script Class Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#bytearray-class-in-use">ByteArray Class In Use</a></li>
+<li class="level1"><a href="#bytearray-class-implementation">ByteArray Class Implementation</a></li>
+<li class="level1"><a href="#bytearray-iterator-implementation">ByteArray Iterator Implementation</a></li>
+<li class="level1"><a href="#bytearray-prototype-implementation">ByteArray Prototype Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Custom Script Class Example</h1>
+<span class="subtitle"></span>
+<!-- $$$script/customclass-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="script-customclass-bytearrayclass-cpp.html">script/customclass/bytearrayclass.cpp</a></li>
+<li><a href="script-customclass-bytearrayclass-h.html">script/customclass/bytearrayclass.h</a></li>
+<li><a href="script-customclass-bytearrayprototype-cpp.html">script/customclass/bytearrayprototype.cpp</a></li>
+<li><a href="script-customclass-bytearrayprototype-h.html">script/customclass/bytearrayprototype.h</a></li>
+<li><a href="script-customclass-main-cpp.html">script/customclass/main.cpp</a></li>
+<li><a href="script-customclass-customclass-pro.html">script/customclass/customclass.pro</a></li>
+</ul>
+<p>The Custom Script Class example shows how to use <a href="qscriptclass.html">QScriptClass</a> and <a href="qscriptclasspropertyiterator.html">QScriptClassPropertyIterator</a> to implement a custom script class.<p>The script class we are going to implement is called <tt>ByteArray</tt>. It provides a wrapper around the <a href="qbytearray.html">QByteArray</a> class in Qt, with a simplified API. Why do we need such a class? Well, neither the ECMAScript <tt>Array</tt> class or <tt>String</tt> class is appropriate to use when working with arrays of bytes. Our <tt>ByteArray</tt> class will have the right semantics; objects will use only the amount of memory that is really needed (a byte is stored as a byte, not as a floating-point number or a Unicode character) and can be passed directly to C++ slots taking <a href="qbytearray.html">QByteArray</a> arguments (no costly conversion necessary).</p>
+<a name="bytearray-class-in-use"></a>
+<h2>ByteArray Class In Use</h2>
+<p>When the <tt>ByteArray</tt> class has been made available to the scripting environment, <tt>ByteArray</tt> objects can be constructed like so:</p>
+<pre class="cpp"> var ba <span class="operator">=</span> <span class="keyword">new</span> ByteArray();    <span class="comment">// constructs an empty ByteArray</span>
+ var ba2 <span class="operator">=</span> <span class="keyword">new</span> ByteArray(<span class="number">10</span>); <span class="comment">// constructs a ByteArray of length 10 (all bytes initialized to 0)</span></pre>
+<p><tt>ByteArray</tt> objects behave similar to normal <tt>Array</tt> objects. Every <tt>ByteArray</tt> object has a <tt>length</tt> property, that holds the length of the array. If a new value is assigned to the <tt>length</tt> property, the array is resized. If the array is enlarged, the new bytes are initialized to 0. (This is a difference from normal <tt>Array</tt> objects; <tt>ByteArray</tt> objects are always dense arrays.) Use normal array operations to read or write bytes in the array. The following code sets all the bytes of an array to a certain value:</p>
+<pre class="cpp"> <span class="keyword">for</span> (var i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> ba<span class="operator">.</span>length; <span class="operator">+</span><span class="operator">+</span>i)
+     ba<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> <span class="number">123</span>;</pre>
+<p>When assigning a value to an array element, the value is truncated to eight bits:</p>
+<pre class="cpp"> ba<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> <span class="number">257</span>;
+ print(ba<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);  <span class="comment">// 1</span></pre>
+<p>Like normal <tt>Array</tt> objects, if the array index is greater than the current length of the array, the array is resized accordingly:</p>
+<pre class="cpp"> var ba3 <span class="operator">=</span> <span class="keyword">new</span> ByteArray();
+ print(ba3<span class="operator">.</span>length); <span class="comment">// 0</span>
+ ba<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> <span class="number">64</span>;
+ print(ba3<span class="operator">.</span>length); <span class="comment">// 1</span></pre>
+<p>Property names that aren't valid array indexes are treated like normal object properties (again, the same is the case for normal <tt>Array</tt> objects); in other words, it's perfectly fine to do something like this:</p>
+<pre class="cpp"> ba<span class="operator">[</span><span class="string">&quot;foo&quot;</span><span class="operator">]</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</pre>
+<p>The above assignment won't affect the contents of the array, but will rather assign a value to the object property named &quot;foo&quot;.</p>
+<p><tt>ByteArray</tt> objects have a set of methods: chop(), equals(), <a href="qtextstream.html#left">left</a>(), mid(), toBase64() and so on. These map directly onto the corresponding methods in <a href="qbytearray.html">QByteArray</a>.</p>
+<pre class="cpp"> var ba64 <span class="operator">=</span> ba<span class="operator">.</span>toBase64();
+ print(ba64<span class="operator">.</span>toLatin1String());</pre>
+<a name="bytearray-class-implementation"></a>
+<h2>ByteArray Class Implementation</h2>
+<p>To implement the <tt>ByteArray</tt> script class in C++, we create a subclass of <a href="qscriptclass.html">QScriptClass</a>, called ByteArrayClass, and reimplement the virtual functions from <a href="qscriptclass.html">QScriptClass</a>. We also provide a Qt Script constructor function suitable for being added to a <a href="qscriptengine.html">QScriptEngine</a>'s environment.</p>
+<p>The ByteArrayClass constructor prepares the script class:</p>
+<pre class="cpp"> ByteArrayClass<span class="operator">::</span>ByteArrayClass(<span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> <span class="operator">*</span>engine)
+     : <span class="type"><a href="qobject.html">QObject</a></span>(engine)<span class="operator">,</span> <span class="type"><a href="qscriptclass.html">QScriptClass</a></span>(engine)
+ {
+     <a href="qscriptengine.html#qScriptRegisterMetaType">qScriptRegisterMetaType</a><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span>(engine<span class="operator">,</span> toScriptValue<span class="operator">,</span> fromScriptValue);
+
+     length <span class="operator">=</span> engine<span class="operator">-</span><span class="operator">&gt;</span>toStringHandle(QLatin1String(<span class="string">&quot;length&quot;</span>));
+
+     proto <span class="operator">=</span> engine<span class="operator">-</span><span class="operator">&gt;</span>newQObject(<span class="keyword">new</span> ByteArrayPrototype(<span class="keyword">this</span>)<span class="operator">,</span>
+                                <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span><span class="operator">::</span><span class="type">QtOwnership</span><span class="operator">,</span>
+                                <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span><span class="operator">::</span>SkipMethodsInEnumeration
+                                <span class="operator">|</span> <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span><span class="operator">::</span>ExcludeSuperClassMethods
+                                <span class="operator">|</span> <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span><span class="operator">::</span>ExcludeSuperClassProperties);
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> global <span class="operator">=</span> engine<span class="operator">-</span><span class="operator">&gt;</span>globalObject();
+     proto<span class="operator">.</span>setPrototype(global<span class="operator">.</span>property(<span class="string">&quot;Object&quot;</span>)<span class="operator">.</span>property(<span class="string">&quot;prototype&quot;</span>));
+
+     ctor <span class="operator">=</span> engine<span class="operator">-</span><span class="operator">&gt;</span>newFunction(construct<span class="operator">,</span> proto);
+     ctor<span class="operator">.</span>setData(engine<span class="operator">-</span><span class="operator">&gt;</span>toScriptValue(<span class="keyword">this</span>));
+ }</pre>
+<p>First, the constructor registers a pair of conversion functions, so that C++ <a href="qbytearray.html">QByteArray</a> objects and Qt Script <tt>ByteArray</tt> objects can move seamlessly between the C++ side and the script side. For example, if a <tt>ByteArray</tt> object is passed to a C++ slot that takes a <a href="qbytearray.html">QByteArray</a> argument, the actual <a href="qbytearray.html">QByteArray</a> that the <tt>ByteArray</tt> object wraps will be passed correctly.</p>
+<p>Second, we store a handle to the string &quot;length&quot;, so that we can quickly compare a given property name to &quot;length&quot; later on.</p>
+<p>Third, we initialize the standard <tt>ByteArray</tt> prototype, to be returned by our prototype() reimplementation later on. (The implementation of the prototype is discussed later.)</p>
+<p>Fourth, we initialize a constructor function for <tt>ByteArray</tt>, to be returned by the constructor() function. We set the internal data of the constructor to be a pointer to this ByteArrayClass object, so that the constructor, when it is invoked, can extract the pointer and use it to create a new <tt>ByteArray</tt> object.</p>
+<pre class="cpp"> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> ByteArrayClass<span class="operator">::</span>newInstance(<span class="type">int</span> size)
+ {
+     engine()<span class="operator">-</span><span class="operator">&gt;</span>reportAdditionalMemoryCost(size);
+     <span class="keyword">return</span> newInstance(<span class="type"><a href="qbytearray.html">QByteArray</a></span>(size<span class="operator">,</span> <span class="comment">/*ch=*/</span><span class="number">0</span>));
+ }
+ <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> ByteArrayClass<span class="operator">::</span>newInstance(<span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>ba)
+ {
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> data <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>newVariant(<span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(ba));
+     <span class="keyword">return</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>newObject(<span class="keyword">this</span><span class="operator">,</span> data);
+ }</pre>
+<p>The newInstance() function isn't part of the <a href="qscriptclass.html">QScriptClass</a> API; its purpose is to offer a convenient way to construct a <tt>ByteArray</tt> object from an existing <a href="qbytearray.html">QByteArray</a>. We store the <a href="qbytearray.html">QByteArray</a> as the internal data of the new object, and return the new object. <a href="qscriptengine.html#newObject">QScriptEngine::newObject</a>() will call the prototype() function of our class, ensuring that the prototype of the new object will be the standard <tt>ByteArray</tt> prototype.</p>
+<p><a href="qscriptengine.html#reportAdditionalMemoryCost">QScriptEngine::reportAdditionalMemoryCost</a>() is called to inform the script engine of the memory occupied by the <a href="qbytearray.html">QByteArray</a>. This gives the garbage collector a hint that it should perhaps trigger more frequently, possibly freeing up memory associated with large ByteArray objects that are no longer in use.</p>
+<pre class="cpp"> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> ByteArrayClass<span class="operator">::</span>construct(<span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx<span class="operator">,</span> <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> <span class="operator">*</span>)
+ {
+     ByteArrayClass <span class="operator">*</span>cls <span class="operator">=</span> qscriptvalue_cast<span class="operator">&lt;</span>ByteArrayClass<span class="operator">*</span><span class="operator">&gt;</span>(ctx<span class="operator">-</span><span class="operator">&gt;</span>callee()<span class="operator">.</span>data());
+     <span class="keyword">if</span> (<span class="operator">!</span>cls)
+         <span class="keyword">return</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span>();
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> arg <span class="operator">=</span> ctx<span class="operator">-</span><span class="operator">&gt;</span>argument(<span class="number">0</span>);
+     <span class="keyword">if</span> (arg<span class="operator">.</span>instanceOf(ctx<span class="operator">-</span><span class="operator">&gt;</span>callee()))
+         <span class="keyword">return</span> cls<span class="operator">-</span><span class="operator">&gt;</span>newInstance(qscriptvalue_cast<span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span>(arg));
+     <span class="type">int</span> size <span class="operator">=</span> arg<span class="operator">.</span>toInt32();
+     <span class="keyword">return</span> cls<span class="operator">-</span><span class="operator">&gt;</span>newInstance(size);
+ }</pre>
+<p>construct() is the native function that will act as a constructor for <tt>ByteArray</tt> in scripts. We extract the pointer to the class, then call a newInstance() overload that takes an initial size as argument, and return the new script object.</p>
+<pre class="cpp"> <span class="type"><a href="qscriptclass.html">QScriptClass</a></span><span class="operator">::</span>QueryFlags ByteArrayClass<span class="operator">::</span>queryProperty(<span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>object<span class="operator">,</span>
+                                                        <span class="keyword">const</span> <span class="type"><a href="qscriptstring.html">QScriptString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span>
+                                                        QueryFlags flags<span class="operator">,</span> <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="operator">*</span>id)
+ {
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">*</span>ba <span class="operator">=</span> qscriptvalue_cast<span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">*</span><span class="operator">&gt;</span>(object<span class="operator">.</span>data());
+     <span class="keyword">if</span> (<span class="operator">!</span>ba)
+         <span class="keyword">return</span> <span class="number">0</span>;
+     <span class="keyword">if</span> (name <span class="operator">=</span><span class="operator">=</span> length) {
+         <span class="keyword">return</span> flags;
+     } <span class="keyword">else</span> {
+         <span class="type">bool</span> isArrayIndex;
+         <span class="type"><a href="qtglobal.html#qint32-typedef">qint32</a></span> pos <span class="operator">=</span> name<span class="operator">.</span>toArrayIndex(<span class="operator">&amp;</span>isArrayIndex);
+         <span class="keyword">if</span> (<span class="operator">!</span>isArrayIndex)
+             <span class="keyword">return</span> <span class="number">0</span>;
+         <span class="operator">*</span>id <span class="operator">=</span> pos;
+         <span class="keyword">if</span> ((flags <span class="operator">&amp;</span> HandlesReadAccess) <span class="operator">&amp;</span><span class="operator">&amp;</span> (pos <span class="operator">&gt;</span><span class="operator">=</span> ba<span class="operator">-</span><span class="operator">&gt;</span>size()))
+             flags <span class="operator">&amp;</span><span class="operator">=</span> <span class="operator">~</span>HandlesReadAccess;
+         <span class="keyword">return</span> flags;
+     }
+ }</pre>
+<p>queryProperty() is the function that Qt Script will call whenever someone tries to access a property of a <tt>ByteArray</tt> object. We first get a pointer to the underlying <a href="qbytearray.html">QByteArray</a>. We check if the property being accessed is the special <tt>length</tt> property; if so, we return, indicating that we will handle every kind of access to this property (e.g&#x2e; both read and write). Otherwise, we attempt to convert the property name to an array index. If this fails, we return, indicating that we don't want to handle this property. Otherwise, we have a valid array index, and store it in the <tt>id</tt> argument, so that we don't have to recompute it in e.g&#x2e; property() or setProperty(). If the index is greater than or equal to the <a href="qbytearray.html">QByteArray</a>'s size, we indicate that we don't want to handle read access (but we still want to handle writes, if requested).</p>
+<pre class="cpp"> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> ByteArrayClass<span class="operator">::</span>property(<span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>object<span class="operator">,</span>
+                                       <span class="keyword">const</span> <span class="type"><a href="qscriptstring.html">QScriptString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> id)
+ {
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">*</span>ba <span class="operator">=</span> qscriptvalue_cast<span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">*</span><span class="operator">&gt;</span>(object<span class="operator">.</span>data());
+     <span class="keyword">if</span> (<span class="operator">!</span>ba)
+         <span class="keyword">return</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span>();
+     <span class="keyword">if</span> (name <span class="operator">=</span><span class="operator">=</span> length) {
+         <span class="keyword">return</span> ba<span class="operator">-</span><span class="operator">&gt;</span>length();
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qtglobal.html#qint32-typedef">qint32</a></span> pos <span class="operator">=</span> id;
+         <span class="keyword">if</span> ((pos <span class="operator">&lt;</span> <span class="number">0</span>) <span class="operator">|</span><span class="operator">|</span> (pos <span class="operator">&gt;</span><span class="operator">=</span> ba<span class="operator">-</span><span class="operator">&gt;</span>size()))
+             <span class="keyword">return</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span>();
+         <span class="keyword">return</span> <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span>(ba<span class="operator">-</span><span class="operator">&gt;</span>at(pos)) <span class="operator">&amp;</span> <span class="number">255</span>;
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span>();
+ }</pre>
+<p>In the property() reimplementation, we do similar checks as in queryProperty() to find out which property is being requested, and then return the value of that property.</p>
+<pre class="cpp"> <span class="type">void</span> ByteArrayClass<span class="operator">::</span>setProperty(<span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>object<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qscriptstring.html">QScriptString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span>
+                                  <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> id<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>value)
+ {
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">*</span>ba <span class="operator">=</span> qscriptvalue_cast<span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">*</span><span class="operator">&gt;</span>(object<span class="operator">.</span>data());
+     <span class="keyword">if</span> (<span class="operator">!</span>ba)
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> (name <span class="operator">=</span><span class="operator">=</span> length) {
+         resize(<span class="operator">*</span>ba<span class="operator">,</span> value<span class="operator">.</span>toInt32());
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qtglobal.html#qint32-typedef">qint32</a></span> pos <span class="operator">=</span> id;
+         <span class="keyword">if</span> (pos <span class="operator">&lt;</span> <span class="number">0</span>)
+             <span class="keyword">return</span>;
+         <span class="keyword">if</span> (ba<span class="operator">-</span><span class="operator">&gt;</span>size() <span class="operator">&lt;</span><span class="operator">=</span> pos)
+             resize(<span class="operator">*</span>ba<span class="operator">,</span> pos <span class="operator">+</span> <span class="number">1</span>);
+         (<span class="operator">*</span>ba)<span class="operator">[</span>pos<span class="operator">]</span> <span class="operator">=</span> <span class="type">char</span>(value<span class="operator">.</span>toInt32());
+     }
+ }</pre>
+<p>The setProperty() reimplementation has a structure that is similar to property(). If the <tt>length</tt> property is being set, we resize the underlying <a href="qbytearray.html">QByteArray</a> to the given length. Otherwise, we grab the array index that was calculated in the queryProperty() function, enlarge the array if necessary, and write the given value to the array.</p>
+<pre class="cpp"> <span class="type">void</span> ByteArrayClass<span class="operator">::</span>resize(<span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>ba<span class="operator">,</span> <span class="type">int</span> newSize)
+ {
+     <span class="type">int</span> oldSize <span class="operator">=</span> ba<span class="operator">.</span>size();
+     ba<span class="operator">.</span>resize(newSize);
+     <span class="keyword">if</span> (newSize <span class="operator">&gt;</span> oldSize)
+         engine()<span class="operator">-</span><span class="operator">&gt;</span>reportAdditionalMemoryCost(newSize <span class="operator">-</span> oldSize);
+ }</pre>
+<p>The resize() function is a helper function that resizes the <a href="qbytearray.html">QByteArray</a> to a new size, and, if the new size is greater than the old, reports the additional memory cost to the script engine.</p>
+<pre class="cpp"> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span><span class="operator">::</span>PropertyFlags ByteArrayClass<span class="operator">::</span>propertyFlags(
+     <span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span><span class="comment">/*object*/</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qscriptstring.html">QScriptString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="comment">/*id*/</span>)
+ {
+     <span class="keyword">if</span> (name <span class="operator">=</span><span class="operator">=</span> length) {
+         <span class="keyword">return</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span><span class="operator">::</span>Undeletable
+             <span class="operator">|</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span><span class="operator">::</span>SkipInEnumeration;
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span><span class="operator">::</span>Undeletable;
+ }</pre>
+<p>The propertyFlags() reimplementation specifies that the <tt>length</tt> property can't be deleted, and that it is not enumerable. Array elements can't be deleted.</p>
+<pre class="cpp"> <span class="type"><a href="qscriptclasspropertyiterator.html">QScriptClassPropertyIterator</a></span> <span class="operator">*</span>ByteArrayClass<span class="operator">::</span>newIterator(<span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>object)
+ {
+     <span class="keyword">return</span> <span class="keyword">new</span> ByteArrayClassPropertyIterator(object);
+ }</pre>
+<p>We want the array elements to show up when a <tt>ByteArray</tt> object is used in for-in statements and together with <a href="qscriptvalueiterator.html">QScriptValueIterator</a>. Therefore, we reimplement the newIterator() function and have it return a new iterator for a given <tt>ByteArray</tt>.</p>
+<a name="bytearray-iterator-implementation"></a>
+<h2>ByteArray Iterator Implementation</h2>
+<pre class="cpp"> <span class="type">bool</span> ByteArrayClassPropertyIterator<span class="operator">::</span>hasNext() <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">*</span>ba <span class="operator">=</span> qscriptvalue_cast<span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">*</span><span class="operator">&gt;</span>(object()<span class="operator">.</span>data());
+     <span class="keyword">return</span> m_index <span class="operator">&lt;</span> ba<span class="operator">-</span><span class="operator">&gt;</span>size();
+ }
+
+ <span class="type">void</span> ByteArrayClassPropertyIterator<span class="operator">::</span>next()
+ {
+     m_last <span class="operator">=</span> m_index;
+     <span class="operator">+</span><span class="operator">+</span>m_index;
+ }
+
+ <span class="type">bool</span> ByteArrayClassPropertyIterator<span class="operator">::</span>hasPrevious() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> (m_index <span class="operator">&gt;</span> <span class="number">0</span>);
+ }
+
+ <span class="type">void</span> ByteArrayClassPropertyIterator<span class="operator">::</span>previous()
+ {
+     <span class="operator">-</span><span class="operator">-</span>m_index;
+     m_last <span class="operator">=</span> m_index;
+ }
+
+ <span class="type">void</span> ByteArrayClassPropertyIterator<span class="operator">::</span>toFront()
+ {
+     m_index <span class="operator">=</span> <span class="number">0</span>;
+     m_last <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type">void</span> ByteArrayClassPropertyIterator<span class="operator">::</span>toBack()
+ {
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">*</span>ba <span class="operator">=</span> qscriptvalue_cast<span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">*</span><span class="operator">&gt;</span>(object()<span class="operator">.</span>data());
+     m_index <span class="operator">=</span> ba<span class="operator">-</span><span class="operator">&gt;</span>size();
+     m_last <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type"><a href="qscriptstring.html">QScriptString</a></span> ByteArrayClassPropertyIterator<span class="operator">::</span>name() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> object()<span class="operator">.</span>engine()<span class="operator">-</span><span class="operator">&gt;</span>toStringHandle(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(m_last));
+ }
+
+ <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> ByteArrayClassPropertyIterator<span class="operator">::</span>id() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_last;
+ }</pre>
+<p>The <tt>ByteArrayClassPropertyIterator</tt> class is simple. It maintains an index into the underlying <a href="qbytearray.html">QByteArray</a>, and checks and updates the index in hasNext(), next() and so on.</p>
+<a name="bytearray-prototype-implementation"></a>
+<h2>ByteArray Prototype Implementation</h2>
+<p>The prototype class, ByteArrayPrototype, implements the <tt>ByteArray</tt> functions as slots.</p>
+<pre class="cpp"> <span class="keyword">class</span> ByteArrayPrototype : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qscriptable.html">QScriptable</a></span>
+ {
+ Q_OBJECT
+ <span class="keyword">public</span>:
+     ByteArrayPrototype(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="operator">~</span>ByteArrayPrototype();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> chop(<span class="type">int</span> n);
+     <span class="type">bool</span> equals(<span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>other);
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> left(<span class="type">int</span> len) <span class="keyword">const</span>;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> mid(<span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> len <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) <span class="keyword">const</span>;
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> remove(<span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> len);
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> right(<span class="type">int</span> len) <span class="keyword">const</span>;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> simplified() <span class="keyword">const</span>;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> toBase64() <span class="keyword">const</span>;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> toLower() <span class="keyword">const</span>;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> toUpper() <span class="keyword">const</span>;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> trimmed() <span class="keyword">const</span>;
+     <span class="type">void</span> truncate(<span class="type">int</span> pos);
+     <span class="type"><a href="qstring.html">QString</a></span> toLatin1String() <span class="keyword">const</span>;
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> valueOf() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">*</span>thisByteArray() <span class="keyword">const</span>;
+ };</pre>
+<p>There is a small helper function, thisByteArray(), that returns a pointer to the <a href="qbytearray.html">QByteArray</a> being operated upon:</p>
+<pre class="cpp"> <span class="type"><a href="qbytearray.html">QByteArray</a></span> <span class="operator">*</span>ByteArrayPrototype<span class="operator">::</span>thisByteArray() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> qscriptvalue_cast<span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">*</span><span class="operator">&gt;</span>(thisObject()<span class="operator">.</span>data());
+ }</pre>
+<p>The slots simply forward the calls to the <a href="qbytearray.html">QByteArray</a>. Examples:</p>
+<pre class="cpp"> <span class="type"><a href="qbytearray.html">QByteArray</a></span> ByteArrayPrototype<span class="operator">::</span>mid(<span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> len) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> thisByteArray()<span class="operator">-</span><span class="operator">&gt;</span>mid(pos<span class="operator">,</span> len);
+ }
+
+ <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> ByteArrayPrototype<span class="operator">::</span>remove(<span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> len)
+ {
+     thisByteArray()<span class="operator">-</span><span class="operator">&gt;</span>remove(pos<span class="operator">,</span> len);
+     <span class="keyword">return</span> thisObject();
+ }</pre>
+<p>The remove() function is noteworthy; if we look at <a href="qbytearray.html#remove">QByteArray::remove</a>(), we see that it should return a reference to the <a href="qbytearray.html">QByteArray</a> itself (i.e&#x2e; not a copy). To get the same behavior in scripts, we return the script object (thisObject()).</p>
+</div>
+<!-- @@@script/customclass -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

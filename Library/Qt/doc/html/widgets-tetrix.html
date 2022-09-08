@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- tetrix.qdoc -->
+  <title>Qt 4.8: Tetrix Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Tetrix Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#tetrixwindow-class-definition">TetrixWindow Class Definition</a></li>
+<li class="level1"><a href="#tetrixwindow-class-implementation">TetrixWindow Class Implementation</a></li>
+<li class="level1"><a href="#tetrixpiece-class-definition">TetrixPiece Class Definition</a></li>
+<li class="level1"><a href="#tetrixpiece-class-implementation">TetrixPiece Class Implementation</a></li>
+<li class="level1"><a href="#tetrixboard-class-definition">TetrixBoard Class Definition</a></li>
+<li class="level1"><a href="#tetrixboard-class-implementation">TetrixBoard Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Tetrix Example</h1>
+<span class="subtitle"></span>
+<!-- $$$widgets/tetrix-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="widgets-tetrix-tetrixboard-cpp.html">widgets/tetrix/tetrixboard.cpp</a></li>
+<li><a href="widgets-tetrix-tetrixboard-h.html">widgets/tetrix/tetrixboard.h</a></li>
+<li><a href="widgets-tetrix-tetrixpiece-cpp.html">widgets/tetrix/tetrixpiece.cpp</a></li>
+<li><a href="widgets-tetrix-tetrixpiece-h.html">widgets/tetrix/tetrixpiece.h</a></li>
+<li><a href="widgets-tetrix-tetrixwindow-cpp.html">widgets/tetrix/tetrixwindow.cpp</a></li>
+<li><a href="widgets-tetrix-tetrixwindow-h.html">widgets/tetrix/tetrixwindow.h</a></li>
+<li><a href="widgets-tetrix-main-cpp.html">widgets/tetrix/main.cpp</a></li>
+<li><a href="widgets-tetrix-tetrix-pro.html">widgets/tetrix/tetrix.pro</a></li>
+</ul>
+<p>The Tetrix example is a Qt version of the classic Tetrix game.<p class="centerAlign"><img src="images/tetrix-example.png" alt="" /></p><p>The object of the game is to stack pieces dropped from the top of the playing area so that they fill entire rows at the bottom of the playing area.</p>
+<p>When a row is filled, all the blocks on that row are removed, the player earns a number of points, and the pieces above are moved down to occupy that row. If more than one row is filled, the blocks on each row are removed, and the player earns extra points.</p>
+<p>The <b>Left</b> cursor key moves the current piece one space to the left, the <b>Right</b> cursor key moves it one space to the right, the <b>Up</b> cursor key rotates the piece counter-clockwise by 90 degrees, and the <b>Down</b> cursor key rotates the piece clockwise by 90 degrees.</p>
+<p>To avoid waiting for a piece to fall to the bottom of the board, press <b>D</b> to immediately move the piece down by one row, or press the <b>Space</b> key to drop it as close to the bottom of the board as possible.</p>
+<p>This example shows how a simple game can be created using only three classes:</p>
+<ul>
+<li>The <tt>TetrixWindow</tt> class is used to display the player's score, number of lives, and information about the next piece to appear.</li>
+<li>The <tt>TetrixBoard</tt> class contains the game logic, handles keyboard input, and displays the pieces on the playing area.</li>
+<li>The <tt>TetrixPiece</tt> class contains information about each piece.</li>
+</ul>
+<p>In this approach, the <tt>TetrixBoard</tt> class is the most complex class, since it handles the game logic and rendering. One benefit of this is that the <tt>TetrixWindow</tt> and <tt>TetrixPiece</tt> classes are very simple and contain only a minimum of code.</p>
+<a name="tetrixwindow-class-definition"></a>
+<h2>TetrixWindow Class Definition</h2>
+<p>The <tt>TetrixWindow</tt> class is used to display the game information and contains the playing area:</p>
+<pre class="cpp"> <span class="keyword">class</span> TetrixWindow : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     TetrixWindow();
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>createLabel(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text);
+
+     TetrixBoard <span class="operator">*</span>board;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>nextPieceLabel;
+     <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span> <span class="operator">*</span>scoreLcd;
+     <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span> <span class="operator">*</span>levelLcd;
+     <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span> <span class="operator">*</span>linesLcd;
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>startButton;
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>quitButton;
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>pauseButton;
+ };</pre>
+<p>We use private member variables for the board, various display widgets, and buttons to allow the user to start a new game, pause the current game, and quit.</p>
+<p>Although the window inherits <a href="qwidget.html">QWidget</a>, the constructor does not provide an argument to allow a parent widget to be specified. This is because the window will always be used as a top-level widget.</p>
+<a name="tetrixwindow-class-implementation"></a>
+<h2>TetrixWindow Class Implementation</h2>
+<p>The constructor sets up the user interface elements for the game:</p>
+<pre class="cpp"> TetrixWindow<span class="operator">::</span>TetrixWindow()
+ {
+     board <span class="operator">=</span> <span class="keyword">new</span> TetrixBoard;</pre>
+<p>We begin by constructing a <tt>TetrixBoard</tt> instance for the playing area and a label that shows the next piece to be dropped into the playing area; the label is initially empty.</p>
+<p>Three <a href="qlcdnumber.html">QLCDNumber</a> objects are used to display the score, number of lives, and lines removed. These initially show default values, and will be filled in when a game begins:</p>
+<pre class="cpp">     scoreLcd <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span>(<span class="number">5</span>);
+     scoreLcd<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle(<span class="type"><a href="qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Filled);</pre>
+<p>Three buttons with shortcuts are constructed so that the user can start a new game, pause the current game, and quit the application:</p>
+<pre class="cpp">     startButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Start&quot;</span>));
+     startButton<span class="operator">-</span><span class="operator">&gt;</span>setFocusPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoFocus);
+     quitButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Quit&quot;</span>));
+     quitButton<span class="operator">-</span><span class="operator">&gt;</span>setFocusPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoFocus);
+     pauseButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Pause&quot;</span>));
+     pauseButton<span class="operator">-</span><span class="operator">&gt;</span>setFocusPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoFocus);</pre>
+<p>These buttons are configured so that they never receive the keyboard focus; we want the keyboard focus to remain with the <tt>TetrixBoard</tt> instance so that it receives all the keyboard events. Nonetheless, the buttons will still respond to <b>Alt</b> key shortcuts.</p>
+<p>We connect <a href="qabstractbutton.html#clicked">clicked()</a> signals from the <b>Start</b> and <b>Pause</b> buttons to the board, and from the <b>Quit</b> button to the application's <a href="qcoreapplication.html#quit">quit()</a> slot.</p>
+<pre class="cpp">     connect(startButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> board<span class="operator">,</span> SLOT(start()));
+     connect(quitButton <span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> qApp<span class="operator">,</span> SLOT(quit()));
+     connect(pauseButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> board<span class="operator">,</span> SLOT(pause()));
+     connect(board<span class="operator">,</span> SIGNAL(scoreChanged(<span class="type">int</span>))<span class="operator">,</span> scoreLcd<span class="operator">,</span> SLOT(display(<span class="type">int</span>)));
+     connect(board<span class="operator">,</span> SIGNAL(levelChanged(<span class="type">int</span>))<span class="operator">,</span> levelLcd<span class="operator">,</span> SLOT(display(<span class="type">int</span>)));
+     connect(board<span class="operator">,</span> SIGNAL(linesRemovedChanged(<span class="type">int</span>))<span class="operator">,</span>
+             linesLcd<span class="operator">,</span> SLOT(display(<span class="type">int</span>)));</pre>
+<p>Signals from the board are also connected to the LCD widgets for the purpose of updating the score, number of lives, and lines removed from the playing area.</p>
+<p>We place the label, LCD widgets, and the board into a <a href="qgridlayout.html">QGridLayout</a> along with some labels that we create with the <tt>createLabel()</tt> convenience function:</p>
+<pre class="cpp">     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createLabel(tr(<span class="string">&quot;NEXT&quot;</span>))<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nextPieceLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createLabel(tr(<span class="string">&quot;LEVEL&quot;</span>))<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(levelLcd<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(startButton<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(board<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">6</span><span class="operator">,</span> <span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createLabel(tr(<span class="string">&quot;SCORE&quot;</span>))<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">2</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(scoreLcd<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(createLabel(tr(<span class="string">&quot;LINES REMOVED&quot;</span>))<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">2</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(linesLcd<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">2</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(quitButton<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">2</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(pauseButton<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">2</span>);
+     setLayout(layout);
+
+     setWindowTitle(tr(<span class="string">&quot;Tetrix&quot;</span>));
+     resize(<span class="number">550</span><span class="operator">,</span> <span class="number">370</span>);
+ }</pre>
+<p>Finally, we set the grid layout on the widget, give the window a title, and resize it to an appropriate size.</p>
+<p>The <tt>createLabel()</tt> convenience function simply creates a new label on the heap, gives it an appropriate alignment, and returns it to the caller:</p>
+<pre class="cpp"> <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>TetrixWindow<span class="operator">::</span>createLabel(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>lbl <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(text);
+     lbl<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignBottom);
+     <span class="keyword">return</span> lbl;
+ }</pre>
+<p>Since each label will be used in the widget's layout, it will become a child of the <tt>TetrixWindow</tt> widget and, as a result, it will be deleted when the window is deleted.</p>
+<a name="tetrixpiece-class-definition"></a>
+<h2>TetrixPiece Class Definition</h2>
+<p>The <tt>TetrixPiece</tt> class holds information about a piece in the game's playing area, including its shape, position, and the range of positions it can occupy on the board:</p>
+<pre class="cpp"> <span class="keyword">class</span> TetrixPiece
+ {
+ <span class="keyword">public</span>:
+     TetrixPiece() { setShape(NoShape); }
+
+     <span class="type">void</span> setRandomShape();
+     <span class="type">void</span> setShape(TetrixShape shape);
+
+     TetrixShape shape() <span class="keyword">const</span> { <span class="keyword">return</span> pieceShape; }
+     <span class="type">int</span> x(<span class="type">int</span> index) <span class="keyword">const</span> { <span class="keyword">return</span> coords<span class="operator">[</span>index<span class="operator">]</span><span class="operator">[</span><span class="number">0</span><span class="operator">]</span>; }
+     <span class="type">int</span> y(<span class="type">int</span> index) <span class="keyword">const</span> { <span class="keyword">return</span> coords<span class="operator">[</span>index<span class="operator">]</span><span class="operator">[</span><span class="number">1</span><span class="operator">]</span>; }
+     <span class="type">int</span> minX() <span class="keyword">const</span>;
+     <span class="type">int</span> maxX() <span class="keyword">const</span>;
+     <span class="type">int</span> minY() <span class="keyword">const</span>;
+     <span class="type">int</span> maxY() <span class="keyword">const</span>;
+     TetrixPiece rotatedLeft() <span class="keyword">const</span>;
+     TetrixPiece rotatedRight() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> setX(<span class="type">int</span> index<span class="operator">,</span> <span class="type">int</span> x) { coords<span class="operator">[</span>index<span class="operator">]</span><span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> x; }
+     <span class="type">void</span> setY(<span class="type">int</span> index<span class="operator">,</span> <span class="type">int</span> y) { coords<span class="operator">[</span>index<span class="operator">]</span><span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> y; }
+
+     TetrixShape pieceShape;
+     <span class="type">int</span> coords<span class="operator">[</span><span class="number">4</span><span class="operator">]</span><span class="operator">[</span><span class="number">2</span><span class="operator">]</span>;
+ };</pre>
+<p>Each shape contains four blocks, and these are defined by the <tt>coords</tt> private member variable. Additionally, each piece has a high-level description that is stored internally in the <tt>pieceShape</tt> variable.</p>
+<p>The constructor is written inline in the definition, and simply ensures that each piece is initially created with no shape. The <tt>shape()</tt> function simply returns the contents of the <tt>pieceShape</tt> variable, and the <tt>x()</tt> and <tt>y()</tt> functions return the x and y-coordinates of any given block in the shape.</p>
+<a name="tetrixpiece-class-implementation"></a>
+<h2>TetrixPiece Class Implementation</h2>
+<p>The <tt>setRandomShape()</tt> function is used to select a random shape for a piece:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixPiece<span class="operator">::</span>setRandomShape()
+ {
+     setShape(TetrixShape(qrand() <span class="operator">%</span> <span class="number">7</span> <span class="operator">+</span> <span class="number">1</span>));
+ }</pre>
+<p>For convenience, it simply chooses a random shape from the <tt>TetrixShape</tt> enum and calls the <tt>setShape()</tt> function to perform the task of positioning the blocks.</p>
+<p>The <tt>setShape()</tt> function uses a look-up table of pieces to associate each shape with an array of block positions:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixPiece<span class="operator">::</span>setShape(TetrixShape shape)
+ {
+     <span class="keyword">static</span> <span class="keyword">const</span> <span class="type">int</span> coordsTable<span class="operator">[</span><span class="number">8</span><span class="operator">]</span><span class="operator">[</span><span class="number">4</span><span class="operator">]</span><span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> {
+         { { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> } }<span class="operator">,</span>
+         { { <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> }<span class="operator">,</span>  { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>  { <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">1</span> } }<span class="operator">,</span>
+         { { <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> }<span class="operator">,</span>  { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">1</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">1</span><span class="operator">,</span> <span class="number">1</span> } }<span class="operator">,</span>
+         { { <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> }<span class="operator">,</span>  { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">1</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">2</span> } }<span class="operator">,</span>
+         { { <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>  { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">1</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">1</span> } }<span class="operator">,</span>
+         { { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">1</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">1</span> }<span class="operator">,</span>   { <span class="number">1</span><span class="operator">,</span> <span class="number">1</span> } }<span class="operator">,</span>
+         { { <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> }<span class="operator">,</span> { <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> }<span class="operator">,</span>  { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">1</span> } }<span class="operator">,</span>
+         { { <span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> }<span class="operator">,</span>  { <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> }<span class="operator">,</span>  { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }<span class="operator">,</span>   { <span class="number">0</span><span class="operator">,</span> <span class="number">1</span> } }
+     };
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span> ; i<span class="operator">+</span><span class="operator">+</span>) {
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> <span class="number">2</span>; <span class="operator">+</span><span class="operator">+</span>j)
+             coords<span class="operator">[</span>i<span class="operator">]</span><span class="operator">[</span>j<span class="operator">]</span> <span class="operator">=</span> coordsTable<span class="operator">[</span>shape<span class="operator">]</span><span class="operator">[</span>i<span class="operator">]</span><span class="operator">[</span>j<span class="operator">]</span>;
+     }
+     pieceShape <span class="operator">=</span> shape;
+ }</pre>
+<p>These positions are read from the table into the piece's own array of positions, and the piece's internal shape information is updated to use the new shape.</p>
+<p>The <tt>x()</tt> and <tt>y()</tt> functions are implemented inline in the class definition, returning positions defined on a grid that extends horizontally and vertically with coordinates from -2 to 2. Although the predefined coordinates for each piece only vary horizontally from -1 to 1 and vertically from -1 to 2, each piece can be rotated by 90, 180, and 270 degrees.</p>
+<p>The <tt>minX()</tt> and <tt>maxX()</tt> functions return the minimum and maximum horizontal coordinates occupied by the blocks that make up the piece:</p>
+<pre class="cpp"> <span class="type">int</span> TetrixPiece<span class="operator">::</span>minX() <span class="keyword">const</span>
+ {
+     <span class="type">int</span> min <span class="operator">=</span> coords<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">[</span><span class="number">0</span><span class="operator">]</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i)
+         min <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(min<span class="operator">,</span> coords<span class="operator">[</span>i<span class="operator">]</span><span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
+     <span class="keyword">return</span> min;
+ }
+
+ <span class="type">int</span> TetrixPiece<span class="operator">::</span>maxX() <span class="keyword">const</span>
+ {
+     <span class="type">int</span> max <span class="operator">=</span> coords<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">[</span><span class="number">0</span><span class="operator">]</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i)
+         max <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(max<span class="operator">,</span> coords<span class="operator">[</span>i<span class="operator">]</span><span class="operator">[</span><span class="number">0</span><span class="operator">]</span>);
+     <span class="keyword">return</span> max;
+ }</pre>
+<p>Similarly, the <tt>minY()</tt> and <tt>maxY()</tt> functions return the minimum and maximum vertical coordinates occupied by the blocks:</p>
+<pre class="cpp"> <span class="type">int</span> TetrixPiece<span class="operator">::</span>minY() <span class="keyword">const</span>
+ {
+     <span class="type">int</span> min <span class="operator">=</span> coords<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">[</span><span class="number">1</span><span class="operator">]</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i)
+         min <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(min<span class="operator">,</span> coords<span class="operator">[</span>i<span class="operator">]</span><span class="operator">[</span><span class="number">1</span><span class="operator">]</span>);
+     <span class="keyword">return</span> min;
+ }
+
+ <span class="type">int</span> TetrixPiece<span class="operator">::</span>maxY() <span class="keyword">const</span>
+ {
+     <span class="type">int</span> max <span class="operator">=</span> coords<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">[</span><span class="number">1</span><span class="operator">]</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i)
+         max <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(max<span class="operator">,</span> coords<span class="operator">[</span>i<span class="operator">]</span><span class="operator">[</span><span class="number">1</span><span class="operator">]</span>);
+     <span class="keyword">return</span> max;
+ }</pre>
+<p>The <tt>rotatedLeft()</tt> function returns a new piece with the same shape as an existing piece, but rotated counter-clockwise by 90 degrees:</p>
+<pre class="cpp"> TetrixPiece TetrixPiece<span class="operator">::</span>rotatedLeft() <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (pieceShape <span class="operator">=</span><span class="operator">=</span> SquareShape)
+         <span class="keyword">return</span> <span class="operator">*</span><span class="keyword">this</span>;
+
+     TetrixPiece result;
+     result<span class="operator">.</span>pieceShape <span class="operator">=</span> pieceShape;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         result<span class="operator">.</span>setX(i<span class="operator">,</span> y(i));
+         result<span class="operator">.</span>setY(i<span class="operator">,</span> <span class="operator">-</span>x(i));
+     }</pre>
+<p>Similarly, the <tt>rotatedRight()</tt> function returns a new piece with the same shape as an existing piece, but rotated clockwise by 90 degrees:</p>
+<pre class="cpp"> TetrixPiece TetrixPiece<span class="operator">::</span>rotatedRight() <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (pieceShape <span class="operator">=</span><span class="operator">=</span> SquareShape)
+         <span class="keyword">return</span> <span class="operator">*</span><span class="keyword">this</span>;
+
+     TetrixPiece result;
+     result<span class="operator">.</span>pieceShape <span class="operator">=</span> pieceShape;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         result<span class="operator">.</span>setX(i<span class="operator">,</span> <span class="operator">-</span>y(i));
+         result<span class="operator">.</span>setY(i<span class="operator">,</span> x(i));
+     }</pre>
+<p>These last two functions enable each piece to create rotated copies of itself.</p>
+<a name="tetrixboard-class-definition"></a>
+<h2>TetrixBoard Class Definition</h2>
+<p>The <tt>TetrixBoard</tt> class inherits from <a href="qframe.html">QFrame</a> and contains the game logic and display features:</p>
+<pre class="cpp"> <span class="keyword">class</span> TetrixBoard : <span class="keyword">public</span> <span class="type"><a href="qframe.html">QFrame</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     TetrixBoard(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type">void</span> setNextPieceLabel(<span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>label);
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;
+     <span class="type"><a href="qsize.html">QSize</a></span> minimumSizeHint() <span class="keyword">const</span>;
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> start();
+     <span class="type">void</span> pause();
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> scoreChanged(<span class="type">int</span> score);
+     <span class="type">void</span> levelChanged(<span class="type">int</span> level);
+     <span class="type">void</span> linesRemovedChanged(<span class="type">int</span> numLines);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>event);</pre>
+<p>Apart from the <tt>setNextPieceLabel()</tt> function and the <tt>start()</tt> and <tt>pause()</tt> public slots, we only provide public functions to reimplement <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() and <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>(). The signals are used to communicate changes to the player's information to the <tt>TetrixWindow</tt> instance.</p>
+<p>The rest of the functionality is provided by reimplementations of protected event handlers and private functions:</p>
+<pre class="cpp"> <span class="keyword">private</span>:
+     <span class="keyword">enum</span> { BoardWidth <span class="operator">=</span> <span class="number">10</span><span class="operator">,</span> BoardHeight <span class="operator">=</span> <span class="number">22</span> };
+
+     TetrixShape <span class="operator">&amp;</span>shapeAt(<span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y) { <span class="keyword">return</span> board<span class="operator">[</span>(y <span class="operator">*</span> BoardWidth) <span class="operator">+</span> x<span class="operator">]</span>; }
+     <span class="type">int</span> timeoutTime() { <span class="keyword">return</span> <span class="number">1000</span> <span class="operator">/</span> (<span class="number">1</span> <span class="operator">+</span> level); }
+     <span class="type">int</span> squareWidth() { <span class="keyword">return</span> contentsRect()<span class="operator">.</span>width() <span class="operator">/</span> BoardWidth; }
+     <span class="type">int</span> squareHeight() { <span class="keyword">return</span> contentsRect()<span class="operator">.</span>height() <span class="operator">/</span> BoardHeight; }
+     <span class="type">void</span> clearBoard();
+     <span class="type">void</span> dropDown();
+     <span class="type">void</span> oneLineDown();
+     <span class="type">void</span> pieceDropped(<span class="type">int</span> dropHeight);
+     <span class="type">void</span> removeFullLines();
+     <span class="type">void</span> newPiece();
+     <span class="type">void</span> showNextPiece();
+     <span class="type">bool</span> tryMove(<span class="keyword">const</span> TetrixPiece <span class="operator">&amp;</span>newPiece<span class="operator">,</span> <span class="type">int</span> newX<span class="operator">,</span> <span class="type">int</span> newY);
+     <span class="type">void</span> drawSquare(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">&amp;</span>painter<span class="operator">,</span> <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y<span class="operator">,</span> TetrixShape shape);
+
+     <span class="type"><a href="qbasictimer.html">QBasicTimer</a></span> timer;
+     <span class="type"><a href="qpointer.html">QPointer</a></span><span class="operator">&lt;</span><span class="type"><a href="qlabel.html">QLabel</a></span><span class="operator">&gt;</span> nextPieceLabel;
+     <span class="type">bool</span> isStarted;
+     <span class="type">bool</span> isPaused;
+     <span class="type">bool</span> isWaitingAfterLine;
+     TetrixPiece curPiece;
+     TetrixPiece nextPiece;
+     <span class="type">int</span> curX;
+     <span class="type">int</span> curY;
+     <span class="type">int</span> numLinesRemoved;
+     <span class="type">int</span> numPiecesDropped;
+     <span class="type">int</span> score;
+     <span class="type">int</span> level;
+     TetrixShape board<span class="operator">[</span>BoardWidth <span class="operator">*</span> BoardHeight<span class="operator">]</span>;
+ };</pre>
+<p>The board is composed of a fixed-size array whose elements correspond to spaces for individual blocks. Each element in the array contains a <tt>TetrixShape</tt> value corresponding to the type of shape that occupies that element.</p>
+<p>Each shape on the board will occupy four elements in the array, and these will all contain the enum value that corresponds to the type of the shape.</p>
+<p>We use a <a href="qbasictimer.html">QBasicTimer</a> to control the rate at which pieces fall toward the bottom of the playing area. This allows us to provide an implementation of <a href="qobject.html#timerEvent">timerEvent()</a> that we can use to update the widget.</p>
+<a name="tetrixboard-class-implementation"></a>
+<h2>TetrixBoard Class Implementation</h2>
+<p>In the constructor, we customize the frame style of the widget, ensure that keyboard input will be received by the widget by using <a href="qt.html#FocusPolicy-enum">Qt::StrongFocus</a> for the focus policy, and initialize the game state:</p>
+<pre class="cpp"> TetrixBoard<span class="operator">::</span>TetrixBoard(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qframe.html">QFrame</a></span>(parent)
+ {
+     setFrameStyle(<span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>Panel <span class="operator">|</span> <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>Sunken);
+     setFocusPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>StrongFocus);
+     isStarted <span class="operator">=</span> <span class="keyword">false</span>;
+     isPaused <span class="operator">=</span> <span class="keyword">false</span>;
+     clearBoard();
+
+     nextPiece<span class="operator">.</span>setRandomShape();
+ }</pre>
+<p>The first (next) piece is also set up with a random shape.</p>
+<p>The <tt>setNextPieceLabel()</tt> function is used to pass in an externally-constructed label to the board, so that it can be shown alongside the playing area:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>setNextPieceLabel(<span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>label)
+ {
+     nextPieceLabel <span class="operator">=</span> label;
+ }</pre>
+<p>We provide a reasonable size hint and minimum size hint for the board, based on the size of the space for each block in the playing area:</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> TetrixBoard<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(BoardWidth <span class="operator">*</span> <span class="number">15</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span><span class="operator">,</span>
+                  BoardHeight <span class="operator">*</span> <span class="number">15</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span>);
+ }
+
+ <span class="type"><a href="qsize.html">QSize</a></span> TetrixBoard<span class="operator">::</span>minimumSizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(BoardWidth <span class="operator">*</span> <span class="number">5</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span><span class="operator">,</span>
+                  BoardHeight <span class="operator">*</span> <span class="number">5</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span>);
+ }</pre>
+<p>By using a minimum size hint, we indicate to the layout in the parent widget that the board should not shrink below a minimum size.</p>
+<p>A new game is started when the <tt>start()</tt> slot is called. This resets the game's state, the player's score and level, and the contents of the board:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>start()
+ {
+     <span class="keyword">if</span> (isPaused)
+         <span class="keyword">return</span>;
+
+     isStarted <span class="operator">=</span> <span class="keyword">true</span>;
+     isWaitingAfterLine <span class="operator">=</span> <span class="keyword">false</span>;
+     numLinesRemoved <span class="operator">=</span> <span class="number">0</span>;
+     numPiecesDropped <span class="operator">=</span> <span class="number">0</span>;
+     score <span class="operator">=</span> <span class="number">0</span>;
+     level <span class="operator">=</span> <span class="number">1</span>;
+     clearBoard();
+
+     <span class="keyword">emit</span> linesRemovedChanged(numLinesRemoved);
+     <span class="keyword">emit</span> scoreChanged(score);
+     <span class="keyword">emit</span> levelChanged(level);
+
+     newPiece();
+     timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+ }</pre>
+<p>We also emit signals to inform other components of these changes before creating a new piece that is ready to be dropped into the playing area. We start the timer that determines how often the piece drops down one row on the board.</p>
+<p>The <tt>pause()</tt> slot is used to temporarily stop the current game by stopping the internal timer:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>pause()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>isStarted)
+         <span class="keyword">return</span>;
+
+     isPaused <span class="operator">=</span> <span class="operator">!</span>isPaused;
+     <span class="keyword">if</span> (isPaused) {
+         timer<span class="operator">.</span>stop();
+     } <span class="keyword">else</span> {
+         timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+     }
+     update();
+ }</pre>
+<p>We perform checks to ensure that the game can only be paused if it is already running and not already paused.</p>
+<p>The <tt>paintEvent()</tt> function is straightforward to implement. We begin by calling the base class's implementation of <a href="qwidget.html#paintEvent">paintEvent()</a> before constructing a <a href="qpainter.html">QPainter</a> for use on the board:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>paintEvent(event);
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> contentsRect();</pre>
+<p>Since the board is a subclass of <a href="qframe.html">QFrame</a>, we obtain a <a href="qrect.html">QRect</a> that covers the area <i>inside</i> the frame decoration before drawing our own content.</p>
+<p>If the game is paused, we want to hide the existing state of the board and show some text. We achieve this by painting text onto the widget and returning early from the function. The rest of the painting is performed after this point.</p>
+<p>The position of the top of the board is found by subtracting the total height of each space on the board from the bottom of the frame's internal rectangle. For each space on the board that is occupied by a piece, we call the <tt>drawSquare()</tt> function to draw a block at that position.</p>
+<pre class="cpp">     <span class="type">int</span> boardTop <span class="operator">=</span> rect<span class="operator">.</span>bottom() <span class="operator">-</span> BoardHeight<span class="operator">*</span>squareHeight();
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> BoardHeight; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j) {
+             TetrixShape shape <span class="operator">=</span> shapeAt(j<span class="operator">,</span> BoardHeight <span class="operator">-</span> i <span class="operator">-</span> <span class="number">1</span>);
+             <span class="keyword">if</span> (shape <span class="operator">!</span><span class="operator">=</span> NoShape)
+                 drawSquare(painter<span class="operator">,</span> rect<span class="operator">.</span>left() <span class="operator">+</span> j <span class="operator">*</span> squareWidth()<span class="operator">,</span>
+                            boardTop <span class="operator">+</span> i <span class="operator">*</span> squareHeight()<span class="operator">,</span> shape);
+         }
+     }</pre>
+<p>Spaces that are not occupied by blocks are left blank.</p>
+<p>Unlike the existing pieces on the board, the current piece is drawn block-by-block at its current position:</p>
+<pre class="cpp">     <span class="keyword">if</span> (curPiece<span class="operator">.</span>shape() <span class="operator">!</span><span class="operator">=</span> NoShape) {
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+             <span class="type">int</span> x <span class="operator">=</span> curX <span class="operator">+</span> curPiece<span class="operator">.</span>x(i);
+             <span class="type">int</span> y <span class="operator">=</span> curY <span class="operator">-</span> curPiece<span class="operator">.</span>y(i);
+             drawSquare(painter<span class="operator">,</span> rect<span class="operator">.</span>left() <span class="operator">+</span> x <span class="operator">*</span> squareWidth()<span class="operator">,</span>
+                        boardTop <span class="operator">+</span> (BoardHeight <span class="operator">-</span> y <span class="operator">-</span> <span class="number">1</span>) <span class="operator">*</span> squareHeight()<span class="operator">,</span>
+                        curPiece<span class="operator">.</span>shape());
+         }
+     }
+ }</pre>
+<p>The <tt>keyPressEvent()</tt> handler is called whenever the player presses a key while the <tt>TetrixBoard</tt> widget has the keyboard focus.</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>isStarted <span class="operator">|</span><span class="operator">|</span> isPaused <span class="operator">|</span><span class="operator">|</span> curPiece<span class="operator">.</span>shape() <span class="operator">=</span><span class="operator">=</span> NoShape) {
+         <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>keyPressEvent(event);
+         <span class="keyword">return</span>;
+     }</pre>
+<p>If there is no current game, the game is running but paused, or if there is no current shape to control, we simply pass on the event to the base class.</p>
+<p>We check whether the event is about any of the keys that the player uses to control the current piece and, if so, we call the relevant function to handle the input:</p>
+<pre class="cpp">     <span class="keyword">switch</span> (event<span class="operator">-</span><span class="operator">&gt;</span>key()) {
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Left:
+         tryMove(curPiece<span class="operator">,</span> curX <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Right:
+         tryMove(curPiece<span class="operator">,</span> curX <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Down:
+         tryMove(curPiece<span class="operator">.</span>rotatedRight()<span class="operator">,</span> curX<span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Up:
+         tryMove(curPiece<span class="operator">.</span>rotatedLeft()<span class="operator">,</span> curX<span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Space:
+         dropDown();
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_D:
+         oneLineDown();
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>keyPressEvent(event);
+     }</pre>
+<p>In the case where the player presses a key that we are not interested in, we again pass on the event to the base class's implementation of <a href="qwidget.html#keyPressEvent">keyPressEvent()</a>.</p>
+<p>The <tt>timerEvent()</tt> handler is called every time the class's <a href="qbasictimer.html">QBasicTimer</a> instance times out. We need to check that the event we receive corresponds to our timer. If it does, we can update the board:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>timerId() <span class="operator">=</span><span class="operator">=</span> timer<span class="operator">.</span>timerId()) {
+         <span class="keyword">if</span> (isWaitingAfterLine) {
+             isWaitingAfterLine <span class="operator">=</span> <span class="keyword">false</span>;
+             newPiece();
+             timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+         } <span class="keyword">else</span> {
+             oneLineDown();
+         }
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>timerEvent(event);
+     }
+ }</pre>
+<p>If a row (or line) has just been filled, we create a new piece and reset the timer; otherwise we move the current piece down by one row. We let the base class handle other timer events that we receive.</p>
+<p>The <tt>clearBoard()</tt> function simply fills the board with the <tt>TetrixShape::NoShape</tt> value:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>clearBoard()
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> BoardHeight <span class="operator">*</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>i)
+         board<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> NoShape;
+ }</pre>
+<p>The <tt>dropDown()</tt> function moves the current piece down as far as possible on the board, either until it is touching the bottom of the playing area or it is stacked on top of another piece:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>dropDown()
+ {
+     <span class="type">int</span> dropHeight <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> newY <span class="operator">=</span> curY;
+     <span class="keyword">while</span> (newY <span class="operator">&gt;</span> <span class="number">0</span>) {
+         <span class="keyword">if</span> (<span class="operator">!</span>tryMove(curPiece<span class="operator">,</span> curX<span class="operator">,</span> newY <span class="operator">-</span> <span class="number">1</span>))
+             <span class="keyword">break</span>;
+         <span class="operator">-</span><span class="operator">-</span>newY;
+         <span class="operator">+</span><span class="operator">+</span>dropHeight;
+     }
+     pieceDropped(dropHeight);
+ }</pre>
+<p>The number of rows the piece has dropped is recorded and passed to the <tt>pieceDropped()</tt> function so that the player's score can be updated.</p>
+<p>The <tt>oneLineDown()</tt> function is used to move the current piece down by one row (line), either when the user presses the <b>D</b> key or when the piece is scheduled to move:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>oneLineDown()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>tryMove(curPiece<span class="operator">,</span> curX<span class="operator">,</span> curY <span class="operator">-</span> <span class="number">1</span>))
+         pieceDropped(<span class="number">0</span>);
+ }</pre>
+<p>If the piece cannot drop down by one line, we call the <tt>pieceDropped()</tt> function with zero as the argument to indicate that it cannot fall any further, and that the player should receive no extra points for the fall.</p>
+<p>The <tt>pieceDropped()</tt> function itself is responsible for awarding points to the player for positioning the current piece, checking for full rows on the board and, if no lines have been removed, creating a new piece to replace the current one:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>pieceDropped(<span class="type">int</span> dropHeight)
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> x <span class="operator">=</span> curX <span class="operator">+</span> curPiece<span class="operator">.</span>x(i);
+         <span class="type">int</span> y <span class="operator">=</span> curY <span class="operator">-</span> curPiece<span class="operator">.</span>y(i);
+         shapeAt(x<span class="operator">,</span> y) <span class="operator">=</span> curPiece<span class="operator">.</span>shape();
+     }
+
+     <span class="operator">+</span><span class="operator">+</span>numPiecesDropped;
+     <span class="keyword">if</span> (numPiecesDropped <span class="operator">%</span> <span class="number">25</span> <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+         <span class="operator">+</span><span class="operator">+</span>level;
+         timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+         <span class="keyword">emit</span> levelChanged(level);
+     }
+
+     score <span class="operator">+</span><span class="operator">=</span> dropHeight <span class="operator">+</span> <span class="number">7</span>;
+     <span class="keyword">emit</span> scoreChanged(score);
+     removeFullLines();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>isWaitingAfterLine)
+         newPiece();
+ }</pre>
+<p>We call <tt>removeFullLines()</tt> each time a piece has been dropped. This scans the board from bottom to top, looking for blank spaces on each row.</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>removeFullLines()
+ {
+     <span class="type">int</span> numFullLines <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> BoardHeight <span class="operator">-</span> <span class="number">1</span>; i <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>; <span class="operator">-</span><span class="operator">-</span>i) {
+         <span class="type">bool</span> lineIsFull <span class="operator">=</span> <span class="keyword">true</span>;
+
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j) {
+             <span class="keyword">if</span> (shapeAt(j<span class="operator">,</span> i) <span class="operator">=</span><span class="operator">=</span> NoShape) {
+                 lineIsFull <span class="operator">=</span> <span class="keyword">false</span>;
+                 <span class="keyword">break</span>;
+             }
+         }
+
+         <span class="keyword">if</span> (lineIsFull) {
+             <span class="operator">+</span><span class="operator">+</span>numFullLines;
+             <span class="keyword">for</span> (<span class="type">int</span> k <span class="operator">=</span> i; k <span class="operator">&lt;</span> BoardHeight <span class="operator">-</span> <span class="number">1</span>; <span class="operator">+</span><span class="operator">+</span>k) {
+                 <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j)
+                     shapeAt(j<span class="operator">,</span> k) <span class="operator">=</span> shapeAt(j<span class="operator">,</span> k <span class="operator">+</span> <span class="number">1</span>);
+             }
+             <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j)
+                 shapeAt(j<span class="operator">,</span> BoardHeight <span class="operator">-</span> <span class="number">1</span>) <span class="operator">=</span> NoShape;
+         }
+     }</pre>
+<p>If a row contains no blank spaces, the rows above it are copied down by one row to compress the stack of pieces, the top row on the board is cleared, and the number of full lines found is incremented.</p>
+<pre class="cpp">     <span class="keyword">if</span> (numFullLines <span class="operator">&gt;</span> <span class="number">0</span>) {
+         numLinesRemoved <span class="operator">+</span><span class="operator">=</span> numFullLines;
+         score <span class="operator">+</span><span class="operator">=</span> <span class="number">10</span> <span class="operator">*</span> numFullLines;
+         <span class="keyword">emit</span> linesRemovedChanged(numLinesRemoved);
+         <span class="keyword">emit</span> scoreChanged(score);
+
+         timer<span class="operator">.</span>start(<span class="number">500</span><span class="operator">,</span> <span class="keyword">this</span>);
+         isWaitingAfterLine <span class="operator">=</span> <span class="keyword">true</span>;
+         curPiece<span class="operator">.</span>setShape(NoShape);
+         update();
+     }
+ }</pre>
+<p>If some lines have been removed, the player's score and the total number of lines removed are updated. The <tt>linesRemoved()</tt> and <tt>scoreChanged()</tt> signals are emitted to send these new values to other widgets in the window.</p>
+<p>Additionally, we set the timer to elapse after half a second, set the <tt>isWaitingAfterLine</tt> flag to indicate that lines have been removed, unset the piece's shape to ensure that it is not drawn, and update the widget. The next time that the <tt>timerEvent()</tt> handler is called, a new piece will be created and the game will continue.</p>
+<p>The <tt>newPiece()</tt> function places the next available piece at the top of the board, and creates a new piece with a random shape:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>newPiece()
+ {
+     curPiece <span class="operator">=</span> nextPiece;
+     nextPiece<span class="operator">.</span>setRandomShape();
+     showNextPiece();
+     curX <span class="operator">=</span> BoardWidth <span class="operator">/</span> <span class="number">2</span> <span class="operator">+</span> <span class="number">1</span>;
+     curY <span class="operator">=</span> BoardHeight <span class="operator">-</span> <span class="number">1</span> <span class="operator">+</span> curPiece<span class="operator">.</span>minY();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>tryMove(curPiece<span class="operator">,</span> curX<span class="operator">,</span> curY)) {
+         curPiece<span class="operator">.</span>setShape(NoShape);
+         timer<span class="operator">.</span>stop();
+         isStarted <span class="operator">=</span> <span class="keyword">false</span>;
+     }
+ }</pre>
+<p>We place a new piece in the middle of the board at the top. The game is over if the piece can't move, so we unset its shape to prevent it from being drawn, stop the timer, and unset the <tt>isStarted</tt> flag.</p>
+<p>The <tt>showNextPiece()</tt> function updates the label that shows the next piece to be dropped:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>showNextPiece()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>nextPieceLabel)
+         <span class="keyword">return</span>;
+
+     <span class="type">int</span> dx <span class="operator">=</span> nextPiece<span class="operator">.</span>maxX() <span class="operator">-</span> nextPiece<span class="operator">.</span>minX() <span class="operator">+</span> <span class="number">1</span>;
+     <span class="type">int</span> dy <span class="operator">=</span> nextPiece<span class="operator">.</span>maxY() <span class="operator">-</span> nextPiece<span class="operator">.</span>minY() <span class="operator">+</span> <span class="number">1</span>;
+
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap(dx <span class="operator">*</span> squareWidth()<span class="operator">,</span> dy <span class="operator">*</span> squareHeight());
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="operator">&amp;</span>pixmap);
+     painter<span class="operator">.</span>fillRect(pixmap<span class="operator">.</span>rect()<span class="operator">,</span> nextPieceLabel<span class="operator">-</span><span class="operator">&gt;</span>palette()<span class="operator">.</span>background());
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> x <span class="operator">=</span> nextPiece<span class="operator">.</span>x(i) <span class="operator">-</span> nextPiece<span class="operator">.</span>minX();
+         <span class="type">int</span> y <span class="operator">=</span> nextPiece<span class="operator">.</span>y(i) <span class="operator">-</span> nextPiece<span class="operator">.</span>minY();
+         drawSquare(painter<span class="operator">,</span> x <span class="operator">*</span> squareWidth()<span class="operator">,</span> y <span class="operator">*</span> squareHeight()<span class="operator">,</span>
+                    nextPiece<span class="operator">.</span>shape());
+     }
+     nextPieceLabel<span class="operator">-</span><span class="operator">&gt;</span>setPixmap(pixmap);
+ }</pre>
+<p>We draw the piece's component blocks onto a pixmap that is then set on the label.</p>
+<p>The <tt>tryMove()</tt> function is used to determine whether a piece can be positioned at the specified coordinates:</p>
+<pre class="cpp"> <span class="type">bool</span> TetrixBoard<span class="operator">::</span>tryMove(<span class="keyword">const</span> TetrixPiece <span class="operator">&amp;</span>newPiece<span class="operator">,</span> <span class="type">int</span> newX<span class="operator">,</span> <span class="type">int</span> newY)
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> x <span class="operator">=</span> newX <span class="operator">+</span> newPiece<span class="operator">.</span>x(i);
+         <span class="type">int</span> y <span class="operator">=</span> newY <span class="operator">-</span> newPiece<span class="operator">.</span>y(i);
+         <span class="keyword">if</span> (x <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> x <span class="operator">&gt;</span><span class="operator">=</span> BoardWidth <span class="operator">|</span><span class="operator">|</span> y <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> y <span class="operator">&gt;</span><span class="operator">=</span> BoardHeight)
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+         <span class="keyword">if</span> (shapeAt(x<span class="operator">,</span> y) <span class="operator">!</span><span class="operator">=</span> NoShape)
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+     }</pre>
+<p>We examine the spaces on the board that the piece needs to occupy and, if they are already occupied by other pieces, we return <tt>false</tt> to indicate that the move has failed.</p>
+<pre class="cpp">     curPiece <span class="operator">=</span> newPiece;
+     curX <span class="operator">=</span> newX;
+     curY <span class="operator">=</span> newY;
+     update();
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>If the piece could be placed on the board at the desired location, we update the current piece and its position, update the widget, and return <tt>true</tt> to indicate success.</p>
+<p>The <tt>drawSquare()</tt> function draws the blocks (normally squares) that make up each piece using different colors for pieces with different shapes:</p>
+<pre class="cpp"> <span class="type">void</span> TetrixBoard<span class="operator">::</span>drawSquare(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">&amp;</span>painter<span class="operator">,</span> <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y<span class="operator">,</span> TetrixShape shape)
+ {
+     <span class="keyword">static</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> colorTable<span class="operator">[</span><span class="number">8</span><span class="operator">]</span> <span class="operator">=</span> {
+         <span class="number">0x000000</span><span class="operator">,</span> <span class="number">0xCC6666</span><span class="operator">,</span> <span class="number">0x66CC66</span><span class="operator">,</span> <span class="number">0x6666CC</span><span class="operator">,</span>
+         <span class="number">0xCCCC66</span><span class="operator">,</span> <span class="number">0xCC66CC</span><span class="operator">,</span> <span class="number">0x66CCCC</span><span class="operator">,</span> <span class="number">0xDAAA00</span>
+     };
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> color <span class="operator">=</span> colorTable<span class="operator">[</span><span class="type">int</span>(shape)<span class="operator">]</span>;
+     painter<span class="operator">.</span>fillRect(x <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> squareWidth() <span class="operator">-</span> <span class="number">2</span><span class="operator">,</span> squareHeight() <span class="operator">-</span> <span class="number">2</span><span class="operator">,</span>
+                      color);
+
+     painter<span class="operator">.</span>setPen(color<span class="operator">.</span>light());
+     painter<span class="operator">.</span>drawLine(x<span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> x<span class="operator">,</span> y);
+     painter<span class="operator">.</span>drawLine(x<span class="operator">,</span> y<span class="operator">,</span> x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y);
+
+     painter<span class="operator">.</span>setPen(color<span class="operator">.</span>dark());
+     painter<span class="operator">.</span>drawLine(x <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span>
+                      x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span>);
+     painter<span class="operator">.</span>drawLine(x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span>
+                      x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> <span class="number">1</span>);
+ }</pre>
+<p>We obtain the color to use from a look-up table that relates each shape to an RGB value, and use the painter provided to draw the block at the specified coordinates.</p>
+</div>
+<!-- @@@widgets/tetrix -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

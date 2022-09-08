@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww HTML Parser With Text Object Converter</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Simple HTML Parser With Text Object Converter
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This interprets the <A HREF="http://www.w3.org/MarkUp/MarkUp.html">HTML</A>
+semantics passed to it by the <A HREF="SGML.html">SGML parser</A>. It then
+creates a <A HREF="HText.html">HText object</A> which the application can
+use to render an HTML object as text comes in over the wire. The
+<A HREF="HTStyle.html">stylesheet manager</A> can be used to ensure that
+the rendering is done according to whatever style information is present.
+<P>
+This module is implemented by <A HREF="HTML.c">HTML.c</A>, and it is a part
+of the <A HREF="http://www.w3.org/Library/"> W3C Sample Code Library</A>.
+<PRE>
+#ifndef HTML_H
+#define HTML_H
+
+#include "HTFormat.h"
+#include "HTMLPDTD.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  Converters
+</H2>
+<P>
+These are the converters implemented in this module. The first converts from
+HTML to presentation or plain text.
+<PRE>
+extern HTConverter HTMLToPlain;
+</PRE>
+<P>
+The next converts from HTML to a simple C like representation. It puts everything
+not in PRE within C style comments. This is the way that the line mode browser
+is used to convert the libwww HTML files to C style .h files
+<PRE>
+extern HTConverter HTMLToC;
+</PRE>
+<P>
+This one converts the HTML stream to a rendered object using the
+<A HREF="HText.html">HText interface</A>.
+<PRE>
+extern HTConverter HTMLPresent;
+</PRE>
+<H2>
+  Selecting Internal Character Set Representation
+</H2>
+<P>
+Only <TT>ISO_LATIN1</TT> is currently supported.
+<PRE>
+typedef enum _HTMLCharacterSet {
+	HTML_ISO_LATIN1,
+	HTML_NEXT_CHARS,
+	HTML_PC_CP950
+} HTMLCharacterSet;
+
+extern BOOL HTMLUseCharacterSet (HTMLCharacterSet charset);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif		/* end HTML_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

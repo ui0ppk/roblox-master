@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: window.cpp Example File (desktop/systray/window.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">window.cpp Example File</h1>
+<span class="small-subtitle">desktop/systray/window.cpp</span>
+<!-- $$$desktop/systray/window.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="preprocessor">#include &quot;window.h&quot;</span>
+
+ Window<span class="operator">::</span>Window()
+ {
+     createIconGroupBox();
+     createMessageGroupBox();
+
+     iconLabel<span class="operator">-</span><span class="operator">&gt;</span>setMinimumWidth(durationLabel<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width());
+
+     createActions();
+     createTrayIcon();
+
+     connect(showMessageButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(showMessage()));
+     connect(showIconCheckBox<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span>
+             trayIcon<span class="operator">,</span> SLOT(setVisible(<span class="type">bool</span>)));
+     connect(iconComboBox<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(setIcon(<span class="type">int</span>)));
+     connect(trayIcon<span class="operator">,</span> SIGNAL(messageClicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(messageClicked()));
+     connect(trayIcon<span class="operator">,</span> SIGNAL(activated(<span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>ActivationReason))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(iconActivated(<span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>ActivationReason)));
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(iconGroupBox);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(messageGroupBox);
+     setLayout(mainLayout);
+
+     iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">1</span>);
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>show();
+
+     setWindowTitle(tr(<span class="string">&quot;Systray&quot;</span>));
+     resize(<span class="number">400</span><span class="operator">,</span> <span class="number">300</span>);
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>setVisible(<span class="type">bool</span> visible)
+ {
+     minimizeAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(visible);
+     maximizeAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="operator">!</span>isMaximized());
+     restoreAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(isMaximized() <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>visible);
+     <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>setVisible(visible);
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>closeEvent(<span class="type"><a href="qcloseevent.html">QCloseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (trayIcon<span class="operator">-</span><span class="operator">&gt;</span>isVisible()) {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Systray&quot;</span>)<span class="operator">,</span>
+                                  tr(<span class="string">&quot;The program will keep running in the &quot;</span>
+                                     <span class="string">&quot;system tray. To terminate the program, &quot;</span>
+                                     <span class="string">&quot;choose &lt;b&gt;Quit&lt;/b&gt; in the context menu &quot;</span>
+                                     <span class="string">&quot;of the system tray entry.&quot;</span>));
+         hide();
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+     }
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>setIcon(<span class="type">int</span> index)
+ {
+     <span class="type"><a href="qicon.html">QIcon</a></span> icon <span class="operator">=</span> iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemIcon(index);
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>setIcon(icon);
+     setWindowIcon(icon);
+
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemText(index));
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>iconActivated(<span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>ActivationReason reason)
+ {
+     <span class="keyword">switch</span> (reason) {
+     <span class="keyword">case</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>Trigger:
+     <span class="keyword">case</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>DoubleClick:
+         iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex((iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex() <span class="operator">+</span> <span class="number">1</span>)
+                                       <span class="operator">%</span> iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>count());
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>MiddleClick:
+         showMessage();
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         ;
+     }
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>showMessage()
+ {
+     <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>MessageIcon icon <span class="operator">=</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>MessageIcon(
+             typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex())<span class="operator">.</span>toInt());
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>showMessage(titleEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">,</span> bodyEdit<span class="operator">-</span><span class="operator">&gt;</span>toPlainText()<span class="operator">,</span> icon<span class="operator">,</span>
+                           durationSpinBox<span class="operator">-</span><span class="operator">&gt;</span>value() <span class="operator">*</span> <span class="number">1000</span>);
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>messageClicked()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="number">0</span><span class="operator">,</span> tr(<span class="string">&quot;Systray&quot;</span>)<span class="operator">,</span>
+                              tr(<span class="string">&quot;Sorry, I already gave what help I could.\n&quot;</span>
+                                 <span class="string">&quot;Maybe you should try asking a human?&quot;</span>));
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>createIconGroupBox()
+ {
+     iconGroupBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(tr(<span class="string">&quot;Tray Icon&quot;</span>));
+
+     iconLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="string">&quot;Icon:&quot;</span>);
+
+     iconComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/bad.svg&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;Bad&quot;</span>));
+     iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/heart.svg&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;Heart&quot;</span>));
+     iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="string">&quot;:/images/trash.svg&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;Trash&quot;</span>));
+
+     showIconCheckBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span>(tr(<span class="string">&quot;Show icon&quot;</span>));
+     showIconCheckBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>iconLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     iconLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(iconLabel);
+     iconLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(iconComboBox);
+     iconLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch();
+     iconLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(showIconCheckBox);
+     iconGroupBox<span class="operator">-</span><span class="operator">&gt;</span>setLayout(iconLayout);
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>createMessageGroupBox()
+ {
+     messageGroupBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(tr(<span class="string">&quot;Balloon Message&quot;</span>));
+
+     typeLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Type:&quot;</span>));
+
+     typeComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;None&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>NoIcon);
+     typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(
+             <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_MessageBoxInformation)<span class="operator">,</span> tr(<span class="string">&quot;Information&quot;</span>)<span class="operator">,</span>
+             <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>Information);
+     typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(
+             <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_MessageBoxWarning)<span class="operator">,</span> tr(<span class="string">&quot;Warning&quot;</span>)<span class="operator">,</span>
+             <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>Warning);
+     typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(style()<span class="operator">-</span><span class="operator">&gt;</span>standardIcon(
+             <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>SP_MessageBoxCritical)<span class="operator">,</span> tr(<span class="string">&quot;Critical&quot;</span>)<span class="operator">,</span>
+             <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>Critical);
+     typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">1</span>);
+
+     durationLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Duration:&quot;</span>));
+
+     durationSpinBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qspinbox.html">QSpinBox</a></span>;
+     durationSpinBox<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">5</span><span class="operator">,</span> <span class="number">60</span>);
+     durationSpinBox<span class="operator">-</span><span class="operator">&gt;</span>setSuffix(<span class="string">&quot; s&quot;</span>);
+     durationSpinBox<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">15</span>);
+
+     durationWarningLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;(some systems might ignore this &quot;</span>
+                                          <span class="string">&quot;hint)&quot;</span>));
+     durationWarningLabel<span class="operator">-</span><span class="operator">&gt;</span>setIndent(<span class="number">10</span>);
+
+     titleLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Title:&quot;</span>));
+
+     titleEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>(tr(<span class="string">&quot;Cannot connect to network&quot;</span>));
+
+     bodyLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Body:&quot;</span>));
+
+     bodyEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>;
+     bodyEdit<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(tr(<span class="string">&quot;Don't believe me. Honestly, I don't have a &quot;</span>
+                               <span class="string">&quot;clue.\nClick this balloon for details.&quot;</span>));
+
+     showMessageButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Show Message&quot;</span>));
+     showMessageButton<span class="operator">-</span><span class="operator">&gt;</span>setDefault(<span class="keyword">true</span>);
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>messageLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(typeLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(typeComboBox<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(durationLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(durationSpinBox<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(durationWarningLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">3</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(titleLabel<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(titleEdit<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">4</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(bodyLabel<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">0</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(bodyEdit<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">4</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(showMessageButton<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">4</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>setColumnStretch(<span class="number">3</span><span class="operator">,</span> <span class="number">1</span>);
+     messageLayout<span class="operator">-</span><span class="operator">&gt;</span>setRowStretch(<span class="number">4</span><span class="operator">,</span> <span class="number">1</span>);
+     messageGroupBox<span class="operator">-</span><span class="operator">&gt;</span>setLayout(messageLayout);
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>createActions()
+ {
+     minimizeAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Mi&amp;nimize&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(minimizeAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(hide()));
+
+     maximizeAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Ma&amp;ximize&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(maximizeAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(showMaximized()));
+
+     restoreAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Restore&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(restoreAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(showNormal()));
+
+     quitAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Quit&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(quitAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> qApp<span class="operator">,</span> SLOT(quit()));
+ }
+
+ <span class="type">void</span> Window<span class="operator">::</span>createTrayIcon()
+ {
+     trayIconMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(<span class="keyword">this</span>);
+     trayIconMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(minimizeAction);
+     trayIconMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(maximizeAction);
+     trayIconMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(restoreAction);
+     trayIconMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     trayIconMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(quitAction);
+
+     trayIcon <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span>(<span class="keyword">this</span>);
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>setContextMenu(trayIconMenu);
+ }</pre>
+</div>
+<!-- @@@desktop/systray/window.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

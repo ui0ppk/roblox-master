@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- dbus-adaptors.qdoc -->
+  <title>Qt 4.8: Declaring Slots in D-Bus Adaptors</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>Declaring Slots in D-Bus Adaptors</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="next" href="qdbusdeclaringsignals.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="nextPage" href="qdbusdeclaringsignals.html">Declaring Signals in D-Bus Adaptors</a>
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#asynchronous-slots">Asynchronous Slots</a></li>
+<li class="level1"><a href="#input-only-slots">Input-Only Slots</a></li>
+<li class="level1"><a href="#input-and-output-slots">Input and Output Slots</a></li>
+<li class="level1"><a href="#automatic-replies">Automatic Replies</a></li>
+<li class="level1"><a href="#delayed-replies">Delayed Replies</a></li>
+</ul>
+</div>
+<h1 class="title">Declaring Slots in D-Bus Adaptors</h1>
+<span class="subtitle"></span>
+<!-- $$$qdbusdeclaringslots.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Slots in D-Bus adaptors are declared just like normal, public slots, but their parameters must follow certain rules (see <a href="qdbustypesystem.html">The QtDBus Type System</a> for more information). Slots whose parameters do not follow those rules or that are not public will not be accessible via D-Bus.</p>
+<p>Slots can have one parameter of type <tt>const QDBusMessage &amp;</tt>, which must appear at the end of the input parameter list, before any output parameters. This parameter, if present, will be initialized with a copy of the current message being processed, which allows the callee to obtain information about the caller, such as its connection name.</p>
+<p>Slots can be of three kinds:</p>
+<ol class="1">
+<li>Asynchronous</li>
+<li>Input-only</li>
+<li>Input-and-output</li>
+</ol>
+<a name="asynchronous-slots"></a>
+<h2>Asynchronous Slots</h2>
+<p>Asynchronous slots are those that do not normally return any reply to the caller. For that reason, they cannot take any output parameters. In most cases, by the time the first line of the slot is run, the caller function has already resumed working.</p>
+<p>However, slots must not rely on that behavior. Scheduling and message-dispatching issues could change the order in which the slot is run. Code intending to synchronize with the caller should provide its own method of synchronization.</p>
+<p>Asynchronous slots are marked by the keyword <a href="qdbusabstractadaptor.html#Q_NOREPLY">Q_NOREPLY</a> in the method signature, before the <tt>void</tt> return type and the slot name. (See the <tt>quit()</tt> slot in the <a href="qdbusadaptorexample.html">D-Bus Adaptor Example</a>).</p>
+<a name="input-only-slots"></a>
+<h2>Input-Only Slots</h2>
+<p>Input-only slots are normal slots that take parameters passed by value or by constant reference. However, unlike asynchronous slots, the caller is usually waiting for completion of the callee before resuming operation. Therefore, non-asynchronous slots should not block or should state it its documentation that they may do so.</p>
+<p>Input-only slots have no special marking in their signature, except that they take only parameters passed by value or by constant reference. Optionally, slots can take a <a href="qdbusmessage.html">QDBusMessage</a> parameter as a last parameter, which can be used to perform additional analysis of the method call message.</p>
+<a name="input-and-output-slots"></a>
+<h2>Input and Output Slots</h2>
+<p>Like input-only slots, input-and-output slots are those that the caller is waiting for a reply. Unlike input-only ones, though, this reply will contain data. Slots that output data may contain non-constant references and may return a value as well. However, the output parameters must all appear at the end of the argument list and may not have input arguments interleaved. Optionally, a <a href="qdbusmessage.html">QDBusMessage</a> argument may appear between the input and the output arguments.</p>
+<a name="automatic-replies"></a>
+<h2>Automatic Replies</h2>
+<p>Method replies are generated automatically with the contents of the output parameters (if there were any) by the <a href="qtdbus.html">QtDBus</a> implementation. Slots need not worry about constructing proper <a href="qdbusmessage.html">QDBusMessage</a> objects and sending them over the connection.</p>
+<p>However, the possibility of doing so remains there. Should the slot find out it needs to send a special reply or even an error, it can do so by using <a href="qdbusmessage.html#createReply">QDBusMessage::createReply</a>() or <a href="qdbusmessage.html#createErrorReply">QDBusMessage::createErrorReply</a>() on the <a href="qdbusmessage.html">QDBusMessage</a> parameter and send it with <a href="qdbusconnection.html#send">QDBusConnection::send</a>(). The <a href="qtdbus.html">QtDBus</a> implementation will not generate any reply if the slot did so.</p>
+<p><b>Warning:</b> When a caller places a method call and waits for a reply, it will only wait for a limited amount of time. Slots intending to take a long time to complete should make that fact clear in documentation so that callers properly set higher timeouts.</p>
+<a name="delayed-replies"></a>
+<h2>Delayed Replies</h2>
+<p>In some circumstances, the called slot may not be able to process the request immediately. This is frequently the case when the request involves an I/O or networking operation which may block.</p>
+<p>If this is the case, the slot should return control to the application's main loop to avoid freezing the user interface, and resume the process later. To accomplish this, it should make use of the extra <tt>QDBusMessage</tt> parameter at the end of the input parameter list and request a delayed reply.</p>
+<p>We do this by writing a slot that stores the request data in a persistent structure, indicating to the caller using <a href="qdbusmessage.html#setDelayedReply">QDBusMessage::setDelayedReply(true)</a> that the response will be sent later.</p>
+<pre class="cpp"> <span class="keyword">struct</span> RequestData
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> request;
+     <span class="type"><a href="qstring.html">QString</a></span> processedData;
+     <span class="type"><a href="qdbusmessage.html">QDBusMessage</a></span> reply;
+ };
+
+ <span class="type"><a href="qstring.html">QString</a></span> processRequest(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>request<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qdbusmessage.html">QDBusMessage</a></span> <span class="operator">&amp;</span>message)
+ {
+     RequestData <span class="operator">*</span>data <span class="operator">=</span> <span class="keyword">new</span> RequestData;
+     data<span class="operator">-</span><span class="operator">&gt;</span>request <span class="operator">=</span> request;
+     message<span class="operator">.</span>setDelayedReply(<span class="keyword">true</span>);
+     data<span class="operator">-</span><span class="operator">&gt;</span>reply <span class="operator">=</span> message<span class="operator">.</span>createReply();
+     <span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">.</span>send(data<span class="operator">-</span><span class="operator">&gt;</span>reply);
+
+     appendRequest(data);
+     <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+ }</pre>
+<p>The use of <a href="qdbusconnection.html#send">QDBusConnection::sessionBus().send</a>(data-&gt;reply) is needed to explicitly inform the caller that the response will be delayed. In this case, the return value is unimportant; we return an arbitrary value to satisfy the compiler.</p>
+<p>When the request is processed and a reply is available, it should be sent using the <tt>QDBusMessage</tt> object that was obtained. In our example, the reply code could be something as follows:</p>
+<pre class="cpp"> <span class="type">void</span> sendReply(RequestData <span class="operator">*</span>data)
+ {
+     <span class="comment">// data-&gt;processedData has been initialized with the request's reply</span>
+     <span class="type"><a href="qdbusmessage.html">QDBusMessage</a></span> <span class="operator">&amp;</span>reply <span class="operator">=</span> <span class="operator">&amp;</span>data<span class="operator">-</span><span class="operator">&gt;</span>reply;
+
+     <span class="comment">// send the reply over D-Bus:</span>
+     reply <span class="operator">&lt;</span><span class="operator">&lt;</span> data<span class="operator">-</span><span class="operator">&gt;</span>processedData;
+     <span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">.</span>send(reply);
+
+     <span class="comment">// dispose of the transaction data</span>
+     <span class="keyword">delete</span> data;
+ }</pre>
+<p>As can be seen in the example, when a delayed reply is in place, the return value(s) from the slot will be ignored by <a href="qtdbus.html">QtDBus</a>. They are used only to determine the slot's signature when communicating the adaptor's description to remote applications, or in case the code in the slot decides not to use a delayed reply.</p>
+<p>The delayed reply itself is requested from <a href="qtdbus.html">QtDBus</a> by calling QDBusMessage::reply() on the original message. It then becomes the resposibility of the called code to eventually send a reply to the caller.</p>
+<p><b>Warning:</b> When a caller places a method call and waits for a reply, it will only wait for a limited amount of time. Slots intending to take a long time to complete should make that fact clear in documentation so that callers properly set higher timeouts.</p>
+</div>
+<p><b>See also </b><a href="usingadaptors.html">Using QtDBus Adaptors</a>, <a href="qdbusdeclaringsignals.html">Declaring Signals in D-Bus Adaptors</a>, <a href="qdbustypesystem.html">The QtDBus Type System</a>, <a href="qdbusconnection.html">QDBusConnection</a>, and <a href="qdbusmessage.html">QDBusMessage</a>.</p>
+<!-- @@@qdbusdeclaringslots.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="nextPage" href="qdbusdeclaringsignals.html">Declaring Signals in D-Bus Adaptors</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

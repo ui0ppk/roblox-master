@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativeflickable.cpp -->
+  <title>Qt 4.8: QML Flickable Element</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML Flickable Element</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signal-handlers">Signal Handlers</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example-usage">Example Usage</a></li>
+<li class="level2"><a href="#limitations">Limitations</a></li>
+</ul>
+</div>
+<h1 class="title">QML Flickable Element</h1>
+<span class="subtitle"></span>
+<!-- $$$Flickable-brief -->
+<p>The Flickable item provides a surface that can be &quot;flicked&quot;. <a href="#details">More...</a></p>
+<!-- @@@Flickable -->
+<p>Inherits <a href="qml-item.html">Item</a></p>
+<p>Inherited by <a href="qml-gridview.html">GridView</a>, <a href="qml-listview.html">ListView</a>, webviewtest, and webviewtestdefault.</p>
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-flickable-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-flickable.html#atXBeginning-prop">atXBeginning</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#atXEnd-prop">atXEnd</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#atYBeginning-prop">atYBeginning</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#atYEnd-prop">atYEnd</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#boundsBehavior-prop">boundsBehavior</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-flickable.html#contentHeight-prop">contentHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#contentItem-prop">contentItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-flickable.html#contentWidth-prop">contentWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#contentX-prop">contentX</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#contentY-prop">contentY</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#flickDeceleration-prop">flickDeceleration</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#flickableDirection-prop">flickableDirection</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-flickable.html#flicking-prop">flicking</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#flickingHorizontally-prop">flickingHorizontally</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#flickingVertically-prop">flickingVertically</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#horizontalVelocity-prop">horizontalVelocity</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#interactive-prop">interactive</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#maximumFlickVelocity-prop">maximumFlickVelocity</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#moving-prop">moving</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#movingHorizontally-prop">movingHorizontally</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#movingVertically-prop">movingVertically</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-flickable.html#pressDelay-prop">pressDelay</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-flickable.html#verticalVelocity-prop">verticalVelocity</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#visibleArea.heightRatio-prop">visibleArea.heightRatio</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#visibleArea.widthRatio-prop">visibleArea.widthRatio</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#visibleArea.xPosition-prop">visibleArea.xPosition</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-flickable.html#visibleArea.yPosition-prop">visibleArea.yPosition</a></b></b> : real</li>
+</ul>
+<a name="signal-handlers"></a>
+<h2>Signal Handlers</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-flickable.html#onFlickEnded-signal">onFlickEnded</a></b></b></li>
+<li class="fn"><b><b><a href="qml-flickable.html#onFlickStarted-signal">onFlickStarted</a></b></b></li>
+<li class="fn"><b><b><a href="qml-flickable.html#onMovementEnded-signal">onMovementEnded</a></b></b></li>
+<li class="fn"><b><b><a href="qml-flickable.html#onMovementStarted-signal">onMovementStarted</a></b></b></li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-flickable.html#resizeContent-method">resizeContent</a></b></b><tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-flickable.html#returnToBounds-method">returnToBounds</a></b></b><tt> (preliminary)</tt></li>
+</ul>
+<!-- $$$Flickable-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The Flickable item places its children on a surface that can be dragged and flicked, causing the view onto the child items to scroll. This behavior forms the basis of Items that are designed to show large numbers of child items, such as <a href="qml-listview.html">ListView</a> and <a href="qml-gridview.html">GridView</a>.</p>
+<p>In traditional user interfaces, views can be scrolled using standard controls, such as scroll bars and arrow buttons. In some situations, it is also possible to drag the view directly by pressing and holding a mouse button while moving the cursor. In touch-based user interfaces, this dragging action is often complemented with a flicking action, where scrolling continues after the user has stopped touching the view.</p>
+<p>Flickable does not automatically clip its contents. If it is not used as a full-screen item, you should consider setting the <a href="qml-item.html#clip-prop">clip</a> property to true.</p>
+<a name="example-usage"></a>
+<h2>Example Usage</h2>
+<div class="float-right"><p><img src="images/flickable.gif" alt="" /></p>
+</div><p>The following example shows a small view onto a large image in which the user can drag or flick the image in order to view different parts of it.</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type">Flickable</span> {
+     <span class="name">width</span>: <span class="number">200</span>; <span class="name">height</span>: <span class="number">200</span>
+     <span class="name">contentWidth</span>: <span class="name">image</span>.<span class="name">width</span>; <span class="name">contentHeight</span>: <span class="name">image</span>.<span class="name">height</span>
+
+     <span class="type"><a href="qml-image.html">Image</a></span> { <span class="name">id</span>: <span class="name">image</span>; <span class="name">source</span>: <span class="string">&quot;bigImage.png&quot;</span> }
+ }</pre>
+<br style="clear: both" /><p>Items declared as children of a Flickable are automatically parented to the Flickable's <a href="qml-flickable.html#contentItem-prop">contentItem</a>. This should be taken into account when operating on the children of the Flickable; it is usually the children of <tt>contentItem</tt> that are relevant. For example, the bound of Items added to the Flickable will be available by <tt>contentItem.childrenRect</tt></p>
+<a name="limitations"></a>
+<h2>Limitations</h2>
+<p><b>Note:</b> Due to an implementation detail, items placed inside a Flickable cannot anchor to it by <tt>id</tt>. Use <tt>parent</tt> instead.</p>
+<!-- @@@Flickable -->
+<h2>Property Documentation</h2>
+<!-- $$$atXBeginning -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="atXBeginning-prop"></a><span class="qmlreadonly">read-only</span><span class="name">atXBeginning</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="atXEnd-prop"></a><span class="qmlreadonly">read-only</span><span class="name">atXEnd</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="atYBeginning-prop"></a><span class="qmlreadonly">read-only</span><span class="name">atYBeginning</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="atYEnd-prop"></a><span class="qmlreadonly">read-only</span><span class="name">atYEnd</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties are true if the flickable view is positioned at the beginning, or end respecively.</p>
+</div></div><!-- @@@atXBeginning -->
+<br/>
+<!-- $$$boundsBehavior -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="boundsBehavior-prop"></a><span class="name">boundsBehavior</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the surface may be dragged beyond the Fickable's boundaries, or overshoot the Flickable's boundaries when flicked.</p>
+<p>This enables the feeling that the edges of the view are soft, rather than a hard physical boundary.</p>
+<p>The <tt>boundsBehavior</tt> can be one of:</p>
+<ul>
+<li>Flickable.StopAtBounds - the contents can not be dragged beyond the boundary of the flickable, and flicks will not overshoot.</li>
+<li>Flickable.DragOverBounds - the contents can be dragged beyond the boundary of the Flickable, but flicks will not overshoot.</li>
+<li>Flickable.DragAndOvershootBounds (default) - the contents can be dragged beyond the boundary of the Flickable, and can overshoot the boundary when flicked.</li>
+</ul>
+</div></div><!-- @@@boundsBehavior -->
+<br/>
+<!-- $$$contentItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentItem-prop"></a><span class="qmlreadonly">read-only</span><span class="name">contentItem</span> : <span class="type"><a href="qml-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p>The internal item that contains the Items to be moved in the Flickable.</p>
+<p>Items declared as children of a Flickable are automatically parented to the Flickable's contentItem.</p>
+<p>Items created dynamically need to be explicitly parented to the <i>contentItem</i>:</p>
+<pre class="cpp"> Flickable {
+     id: myFlickable
+     function addItem(file) {
+         var component <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">.</span>createComponent(file)
+         component<span class="operator">.</span>createObject(myFlickable<span class="operator">.</span>contentItem);
+     }
+ }</pre>
+</div></div><!-- @@@contentItem -->
+<br/>
+<!-- $$$contentWidth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentWidth-prop"></a><span class="name">contentWidth</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="contentHeight-prop"></a><span class="name">contentHeight</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>The dimensions of the content (the surface controlled by Flickable). This should typically be set to the combined size of the items placed in the Flickable.</p>
+<p>The following snippet shows how these properties are used to display an image that is larger than the Flickable item itself:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-flickable.html">Flickable</a></span> {
+     <span class="name">width</span>: <span class="number">200</span>; <span class="name">height</span>: <span class="number">200</span>
+     <span class="name">contentWidth</span>: <span class="name">image</span>.<span class="name">width</span>; <span class="name">contentHeight</span>: <span class="name">image</span>.<span class="name">height</span>
+
+     <span class="type"><a href="qml-image.html">Image</a></span> { <span class="name">id</span>: <span class="name">image</span>; <span class="name">source</span>: <span class="string">&quot;bigImage.png&quot;</span> }
+ }</pre>
+<p>In some cases, the the content dimensions can be automatically set using the <a href="qml-item.html#childrenRect.width-prop">childrenRect.width</a> and <a href="qml-item.html#childrenRect.height-prop">childrenRect.height</a> properties.</p>
+</div></div><!-- @@@contentWidth -->
+<br/>
+<!-- $$$contentX -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentX-prop"></a><span class="name">contentX</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="contentY-prop"></a><span class="name">contentY</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties hold the surface coordinate currently at the top-left corner of the Flickable. For example, if you flick an image up 100 pixels, <tt>contentY</tt> will be 100.</p>
+</div></div><!-- @@@contentX -->
+<br/>
+<!-- $$$flickDeceleration -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="flickDeceleration-prop"></a><span class="name">flickDeceleration</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the rate at which a flick will decelerate.</p>
+<p>The default value is platform dependent.</p>
+</div></div><!-- @@@flickDeceleration -->
+<br/>
+<!-- $$$flickableDirection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="flickableDirection-prop"></a><span class="name">flickableDirection</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property determines which directions the view can be flicked.</p>
+<ul>
+<li>Flickable.AutoFlickDirection (default) - allows flicking vertically if the <i>contentHeight</i> is not equal to the <i>height</i> of the Flickable. Allows flicking horizontally if the <i>contentWidth</i> is not equal to the <i>width</i> of the Flickable.</li>
+<li>Flickable.HorizontalFlick - allows flicking horizontally.</li>
+<li>Flickable.VerticalFlick - allows flicking vertically.</li>
+<li>Flickable.HorizontalAndVerticalFlick - allows flicking in both directions.</li>
+</ul>
+</div></div><!-- @@@flickableDirection -->
+<br/>
+<!-- $$$flicking -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="flicking-prop"></a><span class="qmlreadonly">read-only</span><span class="name">flicking</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="flickingHorizontally-prop"></a><span class="qmlreadonly">read-only</span><span class="name">flickingHorizontally</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="flickingVertically-prop"></a><span class="qmlreadonly">read-only</span><span class="name">flickingVertically</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties describe whether the view is currently moving horizontally, vertically or in either direction, due to the user flicking the view.</p>
+</div></div><!-- @@@flicking -->
+<br/>
+<!-- $$$horizontalVelocity -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="horizontalVelocity-prop"></a><span class="qmlreadonly">read-only</span><span class="name">horizontalVelocity</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="verticalVelocity-prop"></a><span class="qmlreadonly">read-only</span><span class="name">verticalVelocity</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>The instantaneous velocity of movement along the x and y axes, in pixels/sec.</p>
+<p>The reported velocity is smoothed to avoid erratic output.</p>
+</div></div><!-- @@@horizontalVelocity -->
+<br/>
+<!-- $$$interactive -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="interactive-prop"></a><span class="name">interactive</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property describes whether the user can interact with the Flickable. A user cannot drag or flick a Flickable that is not interactive.</p>
+<p>By default, this property is true.</p>
+<p>This property is useful for temporarily disabling flicking. This allows special interaction with Flickable's children; for example, you might want to freeze a flickable map while scrolling through a pop-up dialog that is a child of the Flickable.</p>
+</div></div><!-- @@@interactive -->
+<br/>
+<!-- $$$maximumFlickVelocity -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="maximumFlickVelocity-prop"></a><span class="name">maximumFlickVelocity</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the maximum velocity that the user can flick the view in pixels/second.</p>
+<p>The default value is platform dependent.</p>
+</div></div><!-- @@@maximumFlickVelocity -->
+<br/>
+<!-- $$$moving -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="moving-prop"></a><span class="qmlreadonly">read-only</span><span class="name">moving</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="movingHorizontally-prop"></a><span class="qmlreadonly">read-only</span><span class="name">movingHorizontally</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="movingVertically-prop"></a><span class="qmlreadonly">read-only</span><span class="name">movingVertically</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties describe whether the view is currently moving horizontally, vertically or in either direction, due to the user either dragging or flicking the view.</p>
+</div></div><!-- @@@moving -->
+<br/>
+<!-- $$$pressDelay -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="pressDelay-prop"></a><span class="name">pressDelay</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the time to delay (ms) delivering a press to children of the Flickable. This can be useful where reacting to a press before a flicking action has undesirable effects.</p>
+<p>If the flickable is dragged/flicked before the delay times out the press event will not be delivered. If the button is released within the timeout, both the press and release will be delivered.</p>
+<p>Note that for nested Flickables with pressDelay set, the pressDelay of inner Flickables is overridden by the outermost Flickable.</p>
+</div></div><!-- @@@pressDelay -->
+<br/>
+<!-- $$$visibleArea.xPosition -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="visibleArea.xPosition-prop"></a><span class="qmlreadonly">read-only</span><span class="name">visibleArea.xPosition</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="visibleArea.widthRatio-prop"></a><span class="qmlreadonly">read-only</span><span class="name">visibleArea.widthRatio</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="visibleArea.yPosition-prop"></a><span class="qmlreadonly">read-only</span><span class="name">visibleArea.yPosition</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr><tr valign="top" class="even"><td class="tblQmlPropNode"><p><a name="visibleArea.heightRatio-prop"></a><span class="qmlreadonly">read-only</span><span class="name">visibleArea.heightRatio</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>These properties describe the position and size of the currently viewed area. The size is defined as the percentage of the full view currently visible, scaled to 0.0 - 1.0&#x2e; The page position is usually in the range 0.0 (beginning) to 1.0 minus size ratio (end), i.e&#x2e; <tt>yPosition</tt> is in the range 0.0 to 1.0-<tt>heightRatio</tt>. However, it is possible for the contents to be dragged outside of the normal range, resulting in the page positions also being outside the normal range.</p>
+<p>These properties are typically used to draw a scrollbar. For example:</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">width</span>: <span class="number">200</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="type"><a href="qml-flickable.html">Flickable</a></span> {
+         <span class="name">id</span>: <span class="name">flickable</span>
+         ...
+     }
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">id</span>: <span class="name">scrollbar</span>
+         <span class="name">anchors</span>.right: <span class="name">flickable</span>.<span class="name">right</span>
+         <span class="name">y</span>: <span class="name">flickable</span>.<span class="name">visibleArea</span>.<span class="name">yPosition</span> <span class="operator">*</span> <span class="name">flickable</span>.<span class="name">height</span>
+         <span class="name">width</span>: <span class="number">10</span>
+         <span class="name">height</span>: <span class="name">flickable</span>.<span class="name">visibleArea</span>.<span class="name">heightRatio</span> <span class="operator">*</span> <span class="name">flickable</span>.<span class="name">height</span>
+         <span class="name">color</span>: <span class="string">&quot;black&quot;</span>
+     }
+ }</pre>
+<p><b>See also </b><a href="declarative-ui-components-scrollbar.html">scrollbar example</a>.</p>
+</div></div><!-- @@@visibleArea.xPosition -->
+<br/>
+<h2>Signal Handler Documentation</h2>
+<!-- $$$onFlickEnded -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onFlickEnded-signal"></a>Flickable::<span class="name">onFlickEnded</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the view stops moving due to a flick.</p>
+</div></div><!-- @@@onFlickEnded -->
+<br/>
+<!-- $$$onFlickStarted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onFlickStarted-signal"></a>Flickable::<span class="name">onFlickStarted</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the view is flicked. A flick starts from the point that the mouse or touch is released, while still in motion.</p>
+</div></div><!-- @@@onFlickStarted -->
+<br/>
+<!-- $$$onMovementEnded -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onMovementEnded-signal"></a>Flickable::<span class="name">onMovementEnded</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the view stops moving due to user interaction. If a flick was generated, this handler will be triggered once the flick stops. If a flick was not generated, the handler will be triggered when the user stops dragging - i.e&#x2e; a mouse or touch release.</p>
+</div></div><!-- @@@onMovementEnded -->
+<br/>
+<!-- $$$onMovementStarted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onMovementStarted-signal"></a>Flickable::<span class="name">onMovementStarted</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the view begins moving due to user interaction.</p>
+</div></div><!-- @@@onMovementStarted -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$resizeContent -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="resizeContent-method"></a>Flickable::<span class="name">resizeContent</span> ( <span class="type"><a href="qml-real.html">real</a></span> <i>width</i>, <span class="type"><a href="qml-real.html">real</a></span> <i>height</i>, <span class="type"><a href="qpointf.html">QPointF</a></span> <i>center</i> )</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Resizes the content to <i>width</i> x <i>height</i> about <i>center</i>.</p>
+<p>This does not scale the contents of the Flickable - it only resizes the <a href="qml-flickable.html#contentWidth-prop">contentWidth</a> and <a href="qml-flickable.html#contentHeight-prop">contentHeight</a>.</p>
+<p>Resizing the content may result in the content being positioned outside the bounds of the Flickable. Calling <a href="qml-flickable.html#returnToBounds-method">returnToBounds()</a> will move the content back within legal bounds.</p>
+<p>This documentation was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@resizeContent -->
+<br/>
+<!-- $$$returnToBounds -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="returnToBounds-method"></a>Flickable::<span class="name">returnToBounds</span> ()</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Ensures the content is within legal bounds.</p>
+<p>This may be called to ensure that the content is within legal bounds after manually positioning the content.</p>
+<p>This documentation was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@returnToBounds -->
+<br/>
+<p class="naviNextPrevious footerNavi">
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

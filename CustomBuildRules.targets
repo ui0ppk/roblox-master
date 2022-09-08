@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+    <AvailableItemName
+      Include="PublishDLLDependency">
+      <Targets>_PublishDLLDependency</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+  <UsingTask
+    TaskName="PublishDLLDependency"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <Target
+    Name="_PublishDLLDependency"
+    BeforeTargets="$(PublishDLLDependencyBeforeTargets)"
+    AfterTargets="$(PublishDLLDependencyAfterTargets)"
+    Condition="'@(PublishDLLDependency)' != ''"
+    DependsOnTargets="$(PublishDLLDependencyDependsOn);ComputePublishDLLDependencyOutput"
+    Outputs="%(PublishDLLDependency.Outputs)"
+    Inputs="%(PublishDLLDependency.Identity);%(PublishDLLDependency.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <PublishDLLDependency
+        Remove="@(PublishDLLDependency)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <PublishDLLDependency_tlog
+        Include="%(PublishDLLDependency.Outputs)"
+        Condition="'%(PublishDLLDependency.Outputs)' != '' and '%(PublishDLLDependency.ExcludedFromBuild)' != 'true'">
+        <Source>@(PublishDLLDependency, '|')</Source>
+      </PublishDLLDependency_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(PublishDLLDependency.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(PublishDLLDependency_tlog)' != '' and '%(PublishDLLDependency_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1.tlog"
+      Lines="^%(PublishDLLDependency_tlog.Source);@(PublishDLLDependency_tlog-&gt;'%(Fullpath)')" />
+    <PublishDLLDependency
+      Condition="'@(PublishDLLDependency)' != '' and '%(PublishDLLDependency.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(PublishDLLDependency.CommandLineTemplate)"
+      AdditionalOptions="%(PublishDLLDependency.AdditionalOptions)"
+      Inputs="%(PublishDLLDependency.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputePublishDLLDependencyOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputePublishDLLDependencyOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputePublishDLLDependencyOutput"
+    Condition="'@(PublishDLLDependency)' != ''">
+    <ItemGroup>
+      <PublishDLLDependencyDirsToMake
+        Condition="'@(PublishDLLDependency)' != '' and '%(PublishDLLDependency.ExcludedFromBuild)' != 'true'"
+        Include="%(PublishDLLDependency.Outputs)" />
+      <Link
+        Include="%(PublishDLLDependencyDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(PublishDLLDependencyDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(PublishDLLDependencyDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(PublishDLLDependencyDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+</Project>

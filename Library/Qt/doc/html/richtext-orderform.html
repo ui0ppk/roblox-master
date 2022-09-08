@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- orderform.qdoc -->
+  <title>Qt 4.8: Order Form Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Order Form Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#detailsdialog-definition">DetailsDialog Definition</a></li>
+<li class="level1"><a href="#detailsdialog-implementation">DetailsDialog Implementation</a></li>
+<li class="level1"><a href="#mainwindow-definition">MainWindow Definition</a></li>
+<li class="level1"><a href="#mainwindow-implementation">MainWindow Implementation</a></li>
+<li class="level1"><a href="#function"><tt>main()</tt> Function</a></li>
+</ul>
+</div>
+<h1 class="title">Order Form Example</h1>
+<span class="subtitle"></span>
+<!-- $$$richtext/orderform-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="richtext-orderform-detailsdialog-cpp.html">richtext/orderform/detailsdialog.cpp</a></li>
+<li><a href="richtext-orderform-detailsdialog-h.html">richtext/orderform/detailsdialog.h</a></li>
+<li><a href="richtext-orderform-mainwindow-cpp.html">richtext/orderform/mainwindow.cpp</a></li>
+<li><a href="richtext-orderform-mainwindow-h.html">richtext/orderform/mainwindow.h</a></li>
+<li><a href="richtext-orderform-main-cpp.html">richtext/orderform/main.cpp</a></li>
+<li><a href="richtext-orderform-orderform-pro.html">richtext/orderform/orderform.pro</a></li>
+</ul>
+<p>The Order Form example shows how to generate rich text documents by combining a simple template with data input by the user in a dialog.<p>Data is extracted from a <tt>DetailsDialog</tt> object and displayed on a <a href="qtextedit.html">QTextEdit</a> with a <a href="qtextcursor.html">QTextCursor</a>, using various formats. Each form generated is added to a <a href="qtabwidget.html">QTabWidget</a> for easy access.</p>
+<p class="centerAlign"><img src="images/orderform-example.png" alt="" /></p><a name="detailsdialog-definition"></a>
+<h2>DetailsDialog Definition</h2>
+<p>The <tt>DetailsDialog</tt> class is a subclass of <a href="qdialog.html">QDialog</a>, implementing a slot <tt>verify()</tt> to allow contents of the <tt>DetailsDialog</tt> to be verified later. This is further explained in <tt>DetailsDialog</tt> Implementation.</p>
+<pre class="cpp"> <span class="keyword">class</span> DetailsDialog : <span class="keyword">public</span> <span class="type"><a href="qdialog.html">QDialog</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     DetailsDialog(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>title<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> verify();
+
+ <span class="keyword">public</span>:
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> orderItems();
+     <span class="type"><a href="qstring.html">QString</a></span> senderName() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> senderAddress() <span class="keyword">const</span>;
+     <span class="type">bool</span> sendOffers();
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> setupItemsTable();
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>nameLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>addressLabel;
+     <span class="type"><a href="qcheckbox.html">QCheckBox</a></span> <span class="operator">*</span>offersCheckBox;
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>nameEdit;
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> items;
+     <span class="type"><a href="qtablewidget.html">QTableWidget</a></span> <span class="operator">*</span>itemsTable;
+     <span class="type"><a href="qtextedit.html">QTextEdit</a></span> <span class="operator">*</span>addressEdit;
+     <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span> <span class="operator">*</span>buttonBox;
+ };</pre>
+<p>The constructor of <tt>DetailsDialog</tt> accepts parameters <i>title</i> and <i>parent</i>. The class defines four <i>getter</i> functions: <tt>orderItems()</tt>, <tt>senderName()</tt>, <tt>senderAddress()</tt>, and <tt>sendOffers()</tt> to allow data to be accessed externally.</p>
+<p>The class definition includes input widgets for the required fields, <tt>nameEdit</tt> and <tt>addressEdit</tt>. Also, a <a href="qcheckbox.html">QCheckBox</a> and a <a href="qdialogbuttonbox.html">QDialogButtonBox</a> are defined; the former to provide the user with the option to receive information on products and offers, and the latter to ensure that buttons used are arranged according to the user's native platform. In addition, a <a href="qtablewidget.html">QTableWidget</a>, <tt>itemsTable</tt>, is used to hold order details.</p>
+<p>The screenshot below shows the <tt>DetailsDialog</tt> we intend to create.</p>
+<p class="centerAlign"><img src="images/orderform-example-detailsdialog.png" alt="" /></p><a name="detailsdialog-implementation"></a>
+<h2>DetailsDialog Implementation</h2>
+<p>The constructor of <tt>DetailsDialog</tt> instantiates the earlier defined fields and their respective labels. The label for <tt>offersCheckBox</tt> is set and the <tt>setupItemsTable()</tt> function is invoked to setup and populate <tt>itemsTable</tt>. The <a href="qdialogbuttonbox.html">QDialogButtonBox</a> object, <tt>buttonBox</tt>, is instantiated with <b>OK</b> and <b>Cancel</b> buttons. This <tt>buttonBox</tt>'s <tt>accepted()</tt> and <tt>rejected()</tt> signals are connected to the <tt>verify()</tt> and <tt>reject()</tt> slots in <tt>DetailsDialog</tt>.</p>
+<pre class="cpp"> DetailsDialog<span class="operator">::</span>DetailsDialog(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>title<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qdialog.html">QDialog</a></span>(parent)
+ {
+     nameLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Name:&quot;</span>));
+     addressLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Address:&quot;</span>));
+     addressLabel<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignLeft <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignTop);
+
+     nameEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+     addressEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>;
+
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_SIMULATOR)</span>
+     offersCheckBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span>(tr(<span class="string">&quot;Send information about\n&quot;</span>
+                                       <span class="string">&quot;products and special offers&quot;</span>));
+ <span class="preprocessor">#else</span>
+     offersCheckBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span>(tr(<span class="string">&quot;Send information about products and &quot;</span>
+                                       <span class="string">&quot;special offers&quot;</span>));
+ <span class="preprocessor">#endif</span>
+
+     setupItemsTable();
+
+     buttonBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span>(<span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Ok
+                                      <span class="operator">|</span> <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Cancel);
+
+     connect(buttonBox<span class="operator">,</span> SIGNAL(accepted())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(verify()));
+     connect(buttonBox<span class="operator">,</span> SIGNAL(rejected())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(reject()));</pre>
+<p>A <a href="qgridlayout.html">QGridLayout</a> is used to place all the objects on the <tt>DetailsDialog</tt>.</p>
+<pre class="cpp"> <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widgetSubscriber <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>subscriberLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     subscriberLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     subscriberLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameEdit<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     subscriberLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     subscriberLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressEdit<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     subscriberLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(offersCheckBox<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     widgetSubscriber<span class="operator">-</span><span class="operator">&gt;</span>setLayout(subscriberLayout);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widgetOrder <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>orderLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     orderLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(itemsTable);
+     widgetOrder<span class="operator">-</span><span class="operator">&gt;</span>setLayout(orderLayout);
+
+     <span class="type"><a href="qtabwidget.html">QTabWidget</a></span> <span class="operator">*</span>tabWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtabwidget.html">QTabWidget</a></span>;
+     tabWidget<span class="operator">-</span><span class="operator">&gt;</span>addTab(widgetSubscriber<span class="operator">,</span> <span class="string">&quot;Subscriber&quot;</span>);
+     tabWidget<span class="operator">-</span><span class="operator">&gt;</span>addTab(widgetOrder<span class="operator">,</span> <span class="string">&quot;Order&quot;</span>);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(tabWidget);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(buttonBox);
+     setLayout(mainLayout);
+ <span class="preprocessor">#else</span>
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameEdit<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addressEdit<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(itemsTable<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(offersCheckBox<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(buttonBox<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">3</span>);
+     setLayout(mainLayout);
+ <span class="preprocessor">#endif</span>
+
+     setWindowTitle(title);
+ }</pre>
+<p>The <tt>setupItemsTable()</tt> function instantiates the <a href="qtablewidget.html">QTableWidget</a> object, <tt>itemsTable</tt>, and sets the number of rows based on the <a href="qstringlist.html">QStringList</a> object, <tt>items</tt>, which holds the type of items ordered. The number of columns is set to 2, providing a &quot;name&quot; and &quot;quantity&quot; layout. A <tt>for</tt> loop is used to populate the <tt>itemsTable</tt> and the <tt>name</tt> item's flag is set to <a href="qt.html#ItemFlag-enum">Qt::ItemIsEnabled</a> or <a href="qt.html#ItemFlag-enum">Qt::ItemIsSelectable</a>. For demonstration purposes, the <tt>quantity</tt> item is set to a 1 and all items in the <tt>itemsTable</tt> have this value for quantity; but this can be modified by editing the contents of the cells at run time.</p>
+<pre class="cpp"> <span class="type">void</span> DetailsDialog<span class="operator">::</span>setupItemsTable()
+ {
+     items <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;T-shirt&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;Badge&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;Reference book&quot;</span>)
+           <span class="operator">&lt;</span><span class="operator">&lt;</span> tr(<span class="string">&quot;Coffee cup&quot;</span>);
+
+     itemsTable <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidget.html">QTableWidget</a></span>(items<span class="operator">.</span>count()<span class="operator">,</span> <span class="number">2</span>);
+
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> items<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>row) {
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>name <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span>(items<span class="operator">[</span>row<span class="operator">]</span>);
+         name<span class="operator">-</span><span class="operator">&gt;</span>setFlags(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsEnabled <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsSelectable);
+         itemsTable<span class="operator">-</span><span class="operator">&gt;</span>setItem(row<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> name);
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>quantity <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span>(<span class="string">&quot;1&quot;</span>);
+         itemsTable<span class="operator">-</span><span class="operator">&gt;</span>setItem(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> quantity);
+     }
+ }</pre>
+<p>The <tt>orderItems()</tt> function extracts data from the <tt>itemsTable</tt> and returns it in the form of a <a href="qlist.html">QList</a>&lt;<a href="qpair.html">QPair</a>&lt;<a href="qstring.html">QString</a>,int&gt;&gt; where each <a href="qpair.html">QPair</a> corresponds to an item and the quantity ordered.</p>
+<pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> DetailsDialog<span class="operator">::</span>orderItems()
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> orderList;
+
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> items<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>row) {
+         <span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span> item;
+         item<span class="operator">.</span>first <span class="operator">=</span> itemsTable<span class="operator">-</span><span class="operator">&gt;</span>item(row<span class="operator">,</span> <span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>text();
+         <span class="type">int</span> quantity <span class="operator">=</span> itemsTable<span class="operator">-</span><span class="operator">&gt;</span>item(row<span class="operator">,</span> <span class="number">1</span>)<span class="operator">-</span><span class="operator">&gt;</span>data(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole)<span class="operator">.</span>toInt();
+         item<span class="operator">.</span>second <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="number">0</span><span class="operator">,</span> quantity);
+         orderList<span class="operator">.</span>append(item);
+     }
+
+     <span class="keyword">return</span> orderList;
+ }</pre>
+<p>The <tt>senderName()</tt> function is used to return the value of the <a href="qlineedit.html">QLineEdit</a> used to store the name field for the order form.</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> DetailsDialog<span class="operator">::</span>senderName() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> nameEdit<span class="operator">-</span><span class="operator">&gt;</span>text();
+ }</pre>
+<p>The <tt>senderAddress()</tt> function is used to return the value of the <a href="qtextedit.html">QTextEdit</a> containing the address for the order form.</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> DetailsDialog<span class="operator">::</span>senderAddress() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> addressEdit<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
+ }</pre>
+<p>The <tt>sendOffers()</tt> function is used to return a <tt>true</tt> or <tt>false</tt> value that is used to determine if the customer in the order form wishes to receive more information on the company's offers and promotions.</p>
+<pre class="cpp"> <span class="type">bool</span> DetailsDialog<span class="operator">::</span>sendOffers()
+ {
+     <span class="keyword">return</span> offersCheckBox<span class="operator">-</span><span class="operator">&gt;</span>isChecked();
+ }</pre>
+<p>The <tt>verify()</tt> function is an additionally implemented slot used to verify the details entered by the user into the <tt>DetailsDialog</tt>. If the details entered are incomplete, a <a href="qmessagebox.html">QMessageBox</a> is displayed providing the user the option to discard the <tt>DetailsDialog</tt>. Otherwise, the details are accepted and the <tt>accept()</tt> function is invoked.</p>
+<pre class="cpp"> <span class="type">void</span> DetailsDialog<span class="operator">::</span>verify()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>nameEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>isEmpty() <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>addressEdit<span class="operator">-</span><span class="operator">&gt;</span>toPlainText()<span class="operator">.</span>isEmpty()) {
+         accept();
+         <span class="keyword">return</span>;
+     }
+
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>StandardButton answer;
+     answer <span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Incomplete Form&quot;</span>)<span class="operator">,</span>
+         tr(<span class="string">&quot;The form does not contain all the necessary information.\n&quot;</span>
+            <span class="string">&quot;Do you want to discard it?&quot;</span>)<span class="operator">,</span>
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes <span class="operator">|</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>No);
+
+     <span class="keyword">if</span> (answer <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Yes)
+         reject();
+ }</pre>
+<a name="mainwindow-definition"></a>
+<h2>MainWindow Definition</h2>
+<p>The <tt>MainWindow</tt> class is a subclass of <a href="qmainwindow.html">QMainWindow</a>, implementing two slots - <tt>openDialog()</tt> and <tt>printFile()</tt>. It also contains a private instance of <a href="qtabwidget.html">QTabWidget</a>, <tt>letters</tt>.</p>
+<pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     MainWindow();
+     <span class="type">void</span> createSample();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> openDialog();
+     <span class="type">void</span> printFile();
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> createLetter(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>address<span class="operator">,</span>
+                       <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> orderItems<span class="operator">,</span>
+                       <span class="type">bool</span> sendOffers);
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>printAction;
+     <span class="type"><a href="qtabwidget.html">QTabWidget</a></span> <span class="operator">*</span>letters;
+ };</pre>
+<a name="mainwindow-implementation"></a>
+<h2>MainWindow Implementation</h2>
+<p>The <tt>MainWindow</tt> constructor sets up the <tt>fileMenu</tt> and the required actions, <tt>newAction</tt> and <tt>printAction</tt>. These actions' <tt>triggered()</tt> signals are connected to the additionally implemented openDialog() slot and the default close() slot. The <a href="qtabwidget.html">QTabWidget</a>, <tt>letters</tt>, is instantiated and set as the window's central widget.</p>
+<pre class="cpp"> MainWindow<span class="operator">::</span>MainWindow()
+ {
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>fileMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(tr(<span class="string">&quot;&amp;File&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>newAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;&amp;New...&quot;</span>));
+     newAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>New);
+     printAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;&amp;Print...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(printFile()));
+     printAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>Print);
+     printAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>quitAction <span class="operator">=</span> fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;E&amp;xit&quot;</span>));
+     quitAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcuts(<span class="type"><a href="qkeysequence.html">QKeySequence</a></span><span class="operator">::</span>Quit);
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(fileMenu);
+
+     letters <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtabwidget.html">QTabWidget</a></span>;
+
+     connect(newAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(openDialog()));
+     connect(quitAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(close()));
+
+     setCentralWidget(letters);
+     setWindowTitle(tr(<span class="string">&quot;Order Form&quot;</span>));
+ }</pre>
+<p>The <tt>createLetter()</tt> function creates a new <a href="qtabwidget.html">QTabWidget</a> with a <a href="qtextedit.html">QTextEdit</a>, <tt>editor</tt>, as the parent. This function accepts four parameters that correspond to we obtained through <tt>DetailsDialog</tt>, in order to &quot;fill&quot; the <tt>editor</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createLetter(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>address<span class="operator">,</span>
+                               <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> orderItems<span class="operator">,</span>
+                               <span class="type">bool</span> sendOffers)
+ {
+     <span class="type"><a href="qtextedit.html">QTextEdit</a></span> <span class="operator">*</span>editor <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>;
+     <span class="type">int</span> tabIndex <span class="operator">=</span> letters<span class="operator">-</span><span class="operator">&gt;</span>addTab(editor<span class="operator">,</span> name);
+     letters<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(tabIndex);</pre>
+<p>We then obtain the cursor for the <tt>editor</tt> using <a href="qtextedit.html#textCursor">QTextEdit::textCursor</a>(). The <tt>cursor</tt> is then moved to the start of the document using <a href="qtextcursor.html#MoveOperation-enum">QTextCursor::Start</a>.</p>
+<pre class="cpp">     <span class="type"><a href="qtextcursor.html">QTextCursor</a></span> cursor(editor<span class="operator">-</span><span class="operator">&gt;</span>textCursor());
+     cursor<span class="operator">.</span>movePosition(<span class="type"><a href="qtextcursor.html">QTextCursor</a></span><span class="operator">::</span>Start);</pre>
+<p>Recall the structure of a <a href="richtext-structure.html">Rich Text Document</a>, where sequences of frames and tables are always separated by text blocks, some of which may contain no information.</p>
+<p>In the case of the Order Form Example, the document structure for this portion is described by the table below:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td  rowspan=" 8">frame with <i>referenceFrameFormat</i></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>A company</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>321 City Street</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Industry Park</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Another country</tt></td></tr>
+</table>
+<p>This is accomplished with the following code:</p>
+<pre class="cpp">     <span class="type"><a href="qtextframe.html">QTextFrame</a></span> <span class="operator">*</span>topFrame <span class="operator">=</span> cursor<span class="operator">.</span>currentFrame();
+     <span class="type"><a href="qtextframeformat.html">QTextFrameFormat</a></span> topFrameFormat <span class="operator">=</span> topFrame<span class="operator">-</span><span class="operator">&gt;</span>frameFormat();
+     topFrameFormat<span class="operator">.</span>setPadding(<span class="number">16</span>);
+     topFrame<span class="operator">-</span><span class="operator">&gt;</span>setFrameFormat(topFrameFormat);
+
+     <span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> textFormat;
+     <span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> boldFormat;
+     boldFormat<span class="operator">.</span>setFontWeight(<span class="type"><a href="qfont.html">QFont</a></span><span class="operator">::</span>Bold);
+
+     <span class="type"><a href="qtextframeformat.html">QTextFrameFormat</a></span> referenceFrameFormat;
+     referenceFrameFormat<span class="operator">.</span>setBorder(<span class="number">1</span>);
+     referenceFrameFormat<span class="operator">.</span>setPadding(<span class="number">8</span>);
+     referenceFrameFormat<span class="operator">.</span>setPosition(<span class="type"><a href="qtextframeformat.html">QTextFrameFormat</a></span><span class="operator">::</span>FloatRight);
+     referenceFrameFormat<span class="operator">.</span>setWidth(<span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">40</span>));
+     cursor<span class="operator">.</span>insertFrame(referenceFrameFormat);
+
+     cursor<span class="operator">.</span>insertText(<span class="string">&quot;A company&quot;</span><span class="operator">,</span> boldFormat);
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertText(<span class="string">&quot;321 City Street&quot;</span>);
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertText(<span class="string">&quot;Industry Park&quot;</span>);
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertText(<span class="string">&quot;Another country&quot;</span>);</pre>
+<p>Note that <tt>topFrame</tt> is the <tt>editor</tt>'s top-level frame and is not shown in the document structure.</p>
+<p>We then set the <tt>cursor</tt>'s position back to its last position in <tt>topFrame</tt> and fill in the customer's name (provided by the constructor) and address - using a <tt>foreach</tt> loop to traverse the <a href="qstring.html">QString</a>, <tt>address</tt>.</p>
+<pre class="cpp">     cursor<span class="operator">.</span>setPosition(topFrame<span class="operator">-</span><span class="operator">&gt;</span>lastPosition());
+
+     cursor<span class="operator">.</span>insertText(name<span class="operator">,</span> textFormat);
+     <span class="type"><a href="qstring.html">QString</a></span> line;
+     foreach (line<span class="operator">,</span> address<span class="operator">.</span>split(<span class="string">&quot;\n&quot;</span>)) {
+         cursor<span class="operator">.</span>insertBlock();
+         cursor<span class="operator">.</span>insertText(line);
+     }</pre>
+<p>The <tt>cursor</tt> is now back in <tt>topFrame</tt> and the document structure for the above portion of code is:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td >block</td><td ><tt>Donald</tt></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>47338 Park Avenue</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>Big City</tt></td></tr>
+</table>
+<p>For spacing purposes, we invoke <a href="qtextcursor.html#insertBlock">insertBlock()</a> twice. The <a href="qdate.html#currentDate">currentDate()</a> is obtained and displayed. We use <a href="qtextframeformat.html#setWidth">setWidth()</a> to increase the width of <tt>bodyFrameFormat</tt> and we insert a new frame with that width.</p>
+<pre class="cpp">     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertBlock();
+
+     <span class="type"><a href="qdate.html">QDate</a></span> date <span class="operator">=</span> <span class="type"><a href="qdate.html">QDate</a></span><span class="operator">::</span>currentDate();
+     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;Date: %1&quot;</span>)<span class="operator">.</span>arg(date<span class="operator">.</span>toString(<span class="string">&quot;d MMMM yyyy&quot;</span>))<span class="operator">,</span>
+                       textFormat);
+     cursor<span class="operator">.</span>insertBlock();
+
+     <span class="type"><a href="qtextframeformat.html">QTextFrameFormat</a></span> bodyFrameFormat;
+     bodyFrameFormat<span class="operator">.</span>setWidth(<span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">100</span>));
+     cursor<span class="operator">.</span>insertFrame(bodyFrameFormat);</pre>
+<p>The following code inserts standard text into the order form.</p>
+<pre class="cpp">     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;I would like to place an order for the following &quot;</span>
+                          <span class="string">&quot;items:&quot;</span>)<span class="operator">,</span> textFormat);
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertBlock();</pre>
+<p>This part of the document structure now contains the date, a frame with <tt>bodyFrameFormat</tt>, as well as the standard text.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>Date: 25 May 2007</tt></td></tr>
+<tr valign="top" class="even"><td >block</td></tr>
+<tr valign="top" class="odd"><td  rowspan=" 4">frame with <i>bodyFrameFormat</i></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>I would like to place an order for the following items:</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td></tr>
+</table>
+<p>A <a href="qtexttableformat.html">QTextTableFormat</a> object, <tt>orderTableFormat</tt>, is used to hold the type of item and the quantity ordered.</p>
+<pre class="cpp">     <span class="type"><a href="qtexttableformat.html">QTextTableFormat</a></span> orderTableFormat;
+     orderTableFormat<span class="operator">.</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+     <span class="type"><a href="qtexttable.html">QTextTable</a></span> <span class="operator">*</span>orderTable <span class="operator">=</span> cursor<span class="operator">.</span>insertTable(<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> orderTableFormat);
+
+     <span class="type"><a href="qtextframeformat.html">QTextFrameFormat</a></span> orderFrameFormat <span class="operator">=</span> cursor<span class="operator">.</span>currentFrame()<span class="operator">-</span><span class="operator">&gt;</span>frameFormat();
+     orderFrameFormat<span class="operator">.</span>setBorder(<span class="number">1</span>);
+     cursor<span class="operator">.</span>currentFrame()<span class="operator">-</span><span class="operator">&gt;</span>setFrameFormat(orderFrameFormat);</pre>
+<p>We use <a href="qtexttable.html#cellAt">cellAt()</a> to set the headers for the <tt>orderTable</tt>.</p>
+<pre class="cpp">     cursor <span class="operator">=</span> orderTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">.</span>firstCursorPosition();
+     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;Product&quot;</span>)<span class="operator">,</span> boldFormat);
+     cursor <span class="operator">=</span> orderTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">.</span>firstCursorPosition();
+     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;Quantity&quot;</span>)<span class="operator">,</span> boldFormat);</pre>
+<p>Then, we iterate through the <a href="qlist.html">QList</a> of <a href="qpair.html">QPair</a> objects to populate <tt>orderTable</tt>.</p>
+<pre class="cpp">     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> orderItems<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qpair.html">QPair</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type">int</span><span class="operator">&gt;</span> item <span class="operator">=</span> orderItems<span class="operator">[</span>i<span class="operator">]</span>;
+         <span class="type">int</span> row <span class="operator">=</span> orderTable<span class="operator">-</span><span class="operator">&gt;</span>rows();
+
+         orderTable<span class="operator">-</span><span class="operator">&gt;</span>insertRows(row<span class="operator">,</span> <span class="number">1</span>);
+         cursor <span class="operator">=</span> orderTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(row<span class="operator">,</span> <span class="number">0</span>)<span class="operator">.</span>firstCursorPosition();
+         cursor<span class="operator">.</span>insertText(item<span class="operator">.</span>first<span class="operator">,</span> textFormat);
+         cursor <span class="operator">=</span> orderTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(row<span class="operator">,</span> <span class="number">1</span>)<span class="operator">.</span>firstCursorPosition();
+         cursor<span class="operator">.</span>insertText(<span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;%1&quot;</span>)<span class="operator">.</span>arg(item<span class="operator">.</span>second)<span class="operator">,</span> textFormat);
+     }</pre>
+<p>The resulting document structure for this section is:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td  rowspan=" 11"><tt>orderTable</tt> with <i>orderTableFormat</i></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Product</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>Quantity</tt></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>T-shirt</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>4</tt></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Badge</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>3</tt></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Reference book</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>2</tt></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Coffee cup</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>5</tt></td></tr>
+</table>
+<p>The <tt>cursor</tt> is then moved back to <tt>topFrame</tt>'s <a href="qtextframe.html#lastPosition">lastPosition()</a> and more standard text is inserted.</p>
+<pre class="cpp">     cursor<span class="operator">.</span>setPosition(topFrame<span class="operator">-</span><span class="operator">&gt;</span>lastPosition());
+
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;Please update my records to take account of the &quot;</span>
+                          <span class="string">&quot;following privacy information:&quot;</span>));
+     cursor<span class="operator">.</span>insertBlock();</pre>
+<p>Another <a href="qtexttable.html">QTextTable</a> is inserted, to display the customer's preference regarding offers.</p>
+<pre class="cpp">     <span class="type"><a href="qtexttable.html">QTextTable</a></span> <span class="operator">*</span>offersTable <span class="operator">=</span> cursor<span class="operator">.</span>insertTable(<span class="number">2</span><span class="operator">,</span> <span class="number">2</span>);
+
+     cursor <span class="operator">=</span> offersTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">.</span>firstCursorPosition();
+     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;I want to receive more information about your &quot;</span>
+                          <span class="string">&quot;company's products and special offers.&quot;</span>)<span class="operator">,</span> textFormat);
+     cursor <span class="operator">=</span> offersTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(<span class="number">1</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">.</span>firstCursorPosition();
+     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;I do not want to receive any promotional information &quot;</span>
+                          <span class="string">&quot;from your company.&quot;</span>)<span class="operator">,</span> textFormat);
+
+     <span class="keyword">if</span> (sendOffers)
+         cursor <span class="operator">=</span> offersTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">.</span>firstCursorPosition();
+     <span class="keyword">else</span>
+         cursor <span class="operator">=</span> offersTable<span class="operator">-</span><span class="operator">&gt;</span>cellAt(<span class="number">1</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">.</span>firstCursorPosition();
+
+     cursor<span class="operator">.</span>insertText(<span class="string">&quot;X&quot;</span><span class="operator">,</span> boldFormat);</pre>
+<p>The document structure for this portion is:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Please update my..&#x2e;</tt></td></tr>
+<tr valign="top" class="odd"><td  rowspan=" 5">block</td></tr>
+<tr valign="top" class="even"><td  rowspan=" 4"><tt>offersTable</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>I want to receive..&#x2e;</tt></td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>I do not want to recieve..&#x2e;</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td><td ><tt>X</tt></td></tr>
+</table>
+<p>The <tt>cursor</tt> is moved to insert &quot;Sincerely&quot; along with the customer's name. More blocks are inserted for spacing purposes. The <tt>printAction</tt> is enabled to indicate that an order form can now be printed.</p>
+<pre class="cpp">     cursor<span class="operator">.</span>setPosition(topFrame<span class="operator">-</span><span class="operator">&gt;</span>lastPosition());
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertText(tr(<span class="string">&quot;Sincerely,&quot;</span>)<span class="operator">,</span> textFormat);
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertBlock();
+     cursor<span class="operator">.</span>insertText(name);
+
+     printAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+ }</pre>
+<p>The bottom portion of the document structure is:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td  rowspan=" 5">block</td><td ><tt>Sincerely,</tt></td></tr>
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td></tr>
+<tr valign="top" class="odd"><td >block</td></tr>
+<tr valign="top" class="even"><td >block</td><td ><tt>Donald</tt></td></tr>
+</table>
+<p>The <tt>createSample()</tt> function is used for illustration purposes, to create a sample order form.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>createSample()
+ {
+     DetailsDialog dialog(<span class="string">&quot;Dialog with default values&quot;</span><span class="operator">,</span> <span class="keyword">this</span>);
+     createLetter(<span class="string">&quot;Mr. Smith&quot;</span><span class="operator">,</span> <span class="string">&quot;12 High Street\nSmall Town\nThis country&quot;</span><span class="operator">,</span>
+                  dialog<span class="operator">.</span>orderItems()<span class="operator">,</span> <span class="keyword">true</span>);
+ }</pre>
+<p>The <tt>openDialog()</tt> function opens a <tt>DetailsDialog</tt> object. If the details in <tt>dialog</tt> are accepted, the <tt>createLetter()</tt> function is invoked using the parameters extracted from <tt>dialog</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>openDialog()
+ {
+     DetailsDialog dialog(tr(<span class="string">&quot;Enter Customer Details&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+
+     <span class="keyword">if</span> (dialog<span class="operator">.</span>exec() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted)
+         createLetter(dialog<span class="operator">.</span>senderName()<span class="operator">,</span> dialog<span class="operator">.</span>senderAddress()<span class="operator">,</span>
+                      dialog<span class="operator">.</span>orderItems()<span class="operator">,</span> dialog<span class="operator">.</span>sendOffers());
+ }</pre>
+<p>In order to print out the order form, a <tt>printFile()</tt> function is included, as shown below:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>printFile()
+ {
+ <span class="preprocessor">#ifndef QT_NO_PRINTER</span>
+     <span class="type"><a href="qtextedit.html">QTextEdit</a></span> <span class="operator">*</span>editor <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtextedit.html">QTextEdit</a></span><span class="operator">*</span><span class="operator">&gt;</span>(letters<span class="operator">-</span><span class="operator">&gt;</span>currentWidget());
+     <span class="type"><a href="qprinter.html">QPrinter</a></span> printer;
+
+     <span class="type"><a href="qprintdialog.html">QPrintDialog</a></span> <span class="operator">*</span>dialog <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qprintdialog.html">QPrintDialog</a></span>(<span class="operator">&amp;</span>printer<span class="operator">,</span> <span class="keyword">this</span>);
+     dialog<span class="operator">-</span><span class="operator">&gt;</span>setWindowTitle(tr(<span class="string">&quot;Print Document&quot;</span>));
+     <span class="keyword">if</span> (editor<span class="operator">-</span><span class="operator">&gt;</span>textCursor()<span class="operator">.</span>hasSelection())
+         dialog<span class="operator">-</span><span class="operator">&gt;</span>addEnabledOption(<span class="type"><a href="qabstractprintdialog.html">QAbstractPrintDialog</a></span><span class="operator">::</span>PrintSelection);
+     <span class="keyword">if</span> (dialog<span class="operator">-</span><span class="operator">&gt;</span>exec() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted)
+         <span class="keyword">return</span>;
+
+     editor<span class="operator">-</span><span class="operator">&gt;</span>print(<span class="operator">&amp;</span>printer);
+ <span class="preprocessor">#endif</span>
+ }</pre>
+<p>This function also allows the user to print a selected area with <a href="qtextcursor.html#hasSelection">QTextCursor::hasSelection</a>(), instead of printing the entire document.</p>
+<a name="function"></a>
+<h2><tt>main()</tt> Function</h2>
+<p>The <tt>main()</tt> function instantiates <tt>MainWindow</tt> and sets its size to 640x480 pixels before invoking the <tt>show()</tt> function and <tt>createSample()</tt> function.</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     MainWindow window;
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN)</span>
+     window<span class="operator">.</span>showMaximized();
+ <span class="preprocessor">#elif defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+     windows<span class="operator">.</span>show();
+ <span class="preprocessor">#else</span>
+     window<span class="operator">.</span>resize(<span class="number">640</span><span class="operator">,</span> <span class="number">480</span>);
+     window<span class="operator">.</span>show();
+ <span class="preprocessor">#endif</span>
+     window<span class="operator">.</span>createSample();
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</div>
+<!-- @@@richtext/orderform -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

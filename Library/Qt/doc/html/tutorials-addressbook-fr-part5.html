@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- addressbook-fr.qdoc -->
+  <title>Qt 4.8: Carnet d'adresse 5 - Ajout d'une fonction de recherche</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Carnet d'adresse 5 - Ajout d'une fonction de recherche</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#d-finition-de-la-classe-finddialog">Définition de la classe FindDialog</a></li>
+<li class="level1"><a href="#impl-mentation-de-la-classe-finddialog">Implémentation de la classe FindDialog</a></li>
+<li class="level1"><a href="#d-finition-de-la-classe-addressbook">Définition de la classe AddressBook</a></li>
+<li class="level1"><a href="#impl-mentation-de-la-classe-addressbook">Implémentation de la classe AddressBook</a></li>
+</ul>
+</div>
+<h1 class="title">Carnet d'adresse 5 - Ajout d'une fonction de recherche</h1>
+<span class="subtitle"></span>
+<!-- $$$tutorials/addressbook-fr/part5-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="tutorials-addressbook-fr-part5-addressbook-cpp.html">tutorials/addressbook-fr/part5/addressbook.cpp</a></li>
+<li><a href="tutorials-addressbook-fr-part5-addressbook-h.html">tutorials/addressbook-fr/part5/addressbook.h</a></li>
+<li><a href="tutorials-addressbook-fr-part5-finddialog-cpp.html">tutorials/addressbook-fr/part5/finddialog.cpp</a></li>
+<li><a href="tutorials-addressbook-fr-part5-finddialog-h.html">tutorials/addressbook-fr/part5/finddialog.h</a></li>
+<li><a href="tutorials-addressbook-fr-part5-main-cpp.html">tutorials/addressbook-fr/part5/main.cpp</a></li>
+<li><a href="tutorials-addressbook-fr-part5-part5-pro.html">tutorials/addressbook-fr/part5/part5.pro</a></li>
+</ul>
+<p>Dans ce chapitre, nous allons voir les possibilités pour rechercher des contacts dans le carnet d'adresse.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-screenshot.png" alt="" /></p><p>Plus nous ajoutons des contacts dans l'application, plus il devient difficile de naviguer avec les boutons <i>Next</i> et <i>Previous</i>. Dans ce cas, une fonction de recherche serait plus efficace pour rechercher les contacts. La capture d'écran ci-dessus montre le bouton de recherche <i>Find</i> et sa position dans le paneau de bouton.</p>
+<p>Lorsque l'utilisateur clique sur le bouton <i>Find</i>, il est courant d'afficher une boîte de dialogue qui demande à l'utilisateur d'entrer un nom de contact. Qt fournit la classe <a href="qdialog.html">QDialog</a>, que nous sous-classons dans ce chapitre pour implémenter la class <tt>FindDialog</tt>.</p>
+<a name="d-finition-de-la-classe-finddialog"></a>
+<h2>Définition de la classe FindDialog</h2>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-finddialog.png" alt="" /></p><p>Pour sous-classer <a href="qdialog.html">QDialog</a>, nous commençons par inclure le header de <a href="qdialog.html">QDialog</a> dans le fichier <tt>finddialog.h</tt>. De plus, nous déclarons les classes <a href="qlineedit.html">QLineEdit</a> et <a href="qpushbutton.html">QPushButton</a> car nous utilisons ces widgets dans notre classe dialogue.</p>
+<p>Tout comme dans la classe <tt>AddressBook</tt>, la classe <tt>FindDialog</tt> utilise la macro <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> et son constructeur est défini de façon à accepter un <a href="qwidget.html">QWidget</a> parent, même si cette boîte de dialogue sera affichée dans une fenêtre séparée.</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDialog&gt;</span>
+
+ <span class="keyword">class</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+ <span class="keyword">class</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>;
+
+ <span class="keyword">class</span> FindDialog : <span class="keyword">public</span> <span class="type"><a href="qdialog.html">QDialog</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     FindDialog(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="type"><a href="qstring.html">QString</a></span> getFindText();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> findClicked();
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>findButton;
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>lineEdit;
+     <span class="type"><a href="qstring.html">QString</a></span> findText;
+ };</pre>
+<p>Nous définissons la méthode publique <tt>getFindText()</tt> pour être utilisée par les classes qui instancient <tt>FindDialog</tt>, ce qui leur permet d'obtenir le texte entré par l'utilisateur. Un slot public, <tt>findClicked()</tt>, est défini pour prendre en charge le texte lorsque l'utilisateur clique sur le bouton <b>Find</b>.</p>
+<p>Finalement, nous définissons les variables privées <tt>findButton</tt>, <tt>lineEdit</tt> et <tt>findText</tt>, qui correspondent respectivement au bouton <b>Find</b>, au champ de texte dans lequel l'utilisateur tape le texte à rechercher, et à une variable interne stockant le texte pour une utilisation ultérieure.</p>
+<a name="impl-mentation-de-la-classe-finddialog"></a>
+<h2>Implémentation de la classe FindDialog</h2>
+<p>Dans le constructeur de <tt>FindDialog</tt>, nous instancions les objets des variables privées <tt>lineEdit</tt>, <tt>findButton</tt> et <tt>findText</tt>. Nous utilisons ensuite un <a href="qhboxlayout.html">QHBoxLayout</a> pour positionner les widgets.</p>
+<pre class="cpp"> FindDialog<span class="operator">::</span>FindDialog(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qdialog.html">QDialog</a></span>(parent)
+ {
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>findLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Enter the name of a contact:&quot;</span>));
+     lineEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+
+     findButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Find&quot;</span>));
+     findText <span class="operator">=</span> <span class="string">&quot;&quot;</span>;
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(findLabel);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(lineEdit);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(findButton);
+
+     setLayout(layout);
+     setWindowTitle(tr(<span class="string">&quot;Find a Contact&quot;</span>));
+     connect(findButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(findClicked()));
+     connect(findButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(accept()));
+ }</pre>
+<p>Nous mettons en place la mise en page et le titre de la fenêtre, et nous connectons les signaux aux slots. Remarquez que le signal <a href="qabstractbutton.html#clicked">clicked()</a> de <tt>findButton</tt> est connecté à <tt>findClicked()</tt> et <a href="qdialog.html#accept">accept()</a>. Le slot <a href="qdialog.html#accept">accept()</a> fourni par le <a href="qdialog.html">QDialog</a> ferme la boîte de dialogue et lui donne le code de retour <a href="qdialog.html#DialogCode-enum">Accepted</a>. Nous utilisons cette fonction pour aider la méthode <tt>findContact()</tt> de la classe <tt>AddressBook</tt> à savoir si l'objet <tt>FindDialog</tt> a été fermé. Ceci sera expliqué plus loin lorsque nous verrons la méthode <tt>findContact()</tt>.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-signals-and-slots.png" alt="" /></p><p>Dans <tt>findClicked()</tt>, nous validons le champ de texte pour nous assurer que l'utilisateur n'a pas cliqué sur le bouton <b>Find</b> sans avoir entré un nom de contact. Ensuite, nous stockons le texte du champ d'entrée <tt>lineEdit</tt> dans <tt>findText</tt>. Et finalement nous vidons le contenu de <tt>lineEdit</tt> et cachons la boîte de dialogue.</p>
+<pre class="cpp"> <span class="type">void</span> FindDialog<span class="operator">::</span>findClicked()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> lineEdit<span class="operator">-</span><span class="operator">&gt;</span>text();
+
+     <span class="keyword">if</span> (text<span class="operator">.</span>isEmpty()) {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Empty Field&quot;</span>)<span class="operator">,</span>
+             tr(<span class="string">&quot;Please enter a name.&quot;</span>));
+         <span class="keyword">return</span>;
+     } <span class="keyword">else</span> {
+         findText <span class="operator">=</span> text;
+         lineEdit<span class="operator">-</span><span class="operator">&gt;</span>clear();
+         hide();
+     }
+ }</pre>
+<p>La variable <tt>findText</tt> a un accesseur publique associé: <tt>getFindText()</tt>. Étant donné que nous ne modifions <tt>findText</tt> directement que dans le constructeur et la méthode <tt>findClicked()</tt>, nous ne créons pas de manipulateurs associé à <tt>getFindText()</tt>. Puisque <tt>getFindText()</tt> est publique, les classes instanciant et utilisant <tt>FindDialog</tt> peuvent toujours accéder à la chaîne de caractères que l'utilisateur a entré et accepté.</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> FindDialog<span class="operator">::</span>getFindText()
+ {
+     <span class="keyword">return</span> findText;
+ }</pre>
+<a name="d-finition-de-la-classe-addressbook"></a>
+<h2>Définition de la classe AddressBook</h2>
+<p>Pour utiliser <tt>FindDialog</tt> depuis la classe <tt>AddressBook</tt>, nous incluons <tt>finddialog.h</tt> dans le fichier <tt>addressbook.h</tt>.</p>
+<pre class="cpp"> <span class="preprocessor">#include &quot;finddialog.h&quot;</span></pre>
+<p>Jusqu'ici, toutes les fonctionnalités du carnet d'adresses ont un <a href="qpushbutton.html">QPushButton</a> et un slot correspondant. De la même façon, pour la fonctionnalité <b>Find</b>, nous avons <tt>findButton</tt> et <tt>findContact()</tt>.</p>
+<p>Le <tt>findButton</tt> est déclaré comme une variable privée et la méthode <tt>findContact()</tt> est déclarée comme un slot public.</p>
+<pre class="cpp">     <span class="type">void</span> findContact();
+     ...
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>findButton;</pre>
+<p>Finalement, nous déclarons la variable privée <tt>dialog</tt> que nous allons utiliser pour accéder à une instance de <tt>FindDialog</tt>.</p>
+<pre class="cpp">     FindDialog <span class="operator">*</span>dialog;</pre>
+<p>Une fois que nous avons instancié la boîte de dialogue, nous voulons l'utiliser plus qu'une fois. Utiliser une variable privée nous permet d'y référer à plus d'un endroit dans la classe.</p>
+<a name="impl-mentation-de-la-classe-addressbook"></a>
+<h2>Implémentation de la classe AddressBook</h2>
+<p>Dans le constructeur de <tt>AddressBook</tt>, nous instancions nos objets privés, <tt>findbutton</tt> et <tt>findDialog</tt>:</p>
+<pre class="cpp">     findButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Find&quot;</span>));
+     findButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     ...
+     dialog <span class="operator">=</span> <span class="keyword">new</span> FindDialog;</pre>
+<p>Ensuite, nous connectons le signal <a href="qabstractbutton.html#clicked">clicked()</a> de <tt>findButton</tt> à <tt>findContact()</tt>.</p>
+<pre class="cpp">     connect(findButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(findContact()));</pre>
+<p>Maintenant, tout ce qui manque est le code de notre méthode <tt>findContact()</tt>:</p>
+<pre class="cpp"> <span class="type">void</span> AddressBook<span class="operator">::</span>findContact()
+ {
+     dialog<span class="operator">-</span><span class="operator">&gt;</span>show();
+
+     <span class="keyword">if</span> (dialog<span class="operator">-</span><span class="operator">&gt;</span>exec() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted) {
+         <span class="type"><a href="qstring.html">QString</a></span> contactName <span class="operator">=</span> dialog<span class="operator">-</span><span class="operator">&gt;</span>getFindText();
+
+         <span class="keyword">if</span> (contacts<span class="operator">.</span>contains(contactName)) {
+             nameLine<span class="operator">-</span><span class="operator">&gt;</span>setText(contactName);
+             addressText<span class="operator">-</span><span class="operator">&gt;</span>setText(contacts<span class="operator">.</span>value(contactName));
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Contact Not Found&quot;</span>)<span class="operator">,</span>
+                 tr(<span class="string">&quot;Sorry, \&quot;%1\&quot; is not in your address book.&quot;</span>)<span class="operator">.</span>arg(contactName));
+             <span class="keyword">return</span>;
+         }
+     }
+
+     updateInterface(NavigationMode);
+ }</pre>
+<p>Nous commençons par afficher l'instance de <tt>FindDialog</tt>, <tt>dialog</tt>. L'utilisateur peut alors entrer le nom du contact à rechercher. Lorsque l'utilisateur clique sur le bouton <tt>findButton</tt>, la boîte de dialogue est masquée et le code de retour devient <a href="qdialog.html#DialogCode-enum">QDialog::Accepted</a>. Ce code de retour vient remplir la condition du premier if.</p>
+<p>Ensuite, nous extrayons le texte que nous utiliserons pour la recherche, il s'agit ici de <tt>contactName</tt> obtenu à l'aide de la méthode <tt>getFindText()</tt> de <tt>FindDialog</tt>. Si le contact existe dans le carnet d'adresse, nous l'affichons directement. Sinon, nous affichons le <a href="qmessagebox.html">QMessageBox</a> suivant pour indiquer que la recherche à échouée.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part5-notfound.png" alt="" /></p></div>
+<!-- @@@tutorials/addressbook-fr/part5 -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

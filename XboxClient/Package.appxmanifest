@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:mx="http://schemas.microsoft.com/appx/2013/xbox/manifest" IgnorableNamespaces="mx">
+
+    <!--- 'Name' and 'Version' appear in the package path created by deploy  -->
+    <Identity Name="roblox"
+            Publisher="CN=ROBLOX, O=ROBLOX, L=San Mateo, S=California, C=US"
+            Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>ROBLOX</DisplayName>
+    <PublisherDisplayName>ROBLOX</PublisherDisplayName>
+    <Logo>img/roblox.png</Logo>
+    <Description>Community Created Gaming. Limitless Possibilities.</Description>
+  </Properties>
+  
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+  
+  <Resources>
+    <Resource Language="en-us"/>
+  </Resources>
+  
+  <Applications>
+
+      <!--- Debug config -->
+      <!--- 'Id' is in the aumid returned from deploy  -->
+      <!--- 'Executable' must match the .exe produced by the build  -->
+      <Application Id="RobloxClient0"
+          Executable="XboxClient.exe"
+          EntryPoint="XboxClient.App">
+          <!--- all fields except DisplayName not yet implemented -->
+          <VisualElements
+              DisplayName="ROBLOX"
+              Logo="img/logo208.png"
+              SmallLogo="img/logo100.png"
+              Description="Description"
+              ForegroundText="dark"
+              BackgroundColor="#000040">
+              <DefaultTile WideLogo="img/robloxWide.png" ShortName ="ROBLOX" />
+
+              <SplashScreen Image="img/roblox.png" />
+          </VisualElements>
+
+          <mx:Ratings Category="game">
+              <mx:Rating>ESRB:E10</mx:Rating>
+          </mx:Ratings>
+
+          <Extensions>
+            
+              <mx:Extension Category="xbox.live">
+                  <mx:XboxLive 
+                    TitleId="1465F7BC" 
+                    PrimaryServiceConfigId="bab50100-e49a-4ce8-b16f-918d1465f7bc" 
+                    RequireXboxLive="true" />
+              </mx:Extension>
+              <mx:Extension Category="windows.xbox.networking">
+                  <!-- NOTE: talk to Michal before you mess with this section. I'm dead serious. -->
+                  <mx:XboxNetworkingManifest>
+                      <mx:SocketDescriptions>
+                          <mx:SocketDescription Name="MultiplayerSocketUdp" SecureIpProtocol="Udp" BoundPort="8700"> <!-- particularly this part! -->
+                              <mx:AllowedUsages>
+                                  <mx:SecureDeviceSocketUsage Type="Initiate" />
+                                  <mx:SecureDeviceSocketUsage Type="Accept" />
+                                  <mx:SecureDeviceSocketUsage Type="SendGameData" />
+                                  <mx:SecureDeviceSocketUsage Type="ReceiveGameData" />
+                                  <mx:SecureDeviceSocketUsage Type="SendChat" />
+                                  <mx:SecureDeviceSocketUsage Type="ReceiveChat" />
+                              </mx:AllowedUsages>
+                          </mx:SocketDescription>
+                      </mx:SocketDescriptions>
+                      <mx:SecureDeviceAssociationTemplates>
+                          <mx:SecureDeviceAssociationTemplate Name="MultiplayerUdp" InitiatorSocketDescription="MultiplayerSocketUdp" AcceptorSocketDescription="MultiplayerSocketUdp" MultiplayerSessionRequirement="Required">
+                              <mx:AllowedUsages>
+                                  <mx:SecureDeviceAssociationUsage Type="Default" />
+                              </mx:AllowedUsages>
+                          </mx:SecureDeviceAssociationTemplate>
+                      </mx:SecureDeviceAssociationTemplates>
+                  </mx:XboxNetworkingManifest>
+              </mx:Extension>
+
+          </Extensions>
+
+      </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+    <mx:Capability Name="kinectAudio"/>
+    <mx:Capability Name="kinectGamechat"/>
+  </Capabilities>
+
+  <Extensions>
+    <mx:PackageExtension Category="xbox.storage">
+      <mx:Storage>
+        <mx:PersistentLocalStorage SizeInMegabytes="4095"/>
+      </mx:Storage>
+    </mx:PackageExtension>
+
+  </Extensions>
+  
+</Package>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtestlib.qdoc -->
+  <title>Qt 4.8: Chapter 4: Replaying GUI Events</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Chapter 4: Replaying GUI Events</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="prev" href="qtestlib-tutorial3.html" />
+  <link rel="next" href="qtestlib-tutorial5.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qtestlib-tutorial3.html">Chapter 3</a>
+<a class="nextPage" href="qtestlib-tutorial5.html">Chapter 5</a>
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#writing-the-data-function">Writing the Data Function</a></li>
+<li class="level1"><a href="#rewriting-the-test-function">Rewriting the Test Function</a></li>
+</ul>
+</div>
+<h1 class="title">Chapter 4: Replaying GUI Events</h1>
+<span class="subtitle"></span>
+<!-- $$$qtestlib/tutorial4-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="qtestlib-tutorial4-testgui-cpp.html">qtestlib/tutorial4/testgui.cpp</a></li>
+<li><a href="qtestlib-tutorial4-tutorial4-pro.html">qtestlib/tutorial4/tutorial4.pro</a></li>
+</ul>
+<p>In this chapter, we will show how to simulate a GUI event, and how to store a series of GUI events as well as replay them on a widget.</p>
+<p>The approach to storing a series of events and replay them, is quite similar to the approach explained in <a href="qtestlib-tutorial2.html">chapter 2</a>; all you need is to add a data function to your test class:</p>
+<pre class="cpp"> <span class="keyword">class</span> TestGui: <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> testGui_data();
+     <span class="type">void</span> testGui();
+ };</pre>
+<a name="writing-the-data-function"></a>
+<h2>Writing the Data Function</h2>
+<p>As before, a test function's associated data function carries the same name, appended by <tt>_data</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> TestGui<span class="operator">::</span>testGui_data()
+ {
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type"><a href="qtesteventlist.html">QTestEventList</a></span><span class="operator">&gt;</span>(<span class="string">&quot;events&quot;</span>);
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span>(<span class="string">&quot;expected&quot;</span>);
+
+     <span class="type"><a href="qtesteventlist.html">QTestEventList</a></span> list1;
+     list1<span class="operator">.</span>addKeyClick(<span class="char">'a'</span>);
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow(<span class="string">&quot;char&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> list1 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;a&quot;</span>;
+
+     <span class="type"><a href="qtesteventlist.html">QTestEventList</a></span> list2;
+     list2<span class="operator">.</span>addKeyClick(<span class="char">'a'</span>);
+     list2<span class="operator">.</span>addKeyClick(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Backspace);
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow(<span class="string">&quot;there and back again&quot;</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> list2 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;&quot;</span>;
+ }</pre>
+<p>First, we define the elements of the table using the <a href="qtest.html#addColumn">QTest::addColumn</a>() function: A list of GUI events, and the expected result of applying the list of events on a <a href="qwidget.html">QWidget</a>. Note that the type of the first element is <a href="qtesteventlist.html">QTestEventList</a>.</p>
+<p>A <a href="qtesteventlist.html">QTestEventList</a> can be populated with GUI events that can be stored as test data for later usage, or be replayed on any <a href="qwidget.html">QWidget</a>.</p>
+<p>In our current data function, we create two <a href="qtesteventlist.html">QTestEventList</a>s. The first list consists of a single click to the 'a' key. We add the event to the list using the <a href="qtesteventlist.html#addKeyClick">QTestEventList::addKeyClick</a>() function. Then we use the <a href="qtest.html#newRow">QTest::newRow</a>() function to give the data set a name, and stream the event list and the expected result into the table.</p>
+<p>The second list consists of two key clicks: an 'a' with a following 'backspace'. Again we use the <a href="qtesteventlist.html#addKeyClick">QTestEventList::addKeyClick</a>() to add the events to the list, and <a href="qtest.html#newRow">QTest::newRow</a>() to put the event list and the expected result into the table with an associated name.</p>
+<a name="rewriting-the-test-function"></a>
+<h2>Rewriting the Test Function</h2>
+<p>Our test can now be rewritten:</p>
+<pre class="cpp"> <span class="type">void</span> TestGui<span class="operator">::</span>testGui()
+ {
+     QFETCH(<span class="type"><a href="qtesteventlist.html">QTestEventList</a></span><span class="operator">,</span> events);
+     QFETCH(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> expected);
+
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> lineEdit;
+
+     events<span class="operator">.</span>simulate(<span class="operator">&amp;</span>lineEdit);
+
+     QCOMPARE(lineEdit<span class="operator">.</span>text()<span class="operator">,</span> expected);
+ }</pre>
+<p>The TestGui::testGui() function will be executed two times, once for each entry in the test data that we created in the associated TestGui::testGui_data() function.</p>
+<p>First, we fetch the two elements of the data set using the <a href="qtest.html#QFETCH">QFETCH</a>() macro. <a href="qtest.html#QFETCH">QFETCH</a>() takes two arguments: The data type of the element and the element name. Then we create a <a href="qlineedit.html">QLineEdit</a>, and apply the list of events on that widget using the <a href="qtesteventlist.html#simulate">QTestEventList::simulate</a>() function.</p>
+<p>Finally, we use the <a href="qtest.html#QCOMPARE">QCOMPARE</a>() macro to check if the line edit's text is as expected.</p>
+<p>As before, to make our test case a stand-alone executable, the following two lines are needed:</p>
+<pre class="cpp"> <a href="qtest.html#QTEST_MAIN">QTEST_MAIN</a>(TestGui)
+ <span class="preprocessor">#include &quot;testgui.moc&quot;</span></pre>
+<p>The <a href="qtest.html#QTEST_MAIN">QTEST_MAIN</a>() macro expands to a simple main() method that runs all the test functions, and since both the declaration and the implementation of our test class are in a .cpp file, we also need to include the generated moc file to make Qt's introspection work.</p>
+</div>
+<!-- @@@qtestlib/tutorial4 -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qtestlib-tutorial3.html">Chapter 3</a>
+<a class="nextPage" href="qtestlib-tutorial5.html">Chapter 5</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

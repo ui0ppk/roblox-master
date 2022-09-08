@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen,  1-Jul-1996 -->
+  <TITLE>W3C Sample Code Library libwww Default MIME/RFC822 Header Parsers</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Default MIME/RFC822 Header Parsers
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The Library's MIME parser is divided into two parts: A generic MIME parser
+that knows how to unwrap all RFC822 headers and specialized header parsers
+that knows how to parse <CODE>Content-Length</CODE>, for example. This is
+the default set of the specialized MIME header parsers that can be registered
+as part of the generic MIME. Note that these functions are not registered
+by default - they must be registered by the application. This can be done
+using the <A HREF="HTInit.html">HTMIMEInit()</A> function in the
+<A HREF="WWWInit.html">WWWInit interface</A>. Of course this can also be
+used to register new headers that are not represented below - or if you want
+to replace a default parser then this is also very easy.
+<P>
+This module is implemented by <A HREF="HTMIMImp.c">HTMIMImp.c</A>, and it
+is a part of the <A HREF="http://www.w3.org/Library/"> W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTMIMIMP_H
+#define HTMIMIMP_H
+
+#include "HTReq.h"
+#include "HTHeader.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<PRE>
+extern HTParserCallback 
+	HTMIME_accept, 
+	HTMIME_acceptCharset, 
+	HTMIME_acceptEncoding, 
+	HTMIME_acceptLanguage, 
+	HTMIME_acceptRanges, 
+	HTMIME_authenticate,
+	HTMIME_authenticationInfo,
+	HTMIME_authorization,
+	HTMIME_cacheControl,
+	HTMIME_connection, 
+	HTMIME_contentEncoding, 
+	HTMIME_contentLength,
+	HTMIME_contentRange,
+	HTMIME_contentTransferEncoding, 
+	HTMIME_contentType,
+	HTMIME_keepAlive,
+	HTMIME_link,
+	HTMIME_location,
+	HTMIME_maxForwards, 
+	HTMIME_messageDigest,
+	HTMIME_pragma,
+	HTMIME_protocol,
+	HTMIME_protocolInfo,
+	HTMIME_protocolRequest,
+	HTMIME_proxyAuthorization,
+	HTMIME_proxyAuthenticationInfo,
+	HTMIME_public,
+	HTMIME_range,
+	HTMIME_referer,
+	HTMIME_retryAfter, 
+	HTMIME_server, 
+        HTMIME_trailer,
+	HTMIME_transferEncoding,
+	HTMIME_upgrade,
+	HTMIME_userAgent,
+	HTMIME_vary,
+	HTMIME_via,
+	HTMIME_warning;
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTMIMIMP_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

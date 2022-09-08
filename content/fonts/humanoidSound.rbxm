@@ -1,0 +1,75 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Script" referent="RBX0">
+		<Properties>
+			<bool name="Disabled">false</bool>
+			<Content name="LinkedSource"><null></null></Content>
+			<string name="Name">Sound</string>
+			<ProtectedString name="Source">-- util
+
+function waitForChild(parent, childName)
+&#9;local child = parent:findFirstChild(childName)
+&#9;if child then return child end
+&#9;while true do
+&#9;&#9;child = parent.ChildAdded:wait()
+&#9;&#9;if child.Name==childName then return child end
+&#9;end
+end
+
+function newSound(id)
+&#9;local sound = Instance.new(&quot;Sound&quot;)
+&#9;sound.SoundId = id
+&#9;sound.archivable = false
+&#9;sound.Parent = script.Parent.Head
+&#9;return sound
+end
+
+-- declarations
+
+local sDied = newSound(&quot;rbxasset://sounds/uuhhh.wav&quot;)
+local sFallingDown = newSound(&quot;rbxasset://sounds/splat.wav&quot;)
+local sFreeFalling = newSound(&quot;rbxasset://sounds/swoosh.wav&quot;)
+local sGettingUp = newSound(&quot;rbxasset://sounds/hit.wav&quot;)
+local sJumping = newSound(&quot;rbxasset://sounds/button.wav&quot;)
+local sRunning = newSound(&quot;rbxasset://sounds/bfsl-minifigfoots1.mp3&quot;)
+sRunning.Looped = true
+
+local Figure = script.Parent
+local Head = waitForChild(Figure, &quot;Head&quot;)
+local Humanoid = waitForChild(Figure, &quot;Humanoid&quot;)
+
+-- functions
+
+function onDied()
+&#9;sDied:Play()
+end
+
+function onState(state, sound)
+&#9;if state then
+&#9;&#9;sound:Play()
+&#9;else
+&#9;&#9;sound:Pause()
+&#9;end
+end
+
+function onRunning(speed)
+&#9;if speed&gt;0.01 then
+&#9;&#9;sRunning:Play()
+&#9;else
+&#9;&#9;sRunning:Pause()
+&#9;end
+end
+
+-- connect up
+
+Humanoid.Died:connect(onDied)
+Humanoid.Running:connect(onRunning)
+Humanoid.Jumping:connect(function(state) onState(state, sJumping) end)
+Humanoid.GettingUp:connect(function(state) onState(state, sGettingUp) end)
+Humanoid.FreeFalling:connect(function(state) onState(state, sFreeFalling) end)
+Humanoid.FallingDown:connect(function(state) onState(state, sFallingDown) end)
+</ProtectedString>
+		</Properties>
+	</Item>
+</roblox>

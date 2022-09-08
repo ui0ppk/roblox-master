@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: pathdeform.cpp Example File (demos/deform/pathdeform.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">pathdeform.cpp Example File</h1>
+<span class="small-subtitle">demos/deform/pathdeform.cpp</span>
+<!-- $$$demos/deform/pathdeform.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;pathdeform.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QtDebug&gt;</span>
+ <span class="preprocessor">#include &lt;QMouseEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QTimerEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QLayout&gt;</span>
+ <span class="preprocessor">#include &lt;QLineEdit&gt;</span>
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QSlider&gt;</span>
+ <span class="preprocessor">#include &lt;QLabel&gt;</span>
+ <span class="preprocessor">#include &lt;QDesktopWidget&gt;</span>
+ <span class="preprocessor">#include &lt;qmath.h&gt;</span>
+
+ PathDeformControls<span class="operator">::</span>PathDeformControls(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> PathDeformRenderer<span class="operator">*</span> renderer<span class="operator">,</span> <span class="type">bool</span> smallScreen)
+       : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     m_renderer <span class="operator">=</span> renderer;
+
+     <span class="keyword">if</span> (smallScreen)
+         layoutForSmallScreen();
+     <span class="keyword">else</span>
+         layoutForDesktop();
+ }
+
+ <span class="type">void</span> PathDeformControls<span class="operator">::</span>layoutForDesktop()
+ {
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span><span class="operator">*</span> mainGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(<span class="keyword">this</span>);
+     mainGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Controls&quot;</span>));
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>radiusGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     radiusGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Lens Radius&quot;</span>));
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>radiusSlider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> radiusGroup);
+     radiusSlider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">15</span><span class="operator">,</span> <span class="number">150</span>);
+     radiusSlider<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Preferred<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>deformGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     deformGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Deformation&quot;</span>));
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>deformSlider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> deformGroup);
+     deformSlider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="operator">-</span><span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);
+     deformSlider<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Preferred<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>fontSizeGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     fontSizeGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Font Size&quot;</span>));
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>fontSizeSlider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> fontSizeGroup);
+     fontSizeSlider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">16</span><span class="operator">,</span> <span class="number">200</span>);
+     fontSizeSlider<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Preferred<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>textGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(mainGroup);
+     textGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Text&quot;</span>));
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>textInput <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>(textGroup);
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>animateButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     animateButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Animated&quot;</span>));
+     animateButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>showSourceButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     showSourceButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Show Source&quot;</span>));
+
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>enableOpenGLButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Use OpenGL&quot;</span>));
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setChecked(m_renderer<span class="operator">-</span><span class="operator">&gt;</span>usesOpenGL());
+     <span class="keyword">if</span> (<span class="operator">!</span><span class="type"><a href="qglformat.html">QGLFormat</a></span><span class="operator">::</span>hasOpenGL())
+         enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
+ <span class="preprocessor">#endif</span>
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>whatsThisButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     whatsThisButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;What's This?&quot;</span>));
+     whatsThisButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+
+     mainGroup<span class="operator">-</span><span class="operator">&gt;</span>setFixedWidth(<span class="number">180</span>);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(mainGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(radiusGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(deformGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontSizeGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(textGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(animateButton);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(enableOpenGLButton);
+ <span class="preprocessor">#endif</span>
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(showSourceButton);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(whatsThisButton);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>radiusGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(radiusGroup);
+     radiusGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(radiusSlider);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>deformGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(deformGroup);
+     deformGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(deformSlider);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>fontSizeGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(fontSizeGroup);
+     fontSizeGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontSizeSlider);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>textGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(textGroup);
+     textGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(textInput);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span> mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="keyword">this</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(mainGroup);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>setMargin(<span class="number">0</span>);
+
+     connect(radiusSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setRadius(<span class="type">int</span>)));
+     connect(deformSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setIntensity(<span class="type">int</span>)));
+     connect(fontSizeSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setFontSize(<span class="type">int</span>)));
+     connect(animateButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setAnimated(<span class="type">bool</span>)));
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     connect(enableOpenGLButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(enableOpenGL(<span class="type">bool</span>)));
+ <span class="preprocessor">#endif</span>
+
+     connect(textInput<span class="operator">,</span> SIGNAL(textChanged(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setText(<span class="type"><a href="qstring.html">QString</a></span>)));
+     connect(m_renderer<span class="operator">,</span> SIGNAL(descriptionEnabledChanged(<span class="type">bool</span>))<span class="operator">,</span>
+             whatsThisButton<span class="operator">,</span> SLOT(setChecked(<span class="type">bool</span>)));
+     connect(whatsThisButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setDescriptionEnabled(<span class="type">bool</span>)));
+     connect(showSourceButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(showSource()));
+
+     animateButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+     deformSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">80</span>);
+     fontSizeSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">120</span>);
+     radiusSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">100</span>);
+     textInput<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Qt&quot;</span>));
+ }
+
+ <span class="type">void</span> PathDeformControls<span class="operator">::</span>layoutForSmallScreen()
+ {
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span><span class="operator">*</span> mainGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(<span class="keyword">this</span>);
+     mainGroup<span class="operator">-</span><span class="operator">&gt;</span>setTitle(tr(<span class="string">&quot;Controls&quot;</span>));
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>radiusLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(mainGroup);
+     radiusLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Lens Radius:&quot;</span>));
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>radiusSlider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> mainGroup);
+     radiusSlider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">15</span><span class="operator">,</span> <span class="number">150</span>);
+     radiusSlider<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>deformLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(mainGroup);
+     deformLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Deformation:&quot;</span>));
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>deformSlider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> mainGroup);
+     deformSlider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="operator">-</span><span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);
+     deformSlider<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>fontSizeLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(mainGroup);
+     fontSizeLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Font Size:&quot;</span>));
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>fontSizeSlider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> mainGroup);
+     fontSizeSlider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">16</span><span class="operator">,</span> <span class="number">200</span>);
+     fontSizeSlider<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed);
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>animateButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Animated&quot;</span>)<span class="operator">,</span> mainGroup);
+     animateButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>enableOpenGLButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(mainGroup);
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Use OpenGL&quot;</span>));
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(mainGroup);
+     enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>setChecked(m_renderer<span class="operator">-</span><span class="operator">&gt;</span>usesOpenGL());
+     <span class="keyword">if</span> (<span class="operator">!</span><span class="type"><a href="qglformat.html">QGLFormat</a></span><span class="operator">::</span>hasOpenGL())
+         enableOpenGLButton<span class="operator">-</span><span class="operator">&gt;</span>hide();
+ <span class="preprocessor">#endif</span>
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>quitButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Quit&quot;</span>)<span class="operator">,</span> mainGroup);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>okButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;OK&quot;</span>)<span class="operator">,</span> mainGroup);
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainGroupLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>(mainGroup);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>setMargin(<span class="number">0</span>);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(radiusLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(radiusSlider<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(deformLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(deformSlider<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontSizeLabel<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontSizeSlider<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span>);
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(animateButton<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span><span class="number">2</span>);
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     mainGroupLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(enableOpenGLButton<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span><span class="number">2</span>);
+ <span class="preprocessor">#endif</span>
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="keyword">this</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(mainGroup);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(okButton);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(quitButton);
+
+     connect(quitButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(emitQuitSignal()));
+     connect(okButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(emitOkSignal()));
+     connect(radiusSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setRadius(<span class="type">int</span>)));
+     connect(deformSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setIntensity(<span class="type">int</span>)));
+     connect(fontSizeSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setFontSize(<span class="type">int</span>)));
+     connect(animateButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(setAnimated(<span class="type">bool</span>)));
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     connect(enableOpenGLButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> m_renderer<span class="operator">,</span> SLOT(enableOpenGL(<span class="type">bool</span>)));
+ <span class="preprocessor">#endif</span>
+
+     animateButton<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+     deformSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">80</span>);
+     fontSizeSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">120</span>);
+
+     <span class="type"><a href="qrect.html">QRect</a></span> screen_size <span class="operator">=</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>desktop()<span class="operator">-</span><span class="operator">&gt;</span>screenGeometry();
+     radiusSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<a href="qtglobal.html#qMin">qMin</a>(screen_size<span class="operator">.</span>width()<span class="operator">,</span> screen_size<span class="operator">.</span>height())<span class="operator">/</span><span class="number">5</span>);
+
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Qt&quot;</span>));
+ }
+
+ <span class="type">void</span> PathDeformControls<span class="operator">::</span>emitQuitSignal()
+ {   <span class="keyword">emit</span> quitPressed();  }
+
+ <span class="type">void</span> PathDeformControls<span class="operator">::</span>emitOkSignal()
+ {   <span class="keyword">emit</span> okPressed();   }
+
+ PathDeformWidget<span class="operator">::</span>PathDeformWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="type">bool</span> smallScreen)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     setWindowTitle(tr(<span class="string">&quot;Vector Deformation&quot;</span>));
+
+     m_renderer <span class="operator">=</span> <span class="keyword">new</span> PathDeformRenderer(<span class="keyword">this</span><span class="operator">,</span> smallScreen);
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding);
+
+     <span class="comment">// Layouts</span>
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>(<span class="keyword">this</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_renderer);
+
+     m_controls <span class="operator">=</span> <span class="keyword">new</span> PathDeformControls(<span class="number">0</span><span class="operator">,</span> m_renderer<span class="operator">,</span> smallScreen);
+     m_controls<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Minimum);
+
+     <span class="keyword">if</span> (<span class="operator">!</span>smallScreen)
+         mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_controls);
+
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>loadSourceFile(<span class="string">&quot;:res/deform/pathdeform.cpp&quot;</span>);
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>loadDescription(<span class="string">&quot;:res/deform/pathdeform.html&quot;</span>);
+     m_renderer<span class="operator">-</span><span class="operator">&gt;</span>setDescriptionEnabled(<span class="keyword">false</span>);
+
+     connect(m_renderer<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(showControls()));
+     connect(m_controls<span class="operator">,</span> SIGNAL(okPressed())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(hideControls()));
+     connect(m_controls<span class="operator">,</span> SIGNAL(quitPressed())<span class="operator">,</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>instance()<span class="operator">,</span> SLOT(quit()));
+ }
+
+ <span class="type">void</span> PathDeformWidget<span class="operator">::</span>showControls()
+ {
+     m_controls<span class="operator">-</span><span class="operator">&gt;</span>showFullScreen();
+ }
+
+ <span class="type">void</span> PathDeformWidget<span class="operator">::</span>hideControls()
+ {
+     m_controls<span class="operator">-</span><span class="operator">&gt;</span>hide();
+ }
+
+ <span class="type">void</span> PathDeformWidget<span class="operator">::</span>setStyle( <span class="type"><a href="qstyle.html">QStyle</a></span> <span class="operator">*</span> style )
+ {
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>setStyle(style);
+     <span class="keyword">if</span> (m_controls <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>)
+     {
+         m_controls<span class="operator">-</span><span class="operator">&gt;</span>setStyle(style);
+
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span><span class="operator">&gt;</span> widgets <span class="operator">=</span> m_controls<span class="operator">-</span><span class="operator">&gt;</span>findChildren<span class="operator">&lt;</span><span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span><span class="operator">&gt;</span>();
+         foreach (<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>w<span class="operator">,</span> widgets)
+             w<span class="operator">-</span><span class="operator">&gt;</span>setStyle(style);
+     }
+ }
+
+ <span class="keyword">static</span> <span class="keyword">inline</span> <span class="type"><a href="qrect.html">QRect</a></span> circle_bounds(<span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>center<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> radius<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> compensation)
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>(<a href="qtglobal.html#qRound">qRound</a>(center<span class="operator">.</span>x() <span class="operator">-</span> radius <span class="operator">-</span> compensation)<span class="operator">,</span>
+                  <a href="qtglobal.html#qRound">qRound</a>(center<span class="operator">.</span>y() <span class="operator">-</span> radius <span class="operator">-</span> compensation)<span class="operator">,</span>
+                  <a href="qtglobal.html#qRound">qRound</a>((radius <span class="operator">+</span> compensation) <span class="operator">*</span> <span class="number">2</span>)<span class="operator">,</span>
+                  <a href="qtglobal.html#qRound">qRound</a>((radius <span class="operator">+</span> compensation) <span class="operator">*</span> <span class="number">2</span>));
+
+ }
+
+ <span class="keyword">const</span> <span class="type">int</span> LENS_EXTENT <span class="operator">=</span> <span class="number">10</span>;
+
+ PathDeformRenderer<span class="operator">::</span>PathDeformRenderer(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget<span class="operator">,</span> <span class="type">bool</span> smallScreen)
+     : ArthurFrame(widget)
+ {
+     m_radius <span class="operator">=</span> <span class="number">100</span>;
+     m_pos <span class="operator">=</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(m_radius<span class="operator">,</span> m_radius);
+     m_direction <span class="operator">=</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     m_fontSize <span class="operator">=</span> <span class="number">24</span>;
+     m_animated <span class="operator">=</span> <span class="keyword">true</span>;
+     m_repaintTimer<span class="operator">.</span>start(<span class="number">25</span><span class="operator">,</span> <span class="keyword">this</span>);
+     m_repaintTracker<span class="operator">.</span>start();
+     m_intensity <span class="operator">=</span> <span class="number">100</span>;
+     m_smallScreen <span class="operator">=</span> smallScreen;
+
+ <span class="comment">//     m_fpsTimer.start(1000, this);</span>
+ <span class="comment">//     m_fpsCounter = 0;</span>
+
+     generateLensPixmap();
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>setText(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     m_text <span class="operator">=</span> text;
+
+     <span class="type"><a href="qfont.html">QFont</a></span> f(<span class="string">&quot;times new roman,utopia&quot;</span>);
+     f<span class="operator">.</span>setStyleStrategy(<span class="type"><a href="qfont.html">QFont</a></span><span class="operator">::</span>ForceOutline);
+     f<span class="operator">.</span>setPointSize(m_fontSize);
+     f<span class="operator">.</span>setStyleHint(<span class="type"><a href="qfont.html">QFont</a></span><span class="operator">::</span>Times);
+
+     <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span> fm(f);
+
+     m_paths<span class="operator">.</span>clear();
+     m_pathBounds <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>();
+
+     <span class="type"><a href="qpointf.html">QPointF</a></span> advance(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+
+     <span class="type">bool</span> do_quick <span class="operator">=</span> <span class="keyword">true</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>text<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (text<span class="operator">.</span>at(i)<span class="operator">.</span>unicode() <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0x4ff</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> text<span class="operator">.</span>at(i)<span class="operator">.</span>unicode() <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0x1e00</span>) {
+             do_quick <span class="operator">=</span> <span class="keyword">false</span>;
+             <span class="keyword">break</span>;
+         }
+     }
+
+     <span class="keyword">if</span> (do_quick) {
+         <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>text<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+             <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+             path<span class="operator">.</span>addText(advance<span class="operator">,</span> f<span class="operator">,</span> text<span class="operator">.</span>mid(i<span class="operator">,</span> <span class="number">1</span>));
+             m_pathBounds <span class="operator">|</span><span class="operator">=</span> path<span class="operator">.</span>boundingRect();
+             m_paths <span class="operator">&lt;</span><span class="operator">&lt;</span> path;
+             advance <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(fm<span class="operator">.</span>width(text<span class="operator">.</span>mid(i<span class="operator">,</span> <span class="number">1</span>))<span class="operator">,</span> <span class="number">0</span>);
+         }
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+         path<span class="operator">.</span>addText(advance<span class="operator">,</span> f<span class="operator">,</span> text);
+         m_pathBounds <span class="operator">|</span><span class="operator">=</span> path<span class="operator">.</span>boundingRect();
+         m_paths <span class="operator">&lt;</span><span class="operator">&lt;</span> path;
+     }
+
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>m_paths<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i)
+         m_paths<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> m_paths<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">*</span> <span class="type"><a href="qmatrix.html">QMatrix</a></span>(<span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">-</span>m_pathBounds<span class="operator">.</span>x()<span class="operator">,</span> <span class="operator">-</span>m_pathBounds<span class="operator">.</span>y());
+
+     update();
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>generateLensPixmap()
+ {
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rad <span class="operator">=</span> m_radius <span class="operator">+</span> LENS_EXTENT;
+
+     <span class="type"><a href="qrect.html">QRect</a></span> bounds <span class="operator">=</span> circle_bounds(<span class="type"><a href="qpointf.html">QPointF</a></span>()<span class="operator">,</span> rad<span class="operator">,</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter;
+
+     <span class="keyword">if</span> (preferImage()) {
+         m_lens_image <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>(bounds<span class="operator">.</span>size()<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_ARGB32_Premultiplied);
+         m_lens_image<span class="operator">.</span>fill(<span class="number">0</span>);
+         painter<span class="operator">.</span>begin(<span class="operator">&amp;</span>m_lens_image);
+     } <span class="keyword">else</span> {
+         m_lens_pixmap <span class="operator">=</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span>(bounds<span class="operator">.</span>size());
+         m_lens_pixmap<span class="operator">.</span>fill(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>transparent);
+         painter<span class="operator">.</span>begin(<span class="operator">&amp;</span>m_lens_pixmap);
+     }
+
+     <span class="type"><a href="qradialgradient.html">QRadialGradient</a></span> gr(rad<span class="operator">,</span> rad<span class="operator">,</span> rad<span class="operator">,</span> <span class="number">3</span> <span class="operator">*</span> rad <span class="operator">/</span> <span class="number">5</span><span class="operator">,</span> <span class="number">3</span> <span class="operator">*</span> rad <span class="operator">/</span> <span class="number">5</span>);
+     gr<span class="operator">.</span>setColorAt(<span class="number">0.0</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">255</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">191</span>));
+     gr<span class="operator">.</span>setColorAt(<span class="number">0.2</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">255</span><span class="operator">,</span> <span class="number">255</span><span class="operator">,</span> <span class="number">127</span><span class="operator">,</span> <span class="number">191</span>));
+     gr<span class="operator">.</span>setColorAt(<span class="number">0.9</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">150</span><span class="operator">,</span> <span class="number">150</span><span class="operator">,</span> <span class="number">200</span><span class="operator">,</span> <span class="number">63</span>));
+     gr<span class="operator">.</span>setColorAt(<span class="number">0.95</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">127</span>));
+     gr<span class="operator">.</span>setColorAt(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+     painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+     painter<span class="operator">.</span>setBrush(gr);
+     painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     painter<span class="operator">.</span>drawEllipse(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> bounds<span class="operator">.</span>width()<span class="operator">,</span> bounds<span class="operator">.</span>height());
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>setAnimated(<span class="type">bool</span> animated)
+ {
+     m_animated <span class="operator">=</span> animated;
+
+     <span class="keyword">if</span> (m_animated) {
+ <span class="comment">//         m_fpsTimer.start(1000, this);</span>
+ <span class="comment">//         m_fpsCounter = 0;</span>
+         m_repaintTimer<span class="operator">.</span>start(<span class="number">25</span><span class="operator">,</span> <span class="keyword">this</span>);
+         m_repaintTracker<span class="operator">.</span>start();
+     } <span class="keyword">else</span> {
+ <span class="comment">//         m_fpsTimer.stop();</span>
+         m_repaintTimer<span class="operator">.</span>stop();
+     }
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>e)
+ {
+
+     <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>timerId() <span class="operator">=</span><span class="operator">=</span> m_repaintTimer<span class="operator">.</span>timerId()) {
+
+         <span class="keyword">if</span> (<span class="type"><a href="qlinef.html">QLineF</a></span>(<span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span>)<span class="operator">,</span> m_direction)<span class="operator">.</span>length() <span class="operator">&gt;</span> <span class="number">1</span>)
+             m_direction <span class="operator">*</span><span class="operator">=</span> <span class="number">0.995</span>;
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> time <span class="operator">=</span> m_repaintTracker<span class="operator">.</span>restart();
+
+         <span class="type"><a href="qrect.html">QRect</a></span> rectBefore <span class="operator">=</span> circle_bounds(m_pos<span class="operator">,</span> m_radius<span class="operator">,</span> m_fontSize);
+
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dx <span class="operator">=</span> m_direction<span class="operator">.</span>x();
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dy <span class="operator">=</span> m_direction<span class="operator">.</span>y();
+         <span class="keyword">if</span> (time <span class="operator">&gt;</span> <span class="number">0</span>) {
+             dx <span class="operator">=</span> dx <span class="operator">*</span> time <span class="operator">*</span> <span class="operator">.</span><span class="number">1</span>;
+             dy <span class="operator">=</span> dy <span class="operator">*</span> time <span class="operator">*</span> <span class="operator">.</span><span class="number">1</span>;
+         }
+
+         m_pos <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(dx<span class="operator">,</span> dy);
+
+         <span class="keyword">if</span> (m_pos<span class="operator">.</span>x() <span class="operator">-</span> m_radius <span class="operator">&lt;</span> <span class="number">0</span>) {
+             m_direction<span class="operator">.</span>setX(<span class="operator">-</span>m_direction<span class="operator">.</span>x());
+             m_pos<span class="operator">.</span>setX(m_radius);
+         } <span class="keyword">else</span> <span class="keyword">if</span> (m_pos<span class="operator">.</span>x() <span class="operator">+</span> m_radius <span class="operator">&gt;</span> width()) {
+             m_direction<span class="operator">.</span>setX(<span class="operator">-</span>m_direction<span class="operator">.</span>x());
+             m_pos<span class="operator">.</span>setX(width() <span class="operator">-</span> m_radius);
+         }
+
+         <span class="keyword">if</span> (m_pos<span class="operator">.</span>y() <span class="operator">-</span> m_radius <span class="operator">&lt;</span> <span class="number">0</span>) {
+             m_direction<span class="operator">.</span>setY(<span class="operator">-</span>m_direction<span class="operator">.</span>y());
+             m_pos<span class="operator">.</span>setY(m_radius);
+         } <span class="keyword">else</span> <span class="keyword">if</span> (m_pos<span class="operator">.</span>y() <span class="operator">+</span> m_radius <span class="operator">&gt;</span> height()) {
+             m_direction<span class="operator">.</span>setY(<span class="operator">-</span>m_direction<span class="operator">.</span>y());
+             m_pos<span class="operator">.</span>setY(height() <span class="operator">-</span> m_radius);
+         }
+
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+         <span class="keyword">if</span> (usesOpenGL()) {
+             update();
+         } <span class="keyword">else</span>
+ <span class="preprocessor">#endif</span>
+         {
+             <span class="type"><a href="qrect.html">QRect</a></span> rectAfter <span class="operator">=</span> circle_bounds(m_pos<span class="operator">,</span> m_radius<span class="operator">,</span> m_fontSize);
+             update(rectAfter <span class="operator">|</span> rectBefore);
+             <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>syncX();
+         }
+     }
+ <span class="comment">//     else if (e-&gt;timerId() == m_fpsTimer.timerId()) {</span>
+ <span class="comment">//         printf(&quot;fps: %d\n&quot;, m_fpsCounter);</span>
+ <span class="comment">//         emit frameRate(m_fpsCounter);</span>
+ <span class="comment">//         m_fpsCounter = 0;</span>
+
+ <span class="comment">//     }</span>
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e)
+ {
+     setDescriptionEnabled(<span class="keyword">false</span>);
+
+     m_repaintTimer<span class="operator">.</span>stop();
+     m_offset <span class="operator">=</span> <span class="type"><a href="qpointf.html">QPointF</a></span>();
+     <span class="keyword">if</span> (<span class="type"><a href="qlinef.html">QLineF</a></span>(m_pos<span class="operator">,</span> e<span class="operator">-</span><span class="operator">&gt;</span>pos())<span class="operator">.</span>length() <span class="operator">&lt;</span><span class="operator">=</span> m_radius)
+         m_offset <span class="operator">=</span> m_pos <span class="operator">-</span> e<span class="operator">-</span><span class="operator">&gt;</span>pos();
+
+     m_mousePress <span class="operator">=</span> e<span class="operator">-</span><span class="operator">&gt;</span>pos();
+
+     <span class="comment">// If we're not running in small screen mode, always assume we're dragging</span>
+     m_mouseDrag <span class="operator">=</span> <span class="operator">!</span>m_smallScreen;
+
+     mouseMoveEvent(e);
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e)
+ {
+     <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoButton <span class="operator">&amp;</span><span class="operator">&amp;</span> m_animated) {
+         m_repaintTimer<span class="operator">.</span>start(<span class="number">10</span><span class="operator">,</span> <span class="keyword">this</span>);
+         m_repaintTracker<span class="operator">.</span>start();
+     }
+
+     <span class="keyword">if</span> (<span class="operator">!</span>m_mouseDrag <span class="operator">&amp;</span><span class="operator">&amp;</span> m_smallScreen)
+         <span class="keyword">emit</span> clicked();
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>m_mouseDrag <span class="operator">&amp;</span><span class="operator">&amp;</span> (<span class="type"><a href="qlinef.html">QLineF</a></span>(m_mousePress<span class="operator">,</span> e<span class="operator">-</span><span class="operator">&gt;</span>pos())<span class="operator">.</span>length() <span class="operator">&gt;</span> <span class="number">25.0</span>) )
+         m_mouseDrag <span class="operator">=</span> <span class="keyword">true</span>;
+
+     <span class="keyword">if</span> (m_mouseDrag) {
+         <span class="type"><a href="qrect.html">QRect</a></span> rectBefore <span class="operator">=</span> circle_bounds(m_pos<span class="operator">,</span> m_radius<span class="operator">,</span> m_fontSize);
+         <span class="keyword">if</span> (e<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>MouseMove) {
+             <span class="type"><a href="qlinef.html">QLineF</a></span> line(m_pos<span class="operator">,</span> e<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">+</span> m_offset);
+             line<span class="operator">.</span>setLength(line<span class="operator">.</span>length() <span class="operator">*</span> <span class="operator">.</span><span class="number">1</span>);
+             <span class="type"><a href="qpointf.html">QPointF</a></span> dir(line<span class="operator">.</span>dx()<span class="operator">,</span> line<span class="operator">.</span>dy());
+             m_direction <span class="operator">=</span> (m_direction <span class="operator">+</span> dir) <span class="operator">/</span> <span class="number">2</span>;
+         }
+         m_pos <span class="operator">=</span> e<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">+</span> m_offset;
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+         <span class="keyword">if</span> (usesOpenGL()) {
+             update();
+         } <span class="keyword">else</span>
+ <span class="preprocessor">#endif</span>
+         {
+             <span class="type"><a href="qrect.html">QRect</a></span> rectAfter <span class="operator">=</span> circle_bounds(m_pos<span class="operator">,</span> m_radius<span class="operator">,</span> m_fontSize);
+             update(rectBefore <span class="operator">|</span> rectAfter);
+         }
+     }
+ }
+
+ <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> PathDeformRenderer<span class="operator">::</span>lensDeform(<span class="keyword">const</span> <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> <span class="operator">&amp;</span>source<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>offset)
+ {
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+     path<span class="operator">.</span>addPath(source);
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> flip <span class="operator">=</span> m_intensity <span class="operator">/</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">100</span>);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>path<span class="operator">.</span>elementCount(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">const</span> <span class="type"><a href="qpainterpath.html">QPainterPath</a></span><span class="operator">::</span>Element <span class="operator">&amp;</span>e <span class="operator">=</span> path<span class="operator">.</span>elementAt(i);
+
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> x <span class="operator">=</span> e<span class="operator">.</span>x <span class="operator">+</span> offset<span class="operator">.</span>x();
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> y <span class="operator">=</span> e<span class="operator">.</span>y <span class="operator">+</span> offset<span class="operator">.</span>y();
+
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dx <span class="operator">=</span> x <span class="operator">-</span> m_pos<span class="operator">.</span>x();
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dy <span class="operator">=</span> y <span class="operator">-</span> m_pos<span class="operator">.</span>y();
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> len <span class="operator">=</span> m_radius <span class="operator">-</span> <a href="qtcore-qmath-h.html#qSqrt">qSqrt</a>(dx <span class="operator">*</span> dx <span class="operator">+</span> dy <span class="operator">*</span> dy);
+
+         <span class="keyword">if</span> (len <span class="operator">&gt;</span> <span class="number">0</span>) {
+             path<span class="operator">.</span>setElementPositionAt(i<span class="operator">,</span>
+                                       x <span class="operator">+</span> flip <span class="operator">*</span> dx <span class="operator">*</span> len <span class="operator">/</span> m_radius<span class="operator">,</span>
+                                       y <span class="operator">+</span> flip <span class="operator">*</span> dy <span class="operator">*</span> len <span class="operator">/</span> m_radius);
+         } <span class="keyword">else</span> {
+             path<span class="operator">.</span>setElementPositionAt(i<span class="operator">,</span> x<span class="operator">,</span> y);
+         }
+
+     }
+
+     <span class="keyword">return</span> path;
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter)
+ {
+     <span class="type">int</span> pad_x <span class="operator">=</span> <span class="number">5</span>;
+     <span class="type">int</span> pad_y <span class="operator">=</span> <span class="number">5</span>;
+
+     <span class="type">int</span> skip_x <span class="operator">=</span> <a href="qtglobal.html#qRound">qRound</a>(m_pathBounds<span class="operator">.</span>width() <span class="operator">+</span> pad_x <span class="operator">+</span> m_fontSize<span class="operator">/</span><span class="number">2</span>);
+     <span class="type">int</span> skip_y <span class="operator">=</span> <a href="qtglobal.html#qRound">qRound</a>(m_pathBounds<span class="operator">.</span>height() <span class="operator">+</span> pad_y);
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+
+     <span class="type"><a href="qrectf.html">QRectF</a></span> clip(painter<span class="operator">-</span><span class="operator">&gt;</span>clipPath()<span class="operator">.</span>boundingRect());
+
+     <span class="type">int</span> overlap <span class="operator">=</span> pad_x <span class="operator">/</span> <span class="number">2</span>;
+
+     <span class="keyword">for</span> (<span class="type">int</span> start_y<span class="operator">=</span><span class="number">0</span>; start_y <span class="operator">&lt;</span> height(); start_y <span class="operator">+</span><span class="operator">=</span> skip_y) {
+
+         <span class="keyword">if</span> (start_y <span class="operator">&gt;</span> clip<span class="operator">.</span>bottom())
+             <span class="keyword">break</span>;
+
+         <span class="type">int</span> start_x <span class="operator">=</span> <span class="operator">-</span>overlap;
+         <span class="keyword">for</span> (; start_x <span class="operator">&lt;</span> width(); start_x <span class="operator">+</span><span class="operator">=</span> skip_x) {
+
+             <span class="keyword">if</span> (start_y <span class="operator">+</span> skip_y <span class="operator">&gt;</span><span class="operator">=</span> clip<span class="operator">.</span>top() <span class="operator">&amp;</span><span class="operator">&amp;</span>
+                 start_x <span class="operator">+</span> skip_x <span class="operator">&gt;</span><span class="operator">=</span> clip<span class="operator">.</span>left() <span class="operator">&amp;</span><span class="operator">&amp;</span>
+                 start_x <span class="operator">&lt;</span><span class="operator">=</span> clip<span class="operator">.</span>right()) {
+                 <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>; i<span class="operator">&lt;</span>m_paths<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+                     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path <span class="operator">=</span> lensDeform(m_paths<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(start_x<span class="operator">,</span> start_y));
+                     painter<span class="operator">-</span><span class="operator">&gt;</span>drawPath(path);
+                 }
+             }
+         }
+         overlap <span class="operator">=</span> skip_x <span class="operator">-</span> (start_x <span class="operator">-</span> width());
+
+     }
+
+     <span class="keyword">if</span> (preferImage()) {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawImage(m_pos <span class="operator">-</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(m_radius <span class="operator">+</span> LENS_EXTENT<span class="operator">,</span> m_radius <span class="operator">+</span> LENS_EXTENT)<span class="operator">,</span>
+                            m_lens_image);
+     } <span class="keyword">else</span> {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawPixmap(m_pos <span class="operator">-</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(m_radius <span class="operator">+</span> LENS_EXTENT<span class="operator">,</span> m_radius <span class="operator">+</span> LENS_EXTENT)<span class="operator">,</span>
+                             m_lens_pixmap);
+     }
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>setRadius(<span class="type">int</span> radius)
+ {
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> max <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(m_radius<span class="operator">,</span> (<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>)radius);
+     m_radius <span class="operator">=</span> radius;
+     generateLensPixmap();
+     <span class="keyword">if</span> (<span class="operator">!</span>m_animated <span class="operator">|</span><span class="operator">|</span> m_radius <span class="operator">&lt;</span> max) {
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+         <span class="keyword">if</span> (usesOpenGL()) {
+             update();
+         } <span class="keyword">else</span>
+ <span class="preprocessor">#endif</span>
+         {
+             update(circle_bounds(m_pos<span class="operator">,</span> max<span class="operator">,</span> m_fontSize));
+         }
+     }
+ }
+
+ <span class="type">void</span> PathDeformRenderer<span class="operator">::</span>setIntensity(<span class="type">int</span> intensity)
+ {
+     m_intensity <span class="operator">=</span> intensity;
+     <span class="keyword">if</span> (<span class="operator">!</span>m_animated) {
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+         <span class="keyword">if</span> (usesOpenGL()) {
+             update();
+         } <span class="keyword">else</span>
+ <span class="preprocessor">#endif</span>
+         {
+             update(circle_bounds(m_pos<span class="operator">,</span> m_radius<span class="operator">,</span> m_fontSize));
+         }
+     }
+ }</pre>
+</div>
+<!-- @@@demos/deform/pathdeform.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

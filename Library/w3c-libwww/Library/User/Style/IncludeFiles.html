@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 27-May-1996 -->
+  <TITLE>Function Declarations</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home"
+    WIDTH="72" HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww"
+    WIDTH="48" HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" ALT="C-Style" SRC="../../../Icons/WWW/progstyle48x"
+    WIDTH="48" HEIGHT="48" BORDER="0"></A>
+<H1>
+  Function Declarations
+</H1>
+<P>
+External functions are declared in include files. There are three kinds of
+include files:
+<UL>
+  <LI>
+    Application include files
+  <LI>
+    Library include files
+  <LI>
+    System include files and standard C include files
+</UL>
+<H2>
+  Application Include Files
+</H2>
+<P>
+The <CODE>.c</CODE> file should <CODE>#include</CODE> its own <CODE>.h</CODE>
+file. A .h file should be protected so that no errors occur if it is #include'd
+twice. This can be done by the following directives:
+<PRE>
+	#ifndef HTFOO_H
+	#define HTFOO_H
+
+	All the stuff
+
+	#endif /* HTFOO_H */
+</PRE>
+<P>
+An interface which relies on other interfaces should include those interface
+files. An implementation file which uses other modules should include the
+.h file if it not already included by its own .h file.
+<P>
+<IMG SRC="../../../Icons/32x32/warning" ALT="WARNING" BORDER="0"> The text
+format in description files which are converted into declaration files <EM>MUST
+NOT</EM> be more than 90 characters wide - otherwise it will get chopped
+off by the <A HREF="../../../LineMode/">Line Mode Browser</A> the way the
+conversion currently is set up.
+<H2>
+  Library Include Files
+</H2>
+<P>
+If you are making a <A HREF="../../">Library</A> module then you need to
+include all the modules that you reference in your code. You will in all
+cases need the following:
+<PRE>
+	#include "wwwsys.h"
+	#include "WWWUtil.h"
+</PRE>
+<P>
+If you are <B>not</B> making a Library module, then you need the following:
+<PRE>	#include "wwwsys.h"
+	#include "WWWLib.h"
+</PRE>
+<H2>
+  System include files and standard C include files
+</H2>
+<P>
+As these are <A HREF="../../src/wwwsys.html">included in the libwww code</A>
+then do not include any system header files directly. The reason is that
+these include files are very difficult to get portable over multiple platforms.
+<P>
+  <HR>
+<ADDRESS>
+  Tim BL, and <A HREF="../../../People.html#Frystyk">Henrik Frystyk
+  Nielsen</A>,<BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+    <AvailableItemName
+      Include="Rcc">
+      <Targets>_Rcc</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Moc">
+      <Targets>_Moc</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Uic">
+      <Targets>_Uic</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+  <UsingTask
+    TaskName="Rcc"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Moc"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Uic"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <Target
+    Name="_Rcc"
+    BeforeTargets="$(RccBeforeTargets)"
+    AfterTargets="$(RccAfterTargets)"
+    Condition="'@(Rcc)' != ''"
+    DependsOnTargets="$(RccDependsOn);ComputeRccOutput"
+    Outputs="%(Rcc.Outputs)"
+    Inputs="%(Rcc.Identity);%(Rcc.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Rcc
+        Remove="@(Rcc)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Rcc_tlog
+        Include="%(Rcc.Outputs)"
+        Condition="'%(Rcc.Outputs)' != '' and '%(Rcc.ExcludedFromBuild)' != 'true'">
+        <Source>@(Rcc, '|')</Source>
+      </Rcc_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Rcc.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Rcc_tlog)' != '' and '%(Rcc_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1.tlog"
+      Lines="^%(Rcc_tlog.Source);@(Rcc_tlog-&gt;'%(Fullpath)')" />
+    <Rcc
+      Condition="'@(Rcc)' != '' and '%(Rcc.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Rcc.CommandLineTemplate)"
+      AdditionalOptions="%(Rcc.AdditionalOptions)"
+      Inputs="%(Rcc.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeRccOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeRccOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeRccOutput"
+    Condition="'@(Rcc)' != ''">
+    <ItemGroup>
+      <RccDirsToMake
+        Condition="'@(Rcc)' != '' and '%(Rcc.ExcludedFromBuild)' != 'true'"
+        Include="%(Rcc.Outputs)" />
+      <Link
+        Include="%(RccDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(RccDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(RccDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(RccDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Moc"
+    BeforeTargets="$(MocBeforeTargets)"
+    AfterTargets="$(MocAfterTargets)"
+    Condition="'@(Moc)' != ''"
+    DependsOnTargets="$(MocDependsOn);ComputeMocOutput"
+    Outputs="%(Moc.Outputs)"
+    Inputs="%(Moc.Identity);%(Moc.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Moc
+        Remove="@(Moc)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Moc_tlog
+        Include="%(Moc.Outputs)"
+        Condition="'%(Moc.Outputs)' != '' and '%(Moc.ExcludedFromBuild)' != 'true'">
+        <Source>@(Moc, '|')</Source>
+      </Moc_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Moc.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Moc_tlog)' != '' and '%(Moc_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1.tlog"
+      Lines="^%(Moc_tlog.Source);@(Moc_tlog-&gt;'%(Fullpath)')" />
+    <Moc
+      Condition="'@(Moc)' != '' and '%(Moc.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Moc.CommandLineTemplate)"
+      AdditionalOptions="%(Moc.AdditionalOptions)"
+      Inputs="%(Moc.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeMocOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeMocOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeMocOutput"
+    Condition="'@(Moc)' != ''">
+    <ItemGroup>
+      <MocDirsToMake
+        Condition="'@(Moc)' != '' and '%(Moc.ExcludedFromBuild)' != 'true'"
+        Include="%(Moc.Outputs)" />
+      <Link
+        Include="%(MocDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(MocDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(MocDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(MocDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Uic"
+    BeforeTargets="$(UicBeforeTargets)"
+    AfterTargets="$(UicAfterTargets)"
+    Condition="'@(Uic)' != ''"
+    DependsOnTargets="$(UicDependsOn);ComputeUicOutput"
+    Outputs="%(Uic.Outputs)"
+    Inputs="%(Uic.Identity);%(Uic.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Uic
+        Remove="@(Uic)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Uic_tlog
+        Include="%(Uic.Outputs)"
+        Condition="'%(Uic.Outputs)' != '' and '%(Uic.ExcludedFromBuild)' != 'true'">
+        <Source>@(Uic, '|')</Source>
+      </Uic_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Uic.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Uic_tlog)' != '' and '%(Uic_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1.tlog"
+      Lines="^%(Uic_tlog.Source);@(Uic_tlog-&gt;'%(Fullpath)')" />
+    <Uic
+      Condition="'@(Uic)' != '' and '%(Uic.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Uic.CommandLineTemplate)"
+      AdditionalOptions="%(Uic.AdditionalOptions)"
+      Inputs="%(Uic.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeUicOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeUicOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeUicOutput"
+    Condition="'@(Uic)' != ''">
+    <ItemGroup>
+      <UicDirsToMake
+        Condition="'@(Uic)' != '' and '%(Uic.ExcludedFromBuild)' != 'true'"
+        Include="%(Uic.Outputs)" />
+      <Link
+        Include="%(UicDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(UicDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(UicDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(UicDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+</Project>

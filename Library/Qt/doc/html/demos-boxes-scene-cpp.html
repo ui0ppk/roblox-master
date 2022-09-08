@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: scene.cpp Example File (demos/boxes/scene.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">scene.cpp Example File</h1>
+<span class="small-subtitle">demos/boxes/scene.cpp</span>
+<!-- $$$demos/boxes/scene.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &quot;scene.h&quot;</span>
+ <span class="preprocessor">#include &lt;QtGui/qmatrix4x4.h&gt;</span>
+ <span class="preprocessor">#include &lt;QtGui/qvector3d.h&gt;</span>
+
+ <span class="preprocessor">#include &quot;3rdparty/fbm.h&quot;</span>
+
+ <span class="type">void</span> checkGLErrors(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&amp;</span> prefix)
+ {
+     <span class="keyword">switch</span> (glGetError()) {
+     <span class="keyword">case</span> GL_NO_ERROR:
+         <span class="comment">//qDebug() &lt;&lt; prefix &lt;&lt; tr(&quot;No error.&quot;);</span>
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> GL_INVALID_ENUM:
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> prefix <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Invalid enum.&quot;</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> GL_INVALID_VALUE:
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> prefix <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Invalid value.&quot;</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> GL_INVALID_OPERATION:
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> prefix <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Invalid operation.&quot;</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> GL_STACK_OVERFLOW:
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> prefix <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Stack overflow.&quot;</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> GL_STACK_UNDERFLOW:
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> prefix <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Stack underflow.&quot;</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> GL_OUT_OF_MEMORY:
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> prefix <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Out of memory.&quot;</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> prefix <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;Unknown error.&quot;</span>);
+         <span class="keyword">break</span>;
+     }
+ }
+
+ <span class="comment">//============================================================================//</span>
+ <span class="comment">//                                  ColorEdit                                 //</span>
+ <span class="comment">//============================================================================//</span>
+
+ ColorEdit<span class="operator">::</span>ColorEdit(<span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> initialColor<span class="operator">,</span> <span class="type">int</span> id)
+     : m_color(initialColor)<span class="operator">,</span> m_id(id)
+ {
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     setLayout(layout);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setContentsMargins(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+
+     m_lineEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(m_color<span class="operator">,</span> <span class="number">16</span>));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_lineEdit);
+
+     m_button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qframe.html">QFrame</a></span>;
+     <span class="type"><a href="qpalette.html">QPalette</a></span> palette <span class="operator">=</span> m_button<span class="operator">-</span><span class="operator">&gt;</span>palette();
+     palette<span class="operator">.</span>setColor(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(m_color));
+     m_button<span class="operator">-</span><span class="operator">&gt;</span>setPalette(palette);
+     m_button<span class="operator">-</span><span class="operator">&gt;</span>setAutoFillBackground(<span class="keyword">true</span>);
+     m_button<span class="operator">-</span><span class="operator">&gt;</span>setMinimumSize(<span class="number">32</span><span class="operator">,</span> <span class="number">0</span>);
+     m_button<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Fixed<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Preferred);
+     m_button<span class="operator">-</span><span class="operator">&gt;</span>setFrameStyle(<span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>StyledPanel <span class="operator">|</span> <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>Sunken);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_button);
+
+     connect(m_lineEdit<span class="operator">,</span> SIGNAL(editingFinished())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(editDone()));
+ }
+
+ <span class="type">void</span> ColorEdit<span class="operator">::</span>editDone()
+ {
+     <span class="type">bool</span> ok;
+     <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> newColor <span class="operator">=</span> m_lineEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toUInt(<span class="operator">&amp;</span>ok<span class="operator">,</span> <span class="number">16</span>);
+     <span class="keyword">if</span> (ok)
+         setColor(newColor);
+ }
+
+ <span class="type">void</span> ColorEdit<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         <span class="type"><a href="qcolor.html">QColor</a></span> color(m_color);
+         <span class="type"><a href="qcolordialog.html">QColorDialog</a></span> dialog(color<span class="operator">,</span> <span class="number">0</span>);
+         dialog<span class="operator">.</span>setOption(<span class="type"><a href="qcolordialog.html">QColorDialog</a></span><span class="operator">::</span>ShowAlphaChannel<span class="operator">,</span> <span class="keyword">true</span>);
+ <span class="comment">// The ifdef block is a workaround for the beta, TODO: remove when bug 238525 is fixed</span>
+ <span class="preprocessor">#ifdef Q_WS_MAC</span>
+         dialog<span class="operator">.</span>setOption(<span class="type"><a href="qcolordialog.html">QColorDialog</a></span><span class="operator">::</span>DontUseNativeDialog<span class="operator">,</span> <span class="keyword">true</span>);
+ <span class="preprocessor">#endif</span>
+         dialog<span class="operator">.</span>move(<span class="number">280</span><span class="operator">,</span> <span class="number">120</span>);
+         <span class="keyword">if</span> (dialog<span class="operator">.</span>exec() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Rejected)
+             <span class="keyword">return</span>;
+         <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> newColor <span class="operator">=</span> dialog<span class="operator">.</span>selectedColor()<span class="operator">.</span>rgba();
+         <span class="keyword">if</span> (newColor <span class="operator">=</span><span class="operator">=</span> m_color)
+             <span class="keyword">return</span>;
+         setColor(newColor);
+     }
+ }
+
+ <span class="type">void</span> ColorEdit<span class="operator">::</span>setColor(<span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> color)
+ {
+     m_color <span class="operator">=</span> color;
+     m_lineEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(m_color<span class="operator">,</span> <span class="number">16</span>)); <span class="comment">// &quot;Clean up&quot; text</span>
+     <span class="type"><a href="qpalette.html">QPalette</a></span> palette <span class="operator">=</span> m_button<span class="operator">-</span><span class="operator">&gt;</span>palette();
+     palette<span class="operator">.</span>setColor(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(m_color));
+     m_button<span class="operator">-</span><span class="operator">&gt;</span>setPalette(palette);
+     <span class="keyword">emit</span> colorChanged(m_color<span class="operator">,</span> m_id);
+ }
+
+ <span class="comment">//============================================================================//</span>
+ <span class="comment">//                                  FloatEdit                                 //</span>
+ <span class="comment">//============================================================================//</span>
+
+ FloatEdit<span class="operator">::</span>FloatEdit(<span class="type">float</span> initialValue<span class="operator">,</span> <span class="type">int</span> id)
+     : m_value(initialValue)<span class="operator">,</span> m_id(id)
+ {
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     setLayout(layout);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setContentsMargins(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+
+     m_lineEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(m_value));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_lineEdit);
+
+     connect(m_lineEdit<span class="operator">,</span> SIGNAL(editingFinished())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(editDone()));
+ }
+
+ <span class="type">void</span> FloatEdit<span class="operator">::</span>editDone()
+ {
+     <span class="type">bool</span> ok;
+     <span class="type">float</span> newValue <span class="operator">=</span> m_lineEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toFloat(<span class="operator">&amp;</span>ok);
+     <span class="keyword">if</span> (ok) {
+         m_value <span class="operator">=</span> newValue;
+         m_lineEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(m_value)); <span class="comment">// &quot;Clean up&quot; text</span>
+         <span class="keyword">emit</span> valueChanged(m_value<span class="operator">,</span> m_id);
+     }
+ }
+
+ <span class="comment">//============================================================================//</span>
+ <span class="comment">//                           TwoSidedGraphicsWidget                           //</span>
+ <span class="comment">//============================================================================//</span>
+
+ TwoSidedGraphicsWidget<span class="operator">::</span>TwoSidedGraphicsWidget(<span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>scene)
+     : <span class="type"><a href="qobject.html">QObject</a></span>(scene)
+     <span class="operator">,</span> m_current(<span class="number">0</span>)
+     <span class="operator">,</span> m_angle(<span class="number">0</span>)
+     <span class="operator">,</span> m_delta(<span class="number">0</span>)
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">2</span>; <span class="operator">+</span><span class="operator">+</span>i)
+         m_proxyWidgets<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> <span class="number">0</span>;
+ }
+
+ <span class="type">void</span> TwoSidedGraphicsWidget<span class="operator">::</span>setWidget(<span class="type">int</span> index<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget)
+ {
+     <span class="keyword">if</span> (index <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> index <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">2</span>)
+         {
+                 <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;TwoSidedGraphicsWidget::setWidget: Index out of bounds, index == %d&quot;</span><span class="operator">,</span> index);
+                 <span class="keyword">return</span>;
+         }
+
+     GraphicsWidget <span class="operator">*</span>proxy <span class="operator">=</span> <span class="keyword">new</span> GraphicsWidget;
+     proxy<span class="operator">-</span><span class="operator">&gt;</span>setWidget(widget);
+
+     <span class="keyword">if</span> (m_proxyWidgets<span class="operator">[</span>index<span class="operator">]</span>)
+         <span class="keyword">delete</span> m_proxyWidgets<span class="operator">[</span>index<span class="operator">]</span>;
+     m_proxyWidgets<span class="operator">[</span>index<span class="operator">]</span> <span class="operator">=</span> proxy;
+
+     proxy<span class="operator">-</span><span class="operator">&gt;</span>setCacheMode(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemCoordinateCache);
+     proxy<span class="operator">-</span><span class="operator">&gt;</span>setZValue(<span class="number">1e30</span>); <span class="comment">// Make sure the dialog is drawn on top of all other (OpenGL) items</span>
+
+     <span class="keyword">if</span> (index <span class="operator">!</span><span class="operator">=</span> m_current)
+         proxy<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+
+     qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(parent())<span class="operator">-</span><span class="operator">&gt;</span>addItem(proxy);
+ }
+
+ <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>TwoSidedGraphicsWidget<span class="operator">::</span>widget(<span class="type">int</span> index)
+ {
+     <span class="keyword">if</span> (index <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> index <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">2</span>)
+         {
+                 <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;TwoSidedGraphicsWidget::widget: Index out of bounds, index == %d&quot;</span><span class="operator">,</span> index);
+                 <span class="keyword">return</span> <span class="number">0</span>;
+         }
+     <span class="keyword">return</span> m_proxyWidgets<span class="operator">[</span>index<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>widget();
+ }
+
+ <span class="type">void</span> TwoSidedGraphicsWidget<span class="operator">::</span>flip()
+ {
+     m_delta <span class="operator">=</span> (m_current <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">?</span> <span class="number">9</span> : <span class="operator">-</span><span class="number">9</span>);
+     animateFlip();
+ }
+
+ <span class="type">void</span> TwoSidedGraphicsWidget<span class="operator">::</span>animateFlip()
+ {
+     m_angle <span class="operator">+</span><span class="operator">=</span> m_delta;
+     <span class="keyword">if</span> (m_angle <span class="operator">=</span><span class="operator">=</span> <span class="number">90</span>) {
+         <span class="type">int</span> old <span class="operator">=</span> m_current;
+         m_current <span class="operator">^</span><span class="operator">=</span> <span class="number">1</span>;
+         m_proxyWidgets<span class="operator">[</span>old<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+         m_proxyWidgets<span class="operator">[</span>m_current<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">true</span>);
+         m_proxyWidgets<span class="operator">[</span>m_current<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setGeometry(m_proxyWidgets<span class="operator">[</span>old<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>geometry());
+     }
+
+     <span class="type"><a href="qrectf.html">QRectF</a></span> r <span class="operator">=</span> m_proxyWidgets<span class="operator">[</span>m_current<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>boundingRect();
+     m_proxyWidgets<span class="operator">[</span>m_current<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setTransform(<span class="type"><a href="qtransform.html">QTransform</a></span>()
+         <span class="operator">.</span>translate(r<span class="operator">.</span>width() <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> r<span class="operator">.</span>height() <span class="operator">/</span> <span class="number">2</span>)
+         <span class="operator">.</span>rotate(m_angle <span class="operator">-</span> <span class="number">180</span> <span class="operator">*</span> m_current<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>YAxis)
+         <span class="operator">.</span>translate(<span class="operator">-</span>r<span class="operator">.</span>width() <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> <span class="operator">-</span>r<span class="operator">.</span>height() <span class="operator">/</span> <span class="number">2</span>));
+
+     <span class="keyword">if</span> ((m_current <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> m_angle <span class="operator">&gt;</span> <span class="number">0</span>) <span class="operator">|</span><span class="operator">|</span> (m_current <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> m_angle <span class="operator">&lt;</span> <span class="number">180</span>))
+         <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">25</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(animateFlip()));
+ }
+
+ <span class="type"><a href="qvariant.html">QVariant</a></span> GraphicsWidget<span class="operator">::</span>itemChange(GraphicsItemChange change<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value)
+ {
+     <span class="keyword">if</span> (change <span class="operator">=</span><span class="operator">=</span> ItemPositionChange <span class="operator">&amp;</span><span class="operator">&amp;</span> scene()) {
+         <span class="type"><a href="qrectf.html">QRectF</a></span> rect <span class="operator">=</span> boundingRect();
+         <span class="type"><a href="qpointf.html">QPointF</a></span> pos <span class="operator">=</span> value<span class="operator">.</span>toPointF();
+         <span class="type"><a href="qrectf.html">QRectF</a></span> sceneRect <span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>sceneRect();
+         <span class="keyword">if</span> (pos<span class="operator">.</span>x() <span class="operator">+</span> rect<span class="operator">.</span>left() <span class="operator">&lt;</span> sceneRect<span class="operator">.</span>left())
+             pos<span class="operator">.</span>setX(sceneRect<span class="operator">.</span>left() <span class="operator">-</span> rect<span class="operator">.</span>left());
+         <span class="keyword">else</span> <span class="keyword">if</span> (pos<span class="operator">.</span>x() <span class="operator">+</span> rect<span class="operator">.</span>right() <span class="operator">&gt;</span><span class="operator">=</span> sceneRect<span class="operator">.</span>right())
+             pos<span class="operator">.</span>setX(sceneRect<span class="operator">.</span>right() <span class="operator">-</span> rect<span class="operator">.</span>right());
+         <span class="keyword">if</span> (pos<span class="operator">.</span>y() <span class="operator">+</span> rect<span class="operator">.</span>top() <span class="operator">&lt;</span> sceneRect<span class="operator">.</span>top())
+             pos<span class="operator">.</span>setY(sceneRect<span class="operator">.</span>top() <span class="operator">-</span> rect<span class="operator">.</span>top());
+         <span class="keyword">else</span> <span class="keyword">if</span> (pos<span class="operator">.</span>y() <span class="operator">+</span> rect<span class="operator">.</span>bottom() <span class="operator">&gt;</span><span class="operator">=</span> sceneRect<span class="operator">.</span>bottom())
+             pos<span class="operator">.</span>setY(sceneRect<span class="operator">.</span>bottom() <span class="operator">-</span> rect<span class="operator">.</span>bottom());
+         <span class="keyword">return</span> pos;
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qgraphicsproxywidget.html">QGraphicsProxyWidget</a></span><span class="operator">::</span>itemChange(change<span class="operator">,</span> value);
+ }
+
+ <span class="type">void</span> GraphicsWidget<span class="operator">::</span>resizeEvent(<span class="type"><a href="qgraphicssceneresizeevent.html">QGraphicsSceneResizeEvent</a></span> <span class="operator">*</span>event)
+ {
+     setCacheMode(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>NoCache);
+     setCacheMode(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>ItemCoordinateCache);
+     <span class="type"><a href="qgraphicsproxywidget.html">QGraphicsProxyWidget</a></span><span class="operator">::</span>resizeEvent(event);
+ }
+
+ <span class="type">void</span> GraphicsWidget<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget)
+ {
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">false</span>);
+     <span class="type"><a href="qgraphicsproxywidget.html">QGraphicsProxyWidget</a></span><span class="operator">::</span>paint(painter<span class="operator">,</span> option<span class="operator">,</span> widget);
+     <span class="comment">//painter-&gt;setRenderHint(QPainter::Antialiasing, true);</span>
+ }
+
+ <span class="comment">//============================================================================//</span>
+ <span class="comment">//                             RenderOptionsDialog                            //</span>
+ <span class="comment">//============================================================================//</span>
+
+ RenderOptionsDialog<span class="operator">::</span>RenderOptionsDialog()
+     : <span class="type"><a href="qdialog.html">QDialog</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CustomizeWindowHint <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowTitleHint)
+ {
+     setWindowOpacity(<span class="number">0.75</span>);
+     setWindowTitle(tr(<span class="string">&quot;Options (double click to flip)&quot;</span>));
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     setLayout(layout);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setColumnStretch(<span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+
+     <span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="type"><a href="qcheckbox.html">QCheckBox</a></span> <span class="operator">*</span>check <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span>(tr(<span class="string">&quot;Dynamic cube map&quot;</span>));
+     check<span class="operator">-</span><span class="operator">&gt;</span>setCheckState(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Unchecked);
+     <span class="comment">// Dynamic cube maps are only enabled when multi-texturing and render to texture are available.</span>
+     check<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(glActiveTexture <span class="operator">&amp;</span><span class="operator">&amp;</span> glGenFramebuffersEXT);
+     connect(check<span class="operator">,</span> SIGNAL(stateChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SIGNAL(dynamicCubemapToggled(<span class="type">int</span>)));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(check<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     <span class="operator">+</span><span class="operator">+</span>row;
+
+     <span class="type"><a href="qpalette.html">QPalette</a></span> palette;
+
+     <span class="comment">// Load all .par files</span>
+     <span class="comment">// .par files have a simple syntax for specifying user adjustable uniform variables.</span>
+     <span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span> uniforms;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span> filter <span class="operator">=</span> <span class="type"><a href="qstringlist.html">QStringList</a></span>(<span class="string">&quot;*.par&quot;</span>);
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qfileinfo.html">QFileInfo</a></span><span class="operator">&gt;</span> files <span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span>(<span class="string">&quot;:/res/boxes/&quot;</span>)<span class="operator">.</span>entryInfoList(filter<span class="operator">,</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable);
+
+     foreach (<span class="type"><a href="qfileinfo.html">QFileInfo</a></span> fileInfo<span class="operator">,</span> files) {
+         <span class="type"><a href="qfile.html">QFile</a></span> file(fileInfo<span class="operator">.</span>absoluteFilePath());
+         <span class="keyword">if</span> (file<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly)) {
+             <span class="keyword">while</span> (<span class="operator">!</span>file<span class="operator">.</span>atEnd()) {
+                 <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span> tokens <span class="operator">=</span> file<span class="operator">.</span>readLine()<span class="operator">.</span>simplified()<span class="operator">.</span>split(<span class="char">' '</span>);
+                 <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">&gt;</span><span class="operator">::</span>const_iterator it <span class="operator">=</span> tokens<span class="operator">.</span>begin();
+                 <span class="keyword">if</span> (it <span class="operator">=</span><span class="operator">=</span> tokens<span class="operator">.</span>end())
+                     <span class="keyword">continue</span>;
+                 <span class="type"><a href="qbytearray.html">QByteArray</a></span> type <span class="operator">=</span> <span class="operator">*</span>it;
+                 <span class="keyword">if</span> (<span class="operator">+</span><span class="operator">+</span>it <span class="operator">=</span><span class="operator">=</span> tokens<span class="operator">.</span>end())
+                     <span class="keyword">continue</span>;
+                 <span class="type"><a href="qbytearray.html">QByteArray</a></span> name <span class="operator">=</span> <span class="operator">*</span>it;
+                 <span class="type">bool</span> singleElement <span class="operator">=</span> (tokens<span class="operator">.</span>size() <span class="operator">=</span><span class="operator">=</span> <span class="number">3</span>); <span class="comment">// type, name and one value</span>
+                 <span class="type">char</span> counter<span class="operator">[</span><span class="number">10</span><span class="operator">]</span> <span class="operator">=</span> <span class="string">&quot;000000000&quot;</span>;
+                 <span class="type">int</span> counterPos <span class="operator">=</span> <span class="number">8</span>; <span class="comment">// position of last digit</span>
+                 <span class="keyword">while</span> (<span class="operator">+</span><span class="operator">+</span>it <span class="operator">!</span><span class="operator">=</span> tokens<span class="operator">.</span>end()) {
+                     m_parameterNames <span class="operator">&lt;</span><span class="operator">&lt;</span> name;
+                     <span class="keyword">if</span> (<span class="operator">!</span>singleElement) {
+                         m_parameterNames<span class="operator">.</span>back() <span class="operator">+</span><span class="operator">=</span> <span class="string">&quot;[&quot;</span>;
+                         m_parameterNames<span class="operator">.</span>back() <span class="operator">+</span><span class="operator">=</span> counter <span class="operator">+</span> counterPos;
+                         m_parameterNames<span class="operator">.</span>back() <span class="operator">+</span><span class="operator">=</span> <span class="string">&quot;]&quot;</span>;
+                         <span class="type">int</span> j <span class="operator">=</span> <span class="number">8</span>; <span class="comment">// position of last digit</span>
+                         <span class="operator">+</span><span class="operator">+</span>counter<span class="operator">[</span>j<span class="operator">]</span>;
+                         <span class="keyword">while</span> (j <span class="operator">&gt;</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> counter<span class="operator">[</span>j<span class="operator">]</span> <span class="operator">&gt;</span> <span class="char">'9'</span>) {
+                             counter<span class="operator">[</span>j<span class="operator">]</span> <span class="operator">=</span> <span class="char">'0'</span>;
+                             <span class="operator">+</span><span class="operator">+</span>counter<span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>j<span class="operator">]</span>;
+                         }
+                         <span class="keyword">if</span> (j <span class="operator">&lt;</span> counterPos)
+                             counterPos <span class="operator">=</span> j;
+                     }
+
+                     <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> <span class="string">&quot;color&quot;</span>) {
+                         layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(m_parameterNames<span class="operator">.</span>back()));
+                         <span class="type">bool</span> ok;
+                         ColorEdit <span class="operator">*</span>colorEdit <span class="operator">=</span> <span class="keyword">new</span> ColorEdit(it<span class="operator">-</span><span class="operator">&gt;</span>toUInt(<span class="operator">&amp;</span>ok<span class="operator">,</span> <span class="number">16</span>)<span class="operator">,</span> m_parameterNames<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">1</span>);
+                         m_parameterEdits <span class="operator">&lt;</span><span class="operator">&lt;</span> colorEdit;
+                         layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(colorEdit);
+                         connect(colorEdit<span class="operator">,</span> SIGNAL(colorChanged(<span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span><span class="operator">,</span><span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setColorParameter(<span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span><span class="operator">,</span><span class="type">int</span>)));
+                         <span class="operator">+</span><span class="operator">+</span>row;
+                     } <span class="keyword">else</span> <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> <span class="string">&quot;float&quot;</span>) {
+                         layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(m_parameterNames<span class="operator">.</span>back()));
+                         <span class="type">bool</span> ok;
+                         FloatEdit <span class="operator">*</span>floatEdit <span class="operator">=</span> <span class="keyword">new</span> FloatEdit(it<span class="operator">-</span><span class="operator">&gt;</span>toFloat(<span class="operator">&amp;</span>ok)<span class="operator">,</span> m_parameterNames<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">1</span>);
+                         m_parameterEdits <span class="operator">&lt;</span><span class="operator">&lt;</span> floatEdit;
+                         layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(floatEdit);
+                         connect(floatEdit<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">float</span><span class="operator">,</span><span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setFloatParameter(<span class="type">float</span><span class="operator">,</span><span class="type">int</span>)));
+                         <span class="operator">+</span><span class="operator">+</span>row;
+                     }
+                 }
+             }
+             file<span class="operator">.</span>close();
+         }
+     }
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Texture:&quot;</span>)));
+     m_textureCombo <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     connect(m_textureCombo<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SIGNAL(textureChanged(<span class="type">int</span>)));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_textureCombo);
+     <span class="operator">+</span><span class="operator">+</span>row;
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Shader:&quot;</span>)));
+     m_shaderCombo <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     connect(m_shaderCombo<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SIGNAL(shaderChanged(<span class="type">int</span>)));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_shaderCombo);
+     <span class="operator">+</span><span class="operator">+</span>row;
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setRowStretch(row<span class="operator">,</span> <span class="number">1</span>);
+ }
+
+ <span class="type">int</span> RenderOptionsDialog<span class="operator">::</span>addTexture(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name)
+ {
+     m_textureCombo<span class="operator">-</span><span class="operator">&gt;</span>addItem(name);
+     <span class="keyword">return</span> m_textureCombo<span class="operator">-</span><span class="operator">&gt;</span>count() <span class="operator">-</span> <span class="number">1</span>;
+ }
+
+ <span class="type">int</span> RenderOptionsDialog<span class="operator">::</span>addShader(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name)
+ {
+     m_shaderCombo<span class="operator">-</span><span class="operator">&gt;</span>addItem(name);
+     <span class="keyword">return</span> m_shaderCombo<span class="operator">-</span><span class="operator">&gt;</span>count() <span class="operator">-</span> <span class="number">1</span>;
+ }
+
+ <span class="type">void</span> RenderOptionsDialog<span class="operator">::</span>emitParameterChanged()
+ {
+     foreach (ParameterEdit <span class="operator">*</span>edit<span class="operator">,</span> m_parameterEdits)
+         edit<span class="operator">-</span><span class="operator">&gt;</span>emitChange();
+ }
+
+ <span class="type">void</span> RenderOptionsDialog<span class="operator">::</span>setColorParameter(<span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> color<span class="operator">,</span> <span class="type">int</span> id)
+ {
+     <span class="keyword">emit</span> colorParameterChanged(m_parameterNames<span class="operator">[</span>id<span class="operator">]</span><span class="operator">,</span> color);
+ }
+
+ <span class="type">void</span> RenderOptionsDialog<span class="operator">::</span>setFloatParameter(<span class="type">float</span> value<span class="operator">,</span> <span class="type">int</span> id)
+ {
+     <span class="keyword">emit</span> floatParameterChanged(m_parameterNames<span class="operator">[</span>id<span class="operator">]</span><span class="operator">,</span> value);
+ }
+
+ <span class="type">void</span> RenderOptionsDialog<span class="operator">::</span>mouseDoubleClickEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton)
+         <span class="keyword">emit</span> doubleClicked();
+ }
+
+ <span class="comment">//============================================================================//</span>
+ <span class="comment">//                                 ItemDialog                                 //</span>
+ <span class="comment">//============================================================================//</span>
+
+ ItemDialog<span class="operator">::</span>ItemDialog()
+     : <span class="type"><a href="qdialog.html">QDialog</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CustomizeWindowHint <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowTitleHint)
+ {
+     setWindowTitle(tr(<span class="string">&quot;Items (double click to flip)&quot;</span>));
+     setWindowOpacity(<span class="number">0.75</span>);
+     resize(<span class="number">160</span><span class="operator">,</span> <span class="number">100</span>);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     setLayout(layout);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>button;
+
+     button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Add Qt box&quot;</span>));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(button);
+     connect(button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(triggerNewQtBox()));
+
+     button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Add circle&quot;</span>));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(button);
+     connect(button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(triggerNewCircleItem()));
+
+     button <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Add square&quot;</span>));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(button);
+     connect(button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(triggerNewSquareItem()));
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+ }
+
+ <span class="type">void</span> ItemDialog<span class="operator">::</span>triggerNewQtBox()
+ {
+     <span class="keyword">emit</span> newItemTriggered(<span class="type">QtBoxItem</span>);
+ }
+
+ <span class="type">void</span> ItemDialog<span class="operator">::</span>triggerNewCircleItem()
+ {
+     <span class="keyword">emit</span> newItemTriggered(CircleItem);
+ }
+
+ <span class="type">void</span> ItemDialog<span class="operator">::</span>triggerNewSquareItem()
+ {
+     <span class="keyword">emit</span> newItemTriggered(SquareItem);
+ }
+
+ <span class="type">void</span> ItemDialog<span class="operator">::</span>mouseDoubleClickEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton)
+         <span class="keyword">emit</span> doubleClicked();
+ }
+
+ <span class="comment">//============================================================================//</span>
+ <span class="comment">//                                    Scene                                   //</span>
+ <span class="comment">//============================================================================//</span>
+
+ <span class="keyword">const</span> <span class="keyword">static</span> <span class="type">char</span> environmentShaderText<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span>
+     <span class="string">&quot;uniform samplerCube env;&quot;</span>
+     <span class="string">&quot;void main() {&quot;</span>
+         <span class="string">&quot;gl_FragColor = textureCube(env, gl_TexCoord[1].xyz);&quot;</span>
+     <span class="string">&quot;}&quot;</span>;
+
+ Scene<span class="operator">::</span>Scene(<span class="type">int</span> width<span class="operator">,</span> <span class="type">int</span> height<span class="operator">,</span> <span class="type">int</span> maxTextureSize)
+     : m_distExp(<span class="number">600</span>)
+     <span class="operator">,</span> m_frame(<span class="number">0</span>)
+     <span class="operator">,</span> m_maxTextureSize(maxTextureSize)
+     <span class="operator">,</span> m_currentShader(<span class="number">0</span>)
+     <span class="operator">,</span> m_currentTexture(<span class="number">0</span>)
+     <span class="operator">,</span> m_dynamicCubemap(<span class="keyword">false</span>)
+     <span class="operator">,</span> m_updateAllCubemaps(<span class="keyword">true</span>)
+     <span class="operator">,</span> m_box(<span class="number">0</span>)
+     <span class="operator">,</span> m_vertexShader(<span class="number">0</span>)
+     <span class="operator">,</span> m_environmentShader(<span class="number">0</span>)
+     <span class="operator">,</span> m_environmentProgram(<span class="number">0</span>)
+ {
+     setSceneRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width<span class="operator">,</span> height);
+
+     m_trackBalls<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> TrackBall(<span class="number">0.05f</span><span class="operator">,</span> QVector3D(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> TrackBall<span class="operator">::</span>Sphere);
+     m_trackBalls<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> TrackBall(<span class="number">0.005f</span><span class="operator">,</span> QVector3D(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">,</span> TrackBall<span class="operator">::</span>Sphere);
+     m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> TrackBall(<span class="number">0.0f</span><span class="operator">,</span> QVector3D(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> TrackBall<span class="operator">::</span>Plane);
+
+     m_renderOptions <span class="operator">=</span> <span class="keyword">new</span> RenderOptionsDialog;
+     m_renderOptions<span class="operator">-</span><span class="operator">&gt;</span>move(<span class="number">20</span><span class="operator">,</span> <span class="number">120</span>);
+     m_renderOptions<span class="operator">-</span><span class="operator">&gt;</span>resize(m_renderOptions<span class="operator">-</span><span class="operator">&gt;</span>sizeHint());
+
+     connect(m_renderOptions<span class="operator">,</span> SIGNAL(dynamicCubemapToggled(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(toggleDynamicCubemap(<span class="type">int</span>)));
+     connect(m_renderOptions<span class="operator">,</span> SIGNAL(colorParameterChanged(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setColorParameter(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span>)));
+     connect(m_renderOptions<span class="operator">,</span> SIGNAL(floatParameterChanged(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type">float</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setFloatParameter(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type">float</span>)));
+     connect(m_renderOptions<span class="operator">,</span> SIGNAL(textureChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setTexture(<span class="type">int</span>)));
+     connect(m_renderOptions<span class="operator">,</span> SIGNAL(shaderChanged(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setShader(<span class="type">int</span>)));
+
+     m_itemDialog <span class="operator">=</span> <span class="keyword">new</span> ItemDialog;
+     connect(m_itemDialog<span class="operator">,</span> SIGNAL(newItemTriggered(ItemDialog<span class="operator">::</span>ItemType))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(newItem(ItemDialog<span class="operator">::</span>ItemType)));
+
+     TwoSidedGraphicsWidget <span class="operator">*</span>twoSided <span class="operator">=</span> <span class="keyword">new</span> TwoSidedGraphicsWidget(<span class="keyword">this</span>);
+     twoSided<span class="operator">-</span><span class="operator">&gt;</span>setWidget(<span class="number">0</span><span class="operator">,</span> m_renderOptions);
+     twoSided<span class="operator">-</span><span class="operator">&gt;</span>setWidget(<span class="number">1</span><span class="operator">,</span> m_itemDialog);
+
+     connect(m_renderOptions<span class="operator">,</span> SIGNAL(doubleClicked())<span class="operator">,</span> twoSided<span class="operator">,</span> SLOT(flip()));
+     connect(m_itemDialog<span class="operator">,</span> SIGNAL(doubleClicked())<span class="operator">,</span> twoSided<span class="operator">,</span> SLOT(flip()));
+
+     addItem(<span class="keyword">new</span> <span class="type">QtBox</span>(<span class="number">64</span><span class="operator">,</span> width <span class="operator">-</span> <span class="number">64</span><span class="operator">,</span> height <span class="operator">-</span> <span class="number">64</span>));
+     addItem(<span class="keyword">new</span> <span class="type">QtBox</span>(<span class="number">64</span><span class="operator">,</span> width <span class="operator">-</span> <span class="number">64</span><span class="operator">,</span> <span class="number">64</span>));
+     addItem(<span class="keyword">new</span> <span class="type">QtBox</span>(<span class="number">64</span><span class="operator">,</span> <span class="number">64</span><span class="operator">,</span> height <span class="operator">-</span> <span class="number">64</span>));
+     addItem(<span class="keyword">new</span> <span class="type">QtBox</span>(<span class="number">64</span><span class="operator">,</span> <span class="number">64</span><span class="operator">,</span> <span class="number">64</span>));
+
+     initGL();
+
+     m_timer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>(<span class="keyword">this</span>);
+     m_timer<span class="operator">-</span><span class="operator">&gt;</span>setInterval(<span class="number">20</span>);
+     connect(m_timer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(update()));
+     m_timer<span class="operator">-</span><span class="operator">&gt;</span>start();
+
+     m_time<span class="operator">.</span>start();
+ }
+
+ Scene<span class="operator">::</span><span class="operator">~</span>Scene()
+ {
+     <span class="keyword">if</span> (m_box)
+         <span class="keyword">delete</span> m_box;
+     foreach (GLTexture <span class="operator">*</span>texture<span class="operator">,</span> m_textures)
+         <span class="keyword">if</span> (texture) <span class="keyword">delete</span> texture;
+     <span class="keyword">if</span> (m_mainCubemap)
+         <span class="keyword">delete</span> m_mainCubemap;
+     foreach (<span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span> <span class="operator">*</span>program<span class="operator">,</span> m_programs)
+         <span class="keyword">if</span> (program) <span class="keyword">delete</span> program;
+     <span class="keyword">if</span> (m_vertexShader)
+         <span class="keyword">delete</span> m_vertexShader;
+     foreach (<span class="type"><a href="qglshader.html">QGLShader</a></span> <span class="operator">*</span>shader<span class="operator">,</span> m_fragmentShaders)
+         <span class="keyword">if</span> (shader) <span class="keyword">delete</span> shader;
+     foreach (GLRenderTargetCube <span class="operator">*</span>rt<span class="operator">,</span> m_cubemaps)
+         <span class="keyword">if</span> (rt) <span class="keyword">delete</span> rt;
+     <span class="keyword">if</span> (m_environmentShader)
+         <span class="keyword">delete</span> m_environmentShader;
+     <span class="keyword">if</span> (m_environmentProgram)
+         <span class="keyword">delete</span> m_environmentProgram;
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>initGL()
+ {
+     m_box <span class="operator">=</span> <span class="keyword">new</span> GLRoundedBox(<span class="number">0.25f</span><span class="operator">,</span> <span class="number">1.0f</span><span class="operator">,</span> <span class="number">10</span>);
+
+     m_vertexShader <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qglshader.html">QGLShader</a></span>(<span class="type"><a href="qglshader.html">QGLShader</a></span><span class="operator">::</span>Vertex);
+     m_vertexShader<span class="operator">-</span><span class="operator">&gt;</span>compileSourceFile(QLatin1String(<span class="string">&quot;:/res/boxes/basic.vsh&quot;</span>));
+
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> list;
+     list <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;:/res/boxes/cubemap_posx.jpg&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;:/res/boxes/cubemap_negx.jpg&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;:/res/boxes/cubemap_posy.jpg&quot;</span>
+          <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;:/res/boxes/cubemap_negy.jpg&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;:/res/boxes/cubemap_posz.jpg&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;:/res/boxes/cubemap_negz.jpg&quot;</span>;
+     m_environment <span class="operator">=</span> <span class="keyword">new</span> GLTextureCube(list<span class="operator">,</span> <a href="qtglobal.html#qMin">qMin</a>(<span class="number">1024</span><span class="operator">,</span> m_maxTextureSize));
+     m_environmentShader <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qglshader.html">QGLShader</a></span>(<span class="type"><a href="qglshader.html">QGLShader</a></span><span class="operator">::</span>Fragment);
+     m_environmentShader<span class="operator">-</span><span class="operator">&gt;</span>compileSourceCode(environmentShaderText);
+     m_environmentProgram <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span>;
+     m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>addShader(m_vertexShader);
+     m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>addShader(m_environmentShader);
+     m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>link();
+
+     <span class="keyword">const</span> <span class="type">int</span> NOISE_SIZE <span class="operator">=</span> <span class="number">128</span>; <span class="comment">// for a different size, B and BM in fbm.c must also be changed</span>
+     m_noise <span class="operator">=</span> <span class="keyword">new</span> GLTexture3D(NOISE_SIZE<span class="operator">,</span> NOISE_SIZE<span class="operator">,</span> NOISE_SIZE);
+     <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> <span class="operator">*</span>data <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span><span class="operator">[</span>NOISE_SIZE <span class="operator">*</span> NOISE_SIZE <span class="operator">*</span> NOISE_SIZE<span class="operator">]</span>;
+     memset(data<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> NOISE_SIZE <span class="operator">*</span> NOISE_SIZE <span class="operator">*</span> NOISE_SIZE <span class="operator">*</span> <span class="keyword">sizeof</span>(<span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span>));
+     <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> <span class="operator">*</span>p <span class="operator">=</span> data;
+     <span class="type">float</span> pos<span class="operator">[</span><span class="number">3</span><span class="operator">]</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> k <span class="operator">=</span> <span class="number">0</span>; k <span class="operator">&lt;</span> NOISE_SIZE; <span class="operator">+</span><span class="operator">+</span>k) {
+         pos<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> k <span class="operator">*</span> (<span class="number">0x20</span> <span class="operator">/</span> (<span class="type">float</span>)NOISE_SIZE);
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> NOISE_SIZE; <span class="operator">+</span><span class="operator">+</span>j) {
+             <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> NOISE_SIZE; <span class="operator">+</span><span class="operator">+</span>i) {
+                 <span class="keyword">for</span> (<span class="type">int</span> byte <span class="operator">=</span> <span class="number">0</span>; byte <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>byte) {
+                     pos<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> (i <span class="operator">+</span> (byte <span class="operator">&amp;</span> <span class="number">1</span>) <span class="operator">*</span> <span class="number">16</span>) <span class="operator">*</span> (<span class="number">0x20</span> <span class="operator">/</span> (<span class="type">float</span>)NOISE_SIZE);
+                     pos<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> (j <span class="operator">+</span> (byte <span class="operator">&amp;</span> <span class="number">2</span>) <span class="operator">*</span> <span class="number">8</span>) <span class="operator">*</span> (<span class="number">0x20</span> <span class="operator">/</span> (<span class="type">float</span>)NOISE_SIZE);
+                     <span class="operator">*</span>p <span class="operator">|</span><span class="operator">=</span> (<span class="type">int</span>)(<span class="number">128.0f</span> <span class="operator">*</span> (noise3(pos) <span class="operator">+</span> <span class="number">1.0f</span>)) <span class="operator">&lt;</span><span class="operator">&lt;</span> (byte <span class="operator">*</span> <span class="number">8</span>);
+                 }
+                 <span class="operator">+</span><span class="operator">+</span>p;
+             }
+         }
+     }
+     m_noise<span class="operator">-</span><span class="operator">&gt;</span>load(NOISE_SIZE<span class="operator">,</span> NOISE_SIZE<span class="operator">,</span> NOISE_SIZE<span class="operator">,</span> data);
+     <span class="keyword">delete</span><span class="operator">[</span><span class="operator">]</span> data;
+
+     m_mainCubemap <span class="operator">=</span> <span class="keyword">new</span> GLRenderTargetCube(<span class="number">512</span>);
+
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> filter;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qfileinfo.html">QFileInfo</a></span><span class="operator">&gt;</span> files;
+
+     <span class="comment">// Load all .png files as textures</span>
+     m_currentTexture <span class="operator">=</span> <span class="number">0</span>;
+     filter <span class="operator">=</span> <span class="type"><a href="qstringlist.html">QStringList</a></span>(<span class="string">&quot;*.png&quot;</span>);
+     files <span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span>(<span class="string">&quot;:/res/boxes/&quot;</span>)<span class="operator">.</span>entryInfoList(filter<span class="operator">,</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable);
+
+     foreach (<span class="type"><a href="qfileinfo.html">QFileInfo</a></span> file<span class="operator">,</span> files) {
+         GLTexture <span class="operator">*</span>texture <span class="operator">=</span> <span class="keyword">new</span> GLTexture2D(file<span class="operator">.</span>absoluteFilePath()<span class="operator">,</span> <a href="qtglobal.html#qMin">qMin</a>(<span class="number">256</span><span class="operator">,</span> m_maxTextureSize)<span class="operator">,</span> <a href="qtglobal.html#qMin">qMin</a>(<span class="number">256</span><span class="operator">,</span> m_maxTextureSize));
+         <span class="keyword">if</span> (texture<span class="operator">-</span><span class="operator">&gt;</span>failed()) {
+             <span class="keyword">delete</span> texture;
+             <span class="keyword">continue</span>;
+         }
+         m_textures <span class="operator">&lt;</span><span class="operator">&lt;</span> texture;
+         m_renderOptions<span class="operator">-</span><span class="operator">&gt;</span>addTexture(file<span class="operator">.</span>baseName());
+     }
+
+     <span class="keyword">if</span> (m_textures<span class="operator">.</span>size() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         m_textures <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">new</span> GLTexture2D(<a href="qtglobal.html#qMin">qMin</a>(<span class="number">64</span><span class="operator">,</span> m_maxTextureSize)<span class="operator">,</span> <a href="qtglobal.html#qMin">qMin</a>(<span class="number">64</span><span class="operator">,</span> m_maxTextureSize));
+
+     <span class="comment">// Load all .fsh files as fragment shaders</span>
+     m_currentShader <span class="operator">=</span> <span class="number">0</span>;
+     filter <span class="operator">=</span> <span class="type"><a href="qstringlist.html">QStringList</a></span>(<span class="string">&quot;*.fsh&quot;</span>);
+     files <span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span>(<span class="string">&quot;:/res/boxes/&quot;</span>)<span class="operator">.</span>entryInfoList(filter<span class="operator">,</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files <span class="operator">|</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable);
+     foreach (<span class="type"><a href="qfileinfo.html">QFileInfo</a></span> file<span class="operator">,</span> files) {
+         <span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span> <span class="operator">*</span>program <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span>;
+         <span class="type"><a href="qglshader.html">QGLShader</a></span><span class="operator">*</span> shader <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qglshader.html">QGLShader</a></span>(<span class="type"><a href="qglshader.html">QGLShader</a></span><span class="operator">::</span>Fragment);
+         shader<span class="operator">-</span><span class="operator">&gt;</span>compileSourceFile(file<span class="operator">.</span>absoluteFilePath());
+         <span class="comment">// The program does not take ownership over the shaders, so store them in a vector so they can be deleted afterwards.</span>
+         program<span class="operator">-</span><span class="operator">&gt;</span>addShader(m_vertexShader);
+         program<span class="operator">-</span><span class="operator">&gt;</span>addShader(shader);
+         <span class="keyword">if</span> (<span class="operator">!</span>program<span class="operator">-</span><span class="operator">&gt;</span>link()) {
+             <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to compile and link shader program&quot;</span>);
+             <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Vertex shader log:&quot;</span>);
+             <a href="qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> m_vertexShader<span class="operator">-</span><span class="operator">&gt;</span>log();
+             <a href="qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Fragment shader log ( file =&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> file<span class="operator">.</span>absoluteFilePath() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;):&quot;</span>;
+             <a href="qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> shader<span class="operator">-</span><span class="operator">&gt;</span>log();
+             <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Shader program log:&quot;</span>);
+             <a href="qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> program<span class="operator">-</span><span class="operator">&gt;</span>log();
+
+             <span class="keyword">delete</span> shader;
+             <span class="keyword">delete</span> program;
+             <span class="keyword">continue</span>;
+         }
+
+         m_fragmentShaders <span class="operator">&lt;</span><span class="operator">&lt;</span> shader;
+         m_programs <span class="operator">&lt;</span><span class="operator">&lt;</span> program;
+         m_renderOptions<span class="operator">-</span><span class="operator">&gt;</span>addShader(file<span class="operator">.</span>baseName());
+
+         program<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         m_cubemaps <span class="operator">&lt;</span><span class="operator">&lt;</span> ((program<span class="operator">-</span><span class="operator">&gt;</span>uniformLocation(<span class="string">&quot;env&quot;</span>) <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) <span class="operator">?</span> <span class="keyword">new</span> GLRenderTargetCube(<a href="qtglobal.html#qMin">qMin</a>(<span class="number">256</span><span class="operator">,</span> m_maxTextureSize)) : <span class="number">0</span>);
+         program<span class="operator">-</span><span class="operator">&gt;</span>release();
+     }
+
+     <span class="keyword">if</span> (m_programs<span class="operator">.</span>size() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         m_programs <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">new</span> <span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span>;
+
+     m_renderOptions<span class="operator">-</span><span class="operator">&gt;</span>emitParameterChanged();
+ }
+
+ <span class="keyword">static</span> <span class="type">void</span> loadMatrix(<span class="keyword">const</span> QMatrix4x4<span class="operator">&amp;</span> m)
+ {
+     <span class="comment">// static to prevent glLoadMatrixf to fail on certain drivers</span>
+     <span class="keyword">static</span> GLfloat mat<span class="operator">[</span><span class="number">16</span><span class="operator">]</span>;
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <span class="operator">*</span>data <span class="operator">=</span> m<span class="operator">.</span>constData();
+     <span class="keyword">for</span> (<span class="type">int</span> index <span class="operator">=</span> <span class="number">0</span>; index <span class="operator">&lt;</span> <span class="number">16</span>; <span class="operator">+</span><span class="operator">+</span>index)
+         mat<span class="operator">[</span>index<span class="operator">]</span> <span class="operator">=</span> data<span class="operator">[</span>index<span class="operator">]</span>;
+     glLoadMatrixf(mat);
+ }
+
+ <span class="keyword">static</span> <span class="type">void</span> multMatrix(<span class="keyword">const</span> QMatrix4x4<span class="operator">&amp;</span> m)
+ {
+     <span class="comment">// static to prevent glMultMatrixf to fail on certain drivers</span>
+     <span class="keyword">static</span> GLfloat mat<span class="operator">[</span><span class="number">16</span><span class="operator">]</span>;
+     <span class="keyword">const</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <span class="operator">*</span>data <span class="operator">=</span> m<span class="operator">.</span>constData();
+     <span class="keyword">for</span> (<span class="type">int</span> index <span class="operator">=</span> <span class="number">0</span>; index <span class="operator">&lt;</span> <span class="number">16</span>; <span class="operator">+</span><span class="operator">+</span>index)
+         mat<span class="operator">[</span>index<span class="operator">]</span> <span class="operator">=</span> data<span class="operator">[</span>index<span class="operator">]</span>;
+     glMultMatrixf(mat);
+ }
+
+ <span class="comment">// If one of the boxes should not be rendered, set excludeBox to its index.</span>
+ <span class="comment">// If the main box should not be rendered, set excludeBox to -1.</span>
+ <span class="type">void</span> Scene<span class="operator">::</span>renderBoxes(<span class="keyword">const</span> QMatrix4x4 <span class="operator">&amp;</span>view<span class="operator">,</span> <span class="type">int</span> excludeBox)
+ {
+     QMatrix4x4 invView <span class="operator">=</span> view<span class="operator">.</span>inverted();
+
+     <span class="comment">// If multi-texturing is supported, use three saplers.</span>
+     <span class="keyword">if</span> (glActiveTexture) {
+         glActiveTexture(GL_TEXTURE0);
+         m_textures<span class="operator">[</span>m_currentTexture<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>bind();
+         glActiveTexture(GL_TEXTURE2);
+         m_noise<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         glActiveTexture(GL_TEXTURE1);
+     } <span class="keyword">else</span> {
+         m_textures<span class="operator">[</span>m_currentTexture<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>bind();
+     }
+
+     glDisable(GL_LIGHTING);
+     glDisable(GL_CULL_FACE);
+
+     QMatrix4x4 viewRotation(view);
+     viewRotation(<span class="number">3</span><span class="operator">,</span> <span class="number">0</span>) <span class="operator">=</span> viewRotation(<span class="number">3</span><span class="operator">,</span> <span class="number">1</span>) <span class="operator">=</span> viewRotation(<span class="number">3</span><span class="operator">,</span> <span class="number">2</span>) <span class="operator">=</span> <span class="number">0.0f</span>;
+     viewRotation(<span class="number">0</span><span class="operator">,</span> <span class="number">3</span>) <span class="operator">=</span> viewRotation(<span class="number">1</span><span class="operator">,</span> <span class="number">3</span>) <span class="operator">=</span> viewRotation(<span class="number">2</span><span class="operator">,</span> <span class="number">3</span>) <span class="operator">=</span> <span class="number">0.0f</span>;
+     viewRotation(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span>) <span class="operator">=</span> <span class="number">1.0f</span>;
+     loadMatrix(viewRotation);
+     glScalef(<span class="number">20.0f</span><span class="operator">,</span> <span class="number">20.0f</span><span class="operator">,</span> <span class="number">20.0f</span>);
+
+     <span class="comment">// Don't render the environment if the environment texture can't be set for the correct sampler.</span>
+     <span class="keyword">if</span> (glActiveTexture) {
+         m_environment<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;tex&quot;</span><span class="operator">,</span> GLint(<span class="number">0</span>));
+         m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;env&quot;</span><span class="operator">,</span> GLint(<span class="number">1</span>));
+         m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;noise&quot;</span><span class="operator">,</span> GLint(<span class="number">2</span>));
+         m_box<span class="operator">-</span><span class="operator">&gt;</span>draw();
+         m_environmentProgram<span class="operator">-</span><span class="operator">&gt;</span>release();
+         m_environment<span class="operator">-</span><span class="operator">&gt;</span>unbind();
+     }
+
+     loadMatrix(view);
+
+     glEnable(GL_CULL_FACE);
+     glEnable(GL_LIGHTING);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> m_programs<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (i <span class="operator">=</span><span class="operator">=</span> excludeBox)
+             <span class="keyword">continue</span>;
+
+         glPushMatrix();
+         QMatrix4x4 m;
+         m<span class="operator">.</span>rotate(m_trackBalls<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>rotation());
+         multMatrix(m);
+
+         glRotatef(<span class="number">360.0f</span> <span class="operator">*</span> i <span class="operator">/</span> m_programs<span class="operator">.</span>size()<span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span>);
+         glTranslatef(<span class="number">2.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span>);
+         glScalef(<span class="number">0.3f</span><span class="operator">,</span> <span class="number">0.6f</span><span class="operator">,</span> <span class="number">0.6f</span>);
+
+         <span class="keyword">if</span> (glActiveTexture) {
+             <span class="keyword">if</span> (m_dynamicCubemap <span class="operator">&amp;</span><span class="operator">&amp;</span> m_cubemaps<span class="operator">[</span>i<span class="operator">]</span>)
+                 m_cubemaps<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>bind();
+             <span class="keyword">else</span>
+                 m_environment<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         }
+         m_programs<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>bind();
+         m_programs<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;tex&quot;</span><span class="operator">,</span> GLint(<span class="number">0</span>));
+         m_programs<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;env&quot;</span><span class="operator">,</span> GLint(<span class="number">1</span>));
+         m_programs<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;noise&quot;</span><span class="operator">,</span> GLint(<span class="number">2</span>));
+         m_programs<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;view&quot;</span><span class="operator">,</span> view);
+         m_programs<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;invView&quot;</span><span class="operator">,</span> invView);
+         m_box<span class="operator">-</span><span class="operator">&gt;</span>draw();
+         m_programs<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>release();
+
+         <span class="keyword">if</span> (glActiveTexture) {
+             <span class="keyword">if</span> (m_dynamicCubemap <span class="operator">&amp;</span><span class="operator">&amp;</span> m_cubemaps<span class="operator">[</span>i<span class="operator">]</span>)
+                 m_cubemaps<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>unbind();
+             <span class="keyword">else</span>
+                 m_environment<span class="operator">-</span><span class="operator">&gt;</span>unbind();
+         }
+         glPopMatrix();
+     }
+
+     <span class="keyword">if</span> (<span class="operator">-</span><span class="number">1</span> <span class="operator">!</span><span class="operator">=</span> excludeBox) {
+         QMatrix4x4 m;
+         m<span class="operator">.</span>rotate(m_trackBalls<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>rotation());
+         multMatrix(m);
+
+         <span class="keyword">if</span> (glActiveTexture) {
+             <span class="keyword">if</span> (m_dynamicCubemap)
+                 m_mainCubemap<span class="operator">-</span><span class="operator">&gt;</span>bind();
+             <span class="keyword">else</span>
+                 m_environment<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         }
+
+         m_programs<span class="operator">[</span>m_currentShader<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>bind();
+         m_programs<span class="operator">[</span>m_currentShader<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;tex&quot;</span><span class="operator">,</span> GLint(<span class="number">0</span>));
+         m_programs<span class="operator">[</span>m_currentShader<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;env&quot;</span><span class="operator">,</span> GLint(<span class="number">1</span>));
+         m_programs<span class="operator">[</span>m_currentShader<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;noise&quot;</span><span class="operator">,</span> GLint(<span class="number">2</span>));
+         m_programs<span class="operator">[</span>m_currentShader<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;view&quot;</span><span class="operator">,</span> view);
+         m_programs<span class="operator">[</span>m_currentShader<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(<span class="string">&quot;invView&quot;</span><span class="operator">,</span> invView);
+         m_box<span class="operator">-</span><span class="operator">&gt;</span>draw();
+         m_programs<span class="operator">[</span>m_currentShader<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>release();
+
+         <span class="keyword">if</span> (glActiveTexture) {
+             <span class="keyword">if</span> (m_dynamicCubemap)
+                 m_mainCubemap<span class="operator">-</span><span class="operator">&gt;</span>unbind();
+             <span class="keyword">else</span>
+                 m_environment<span class="operator">-</span><span class="operator">&gt;</span>unbind();
+         }
+     }
+
+     <span class="keyword">if</span> (glActiveTexture) {
+         glActiveTexture(GL_TEXTURE2);
+         m_noise<span class="operator">-</span><span class="operator">&gt;</span>unbind();
+         glActiveTexture(GL_TEXTURE0);
+     }
+     m_textures<span class="operator">[</span>m_currentTexture<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>unbind();
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>setStates()
+ {
+     <span class="comment">//glClearColor(0.25f, 0.25f, 0.5f, 1.0f);</span>
+
+     glEnable(GL_DEPTH_TEST);
+     glEnable(GL_CULL_FACE);
+     glEnable(GL_LIGHTING);
+     <span class="comment">//glEnable(GL_COLOR_MATERIAL);</span>
+     glEnable(GL_TEXTURE_2D);
+     glEnable(GL_NORMALIZE);
+
+     glMatrixMode(GL_PROJECTION);
+     glPushMatrix();
+     glLoadIdentity();
+
+     glMatrixMode(GL_MODELVIEW);
+     glPushMatrix();
+     glLoadIdentity();
+
+     setLights();
+
+     <span class="type">float</span> materialSpecular<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {<span class="number">0.5f</span><span class="operator">,</span> <span class="number">0.5f</span><span class="operator">,</span> <span class="number">0.5f</span><span class="operator">,</span> <span class="number">1.0f</span>};
+     glMaterialfv(GL_FRONT_AND_BACK<span class="operator">,</span> GL_SPECULAR<span class="operator">,</span> materialSpecular);
+     glMaterialf(GL_FRONT_AND_BACK<span class="operator">,</span> GL_SHININESS<span class="operator">,</span> <span class="number">32.0f</span>);
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>setLights()
+ {
+     glColorMaterial(GL_FRONT_AND_BACK<span class="operator">,</span> GL_AMBIENT_AND_DIFFUSE);
+     <span class="comment">//float lightColour[] = {1.0f, 1.0f, 1.0f, 1.0f};</span>
+     <span class="type">float</span> lightDir<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {<span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span><span class="operator">,</span> <span class="number">0.0f</span>};
+     <span class="comment">//glLightfv(GL_LIGHT0, GL_DIFFUSE, lightColour);</span>
+     <span class="comment">//glLightfv(GL_LIGHT0, GL_SPECULAR, lightColour);</span>
+     glLightfv(GL_LIGHT0<span class="operator">,</span> GL_POSITION<span class="operator">,</span> lightDir);
+     glLightModelf(GL_LIGHT_MODEL_LOCAL_VIEWER<span class="operator">,</span> <span class="number">1.0f</span>);
+     glEnable(GL_LIGHT0);
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>defaultStates()
+ {
+     <span class="comment">//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);</span>
+
+     glDisable(GL_DEPTH_TEST);
+     glDisable(GL_CULL_FACE);
+     glDisable(GL_LIGHTING);
+     <span class="comment">//glDisable(GL_COLOR_MATERIAL);</span>
+     glDisable(GL_TEXTURE_2D);
+     glDisable(GL_LIGHT0);
+     glDisable(GL_NORMALIZE);
+
+     glMatrixMode(GL_MODELVIEW);
+     glPopMatrix();
+
+     glMatrixMode(GL_PROJECTION);
+     glPopMatrix();
+
+     glLightModelf(GL_LIGHT_MODEL_LOCAL_VIEWER<span class="operator">,</span> <span class="number">0.0f</span>);
+     <span class="type">float</span> defaultMaterialSpecular<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {<span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">0.0f</span><span class="operator">,</span> <span class="number">1.0f</span>};
+     glMaterialfv(GL_FRONT_AND_BACK<span class="operator">,</span> GL_SPECULAR<span class="operator">,</span> defaultMaterialSpecular);
+     glMaterialf(GL_FRONT_AND_BACK<span class="operator">,</span> GL_SHININESS<span class="operator">,</span> <span class="number">0.0f</span>);
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>renderCubemaps()
+ {
+     <span class="comment">// To speed things up, only update the cubemaps for the small cubes every N frames.</span>
+     <span class="keyword">const</span> <span class="type">int</span> N <span class="operator">=</span> (m_updateAllCubemaps <span class="operator">?</span> <span class="number">1</span> : <span class="number">3</span>);
+
+     QMatrix4x4 mat;
+     GLRenderTargetCube<span class="operator">::</span>getProjectionMatrix(mat<span class="operator">,</span> <span class="number">0.1f</span><span class="operator">,</span> <span class="number">100.0f</span>);
+
+     glMatrixMode(GL_PROJECTION);
+     glPushMatrix();
+     loadMatrix(mat);
+
+     glMatrixMode(GL_MODELVIEW);
+     glPushMatrix();
+
+     QVector3D center;
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> m_frame <span class="operator">%</span> N; i <span class="operator">&lt;</span> m_cubemaps<span class="operator">.</span>size(); i <span class="operator">+</span><span class="operator">=</span> N) {
+         <span class="keyword">if</span> (<span class="number">0</span> <span class="operator">=</span><span class="operator">=</span> m_cubemaps<span class="operator">[</span>i<span class="operator">]</span>)
+             <span class="keyword">continue</span>;
+
+         <span class="type">float</span> angle <span class="operator">=</span> <span class="number">2.0f</span> <span class="operator">*</span> PI <span class="operator">*</span> i <span class="operator">/</span> m_cubemaps<span class="operator">.</span>size();
+
+         center <span class="operator">=</span> m_trackBalls<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>rotatedVector(QVector3D(cos(angle)<span class="operator">,</span> sin(angle)<span class="operator">,</span> <span class="number">0.0f</span>));
+
+         <span class="keyword">for</span> (<span class="type">int</span> face <span class="operator">=</span> <span class="number">0</span>; face <span class="operator">&lt;</span> <span class="number">6</span>; <span class="operator">+</span><span class="operator">+</span>face) {
+             m_cubemaps<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>begin(face);
+
+             GLRenderTargetCube<span class="operator">::</span>getViewMatrix(mat<span class="operator">,</span> face);
+             QVector4D v <span class="operator">=</span> QVector4D(<span class="operator">-</span>center<span class="operator">.</span>x()<span class="operator">,</span> <span class="operator">-</span>center<span class="operator">.</span>y()<span class="operator">,</span> <span class="operator">-</span>center<span class="operator">.</span>z()<span class="operator">,</span> <span class="number">1.0</span>);
+             mat<span class="operator">.</span>setColumn(<span class="number">3</span><span class="operator">,</span> mat <span class="operator">*</span> v);
+
+             glClear(GL_COLOR_BUFFER_BIT <span class="operator">|</span> GL_DEPTH_BUFFER_BIT);
+             renderBoxes(mat<span class="operator">,</span> i);
+
+             m_cubemaps<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>end();
+         }
+     }
+
+     <span class="keyword">for</span> (<span class="type">int</span> face <span class="operator">=</span> <span class="number">0</span>; face <span class="operator">&lt;</span> <span class="number">6</span>; <span class="operator">+</span><span class="operator">+</span>face) {
+         m_mainCubemap<span class="operator">-</span><span class="operator">&gt;</span>begin(face);
+         GLRenderTargetCube<span class="operator">::</span>getViewMatrix(mat<span class="operator">,</span> face);
+
+         glClear(GL_COLOR_BUFFER_BIT <span class="operator">|</span> GL_DEPTH_BUFFER_BIT);
+         renderBoxes(mat<span class="operator">,</span> <span class="operator">-</span><span class="number">1</span>);
+
+         m_mainCubemap<span class="operator">-</span><span class="operator">&gt;</span>end();
+     }
+
+     glPopMatrix();
+
+     glMatrixMode(GL_PROJECTION);
+     glPopMatrix();
+
+     m_updateAllCubemaps <span class="operator">=</span> <span class="keyword">false</span>;
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>drawBackground(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrectf.html">QRectF</a></span> <span class="operator">&amp;</span>)
+ {
+     <span class="type">float</span> width <span class="operator">=</span> <span class="type">float</span>(painter<span class="operator">-</span><span class="operator">&gt;</span>device()<span class="operator">-</span><span class="operator">&gt;</span>width());
+     <span class="type">float</span> height <span class="operator">=</span> <span class="type">float</span>(painter<span class="operator">-</span><span class="operator">&gt;</span>device()<span class="operator">-</span><span class="operator">&gt;</span>height());
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>beginNativePainting();
+     setStates();
+
+     <span class="keyword">if</span> (m_dynamicCubemap)
+         renderCubemaps();
+
+     glClear(GL_COLOR_BUFFER_BIT <span class="operator">|</span> GL_DEPTH_BUFFER_BIT);
+
+     glMatrixMode(GL_PROJECTION);
+     qgluPerspective(<span class="number">60.0</span><span class="operator">,</span> width <span class="operator">/</span> height<span class="operator">,</span> <span class="number">0.01</span><span class="operator">,</span> <span class="number">15.0</span>);
+
+     glMatrixMode(GL_MODELVIEW);
+
+     QMatrix4x4 view;
+     view<span class="operator">.</span>rotate(m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation());
+     view(<span class="number">2</span><span class="operator">,</span> <span class="number">3</span>) <span class="operator">-</span><span class="operator">=</span> <span class="number">2.0f</span> <span class="operator">*</span> exp(m_distExp <span class="operator">/</span> <span class="number">1200.0f</span>);
+     renderBoxes(view);
+
+     defaultStates();
+     <span class="operator">+</span><span class="operator">+</span>m_frame;
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>endNativePainting();
+ }
+
+ <span class="type"><a href="qpointf.html">QPointF</a></span> Scene<span class="operator">::</span>pixelPosToViewPos(<span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span><span class="operator">&amp;</span> p)
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">2.0</span> <span class="operator">*</span> <span class="type">float</span>(p<span class="operator">.</span>x()) <span class="operator">/</span> width() <span class="operator">-</span> <span class="number">1.0</span><span class="operator">,</span>
+                    <span class="number">1.0</span> <span class="operator">-</span> <span class="number">2.0</span> <span class="operator">*</span> <span class="type">float</span>(p<span class="operator">.</span>y()) <span class="operator">/</span> height());
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span><span class="operator">::</span>mouseMoveEvent(event);
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>isAccepted())
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>move(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     } <span class="keyword">else</span> {
+         m_trackBalls<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>release(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+     }
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>move(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     } <span class="keyword">else</span> {
+         m_trackBalls<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>release(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+     }
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MidButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>move(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> <span class="type"><a href="qquaternion.html">QQuaternion</a></span>());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     } <span class="keyword">else</span> {
+         m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>release(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> <span class="type"><a href="qquaternion.html">QQuaternion</a></span>());
+     }
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span><span class="operator">::</span>mousePressEvent(event);
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>isAccepted())
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>push(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>push(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MidButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>push(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> <span class="type"><a href="qquaternion.html">QQuaternion</a></span>());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span><span class="operator">::</span>mouseReleaseEvent(event);
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>isAccepted())
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>release(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>release(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>rotation()<span class="operator">.</span>conjugate());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MidButton) {
+         m_trackBalls<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">.</span>release(pixelPosToViewPos(event<span class="operator">-</span><span class="operator">&gt;</span>scenePos())<span class="operator">,</span> <span class="type"><a href="qquaternion.html">QQuaternion</a></span>());
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>wheelEvent(<span class="type"><a href="qgraphicsscenewheelevent.html">QGraphicsSceneWheelEvent</a></span> <span class="operator">*</span> event)
+ {
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span><span class="operator">::</span>wheelEvent(event);
+     <span class="keyword">if</span> (<span class="operator">!</span>event<span class="operator">-</span><span class="operator">&gt;</span>isAccepted()) {
+         m_distExp <span class="operator">+</span><span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>delta();
+         <span class="keyword">if</span> (m_distExp <span class="operator">&lt;</span> <span class="operator">-</span><span class="number">8</span> <span class="operator">*</span> <span class="number">120</span>)
+             m_distExp <span class="operator">=</span> <span class="operator">-</span><span class="number">8</span> <span class="operator">*</span> <span class="number">120</span>;
+         <span class="keyword">if</span> (m_distExp <span class="operator">&gt;</span> <span class="number">10</span> <span class="operator">*</span> <span class="number">120</span>)
+             m_distExp <span class="operator">=</span> <span class="number">10</span> <span class="operator">*</span> <span class="number">120</span>;
+         event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     }
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>setShader(<span class="type">int</span> index)
+ {
+     <span class="keyword">if</span> (index <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> index <span class="operator">&lt;</span> m_fragmentShaders<span class="operator">.</span>size())
+         m_currentShader <span class="operator">=</span> index;
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>setTexture(<span class="type">int</span> index)
+ {
+     <span class="keyword">if</span> (index <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> index <span class="operator">&lt;</span> m_textures<span class="operator">.</span>size())
+         m_currentTexture <span class="operator">=</span> index;
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>toggleDynamicCubemap(<span class="type">int</span> state)
+ {
+     <span class="keyword">if</span> ((m_dynamicCubemap <span class="operator">=</span> (state <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Checked)))
+         m_updateAllCubemaps <span class="operator">=</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>setColorParameter(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> color)
+ {
+     <span class="comment">// set the color in all programs</span>
+     foreach (<span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span> <span class="operator">*</span>program<span class="operator">,</span> m_programs) {
+         program<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         program<span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(program<span class="operator">-</span><span class="operator">&gt;</span>uniformLocation(name)<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(color));
+         program<span class="operator">-</span><span class="operator">&gt;</span>release();
+     }
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>setFloatParameter(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="type">float</span> value)
+ {
+     <span class="comment">// set the color in all programs</span>
+     foreach (<span class="type"><a href="qglshaderprogram.html">QGLShaderProgram</a></span> <span class="operator">*</span>program<span class="operator">,</span> m_programs) {
+         program<span class="operator">-</span><span class="operator">&gt;</span>bind();
+         program<span class="operator">-</span><span class="operator">&gt;</span>setUniformValue(program<span class="operator">-</span><span class="operator">&gt;</span>uniformLocation(name)<span class="operator">,</span> value);
+         program<span class="operator">-</span><span class="operator">&gt;</span>release();
+     }
+ }
+
+ <span class="type">void</span> Scene<span class="operator">::</span>newItem(ItemDialog<span class="operator">::</span>ItemType type)
+ {
+     <span class="type"><a href="qsize.html">QSize</a></span> size <span class="operator">=</span> sceneRect()<span class="operator">.</span>size()<span class="operator">.</span>toSize();
+     <span class="keyword">switch</span> (type) {
+     <span class="keyword">case</span> ItemDialog<span class="operator">::</span><span class="type">QtBoxItem</span>:
+         addItem(<span class="keyword">new</span> <span class="type">QtBox</span>(<span class="number">64</span><span class="operator">,</span> rand() <span class="operator">%</span> (size<span class="operator">.</span>width() <span class="operator">-</span> <span class="number">64</span>) <span class="operator">+</span> <span class="number">32</span><span class="operator">,</span> rand() <span class="operator">%</span> (size<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">64</span>) <span class="operator">+</span> <span class="number">32</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> ItemDialog<span class="operator">::</span>CircleItem:
+         addItem(<span class="keyword">new</span> CircleItem(<span class="number">64</span><span class="operator">,</span> rand() <span class="operator">%</span> (size<span class="operator">.</span>width() <span class="operator">-</span> <span class="number">64</span>) <span class="operator">+</span> <span class="number">32</span><span class="operator">,</span> rand() <span class="operator">%</span> (size<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">64</span>) <span class="operator">+</span> <span class="number">32</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> ItemDialog<span class="operator">::</span>SquareItem:
+         addItem(<span class="keyword">new</span> SquareItem(<span class="number">64</span><span class="operator">,</span> rand() <span class="operator">%</span> (size<span class="operator">.</span>width() <span class="operator">-</span> <span class="number">64</span>) <span class="operator">+</span> <span class="number">32</span><span class="operator">,</span> rand() <span class="operator">%</span> (size<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">64</span>) <span class="operator">+</span> <span class="number">32</span>));
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="keyword">break</span>;
+     }
+ }</pre>
+</div>
+<!-- @@@demos/boxes/scene.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

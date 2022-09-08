@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- filetree.qdoc -->
+  <title>Qt 4.8: File System Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>File System Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#introduction">Introduction</a></li>
+<li class="level2"><a href="#the-user-inteface">The User Inteface</a></li>
+<li class="level2"><a href="#running-your-own-xqueries">Running your own XQueries</a></li>
+<li class="level1"><a href="#code-walk-through">Code Walk-Through</a></li>
+<li class="level2"><a href="#the-custom-node-model-class-filetree">The Custom Node Model Class: FileTree</a></li>
+<li class="level3"><a href="#accessing-the-node-model">Accessing The Node Model</a></li>
+<li class="level3"><a href="#building-and-traversing-the-node-model">Building And Traversing The Node Model</a></li>
+<li class="level2"><a href="#the-ui-class-mainwindow">The UI Class: MainWindow</a></li>
+<li class="level3"><a href="#selecting-a-directory-to-model">Selecting A Directory To Model</a></li>
+<li class="level3"><a href="#selecting-and-running-an-xquery">Selecting And Running An XQuery</a></li>
+<li class="level2"><a href="#node-model-building-strategy">Node Model Building Strategy</a></li>
+</ul>
+</div>
+<h1 class="title">File System Example</h1>
+<span class="subtitle"></span>
+<!-- $$$xmlpatterns/filetree-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="xmlpatterns-filetree-filetree-cpp.html">xmlpatterns/filetree/filetree.cpp</a></li>
+<li><a href="xmlpatterns-filetree-filetree-h.html">xmlpatterns/filetree/filetree.h</a></li>
+<li><a href="xmlpatterns-filetree-mainwindow-cpp.html">xmlpatterns/filetree/mainwindow.cpp</a></li>
+<li><a href="xmlpatterns-filetree-mainwindow-h.html">xmlpatterns/filetree/mainwindow.h</a></li>
+<li><a href="xmlpatterns-filetree-forms-mainwindow-ui.html">xmlpatterns/filetree/forms/mainwindow.ui</a></li>
+<li><a href="xmlpatterns-filetree-queries-listcppfiles-xq.html">xmlpatterns/filetree/queries/listCPPFiles.xq</a></li>
+<li><a href="xmlpatterns-filetree-queries-wholetree-xq.html">xmlpatterns/filetree/queries/wholeTree.xq</a></li>
+<li><a href="xmlpatterns-filetree-main-cpp.html">xmlpatterns/filetree/main.cpp</a></li>
+<li><a href="xmlpatterns-filetree-filetree-pro.html">xmlpatterns/filetree/filetree.pro</a></li>
+<li><a href="xmlpatterns-filetree-queries-qrc.html">xmlpatterns/filetree/queries.qrc</a></li>
+</ul>
+<p>The File Tree example shows how to use <a href="qtxmlpatterns.html">QtXmlPatterns</a> for querying non-XML data that is modeled to look like XML.<a name="introduction"></a>
+<h2>Introduction</h2>
+<p>The example models your computer's file system to look like XML and allows you to query the file system with <a href="xmlprocessing.html">XQuery</a>. Suppose we want to find all the <tt>cpp</tt> files in the subtree beginning at <tt>/filetree</tt>:</p>
+<p class="centerAlign"><img src="images/filetree_1-example.png" alt="" /></p><a name="the-user-inteface"></a>
+<h3>The User Inteface</h3>
+<p>The example is shown below. First, we use <tt>File-&gt;Open Directory</tt> (not shown) to select the <tt>/filetree</tt> directory. Then we use the combobox on the right to select the <a href="xmlprocessing.html">XQuery</a> that searches for <tt>cpp</tt> files (<tt>listCPPFiles.xq</tt>). Selecting an <a href="xmlprocessing.html">XQuery</a> runs the query, which in this case traverses the model looking for all the <tt>cpp</tt> files. The <a href="xmlprocessing.html">XQuery</a> text and the query results are shown on the right:</p>
+<p class="centerAlign"><img src="images/filetree_2-example.png" alt="" /></p><p>Don't be mislead by the XML representation of the <tt>/filetree</tt> directory shown on the left. This is not the node model itself but the XML obtained by traversing the node model and outputting it as XML. Constructing and using the custom node model is explained in the code walk-through.</p>
+<a name="running-your-own-xqueries"></a>
+<h3>Running your own XQueries</h3>
+<p>You can write your own <a href="xmlprocessing.html">XQuery</a> files and run them in the example program. The file <tt>xmlpatterns/filetree/queries.qrc</tt> is the <a href="resources.html">resource file</a> for this example. It is used in <tt>main.cpp</tt> (<tt>Q_INIT_RESOURCE(queries);</tt>). It lists the <a href="xmlprocessing.html">XQuery</a> files (<tt>.xq</tt>) that can be selected in the combobox.</p>
+<pre class="qml"> &lt;!DOCTYPE RCC&gt;
+  &lt;RCC version=&quot;1.0&quot;&gt;
+ &lt;qresource&gt;
+     &lt;file&gt;queries/listCPPFiles.xq&lt;/file&gt;
+     &lt;file&gt;queries/wholeTree.xq&lt;/file&gt;
+ &lt;/qresource&gt;
+ &lt;/RCC&gt;</pre>
+<p>To add your own queries to the example's combobox, store your <tt>.xq</tt> files in the <tt>examples/xmlpatterns/filetree/queries</tt> directory and add them to <tt>queries.qrc</tt> as shown above.</p>
+<a name="code-walk-through"></a>
+<h2>Code Walk-Through</h2>
+<p>The strategy is to create a custom node model that represents the directory tree of the computer's file system. That tree structure is non-XML data. The custom node model must have the same callback interface as the XML node models that the <a href="qtxmlpatterns.html">QtXmlPatterns</a> query engine uses to execute queries. The query engine can then traverse the custom node model as if it were traversing the node model built from an XML document.</p>
+<p>The required callback interface is in <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>, so we create a custom node model by subclassing <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> and providing implementations for its pure virtual functions. For many cases, the implementations of several of the virtual functions are always the same, so <a href="qtxmlpatterns.html">QtXmlPatterns</a> also provides <a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a>, which subclasses <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> and provides implementations for the callback functions that you can ignore. By subclassing <a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a> instead of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>, you can reduce development time.</p>
+<a name="the-custom-node-model-class-filetree"></a>
+<h3>The Custom Node Model Class: FileTree</h3>
+<p>The custom node model for this example is class <tt>FileTree</tt>, which is derived from <a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a>. <tt>FileTree</tt> implements all the callback functions that don't have standard implementations in <a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a>. When you implement your own custom node model, you must provide implementations for these callback functions:</p>
+<pre class="cpp"> <span class="keyword">virtual</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">::</span>DocumentOrder compareOrder(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&amp;</span>) <span class="keyword">const</span>;
+ <span class="keyword">virtual</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span> name(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>;
+ <span class="keyword">virtual</span> <span class="type"><a href="qurl.html">QUrl</a></span> documentUri(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>;
+ <span class="keyword">virtual</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">::</span>NodeKind kind(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>;
+ <span class="keyword">virtual</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> root(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>;
+ <span class="keyword">virtual</span> <span class="type"><a href="qvariant.html">QVariant</a></span> typedValue(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>;
+ <span class="keyword">virtual</span> <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&gt;</span> attributes(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>element) <span class="keyword">const</span>;
+ <span class="keyword">virtual</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> nextFromSimpleAxis(SimpleAxis<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&amp;</span>) <span class="keyword">const</span>;</pre>
+<p>The <tt>FileTree</tt> class declares four data members:</p>
+<pre class="cpp"> <span class="keyword">mutable</span> <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qfileinfo.html">QFileInfo</a></span><span class="operator">&gt;</span>  m_fileInfos;
+ <span class="keyword">const</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Filters         m_filterAllowAll;
+ <span class="keyword">const</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>SortFlags       m_sortFlags;
+ <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qxmlname.html">QXmlName</a></span><span class="operator">&gt;</span>           m_names;</pre>
+<p>The <a href="qvector.html">QVector</a> <tt>m_fileInfos</tt> will contain the node model. Each <a href="qfileinfo.html">QFileInfo</a> in the vector will represent a file or a directory in the file system. At this point it is instructive to note that although the node model class for this example (<tt>FileTree</tt>) actually builds and contains the custom node model, building the custom node model isn't always required. The node model class for the <a href="xmlpatterns-qobjectxmlmodel.html">QObject node model example</a> does not build its node model but instead uses an already existing <a href="qobject.html">QObject</a> tree as its node model and just implements the callback interface for that already existing data structure. In this file system example, however, although we have an already existing data structure, i.e&#x2e; the file system, that data structure is not in memory and is not in a form we can use. So we must build an analog of the file system in memory from instances of <a href="qfileinfo.html">QFileInfo</a>, and we use that analog as the custom node model.</p>
+<p>The two sets of flags, <tt>m_filterAllowAll</tt> and <tt>m_sortFlags</tt>, contain OR'ed flags from <a href="qdir.html#Filter-enum">QDir::Filters</a> and <a href="qdir.html#SortFlag-enum">QDir::SortFlags</a> respectively. They are set by the <tt>FileTree</tt> constructor and used in calls to <a href="qdir.html#entryInfoList">QDir::entryInfoList</a>() for getting the child list for a directory node, i.e&#x2e; a <a href="qfileinfo.html#QFileInfoList-typedef">QFileInfoList</a> containing the file and directory nodes for all the immediate children of a directory.</p>
+<p>The <a href="qvector.html">QVector</a> <tt>m_names</tt> is an auxiliary component of the node model. It holds the XML element and attribute names (<a href="qxmlname.html">QXmlName</a>) for all the node types that will be found in the node model. <tt>m_names</tt> is indexed by the enum <tt>FileTree::Type</tt>, which specifies the node types:</p>
+<a name="node-type"></a><pre class="cpp"> <span class="keyword">enum</span> Type {
+     File<span class="operator">,</span>
+     Directory<span class="operator">,</span>
+     AttributeFileName<span class="operator">,</span>
+     AttributeFilePath<span class="operator">,</span>
+     AttributeSize<span class="operator">,</span>
+     AttributeMIMEType<span class="operator">,</span>
+     AttributeSuffix
+ };</pre>
+<p><tt>Directory</tt> and <tt>File</tt> will represent the XML element nodes for directories and files respectively, and the other enum values will represent the XML attribute nodes for a file's path, name, suffix, its size in bytes, and its mime type. The <tt>FileTree</tt> constructor initializes <tt>m_names</tt> with an appropriate <a href="qxmlname.html">QXmlName</a> for each element and attribute type:</p>
+<pre class="cpp"> FileTree<span class="operator">::</span>FileTree(<span class="keyword">const</span> <span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span><span class="operator">&amp;</span> pool)
+   : <span class="type"><a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a></span>(pool)<span class="operator">,</span>
+     m_filterAllowAll(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllEntries <span class="operator">|</span>
+                      <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllDirs <span class="operator">|</span>
+                      <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>NoDotAndDotDot <span class="operator">|</span>
+                      <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Hidden)<span class="operator">,</span>
+     m_sortFlags(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Name)
+ {
+     <span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span> np <span class="operator">=</span> namePool();
+     m_names<span class="operator">.</span>resize(<span class="number">7</span>);
+     m_names<span class="operator">[</span>File<span class="operator">]</span>               <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;file&quot;</span>));
+     m_names<span class="operator">[</span>Directory<span class="operator">]</span>          <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;directory&quot;</span>));
+     m_names<span class="operator">[</span>AttributeFileName<span class="operator">]</span>  <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;fileName&quot;</span>));
+     m_names<span class="operator">[</span>AttributeFilePath<span class="operator">]</span>  <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;filePath&quot;</span>));
+     m_names<span class="operator">[</span>AttributeSize<span class="operator">]</span>      <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;size&quot;</span>));
+     m_names<span class="operator">[</span>AttributeMIMEType<span class="operator">]</span>  <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;mimeType&quot;</span>));
+     m_names<span class="operator">[</span>AttributeSuffix<span class="operator">]</span>    <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;suffix&quot;</span>));
+ }</pre>
+<p>Note that the constructor does <i>not</i> pre-build the entire node model. Instead, the node model is built <i>incrementally</i> as the query engine evaluates a query. To see how the query engine causes the node model to be built incrementally, see <a href="#building-and-traversing-the-node-model">Building And Traversing The Node Model</a>. To see how the query engine accesses the node model, see <a href="#accessing-the-node-model">Accessing the node model</a>. See also: <a href="#node-model-building-strategy">Node Model Building Strategy</a>.</p>
+<a name="accessing-the-node-model"></a>
+<h4>Accessing The Node Model</h4>
+<p>Since the node model is stored outside the query engine in the <tt>FileTree</tt> class, the query engine knows nothing about it and can only access it by calling functions in the callback interface. When the query engine calls any callback function to access data in the node model, it passes a <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> to identify the node in the node model that it wants to access. Hence all the virtual functions in the callback interface use a <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> to uniquely identify a node in the model.</p>
+<p>We use the index of a <a href="qfileinfo.html">QFileInfo</a> in <tt>m_fileInfos</tt> to uniquely identify a node in the node model. To get the <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> for a <a href="qfileinfo.html">QFileInfo</a>, the class uses the private function <tt>toNodeIndex()</tt>:</p>
+<a name="main-tonodeindex"></a><pre class="cpp"> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>
+ FileTree<span class="operator">::</span>toNodeIndex(<span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>fileInfo<span class="operator">,</span> Type attributeName) <span class="keyword">const</span>
+ {
+     <span class="keyword">const</span> <span class="type">int</span> indexOf <span class="operator">=</span> m_fileInfos<span class="operator">.</span>indexOf(fileInfo);
+
+     <span class="keyword">if</span> (indexOf <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         m_fileInfos<span class="operator">.</span>append(fileInfo);
+         <span class="keyword">return</span> createIndex(m_fileInfos<span class="operator">.</span>count()<span class="operator">-</span><span class="number">1</span><span class="operator">,</span> attributeName);
+     }
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> createIndex(indexOf<span class="operator">,</span> attributeName);
+ }</pre>
+<p>It searches the <tt>m_fileInfos</tt> vector for a <a href="qfileinfo.html">QFileInfo</a> that matches <tt>fileInfo</tt>. If a match is found, its array index is passed to <a href="qabstractxmlnodemodel.html#createIndex">QAbstractXmlNodeModel::createIndex</a>() as the <tt>data</tt> value for the QXmlNodeIndex. If no match is found, the unmatched <a href="qfileinfo.html">QFileInfo</a> is appended to the vector, so this function is also doing the actual incremental model building (see <a href="#building-and-traversing-the-node-model">Building And Traversing The Node Model</a>).</p>
+<p>Note that <tt>toNodeIndex()</tt> gets a <a href="#node-type">node type</a> as the second parameter, which it just passes on to <a href="qabstractxmlnodemodel.html#createIndex">createIndex()</a> as the <tt>additionalData</tt> value. Logically, this second parameter represents a second dimension in the node model, where the first dimension represents the <i>element</i> nodes, and the second dimension represents each element's attribute nodes. The meaning is that each <a href="qfileinfo.html">QFileInfo</a> in the <tt>m_fileInfos</tt> vector can represent an <i>element</i> node <i>and</i> one or more <i>attribute</i> nodes. In particular, the <a href="qfileinfo.html">QFileInfo</a> for a file will contain the values for the attribute nodes path, name, suffix, size, and mime type (see <tt>FileTree::attributes()</tt>). Since the attributes are contained in the <a href="qfileinfo.html">QFileInfo</a> of the file element, there aren't actually any attribute nodes in the node model. Hence, we can use a <a href="qvector.html">QVector</a> for <tt>m_fileInfos</tt>.</p>
+<p>A convenience overloading of <a href="#tonodeindex-of-convenience">toNodeIndex()</a> is also called in several places, wherever it is known that the <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> being requested is for a directory or a file and not for an attribute. The convenience function takes only the <a href="qfileinfo.html">QFileInfo</a> parameter and calls the other <a href="#main-tonodeindex">toNodeIndex()</a>, after obtaining either the Directory or File node type directly from the <a href="qfileinfo.html">QFileInfo</a>:</p>
+<a name="tonodeindex-of-convenience"></a><pre class="cpp"> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> FileTree<span class="operator">::</span>toNodeIndex(<span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>fileInfo) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> toNodeIndex(fileInfo<span class="operator">,</span> fileInfo<span class="operator">.</span>isDir() <span class="operator">?</span> Directory : File);
+ }</pre>
+<p>Note that the auxiliary vector <tt>m_names</tt> is accessed using the <a href="#node-type">node type</a>, for example:</p>
+<pre class="cpp"> <span class="type"><a href="qxmlname.html">QXmlName</a></span> FileTree<span class="operator">::</span>name(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_names<span class="operator">.</span>at(node<span class="operator">.</span>additionalData());
+ }</pre>
+<p>Most of the virtual functions in the callback interface are as simple as the ones described so far, but the callback function used for traversing (and building) the node model is more complex.</p>
+<a name="building-and-traversing-the-node-model"></a>
+<h4>Building And Traversing The Node Model</h4>
+<p>The node model in <tt>FileTree</tt> is not fully built before the query engine begins evaluating the query. In fact, when the query engine begins evaluating its first query, the only node in the node model is the one representing the root directory for the selected part of the file system. See <a href="#the-ui-class-mainwindow">The UI Class: MainWindow</a> below for details about how the UI triggers creation of the model.</p>
+<p>The query engine builds the node model incrementally each time it calls the <a href="#next-node-on-axis">nextFromSimpleAxis()</a> callback function, as it traverses the node model to evaluate a query. Thus the query engine only builds the region of the node model that it needs for evaluating the query.</p>
+<p><a href="#next-node-on-axis">nextFromSimpleAxis()</a> takes an <a href="qabstractxmlnodemodel.html#SimpleAxis-enum">axis identifier</a> and a <a href="qxmlnodemodelindex.html">node identifier</a> as parameters. The <a href="qxmlnodemodelindex.html">node identifier</a> represents the <i>context node</i> (i.e&#x2e; the query engine's current location in the model), and the <a href="qabstractxmlnodemodel.html#SimpleAxis-enum">axis identifier</a> represents the direction we want to move from the context node. The function finds the appropriate next node and returns its <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a>.</p>
+<p><a href="#next-node-on-axis">nextFromSimpleAxis()</a> is where most of the work of implementing a custom node model will be required. The obvious way to do it is to use a switch statement with a case for each <a href="qabstractxmlnodemodel.html#SimpleAxis-enum">axis</a>.</p>
+<a name="next-node-on-axis"></a><pre class="cpp"> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>
+ FileTree<span class="operator">::</span>nextFromSimpleAxis(SimpleAxis axis<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>nodeIndex) <span class="keyword">const</span>
+ {
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> fi(toFileInfo(nodeIndex));
+     <span class="keyword">const</span> Type type <span class="operator">=</span> Type(nodeIndex<span class="operator">.</span>additionalData());
+
+     <span class="keyword">if</span> (type <span class="operator">!</span><span class="operator">=</span> File <span class="operator">&amp;</span><span class="operator">&amp;</span> type <span class="operator">!</span><span class="operator">=</span> Directory) {
+         Q_ASSERT_X(axis <span class="operator">=</span><span class="operator">=</span> Parent<span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;An attribute only has a parent!&quot;</span>);
+         <span class="keyword">return</span> toNodeIndex(fi<span class="operator">,</span> Directory);
+     }
+
+     <span class="keyword">switch</span> (axis) {
+         <span class="keyword">case</span> Parent:
+             <span class="keyword">return</span> toNodeIndex(<span class="type"><a href="qfileinfo.html">QFileInfo</a></span>(fi<span class="operator">.</span>path())<span class="operator">,</span> Directory);
+
+         <span class="keyword">case</span> FirstChild:
+         {
+             <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> File) <span class="comment">// A file has no children.</span>
+                 <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+             <span class="keyword">else</span> {
+                 Q_ASSERT(type <span class="operator">=</span><span class="operator">=</span> Directory);
+                 Q_ASSERT_X(fi<span class="operator">.</span>isDir()<span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;It isn't really a directory!&quot;</span>);
+                 <span class="keyword">const</span> <span class="type"><a href="qdir.html">QDir</a></span> dir(fi<span class="operator">.</span>absoluteFilePath());
+                 Q_ASSERT(dir<span class="operator">.</span>exists());
+
+                 <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html#QFileInfoList-typedef">QFileInfoList</a></span> children(dir<span class="operator">.</span>entryInfoList(<span class="type"><a href="qstringlist.html">QStringList</a></span>()<span class="operator">,</span>
+                                                                m_filterAllowAll<span class="operator">,</span>
+                                                                m_sortFlags));
+                 <span class="keyword">if</span> (children<span class="operator">.</span>isEmpty())
+                     <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+                 <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> firstChild(children<span class="operator">.</span>first());
+                 <span class="keyword">return</span> toNodeIndex(firstChild);
+             }
+         }
+
+         <span class="keyword">case</span> PreviousSibling:
+             <span class="keyword">return</span> nextSibling(nodeIndex<span class="operator">,</span> fi<span class="operator">,</span> <span class="operator">-</span><span class="number">1</span>);
+
+         <span class="keyword">case</span> NextSibling:
+             <span class="keyword">return</span> nextSibling(nodeIndex<span class="operator">,</span> fi<span class="operator">,</span> <span class="number">1</span>);
+     }
+
+     Q_ASSERT_X(<span class="keyword">false</span><span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;Don't ever get here!&quot;</span>);
+     <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+ }</pre>
+<p>The first thing this function does is call <a href="#to-file-info">toFileInfo()</a> to get the <a href="qfileinfo.html">QFileInfo</a> of the context node. The use of <a href="qvector.html#at">QVector::at</a>() here is guaranteed to succeed because the context node must already be in the node model, and hence must have a <a href="qfileinfo.html">QFileInfo</a> in <tt>m_fileInfos</tt>.</p>
+<a name="to-file-info"></a><pre class="cpp"> <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span><span class="operator">&amp;</span>
+ FileTree<span class="operator">::</span>toFileInfo(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>nodeIndex) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_fileInfos<span class="operator">.</span>at(nodeIndex<span class="operator">.</span>data());
+ }</pre>
+<p>The <a href="qabstractxmlnodemodel.html#SimpleAxis-enum">Parent</a> case looks up the context node's parent by constructing a <a href="qfileinfo.html">QFileInfo</a> from the context node's <a href="qfileinfo.html#absoluteFilePath">path</a> and passing it to <a href="#main-tonodeindex">toNodeIndex()</a> to find the <a href="qfileinfo.html">QFileInfo</a> in <tt>m_fileInfos</tt>.</p>
+<p>The <a href="qabstractxmlnodemodel.html#SimpleAxis-enum">FirstChild</a> case requires that the context node must be a directory, because a file doesn't have children. If the context node is not a directory, a default constructed <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> is returned. Otherwise, <a href="qdir.html#entryInfoList">QDir::entryInfoList</a>() constructs a <a href="qfileinfo.html#QFileInfoList-typedef">QFileInfoList</a> of the context node's children. The first <a href="qfileinfo.html">QFileInfo</a> in the list is passed to <a href="#tonodeindex-of-convenience">toNodeIndex()</a> to get its <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a>. Note that this will add the child to the node model, if it isn't in the model yet.</p>
+<p>The <a href="qabstractxmlnodemodel.html#SimpleAxis-enum">PreviousSibling</a> and <a href="qabstractxmlnodemodel.html#SimpleAxis-enum">NextSibling</a> cases call the <a href="#nextsibling-helper">nextSibling() helper function</a>. It takes the <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> of the context node, the <a href="qfileinfo.html">QFileInfo</a> of the context node, and an offest of +1 or -1. The context node is a child of some parent, so the function gets the parent and then gets the child list for the parent. The child list is searched to find the <a href="qfileinfo.html">QFileInfo</a> of the context node. It must be there. Then the offset is applied, -1 for the previous sibling and +1 for the next sibling. The resulting index is passed to <a href="#tonodeindex-of-convenience">toNodeIndex()</a> to get its <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a>. Note again that this will add the sibling to the node model, if it isn't in the model yet.</p>
+<a name="nextsibling-helper"></a><pre class="cpp"> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> FileTree<span class="operator">::</span>nextSibling(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>nodeIndex<span class="operator">,</span>
+                                          <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>fileInfo<span class="operator">,</span>
+                                          <span class="type"><a href="qtglobal.html#qint8-typedef">qint8</a></span> offset) <span class="keyword">const</span>
+ {
+     Q_ASSERT(offset <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">|</span><span class="operator">|</span> offset <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>);
+
+     <span class="comment">// Get the context node's parent.</span>
+     <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> parent(nextFromSimpleAxis(Parent<span class="operator">,</span> nodeIndex));
+
+     <span class="keyword">if</span> (parent<span class="operator">.</span>isNull())
+         <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+
+     <span class="comment">// Get the parent's child list.</span>
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> parentFI(toFileInfo(parent));
+     Q_ASSERT(Type(parent<span class="operator">.</span>additionalData()) <span class="operator">=</span><span class="operator">=</span> Directory);
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html#QFileInfoList-typedef">QFileInfoList</a></span> siblings(<span class="type"><a href="qdir.html">QDir</a></span>(parentFI<span class="operator">.</span>absoluteFilePath())<span class="operator">.</span>entryInfoList(<span class="type"><a href="qstringlist.html">QStringList</a></span>()<span class="operator">,</span>
+                                                                                  m_filterAllowAll<span class="operator">,</span>
+                                                                                  m_sortFlags));
+     Q_ASSERT_X(<span class="operator">!</span>siblings<span class="operator">.</span>isEmpty()<span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;Can't happen! We started at a child.&quot;</span>);
+
+     <span class="comment">// Find the index of the child where we started.</span>
+     <span class="keyword">const</span> <span class="type">int</span> indexOfMe <span class="operator">=</span> siblings<span class="operator">.</span>indexOf(fileInfo);
+
+     <span class="comment">// Apply the offset.</span>
+     <span class="keyword">const</span> <span class="type">int</span> siblingIndex <span class="operator">=</span> indexOfMe <span class="operator">+</span> offset;
+     <span class="keyword">if</span> (siblingIndex <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> siblingIndex <span class="operator">&gt;</span> siblings<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> toNodeIndex(siblings<span class="operator">.</span>at(siblingIndex));
+ }</pre>
+<a name="the-ui-class-mainwindow"></a>
+<h3>The UI Class: MainWindow</h3>
+<p>The example's UI is a conventional Qt GUI application inheriting <a href="qmainwindow.html">QMainWindow</a> and the Ui_MainWindow base class generated by <a href="designer-manual.html">Qt Designer</a>.</p>
+<pre class="cpp"> <span class="preprocessor">#include &quot;filetree.h&quot;</span>
+ <span class="preprocessor">#include &quot;ui_mainwindow.h&quot;</span>
+
+ <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">,</span> <span class="keyword">private</span> Ui_MainWindow
+ {
+     Q_OBJECT
+
+   <span class="keyword">public</span>:
+     MainWindow();
+
+   <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> on_actionOpenDirectory_triggered();
+     <span class="type">void</span> on_actionAbout_triggered();
+     <span class="type">void</span> on_queryBox_currentIndexChanged();
+
+   <span class="keyword">private</span>:
+     <span class="type">void</span> loadDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>directory);
+     <span class="type">void</span> evaluateResult();
+
+     <span class="keyword">const</span> <span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span>  m_namePool;
+     <span class="keyword">const</span> FileTree      m_fileTree;
+     <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>  m_fileNode;
+ };</pre>
+<p>It contains the custom node model (<tt>m_fileTree</tt>) and an instance of <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> (<tt>m_fileNode</tt>) used for holding the node index for the root of the file system subtree. <tt>m_fileNode</tt> will be bound to a $variable in the <a href="xmlprocessing.html">XQuery</a> to be evaluated.</p>
+<p>Two actions of interest are handled by slot functions: <a href="#selecting-a-directory-to-model">Selecting A Directory To Model</a> and <a href="#selecting-and-running-an-xquery">Selecting And Running An XQuery</a>.</p>
+<a name="selecting-a-directory-to-model"></a>
+<h4>Selecting A Directory To Model</h4>
+<p>The user selects <tt>File-&gt;Open Directory</tt> to choose a directory to be loaded into the custom node model. Choosing a directory signals the <tt>on_actionOpenDirectory_triggered()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionOpenDirectory_triggered()
+ {
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> directoryName <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getExistingDirectory(<span class="keyword">this</span>);
+     <span class="keyword">if</span> (<span class="operator">!</span>directoryName<span class="operator">.</span>isEmpty())
+         loadDirectory(directoryName);
+ }</pre>
+<p>The slot function simply calls the private function <tt>loadDirectory()</tt> with the path of the chosen directory:</p>
+<a name="the-standard-code-pattern"></a><pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>loadDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>directory)
+ {
+     Q_ASSERT(<span class="type"><a href="qdir.html">QDir</a></span>(directory)<span class="operator">.</span>exists());
+
+     m_fileNode <span class="operator">=</span> m_fileTree<span class="operator">.</span>nodeFor(directory);
+
+     <span class="type"><a href="qxmlquery.html">QXmlQuery</a></span> query(m_namePool);
+     query<span class="operator">.</span>bindVariable(<span class="string">&quot;fileTree&quot;</span><span class="operator">,</span> m_fileNode);
+     query<span class="operator">.</span>setQuery(<span class="type"><a href="qurl.html">QUrl</a></span>(<span class="string">&quot;qrc:/queries/wholeTree.xq&quot;</span>));
+
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> output;
+     <span class="type"><a href="qbuffer.html">QBuffer</a></span> buffer(<span class="operator">&amp;</span>output);
+     buffer<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly);
+
+     <span class="type"><a href="qxmlformatter.html">QXmlFormatter</a></span> formatter(query<span class="operator">,</span> <span class="operator">&amp;</span>buffer);
+     query<span class="operator">.</span>evaluateTo(<span class="operator">&amp;</span>formatter);
+
+     treeInfo<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Model of %1 output as XML.&quot;</span>)<span class="operator">.</span>arg(directory));
+     fileTree<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(output<span class="operator">.</span>constData()));
+     evaluateResult();
+ }</pre>
+<p><tt>loadDirectory()</tt> demonstrates a standard code pattern for using <a href="qtxmlpatterns.html">QtXmlPatterns</a> programatically. First it gets the node model index for the root of the selected directory. Then it creates an instance of <a href="qxmlquery.html">QXmlQuery</a> and calls <a href="qxmlquery.html#bindVariable">QXmlQuery::bindVariable</a>() to bind the node index to the <a href="xmlprocessing.html">XQuery</a> variable <tt>$fileTree</tt>. It then calls <a href="qxmlquery.html#setQuery">QXmlQuery::setQuery</a>() to load the <a href="xmlprocessing.html">XQuery</a> text.</p>
+<p><b>Note:</b> <a href="qxmlquery.html#bindVariable">QXmlQuery::bindVariable</a>() must be called <i>before</i> calling <a href="qxmlquery.html#setQuery">QXmlQuery::setQuery</a>(), which loads and parses the <a href="xmlprocessing.html">XQuery</a> text and must have access to the variable binding as the text is parsed.</p>
+<p>The next lines create an output device for outputting the query result, which is then used to create a <a href="qxmlformatter.html">QXmlFormatter</a> to format the query result as XML. <a href="qxmlquery.html#evaluateTo">QXmlQuery::evaluateTo</a>() is called to run the query, and the formatted XML output is displayed in the left panel of the UI window.</p>
+<p>Finally, the private function <a href="#selecting-and-running-an-xquery">evaluateResult()</a> is called to run the currently selected <a href="xmlprocessing.html">XQuery</a> over the custom node model.</p>
+<p><b>Note:</b> As described in <a href="#building-and-traversing-the-node-model">Building And Traversing The Node Model</a>, the <tt>FileTree</tt> class wants to build the custom node model incrementally as it evaluates the <a href="xmlprocessing.html">XQuery</a>. But, because the <tt>loadDirectory()</tt> function runs the <tt>wholeTree.xq</tt> <a href="xmlprocessing.html">XQuery</a>, it actually builds the entire node model anyway. See <a href="#node-model-building-strategy">Node Model Building Strategy</a> for a discussion about building your custom node model.</p>
+<a name="selecting-and-running-an-xquery"></a>
+<h4>Selecting And Running An XQuery</h4>
+<p>The user chooses an <a href="xmlprocessing.html">XQuery</a> from the menu in the combobox on the right. Choosing an <a href="xmlprocessing.html">XQuery</a> signals the <tt>on_queryBox_currentIndexChanged()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>on_queryBox_currentIndexChanged()
+ {
+     <span class="type"><a href="qfile.html">QFile</a></span> queryFile(<span class="string">&quot;:/queries/&quot;</span> <span class="operator">+</span> queryBox<span class="operator">-</span><span class="operator">&gt;</span>currentText());
+     queryFile<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+
+     queryEdit<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(queryFile<span class="operator">.</span>readAll()));
+     evaluateResult();
+ }</pre>
+<p>The slot function opens and loads the query file and then calls the private function <tt>evaluateResult()</tt> to run the query:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>evaluateResult()
+ {
+     <span class="keyword">if</span> (queryBox<span class="operator">-</span><span class="operator">&gt;</span>currentText()<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qxmlquery.html">QXmlQuery</a></span> query(m_namePool);
+     query<span class="operator">.</span>bindVariable(<span class="string">&quot;fileTree&quot;</span><span class="operator">,</span> m_fileNode);
+     query<span class="operator">.</span>setQuery(<span class="type"><a href="qurl.html">QUrl</a></span>(<span class="string">&quot;qrc:/queries/&quot;</span> <span class="operator">+</span> queryBox<span class="operator">-</span><span class="operator">&gt;</span>currentText()));
+
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> formatterOutput;
+     <span class="type"><a href="qbuffer.html">QBuffer</a></span> buffer(<span class="operator">&amp;</span>formatterOutput);
+     buffer<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly);
+
+     <span class="type"><a href="qxmlformatter.html">QXmlFormatter</a></span> formatter(query<span class="operator">,</span> <span class="operator">&amp;</span>buffer);
+     query<span class="operator">.</span>evaluateTo(<span class="operator">&amp;</span>formatter);
+
+     output<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(formatterOutput<span class="operator">.</span>constData()));
+ }</pre>
+<p><tt>evaluateResult()</tt> is a second example of the same code pattern shown in <a href="#the-standard-code-pattern">loadDirectory()</a>. In this case, it runs the <a href="xmlprocessing.html">XQuery</a> currently selected in the combobox instead of <tt>qrc:/queries/wholeTree.xq</tt>, and it outputs the query result to the panel on the lower right of the UI window.</p>
+<a name="node-model-building-strategy"></a>
+<h3>Node Model Building Strategy</h3>
+<p>We saw that the <a href="#the-custom-node-model-class-filetree">FileTree</a> tries to build its custom node model incrementally, but we also saw that the <a href="#the-standard-code-pattern">MainWindow::loadDirectory()</a> function in the UI class immediately subverts the incremental build by running the <tt>wholeTree.xq</tt> <a href="xmlprocessing.html">XQuery</a>, which traverses the entire selected directory, thereby causing the entire node model to be built.</p>
+<p>If we want to preserve the incremental build capability of the <tt>FileTree</tt> class, we can strip the running of <tt>wholeTree.xq</tt> out of <a href="#the-standard-code-pattern">MainWindow::loadDirectory()</a>:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>loadDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>directory)
+ {
+     Q_ASSERT(<span class="type"><a href="qdir.html">QDir</a></span>(directory)<span class="operator">.</span>exists());
+
+     m_fileNode <span class="operator">=</span> m_fileTree<span class="operator">.</span>nodeFor(directory);
+ }</pre>
+<p>Note, however, that <tt>FileTree</tt> doesn't have the capability of deleting all or part of the node model. The node model, once built, is only deleted when the <tt>FileTree</tt> instance goes out of scope.</p>
+<p>In this example, each element node in the node model represents a directory or a file in the computer's file system, and each node is represented by an instance of <a href="qfileinfo.html">QFileInfo</a>. An instance of <a href="qfileinfo.html">QFileInfo</a> is not costly to produce, but you might imagine a node model where building new nodes is very costly. In such cases, the capability to build the node model incrementally is important, because it allows us to only build the region of the model we need for evaluating the query. In other cases, it will be simpler to just build the entire node model.</p>
+</div>
+<!-- @@@xmlpatterns/filetree -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

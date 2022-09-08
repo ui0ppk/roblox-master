@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NoOpt|Win32">
+      <Configuration>NoOpt</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2475DDAB-E4F7-42BE-A5D4-58E2E070A34D}</ProjectGuid>
+    <RootNamespace>WindowsClient</RootNamespace>
+    <SccProjectName>Perforce Project</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccProvider>MSSCCI:Perforce SCM</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="..\CustomBuildRules.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>RobloxPlayerBetaRaw.exe</TargetName>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>RobloxPlayerBetaRaw</TargetName>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>RobloxPlayerBetaRaw</TargetName>
+    <PublishDLLDependencyBeforeTargets />
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\ClientBase;..\Library\boost\include;..\Library\SDL2\include;..\Win;..\App.BulletPhysics;..\App\include;..\Base\include;..\Network\include;..\Log\include;..\TBB_4_1\include;..\Rendering\GfxBase\include;..\Rendering\g3d\include;..\Rendering\RbxG3D\include;..\Library\DSBaseClasses\Sources;..\Library\SDK\Include;..\ClientShared;..\Rendering\AppDraw\include;..\Library\VMProtect\include;..\fmod\include;.;..\Rendering\GfxCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_BUILD_LIB;WIN32;_DEBUG;_WINDOWS;_SECURE_SCL=0;WINVER=0x0501;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;strmbasd.lib;sensapi.lib;wmvcore.lib;DxErr9.lib;Urlmon.lib;zlibd.lib;libcurl-d.lib;fmod_vc.lib;legacy_stdio_definitions.lib;WS2_32.lib;Crypt32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)RobloxPlayerBetaRaw.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\Library\boost\stage\lib;.\libraries;..\Library\SDL2\lib\x86;..\fmod\win32\lib;..\TBB_4_1\lib;..\Library\SDK\Lib;..\Library\DSBaseClasses\Lib;..\Library\VMProtect\lib;..\Library\zlib\lib\debug;..\Library\curl\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <LargeAddressAware>true</LargeAddressAware>
+	  <ForceFileOutput>Enabled</ForceFileOutput>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(SolutionDir)buildshaders.bat"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\ClientBase;..\Library\boost\include;..\Library\SDL2\include;..\Win;..\App.BulletPhysics;..\App\include;..\Base\include;..\Network\include;..\Log\include;..\Rendering\GfxBase\include;..\Rendering\g3d\include;..\Rendering\RbxG3D\include;..\Library\DSBaseClasses\Sources;..\Library\SDK\Include;..\ClientShared;..\Rendering\AppDraw\include;..\Library\VMProtect\include;..\fmod\include;.;..\Rendering\GfxCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_BUILD_LIB;WIN32;NDEBUG;_WINDOWS;_SECURE_SCL=0;WINVER=0x0501;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;strmbase.lib;sensapi.lib;wmvcore.lib;DxErr9.lib;Urlmon.lib;zlib.lib;libcurl.lib;fmod_vc.lib;legacy_stdio_definitions.lib;WS2_32.lib;Crypt32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)RobloxPlayerBetaRaw.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\Library\boost\stage\lib;.\libraries;..\Library\SDL2\lib\x86;..\fmod\win32\lib;..\Library\SDK\Lib;..\Library\DSBaseClasses\Lib;..\Library\VMProtect\lib;..\Library\zlib\lib\release;..\Library\curl\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <LargeAddressAware>true</LargeAddressAware>
+      <BaseAddress>0x00400000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <ForceFileOutput>Enabled</ForceFileOutput>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+"$(SolutionDir)buildshaders.bat"
+</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>..\ClientBase;..\Library\boost\include;..\Library\SDL2\include;..\Win;..\App.BulletPhysics;..\App\include;..\Base\include;..\Network\include;..\Log\include;..\TBB_4_1\include;..\Rendering\GfxBase\include;..\Rendering\g3d\include;..\Rendering\RbxG3D\include;..\Library\DSBaseClasses\Sources;..\Library\SDK\Include;..\ClientShared;..\Rendering\AppDraw\include;..\Library\VMProtect\include;..\fmod\include;.;..\Rendering\GfxCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_BUILD_LIB;WIN32;NDEBUG;_WINDOWS;_SECURE_SCL=0;_NOOPT;WINVER=0x0501;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release\SDL2.lib;strmbase.lib;sensapi.lib;wmvcore.lib;DxErr9.lib;Urlmon.lib;zlib.lib;libcurl.lib;fmod_vc.lib;legacy_stdio_definitions.lib;WS2_32.lib;Crypt32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)RobloxPlayerBetaRaw.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\Library\boost\stage\lib;.\libraries;..\Library\SDL2\lib\x86;..\fmod\win32\lib;..\TBB_4_1\lib;..\Library\SDK\Lib;..\Library\DSBaseClasses\Lib;..\Library\VMProtect\lib;..\Library\zlib\lib\release;..\Library\curl\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences />
+      <EnableCOMDATFolding />
+      <LinkTimeCodeGeneration />
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <LargeAddressAware>true</LargeAddressAware>
+      <BaseAddress>0x00400000</BaseAddress>
+	  <ForceFileOutput>Enabled</ForceFileOutput>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(SolutionDir)buildshaders.bat"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\App\script\LuaVMClient.cpp" />
+    <ClCompile Include="..\ClientShared\SDLGameController.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="..\Win\AuthenticationMarshallar.cpp" />
+    <ClCompile Include="Crypt.cpp" />
+    <ClCompile Include="..\ClientShared\DataModelEmptySerialize.cpp" />
+    <ClCompile Include="Document.cpp" />
+    <ClCompile Include="..\Win\DSVideoCaptureEngine.cpp" />
+    <ClCompile Include="..\Win\DumpErrorUploader.cpp" />
+    <ClCompile Include="..\Win\ErrorUploader.cpp" />
+    <ClCompile Include="functionHooks.cpp" />
+    <ClCompile Include="FunctionMarshaller.cpp" />
+    <ClCompile Include="GameVerbs.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Win\LogManager.cpp" />
+    <ClCompile Include="..\ClientBase\MachineConfiguration.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp" />
+    <ClCompile Include="RandomPadding.cpp" />
+    <ClCompile Include="RbxWebView.cpp" />
+    <ClCompile Include="ReleasePatcher.cpp" />
+    <ClCompile Include="RenderJob.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="robloxHooks.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Teleporter.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Win\Tracer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UserInput.cpp" />
+    <ClCompile Include="..\Win\UserInputUtil.cpp" />
+    <ClCompile Include="..\Win\VersionInfo.cpp" />
+    <ClCompile Include="..\Win\VideoControl.cpp" />
+    <ClCompile Include="View.cpp" />
+    <ClCompile Include="..\Win\VistaTools.cpp" />
+    <ClCompile Include="WebBrowserAxDialog.cpp" />
+    <ClCompile Include="..\Library\boost\libs\program_options\src\cmdline.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\config_file.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\convert.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\options_description.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\parsers.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\positional_options.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\split.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\utf8_codecvt_facet.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\value_semantic.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\variables_map.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\Library\boost\libs\program_options\src\winmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ClientShared\SDLGameController.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="..\Win\AuthenticationMarshallar.h" />
+    <ClInclude Include="Crypt.h" />
+    <ClInclude Include="..\Win\dinput.h" />
+    <ClInclude Include="Document.h" />
+    <ClInclude Include="..\Win\DSVideoCaptureEngine.h" />
+    <ClInclude Include="..\Win\DumpErrorUploader.h" />
+    <ClInclude Include="..\Win\ErrorUploader.h" />
+    <ClInclude Include="functionHooks.h" />
+    <ClInclude Include="FunctionMarshaller.h" />
+    <ClInclude Include="GameVerbs.h" />
+    <ClInclude Include="..\Win\LogManager.h" />
+    <ClInclude Include="RbxWebView.h" />
+    <ClInclude Include="ReleasePatcher.h" />
+    <ClInclude Include="RenderJob.h" />
+    <ClInclude Include="..\ClientBase\RenderSettingsItem.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="RobloxHooks.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Teleporter.h" />
+    <ClInclude Include="UserInput.h" />
+    <ClInclude Include="..\Win\UserInputUtil.h" />
+    <ClInclude Include="..\Win\VersionInfo.h" />
+    <ClInclude Include="..\Win\VideoControl.h" />
+    <ClInclude Include="View.h" />
+    <ClInclude Include="..\Win\VistaTools.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="html_con.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="InvisibleCursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Roblox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WindowsClient.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishDLLDependency Include="..\fmod\win32\fmod.dll" />
+    <PublishDLLDependency Include="..\Rendering\ShaderCompiler\d3dcompiler_47.dll" />
+    <PublishDLLDependency Include="..\Rendering\OpenVR\bin\win32\openvr_api.dll" />
+    <PublishDLLDependency Include="..\Library\SDL2\lib\x86\SDL2.dll" />
+    <PublishDLLDependency Include="..\Library\VMProtect\bin\VMProtectSDK32.dll" />
+    <PublishDLLDependency Include="..\RbxDebug\bin\Debug\RbxDebug.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\RbxDebug\bin\Debug\RbxDebug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="AppSettings.xml">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.BulletPhysics\App.BulletPhysics.vcxproj">
+      <Project>{c9285114-dcc1-4e90-aa76-f590cefb94c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\App\App.vcxproj">
+      <Project>{63db8347-940b-4a05-8975-6a6545c315dc}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.vcxproj">
+      <Project>{3025c00a-7746-469b-a279-96127c72abee}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\boostlibs\boost.static.vcxproj">
+      <Project>{5423bfb6-d3eb-4b00-a82b-38001eb8745f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Log\Log.vcxproj">
+      <Project>{9980f6c3-b64d-4775-8793-bb6dde31ce82}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Network\Network.vcxproj">
+      <Project>{9b9eb5c6-15d1-4765-bcc7-8a42f2c9f6cc}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\GfxCore\GfxCore.vcxproj">
+      <Project>{3a10c3ec-1b27-427e-b955-87ee6b176130}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\GfxRender\GfxRender.vcxproj">
+      <Project>{9b7cce5d-2877-4321-8910-3c8e3936f62f}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\ClientBase\ReflectionMetadata.xml">
+      <Command Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Library\SDL2\lib\x86\\SDL2.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\CustomBuildRules.targets" />
+  </ImportGroup>
+</Project>

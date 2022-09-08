@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- modelview.qdoc -->
+  <title>Qt 4.8: Model/View Tutorial</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>Model/View Tutorial</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="start" href="index.html" />
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#1-introduction">1. Introduction</a></li>
+<li class="level2"><a href="#1-1-standard-widgets">1.1 Standard Widgets</a></li>
+<li class="level2"><a href="#1-2-model-view-to-the-rescue">1.2 Model/View to the Rescue</a></li>
+<li class="level2"><a href="#1-3-overview-of-the-model-view-widgets">1.3 Overview of the Model/View Widgets</a></li>
+<li class="level2"><a href="#1-4-using-adapters-between-forms-and-models">1.4 Using Adapters between Forms and Models</a></li>
+<li class="level1"><a href="#2-a-simple-model-view-application">2. A Simple Model/View Application</a></li>
+<li class="level2"><a href="#2-1-a-read-only-table">2.1 A Read Only Table</a></li>
+<li class="level2"><a href="#2-2-extending-the-read-only-example-with-roles">2.2 Extending the Read Only Example with Roles</a></li>
+<li class="level2"><a href="#2-3-a-clock-inside-a-table-cell">2.3 A Clock inside a Table Cell</a></li>
+<li class="level2"><a href="#2-4-setting-up-headers-for-columns-and-rows">2.4 Setting up Headers for Columns and Rows</a></li>
+<li class="level2"><a href="#2-5-the-minimal-editing-example">2.5 The Minimal Editing Example</a></li>
+<li class="level1"><a href="#3-intermediate-topics">3. Intermediate Topics</a></li>
+<li class="level2"><a href="#3-1-treeview">3.1 TreeView</a></li>
+<li class="level2"><a href="#3-2-working-with-selections">3.2 Working with Selections</a></li>
+<li class="level2"><a href="#3-3-predefined-models">3.3 Predefined Models</a></li>
+<li class="level2"><a href="#3-4-delegates">3.4 Delegates</a></li>
+<li class="level1"><a href="#4-good-sources-of-additional-information">4. Good Sources of Additional Information</a></li>
+<li class="level2"><a href="#4-1-books">4.1 Books</a></li>
+<li class="level2"><a href="#4-2-qt-documentation">4.2 Qt Documentation</a></li>
+</ul>
+</div>
+<h1 class="title">Model/View Tutorial</h1>
+<span class="subtitle"></span>
+<!-- $$$modelview.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Every UI developer should know about ModelView programming and the goal of this tutorial is to provide you with an easily understandable introduction to this topic.</p>
+<p>Table, list and tree widgets are components frequently used in GUIs. There are 2 different ways how these widgets can access their data. The traditional way involves widgets which include internal containers for storing data. This approach is very intuitive, however, in many non-trivial applications, it leads to data synchronization issues. The second approach is model/view programming, in which widgets do not maintain internal data containers. They access external data through a standardized interface and therefore avoid data duplication. This may seem complicated at first, but once you take a closer look, it is not only easy to grasp, but the many benefits of model/view programming also become clearer.</p>
+<p class="centerAlign"><img src="images/treeview.png" alt="" /></p><p>In the process, we will learn about some basic technologies provided by Qt, such as:</p>
+<ul>
+<li>The difference between standard and model/view widgets</li>
+<li>Adapters betweeen forms and models</li>
+<li>Developing a simple model/view application</li>
+<li>Predefined models</li>
+<li>Intermediate topics such as:<ul>
+<li>Tree views</li>
+<li>Selection</li>
+<li>Delegates</li>
+<li>Debugging with model test</li>
+</ul>
+</li>
+</ul>
+<p>You will also learn whether your new application can be written easier with model/view programming or if classic widgets will work just as well.</p>
+<p>This tutorial includes example code for you to edit and integrate into your project. The tutorial's source code is located in Qt's <tt>examples/tutorials/modelview</tt> directory.</p>
+<p>For more detailed information you may also want to look at the <a href="model-view-programming.html">reference documentation</a></p>
+<p>If you are completely new to Qt, please read <a href="how-to-learn-qt.html">How to Learn Qt</a> if you have not already done so.</p>
+<a name="1-introduction"></a>
+<h2>1. Introduction</h2>
+<p>Model/View is a technology used to separate data from views in widgets that handle data sets. Standard widgets are not designed for separating data from views and this is why Qt 4 has two different types of widgets. Both types of widgets look the same, but they interact with data differently.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td >Standard widgets use data that is part of the widget.</td><td ><p class="centerAlign"><img src="images/standardwidget.png" alt="" /></p></td></tr>
+<tr valign="top" class="even"><td >View classes operate on external data (the model)</td><td ><p class="centerAlign"><img src="images/modelview.png" alt="" /></p></td></tr>
+</table>
+<a name="1-1-standard-widgets"></a>
+<h3>1.1 Standard Widgets</h3>
+<p>Let's have a closer look at a standard table widget. A table widget is a 2D array of the data elements that the user can change. The table widget can be integrated into a program flow by reading and writing the data elements that the table widget provides. This method is very intuitive and useful in many applications, but displaying and editing a database table with a standard table widget can be problematic. Two copies of the data have to be coordinated: one outside the widget; one inside the widget. The developer is responsible for synchronizing both versions. Besides this, the tight coupling of presentation and data makes it harder to write unit tests.</p>
+<a name="1-2-model-view-to-the-rescue"></a>
+<h3>1.2 Model/View to the Rescue</h3>
+<p>Model/view stepped up to provide a solution that uses a more versatile architecture. Model/view eliminates the data consistency problems that may occur with standard widgets. Model/view also makes it easier to use more than one view of the same data because one model can be passed on to many views. The most important difference is that model/view widgets do not store data behind the table cells. In fact, they operate directly from your data. Since view classes do not know your data's structure, you need to provide a wrapper to make your data conform to the <a href="qabstractitemmodel.html">QAbstractItemModel</a> interface. A view uses this interface to read from and write to your data. Any instance of a class that implements <a href="qabstractitemmodel.html">QAbstractItemModel</a> is said to be a model. Once the view receives a pointer to a model, it will read and display its content and be its editor.</p>
+<a name="1-3-overview-of-the-model-view-widgets"></a>
+<h3>1.3 Overview of the Model/View Widgets</h3>
+<p>Here is an overview of the model/view widgets and their corresponding standard widgets.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Widget</th><th >Standard Widget<br /> (an item based convenience class)</th><th >Model/View View Class<br /> (for use with external data)</th></tr></thead>
+<tr valign="top" class="odd"><td ><img src="images/listview.png" alt="" /></td><td ><a href="qlistwidget.html">QListWidget</a></td><td ><a href="qlistview.html">QListView</a></td></tr>
+<tr valign="top" class="even"><td ><img src="images/tableview.png" alt="" /></td><td ><a href="qtablewidget.html">QTableWidget</a></td><td ><a href="qtableview.html">QTableView</a></td></tr>
+<tr valign="top" class="odd"><td ><img src="images/treeview.png" alt="" /></td><td ><a href="qtreewidget.html">QTreeWidget</a></td><td ><a href="qtreeview.html">QTreeView</a></td></tr>
+<tr valign="top" class="even"><td ><img src="images/columnview.png" alt="" /></td><td ></td><td ><a href="qcolumnview.html">QColumnView</a> shows a tree as a hierarchy of lists</td></tr>
+<tr valign="top" class="odd"><td ><img src="images/modelview-combobox.png" alt="" /></td><td  colspan="2" rowspan=" 1"><a href="qcombobox.html">QComboBox</a> can work as both a view class and also as a traditional widget</td></tr>
+</table>
+<a name="1-4-using-adapters-between-forms-and-models"></a>
+<h3>1.4 Using Adapters between Forms and Models</h3>
+<p>Having adapters between forms and models can come in handy.</p>
+<p>We can edit data stored in tables directly from within the table itself, but it's much more comfortable to edit data in text fields. There is no direct model/view counterpart that separates data and views for widgets that operate on one value (<a href="qlineedit.html">QLineEdit</a>, <a href="qcheckbox.html">QCheckBox</a> ..&#x2e;) instead of a dataset, so we need an adapter in order to connect the form to the source of data.</p>
+<p><a href="qdatawidgetmapper.html">QDataWidgetMapper</a> is a great solution because it maps form widgets to a table row and makes it very easy to build forms for database tables.</p>
+<p class="centerAlign"><img src="images/widgetmapper.png" alt="" /></p><p>Another example of an adapter is <a href="qcompleter.html">QCompleter</a>. Qt has <a href="qcompleter.html">QCompleter</a> for providing auto-completions in Qt widgets such as <a href="qcombobox.html">QComboBox</a> and, as shown below, <a href="qlineedit.html">QLineEdit</a>. <a href="qcompleter.html">QCompleter</a> uses a model as its data source.</p>
+<p class="centerAlign"><img src="images/qcompleter.png" alt="" /></p><a name="2-a-simple-model-view-application"></a>
+<h2>2. A Simple Model/View Application</h2>
+<p>If you want to develop a model/view application, where should you start? We recommend starting with a simple example and extending it step-by-step. This makes understanding the architecture a lot easier. Trying to understand the model/view architecture in detail before invoking the IDE has proven to be less convenient for many developers. It is substantially easier to start with a simple model/view application that has demo data. Give it a try! Simply replace the data in the examples below with your own.</p>
+<p>Below are 7 very simple and independent applications that show different sides of model/view programming. The source code can be found inside the <tt>examples/tutorials/modelview</tt> directory.</p>
+<a name="2-1-a-read-only-table"></a>
+<h3>2.1 A Read Only Table</h3>
+<p>We start with an application that uses a <a href="qtableview.html">QTableView</a> to show data. We will add editing capabilities later.</p>
+<p>(file source: examples/tutorials/modelview/1_readonly/main.cpp)</p>
+<pre class="cpp"> <span class="comment">// main.cpp</span>
+ <span class="preprocessor">#include &lt;QtGui/QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QtGui/QTableView&gt;</span>
+ <span class="preprocessor">#include &quot;mymodel.h&quot;</span>
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> a(argc<span class="operator">,</span> argv);
+     <span class="type"><a href="qtableview.html">QTableView</a></span> tableView;
+     MyModel myModel(<span class="number">0</span>);
+     tableView<span class="operator">.</span>setModel( <span class="operator">&amp;</span>myModel );
+     tableView<span class="operator">.</span>show();
+     <span class="keyword">return</span> a<span class="operator">.</span>exec();
+ }</pre>
+<p>We have the usual <a href="modelview-part2-main-cpp.html">main()</a> function:</p>
+<p>Here is the interesting part: We create an instance of MyModel and use <a href="qtableview.html#setModel">tableView.setModel(&amp;myModel);</a> to pass a pointer of it to to <a href="qtableview.html">tableView</a>. <a href="qtableview.html">tableView</a> will invoke the methods of the pointer it has received to find out two things:</p>
+<ul>
+<li>How many rows and columns should be displayed.</li>
+<li>What content should be printed into each cell.</li>
+</ul>
+<p>The model needs some code to respond to this.</p>
+<p>We have a table data set, so let's start with <a href="qabstracttablemodel.html">QAbstractTableModel</a> since it is easier to use than the more general <a href="qabstractitemmodel.html">QAbstractItemModel</a>.</p>
+<p>(file source: examples/tutorials/modelview/1_readonly/mymodel.h)</p>
+<pre class="cpp"> <span class="comment">// mymodel.h</span>
+ <span class="preprocessor">#include &lt;QAbstractTableModel&gt;</span>
+
+ <span class="keyword">class</span> MyModel : <span class="keyword">public</span> <span class="type"><a href="qabstracttablemodel.html">QAbstractTableModel</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     MyModel(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent);
+     <span class="type">int</span> rowCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent <span class="operator">=</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()) <span class="keyword">const</span> ;
+     <span class="type">int</span> columnCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent <span class="operator">=</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()) <span class="keyword">const</span>;
+     <span class="type"><a href="qvariant.html">QVariant</a></span> data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole) <span class="keyword">const</span>;
+ };</pre>
+<p><a href="qabstracttablemodel.html">QAbstractTableModel</a> requires the implementation of three abstract methods.</p>
+<p>(file source: examples/tutorials/modelview/1_readonly/mymodel.cpp)</p>
+<pre class="cpp"> <span class="comment">// mymodel.cpp</span>
+ <span class="preprocessor">#include &quot;mymodel.h&quot;</span>
+
+ MyModel<span class="operator">::</span>MyModel(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     :<span class="type"><a href="qabstracttablemodel.html">QAbstractTableModel</a></span>(parent)
+ {
+ }
+
+ <span class="type">int</span> MyModel<span class="operator">::</span>rowCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> <span class="comment">/*parent*/</span>) <span class="keyword">const</span>
+ {
+    <span class="keyword">return</span> <span class="number">2</span>;
+ }
+
+ <span class="type">int</span> MyModel<span class="operator">::</span>columnCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> <span class="comment">/*parent*/</span>) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="number">3</span>;
+ }
+
+ <span class="type"><a href="qvariant.html">QVariant</a></span> MyModel<span class="operator">::</span>data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole)
+     {
+        <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;Row%1, Column%2&quot;</span>)
+                    <span class="operator">.</span>arg(index<span class="operator">.</span>row() <span class="operator">+</span> <span class="number">1</span>)
+                    <span class="operator">.</span>arg(index<span class="operator">.</span>column() <span class="operator">+</span><span class="number">1</span>);
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qvariant.html">QVariant</a></span>();
+ }</pre>
+<p>The number of rows and columns is provided by <a href="qabstractitemmodel.html#rowCount">MyModel::rowCount()</a> and <a href="qabstractitemmodel.html#columnCount">MyModel::columnCount()</a>. When the view has to know what the cell's text is, it calls the method <a href="qabstractitemmodel.html#data">MyModel::data()</a>. Row and column information is specified with parameter <tt>index</tt> and the role is set to <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a>. Other roles are covered in the next section. In our example, the data that should be displayed is generated. In a real application, <tt>MyModel</tt> would have a member called <tt>MyData</tt>, which serves as the target for all reading and writing operations.</p>
+<p>This small example demonstrates the passive nature of a model. The model does not know when it will be used or which data is needed. It simply provides data each time the view requests it.</p>
+<p>What happens when the model's data needs to be changed? How does the view realize that data has changed and needs to be read again? The model has to emit a signal that indicates what range of cells has changed. This will be demonstrated in section 2.3&#x2e;</p>
+<a name="2-2-extending-the-read-only-example-with-roles"></a>
+<h3>2.2 Extending the Read Only Example with Roles</h3>
+<p>In addition to controlling what text the view displays, the model also controls the text's appearance. When we slightly change the model, we get the following result:</p>
+<p class="centerAlign"><img src="images/readonlytable_role.png" alt="" /></p><p>In fact, nothing except for the <a href="qabstractitemmodel.html#data">data()</a> method needs to be changed to set fonts, background colour, alignment and a checkbox. Below is the <a href="qabstractitemmodel.html#data">data()</a> method that produces the result shown above. The difference is that this time we use parameter int role to return different pieces of information depending on its value.</p>
+<p>(file source: examples/tutorials/modelview/2_formatting/mymodel.cpp)</p>
+<pre class="cpp"> <span class="comment">// mymodel.cpp</span>
+ <span class="type"><a href="qvariant.html">QVariant</a></span> MyModel<span class="operator">::</span>data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>
+ {
+     <span class="type">int</span> row <span class="operator">=</span> index<span class="operator">.</span>row();
+     <span class="type">int</span> col <span class="operator">=</span> index<span class="operator">.</span>column();
+     <span class="comment">// generate a log message when this method gets called</span>
+     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;row %1, col%2, role %3&quot;</span>)
+             <span class="operator">.</span>arg(row)<span class="operator">.</span>arg(col)<span class="operator">.</span>arg(role);
+
+     <span class="keyword">switch</span>(role){
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole:
+         <span class="keyword">if</span> (row <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> col <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>) <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;&lt;--left&quot;</span>);
+         <span class="keyword">if</span> (row <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> col <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>) <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;right--&gt;&quot;</span>);
+
+         <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;Row%1, Column%2&quot;</span>)
+                 <span class="operator">.</span>arg(row <span class="operator">+</span> <span class="number">1</span>)
+                 <span class="operator">.</span>arg(col <span class="operator">+</span><span class="number">1</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>FontRole:
+         <span class="keyword">if</span> (row <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> col <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) <span class="comment">//change font only for cell(0,0)</span>
+         {
+             <span class="type"><a href="qfont.html">QFont</a></span> boldFont;
+             boldFont<span class="operator">.</span>setBold(<span class="keyword">true</span>);
+             <span class="keyword">return</span> boldFont;
+         }
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BackgroundRole:
+
+         <span class="keyword">if</span> (row <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> col <span class="operator">=</span><span class="operator">=</span> <span class="number">2</span>)  <span class="comment">//change background only for cell(1,2)</span>
+         {
+             <span class="type"><a href="qbrush.html">QBrush</a></span> redBackground(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red);
+             <span class="keyword">return</span> redBackground;
+         }
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TextAlignmentRole:
+
+         <span class="keyword">if</span> (row <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> col <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>) <span class="comment">//change text alignment only for cell(1,1)</span>
+         {
+             <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight <span class="operator">+</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignVCenter;
+         }
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CheckStateRole:
+
+         <span class="keyword">if</span> (row <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> col <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) <span class="comment">//add a checkbox to cell(1,0)</span>
+         {
+             <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Checked;
+         }
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qvariant.html">QVariant</a></span>();
+ }</pre>
+<p>Each formatting property will be requested from the model with a separate call to the <a href="qabstractitemmodel.html#data">data()</a> method. The <tt>role</tt> parameter is used to let the model know which property is being requested:</p>
+<table class="generic">
+<thead><tr class="qt-style"><th ><a href="qt.html#ItemDataRole-enum">enum Qt::ItemDataRole</a></th><th >Meaning</th><th >Type</th></tr></thead>
+<tr valign="top" class="odd"><td ><a href="qt.html#ItemDataRole-enum"></a><a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a></td><td >text</td><td ><a href="qstring.html">QString</a></td></tr>
+<tr valign="top" class="even"><td ><a href="qt.html#ItemDataRole-enum">Qt::FontRole</a></td><td >font</td><td ><a href="qfont.html">QFont</a></td></tr>
+<tr valign="top" class="odd"><td ><a href="qt.html#ItemDataRole-enum">BackgroundRole</a></td><td >brush for the background of the cell</td><td ><a href="qbrush.html">QBrush</a></td></tr>
+<tr valign="top" class="even"><td ><a href="qt.html#ItemDataRole-enum">Qt::TextAlignmentRole</a></td><td >text alignment</td><td ><a href="qt.html#AlignmentFlag-enum">enum Qt::AlignmentFlag</a></td></tr>
+<tr valign="top" class="odd"><td  rowspan=" 3"><a href="qt.html#ItemDataRole-enum">Qt::CheckStateRole</a></td><td  rowspan=" 3">suppresses checkboxes with <a href="qvariant.html">QVariant()</a>,<p>sets checkboxes with <a href="qt.html#CheckState-enum">Qt::Checked</a></p>
+<p>or <a href="qt.html#CheckState-enum">Qt::Unchecked</a></p>
+</td><td  rowspan=" 3"><a href="qt.html#ItemDataRole-enum">enum Qt::ItemDataRole</a></td></tr>
+</table>
+<p>Refer to the Qt namespace documentation to learn more about the <a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a> enum's capabilities.</p>
+<p>Now we need to determine how using a separated model impacts the application's performance, so let's trace how often the view calls the <a href="qabstractitemmodel.html#data">data()</a> method. In order to track how often the view calls the model, we have put a debug statement in the <a href="qabstractitemmodel.html#data">data()</a> method, which logs onto the error output stream. In our small example, <a href="qabstractitemmodel.html#data">data()</a> will be called 42 times. Each time you hover the cursor over the field, <a href="qabstractitemmodel.html#data">data()</a> will be called again &mdash; 7 times for each cell. That's why it is important to make sure that your data is available when <a href="qabstractitemmodel.html#data">data()</a> is invoked and expensive lookup operations are cached.</p>
+<a name="2-3-a-clock-inside-a-table-cell"></a>
+<h3>2.3 A Clock inside a Table Cell</h3>
+<p class="centerAlign"><img src="images/clock.png" alt="" /></p><p>We still have a read only table, but this time the content changes every second because we are showing the current time.</p>
+<p>(file source: examples/tutorials/modelview/3_changingmodel/mymodel.cpp)</p>
+<pre class="cpp"> <span class="type"><a href="qvariant.html">QVariant</a></span> MyModel<span class="operator">::</span>data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>
+ {
+     <span class="type">int</span> row <span class="operator">=</span> index<span class="operator">.</span>row();
+     <span class="type">int</span> col <span class="operator">=</span> index<span class="operator">.</span>column();
+
+     <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole)
+     {
+         <span class="keyword">if</span> (row <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> col <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         {
+             <span class="keyword">return</span> <span class="type"><a href="qtime.html">QTime</a></span><span class="operator">::</span>currentTime()<span class="operator">.</span>toString();
+         }
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qvariant.html">QVariant</a></span>();
+ }</pre>
+<p>Something is missing to make the clock tick. We need to tell the view every second that the time has changed and that it needs to be read again. We do this with a timer. In the constructor, we set its interval to 1 second and connect its timeout signal.</p>
+<p>(file source: examples/tutorials/modelview/3_changingmodel/mymodel.cpp)</p>
+<pre class="cpp"> MyModel<span class="operator">::</span>MyModel(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     :<span class="type"><a href="qabstracttablemodel.html">QAbstractTableModel</a></span>(parent)
+ {
+ <span class="comment">//    selectedCell = 0;</span>
+     timer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>(<span class="keyword">this</span>);
+     timer<span class="operator">-</span><span class="operator">&gt;</span>setInterval(<span class="number">1000</span>);
+     connect(timer<span class="operator">,</span> SIGNAL(timeout()) <span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(timerHit()));
+     timer<span class="operator">-</span><span class="operator">&gt;</span>start();
+ }</pre>
+<p>Here is the corresponding slot:</p>
+<p>(file source: examples/tutorials/modelview/3_changingmodel/mymodel.cpp)</p>
+<pre class="cpp"> <span class="type">void</span> MyModel<span class="operator">::</span>timerHit()
+ {
+     <span class="comment">//we identify the top left cell</span>
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> topLeft <span class="operator">=</span> createIndex(<span class="number">0</span><span class="operator">,</span><span class="number">0</span>);
+     <span class="comment">//emit a signal to make the view reread identified data</span>
+     <span class="keyword">emit</span> dataChanged(topLeft<span class="operator">,</span> topLeft);
+ }</pre>
+<p>We ask the view to read the data in the top left cell again by emitting the <a href="qabstractitemmodel.html#dataChanged">dataChanged()</a> signal. Note that we did not explicitly connect the <a href="qabstractitemmodel.html#dataChanged">dataChanged()</a> signal to the view. This happened automatically when we called <a href="qtableview.html#setModel">setModel()</a>.</p>
+<a name="2-4-setting-up-headers-for-columns-and-rows"></a>
+<h3>2.4 Setting up Headers for Columns and Rows</h3>
+<p>Headers can be hidden via a view method: <tt>tableView-&gt;verticalHeader()-&gt;hide();</tt></p>
+<p class="centerAlign"><img src="images/modelview-header.png" alt="" /></p><p>The header content, however, is set via the model, so we reimplement the <a href="qabstractitemmodel.html#headerData">headerData()</a> method:</p>
+<p>(file source: examples/tutorials/modelview/4_headers/mymodel.cpp)</p>
+<pre class="cpp"> <span class="type"><a href="qvariant.html">QVariant</a></span> MyModel<span class="operator">::</span>headerData(<span class="type">int</span> section<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Orientation orientation<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole)
+     {
+         <span class="keyword">if</span> (orientation <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal) {
+             <span class="keyword">switch</span> (section)
+             {
+             <span class="keyword">case</span> <span class="number">0</span>:
+                 <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;first&quot;</span>);
+             <span class="keyword">case</span> <span class="number">1</span>:
+                 <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;second&quot;</span>);
+             <span class="keyword">case</span> <span class="number">2</span>:
+                 <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;third&quot;</span>);
+             }
+         }
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qvariant.html">QVariant</a></span>();
+ }</pre>
+<p>Note that method <a href="qabstractitemmodel.html#headerData">headerData()</a> also has a parameter role which has the same meaning as in <a href="qabstractitemmodel.html#data">MyModel::data()</a>.</p>
+<a name="2-5-the-minimal-editing-example"></a>
+<h3>2.5 The Minimal Editing Example</h3>
+<p>In this example, we are going to build an application that automatically populates a window title with content by repeating values entered into table cells. To be able to access the window title easily we put the <a href="qtableview.html">QTableView</a> in a <a href="qmainwindow.html">QMainWindow</a>.</p>
+<p>The model decides whether editing capabilities are available. We only have to modify the model in order for the available editing capabilities to be enabled. This is done by reimplementing the following virtual methods: <a href="qabstractitemmodel.html#setData">setData()</a> and <a href="qabstractitemmodel.html#flags">flags()</a>.</p>
+<p>(file source: examples/tutorials/modelview/5_edit/mymodel.h)</p>
+<pre class="cpp"> <span class="comment">// mymodel.h</span>
+ <span class="preprocessor">#include &lt;QAbstractTableModel&gt;</span>
+ <span class="preprocessor">#include &lt;QString&gt;</span>
+
+ <span class="keyword">const</span> <span class="type">int</span> COLS<span class="operator">=</span> <span class="number">3</span>;
+ <span class="keyword">const</span> <span class="type">int</span> ROWS<span class="operator">=</span> <span class="number">2</span>;
+
+ <span class="keyword">class</span> MyModel : <span class="keyword">public</span> <span class="type"><a href="qabstracttablemodel.html">QAbstractTableModel</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     MyModel(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent);
+     <span class="type">int</span> rowCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent <span class="operator">=</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()) <span class="keyword">const</span> ;
+     <span class="type">int</span> columnCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent <span class="operator">=</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()) <span class="keyword">const</span>;
+     <span class="type"><a href="qvariant.html">QVariant</a></span> data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole) <span class="keyword">const</span>;
+     <span class="type">bool</span> setData(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> index<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span> value<span class="operator">,</span> <span class="type">int</span> role <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>EditRole);
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemFlags flags(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> index) <span class="keyword">const</span> ;
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qstring.html">QString</a></span> m_gridData<span class="operator">[</span>ROWS<span class="operator">]</span><span class="operator">[</span>COLS<span class="operator">]</span>;  <span class="comment">//holds text entered into QTableView</span>
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> editCompleted(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>);
+ };</pre>
+<p>We use <tt>the</tt> two-dimensional array <a href="qstring.html">QString</a> <tt>m_gridData</tt> to store our data. This makes <tt>m_gridData</tt> the core of <tt>MyModel</tt>. The rest of <tt>MyModel</tt> acts like a wrapper and adapts <tt>m_gridData</tt> to the <a href="qabstractitemmodel.html">QAbstractItemModel</a> interface. We have also introduced the <tt>editCompleted()</tt> signal, which makes it possible to transfer the modified text to the window title.</p>
+<p>(file source: examples/tutorials/modelview/5_edit/mymodel.cpp)</p>
+<pre class="cpp"> <span class="type">bool</span> MyModel<span class="operator">::</span>setData(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> index<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span> value<span class="operator">,</span> <span class="type">int</span> role)
+ {
+     <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>EditRole)
+     {
+         <span class="comment">//save value from editor to member m_gridData</span>
+         m_gridData<span class="operator">[</span>index<span class="operator">.</span>row()<span class="operator">]</span><span class="operator">[</span>index<span class="operator">.</span>column()<span class="operator">]</span> <span class="operator">=</span> value<span class="operator">.</span>toString();
+         <span class="comment">//for presentation purposes only: build and emit a joined string</span>
+         <span class="type"><a href="qstring.html">QString</a></span> result;
+         <span class="keyword">for</span>(<span class="type">int</span> row<span class="operator">=</span> <span class="number">0</span>; row <span class="operator">&lt;</span> ROWS; row<span class="operator">+</span><span class="operator">+</span>)
+         {
+             <span class="keyword">for</span>(<span class="type">int</span> col<span class="operator">=</span> <span class="number">0</span>; col <span class="operator">&lt;</span> COLS; col<span class="operator">+</span><span class="operator">+</span>)
+             {
+                 result <span class="operator">+</span><span class="operator">=</span> m_gridData<span class="operator">[</span>row<span class="operator">]</span><span class="operator">[</span>col<span class="operator">]</span> <span class="operator">+</span> <span class="string">&quot; &quot;</span>;
+             }
+         }
+         <span class="keyword">emit</span> editCompleted( result );
+     }
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p><a href="qabstractitemmodel.html#setData">setData()</a> will be called each time the user edits a cell. The <tt>index</tt> parameter tells us which field has been edited and <tt>value</tt> provides the result of the editing process. The role will always be set to <a href="qt.html#ItemDataRole-enum">Qt::EditRole</a> because our cells only contain text. If a checkbox were present and user permissions are set to allow the checkbox to be selected, calls would also be made with the role set to <a href="qt.html#ItemDataRole-enum">Qt::CheckStateRole</a>.</p>
+<p>(file source: examples/tutorials/modelview/5_edit/mymodel.cpp)</p>
+<pre class="cpp"> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemFlags MyModel<span class="operator">::</span>flags(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span> <span class="comment">/*index*/</span>) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsSelectable <span class="operator">|</span>  <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsEditable <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsEnabled ;
+ }</pre>
+<p>Various properties of a cell can be adjusted with <a href="qabstractitemmodel.html#flags">flags()</a>.</p>
+<p>Returning <a href="qt.html#ItemFlag-enum">Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsEnabled</a> is enough to show an editor that a cell can be selected.</p>
+<p>If editing one cell modifies more data than the data in that particular cell, the model must emit a <a href="qabstractitemmodel.html#dataChanged">dataChanged()</a> signal in order for the data that has been changed to be read.</p>
+<a name="3-intermediate-topics"></a>
+<h2>3. Intermediate Topics</h2>
+<a name="3-1-treeview"></a>
+<h3>3.1 TreeView</h3>
+<p>You can convert the example above into an application with a tree view. Simply replace <a href="qtableview.html">QTableView</a> with <a href="qtreeview.html">QTreeView</a>, which results in a read/write tree. No changes have to be made to the model. The tree won't have any hierarchies because there aren't any hierarchies in the model itself.</p>
+<p class="centerAlign"><img src="images/dummy_tree.png" alt="" /></p><p><a href="qlistview.html">QListView</a>, <a href="qtableview.html">QTableView</a> and <a href="qtreeview.html">QTreeView</a> all use a model abstraction, which is a merged list, table and tree. This makes it possible to use several different types of view classes from the same model.</p>
+<p class="centerAlign"><img src="images/list_table_tree.png" alt="" /></p><p>This is how our example model looks so far:</p>
+<p class="centerAlign"><img src="images/example_model.png" alt="" /></p><p>We want to present a real tree. We have wrapped our data in the examples above in order to make a model. This time we use <a href="qstandarditemmodel.html">QStandardItemModel</a>, which is a container for hierarchical data that also implements <a href="qabstractitemmodel.html">QAbstractItemModel</a>. To show a tree, <a href="qstandarditemmodel.html">QStandardItemModel</a> must be populated with <a href="qstandarditem.html">QStandardItem</a>s, which are able to hold all the standard properties of items like text, fonts, checkboxes or brushes.</p>
+<p class="centerAlign"><img src="images/tree_2_with_algorithm.png" alt="" /></p><p>(file source: examples/tutorials/modelview/6_treeview/mainwindow.cpp)</p>
+<pre class="cpp"> <span class="comment">// modelview.cpp</span>
+ <span class="preprocessor">#include &lt;QTreeView&gt;</span>
+ <span class="preprocessor">#include &lt;QStandardItemModel&gt;</span>
+ <span class="preprocessor">#include &lt;QStandardItem&gt;</span>
+ <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+
+ <span class="keyword">const</span> <span class="type">int</span> ROWS <span class="operator">=</span> <span class="number">2</span>;
+ <span class="keyword">const</span> <span class="type">int</span> COLUMNS <span class="operator">=</span> <span class="number">3</span>;
+
+ MainWindow<span class="operator">::</span>MainWindow(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent)
+ {
+     treeView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreeview.html">QTreeView</a></span>(<span class="keyword">this</span>);
+     setCentralWidget(treeView);
+     standardModel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstandarditemmodel.html">QStandardItemModel</a></span> ;
+
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> preparedRow <span class="operator">=</span>prepareRow(<span class="string">&quot;first&quot;</span><span class="operator">,</span> <span class="string">&quot;second&quot;</span><span class="operator">,</span> <span class="string">&quot;third&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>item <span class="operator">=</span> standardModel<span class="operator">-</span><span class="operator">&gt;</span>invisibleRootItem();
+     <span class="comment">// adding a row to the invisible root item produces a root element</span>
+     item<span class="operator">-</span><span class="operator">&gt;</span>appendRow(preparedRow);
+
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> secondRow <span class="operator">=</span>prepareRow(<span class="string">&quot;111&quot;</span><span class="operator">,</span> <span class="string">&quot;222&quot;</span><span class="operator">,</span> <span class="string">&quot;333&quot;</span>);
+     <span class="comment">// adding a row to an item starts a subtree</span>
+     preparedRow<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>appendRow(secondRow);
+
+     treeView<span class="operator">-</span><span class="operator">&gt;</span>setModel(standardModel);
+     treeView<span class="operator">-</span><span class="operator">&gt;</span>expandAll();
+ }
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> MainWindow<span class="operator">::</span>prepareRow(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>first<span class="operator">,</span>
+                                                 <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>second<span class="operator">,</span>
+                                                 <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>third)
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> rowItems;
+     rowItems <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(first);
+     rowItems <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(second);
+     rowItems <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(third);
+     <span class="keyword">return</span> rowItems;
+ }</pre>
+<p>We simply instantiate a <a href="qstandarditemmodel.html">QStandardItemModel</a> and add a couple of <a href="qstandarditem.html">QStandardItems</a> to the constructor. We can then make a hierarchical data structure because a <a href="qstandarditem.html">QStandardItem</a> can hold other <a href="qstandarditem.html">QStandardItems</a>. Nodes are collapsed and expanded within the view.</p>
+<a name="3-2-working-with-selections"></a>
+<h3>3.2 Working with Selections</h3>
+<p>We want to access a selected item's content in order to output it into the window title together with the hierarchy level.</p>
+<p class="centerAlign"><img src="images/selection2.png" alt="" /></p><p>So let's create a couple of items:</p>
+<p>(file source: examples/tutorials/modelview/7<a href="q3table.html#selections" class="compat">_selections</a>/mainwindow.cpp)</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QTreeView&gt;</span>
+ <span class="preprocessor">#include &lt;QStandardItemModel&gt;</span>
+ <span class="preprocessor">#include &lt;QItemSelectionModel&gt;</span>
+ <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+
+ MainWindow<span class="operator">::</span>MainWindow(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent)
+ {
+     treeView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreeview.html">QTreeView</a></span>(<span class="keyword">this</span>);
+     setCentralWidget(treeView);
+     standardModel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstandarditemmodel.html">QStandardItemModel</a></span> ;
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>rootNode <span class="operator">=</span> standardModel<span class="operator">-</span><span class="operator">&gt;</span>invisibleRootItem();
+
+     <span class="comment">//defining a couple of items</span>
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>americaItem <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;America&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>mexicoItem <span class="operator">=</span>  <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;Canada&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>usaItem <span class="operator">=</span>     <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;USA&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>bostonItem <span class="operator">=</span>  <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;Boston&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>europeItem <span class="operator">=</span>  <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;Europe&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>italyItem <span class="operator">=</span>   <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;Italy&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>romeItem <span class="operator">=</span>    <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;Rome&quot;</span>);
+     <span class="type"><a href="qstandarditem.html">QStandardItem</a></span> <span class="operator">*</span>veronaItem <span class="operator">=</span>  <span class="keyword">new</span> <span class="type"><a href="qstandarditem.html">QStandardItem</a></span>(<span class="string">&quot;Verona&quot;</span>);
+
+     <span class="comment">//building up the hierarchy</span>
+     rootNode<span class="operator">-</span><span class="operator">&gt;</span>    appendRow(americaItem);
+     rootNode<span class="operator">-</span><span class="operator">&gt;</span>    appendRow(europeItem);
+     americaItem<span class="operator">-</span><span class="operator">&gt;</span> appendRow(mexicoItem);
+     americaItem<span class="operator">-</span><span class="operator">&gt;</span> appendRow(usaItem);
+     usaItem<span class="operator">-</span><span class="operator">&gt;</span>     appendRow(bostonItem);
+     europeItem<span class="operator">-</span><span class="operator">&gt;</span>  appendRow(italyItem);
+     italyItem<span class="operator">-</span><span class="operator">&gt;</span>   appendRow(romeItem);
+     italyItem<span class="operator">-</span><span class="operator">&gt;</span>   appendRow(veronaItem);
+
+     <span class="comment">//register the model</span>
+     treeView<span class="operator">-</span><span class="operator">&gt;</span>setModel(standardModel);
+     treeView<span class="operator">-</span><span class="operator">&gt;</span>expandAll();
+
+     <span class="comment">//selection changes shall trigger a slot</span>
+     <span class="type"><a href="qitemselectionmodel.html">QItemSelectionModel</a></span> <span class="operator">*</span>selectionModel<span class="operator">=</span> treeView<span class="operator">-</span><span class="operator">&gt;</span>selectionModel();
+     connect(selectionModel<span class="operator">,</span> SIGNAL(selectionChanged (<span class="keyword">const</span> <span class="type"><a href="qitemselection.html">QItemSelection</a></span> <span class="operator">&amp;</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qitemselection.html">QItemSelection</a></span> <span class="operator">&amp;</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(selectionChangedSlot(<span class="keyword">const</span> <span class="type"><a href="qitemselection.html">QItemSelection</a></span> <span class="operator">&amp;</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qitemselection.html">QItemSelection</a></span> <span class="operator">&amp;</span>)));
+ }</pre>
+<p>Views manage selections within a separate selection model, which can be retrieved with the <a href="qabstractitemview.html#selectionModel">selectionModel()</a> method. We retrieve the selection Model in order to connect a slot to its <a href="qabstractitemview.html#selectionChanged">selectionChanged()</a> signal.</p>
+<p>(file source: examples/tutorials/modelview/7<a href="q3table.html#selections" class="compat">_selections</a>/mainwindow.cpp)</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>selectionChangedSlot(<span class="keyword">const</span> <span class="type"><a href="qitemselection.html">QItemSelection</a></span> <span class="operator">&amp;</span> <span class="comment">/*newSelection*/</span><span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qitemselection.html">QItemSelection</a></span> <span class="operator">&amp;</span> <span class="comment">/*oldSelection*/</span>)
+ {
+     <span class="comment">//get the text of the selected item</span>
+     <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index <span class="operator">=</span> treeView<span class="operator">-</span><span class="operator">&gt;</span>selectionModel()<span class="operator">-</span><span class="operator">&gt;</span>currentIndex();
+     <span class="type"><a href="qstring.html">QString</a></span> selectedText <span class="operator">=</span> index<span class="operator">.</span>data(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DisplayRole)<span class="operator">.</span>toString();
+     <span class="comment">//find out the hierarchy level of the selected item</span>
+     <span class="type">int</span> hierarchyLevel<span class="operator">=</span><span class="number">1</span>;
+     <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> seekRoot <span class="operator">=</span> index;
+     <span class="keyword">while</span>(seekRoot<span class="operator">.</span>parent() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>())
+     {
+         seekRoot <span class="operator">=</span> seekRoot<span class="operator">.</span>parent();
+         hierarchyLevel<span class="operator">+</span><span class="operator">+</span>;
+     }
+     <span class="type"><a href="qstring.html">QString</a></span> showString <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;%1, Level %2&quot;</span>)<span class="operator">.</span>arg(selectedText)
+                          <span class="operator">.</span>arg(hierarchyLevel);
+     setWindowTitle(showString);
+ }</pre>
+<p>We get the model index that corresponds to the selection by calling <a href="qitemselectionmodel.html#currentIndex">treeView-&gt;selectionModel()-&gt;currentIndex()</a> and we get the the field's string by using the model index. Then we just calculate the item's <tt>hierarchyLevel</tt>. Top level items do not have parents and the <a href="qabstractitemmodel.html#parent">parent()</a> method will return a default constructed <a href="qmodelindex.html">QModelIndex()</a>. This is why we use the <a href="qabstractitemmodel.html#parent">parent()</a> method to iterate to the top level while counting the steps performed during iteration.</p>
+<p>The selection model (as shown above) can be retrieved, but it can also be set with <a href="qabstractitemview.html">QAbstractItemView::setSelectionModel</a>. This is how it's possible to have 3 view classes with synchronised selections because only one instance of a selection model is used. To share a selection model between 3 views use <a href="qabstractitemview.html#selectionModel">selectionModel()</a> and assign the result to the second and third view class with <a href="qabstractitemview.html#setSelectionModel">setSelectionModel()</a>.</p>
+<a name="3-3-predefined-models"></a>
+<h3>3.3 Predefined Models</h3>
+<p>The typical way to use model/view is to wrap specific data to make it usable with view classes. Qt, however, also provides predefined models for common underlying data structures. If one of the available data structures is suitable for your application, a predefined model can be a good choice.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><a href="qstringlistmodel.html">QStringListModel</a></td><td >Stores a list of strings</td></tr>
+<tr valign="top" class="even"><td ><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td >Stores arbitrary hierarchical items</td></tr>
+<tr valign="top" class="odd"><td ><a href="qfilesystemmodel.html">QFileSystemModel</a><br /> <a href="qdirmodel.html" class="obsolete">QDirModel<sup>(obsolete)</sup></a></td><td >Encapsulate the local file system</td></tr>
+<tr valign="top" class="even"><td ><a href="qsqlquerymodel.html">QSqlQueryModel</a></td><td >Encapsulate an SQL result set</td></tr>
+<tr valign="top" class="odd"><td ><a href="qsqltablemodel.html">QSqlTableModel</a></td><td >Encapsulates an SQL table</td></tr>
+<tr valign="top" class="even"><td ><a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a></td><td >Encapsulates an SQL table with foreign keys</td></tr>
+<tr valign="top" class="odd"><td ><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a></td><td >Sorts and/or filters another model</td></tr>
+</table>
+<a name="3-4-delegates"></a>
+<h3>3.4 Delegates</h3>
+<p>In all examples so far, data is presented as text or a checkbox in a cell and is edited as text or a checkbox. The component that provides these presentation and editing services is called a <i>delegate</i>. We are only just beginning to work with the delegate because the view uses a default delegate. But imagine that we want to have a different editor (e.g&#x2e;, a slider or a drop down list) Or imagine that we want to present data as graphics. Let's take a look at an example called <a href="itemviews-stardelegate.html">Star Delegate</a>, in which stars are used to show a rating:</p>
+<p class="centerAlign"><img src="images/stardelegate.png" alt="" /></p><p>The view has a <a href="qabstractitemview.html#setItemDelegate">setItemDelegate()</a> method that replaces the default delegate and installs a custom delegate. A new delegate can be written by creating a class that inherits from <a href="qstyleditemdelegate.html">QStyledItemDelegate</a>. In order to write a delegate that displays stars and has no input capabilities, we only need to override 2 methods.</p>
+<pre class="cpp"> <span class="keyword">class</span> StarDelegate : <span class="keyword">public</span> <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     StarDelegate(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint(<span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                    <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+ };</pre>
+<p><a href="qstyleditemdelegate.html#paint">paint()</a> draws stars depending on the content of the underlying data. The data can be looked up by calling <a href="qmodelindex.html#data">index.data()</a>. The delegate's <a href="qabstractitemdelegate.html#sizeHint">sizeHint()</a> method is used to obtain each star's dimensions, so the the cell will provide enough height and width to accommodate the stars.</p>
+<p>Writing custom delegates is the right choice if you want to show your data with a custom graphical representation inside the grid of the view class. If you want to leave the grid, you would not use a custom delegate but a custom view class.</p>
+<p>Other references to delegates in Qt Documentation:</p>
+<ul>
+<li><a href="itemviews-spinboxdelegate.html">Spin Box Delegate Example</a></li>
+<li><a href="qabstractitemdelegate.html">QAbstractItemDelegate Class Reference</a></li>
+<li><a href="qsqlrelationaldelegate.html">QSqlRelationalDelegate Class Reference</a></li>
+<li><a href="qstyleditemdelegate.html">QStyledItemDelegate Class Reference</a></li>
+<li><a href="qitemdelegate.html">QItemDelegate Class Reference</a></li>
+</ul>
+<a name="4-good-sources-of-additional-information"></a>
+<h2>4. Good Sources of Additional Information</h2>
+<a name="4-1-books"></a>
+<h3>4.1 Books</h3>
+<p>Model/View programming is covered quite extensively in the documentation of Qt but also in several good books.</p>
+<ol class="1">
+<li><b>C++ GUI Programming with Qt 4</b> / Jasmin Blanchette, Mark Summerfield, <i>Prentice Hall, 2nd edition</i>, ISBN 0-13-235416-0. Also available in German: <b>C++ GUI Programmierung mit Qt 4: Die offizielle Einführung</b>, <i>Addison-Wesley</i>, ISBN 3-827327-29-6</li>
+<li><b>The Book of Qt4, The Art of Building Qt Applications</b> / Daniel Molkentin, <i>Open Source Press</i>, ISBN 1-59327-147-6. Translated from <b>Qt 4, Einführung in die Applikationsentwicklung</b>, <i>Open Source Press</i>, ISBN 3-937514-12-0.</li>
+<li><b>Foundations of Qt Development</b> / Johan Thelin, <i>Apress</i>, ISBN 1-59059-831-8.</li>
+<li><b>Advanced Qt Programming</b> / Mark Summerfield, <i>Prentice Hall</i>, ISBN 0-321-63590-6. This book covers Model/View programming on more than 150 pages.</li>
+</ol>
+<p>The following list provides an overview of example programs contained in the first three books listed above. Some of them make very good templates for developing similar applications.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Example name</th><th >View class used</th><th >Model used</th><th >Aspects covered</th><th ></th></tr></thead>
+<tr valign="top" class="odd"><td >Team Leaders</td><td ><a href="porting4.html#qlistview">QListview</a></td><td ><a href="qstringlistmodel.html">QStringListModel</a></td><td ></td><td >Book 1, Chapter 10, Figure 10.6</td></tr>
+<tr valign="top" class="even"><td >Directory Viewer</td><td ><a href="qtreeview.html">QTreeView</a></td><td ><a href="qdirmodel.html" class="obsolete">QDirModel<sup>(obsolete)</sup></a></td><td ></td><td >Book 1, Chapter 10, Figure 10.7</td></tr>
+<tr valign="top" class="odd"><td >Color Names</td><td ><a href="qlistview.html">QListView</a></td><td ><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> applied to <a href="qstringlistmodel.html">QStringListModel</a></td><td ></td><td >Book 1, Chapter 10, Figure 10.8</td></tr>
+<tr valign="top" class="even"><td >Currencies</td><td ><a href="qtableview.html">QTableView</a></td><td >custom model based on <a href="qabstracttablemodel.html">QAbstractTableModel</a></td><td >Read only</td><td >Book 1, Chapter 10, Figure 10.10</td></tr>
+<tr valign="top" class="odd"><td >Cities</td><td ><a href="qtableview.html">QTableView</a></td><td >Custom model based on <a href="qabstracttablemodel.html">QAbstractTableModel</a></td><td >Read / write</td><td >Book 1, Chapter 10, Figure 10.12</td></tr>
+<tr valign="top" class="even"><td >Boolean Parser</td><td ><a href="qtreeview.html">QTreeView</a></td><td >Custom model based on <a href="qabstractitemmodel.html">QAbstractItemModel</a></td><td >Read only</td><td >Book 1, Chapter 10, Figure 10.14</td></tr>
+<tr valign="top" class="odd"><td >Track Editor</td><td  colspan="2" rowspan=" 1"><a href="qtablewidget.html">QTableWidget</a></td><td >Custom delegate providing a custom editor</td><td >Book 1, Chapter 10, Figure 10.15</td></tr>
+<tr valign="top" class="even"><td >Four directory views</td><td ><a href="qlistview.html">QListView</a> <a href="qtableview.html">QTableView</a> <a href="qtreeview.html">QTreeView</a></td><td ><a href="qdirmodel.html" class="obsolete">QDirModel<sup>(obsolete)</sup></a></td><td >Demonstrates the use of multiple views</td><td >Book2, Chapter 8.2</td></tr>
+<tr valign="top" class="odd"><td >Address Book</td><td ><a href="qlistview.html">QListView</a> <a href="qtableview.html">QTableView</a> <a href="qtreeview.html">QTreeView</a></td><td >Custom model based on <a href="qabstracttablemodel.html">QAbstractTableModel</a></td><td >Read / write</td><td >Book2, Chapter 8.4</td></tr>
+<tr valign="top" class="even"><td >Address Book with sorting</td><td ></td><td ><a href="qproxymodel.html" class="obsolete">QProxyModel<sup>(obsolete)</sup></a></td><td >Introducing sort and filter capabilities</td><td >Book2, Chapter 8.5</td></tr>
+<tr valign="top" class="odd"><td >Address Book with checkboxes</td><td ></td><td ></td><td >Introducing checkboxes in model/view</td><td >Book2, Chapter 8.6</td></tr>
+<tr valign="top" class="even"><td >Address Book with transposed grid</td><td ></td><td >Custom proxy Model based on <a href="qabstractproxymodel.html">QAbstractProxyModel</a></td><td >Introducing a custom model</td><td >Book2, Chapter 8.7</td></tr>
+<tr valign="top" class="odd"><td >Address Book with drag and drop</td><td ></td><td ></td><td >Introducing drag and drop support</td><td >Book2, Chapter 8.8</td></tr>
+<tr valign="top" class="even"><td >Address Book with custom editor</td><td ></td><td ></td><td >Introducing custom delegates</td><td >Book2, Chapter 8.9</td></tr>
+<tr valign="top" class="odd"><td >Views</td><td ><a href="qlistview.html">QListView</a> <a href="qtableview.html">QTableView</a> <a href="qtreeview.html">QTreeView</a></td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td >Read only</td><td >Book 3, Chapter 5, figure 5-3</td></tr>
+<tr valign="top" class="even"><td >Bardelegate</td><td ><a href="qtableview.html">QTableView</a></td><td ></td><td >Custom delegate for presentation based on <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a></td><td >Book 3, Chapter 5, figure 5-5</td></tr>
+<tr valign="top" class="odd"><td >Editdelegate</td><td ><a href="qtableview.html">QTableView</a></td><td ></td><td >Custom delegate for editing based on <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a></td><td >Book 3, Chapter 5, figure 5-6</td></tr>
+<tr valign="top" class="even"><td >Singleitemview</td><td >Custom view based on <a href="qabstractitemview.html">QAbstractItemView</a></td><td ></td><td >Custom view</td><td >Book 3, Chapter 5, figure 5-7</td></tr>
+<tr valign="top" class="odd"><td >listmodel</td><td ><a href="qtableview.html">QTableView</a></td><td >Custom Model based on <a href="qabstracttablemodel.html">QAbstractTableModel</a></td><td >Read only</td><td >Book 3, Chapter 5, Figure 5-8</td></tr>
+<tr valign="top" class="even"><td >treemodel</td><td ><a href="qtreeview.html">QTreeView</a></td><td >Custom Model based on <a href="qabstractitemmodel.html">QAbstractItemModel</a></td><td >Read only</td><td >Book 3, Chapter 5, Figure 5-10</td></tr>
+<tr valign="top" class="odd"><td >edit integers</td><td ><a href="qlistview.html">QListView</a></td><td >Custom Model based on <a href="qabstractlistmodel.html">QAbstractListModel</a></td><td >Read / write</td><td >Book 3, Chapter 5, Listing 5-37, Figure 5-11</td></tr>
+<tr valign="top" class="even"><td >sorting</td><td ><a href="qtableview.html">QTableView</a></td><td ><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> applied to <a href="qstringlistmodel.html">QStringListModel</a></td><td >Demonstrates sorting</td><td >Book 3, Chapter 5, Figure 5-12</td></tr>
+</table>
+<a name="4-2-qt-documentation"></a>
+<h3>4.2 Qt Documentation</h3>
+<p>Qt 4.7 comes with 17 examples and 2 Demonstrations for model/view. The examples can be found on the <a href="examples-itemviews.html">Item Views Examples</a> page.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Example name</th><th >View class used</th><th >Model used</th><th >Aspects covered</th></tr></thead>
+<tr valign="top" class="odd"><td >Address Book</td><td ><a href="qtableview.html">QTableView</a></td><td ><a href="qabstracttablemodel.html">QAbstractTableModel</a> <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a></td><td >Usage of <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> to generate different subsets from one data pool</td></tr>
+<tr valign="top" class="even"><td >Basic Sort/Filter Model</td><td ><a href="qtreeview.html">QTreeView</a></td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a> <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a></td><td ></td></tr>
+<tr valign="top" class="odd"><td >Chart</td><td >Custom view</td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td >Designing custom views that cooperate with selection models</td></tr>
+<tr valign="top" class="even"><td >Color Editor Factory</td><td  colspan="2" rowspan=" 1"><a href="qtablewidget.html">QTableWidget</a></td><td >Enhancing the standard delegate with a new custom editor to choose colours</td></tr>
+<tr valign="top" class="odd"><td >Combo Widget Mapper</td><td ><a href="qdatawidgetmapper.html">QDataWidgetMapper</a> to map <a href="qlineedit.html">QLineEdit</a>, <a href="qtextedit.html">QTextEdit</a> and <a href="qcombobox.html">QComboBox</a></td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td >Shows how a <a href="qcombobox.html">QComboBox</a> can serve as a view class</td></tr>
+<tr valign="top" class="even"><td >Custom Sort/Filter Model</td><td ><a href="qtreeview.html">QTreeView</a></td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a> <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a></td><td >Subclass <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> for advanced sorting and filtering</td></tr>
+<tr valign="top" class="odd"><td >Dir View</td><td ><a href="qtreeview.html">QTreeView</a></td><td ><a href="qdirmodel.html" class="obsolete">QDirModel<sup>(obsolete)</sup></a></td><td >Very small example to demonstrate how to assign a model to a view</td></tr>
+<tr valign="top" class="even"><td >Editable Tree Model</td><td ><a href="qtreeview.html">QTreeView</a></td><td >Custom tree model</td><td >Comprehensive example for working with trees, demonstrates editing cells and tree structure with an underlying custom model</td></tr>
+<tr valign="top" class="odd"><td >Fetch More</td><td ><a href="qlistview.html">QListView</a></td><td >Custom list model</td><td >Dynamically changing model</td></tr>
+<tr valign="top" class="even"><td >Frozen Column</td><td ><a href="qtableview.html">QTableView</a></td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td ></td></tr>
+<tr valign="top" class="odd"><td >Pixelator</td><td ><a href="qtableview.html">QTableView</a></td><td >Custom table model</td><td >Implementation of a custom delegate</td></tr>
+<tr valign="top" class="even"><td >Puzzle</td><td ><a href="qlistview.html">QListView</a></td><td >Custom list model</td><td >Model/view with drag and drop</td></tr>
+<tr valign="top" class="odd"><td >Simple DOM Model</td><td ><a href="qtreeview.html">QTreeView</a></td><td >Custom tree model</td><td >Read only example for a custom tree model</td></tr>
+<tr valign="top" class="even"><td >Simple Tree Model</td><td ><a href="qtreeview.html">QTreeView</a></td><td >Custom tree model</td><td >Read only example for a custom tree model</td></tr>
+<tr valign="top" class="odd"><td >Simple Widget Mapper</td><td ><a href="qdatawidgetmapper.html">QDataWidgetMapper</a> to map <a href="qlineedit.html">QLineEdit</a>, <a href="qtextedit.html">QTextEdit</a> and <a href="qspinbox.html">QSpinBox</a></td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td >Basic <a href="qdatawidgetmapper.html">QDataWidgetMapper</a> usage</td></tr>
+<tr valign="top" class="even"><td >Spin Box Delegate</td><td ><a href="qtableview.html">QTableView</a></td><td ><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td >Custom delegate that uses a spin box as a cell editor</td></tr>
+<tr valign="top" class="odd"><td >Star Delegate</td><td  colspan="2" rowspan=" 1"><a href="qtablewidget.html">QTableWidget</a></td><td >Comprehensive custom delegate example.</td></tr>
+</table>
+<p><a href="demos.html">Demonstrations</a> are similar to examples except that no walkthrough is provided for the code. Demonstrations are typically more feature rich than examples.</p>
+<ul>
+<li>The <b>Interview</b> demonstration shows the same model and selection being shared between three different views.</li>
+<li>The <b>Spreadsheet</b> demonstration illustrates the use of a table view as a spreadsheet, using custom delegates to render each item according to the type of data it contains.</li>
+</ul>
+<p>A <a href="model-view-programming.html">reference document</a> for model/view technology is also available.</p>
+</div>
+<!-- @@@modelview.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

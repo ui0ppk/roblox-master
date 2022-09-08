@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+  <TITLE>Threads and Event Loops</TITLE>
+  <link rel="STYLESHEET" href="/StyleSheets/libwww.css" type="text/css">
+</HEAD>
+<BODY>
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" ALT="libwww" SRC="../../../Icons/WWW/Lib48x" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/design48x" ALT="Architecture" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  Threads and Event Loops
+</H1>
+
+<p>Libwww is not posix thread safe but it uses a 'pseudo-thread' model
+based on non-blocking sockets and interleaved IO. The <a
+href="../../src/HTEvent.html">Event class</a> defines any event
+manager to be used by libwww for handling events. Work has been going
+on in making libwww posix thread safe but the results have always been
+that we loose a lot of performance.</p>
+
+<p>There is no default event loop registered by libwww, but there is a
+<a href="../../src/HTEvtLst.html">sample implementation using pseudo
+threads (non-blocking sockets and interlaced I/O)</a>. This can be
+replaced with another eventloop if you like. If you are using the
+libwww pseudo threads on Unix then an event is when the
+<I>select()</I> system call returns a notification on a socket
+descriptor, but it may as well be an asynchronous event from the
+windows manager etc. If your application is not using anything but
+traditional blocking sockets then you do not need an event manager at
+all. In that case, libwww will block on any socket or system call
+until the process can proceed.</p>
+
+<p>The <a href="../../src/HTEvent.html">libwww event manager
+interface</a> is very simple as it consists of <B>registering</B> a
+<I>socket descriptor</I>, the <I>location</I> in the program, and the
+<I>current state</I> when an operation (for example <CODE>read</CODE>)
+would block. When the event manager at a later point in time gets a
+notification that the socket has become ready, it can then call libwww
+with the state saved from the registration and libwww can continue.</p>
+
+<p>Second, libwww must be able to <B>unregister</B> a socket when it is
+not anymore in a state where it can block. <I>Only</I> in case the
+application wishes to use <I>non-blocking</I> sockets it should
+register methods for handling the <B>registration</B> process as
+described below.</p>
+<H3>
+  Providing Call Back Functions
+</H3>
+<P>Libwww normally handles the creation and termination of its internal
+threads without any interaction required by the application. The
+thread model is based on call back functions of which at least one
+user event handler and a event terminator must must be supplied by the
+application. However, the application is free to register as many
+additional user event handlers as it wants.</p>
+<p align="center">
+<IMG BORDER="0" SRC="../Architecture/Internal.gif" ALT="Callback" WIDTH="574" HEIGHT="430">
+</p>
+<DL>
+  <DT>
+    User Event Handlers
+  <DD>
+    An application can register a set of user event handlers to handle events
+    on sockets defined by the application to contain actions taken by the user.
+    This can for example be interrupting a request, start a new request, or scroll
+    a page. However, this requires that the actual window manager supports
+    redirection of event on sockets.
+  <DT>
+    Request Termination
+  <DD>
+    When a request is finished, the set of <a
+    href="../Using/Filters.html">registered filters</a> are called to
+    update whatever needs to be done, for example updating the history
+    list etc.
+  <DT>
+    Timeout Handler
+  <DD>
+    When using pseudo threads, the <CODE>select()</CODE> function in libwww
+    event loop is blocking even though the sockets are non-blocking. This means
+    that if no actions are pending on any of the registered sockets then the
+    application will block in the <CODE>select() </CODE>call. However, in order
+    to avoid sockets hanging around forever, a timeout is provided so that hanging
+    threads can be terminated.
+</DL>
+<H3>
+  <A NAME="control">Returning from a Call Back Function</A>
+</H3>
+<P>
+Often an event handler needs to return information about a change of state
+as a result of an action executed by the handler, for example if a new request
+is issued, a ongoing request is interrupted, the application is to terminated
+etc. This information can be handed back to libwww using the return
+values of the call back function.</p>
+
+<p>A requst can be be terminated prematurely by either a <a
+href="../../src/HTTimer.html">timeout</a> or an <a
+href="../../src/HTReq.html#Killing">abort of the operation</a>. Both
+cases can be handled by libwww and be adjusted to the desire of the
+user and or application.</p>
+<P>
+  <HR>
+<ADDRESS>
+  <a href="/People/Frystyk/">Henrik Frystyk Nielsen</a>,<br>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

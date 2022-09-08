@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- semaphores.qdoc -->
+  <title>Qt 4.8: Semaphores Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Semaphores Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#global-variables">Global Variables</a></li>
+<li class="level1"><a href="#producer-class">Producer Class</a></li>
+<li class="level1"><a href="#consumer-class">Consumer Class</a></li>
+<li class="level1"><a href="#the-main-function">The main() Function</a></li>
+</ul>
+</div>
+<h1 class="title">Semaphores Example</h1>
+<span class="subtitle"></span>
+<!-- $$$threads/semaphores-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="threads-semaphores-semaphores-cpp.html">threads/semaphores/semaphores.cpp</a></li>
+<li><a href="threads-semaphores-semaphores-pro.html">threads/semaphores/semaphores.pro</a></li>
+</ul>
+<p>The Semaphores example shows how to use <a href="qsemaphore.html">QSemaphore</a> to control access to a circular buffer shared by a producer thread and a consumer thread.<p>The producer writes data to the buffer until it reaches the end of the buffer, at which point it restarts from the beginning, overwriting existing data. The consumer thread reads the data as it is produced and writes it to standard error.</p>
+<p>Semaphores make it possible to have a higher level of concurrency than mutexes. If accesses to the buffer were guarded by a <a href="qmutex.html">QMutex</a>, the consumer thread couldn't access the buffer at the same time as the producer thread. Yet, there is no harm in having both threads working on <i>different parts</i> of the buffer at the same time.</p>
+<p>The example comprises two classes: <tt>Producer</tt> and <tt>Consumer</tt>. Both inherit from <a href="qthread.html">QThread</a>. The circular buffer used for communicating between these two classes and the semaphores that protect it are global variables.</p>
+<p>An alternative to using <a href="qsemaphore.html">QSemaphore</a> to solve the producer-consumer problem is to use <a href="qwaitcondition.html">QWaitCondition</a> and <a href="qmutex.html">QMutex</a>. This is what the <a href="threads-waitconditions.html">Wait Conditions</a> example does.</p>
+<a name="global-variables"></a>
+<h2>Global Variables</h2>
+<p>Let's start by reviewing the circular buffer and the associated semaphores:</p>
+<pre class="cpp"> <span class="preprocessor">#ifdef Q_WS_S60</span>
+ <span class="keyword">const</span> <span class="type">int</span> DataSize <span class="operator">=</span> <span class="number">300</span>;
+ <span class="preprocessor">#else</span>
+ <span class="keyword">const</span> <span class="type">int</span> DataSize <span class="operator">=</span> <span class="number">100000</span>;
+ <span class="preprocessor">#endif</span>
+
+ <span class="keyword">const</span> <span class="type">int</span> BufferSize <span class="operator">=</span> <span class="number">8192</span>;
+ <span class="type">char</span> buffer<span class="operator">[</span>BufferSize<span class="operator">]</span>;
+
+ <span class="type"><a href="qsemaphore.html">QSemaphore</a></span> freeBytes(BufferSize);
+ <span class="type"><a href="qsemaphore.html">QSemaphore</a></span> usedBytes;</pre>
+<p><tt>DataSize</tt> is the amout of data that the producer will generate. To keep the example as simple as possible, we make it a constant. <tt>BufferSize</tt> is the size of the circular buffer. It is less than <tt>DataSize</tt>, meaning that at some point the producer will reach the end of the buffer and restart from the beginning.</p>
+<p>To synchronize the producer and the consumer, we need two semaphores. The <tt>freeBytes</tt> semaphore controls the &quot;free&quot; area of the buffer (the area that the producer hasn't filled with data yet or that the consumer has already read). The <tt>usedBytes</tt> semaphore controls the &quot;used&quot; area of the buffer (the area that the producer has filled but that the consumer hasn't read yet).</p>
+<p>Together, the semaphores ensure that the producer is never more than <tt>BufferSize</tt> bytes ahead of the consumer, and that the consumer never reads data that the producer hasn't generated yet.</p>
+<p>The <tt>freeBytes</tt> semaphore is initialized with <tt>BufferSize</tt>, because initially the entire buffer is empty. The <tt>usedBytes</tt> semaphore is initialized to 0 (the default value if none is specified).</p>
+<a name="producer-class"></a>
+<h2>Producer Class</h2>
+<p>Let's review the code for the <tt>Producer</tt> class:</p>
+<pre class="cpp"> <span class="keyword">class</span> Producer : <span class="keyword">public</span> <span class="type"><a href="qthread.html">QThread</a></span>
+ {
+ <span class="keyword">public</span>:
+     <span class="type">void</span> run()
+     {
+         qsrand(<span class="type"><a href="qtime.html">QTime</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">0</span>)<span class="operator">.</span>secsTo(<span class="type"><a href="qtime.html">QTime</a></span><span class="operator">::</span>currentTime()));
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> DataSize; <span class="operator">+</span><span class="operator">+</span>i) {
+             freeBytes<span class="operator">.</span>acquire();
+             buffer<span class="operator">[</span>i <span class="operator">%</span> BufferSize<span class="operator">]</span> <span class="operator">=</span> <span class="string">&quot;ACGT&quot;</span><span class="operator">[</span>(<span class="type">int</span>)qrand() <span class="operator">%</span> <span class="number">4</span><span class="operator">]</span>;
+             usedBytes<span class="operator">.</span>release();
+         }
+     }
+ };</pre>
+<p>The producer generates <tt>DataSize</tt> bytes of data. Before it writes a byte to the circular buffer, it must acquire a &quot;free&quot; byte using the <tt>freeBytes</tt> semaphore. The <a href="qsemaphore.html#acquire">QSemaphore::acquire</a>() call might block if the consumer hasn't kept up the pace with the producer.</p>
+<p>At the end, the producer releases a byte using the <tt>usedBytes</tt> semaphore. The &quot;free&quot; byte has successfully been transformed into a &quot;used&quot; byte, ready to be read by the consumer.</p>
+<a name="consumer-class"></a>
+<h2>Consumer Class</h2>
+<p>Let's now turn to the <tt>Consumer</tt> class:</p>
+<pre class="cpp"> <span class="keyword">class</span> Consumer : <span class="keyword">public</span> <span class="type"><a href="qthread.html">QThread</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     <span class="type">void</span> run()
+     {
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> DataSize; <span class="operator">+</span><span class="operator">+</span>i) {
+             usedBytes<span class="operator">.</span>acquire();
+     <span class="preprocessor">#ifdef Q_WS_S60</span>
+             <span class="type"><a href="qstring.html">QString</a></span> text(buffer<span class="operator">[</span>i <span class="operator">%</span> BufferSize<span class="operator">]</span>);
+             freeBytes<span class="operator">.</span>release();
+             <span class="keyword">emit</span> stringConsumed(text);
+     <span class="preprocessor">#else</span>
+             fprintf(stderr<span class="operator">,</span> <span class="string">&quot;%c&quot;</span><span class="operator">,</span> buffer<span class="operator">[</span>i <span class="operator">%</span> BufferSize<span class="operator">]</span>);
+             freeBytes<span class="operator">.</span>release();
+     <span class="preprocessor">#endif</span>
+         }
+         fprintf(stderr<span class="operator">,</span> <span class="string">&quot;\n&quot;</span>);
+     }
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> stringConsumed(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text);
+
+ <span class="keyword">protected</span>:
+     <span class="type">bool</span> finish;
+ };</pre>
+<p>The code is very similar to the producer, except that this time we acquire a &quot;used&quot; byte and release a &quot;free&quot; byte, instead of the opposite.</p>
+<a name="the-main-function"></a>
+<h2>The main() Function</h2>
+<p>In <tt>main()</tt>, we create the two threads and call <a href="qthread.html#wait">QThread::wait</a>() to ensure that both threads get time to finish before we exit:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+ <span class="preprocessor">#ifdef Q_WS_S60</span>
+     <span class="comment">// Self made console for Symbian</span>
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     <span class="type"><a href="qplaintextedit.html">QPlainTextEdit</a></span> console;
+     console<span class="operator">.</span>setReadOnly(<span class="keyword">true</span>);
+     console<span class="operator">.</span>setTextInteractionFlags(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoTextInteraction);
+     console<span class="operator">.</span>showMaximized();
+
+     Producer producer;
+     Consumer consumer;
+
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(<span class="operator">&amp;</span>consumer<span class="operator">,</span> SIGNAL(stringConsumed(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&amp;</span>))<span class="operator">,</span> <span class="operator">&amp;</span>console<span class="operator">,</span> SLOT(insertPlainText(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BlockingQueuedConnection);
+
+     producer<span class="operator">.</span>start();
+     consumer<span class="operator">.</span>start();
+
+     app<span class="operator">.</span>exec();
+ <span class="preprocessor">#else</span>
+     <span class="type"><a href="qcoreapplication.html">QCoreApplication</a></span> app(argc<span class="operator">,</span> argv);
+     Producer producer;
+     Consumer consumer;
+     producer<span class="operator">.</span>start();
+     consumer<span class="operator">.</span>start();
+     producer<span class="operator">.</span>wait();
+     consumer<span class="operator">.</span>wait();
+     <span class="keyword">return</span> <span class="number">0</span>;
+ <span class="preprocessor">#endif</span>
+ }</pre>
+<p>So what happens when we run the program? Initially, the producer thread is the only one that can do anything; the consumer is blocked waiting for the <tt>usedBytes</tt> semaphore to be released (its initial <a href="qsemaphore.html#available">available()</a> count is 0). Once the producer has put one byte in the buffer, <tt>freeBytes.available()</tt> is <tt>BufferSize</tt> - 1 and <tt>usedBytes.available()</tt> is 1. At that point, two things can happen: Either the consumer thread takes over and reads that byte, or the consumer gets to produce a second byte.</p>
+<p>The producer-consumer model presented in this example makes it possible to write highly concurrent multithreaded applications. On a multiprocessor machine, the program is potentially up to twice as fast as the equivalent mutex-based program, since the two threads can be active at the same time on different parts of the buffer.</p>
+<p>Be aware though that these benefits aren't always realized. Acquiring and releasing a <a href="qsemaphore.html">QSemaphore</a> has a cost. In practice, it would probably be worthwhile to divide the buffer into chunks and to operate on chunks instead of individual bytes. The buffer size is also a parameter that must be selected carefully, based on experimentation.</p>
+</div>
+<!-- @@@threads/semaphores -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

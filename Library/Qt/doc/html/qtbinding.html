@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtbinding.qdoc -->
+  <title>Qt 4.8: Using QML Bindings in C++ Applications</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>Using QML Bindings in C++ Applications</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="prev" href="qml-extending.html" />
+  <link rel="next" href="qml-integration.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qml-extending.html">Extending QML Functionalities using C++</a>
+<a class="nextPage" href="qml-integration.html">Integrating QML Code with Existing Qt UI Code</a>
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#core-module-classes">Core module classes</a></li>
+<li class="level1"><a href="#approaches-to-using-qml-with-c">Approaches to using QML with C++</a></li>
+<li class="level2"><a href="#loading-qml-components-from-c">Loading QML Components from C++</a></li>
+<li class="level3"><a href="#locating-child-objects">Locating child objects</a></li>
+<li class="level2"><a href="#embedding-c-objects-into-qml-components">Embedding C++ Objects into QML Components</a></li>
+<li class="level2"><a href="#defining-new-qml-elements">Defining New QML Elements</a></li>
+<li class="level1"><a href="#exchanging-data-between-qml-and-c">Exchanging Data between QML and C++</a></li>
+<li class="level2"><a href="#calling-functions">Calling Functions</a></li>
+<li class="level2"><a href="#receiving-signals">Receiving Signals</a></li>
+<li class="level2"><a href="#modifying-properties">Modifying Properties</a></li>
+<li class="level1"><a href="#supported-data-types">Supported data types</a></li>
+<li class="level2"><a href="#javascript-arrays-and-objects">JavaScript Arrays and Objects</a></li>
+<li class="level2"><a href="#using-enumerations-of-a-custom-type">Using Enumerations of a Custom Type</a></li>
+<li class="level2"><a href="#using-enumeration-values-as-signal-and-method-parameters">Using Enumeration Values as Signal and Method Parameters</a></li>
+<li class="level2"><a href="#automatic-type-conversion-from-strings">Automatic Type Conversion from Strings</a></li>
+<li class="level1"><a href="#writing-qml-plugins">Writing QML plugins</a></li>
+<li class="level1"><a href="#managing-resource-files-with-the-qt-resource-system">Managing resource files with the Qt resource system</a></li>
+</ul>
+</div>
+<h1 class="title">Using QML Bindings in C++ Applications</h1>
+<span class="subtitle"></span>
+<!-- $$$qtbinding.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>QML is designed to be easily extensible to and from C++. The classes in the Qt Declarative module allow QML components to be loaded and manipulated from C++, and through Qt's <a href="metaobjects.html">meta-object system</a>, QML and C++ objects can easily communicate through Qt signals and slots. In addition, QML plugins can be written to create reusable QML components for distribution.</p>
+<p>You may want to mix QML and C++ for a number of reasons. For example:</p>
+<ul>
+<li>To use functionality defined in a C++ source (for example, when using a C++ Qt-based data model, or calling functions in a third-party C++ library)</li>
+<li>To access functionality in the Qt Declarative module (for example, to dynamically generate images using <a href="qdeclarativeimageprovider.html">QDeclarativeImageProvider</a>)</li>
+<li>To write your own QML elements (whether for your applications, or for distribution to others)</li>
+</ul>
+<p>To use the Qt Declarative module, you must include and link to the module appropriately, as shown on the <a href="qtdeclarative.html">module index page</a>. The <a href="qmlruntime.html">Qt Declarative UI Runtime</a> documentation shows how to build a basic C++ application that uses this module.</p>
+<a name="core-module-classes"></a>
+<h2>Core module classes</h2>
+<p>The Qt Declarative module provides a set of C++ APIs for extending your QML applications from C++ and embedding QML into C++ applications. There are several core classes in the Qt Declarative module that provide the essential capabilities for doing this. These are:</p>
+<ul>
+<li><a href="qdeclarativeengine.html">QDeclarativeEngine</a>: A QML engine provides the environment for executing QML code. Every application requires at least one engine instance.</li>
+<li><a href="qdeclarativecomponent.html">QDeclarativeComponent</a>: A component encapsulates a <a href="qdeclarativedocuments.html">QML document</a>.</li>
+<li><a href="qdeclarativecontext.html">QDeclarativeContext</a>: A context allows an application to expose data to the QML components created by an engine.</li>
+</ul>
+<p>A <a href="qdeclarativeengine.html">QDeclarativeEngine</a> allows the configuration of global settings that apply to all of its QML component instances: for example, the <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> to be used for network communications, and the file path to be used for persistent storage.</p>
+<p><a href="qdeclarativecomponent.html">QDeclarativeComponent</a> is used to load QML documents. Each <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> instance represents a single document. A component can be created from the URL or file path of a QML document, or the raw QML code of the document. Component instances are instatiated through the <a href="qdeclarativecomponent.html#create">QDeclarativeComponent::create</a>() method, like this:</p>
+<pre class="cpp"> <span class="type"><a href="qdeclarativeengine.html">QDeclarativeEngine</a></span> engine;
+ <span class="type"><a href="qdeclarativecomponent.html">QDeclarativeComponent</a></span> component(<span class="operator">&amp;</span>engine<span class="operator">,</span> <span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyRectangle.qml&quot;</span>));
+ <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>rectangleInstance <span class="operator">=</span> component<span class="operator">.</span>create();
+
+ <span class="comment">// ...</span>
+ <span class="keyword">delete</span> rectangleInstance;</pre>
+<p>QML documents can also be loaded using <a href="qdeclarativeview.html">QDeclarativeView</a>. This class provides a convenient <a href="qwidget.html">QWidget</a>-based view for embedding QML components into <a href="qgraphicsview.html">QGraphicsView</a>-based applications. (For other methods of integrating QML into <a href="qwidget.html">QWidget</a>-based applications, see <a href="qml-integration.html">Integrating QML Code with existing Qt UI code</a>.)</p>
+<a name="approaches-to-using-qml-with-c"></a>
+<h2>Approaches to using QML with C++</h2>
+<p>There are a number of ways to extend your QML application through C++. For example, you could:</p>
+<ul>
+<li>Load a QML component and manipulate it (or its children) from C++</li>
+<li>Embed a C++ object and its properties directly into a QML component (for example, to make a particular C++ object callable from QML, or to replace a dummy list model with a real data set)</li>
+<li>Define new QML elements (through <a href="qobject.html">QObject</a>-based C++ classes) and create them directly from your QML code</li>
+</ul>
+<p>These methods are shown below. Naturally these approaches are not exclusive; you can mix any of these methods throughout your application as appropriate.</p>
+<a name="loading-qml-components-from-c"></a>
+<h3>Loading QML Components from C++</h3>
+<p>A QML document can be loaded with <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> or <a href="qdeclarativeview.html">QDeclarativeView</a>. <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> loads a QML component as a C++ object; <a href="qdeclarativeview.html">QDeclarativeView</a> also does this, but additionally loads the QML component directly into a <a href="qgraphicsview.html">QGraphicsView</a>. It is convenient for loading a displayable QML component into a <a href="qwidget.html">QWidget</a>-based application.</p>
+<p>For example, suppose there is a <tt>MyItem.qml</tt> file that looks like this:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+ }</pre>
+<p>This QML document can be loaded with <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> or <a href="qdeclarativeview.html">QDeclarativeView</a> with the following C++ code. Using a <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> requires calling <a href="qdeclarativecomponent.html#create">QDeclarativeComponent::create</a>() to create a new instance of the component, while a <a href="qdeclarativeview.html">QDeclarativeView</a> automatically creates an instance of the component, which is accessible via <a href="qdeclarativeview.html#rootObject">QDeclarativeView::rootObject</a>():</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="cpp"> <span class="comment">// Using QDeclarativeComponent</span>
+ <span class="type"><a href="qdeclarativeengine.html">QDeclarativeEngine</a></span> engine;
+ <span class="type"><a href="qdeclarativecomponent.html">QDeclarativeComponent</a></span> component(<span class="operator">&amp;</span>engine<span class="operator">,</span>
+         <span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+ <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object <span class="operator">=</span> component<span class="operator">.</span>create();
+ ...
+ <span class="keyword">delete</span> object;</pre>
+</td><td ><pre class="cpp"> <span class="comment">// Using QDeclarativeView</span>
+ <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+ view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+ view<span class="operator">.</span>show();
+ <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object <span class="operator">=</span> view<span class="operator">.</span>rootObject();</pre>
+</td></tr>
+</table>
+<p>This <tt>object</tt> is the instance of the <tt>MyItem.qml</tt> component that has been created. You can now modify the item's properties using <a href="qobject.html#setProperty">QObject::setProperty</a>() or <a href="qdeclarativeproperty.html">QDeclarativeProperty</a>:</p>
+<pre class="cpp"> object<span class="operator">-</span><span class="operator">&gt;</span>setProperty(<span class="string">&quot;width&quot;</span><span class="operator">,</span> <span class="number">500</span>);
+ <span class="type"><a href="qdeclarativeproperty.html">QDeclarativeProperty</a></span>(object<span class="operator">,</span> <span class="string">&quot;width&quot;</span>)<span class="operator">.</span>write(<span class="number">500</span>);</pre>
+<p>Alternatively, you can cast the object to its actual type and call functions with compile-time safety. In this case the base object of <tt>MyItem.qml</tt> is an <a href="qml-item.html">Item</a>, which is defined by the <a href="qdeclarativeitem.html">QDeclarativeItem</a> class:</p>
+<pre class="cpp"> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span> <span class="operator">*</span>item <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span><span class="operator">*</span><span class="operator">&gt;</span>(object);
+ item<span class="operator">-</span><span class="operator">&gt;</span>setWidth(<span class="number">500</span>);</pre>
+<p>You can also connect to any signals or call functions defined in the component using <a href="qmetaobject.html#invokeMethod">QMetaObject::invokeMethod</a>() and <a href="qobject.html#connect">QObject::connect</a>(). See <a href="#exchanging-data-between-qml-and-c">Exchanging data between QML and C++</a> below for further details.</p>
+<a name="locating-child-objects"></a>
+<h4>Locating child objects</h4>
+<p>QML components are essentially object trees with children that have siblings and their own children. Child objects of QML components can be located using the <a href="qobject.html#objectName-prop">QObject::objectName</a> property with <a href="qobject.html#findChild">QObject::findChild</a>(). For example, if the root item in <tt>MyItem.qml</tt> had a child <a href="qml-rectangle.html">Rectangle</a> item:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">objectName</span>: <span class="string">&quot;rect&quot;</span>
+     }
+ }</pre>
+<p>The child could be located like this:</p>
+<pre class="cpp"> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>rect <span class="operator">=</span> object<span class="operator">-</span><span class="operator">&gt;</span>findChild<span class="operator">&lt;</span><span class="type"><a href="qobject.html">QObject</a></span><span class="operator">*</span><span class="operator">&gt;</span>(<span class="string">&quot;rect&quot;</span>);
+ <span class="keyword">if</span> (rect)
+     rect<span class="operator">-</span><span class="operator">&gt;</span>setProperty(<span class="string">&quot;color&quot;</span><span class="operator">,</span> <span class="string">&quot;red&quot;</span>);</pre>
+<p>If <tt>objectName</tt> is used inside a delegate of a <a href="qml-listview.html">ListView</a>, <a href="qml-repeater.html">Repeater</a> or some other element that creates multiple instances of its delegates, there will be multiple children with the same <tt>objectName</tt>. In this case, <a href="qobject.html#findChildren">QObject::findChildren</a>() can be used to find all children with a matching <tt>objectName</tt>.</p>
+<p><b>Warning:</b> While it is possible to use C++ to access and manipulate QML objects deep into the object tree, we recommend that you do not take this approach outside of application testing and prototyping. One strength of QML and C++ integration is the ability to implement the QML user interface separately from the C++ logic and dataset backend, and this strategy breaks if the C++ side reaches deep into the QML components to manipulate them directly. This would make it difficult to, for example, swap a QML view component for another view, if the new component was missing a required <tt>objectName</tt>. It is better for the C++ implementation to know as little as possible about the QML user interface implementation and the composition of the QML object tree.</p>
+<a name="embedding-c-objects-into-qml-components"></a>
+<h3>Embedding C++ Objects into QML Components</h3>
+<p>When loading a QML scene into a C++ application, it can be useful to directly embed C++ data into the QML object. <a href="qdeclarativecontext.html">QDeclarativeContext</a> enables this by exposing data to the context of a QML component, allowing data to be injected from C++ into QML.</p>
+<p>For example, here is a QML item that refers to a <tt>currentDateTime</tt> value that does not exist in the current scope:</p>
+<pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">text</span>: <span class="name">currentDateTime</span> }</pre>
+<p>This <tt>currentDateTime</tt> value can be set directly by the C++ application that loads the QML component, using <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>():</p>
+<pre class="cpp"> <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+ view<span class="operator">.</span>rootContext()<span class="operator">-</span><span class="operator">&gt;</span>setContextProperty(<span class="string">&quot;currentDateTime&quot;</span><span class="operator">,</span> <span class="type"><a href="qdatetime.html">QDateTime</a></span><span class="operator">::</span>currentDateTime());
+ view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+ view<span class="operator">.</span>show();</pre>
+<p>Context properties can hold either <a href="qvariant.html">QVariant</a> or <a href="qobject.html">QObject</a>* values. This means custom C++ objects can also be injected using this approach, and these objects can be modified and read directly in QML. Here, we modify the above example to embed a <a href="qobject.html">QObject</a> instance instead of a <a href="qdatetime.html">QDateTime</a> value, and the QML code invokes a method on the object instance:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="cpp"> <span class="keyword">class</span> ApplicationData : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     Q_INVOKABLE <span class="type"><a href="qdatetime.html">QDateTime</a></span> getCurrentDateTime() <span class="keyword">const</span> {
+         <span class="keyword">return</span> <span class="type"><a href="qdatetime.html">QDateTime</a></span><span class="operator">::</span>currentDateTime();
+     }
+ };
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>) {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+
+     ApplicationData data;
+     view<span class="operator">.</span>rootContext()<span class="operator">-</span><span class="operator">&gt;</span>setContextProperty(<span class="string">&quot;applicationData&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>data);
+
+     view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+     view<span class="operator">.</span>show();
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</td><td ><pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">text</span>: <span class="name">applicationData</span>.<span class="name">getCurrentDateTime</span>() }</pre>
+</td></tr>
+</table>
+<p>(Note that date/time values returned from C++ to QML can be formatted through <a href="qml-qt.html#formatDateTime-method">Qt.formatDateTime()</a> and associated functions.)</p>
+<p>If the QML item needs to receive signals from the context property, it can connect to them using the <a href="qml-connections.html">Connections</a> element. For example, if <tt>ApplicationData</tt> has a signal named <tt>dataChanged()</tt>, this signal can be connected to using an <tt>onDataChanged</tt> handler within a <a href="qml-connections.html">Connections</a> object:</p>
+<pre class="qml"> <span class="type"><a href="qml-text.html">Text</a></span> {
+     <span class="name">text</span>: <span class="name">applicationData</span>.<span class="name">getCurrentDateTime</span>()
+
+     <span class="type"><a href="qml-connections.html">Connections</a></span> {
+         <span class="name">target</span>: <span class="name">applicationData</span>
+         <span class="name">onDataChanged</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;The application data changed!&quot;</span>)
+     }
+ }</pre>
+<p>Context properties can be useful for using C++ based data models in a QML view. See the <a href="declarative-modelviews-stringlistmodel.html">String ListModel</a>, <a href="declarative-modelviews-objectlistmodel.html">Object ListModel</a> and <a href="declarative-modelviews-abstractitemmodel.html">AbstractItemModel</a> models for respective examples on using <a href="qstringlistmodel.html">QStringListModel</a>, <a href="qobject.html#QObjectList-typedef">QObjectList</a>-based models and <a href="qabstractitemmodel.html">QAbstractItemModel</a> in QML views.</p>
+<p>Also see the <a href="qdeclarativecontext.html">QDeclarativeContext</a> documentation for more information.</p>
+<a name="defining-new-qml-elements"></a>
+<h3>Defining New QML Elements</h3>
+<p>While new QML elements can be <a href="qmlreusablecomponents.html#defining-new-components">defined in QML</a>, they can also be defined by C++ classes; in fact, many of the core <a href="qdeclarativeelements.html">QML Elements</a> are implemented through C++ classes. When you create a QML object using one of these elements, you are simply creating an instance of a <a href="qobject.html">QObject</a>-based C++ class and setting its properties.</p>
+<p>To create a visual item that fits in with the Qt Quick elements, base your class off <a href="qdeclarativeitem.html">QDeclarativeItem</a> instead of <a href="qobject.html">QObject</a> directly. You can then implement your own painting and functionality like any other <a href="qgraphicsobject.html">QGraphicsObject</a>. Note that <a href="qgraphicsitem.html#GraphicsItemFlag-enum">QGraphicsItem::ItemHasNoContents</a> is set by default on <a href="qdeclarativeitem.html">QDeclarativeItem</a> because it does not paint anything; you will need to clear this if your item is supposed to paint anything (as opposed to being solely for input handling or logical grouping).</p>
+<p>For example, here is an <tt>ImageViewer</tt> class with an <tt>image</tt> URL property:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QtCore&gt;</span>
+ <span class="preprocessor">#include &lt;QtDeclarative&gt;</span>
+
+ <span class="keyword">class</span> ImageViewer : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="qurl.html">QUrl</a></span> image READ image WRITE setImage NOTIFY imageChanged)
+
+ <span class="keyword">public</span>:
+     <span class="type">void</span> setImage(<span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> <span class="operator">&amp;</span>url);
+     <span class="type"><a href="qurl.html">QUrl</a></span> image() <span class="keyword">const</span>;
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> imageChanged();
+ };</pre>
+<p>Aside from the fact that it inherits <a href="qdeclarativeitem.html">QDeclarativeItem</a>, this is an ordinary class that could exist outside of QML. However, once it is registered with the QML engine using <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>():</p>
+<pre class="cpp"> qmlRegisterType<span class="operator">&lt;</span>ImageViewer<span class="operator">&gt;</span>(<span class="string">&quot;MyLibrary&quot;</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="string">&quot;ImageViewer&quot;</span>);</pre>
+<p>Then, any QML code loaded by your C++ application or <a href="qdeclarativeextensionplugin.html">plugin</a> can create and manipulate <tt>ImageViewer</tt> objects:</p>
+<pre class="qml"> import MyLibrary 1.0
+
+ <span class="type">ImageViewer</span> { <span class="name">image</span>: <span class="string">&quot;smile.png&quot;</span> }</pre>
+<p>It is advised that you avoid using <a href="qgraphicsitem.html">QGraphicsItem</a> functionality beyond the properties documented in <a href="qdeclarativeitem.html">QDeclarativeItem</a>. This is because the <a href="graphicsview.html#graphicsview">GraphicsView</a> backend is intended to be an implementation detail for QML, so the QtQuick items can be moved to faster backends as they become available with no change from a QML perspective. To minimize any porting requirements for custom visual items, try to stick to the documented properties in <a href="qdeclarativeitem.html">QDeclarativeItem</a> where possible. Properties <a href="qdeclarativeitem.html">QDeclarativeItem</a> inherits but doesn't document are classed as implementation details; they are not officially supported and may disappear between releases.</p>
+<p>Note that custom C++ types do not have to inherit from <a href="qdeclarativeitem.html">QDeclarativeItem</a>; this is only necessary if it is a displayable item. If the item is not displayable, it can simply inherit from <a href="qobject.html">QObject</a>.</p>
+<p>For more information on defining new QML elements, see the <a href="qml-extending-tutorial-index.html">Writing QML extensions with C++</a> tutorial and the <a href="qml-extending.html">Extending QML Functionalities using C++</a> reference documentation.</p>
+<a name="exchanging-data-between-qml-and-c"></a>
+<h2>Exchanging Data between QML and C++</h2>
+<p>QML and C++ objects can communicate with one another through signals, slots and property modifications. For a C++ object, any data that is exposed to Qt's <a href="metaobjects.html">Meta-Object System</a> - that is, properties, signals, slots and <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> methods - become available to QML. On the QML side, all QML object data is automatically made available to the meta-object system and can be accessed from C++.</p>
+<a name="calling-functions"></a>
+<h3>Calling Functions</h3>
+<p>QML functions can be called from C++ and vice-versa.</p>
+<p>All QML functions are exposed to the meta-object system and can be called using <a href="qmetaobject.html#invokeMethod">QMetaObject::invokeMethod</a>(). Here is a C++ application that uses this to call a QML function:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="keyword">function</span> <span class="name">myQmlFunction</span>(<span class="name">msg</span>) {
+         <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Got message:&quot;</span>, <span class="name">msg</span>)
+         <span class="keyword">return</span> <span class="string">&quot;some return value&quot;</span>
+     }
+ }</pre>
+</td><td ><pre class="cpp"> <span class="comment">// main.cpp</span>
+ <span class="type"><a href="qdeclarativeengine.html">QDeclarativeEngine</a></span> engine;
+ <span class="type"><a href="qdeclarativecomponent.html">QDeclarativeComponent</a></span> component(<span class="operator">&amp;</span>engine<span class="operator">,</span> <span class="string">&quot;MyItem.qml&quot;</span>);
+ <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object <span class="operator">=</span> component<span class="operator">.</span>create();
+
+ <span class="type"><a href="qvariant.html">QVariant</a></span> returnedValue;
+ <span class="type"><a href="qvariant.html">QVariant</a></span> msg <span class="operator">=</span> <span class="string">&quot;Hello from C++&quot;</span>;
+ <span class="type"><a href="qmetaobject.html">QMetaObject</a></span><span class="operator">::</span>invokeMethod(object<span class="operator">,</span> <span class="string">&quot;myQmlFunction&quot;</span><span class="operator">,</span>
+         Q_RETURN_ARG(<span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">,</span> returnedValue)<span class="operator">,</span>
+         Q_ARG(<span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">,</span> msg));
+
+ <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;QML function returned:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> returnedValue<span class="operator">.</span>toString();
+ <span class="keyword">delete</span> object;</pre>
+</td></tr>
+</table>
+<p>Notice the <a href="qmetaobject.html#Q_RETURN_ARG">Q_RETURN_ARG</a>() and <a href="qmetaobject.html#Q_ARG">Q_ARG</a>() arguments for <a href="qmetaobject.html#invokeMethod">QMetaObject::invokeMethod</a>() must be specified as <a href="qvariant.html">QVariant</a> types, as this is the generic data type used for QML functions and return values.</p>
+<p>To call a C++ function from QML, the function must be either a Qt slot, or a function marked with the <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> macro, to be available to QML. In the following example, the QML code invokes methods on the <tt>myObject</tt> object, which has been set using <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>():</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">onClicked</span>: {
+             <span class="name">myObject</span>.<span class="name">cppMethod</span>(<span class="string">&quot;Hello from QML&quot;</span>)
+             <span class="name">myObject</span>.<span class="name">cppSlot</span>(<span class="number">12345</span>)
+         }
+     }
+ }</pre>
+</td><td ><pre class="cpp"> <span class="keyword">class</span> MyClass : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     Q_INVOKABLE <span class="type">void</span> cppMethod(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>msg) {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Called the C++ method with&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> msg;
+     }
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> cppSlot(<span class="type">int</span> number) {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Called the C++ slot with&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> number;
+     }
+ };
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>) {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+     MyClass myClass;
+     view<span class="operator">.</span>rootContext()<span class="operator">-</span><span class="operator">&gt;</span>setContextProperty(<span class="string">&quot;myObject&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>myClass);
+
+     view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+     view<span class="operator">.</span>show();
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</td></tr>
+</table>
+<p>QML supports the calling of overloaded C++ functions. If there are multiple C++ functions with the same name but different arguments, the correct function will be called according to the number and the types of arguments that are provided.</p>
+<a name="receiving-signals"></a>
+<h3>Receiving Signals</h3>
+<p>All QML signals are automatically available to C++, and can be connected to using <a href="qobject.html#connect">QObject::connect</a>() like any ordinary Qt C++ signal. In return, any C++ signal can be received by a QML object using <a href="qdeclarativeintroduction.html#signal-handlers">signal handlers</a>.</p>
+<p>Here is a QML component with a signal named <tt>qmlSignal</tt>. This signal is connected to a C++ object's slot using <a href="qobject.html#connect">QObject::connect</a>(), so that the <tt>cppSlot()</tt> method is called whenever the <tt>qmlSignal</tt> is emitted:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">id</span>: <span class="name">item</span>
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+
+     signal <span class="type">qmlSignal</span>(string msg)
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">onClicked</span>: <span class="name">item</span>.<span class="name">qmlSignal</span>(<span class="string">&quot;Hello from QML&quot;</span>)
+     }
+ }</pre>
+</td><td ><pre class="cpp"> <span class="keyword">class</span> MyClass : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> cppSlot(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>msg) {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Called the C++ slot with message:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> msg;
+     }
+ };
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>) {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+     <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>item <span class="operator">=</span> view<span class="operator">.</span>rootObject();
+
+     MyClass myClass;
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(item<span class="operator">,</span> SIGNAL(qmlSignal(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span>
+                      <span class="operator">&amp;</span>myClass<span class="operator">,</span> SLOT(cppSlot(<span class="type"><a href="qstring.html">QString</a></span>)));
+
+     view<span class="operator">.</span>show();
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</td></tr>
+</table>
+<p>To connect to Qt C++ signals from within QML, use a signal handler with the <tt>on&lt;SignalName&gt;</tt> syntax. If the C++ object is directly creatable from within QML (see <a href="#defining-new-qml-elements">Defining new QML elements</a> above) then the signal handler can be defined within the object declaration. In the following example, the QML code creates a <tt>ImageViewer</tt> object, and the <tt>imageChanged</tt> and <tt>loadingError</tt> signals of the C++ object are connected to through <tt>onImagedChanged</tt> and <tt>onLoadingError</tt> signal handlers in QML:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="cpp"> <span class="keyword">class</span> ImageViewer : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="qurl.html">QUrl</a></span> image READ image WRITE setImage NOTIFY imageChanged)
+ <span class="keyword">public</span>:
+     ...
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> imageChanged();
+     <span class="type">void</span> loadingError(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>errorMsg);
+ };</pre>
+</td><td ><pre class="qml"> <span class="type">ImageViewer</span> {
+     <span class="name">onImageChanged</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Image changed!&quot;</span>)
+     <span class="name">onLoadingError</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Image failed to load:&quot;</span>, <span class="name">errorMsg</span>)
+ }</pre>
+</td></tr>
+</table>
+<p>(Note that if a signal has been declared as the NOTIFY signal for a property, QML allows it to be received with an <tt>on&lt;Property&gt;Changed</tt> handler even if the signal's name does not follow the <tt>&lt;Property&gt;Changed</tt> naming convention. In the above example, if the &quot;imageChanged&quot; signal was named &quot;imageModified&quot; instead, the <tt>onImageChanged</tt> signal handler would still be called.)</p>
+<p>If, however, the object with the signal is not created from within the QML code, and the QML item only has a reference to the created object - for example, if the object was set using <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>() - then the <a href="qml-connections.html">Connections</a> element can be used instead to create the signal handler:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="cpp"> ImageViewer viewer;
+
+ <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+ view<span class="operator">.</span>rootContext()<span class="operator">-</span><span class="operator">&gt;</span>setContextProperty(<span class="string">&quot;imageViewer&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>viewer);
+
+ view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+ view<span class="operator">.</span>show();</pre>
+</td><td ><pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="type"><a href="qml-connections.html">Connections</a></span> {
+         <span class="name">target</span>: <span class="name">imageViewer</span>
+         <span class="name">onImageChanged</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Image has changed!&quot;</span>)
+     }
+ }</pre>
+</td></tr>
+</table>
+<p>C++ signals can use enum values as parameters provided that the enum is declared in the class that is emitting the signal, and that the enum is registered using Q_ENUMS. See <a href="#using-enumerations-of-a-custom-type">Using enumerations of a custom type</a> below for details.</p>
+<a name="modifying-properties"></a>
+<h3>Modifying Properties</h3>
+<p>Any properties declared in a QML object are automatically accessible from C++. Given a QML item like this:</p>
+<pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     property <span class="type">int</span> <span class="name">someNumber</span>: <span class="number">100</span>
+ }</pre>
+<p>The value of the <tt>someNumber</tt> property can be set and read using <a href="qdeclarativeproperty.html">QDeclarativeProperty</a>, or <a href="qobject.html#setProperty">QObject::setProperty</a>() and <a href="qobject.html#property">QObject::property</a>():</p>
+<pre class="cpp"> <span class="type"><a href="qdeclarativeengine.html">QDeclarativeEngine</a></span> engine;
+ <span class="type"><a href="qdeclarativecomponent.html">QDeclarativeComponent</a></span> component(<span class="operator">&amp;</span>engine<span class="operator">,</span> <span class="string">&quot;MyItem.qml&quot;</span>);
+ <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object <span class="operator">=</span> component<span class="operator">.</span>create();
+
+ <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Property value:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qdeclarativeproperty.html">QDeclarativeProperty</a></span><span class="operator">::</span>read(object<span class="operator">,</span> <span class="string">&quot;someNumber&quot;</span>)<span class="operator">.</span>toInt();
+ <span class="type"><a href="qdeclarativeproperty.html">QDeclarativeProperty</a></span><span class="operator">::</span>write(object<span class="operator">,</span> <span class="string">&quot;someNumber&quot;</span><span class="operator">,</span> <span class="number">5000</span>);
+
+ <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Property value:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> object<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;someNumber&quot;</span>)<span class="operator">.</span>toInt();
+ object<span class="operator">-</span><span class="operator">&gt;</span>setProperty(<span class="string">&quot;someNumber&quot;</span><span class="operator">,</span> <span class="number">100</span>);</pre>
+<p>You should always use <a href="qobject.html#setProperty">QObject::setProperty</a>(), <a href="qdeclarativeproperty.html">QDeclarativeProperty</a> or <a href="qmetaproperty.html#write">QMetaProperty::write</a>() to change a QML property value, to ensure the QML engine is made aware of the property change. For example, say you have a custom element <tt>PushButton</tt> with a <tt>buttonText</tt> property that internally reflects the value of a <tt>m_buttonText</tt> member variable. Modifying the member variable directly like this is not a good idea:</p>
+<pre class="cpp"> // BAD!
+ QDeclarativeComponent component(engine, &quot;MyButton.qml&quot;);
+ PushButton *button = qobject_cast&lt;PushButton*&gt;(component.create());
+ button-&gt;m_buttonText = &quot;Click me&quot;;</pre>
+<p>Since the value is changed directly, this bypasses Qt's <a href="metaobjects.html">meta-object system</a> and the QML engine is not made aware of the property change. This means property bindings to <tt>buttonText</tt> would not be updated, and any <tt>onButtonTextChanged</tt> handlers would not be called.</p>
+<a name="properties-cpp"></a><p>Any <a href="properties.html">Qt properties</a> - that is, those declared with the <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>() macro - are accessible from QML. Here is a modified version of the <a href="#embedding-c-objects-into-qml-components">earlier example</a> on this page; here, the <tt>ApplicationData</tt> class has a <tt>backgroundColor</tt> property. This property can be written to and read from QML:</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><pre class="cpp"> <span class="keyword">class</span> ApplicationData : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="qcolor.html">QColor</a></span> backgroundColor
+             READ backgroundColor
+             WRITE setBackgroundColor
+             NOTIFY backgroundColorChanged)
+
+ <span class="keyword">public</span>:
+     <span class="type">void</span> setBackgroundColor(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>c) {
+         <span class="keyword">if</span> (c <span class="operator">!</span><span class="operator">=</span> m_color) {
+             m_color <span class="operator">=</span> c;
+             <span class="keyword">emit</span> backgroundColorChanged();
+         }
+     }
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> backgroundColor() <span class="keyword">const</span> {
+         <span class="keyword">return</span> m_color;
+     }
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> backgroundColorChanged();
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qcolor.html">QColor</a></span> m_color;
+ };</pre>
+</td><td ><pre class="qml"> <span class="comment">// MyItem.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+     <span class="name">color</span>: <span class="name">applicationData</span>.<span class="name">backgroundColor</span>
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">onClicked</span>: <span class="name">applicationData</span>.<span class="name">backgroundColor</span> <span class="operator">=</span> <span class="string">&quot;red&quot;</span>
+     }
+ }</pre>
+</td></tr>
+</table>
+<p>Notice the <tt>backgroundColorChanged</tt> signal is declared as the NOTIFY signal for the <tt>backgroundColor</tt> property. If a Qt property does not have an associated NOTIFY signal, the property cannot be used for <a href="propertybinding.html">Property Binding</a> in QML, as the QML engine would not be notified when the value changes. If you are using custom types in QML, make sure their properties have NOTIFY signals so that they can be used in property bindings.</p>
+<p>See <a href="qml-extending-tutorial-index.html">Tutorial: Writing QML extensions with C++</a> for further details and examples on using Qt properties with QML.</p>
+<a name="supported-data-types"></a>
+<h2>Supported data types</h2>
+<p>Any C++ data that is used from QML - whether as custom properties, or parameters for signals or functions - must be of a type that is recognizable by QML.</p>
+<p>By default, QML recognizes the following data types:</p>
+<ul>
+<li>bool</li>
+<li>unsigned int, int</li>
+<li>float, double, qreal</li>
+<li><a href="qstring.html">QString</a></li>
+<li><a href="qurl.html">QUrl</a></li>
+<li><a href="qcolor.html">QColor</a></li>
+<li><a href="qdate.html">QDate</a>, <a href="qtime.html">QTime</a>, <a href="qdatetime.html">QDateTime</a></li>
+<li><a href="qpoint.html">QPoint</a>, <a href="qpointf.html">QPointF</a></li>
+<li><a href="qsize.html">QSize</a>, <a href="qsizef.html">QSizeF</a></li>
+<li><a href="qrect.html">QRect</a>, <a href="qrectf.html">QRectF</a></li>
+<li><a href="qvariant.html">QVariant</a></li>
+<li><a href="qvariant.html#QVariantList-typedef">QVariantList</a>, <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a></li>
+<li><a href="qobject.html">QObject</a>*</li>
+<li>Enumerations declared with <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>()</li>
+</ul>
+<p>To allow a custom C++ type to be created or used in QML, the C++ class must be registered as a QML type using <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>(), as shown in the <a href="#defining-new-qml-elements">Defining new QML elements</a> section above.</p>
+<a name="javascript-arrays-and-objects"></a>
+<h3>JavaScript Arrays and Objects</h3>
+<p>There is built-in support for automatic type conversion between <a href="qvariant.html#QVariantList-typedef">QVariantList</a> and JavaScript arrays, and <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a> and JavaScript objects.</p>
+<p>For example, the function defined in QML below left expects two arguments, an array and an object, and prints their contents using the standard JavaScript syntax for array and object item access. The C++ code below right calls this function, passing a <a href="qvariant.html#QVariantList-typedef">QVariantList</a> and a <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a>, which are automatically converted to JavaScript array and object values, repectively:</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Type</th><th >String format</th><th >Example</th></tr></thead>
+<tr valign="top" class="odd"><td ><pre class="qml"> <span class="comment">// MyItem.qml</span>
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="keyword">function</span> <span class="name">readValues</span>(<span class="name">anArray</span>, anObject) {
+         <span class="keyword">for</span> (<span class="keyword">var</span> <span class="name">i</span>=<span class="number">0</span>; <span class="name">i</span><span class="operator">&lt;</span><span class="name">anArray</span>.<span class="name">length</span>; i++)
+             <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Array item:&quot;</span>, <span class="name">anArray</span>[<span class="name">i</span>])
+
+         <span class="keyword">for</span> (<span class="keyword">var</span> <span class="name">prop</span> in <span class="name">anObject</span>) {
+             <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Object item:&quot;</span>, <span class="name">prop</span>, <span class="string">&quot;=&quot;</span>, <span class="name">anObject</span>[<span class="name">prop</span>])
+         }
+     }
+ }</pre>
+</td><td ><pre class="cpp"> <span class="comment">// C++</span>
+ <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;MyItem.qml&quot;</span>));
+
+ <span class="type"><a href="qvariant.html#QVariantList-typedef">QVariantList</a></span> list;
+ list <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">10</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;bottles&quot;</span>;
+
+ <span class="type"><a href="qvariant.html#QVariantMap-typedef">QVariantMap</a></span> map;
+ map<span class="operator">.</span>insert(<span class="string">&quot;language&quot;</span><span class="operator">,</span> <span class="string">&quot;QML&quot;</span>);
+ map<span class="operator">.</span>insert(<span class="string">&quot;released&quot;</span><span class="operator">,</span> <span class="type"><a href="qdate.html">QDate</a></span>(<span class="number">2010</span><span class="operator">,</span> <span class="number">9</span><span class="operator">,</span> <span class="number">21</span>));
+
+ <span class="type"><a href="qmetaobject.html">QMetaObject</a></span><span class="operator">::</span>invokeMethod(view<span class="operator">.</span>rootObject()<span class="operator">,</span> <span class="string">&quot;readValues&quot;</span><span class="operator">,</span>
+         Q_ARG(<span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">,</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(list))<span class="operator">,</span>
+         Q_ARG(<span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">,</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(map)));</pre>
+</td></tr>
+</table>
+<p>This produces output like:</p>
+<pre class="cpp"> Array item: <span class="number">10</span>
+ Array item: <span class="preprocessor">#00ff00</span>
+ Array item: bottles
+ Object item: language <span class="operator">=</span> QML
+ Object item: released <span class="operator">=</span> Tue Sep <span class="number">21</span> <span class="number">2010</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> GMT<span class="operator">+</span><span class="number">1000</span> (EST)</pre>
+<p>Similarly, if a C++ type uses a <a href="qvariant.html#QVariantList-typedef">QVariantList</a> or <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a> type for a property or method parameter, the value can be created as a JavaScript array or object in the QML side, and is automatically converted to a <a href="qvariant.html#QVariantList-typedef">QVariantList</a> or <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a> when it is passed to C++.</p>
+<a name="using-enumerations-of-a-custom-type"></a>
+<h3>Using Enumerations of a Custom Type</h3>
+<p>To use an enumeration from a custom C++ component, the enumeration must be declared with <a href="qobject.html#Q_ENUMS">Q_ENUMS</a>() to register it with Qt's meta object system. For example, the following C++ type has a <tt>Status</tt> enum:</p>
+<pre class="cpp"> <span class="keyword">class</span> ImageViewer : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>
+ {
+     Q_OBJECT
+     Q_ENUMS(Status)
+     Q_PROPERTY(Status status READ status NOTIFY statusChanged)
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> Status {
+         Ready<span class="operator">,</span>
+         Loading<span class="operator">,</span>
+         Error
+     };
+
+     Status status() <span class="keyword">const</span>;
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> statusChanged();
+ };</pre>
+<p>Providing the <tt>ImageViewer</tt> class has been registered using <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>(), its <tt>Status</tt> enum can now be used from QML:</p>
+<pre class="qml"> <span class="type">ImageViewer</span> {
+     <span class="name">onStatusChanged</span>: {
+         <span class="keyword">if</span> (<span class="name">status</span> <span class="operator">==</span> <span class="name">ImageViewer</span>.<span class="name">Ready</span>)
+             <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Image viewer is ready!&quot;</span>)
+     }
+ }</pre>
+<p>The C++ type must be registered with QML to use its enums. If your C++ type is not instantiable, it can be registered using <a href="qdeclarativeengine.html#qmlRegisterUncreatableType">qmlRegisterUncreatableType</a>(). To be accessible from QML, the names of enum values must begin with a capital letter.</p>
+<p>See the <a href="qml-extending-tutorial-index.html">Writing QML extensions with C++</a> tutorial and the <a href="qml-extending.html">Extending QML Functionalities using C++</a> reference documentation for more information.</p>
+<a name="using-enumeration-values-as-signal-and-method-parameters"></a>
+<h3>Using Enumeration Values as Signal and Method Parameters</h3>
+<p>C++ signals may pass enumeration values as signal parameters to QML, providing that the enumeration and the signal are declared within the same class, or that the enumeration value is one of those declared in the <a href="qt.html">Qt Namespace</a>.</p>
+<p>Likewise, invokable C++ methods parameters may be enumeration values providing that the enumeration and the method are declared within the same class, or that the enumeration value is one of those declared in the <a href="qt.html">Qt Namespace</a>.</p>
+<p>Additionally, if a C++ signal with an enum parameter should be connectable to a QML function using the <a href="qmlevents.html#connecting-signals-to-methods-and-signals">connect()</a> function, the enum type must be registered using <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>().</p>
+<p>For QML signals, enum values may be used as signal parameters using the <tt>int</tt> type:</p>
+<pre class="qml"> <span class="type">ImageViewer</span> {
+     signal <span class="type">someOtherSignal</span>(int statusValue)
+
+     <span class="name">Component</span>.onCompleted: {
+         <span class="name">someOtherSignal</span>(<span class="name">ImageViewer</span>.<span class="name">Loading</span>)
+     }
+ }</pre>
+<a name="automatic-type-conversion-from-strings"></a>
+<h3>Automatic Type Conversion from Strings</h3>
+<p>As a convenience, some basic types can be specified in QML using format strings to make it easier to pass simple values from QML to C++.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Type</th><th >String format</th><th >Example</th></tr></thead>
+<tr valign="top" class="odd"><td ><a href="qcolor.html">QColor</a></td><td >Color name, &quot;#RRGGBB&quot;, &quot;#RRGGBBAA&quot;</td><td >&quot;red&quot;, &quot;#ff0000&quot;, &quot;#ff000000&quot;</td></tr>
+<tr valign="top" class="even"><td ><a href="qdate.html">QDate</a></td><td >&quot;YYYY-MM-DD&quot;</td><td >&quot;2010-05-31&quot;</td></tr>
+<tr valign="top" class="odd"><td ><a href="qpoint.html">QPoint</a></td><td >&quot;x,y&quot;</td><td >&quot;10,20&quot;</td></tr>
+<tr valign="top" class="even"><td ><a href="qrect.html">QRect</a></td><td >&quot;x,y,WidthxHeight&quot;</td><td >&quot;50,50,100x100&quot;</td></tr>
+<tr valign="top" class="odd"><td ><a href="qsize.html">QSize</a></td><td >&quot;WidthxHeight&quot;</td><td >&quot;100x200&quot;</td></tr>
+<tr valign="top" class="even"><td ><a href="qtime.html">QTime</a></td><td >&quot;hh:mm:ss&quot;</td><td >&quot;14:22:55&quot;</td></tr>
+<tr valign="top" class="odd"><td ><a href="qurl.html">QUrl</a></td><td >URL string</td><td >&quot;http://www.example.com&quot;</td></tr>
+<tr valign="top" class="even"><td ><a href="qvector3d.html">QVector3D</a></td><td >&quot;x,y,z&quot;</td><td >&quot;0,1,0&quot;</td></tr>
+<tr valign="top" class="odd"><td >Enumeration value</td><td >Enum value name</td><td >&quot;AlignRight&quot;</td></tr>
+</table>
+<p>(More details on these string formats and types can be found in the <a href="qdeclarativebasictypes.html">basic type documentation</a>.)</p>
+<p>These string formats can be used to set QML <tt>property</tt> values and pass arguments to C++ functions. This is demonstrated by various examples on this page; in the above <a href="#properties-cpp">Qt properties example</a>, the <tt>ApplicationData</tt> class has a <tt>backgroundColor</tt> property of a <a href="qcolor.html">QColor</a> type, which is set from the QML code with the string &quot;red&quot; rather rather than an actual <a href="qcolor.html">QColor</a> object.</p>
+<p>If it is preferred to pass an explicitly-typed value rather than a string, the global <a href="qml-qt.html#qmlglobalqtobject">Qt object</a> provides convenience functions for creating some of the object types listed above. For example, <a href="qml-qt.html#rgba-method">Qt.rgba()</a> creates a <a href="qcolor.html">QColor</a> value from four RGBA values. The <a href="qcolor.html">QColor</a> returned from this function could be used instead of a string to set a <a href="qcolor.html">QColor</a>-type property or to call a C++ function that requires a <a href="qcolor.html">QColor</a> parameter.</p>
+<a name="writing-qml-plugins"></a>
+<h2>Writing QML plugins</h2>
+<p>The Qt Declarative module includes the <a href="qdeclarativeextensionplugin.html">QDeclarativeExtensionPlugin</a> class, which is an abstract class for writing QML plugins. This allows QML extension types to be dynamically loaded into QML applications.</p>
+<p>See the <a href="qdeclarativeextensionplugin.html">QDeclarativeExtensionPlugin</a> documentation and <a href="plugins-howto.html">How to Create Qt Plugins</a> for more details.</p>
+<a name="managing-resource-files-with-the-qt-resource-system"></a>
+<h2>Managing resource files with the Qt resource system</h2>
+<p>The <a href="resources.html">Qt resource system</a> allows resource files to be stored as binary files in an application executable. This can be useful when building a mixed QML/C++ application as it enables QML files (as well as other resources such as images and sound files) to be referred to through the resource system URI scheme rather than relative or absolute paths to filesystem resources. Note, however, that if you use the resource system, the application executable must be re-compiled whenever a QML source file is changed in order to update the resources in the package.</p>
+<p>To use the resource system in a mixed QML/C++ application:</p>
+<ul>
+<li>Create a <tt>.qrc</tt> <a href="resources.html">resource collection file</a> that lists resource files in XML format</li>
+<li>From C++, load the main QML file as a resource using the <tt>:/</tt> prefix or as a URL with the <tt>qrc</tt> scheme</li>
+</ul>
+<p>Once this is done, all files specified by relative paths in QML will be loaded from the resource system instead. Use of the resource system is completely transparent to the QML layer; this means all QML code should refer to resource files using relative paths and should <i>not</i> use the <tt>qrc</tt> scheme. This scheme should only be used from C++ code for referring to resource files.</p>
+<p>Here is a application packaged using the <a href="resources.html">Qt resource system</a>. The directory structure looks like this:</p>
+<pre class="cpp"> project
+     <span class="operator">|</span><span class="operator">-</span> example<span class="operator">.</span>qrc
+     <span class="operator">|</span><span class="operator">-</span> main<span class="operator">.</span>qml
+     <span class="operator">|</span><span class="operator">-</span> images
+         <span class="operator">|</span><span class="operator">-</span> background<span class="operator">.</span>png
+     <span class="operator">|</span><span class="operator">-</span> main<span class="operator">.</span>cpp
+     <span class="operator">|</span><span class="operator">-</span> project<span class="operator">.</span>pro</pre>
+<p>The <tt>main.qml</tt> and <tt>background.png</tt> files will be packaged as resource files. This is done in the <tt>example.qrc</tt> resource collection file:</p>
+<pre class="cpp"> &lt;!DOCTYPE RCC&gt;
+ &lt;RCC version=&quot;1.0&quot;&gt;
+
+ &lt;qresource prefix=&quot;/&quot;&gt;
+     &lt;file&gt;main.qml&lt;/file&gt;
+     &lt;file&gt;images/background.png&lt;/file&gt;
+ &lt;/qresource&gt;
+
+ &lt;/RCC&gt;</pre>
+<p>Since <tt>background.png</tt> is a resource file, <tt>main.qml</tt> can refer to it using the relative path specified in <tt>example.qrc</tt>:</p>
+<pre class="qml"> <span class="comment">// main.qml</span>
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-image.html">Image</a></span> { <span class="name">source</span>: <span class="string">&quot;images/background.png&quot;</span> }</pre>
+<p>To allow QML to locate resource files correctly, the <tt>main.cpp</tt> loads the main QML file, <tt>main.qml</tt>, as a resource file using the <tt>qrc</tt> scheme:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+     view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span>(<span class="string">&quot;qrc:/main.qml&quot;</span>));
+     view<span class="operator">.</span>show();
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>Finally <tt>project.pro</tt> uses the RESOURCES variable to indicate that <tt>example.qrc</tt> should be used to build the application resources:</p>
+<pre class="cpp"> QT += declarative
+
+ SOURCES += main.cpp
+ RESOURCES += example.qrc</pre>
+<p>See <a href="resources.html">The Qt Resource System</a> for more information.</p>
+</div>
+<!-- @@@qtbinding.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qml-extending.html">Extending QML Functionalities using C++</a>
+<a class="nextPage" href="qml-integration.html">Integrating QML Code with Existing Qt UI Code</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

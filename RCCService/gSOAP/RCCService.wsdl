@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://roblox.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://roblox.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://roblox.com/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStatusResult" type="tns:Status" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Status">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="environmentCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OpenJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="job" type="tns:Job" />
+            <s:element minOccurs="0" maxOccurs="1" name="script" type="tns:ScriptExecution" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenJobEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="job" type="tns:Job" />
+            <s:element minOccurs="0" maxOccurs="1" name="script" type="tns:ScriptExecution" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Job">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="expirationInSeconds" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="category" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cores" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScriptExecution">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="script" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="arguments" type="tns:ArrayOfLuaValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLuaValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LuaValue" nillable="true" type="tns:LuaValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfJob">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Job" nillable="true" type="tns:Job" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LuaValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:LuaType" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="table" type="tns:ArrayOfLuaValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LuaType">
+        <s:restriction base="s:string">
+          <s:enumeration value="LUA_TNIL" />
+          <s:enumeration value="LUA_TBOOLEAN" />
+          <s:enumeration value="LUA_TNUMBER" />
+          <s:enumeration value="LUA_TSTRING" />
+          <s:enumeration value="LUA_TTABLE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="OpenJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="OpenJobResult" type="tns:LuaValue"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenJobExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="OpenJobExResult" type="tns:ArrayOfLuaValue"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenewLease">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="expirationInSeconds" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenewLeaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RenewLeaseResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Execute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="script" type="tns:ScriptExecution" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="ExecuteResult" nillable="true" type="tns:LuaValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="script" type="tns:ScriptExecution" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteExResponse">
+        <s:complexType>
+          <s:sequence>
+              <s:element name="ExecuteExResult" type="tns:ArrayOfLuaValue"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseJobResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="BatchJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="job" type="tns:Job" />
+            <s:element minOccurs="1" maxOccurs="1" name="script" type="tns:ScriptExecution" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="BatchJobResult" nillable="true" type="tns:LuaValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchJobEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="job" type="tns:Job" />
+            <s:element minOccurs="1" maxOccurs="1" name="script" type="tns:ScriptExecution" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchJobExResponse">
+        <s:complexType>
+          <s:sequence>
+              <s:element name="BatchJobExResult" type="tns:ArrayOfLuaValue"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExpiration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jobID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExpirationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetExpirationResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllJobs">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllJobsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="GetAllJobsResult" nillable="true" type="tns:Job" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllJobsEx">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllJobsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetAllJobsExResult" type="tns:ArrayOfJob" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseExpiredJobs">
+        <s:complexType />
+      </s:element>
+      <s:element name="CloseExpiredJobsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseExpiredJobsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseAllJobs">
+        <s:complexType />
+      </s:element>
+      <s:element name="CloseAllJobsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseAllJobsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Diag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="DiagResult" nillable="true" type="tns:LuaValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiagEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiagExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="DiagExResult" type="tns:ArrayOfLuaValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenJobSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenJob" />
+  </wsdl:message>
+  <wsdl:message name="OpenJobSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenJobExSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenJobEx" />
+  </wsdl:message>
+  <wsdl:message name="OpenJobExSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenJobExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RenewLeaseSoapIn">
+    <wsdl:part name="parameters" element="tns:RenewLease" />
+  </wsdl:message>
+  <wsdl:message name="RenewLeaseSoapOut">
+    <wsdl:part name="parameters" element="tns:RenewLeaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSoapIn">
+    <wsdl:part name="parameters" element="tns:Execute" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteExSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteEx" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteExSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteExResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseJobSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseJob" />
+  </wsdl:message>
+  <wsdl:message name="CloseJobSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="BatchJobSoapIn">
+    <wsdl:part name="parameters" element="tns:BatchJob" />
+  </wsdl:message>
+  <wsdl:message name="BatchJobSoapOut">
+    <wsdl:part name="parameters" element="tns:BatchJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="BatchJobExSoapIn">
+    <wsdl:part name="parameters" element="tns:BatchJobEx" />
+  </wsdl:message>
+  <wsdl:message name="BatchJobExSoapOut">
+    <wsdl:part name="parameters" element="tns:BatchJobExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExpirationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExpiration" />
+  </wsdl:message>
+  <wsdl:message name="GetExpirationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExpirationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllJobsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllJobs" />
+  </wsdl:message>
+  <wsdl:message name="GetAllJobsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllJobsExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllJobsEx" />
+  </wsdl:message>
+  <wsdl:message name="GetAllJobsExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllJobsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseExpiredJobsSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseExpiredJobs" />
+  </wsdl:message>
+  <wsdl:message name="CloseExpiredJobsSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseExpiredJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseAllJobsSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseAllJobs" />
+  </wsdl:message>
+  <wsdl:message name="CloseAllJobsSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseAllJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DiagSoapIn">
+    <wsdl:part name="parameters" element="tns:Diag" />
+  </wsdl:message>
+  <wsdl:message name="DiagSoapOut">
+    <wsdl:part name="parameters" element="tns:DiagResponse" />
+  </wsdl:message>
+  <wsdl:message name="DiagExSoapIn">
+    <wsdl:part name="parameters" element="tns:DiagEx" />
+  </wsdl:message>
+  <wsdl:message name="DiagExSoapOut">
+    <wsdl:part name="parameters" element="tns:DiagExResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RCCServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input message="tns:GetVersionSoapIn" />
+      <wsdl:output message="tns:GetVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input message="tns:GetStatusSoapIn" />
+      <wsdl:output message="tns:GetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenJob">
+      <wsdl:input message="tns:OpenJobSoapIn" />
+      <wsdl:output message="tns:OpenJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenJobEx">
+      <wsdl:input message="tns:OpenJobExSoapIn" />
+      <wsdl:output message="tns:OpenJobExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RenewLease">
+      <wsdl:input message="tns:RenewLeaseSoapIn" />
+      <wsdl:output message="tns:RenewLeaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Execute">
+      <wsdl:input message="tns:ExecuteSoapIn" />
+      <wsdl:output message="tns:ExecuteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteEx">
+      <wsdl:input message="tns:ExecuteExSoapIn" />
+      <wsdl:output message="tns:ExecuteExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseJob">
+      <wsdl:input message="tns:CloseJobSoapIn" />
+      <wsdl:output message="tns:CloseJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchJob">
+      <wsdl:input message="tns:BatchJobSoapIn" />
+      <wsdl:output message="tns:BatchJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchJobEx">
+      <wsdl:input message="tns:BatchJobExSoapIn" />
+      <wsdl:output message="tns:BatchJobExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExpiration">
+      <wsdl:input message="tns:GetExpirationSoapIn" />
+      <wsdl:output message="tns:GetExpirationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobs">
+      <wsdl:input message="tns:GetAllJobsSoapIn" />
+      <wsdl:output message="tns:GetAllJobsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobsEx">
+      <wsdl:input message="tns:GetAllJobsExSoapIn" />
+      <wsdl:output message="tns:GetAllJobsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseExpiredJobs">
+      <wsdl:input message="tns:CloseExpiredJobsSoapIn" />
+      <wsdl:output message="tns:CloseExpiredJobsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseAllJobs">
+      <wsdl:input message="tns:CloseAllJobsSoapIn" />
+      <wsdl:output message="tns:CloseAllJobsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Diag">
+      <wsdl:input message="tns:DiagSoapIn" />
+      <wsdl:output message="tns:DiagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DiagEx">
+      <wsdl:input message="tns:DiagExSoapIn" />
+      <wsdl:output message="tns:DiagExSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RCCServiceSoap" type="tns:RCCServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://roblox.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="http://roblox.com/GetVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://roblox.com/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenJob">
+      <soap:operation soapAction="http://roblox.com/OpenJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenJobEx">
+      <soap:operation soapAction="http://roblox.com/OpenJobEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenewLease">
+      <soap:operation soapAction="http://roblox.com/RenewLease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Execute">
+      <soap:operation soapAction="http://roblox.com/Execute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteEx">
+      <soap:operation soapAction="http://roblox.com/ExecuteEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseJob">
+      <soap:operation soapAction="http://roblox.com/CloseJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchJob">
+      <soap:operation soapAction="http://roblox.com/BatchJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchJobEx">
+      <soap:operation soapAction="http://roblox.com/BatchJobEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpiration">
+      <soap:operation soapAction="http://roblox.com/GetExpiration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobs">
+      <soap:operation soapAction="http://roblox.com/GetAllJobs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobsEx">
+      <soap:operation soapAction="http://roblox.com/GetAllJobsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseExpiredJobs">
+      <soap:operation soapAction="http://roblox.com/CloseExpiredJobs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseAllJobs">
+      <soap:operation soapAction="http://roblox.com/CloseAllJobs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Diag">
+      <soap:operation soapAction="http://roblox.com/Diag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiagEx">
+      <soap:operation soapAction="http://roblox.com/DiagEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RCCServiceSoap12" type="tns:RCCServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://roblox.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://roblox.com/GetVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="http://roblox.com/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenJob">
+      <soap12:operation soapAction="http://roblox.com/OpenJob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenJobEx">
+      <soap12:operation soapAction="http://roblox.com/OpenJobEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenewLease">
+      <soap12:operation soapAction="http://roblox.com/RenewLease" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Execute">
+      <soap12:operation soapAction="http://roblox.com/Execute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteEx">
+      <soap12:operation soapAction="http://roblox.com/ExecuteEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseJob">
+      <soap12:operation soapAction="http://roblox.com/CloseJob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchJob">
+      <soap12:operation soapAction="http://roblox.com/BatchJob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchJobEx">
+      <soap12:operation soapAction="http://roblox.com/BatchJobEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpiration">
+      <soap12:operation soapAction="http://roblox.com/GetExpiration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobs">
+      <soap12:operation soapAction="http://roblox.com/GetAllJobs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobsEx">
+      <soap12:operation soapAction="http://roblox.com/GetAllJobsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseExpiredJobs">
+      <soap12:operation soapAction="http://roblox.com/CloseExpiredJobs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseAllJobs">
+      <soap12:operation soapAction="http://roblox.com/CloseAllJobs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Diag">
+      <soap12:operation soapAction="http://roblox.com/Diag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiagEx">
+      <soap12:operation soapAction="http://roblox.com/DiagEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

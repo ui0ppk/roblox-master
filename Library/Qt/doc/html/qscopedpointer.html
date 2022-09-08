@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscopedpointer.cpp -->
+  <title>Qt 4.8: QScopedPointer Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QScopedPointer</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#custom-cleanup-handlers">Custom cleanup handlers</a></li>
+<li class="level2"><a href="#forward-declared-pointers">Forward Declared Pointers</a></li>
+</ul>
+</div>
+<h1 class="title">QScopedPointer Class Reference</h1>
+<!-- $$$QScopedPointer-brief -->
+<p>The QScopedPointer class stores a pointer to a dynamically allocated object, and deletes it upon destruction. <a href="#details">More...</a></p>
+<!-- @@@QScopedPointer -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QScopedPointer&gt;</span></pre><p><b>Inherited by: </b><a href="qscopedarraypointer.html">QScopedArrayPointer</a>.</p>
+<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>.</p>
+<p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qscopedpointer-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#QScopedPointer">QScopedPointer</a></b> ( T * <i>p</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#dtor.QScopedPointer">~QScopedPointer</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> T * </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#data">data</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#isNull">isNull</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#reset">reset</a></b> ( T * <i>other</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#swap">swap</a></b> ( QScopedPointer&lt;T, Cleanup&gt; &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> T * </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#take">take</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#operator-bool">operator bool</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#operator-not">operator!</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> T &amp; </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#operator-2a">operator*</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> T * </td><td class="memItemRight bottomAlign"><b><a href="qscopedpointer.html#operator--gt">operator-&gt;</a></b> () const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScopedPointer-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QScopedPointer class stores a pointer to a dynamically allocated object, and deletes it upon destruction.</p>
+<p>Managing heap allocated objects manually is hard and error prone, with the common result that code leaks memory and is hard to maintain. QScopedPointer is a small utility class that heavily simplifies this by assigning stack-based memory ownership to heap allocations, more generally called resource acquisition is initialization(RAII).</p>
+<p>QScopedPointer guarantees that the object pointed to will get deleted when the current scope disappears.</p>
+<p>Consider this function which does heap allocations, and have various exit points:</p>
+<pre class="cpp"> <span class="type">void</span> myFunction(<span class="type">bool</span> useSubClass)
+ {
+     MyClass <span class="operator">*</span>p <span class="operator">=</span> useSubClass <span class="operator">?</span> <span class="keyword">new</span> MyClass() : <span class="keyword">new</span> MySubClass;
+     <span class="type"><a href="qiodevice.html">QIODevice</a></span> <span class="operator">*</span>device <span class="operator">=</span> handsOverOwnership();
+
+     <span class="keyword">if</span> (m_value <span class="operator">&gt;</span> <span class="number">3</span>) {
+         <span class="keyword">delete</span> p;
+         <span class="keyword">delete</span> device;
+         <span class="keyword">return</span>;
+     }
+
+     <span class="keyword">try</span> {
+         process(device);
+     }
+     <span class="keyword">catch</span> (<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>) {
+         <span class="keyword">delete</span> p;
+         <span class="keyword">delete</span> device;
+         <span class="keyword">throw</span>;
+     }
+
+     <span class="keyword">delete</span> p;
+     <span class="keyword">delete</span> device;
+ }</pre>
+<p>It's encumbered by the manual delete calls. With QScopedPointer, the code can be simplified to:</p>
+<pre class="cpp"> <span class="type">void</span> myFunction(<span class="type">bool</span> useSubClass)
+ {
+     <span class="comment">// assuming that MyClass has a virtual destructor</span>
+     <span class="type">QScopedPointer</span><span class="operator">&lt;</span>MyClass<span class="operator">&gt;</span> p(useSubClass <span class="operator">?</span> <span class="keyword">new</span> MyClass() : <span class="keyword">new</span> MySubClass);
+     <span class="type">QScopedPointer</span><span class="operator">&lt;</span><span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">&gt;</span> device(handsOverOwnership());
+
+     <span class="keyword">if</span> (m_value <span class="operator">&gt;</span> <span class="number">3</span>)
+         <span class="keyword">return</span>;
+
+     process(device);
+ }</pre>
+<p>The code the compiler generates for QScopedPointer is the same as when writing it manually. Code that makes use of <i>delete</i> are candidates for QScopedPointer usage (and if not, possibly another type of smart pointer such as <a href="qsharedpointer.html">QSharedPointer</a>). QScopedPointer intentionally has no copy constructor or assignment operator, such that ownership and lifetime is clearly communicated.</p>
+<p>The const qualification on a regular C++ pointer can also be expressed with a QScopedPointer:</p>
+<pre class="cpp">     <span class="keyword">const</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span><span class="keyword">const</span> p <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>();
+     <span class="comment">// is equivalent to:</span>
+     <span class="keyword">const</span> <span class="type">QScopedPointer</span><span class="operator">&lt;</span><span class="keyword">const</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">&gt;</span> p(<span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>());
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span><span class="keyword">const</span> p <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>();
+     <span class="comment">// is equivalent to:</span>
+     <span class="keyword">const</span> <span class="type">QScopedPointer</span><span class="operator">&lt;</span><span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">&gt;</span> p(<span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>());
+
+     <span class="keyword">const</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>p <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>();
+     <span class="comment">// is equivalent to:</span>
+     <span class="type">QScopedPointer</span><span class="operator">&lt;</span><span class="keyword">const</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">&gt;</span> p(<span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>());</pre>
+<a name="custom-cleanup-handlers"></a>
+<h3>Custom cleanup handlers</h3>
+<p>Arrays as well as pointers that have been allocated with <tt>malloc</tt> must not be deleted using <tt>delete</tt>. QScopedPointer's second template parameter can be used for custom cleanup handlers.</p>
+<p>The following custom cleanup handlers exist:</p>
+<ul>
+<li>QScopedPointerDeleter - the default, deletes the pointer using <tt>delete</tt></li>
+<li>QScopedPointerArrayDeleter - deletes the pointer using <tt>delete []</tt>. Use this handler for pointers that were allocated with <tt>new []</tt>.</li>
+<li>QScopedPointerPodDeleter - deletes the pointer using <tt>free()</tt>. Use this handler for pointers that were allocated with <tt>malloc()</tt>.</li>
+</ul>
+<p>You can pass your own classes as handlers, provided that they have a public static function <tt>void cleanup(T *pointer)</tt>.</p>
+<pre class="cpp"> <span class="comment">// this QScopedPointer deletes its data using the delete[] operator:</span>
+ <span class="type">QScopedPointer</span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> <span class="type">QScopedPointerArrayDeleter</span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> arrayPointer(<span class="keyword">new</span> <span class="type">int</span><span class="operator">[</span><span class="number">42</span><span class="operator">]</span>);
+
+ <span class="comment">// this QScopedPointer frees its data using free():</span>
+ <span class="type">QScopedPointer</span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> <span class="type">QScopedPointerPodDeleter</span><span class="operator">&gt;</span> podPointer(<span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="type">int</span> <span class="operator">*</span><span class="operator">&gt;</span>(malloc(<span class="number">42</span>)));
+
+ <span class="comment">// this struct calls &quot;myCustomDeallocator&quot; to delete the pointer</span>
+ <span class="keyword">struct</span> ScopedPointerCustomDeleter
+ {
+     <span class="keyword">static</span> <span class="keyword">inline</span> <span class="type">void</span> cleanup(MyCustomClass <span class="operator">*</span>pointer)
+     {
+         myCustomDeallocator(pointer);
+     }
+ };
+
+ <span class="comment">// QScopedPointer using a custom deleter:</span>
+ <span class="type">QScopedPointer</span><span class="operator">&lt;</span>MyCustomClass<span class="operator">,</span> ScopedPointerCustomDeleter<span class="operator">&gt;</span> customPointer(<span class="keyword">new</span> MyCustomClass);</pre>
+<a name="forward-declared-pointers"></a>
+<h3>Forward Declared Pointers</h3>
+<p>Classes that are forward declared can be used within QScopedPointer, as long as the destructor of the forward declared class is available whenever a QScopedPointer needs to clean up.</p>
+<p>Concretely, this means that all classes containing a QScopedPointer that points to a forward declared class must have non-inline constructors, destructors and assignment operators:</p>
+<pre class="cpp"> <span class="keyword">class</span> MyPrivateClass; <span class="comment">// forward declare MyPrivateClass</span>
+
+ <span class="keyword">class</span> MyClass
+ {
+ <span class="keyword">private</span>:
+     <span class="type">QScopedPointer</span><span class="operator">&lt;</span>MyPrivateClass<span class="operator">&gt;</span> privatePtr; <span class="comment">// QScopedPointer to forward declared class</span>
+
+ <span class="keyword">public</span>:
+     MyClass(); <span class="comment">// OK</span>
+     <span class="keyword">inline</span> <span class="operator">~</span>MyClass() {} <span class="comment">// VIOLATION - Destructor must not be inline</span>
+
+ <span class="keyword">private</span>:
+     Q_DISABLE_COPY(MyClass) <span class="comment">// OK - copy constructor and assignment operators</span>
+                              <span class="comment">// are now disabled, so the compiler won't implicitely</span>
+                              <span class="comment">// generate them.</span>
+ };</pre>
+<p>Otherwise, the compiler output a warning about not being able to destruct <tt>MyPrivateClass</tt>.</p>
+</div>
+<p><b>See also </b><a href="qsharedpointer.html">QSharedPointer</a>.</p>
+<!-- @@@QScopedPointer -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScopedPointer[overload1]$$$QScopedPointerT* -->
+<h3 class="fn"><a name="QScopedPointer"></a>QScopedPointer::<span class="name">QScopedPointer</span> ( <span class="type">T</span> * <i>p</i> = 0 )</h3>
+<p>Constructs this <a href="qscopedpointer.html">QScopedPointer</a> instance and sets its pointer to <i>p</i>.</p>
+<!-- @@@QScopedPointer -->
+<!-- $$$~QScopedPointer[overload1]$$$~QScopedPointer -->
+<h3 class="fn"><a name="dtor.QScopedPointer"></a>QScopedPointer::<span class="name">~QScopedPointer</span> ()</h3>
+<p>Destroys this <a href="qscopedpointer.html">QScopedPointer</a> object. Delete the object its pointer points to.</p>
+<!-- @@@~QScopedPointer -->
+<!-- $$$data[overload1]$$$data -->
+<h3 class="fn"><a name="data"></a><span class="type">T</span> * QScopedPointer::<span class="name">data</span> () const</h3>
+<p>Returns the value of the pointer referenced by this object. <a href="qscopedpointer.html">QScopedPointer</a> still owns the object pointed to.</p>
+<!-- @@@data -->
+<!-- $$$isNull[overload1]$$$isNull -->
+<h3 class="fn"><a name="isNull"></a><span class="type">bool</span> QScopedPointer::<span class="name">isNull</span> () const</h3>
+<p>Returns <tt>true</tt> if this object is holding a pointer that is <tt>null</tt>.</p>
+<!-- @@@isNull -->
+<!-- $$$reset[overload1]$$$resetT* -->
+<h3 class="fn"><a name="reset"></a><span class="type">void</span> QScopedPointer::<span class="name">reset</span> ( <span class="type">T</span> * <i>other</i> = 0 )</h3>
+<p>Deletes the existing object it is pointing to if any, and sets its pointer to <i>other</i>. <a href="qscopedpointer.html">QScopedPointer</a> now owns <i>other</i> and will delete it in its destructor.</p>
+<!-- @@@reset -->
+<!-- $$$swap[overload1]$$$swapQScopedPointer<T,Cleanup>& -->
+<h3 class="fn"><a name="swap"></a><span class="type">void</span> QScopedPointer::<span class="name">swap</span> ( <span class="type">QScopedPointer</span>&lt;<span class="type">T</span>, <span class="type">Cleanup</span>&gt; &amp; <i>other</i> )</h3>
+<p>Swap this pointer with <i>other</i>.</p>
+<!-- @@@swap -->
+<!-- $$$take[overload1]$$$take -->
+<h3 class="fn"><a name="take"></a><span class="type">T</span> * QScopedPointer::<span class="name">take</span> ()</h3>
+<p>Returns the value of the pointer referenced by this object. The pointer of this <a href="qscopedpointer.html">QScopedPointer</a> object will be reset to <tt>null</tt>.</p>
+<p>Callers of this function take ownership of the pointer.</p>
+<!-- @@@take -->
+<!-- $$$operator bool[overload1]$$$operator bool -->
+<h3 class="fn"><a name="operator-bool"></a>QScopedPointer::<span class="name">operator bool</span> () const</h3>
+<p>Returns <tt>true</tt> if this object is not <tt>null</tt>. This function is suitable for use in <tt>if-constructs</tt>, like:</p>
+<pre class="cpp"> <span class="keyword">if</span> (scopedPointer) {
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ }</pre>
+<p><b>See also </b><a href="qscopedpointer.html#isNull">isNull</a>().</p>
+<!-- @@@operator bool -->
+<!-- $$$operator![overload1]$$$operator! -->
+<h3 class="fn"><a name="operator-not"></a><span class="type">bool</span> QScopedPointer::<span class="name">operator!</span> () const</h3>
+<p>Returns <tt>true</tt> if the pointer referenced by this object is <tt>null</tt>, otherwise returns <tt>false</tt>.</p>
+<p><b>See also </b><a href="qscopedpointer.html#isNull">isNull</a>().</p>
+<!-- @@@operator! -->
+<!-- $$$operator*[overload1]$$$operator* -->
+<h3 class="fn"><a name="operator-2a"></a><span class="type">T</span> &amp; QScopedPointer::<span class="name">operator*</span> () const</h3>
+<p>Provides access to the scoped pointer's object.</p>
+<p>If the contained pointer is <tt>null</tt>, behavior is undefined.</p>
+<p><b>See also </b><a href="qscopedpointer.html#isNull">isNull</a>().</p>
+<!-- @@@operator* -->
+<!-- $$$operator->[overload1]$$$operator-> -->
+<h3 class="fn"><a name="operator--gt"></a><span class="type">T</span> * QScopedPointer::<span class="name">operator-&gt;</span> () const</h3>
+<p>Provides access to the scoped pointer's object.</p>
+<p>If the contained pointer is <tt>null</tt>, behavior is undefined.</p>
+<p><b>See also </b><a href="qscopedpointer.html#isNull">isNull</a>().</p>
+<!-- @@@operator-> -->
+</div>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

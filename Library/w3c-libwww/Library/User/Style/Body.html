@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 27-May-1996 -->
+  <TITLE>Function Body Layout</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" ALT="C-Style" SRC="../../../Icons/WWW/progstyle48x" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  Function Body Layout
+</H1>
+<P>
+With the body of functions, this is the way we aim to do it. We are not religious
+about it, but consistency helps. We use an indentation form that is known
+as the <EM>BSD c style</EM>. If you think your way is smarter, you may be
+right but this is the way we do it ;-). The format is also pretty close to
+the one you find in <EM>The C Programming Language</EM> by Kernighan and
+Ritchie.
+<P>
+<UL>
+  <LI>
+    Put opening { at the end of the same line as the <CODE>if</CODE>,
+    <CODE>while</CODE>, etc which affects the block
+  <LI>
+    Align the closing brace with the <EM>START</EM> of that opening line
+  <LI>
+    Indent everything between { and } by an extra 4 spaces, like the following
+    example:
+    <PRE>        for (i=0; i<2; i++) { HTList *cur = conversions[i]; HTPresentation *pres; while ((pres =(HTPresentation *) HTList_nextObject(cur))) { if (pres->rep_out == WWW_PRESENT) {
+                    if (pres-&gt;quality != 1.0) {
+                        sprintf(line, "Accept: %s; q=%.3f%c%c",
+                                HTAtom_name(pres-&gt;rep),
+                                pres-&gt;quality, CR, LF);
+                    } else {
+                        sprintf(line, "Accept: %s%c%c",
+                                HTAtom_name(pres-&gt;rep), CR, LF);
+                    }
+                    HTChunkPuts(command, line);
+                }
+            }
+        }
+</PRE>
+    <P>
+    You can get your emacs to do automatic indentation according to those rules
+    by adding the following to your local <CODE>.emacs</CODE> file:
+    <PRE>;; C style indentation
+;; =====================
+(defun w3c-c-mode-common-hook ()
+  ;; use BSD for all C, C++, and Objective-C code
+  (c-set-style "BSD")
+  ;; other customizations can go here
+  (setq c-tab-always-indent nil)
+  )
+(add-hook 'c-mode-common-hook 'w3c-c-mode-common-hook)
+
+</PRE>
+  <LI>
+    Do not make lines wider than 80 characters. Otherwise it gets very difficult
+    to read on a 80 character screen.
+  <LI>
+    <I>Never</I> indent preprocessor instructions (#ifdef, etc), nor increase
+    the indentation level on account of preprocessor instructions (many preprocessors
+    do not understand indented directives)
+  <LI>
+    Block comments should start with /* in column 1, end end with */ in column
+    1. In between, having ** in column 1 is conventional but not necessary for
+    very large comments. A good example is:
+    <PRE>/*
+** This is a comment that spans several lines. If you want to do this
+** then please use the comment markers as indicated. Do <EM>not</EM> use
+** C++ style comments - they are not portable
+*/
+
+</PRE>
+</UL>
+<P>
+<IMG BORDER="0" SRC="../../../Icons/32x32/warning" ALT="WARNING"> Remember to use comments
+in the source code - it makes life easier for everybody
+<P>
+  <HR>
+<ADDRESS>
+  Tim BL, and <A HREF="../../../People.html#Frystyk">Henrik Frystyk
+  Nielsen</A>,<BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

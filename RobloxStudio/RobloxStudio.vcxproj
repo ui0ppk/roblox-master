@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NoOpt|Win32">
+      <Configuration>NoOpt</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseTest|Win32">
+      <Configuration>ReleaseTest</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1A12F1B1-AE89-4549-A46C-2069E95C329D}</ProjectGuid>
+    <RootNamespace>RobloxStudio</RootNamespace>
+    <SccProjectName>Perforce Project</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccProvider>MSSCCI:Perforce SCM</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <RccAfterTargets>PreBuildEvent</RccAfterTargets>
+    <MocAfterTargets>_Rcc</MocAfterTargets>
+    <PublishDLLDependencyAfterTargets>CustomBuild</PublishDLLDependencyAfterTargets>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="..\CustomBuildRules.props" />
+    <Import Project="QtBuildRules.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <CustomBuildAfterTargets>_Moc</CustomBuildAfterTargets>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)Beta</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <CustomBuildAfterTargets>_Moc</CustomBuildAfterTargets>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)Beta</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)Beta</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)Beta</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message />
+      <Command />
+    </CustomBuildStep>
+    <ClCompile>
+      <AdditionalOptions>/Zm450</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>.;..\ClientBase;..\Win;..\Base\include;..\Log\include;..\App\include;..\Network;..\Network\raknet\Source;..\Network\include;..\Library\SDL2\include;..\Library\boost\include;..\fmod\include;..\fmod\api\inc;..\RbxDebug;..\RbxTestHooks;..\Rendering\AppDraw\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;..\Rendering\g3d\png;..\App.BulletPhysics;..\Rendering\GfxBase\include;..\Rendering\GfxRender;..\Library\DSBaseClasses\Sources;..\Library\SDK\Include;..\Library\Qt\include\QtCore;..\Library\Qt\include\QtGui;..\Library\Qt\include;..\Library\Qt\include\ActiveQt;..\Library\Qt\include\QtWebKit;..\Library\Qt\include\QtNetwork;..\Library\Qt\include\QtXml;..\ClientShared;..\QTitanRibbon\include;..\CSG;..\Rendering\GfxCore\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_PROVIDES_FUTURE_CONTINUATION;BOOST_THREAD_BUILD_LIB;RBX_STUDIO_BUILD;WIN32;NDEBUG;QT_THREAD_SUPPORT;QT_NO_KEYWORDS;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_WEBKIT_LIB;_SECURE_SCL=0;MACONLY_ADVANCED_DOCK_WIDGETS;QT_ROBLOX_STUDIO;USE_PCH_HEADERS;_STUDIO_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;qtmain.lib;QtGui4.lib;QtCore4.lib;QtNetwork4.lib;QtXml4.lib;QtWebKit4.lib;gdi32.lib;comdlg32.lib;oleaut32.lib;imm32.lib;winmm.lib;winspool.lib;ws2_32.lib;ole32.lib;user32.lib;advapi32.lib;msimg32.lib;shell32.lib;kernel32.lib;uuid.lib;wmvcore.lib;strmbase.lib;qtnribbon3.lib;..\CSG\sgCore\sgCore.lib;zlib.lib;libcurl.lib;fmod_vc.lib;legacy_stdio_definitions.lib;WS2_32.lib;Crypt32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)Beta.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\Library\boost\stage\lib;..\Library\DSBaseClasses\Lib;..\Library\SDL2\lib\x86;..\Library\Qt\lib;..\fmod\win32\lib;..\Library\SDK\Lib;..\Library\zlib\lib\release;..\Library\curl\lib\release;..\Library\VMProtect\lib;..\QTitanRibbon\roblox_build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <LargeAddressAware>true</LargeAddressAware>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+	  <ForceFileOutput>Enabled</ForceFileOutput>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy Plugins</Message>
+      <Command>rmdir "$(ProjectDir)$(OutDir)imageformats"
+mkdir "$(ProjectDir)$(OutDir)imageformats"
+mkdir "$(ProjectDir)$(OutDir)imageformats\imageformats"
+copy /Y ..\Library\Qt\plugins\imageformats\qgif4.dll $(ProjectDir)$(OutDir)imageformats\imageformats
+copy /Y ..\Library\Qt\plugins\imageformats\qgif4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats
+copy /Y ..\Library\Qt\plugins\imageformats\qjpeg4.dll $(ProjectDir)$(OutDir)imageformats\imageformats
+copy /Y ..\Library\Qt\plugins\imageformats\qjpeg4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.pdb" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbon3.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbon3.pdb" $(ProjectDir)$(OutDir)
+
+rmdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+mkdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+xcopy /E /Y "$(SolutionDir)BuiltInPlugins" "$(ProjectDir)$(OutDir)BuiltInPlugins\"
+
+"$(SolutionDir)buildshaders.bat"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <ClCompile>
+      <AdditionalOptions>/Zm450</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>.;..\ClientBase;..\Win;..\Base\include;..\Log\include;..\App\include;..\Network;..\Network\raknet\Source;..\Network\include;..\Library\SDL2\include;..\Library\boost\include;..\fmod\include;..\fmod\api\inc;..\RbxDebug;..\RbxTestHooks;..\Rendering\AppDraw\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;..\Rendering\g3d\png;..\App.BulletPhysics;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Library\DSBaseClasses\Sources;..\Library\SDK\Include;..\Library\Qt\include\QtCore;..\Library\Qt\include\QtGui;..\Library\Qt\include;..\Library\Qt\include\ActiveQt;..\Library\Qt\include\QtWebKit;..\Library\Qt\include\QtNetwork;..\Library\Qt\include\QtXml;..\ClientShared;..\QTitanRibbon\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_PROVIDES_FUTURE_CONTINUATION;BOOST_THREAD_BUILD_LIB;WIN32;NDEBUG;QT_THREAD_SUPPORT;QT_NO_KEYWORDS;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_WEBKIT_LIB;_SECURE_SCL=0;MACONLY_ADVANCED_DOCK_WIDGETS;QT_ROBLOX_STUDIO;USE_PCH_HEADERS;_STUDIO_BUILD;RBX_TEST_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;qtmain.lib;QtGui4.lib;QtCore4.lib;QtNetwork4.lib;QtXml4.lib;QtWebKit4.lib;gdi32.lib;comdlg32.lib;oleaut32.lib;imm32.lib;winmm.lib;winspool.lib;ws2_32.lib;ole32.lib;user32.lib;advapi32.lib;msimg32.lib;shell32.lib;kernel32.lib;uuid.lib;wmvcore.lib;strmbase.lib;qtnribbon3.lib;..\CSG\sgCore\sgCore.lib;zlib.lib;libcurl.lib;fmod_vc.lib;legacy_stdio_definitions.lib;WS2_32.lib;Crypt32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)Beta.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\Library\boost\stage\lib;..\Library\DSBaseClasses\Lib;..\Library\Qt\lib;..\fmod\win32\lib;..\Library\SDK\Lib;..\Library\SDL2\lib\x86;..\Library\zlib\lib\release;..\Library\curl\lib\release;..\Library\VMProtect\lib;..\QTitanRibbon\roblox_build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <LargeAddressAware>true</LargeAddressAware>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+	  <ForceFileOutput>Enabled</ForceFileOutput>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy Plugins</Message>
+      <Command>copy /Y ..\Library\Qt\plugins\imageformats\qgif4.dll $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qgif4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qjpeg4.dll $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qjpeg4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.pdb" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbon3.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbon3.pdb" $(ProjectDir)$(OutDir)
+
+rmdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+mkdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+xcopy /E /Y "$(SolutionDir)BuiltInPlugins" "$(ProjectDir)$(OutDir)BuiltInPlugins\"
+
+"$(SolutionDir)buildshaders.bat"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <CustomBuildStep>
+      <Message />
+      <Command />
+    </CustomBuildStep>
+    <ClCompile>
+      <AdditionalOptions>/Zm450</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>.;..\ClientBase;..\Win;..\Base\include;..\Log\include;..\App\include;..\Network;..\Network\raknet\Source;..\Network\include;..\Library\SDL2\include;..\Library\boost\include;..\fmod\include;..\fmod\api\inc;..\RbxDebug;..\RbxTestHooks;..\Rendering\AppDraw\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;..\Rendering\g3d\png;..\App.BulletPhysics;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Library\DSBaseClasses\Sources;..\Library\SDK\Include;..\Library\Qt\include\QtCore;..\Library\Qt\include\QtGui;..\Library\Qt\include;..\Library\Qt\include\ActiveQt;..\Library\Qt\include\QtWebKit;..\Library\Qt\include\QtNetwork;..\Library\Qt\include\QtXml;..\ClientShared;..\QTitanRibbon\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_PROVIDES_FUTURE_CONTINUATION;BOOST_THREAD_BUILD_LIB;WIN32;NDEBUG;QT_THREAD_SUPPORT;QT_NO_KEYWORDS;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_WEBKIT_LIB;_SECURE_SCL=0;MACONLY_ADVANCED_DOCK_WIDGETS;QT_ROBLOX_STUDIO;USE_PCH_HEADERS;_STUDIO_BUILD;RBX_TEST_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;qtmain.lib;QtGui4.lib;QtCore4.lib;QtNetwork4.lib;QtXml4.lib;QtWebKit4.lib;gdi32.lib;comdlg32.lib;oleaut32.lib;imm32.lib;winmm.lib;winspool.lib;ws2_32.lib;ole32.lib;user32.lib;advapi32.lib;msimg32.lib;shell32.lib;kernel32.lib;uuid.lib;wmvcore.lib;strmbase.lib;qtnribbon3.lib;..\CSG\sgCore\sgCore.lib;zlib.lib;libcurl.lib;fmod_vc.lib;legacy_stdio_definitions.lib;WS2_32.lib;Crypt32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)Beta.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\Library\boost\stage\lib;..\Library\DSBaseClasses\Lib;..\Library\Qt\lib;..\fmod\win32\lib;..\Library\SDK\Lib;..\Library\SDL2\lib\x86;..\Library\zlib\lib\release;..\Library\curl\lib\release;..\Library\VMProtect\lib;..\QTitanRibbon\roblox_build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences />
+      <EnableCOMDATFolding />
+	  <TargetMachine>MachineX86</TargetMachine>
+	  <LargeAddressAware>true</LargeAddressAware>
+	  <ForceFileOutput>Enabled</ForceFileOutput>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy Plugins</Message>
+      <Command>copy /Y ..\Library\Qt\plugins\imageformats\qgif4.dll $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qgif4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qjpeg4.dll $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qjpeg4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.pdb" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbon3.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbon3.pdb" $(ProjectDir)$(OutDir)
+
+rmdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+mkdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+xcopy /E /Y "$(SolutionDir)BuiltInPlugins" "$(ProjectDir)$(OutDir)BuiltInPlugins\"
+
+"$(SolutionDir)buildshaders.bat"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CustomBuildStep>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <ClCompile>
+      <AdditionalOptions>/Zm450</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>.;..\ClientBase;..\Win;..\Base\include;..\Log\include;..\App\include;..\Network;..\Network\raknet\Source;..\Network\include;..\Library\SDL2\include;..\Library\boost\include;..\fmod\include;..\fmod\api\inc;..\RbxDebug;..\RbxTestHooks;..\Rendering\AppDraw\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;..\Rendering\g3d\png;..\App.BulletPhysics;..\Rendering\GfxBase\include;..\Rendering\GfxRender;..\Library\DSBaseClasses\Sources;..\Library\SDK\Include;..\Library\Qt\include\QtCore;..\Library\Qt\include\QtGui;..\Library\Qt\include;..\Library\Qt\include\ActiveQt;..\Library\Qt\include\QtWebKit;..\Library\Qt\include\QtNetwork;..\Library\Qt\include\QtXml;..\ClientShared;..\QTitanRibbon\include;..\CSG;..\Rendering\GfxCore\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_PROVIDES_FUTURE_CONTINUATION;BOOST_THREAD_BUILD_LIB;RBX_STUDIO_BUILD;WIN32;_DEBUG;QT_THREAD_SUPPORT;QT_NO_KEYWORDS;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_WEBKIT_LIB;_SECURE_SCL=0;MACONLY_ADVANCED_DOCK_WIDGETS;QT_ROBLOX_STUDIO;USE_PCH_HEADERS;_STUDIO_BUILD;Q_COMPILER_RVALUE_REFS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;qtmaind.lib;QtGuid4.lib;QtCored4.lib;QtNetworkd4.lib;QtXmld4.lib;QtWebKitd4.lib;gdi32.lib;comdlg32.lib;oleaut32.lib;imm32.lib;winmm.lib;winspool.lib;ws2_32.lib;ole32.lib;user32.lib;advapi32.lib;msimg32.lib;shell32.lib;kernel32.lib;uuid.lib;wmvcore.lib;strmbasd.lib;qtnribbond3.lib;..\CSG\sgCore\sgCore.lib;zlibd.lib;libcurl-d.lib;fmod_vc.lib;legacy_stdio_definitions.lib;WS2_32.lib;Crypt32.lib;Wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <OutputFile>$(OutDir)$(ProjectName)Beta.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\Library\boost\stage\lib;..\Library\DSBaseClasses\Lib;..\Library\Qt\lib;..\fmod\win32\lib;..\Library\SDK\Lib;..\Library\SDL2\lib\x86;..\Library\zlib\lib\debug;..\Library\curl\lib\debug;..\Library\VMProtect\lib;..\QTitanRibbon\roblox_build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences />
+      <EnableCOMDATFolding />
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <TargetMachine>MachineX86</TargetMachine>
+	  <ForceFileOutput>Enabled</ForceFileOutput>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy Plugins</Message>
+      <Command>copy /Y ..\Library\Qt\plugins\imageformats\qgifd4.dll $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qgifd4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qjpegd4.dll $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y ..\Library\Qt\plugins\imageformats\qjpegd4.pdb $(ProjectDir)$(OutDir)imageformats\imageformats\
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)CSG\sgCore\sgCore.pdb" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbond3.dll" $(ProjectDir)$(OutDir)
+copy /Y "$(SolutionDir)QTitanRibbon\roblox_build\qtnribbond3.pdb" $(ProjectDir)$(OutDir)
+
+rmdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+mkdir "$(ProjectDir)$(OutDir)BuiltInPlugins"
+xcopy /E /Y "$(SolutionDir)BuiltInPlugins" "$(ProjectDir)$(OutDir)BuiltInPlugins\"
+
+"$(SolutionDir)buildshaders.bat"</Command>
+    </PostBuildEvent>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\App\script\LuaVMDummy.cpp" />
+    <ClCompile Include="..\ClientShared\SDLGameController.cpp" />
+    <ClCompile Include="AddEmulationDeviceDialog.cpp" />
+    <ClCompile Include="AuthenticationHelper.cpp" />
+    <ClCompile Include="AuthoringSettings.cpp" />
+    <ClCompile Include="AutoSaveDialog.cpp" />
+    <ClCompile Include="CloudEditAdornable.cpp" />
+    <ClCompile Include="CommonInsertWidget.cpp" />
+    <ClCompile Include="..\ClientShared\DataModelSerialize.cpp" />
+    <ClCompile Include="..\Win\DSVideoCaptureEngine.cpp" />
+    <ClCompile Include="..\Win\DumpErrorUploader.cpp" />
+    <ClCompile Include="..\Win\ErrorUploader.cpp" />
+    <ClCompile Include="CSGOperations.cpp" />
+    <ClCompile Include="DebuggerClient.cpp" />
+    <ClCompile Include="DebuggerWidgets.cpp" />
+    <ClCompile Include="DocDockManager.cpp" />
+    <ClCompile Include="DocDockWidget.cpp" />
+    <ClCompile Include="DocTabManager.cpp" />
+    <ClCompile Include="ExternalHandlers.cpp" />
+    <ClCompile Include="filewatcher\FileWatcher.cpp" />
+    <ClCompile Include="filewatcher\FileWatcherLinux.cpp" />
+    <ClCompile Include="filewatcher\FileWatcherOSX.cpp" />
+    <ClCompile Include="filewatcher\FileWatcherWin32.cpp" />
+    <ClCompile Include="FindDialog.cpp" />
+    <ClCompile Include="KeepSavedChangesDialog.cpp" />
+    <ClCompile Include="ManageEmulationDeviceDialog.cpp" />
+    <ClCompile Include="moc_AddEmulationDeviceDialog.cpp" />
+    <ClCompile Include="moc_KeepSavedChangesDialog.cpp" />
+    <ClCompile Include="moc_ManageEmulationDeviceDialog.cpp" />
+    <ClCompile Include="moc_PlayersDataManager.cpp" />
+    <ClCompile Include="moc_PropertyItems.cpp" />
+    <ClCompile Include="moc_RobloxApplicationManager.cpp" />
+    <ClCompile Include="moc_RobloxChatWidget.cpp" />
+    <ClCompile Include="moc_RobloxFindWidget.cpp" />
+    <ClCompile Include="moc_RobloxQuickAccessConfig.cpp" />
+    <ClCompile Include="moc_RobloxGameExplorer.cpp" />
+    <ClCompile Include="moc_RobloxTeamCreateWidget.cpp" />
+    <ClCompile Include="moc_RobloxTutorials.cpp" />
+    <ClCompile Include="moc_ScriptAnalysisWidget.cpp" />
+    <ClCompile Include="moc_ScriptPickerDialog.cpp" />
+    <ClCompile Include="moc_SplineEditor.cpp" />
+    <ClCompile Include="moc_StudioDeviceEmulator.cpp" />
+    <ClCompile Include="PlayersDataManager.cpp" />
+    <ClCompile Include="RobloxChatWidget.cpp" />
+    <ClCompile Include="RobloxFindWidget.cpp" />
+    <ClCompile Include="FunctionMarshaller.cpp" />
+    <ClCompile Include="..\Win\LogManager.cpp" />
+    <ClCompile Include="GalleryItemColor.cpp" />
+    <ClCompile Include="InsertObjectListWidget.cpp" />
+    <ClCompile Include="InsertObjectListWidgetItem.cpp" />
+    <ClCompile Include="InsertServiceDialog.cpp" />
+    <ClCompile Include="LuaSourceBuffer.cpp" />
+    <ClCompile Include="MachineConfig.cpp" />
+    <ClCompile Include="..\ClientBase\MachineConfiguration.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MobileDevelopmentDeployer.cpp" />
+    <ClCompile Include="moc_AutoSaveDialog.cpp" />
+    <ClCompile Include="moc_DebuggerClient.cpp" />
+    <ClCompile Include="moc_DebuggerWidgets.cpp" />
+    <ClCompile Include="moc_DocDockManager.cpp" />
+    <ClCompile Include="moc_DocDockWidget.cpp" />
+    <ClCompile Include="moc_DocTabManager.cpp" />
+    <ClCompile Include="moc_InsertObjectListWidget.cpp" />
+    <ClCompile Include="moc_InsertServiceDialog.cpp" />
+    <ClCompile Include="moc_MobileDevelopmentDeployer.cpp" />
+    <ClCompile Include="moc_PairRbxDeviceDialog.cpp" />
+    <ClCompile Include="moc_RobloxContextualHelp.cpp" />
+    <ClCompile Include="moc_RobloxCookieJar.cpp" />
+    <ClCompile Include="moc_RobloxDocManager.cpp" />
+    <ClCompile Include="moc_RobloxIDEDoc.cpp" />
+    <ClCompile Include="moc_RobloxInputConfigDialog.cpp" />
+    <ClCompile Include="moc_RobloxKeyboardConfig.cpp" />
+    <ClCompile Include="moc_RobloxMouseConfig.cpp" />
+    <ClCompile Include="moc_RobloxNetworkReply.cpp" />
+    <ClCompile Include="moc_RobloxPrizeAwarder.cpp" />
+    <ClCompile Include="moc_RobloxRibbonMainWindow.cpp" />
+    <ClCompile Include="moc_RobloxUser.cpp" />
+    <ClCompile Include="moc_RobloxView.cpp" />
+    <ClCompile Include="moc_RobloxWebPage.cpp" />
+    <ClCompile Include="moc_ScriptComboBox.cpp" />
+    <ClCompile Include="moc_ScriptSideWidget.cpp" />
+    <ClCompile Include="moc_ScriptSyntaxHighlighter.cpp" />
+    <ClCompile Include="moc_ScriptTextEditor.cpp" />
+    <ClCompile Include="moc_StudioIntellesense.cpp" />
+    <ClCompile Include="NameValueStoreManager.cpp" />
+    <ClCompile Include="ogrewidget.cpp" />
+    <ClCompile Include="PairRbxDeviceDialog.cpp" />
+    <ClCompile Include="PropertyItems.cpp" />
+    <ClCompile Include="QtUtilities.cpp" />
+    <ClCompile Include="RbxContent.cpp" />
+    <ClCompile Include="RbxWorkspace.cpp" />
+    <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp" />
+    <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp" />
+    <ClCompile Include="RenderStatsItem.cpp" />
+    <ClCompile Include="Roblox.cpp" />
+    <ClCompile Include="RobloxApplicationManager.cpp" />
+    <ClCompile Include="RobloxBasicDoc.cpp" />
+    <ClCompile Include="RobloxBrowser.cpp" />
+    <ClCompile Include="RobloxContextualHelp.cpp" />
+    <ClCompile Include="RobloxCookieJar.cpp" />
+    <ClCompile Include="RobloxCustomWidgets.cpp" />
+    <ClCompile Include="RobloxDiagnosticsView.cpp" />
+    <ClCompile Include="RobloxDocManager.cpp" />
+    <ClCompile Include="RobloxGameExplorer.cpp" />
+    <ClCompile Include="RobloxIDEDoc.cpp" />
+    <ClCompile Include="RobloxInputConfigDialog.cpp" />
+    <ClCompile Include="RobloxKeyboardConfig.cpp" />
+    <ClCompile Include="RobloxMainWindow.cpp" />
+    <ClCompile Include="RobloxMouseConfig.cpp" />
+    <ClCompile Include="RobloxNetworkAccessManager.cpp" />
+    <ClCompile Include="RobloxNetworkReply.cpp" />
+    <ClCompile Include="RobloxObjectBrowserDoc.cpp" />
+    <ClCompile Include="RobloxPrizeAwarder.cpp" />
+    <ClCompile Include="RobloxPropertyWidget.cpp" />
+    <ClCompile Include="RobloxQuickAccessConfig.cpp" />
+    <ClCompile Include="RobloxReportView.cpp" />
+    <ClCompile Include="RobloxRibbonMainWindow.cpp" />
+    <ClCompile Include="RobloxSavingStateDialog.cpp" />
+    <ClCompile Include="RobloxScriptDoc.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ShowIncludes>
+    </ClCompile>
+    <ClCompile Include="RobloxScriptReview.cpp" />
+    <ClCompile Include="RobloxSettings.cpp" />
+    <ClCompile Include="RobloxSettingsDialog.cpp" />
+    <ClCompile Include="RobloxStudioVerbs.cpp" />
+    <ClCompile Include="RobloxTaskScheduler.cpp" />
+    <ClCompile Include="RobloxTeamCreateWidget.cpp" />
+    <ClCompile Include="RobloxTextOutputWidget.cpp" />
+    <ClCompile Include="RobloxToolBox.cpp" />
+    <ClCompile Include="RobloxTreeWidget.cpp" />
+    <ClCompile Include="RobloxTutorials.cpp" />
+    <ClCompile Include="RobloxUser.cpp" />
+    <ClCompile Include="RobloxView.cpp" />
+    <ClCompile Include="RobloxWebDoc.cpp" />
+    <ClCompile Include="RobloxWebPage.cpp" />
+    <ClCompile Include="ScriptAnalysisWidget.cpp" />
+    <ClCompile Include="ScriptComboBox.cpp" />
+    <ClCompile Include="ScriptPickerDialog.cpp" />
+    <ClCompile Include="ScriptSideWidget.cpp" />
+    <ClCompile Include="ScriptSyntaxHighlighter.cpp" />
+    <ClCompile Include="ScriptTextEditor.cpp" />
+    <ClCompile Include="SelectionHighlightAdornable.cpp" />
+    <ClCompile Include="ShortcutHelpDialog.cpp" />
+    <ClCompile Include="SplineEditor.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StudioAnalytics.cpp" />
+    <ClCompile Include="StudioDeviceEmulator.cpp" />
+    <ClCompile Include="StudioIntellesense.cpp" />
+    <ClCompile Include="StudioSerializerHelper.cpp" />
+    <ClCompile Include="StudioUtilities.cpp" />
+    <ClCompile Include="UserInput.cpp" />
+    <ClCompile Include="UserInputUtil.cpp" />
+    <ClCompile Include="..\Win\VersionInfo.cpp" />
+    <ClCompile Include="..\Win\VideoControl.cpp" />
+    <ClCompile Include="..\Win\VistaTools.cpp" />
+    <ClCompile Include="WebDialog.cpp" />
+    <ClCompile Include="RobloxPluginHost.cpp" />
+    <ClCompile Include="UpdateUIManager.cpp" />
+    <ClCompile Include="moc_AuthenticationHelper.cpp" />
+    <ClCompile Include="moc_CommonInsertWidget.cpp" />
+    <ClCompile Include="moc_FindDialog.cpp" />
+    <ClCompile Include="moc_MachineConfig.cpp" />
+    <ClCompile Include="moc_ogrewidget.cpp" />
+    <ClCompile Include="moc_QtUtilities.cpp" />
+    <ClCompile Include="moc_RbxContent.cpp" />
+    <ClCompile Include="moc_RbxWorkspace.cpp" />
+    <ClCompile Include="moc_Roblox.cpp" />
+    <ClCompile Include="moc_RobloxBrowser.cpp" />
+    <ClCompile Include="moc_RobloxCustomWidgets.cpp" />
+    <ClCompile Include="moc_RobloxDiagnosticsView.cpp" />
+    <ClCompile Include="moc_RobloxMainWindow.cpp" />
+    <ClCompile Include="moc_RobloxObjectBrowserDoc.cpp" />
+    <ClCompile Include="moc_RobloxPluginHost.cpp" />
+    <ClCompile Include="moc_RobloxPropertyWidget.cpp" />
+    <ClCompile Include="moc_RobloxScriptDoc.cpp" />
+    <ClCompile Include="moc_RobloxScriptReview.cpp" />
+    <ClCompile Include="moc_RobloxSettings.cpp" />
+    <ClCompile Include="moc_RobloxSettingsDialog.cpp" />
+    <ClCompile Include="moc_RobloxStudioVerbs.cpp" />
+    <ClCompile Include="moc_RobloxTaskScheduler.cpp" />
+    <ClCompile Include="moc_RobloxTextOutputWidget.cpp" />
+    <ClCompile Include="moc_RobloxToolBox.cpp" />
+    <ClCompile Include="moc_RobloxTreeWidget.cpp" />
+    <ClCompile Include="moc_RobloxWebDoc.cpp" />
+    <ClCompile Include="moc_UpdateUIManager.cpp" />
+    <ClCompile Include="moc_WebDialog.cpp" />
+    <ClCompile Include="qrc_RobloxStudio.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Moc Include="AuthenticationHelper.h" />
+    <Moc Include="AddEmulationDeviceDialog.h" />
+    <ClInclude Include="..\ClientShared\SDLGameController.h" />
+    <ClInclude Include="AuthoringSettings.h" />
+    <Moc Include="CommonInsertWidget.h" />
+    <ClInclude Include="..\Win\DSVideoCaptureEngine.h" />
+    <ClInclude Include="..\Win\DumpErrorUploader.h" />
+    <ClInclude Include="..\Win\ErrorUploader.h" />
+    <CustomBuild Include="ExternalHandlers.h" />
+    <Moc Include="FindDialog.h" />
+    <Moc Include="AutoSaveDialog.h" />
+    <Moc Include="DocDockManager.h" />
+    <Moc Include="DocDockWidget.h" />
+    <Moc Include="DocTabManager.h" />
+    <Moc Include="DebuggerClient.h" />
+    <Moc Include="DebuggerWidgets.h" />
+    <Moc Include="RobloxFindWidget.h" />
+    <ClInclude Include="CloudEditAdornable.h" />
+    <ClInclude Include="CSGOperations.h" />
+    <ClInclude Include="filewatcher\FileWatcher.h" />
+    <ClInclude Include="filewatcher\FileWatcherImpl.h" />
+    <ClInclude Include="filewatcher\FileWatcherLinux.h" />
+    <ClInclude Include="filewatcher\FileWatcherOSX.h" />
+    <ClInclude Include="filewatcher\FileWatcherWin32.h" />
+    <ClInclude Include="FunctionMarshaller.h" />
+    <ClInclude Include="GalleryItemColor.h" />
+    <ClInclude Include="IExternalHandler.h" />
+    <Moc Include="InsertObjectListWidget.h" />
+    <ClInclude Include="InsertObjectListWidgetItem.h" />
+    <Moc Include="InsertServiceDialog.h" />
+    <ClInclude Include="IRobloxDoc.h" />
+    <ClInclude Include="..\Win\LogManager.h" />
+    <Moc Include="MachineConfig.h" />
+    <ClInclude Include="..\ClientBase\MachineConfiguration.h" />
+    <Moc Include="ogrewidget.h" />
+    <Moc Include="PropertyItems.h" />
+    <Moc Include="QtUtilities.h" />
+    <Moc Include="RbxContent.h" />
+    <Moc Include="RbxWorkspace.h" />
+    <ClInclude Include="..\ClientBase\ReflectionMetadata.h" />
+    <ClInclude Include="..\ClientBase\RenderSettingsItem.h" />
+    <Moc Include="Roblox.h" />
+    <Moc Include="KeepSavedChangesDialog.h" />
+    <ClInclude Include="LuaSourceBuffer.h" />
+    <Moc Include="MobileDevelopmentDeployer.h">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">false</DeploymentContent>
+    </Moc>
+    <Moc Include="ManageEmulationDeviceDialog.h" />
+    <ClInclude Include="NameValueStoreManager.h" />
+    <Moc Include="PairRbxDeviceDialog.h" />
+    <Moc Include="RobloxApplicationManager.h" />
+    <CustomBuild Include="RobloxBasicDoc.h" />
+    <Moc Include="RobloxBrowser.h" />
+    <Moc Include="RobloxCustomWidgets.h" />
+    <Moc Include="RobloxDiagnosticsView.h" />
+    <Moc Include="RobloxDocManager.h" />
+    <Moc Include="RobloxIDEDoc.h" />
+    <Moc Include="RobloxMainWindow.h" />
+    <Moc Include="RobloxObjectBrowserDoc.h" />
+    <Moc Include="RobloxPropertyWidget.h" />
+    <CustomBuild Include="RobloxReportView.h" />
+    <Moc Include="RobloxScriptDoc.h" />
+    <Moc Include="RobloxScriptReview.h" />
+    <Moc Include="RobloxSettings.h" />
+    <Moc Include="RobloxSettingsDialog.h" />
+    <Moc Include="RobloxStudioVerbs.h" />
+    <Moc Include="RobloxCookieJar.h" />
+    <Moc Include="RobloxInputConfigDialog.h" />
+    <Moc Include="RobloxKeyboardConfig.h" />
+    <Moc Include="RobloxMouseConfig.h" />
+    <Moc Include="RobloxContextualHelp.h" />
+    <Moc Include="RobloxGameExplorer.h" />
+    <Moc Include="RobloxChatWidget.h" />
+    <Moc Include="PlayersDataManager.h" />
+    <ClInclude Include="RobloxNetworkAccessManager.h" />
+    <Moc Include="RobloxNetworkReply.h" />
+    <Moc Include="RobloxPrizeAwarder.h" />
+    <Moc Include="RobloxRibbonMainWindow.h" />
+    <Moc Include="RobloxQuickAccessConfig.h" />
+    <ClInclude Include="RobloxSavingStateDialog.h" />
+    <ClInclude Include="RobloxStudioVersion.h" />
+    <Moc Include="RobloxTaskScheduler.h" />
+    <Moc Include="RobloxTextOutputWidget.h" />
+    <Moc Include="RobloxToolBox.h" />
+    <Moc Include="RobloxTreeWidget.h" />
+    <Moc Include="RobloxView.h" />
+    <Moc Include="RobloxWebDoc.h" />
+    <Moc Include="ScriptSideWidget.h" />
+    <Moc Include="ScriptSyntaxHighlighter.h" />
+    <Moc Include="ScriptTextEditor.h" />
+    <Moc Include="RobloxUser.h" />
+    <Moc Include="RobloxWebPage.h" />
+    <Moc Include="ScriptComboBox.h" />
+    <Moc Include="RobloxTutorials.h" />
+    <Moc Include="ScriptAnalysisWidget.h" />
+    <Moc Include="SplineEditor.h" />
+    <Moc Include="ScriptPickerDialog.h" />
+    <Moc Include="RobloxTeamCreateWidget.h" />
+    <ClInclude Include="SelectionHighlightAdornable.h" />
+    <ClInclude Include="stdafx.h" />
+    <CustomBuild Include="StudioUtilities.h" />
+    <Moc Include="StudioIntellesense.h" />
+    <ClInclude Include="StudioAnalytics.h" />
+    <Moc Include="StudioDeviceEmulator.h" />
+    <ClInclude Include="StudioSerializerHelper.h" />
+    <ClInclude Include="ui_AddEmulationDevDialog.h" />
+    <ClInclude Include="ui_ManageEmulationDevDialog.h" />
+    <ClInclude Include="ui_PairRbxDevDialog.h" />
+    <ClInclude Include="ui_TeamCreate.h" />
+    <ClInclude Include="UserInput.h" />
+    <ClInclude Include="UserInputUtil.h" />
+    <ClInclude Include="..\Win\VersionInfo.h" />
+    <ClInclude Include="..\Win\VideoControl.h" />
+    <ClInclude Include="..\Win\VistaTools.h" />
+    <Moc Include="WebDialog.h" />
+    <Moc Include="RobloxPluginHost.h" />
+    <Moc Include="UpdateUIManager.h" />
+    <ClInclude Include="ui_RBXMainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="QtBuildRules.rules">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Uic Include="AddEmulationDevDialog.ui" />
+    <Uic Include="AutoSave.ui" />
+    <Uic Include="ManageEmulationDevDialog.ui" />
+    <Uic Include="PairRbxDevDialog.ui" />
+    <Uic Include="RBXMainWindow.ui">
+      <SubType>Designer</SubType>
+    </Uic>
+    <Uic Include="Roblox Studio 2013 dialog.ui" />
+    <Uic Include="TeamCreate.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <Rcc Include="RobloxStudio.qrc">
+      <SubType>Designer</SubType>
+    </Rcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RobloxStudio.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishDLLDependency Include="..\fmod\win32\fmod.dll" />
+    <PublishDLLDependency Include="..\Rendering\ShaderCompiler\d3dcompiler_47.dll" />
+    <PublishDLLDependency Include="..\Rendering\OpenVR\bin\win32\openvr_api.dll" />
+    <PublishDLLDependency Include="..\Library\SDL2\lib\x86\SDL2.dll" />
+    <PublishDLLDependency Include="..\Library\VMProtect\bin\VMProtectSDK32.dll" />
+    <PublishDLLDependency Include="..\RbxDebug\bin\Debug\RbxDebug.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\RbxDebug\bin\Debug\RbxDebug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\openssl\libeay32.dll" />
+    <PublishDLLDependency Include="..\openssl\libssl32.dll" />
+    <PublishDLLDependency Include="..\openssl\ssleay32.dll" />
+    <PublishDLLDependency Include="..\Library\Qt\bin\phonond4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\phonond4.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtCored4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtCored4.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtGuid4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtGuid4.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtNetworkd4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtNetworkd4.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtWebKitd4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtWebKitd4.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtXmld4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtXmld4.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">true</ExcludedFromBuild>
+	  <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\phonon4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtCore4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtGui4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtNetwork4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtWebKit4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+    <PublishDLLDependency Include="..\Library\Qt\bin\QtXml4.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </PublishDLLDependency>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="AppSettings.xml">
+      <Message Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+    <CustomBuild Include="..\ClientBase\ReflectionMetadata.xml">
+      <Message Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="copyrights.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">copy "%(FullPath)" "$(TargetDir)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.BulletPhysics\App.BulletPhysics.vcxproj">
+      <Project>{c9285114-dcc1-4e90-aa76-f590cefb94c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\App\App.vcxproj">
+      <Project>{63db8347-940b-4a05-8975-6a6545c315dc}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.vcxproj">
+      <Project>{3025c00a-7746-469b-a279-96127c72abee}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\boostlibs\boost.static.vcxproj">
+      <Project>{5423bfb6-d3eb-4b00-a82b-38001eb8745f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\CSG\CSG.vcxproj">
+      <Project>{9b6c66f7-6887-44d3-ac5e-3c2bd94661fc}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\Log\Log.vcxproj">
+      <Project>{9980f6c3-b64d-4775-8793-bb6dde31ce82}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Network\Network.vcxproj">
+      <Project>{9b9eb5c6-15d1-4765-bcc7-8a42f2c9f6cc}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\g3d\graphics3D.vcxproj">
+      <Project>{05c08695-1eca-489c-815d-d74d65f353f0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\GfxBase\GfxBase.vcxproj">
+      <Project>{857de167-1ed8-4e4d-955a-5cc5cc3944c1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\GfxCore\GfxCore.vcxproj">
+      <Project>{3a10c3ec-1b27-427e-b955-87ee6b176130}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\GfxRender\GfxRender.vcxproj">
+      <Project>{9b7cce5d-2877-4321-8910-3c8e3936f62f}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\RbxG3D\RbxG3D.vcxproj">
+      <Project>{7d55bdab-c90b-4b36-9b2c-af8ef3e9129f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="RobloxStudioRibbon.xml">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+    <CustomBuild Include="RobloxStudioRibbonRelease.xml">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(TargetDir)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying %(Filename)%(Extension)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)%(Filename)%(Extension);%(Outputs)</Outputs>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="IntelleSenseMetadata.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Library\SDL2\lib\x86\SDL2.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\CustomBuildRules.targets" />
+    <Import Project="QtBuildRules.targets" />
+  </ImportGroup>
+</Project>

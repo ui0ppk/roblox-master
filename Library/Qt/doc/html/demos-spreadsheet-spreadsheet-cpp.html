@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: spreadsheet.cpp Example File (demos/spreadsheet/spreadsheet.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">spreadsheet.cpp Example File</h1>
+<span class="small-subtitle">demos/spreadsheet/spreadsheet.cpp</span>
+<!-- $$$demos/spreadsheet/spreadsheet.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &quot;spreadsheet.h&quot;</span>
+ <span class="preprocessor">#include &quot;spreadsheetdelegate.h&quot;</span>
+ <span class="preprocessor">#include &quot;spreadsheetitem.h&quot;</span>
+ <span class="preprocessor">#include &quot;printview.h&quot;</span>
+
+ SpreadSheet<span class="operator">::</span>SpreadSheet(<span class="type">int</span> rows<span class="operator">,</span> <span class="type">int</span> cols<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+         : <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent)
+ {
+     addToolBar(toolBar <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtoolbar.html">QToolBar</a></span>());
+     formulaInput <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>();
+
+     cellLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(toolBar);
+     cellLabel<span class="operator">-</span><span class="operator">&gt;</span>setMinimumSize(<span class="number">80</span><span class="operator">,</span> <span class="number">0</span>);
+
+     toolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(cellLabel);
+     toolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(formulaInput);
+
+     table <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidget.html">QTableWidget</a></span>(rows<span class="operator">,</span> cols<span class="operator">,</span> <span class="keyword">this</span>);
+     <span class="keyword">for</span> (<span class="type">int</span> c <span class="operator">=</span> <span class="number">0</span>; c <span class="operator">&lt;</span> cols; <span class="operator">+</span><span class="operator">+</span>c) {
+         <span class="type"><a href="qstring.html">QString</a></span> character(<span class="type"><a href="qchar.html">QChar</a></span>(<span class="char">'A'</span> <span class="operator">+</span> c));
+         table<span class="operator">-</span><span class="operator">&gt;</span>setHorizontalHeaderItem(c<span class="operator">,</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span>(character));
+     }
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItemPrototype(table<span class="operator">-</span><span class="operator">&gt;</span>item(rows <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> cols <span class="operator">-</span> <span class="number">1</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItemDelegate(<span class="keyword">new</span> SpreadSheetDelegate());
+
+     createActions();
+     updateColor(<span class="number">0</span>);
+     setupMenuBar();
+     setupContents();
+     setupContextMenu();
+     setCentralWidget(table);
+
+     statusBar();
+     connect(table<span class="operator">,</span> SIGNAL(currentItemChanged(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span><span class="operator">,</span><span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(updateStatus(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>)));
+     connect(table<span class="operator">,</span> SIGNAL(currentItemChanged(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span><span class="operator">,</span><span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(updateColor(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>)));
+     connect(table<span class="operator">,</span> SIGNAL(currentItemChanged(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span><span class="operator">,</span><span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(updateLineEdit(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>)));
+     connect(table<span class="operator">,</span> SIGNAL(itemChanged(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(updateStatus(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>)));
+     connect(formulaInput<span class="operator">,</span> SIGNAL(returnPressed())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(returnPressed()));
+     connect(table<span class="operator">,</span> SIGNAL(itemChanged(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(updateLineEdit(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span>)));
+
+     setWindowTitle(tr(<span class="string">&quot;Spreadsheet&quot;</span>));
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>createActions()
+ {
+     cell_sumAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Sum&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(cell_sumAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(actionSum()));
+
+     cell_addAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Add&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     cell_addAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Plus);
+     connect(cell_addAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(actionAdd()));
+
+     cell_subAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Subtract&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     cell_subAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Minus);
+     connect(cell_subAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(actionSubtract()));
+
+     cell_mulAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Multiply&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     cell_mulAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_multiply);
+     connect(cell_mulAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(actionMultiply()));
+
+     cell_divAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Divide&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     cell_divAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_division);
+     connect(cell_divAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(actionDivide()));
+
+     fontAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Font...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     fontAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CTRL <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_F);
+     connect(fontAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(selectFont()));
+
+     colorAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="number">16</span><span class="operator">,</span> <span class="number">16</span>)<span class="operator">,</span> tr(<span class="string">&quot;Background &amp;Color...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(colorAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(selectColor()));
+
+     clearAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Clear&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     clearAction<span class="operator">-</span><span class="operator">&gt;</span>setShortcut(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Delete);
+     connect(clearAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(clear()));
+
+     aboutSpreadSheet <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;About Spreadsheet&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(aboutSpreadSheet<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(showAbout()));
+
+     exitAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;E&amp;xit&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(exitAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> qApp<span class="operator">,</span> SLOT(quit()));
+
+     printAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Print&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(printAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(print()));
+
+     firstSeparator <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="keyword">this</span>);
+     firstSeparator<span class="operator">-</span><span class="operator">&gt;</span>setSeparator(<span class="keyword">true</span>);
+
+     secondSeparator <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="keyword">this</span>);
+     secondSeparator<span class="operator">-</span><span class="operator">&gt;</span>setSeparator(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>setupMenuBar()
+ {
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>fileMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;File&quot;</span>));
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(printAction);
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(exitAction);
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>cellMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Cell&quot;</span>));
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(cell_addAction);
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(cell_subAction);
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(cell_mulAction);
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(cell_divAction);
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(cell_sumAction);
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(colorAction);
+     cellMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(fontAction);
+
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>aboutMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Help&quot;</span>));
+     aboutMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(aboutSpreadSheet);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>updateStatus(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item)
+ {
+     <span class="keyword">if</span> (item <span class="operator">&amp;</span><span class="operator">&amp;</span> item <span class="operator">=</span><span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentItem()) {
+         statusBar()<span class="operator">-</span><span class="operator">&gt;</span>showMessage(item<span class="operator">-</span><span class="operator">&gt;</span>data(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>StatusTipRole)<span class="operator">.</span>toString()<span class="operator">,</span>
+                                  <span class="number">1000</span>);
+         cellLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Cell: (%1)&quot;</span>)<span class="operator">.</span>arg(encode_pos(table<span class="operator">-</span><span class="operator">&gt;</span>row(item)<span class="operator">,</span>
+                                                            table<span class="operator">-</span><span class="operator">&gt;</span>column(item))));
+     }
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>updateColor(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item)
+ {
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pix(<span class="number">16</span><span class="operator">,</span> <span class="number">16</span>);
+     <span class="type"><a href="qcolor.html">QColor</a></span> col;
+     <span class="keyword">if</span> (item)
+         col <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>backgroundColor();
+     <span class="keyword">if</span> (<span class="operator">!</span>col<span class="operator">.</span>isValid())
+         col <span class="operator">=</span> palette()<span class="operator">.</span>base()<span class="operator">.</span>color();
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> pt(<span class="operator">&amp;</span>pix);
+     pt<span class="operator">.</span>fillRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">16</span><span class="operator">,</span> <span class="number">16</span><span class="operator">,</span> col);
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> lighter <span class="operator">=</span> col<span class="operator">.</span>light();
+     pt<span class="operator">.</span>setPen(lighter);
+     <span class="type"><a href="qpoint.html">QPoint</a></span> lightFrame<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> { <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">15</span>)<span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">15</span><span class="operator">,</span> <span class="number">0</span>) };
+     pt<span class="operator">.</span>drawPolyline(lightFrame<span class="operator">,</span> <span class="number">3</span>);
+
+     pt<span class="operator">.</span>setPen(col<span class="operator">.</span>dark());
+     <span class="type"><a href="qpoint.html">QPoint</a></span> darkFrame<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> { <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">1</span><span class="operator">,</span> <span class="number">15</span>)<span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">15</span><span class="operator">,</span> <span class="number">15</span>)<span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">15</span><span class="operator">,</span> <span class="number">1</span>) };
+     pt<span class="operator">.</span>drawPolyline(darkFrame<span class="operator">,</span> <span class="number">3</span>);
+
+     pt<span class="operator">.</span>end();
+
+     colorAction<span class="operator">-</span><span class="operator">&gt;</span>setIcon(pix);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>updateLineEdit(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item)
+ {
+     <span class="keyword">if</span> (item <span class="operator">!</span><span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentItem())
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> (item)
+         formulaInput<span class="operator">-</span><span class="operator">&gt;</span>setText(item<span class="operator">-</span><span class="operator">&gt;</span>data(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>EditRole)<span class="operator">.</span>toString());
+     <span class="keyword">else</span>
+         formulaInput<span class="operator">-</span><span class="operator">&gt;</span>clear();
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>returnPressed()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> formulaInput<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type">int</span> row <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentRow();
+     <span class="type">int</span> col <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentColumn();
+     <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>item(row<span class="operator">,</span> col);
+     <span class="keyword">if</span> (<span class="operator">!</span>item)
+         table<span class="operator">-</span><span class="operator">&gt;</span>setItem(row<span class="operator">,</span> col<span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(text));
+     <span class="keyword">else</span>
+         item<span class="operator">-</span><span class="operator">&gt;</span>setData(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>EditRole<span class="operator">,</span> text);
+     table<span class="operator">-</span><span class="operator">&gt;</span>viewport()<span class="operator">-</span><span class="operator">&gt;</span>update();
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>selectColor()
+ {
+     <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentItem();
+     <span class="type"><a href="qcolor.html">QColor</a></span> col <span class="operator">=</span> item <span class="operator">?</span> item<span class="operator">-</span><span class="operator">&gt;</span>backgroundColor() : table<span class="operator">-</span><span class="operator">&gt;</span>palette()<span class="operator">.</span>base()<span class="operator">.</span>color();
+     col <span class="operator">=</span> <span class="type"><a href="qcolordialog.html">QColorDialog</a></span><span class="operator">::</span>getColor(col<span class="operator">,</span> <span class="keyword">this</span>);
+     <span class="keyword">if</span> (<span class="operator">!</span>col<span class="operator">.</span>isValid())
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span><span class="operator">&gt;</span> selected <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>selectedItems();
+     <span class="keyword">if</span> (selected<span class="operator">.</span>count() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="keyword">return</span>;
+
+     foreach(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>i<span class="operator">,</span> selected)
+         <span class="keyword">if</span> (i)
+             i<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(col);
+
+     updateColor(table<span class="operator">-</span><span class="operator">&gt;</span>currentItem());
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>selectFont()
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span><span class="operator">&gt;</span> selected <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>selectedItems();
+     <span class="keyword">if</span> (selected<span class="operator">.</span>count() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="keyword">return</span>;
+
+     <span class="type">bool</span> ok <span class="operator">=</span> <span class="keyword">false</span>;
+     <span class="type"><a href="qfont.html">QFont</a></span> fnt <span class="operator">=</span> <span class="type"><a href="qfontdialog.html">QFontDialog</a></span><span class="operator">::</span>getFont(<span class="operator">&amp;</span>ok<span class="operator">,</span> font()<span class="operator">,</span> <span class="keyword">this</span>);
+
+     <span class="keyword">if</span> (<span class="operator">!</span>ok)
+         <span class="keyword">return</span>;
+     foreach(<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>i<span class="operator">,</span> selected)
+         <span class="keyword">if</span> (i)
+             i<span class="operator">-</span><span class="operator">&gt;</span>setFont(fnt);
+ }
+
+ <span class="type">bool</span> SpreadSheet<span class="operator">::</span>runInputDialog(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>title<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>c1Text<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>c2Text<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>opText<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>outText<span class="operator">,</span>
+                                  <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">*</span>cell1<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">*</span>cell2<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">*</span>outCell)
+ {
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> rows<span class="operator">,</span> cols;
+     <span class="keyword">for</span> (<span class="type">int</span> c <span class="operator">=</span> <span class="number">0</span>; c <span class="operator">&lt;</span> table<span class="operator">-</span><span class="operator">&gt;</span>columnCount(); <span class="operator">+</span><span class="operator">+</span>c)
+         cols <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qchar.html">QChar</a></span>(<span class="char">'A'</span> <span class="operator">+</span> c);
+     <span class="keyword">for</span> (<span class="type">int</span> r <span class="operator">=</span> <span class="number">0</span>; r <span class="operator">&lt;</span> table<span class="operator">-</span><span class="operator">&gt;</span>rowCount(); <span class="operator">+</span><span class="operator">+</span>r)
+         rows <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(<span class="number">1</span> <span class="operator">+</span> r);
+
+     <span class="type"><a href="qdialog.html">QDialog</a></span> addDialog(<span class="keyword">this</span>);
+     addDialog<span class="operator">.</span>setWindowTitle(title);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> group(title<span class="operator">,</span> <span class="operator">&amp;</span>addDialog);
+     group<span class="operator">.</span>setMinimumSize(<span class="number">250</span><span class="operator">,</span> <span class="number">100</span>);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> cell1Label(c1Text<span class="operator">,</span> <span class="operator">&amp;</span>group);
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> cell1RowInput(<span class="operator">&amp;</span>group);
+     <span class="type">int</span> c1Row<span class="operator">,</span> c1Col;
+     decode_pos(<span class="operator">*</span>cell1<span class="operator">,</span> <span class="operator">&amp;</span>c1Row<span class="operator">,</span> <span class="operator">&amp;</span>c1Col);
+     cell1RowInput<span class="operator">.</span>addItems(rows);
+     cell1RowInput<span class="operator">.</span>setCurrentIndex(c1Row);
+
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> cell1ColInput(<span class="operator">&amp;</span>group);
+     cell1ColInput<span class="operator">.</span>addItems(cols);
+     cell1ColInput<span class="operator">.</span>setCurrentIndex(c1Col);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> operatorLabel(opText<span class="operator">,</span> <span class="operator">&amp;</span>group);
+     operatorLabel<span class="operator">.</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> cell2Label(c2Text<span class="operator">,</span> <span class="operator">&amp;</span>group);
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> cell2RowInput(<span class="operator">&amp;</span>group);
+     <span class="type">int</span> c2Row<span class="operator">,</span> c2Col;
+     decode_pos(<span class="operator">*</span>cell2<span class="operator">,</span> <span class="operator">&amp;</span>c2Row<span class="operator">,</span> <span class="operator">&amp;</span>c2Col);
+     cell2RowInput<span class="operator">.</span>addItems(rows);
+     cell2RowInput<span class="operator">.</span>setCurrentIndex(c2Row);
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> cell2ColInput(<span class="operator">&amp;</span>group);
+     cell2ColInput<span class="operator">.</span>addItems(cols);
+     cell2ColInput<span class="operator">.</span>setCurrentIndex(c2Col);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> equalsLabel(<span class="string">&quot;=&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>group);
+     equalsLabel<span class="operator">.</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> outLabel(outText<span class="operator">,</span> <span class="operator">&amp;</span>group);
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> outRowInput(<span class="operator">&amp;</span>group);
+     <span class="type">int</span> outRow<span class="operator">,</span> outCol;
+     decode_pos(<span class="operator">*</span>outCell<span class="operator">,</span> <span class="operator">&amp;</span>outRow<span class="operator">,</span> <span class="operator">&amp;</span>outCol);
+     outRowInput<span class="operator">.</span>addItems(rows);
+     outRowInput<span class="operator">.</span>setCurrentIndex(outRow);
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> outColInput(<span class="operator">&amp;</span>group);
+     outColInput<span class="operator">.</span>addItems(cols);
+     outColInput<span class="operator">.</span>setCurrentIndex(outCol);
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> cancelButton(tr(<span class="string">&quot;Cancel&quot;</span>)<span class="operator">,</span> <span class="operator">&amp;</span>addDialog);
+     connect(<span class="operator">&amp;</span>cancelButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="operator">&amp;</span>addDialog<span class="operator">,</span> SLOT(reject()));
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> okButton(tr(<span class="string">&quot;OK&quot;</span>)<span class="operator">,</span> <span class="operator">&amp;</span>addDialog);
+     okButton<span class="operator">.</span>setDefault(<span class="keyword">true</span>);
+     connect(<span class="operator">&amp;</span>okButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="operator">&amp;</span>addDialog<span class="operator">,</span> SLOT(accept()));
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>buttonsLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     buttonsLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+     buttonsLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>okButton);
+     buttonsLayout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">10</span>);
+     buttonsLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>cancelButton);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>dialogLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="operator">&amp;</span>addDialog);
+     dialogLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>group);
+     dialogLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+     dialogLayout<span class="operator">-</span><span class="operator">&gt;</span>addItem(buttonsLayout);
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>cell1Layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     cell1Layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>cell1Label);
+     cell1Layout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">10</span>);
+     cell1Layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>cell1ColInput);
+     cell1Layout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">10</span>);
+     cell1Layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>cell1RowInput);
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>cell2Layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     cell2Layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>cell2Label);
+     cell2Layout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">10</span>);
+     cell2Layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>cell2ColInput);
+     cell2Layout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">10</span>);
+     cell2Layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>cell2RowInput);
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>outLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     outLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>outLabel);
+     outLayout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">10</span>);
+     outLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>outColInput);
+     outLayout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">10</span>);
+     outLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>outRowInput);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>vLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>(<span class="operator">&amp;</span>group);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addItem(cell1Layout);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>operatorLabel);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addItem(cell2Layout);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="operator">&amp;</span>equalsLabel);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+     vLayout<span class="operator">-</span><span class="operator">&gt;</span>addItem(outLayout);
+
+     <span class="keyword">if</span> (addDialog<span class="operator">.</span>exec()) {
+         <span class="operator">*</span>cell1 <span class="operator">=</span> cell1ColInput<span class="operator">.</span>currentText() <span class="operator">+</span> cell1RowInput<span class="operator">.</span>currentText();
+         <span class="operator">*</span>cell2 <span class="operator">=</span> cell2ColInput<span class="operator">.</span>currentText() <span class="operator">+</span> cell2RowInput<span class="operator">.</span>currentText();
+         <span class="operator">*</span>outCell <span class="operator">=</span> outColInput<span class="operator">.</span>currentText() <span class="operator">+</span> outRowInput<span class="operator">.</span>currentText();
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     }
+
+     <span class="keyword">return</span> <span class="keyword">false</span>;
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>actionSum()
+ {
+     <span class="type">int</span> row_first <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> row_last <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> row_cur <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="type">int</span> col_first <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> col_last <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> col_cur <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span><span class="operator">*</span><span class="operator">&gt;</span> selected <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>selectedItems();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>selected<span class="operator">.</span>isEmpty()) {
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>first <span class="operator">=</span> selected<span class="operator">.</span>first();
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>last <span class="operator">=</span> selected<span class="operator">.</span>last();
+         row_first <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>row(first);
+         row_last <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>row(last);
+         col_first <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>column(first);
+         col_last <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>column(last);
+     }
+
+     <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>current <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentItem();
+
+     <span class="keyword">if</span> (current) {
+         row_cur <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>row(current);
+         col_cur <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>column(current);
+     }
+
+     <span class="type"><a href="qstring.html">QString</a></span> cell1 <span class="operator">=</span> encode_pos(row_first<span class="operator">,</span> col_first);
+     <span class="type"><a href="qstring.html">QString</a></span> cell2 <span class="operator">=</span> encode_pos(row_last<span class="operator">,</span> col_last);
+     <span class="type"><a href="qstring.html">QString</a></span> out <span class="operator">=</span> encode_pos(row_cur<span class="operator">,</span> col_cur);
+
+     <span class="keyword">if</span> (runInputDialog(tr(<span class="string">&quot;Sum cells&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;First cell:&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;Last cell:&quot;</span>)<span class="operator">,</span>
+                        <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;%1&quot;</span>)<span class="operator">.</span>arg(<span class="type"><a href="qchar.html">QChar</a></span>(<span class="number">0x03a3</span>))<span class="operator">,</span> tr(<span class="string">&quot;Output to:&quot;</span>)<span class="operator">,</span>
+                        <span class="operator">&amp;</span>cell1<span class="operator">,</span> <span class="operator">&amp;</span>cell2<span class="operator">,</span> <span class="operator">&amp;</span>out)) {
+         <span class="type">int</span> row<span class="operator">,</span> col;
+         decode_pos(out<span class="operator">,</span> <span class="operator">&amp;</span>row<span class="operator">,</span> <span class="operator">&amp;</span>col);
+         table<span class="operator">-</span><span class="operator">&gt;</span>item(row<span class="operator">,</span> col)<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;sum %1 %2&quot;</span>)<span class="operator">.</span>arg(cell1<span class="operator">,</span> cell2));
+     }
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>actionMath_helper(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>title<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>op)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> cell1 <span class="operator">=</span> <span class="string">&quot;C1&quot;</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> cell2 <span class="operator">=</span> <span class="string">&quot;C2&quot;</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> out <span class="operator">=</span> <span class="string">&quot;C3&quot;</span>;
+
+     <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>current <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentItem();
+     <span class="keyword">if</span> (current)
+         out <span class="operator">=</span> encode_pos(table<span class="operator">-</span><span class="operator">&gt;</span>currentRow()<span class="operator">,</span> table<span class="operator">-</span><span class="operator">&gt;</span>currentColumn());
+
+     <span class="keyword">if</span> (runInputDialog(title<span class="operator">,</span> tr(<span class="string">&quot;Cell 1&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;Cell 2&quot;</span>)<span class="operator">,</span> op<span class="operator">,</span> tr(<span class="string">&quot;Output to:&quot;</span>)<span class="operator">,</span>
+                        <span class="operator">&amp;</span>cell1<span class="operator">,</span> <span class="operator">&amp;</span>cell2<span class="operator">,</span> <span class="operator">&amp;</span>out)) {
+         <span class="type">int</span> row<span class="operator">,</span> col;
+         decode_pos(out<span class="operator">,</span> <span class="operator">&amp;</span>row<span class="operator">,</span> <span class="operator">&amp;</span>col);
+         table<span class="operator">-</span><span class="operator">&gt;</span>item(row<span class="operator">,</span> col)<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;%1 %2 %3&quot;</span>)<span class="operator">.</span>arg(op<span class="operator">,</span> cell1<span class="operator">,</span> cell2));
+     }
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>actionAdd()
+ {
+     actionMath_helper(tr(<span class="string">&quot;Addition&quot;</span>)<span class="operator">,</span> <span class="string">&quot;+&quot;</span>);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>actionSubtract()
+ {
+     actionMath_helper(tr(<span class="string">&quot;Subtraction&quot;</span>)<span class="operator">,</span> <span class="string">&quot;-&quot;</span>);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>actionMultiply()
+ {
+     actionMath_helper(tr(<span class="string">&quot;Multiplication&quot;</span>)<span class="operator">,</span> <span class="string">&quot;*&quot;</span>);
+ }
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>actionDivide()
+ {
+     actionMath_helper(tr(<span class="string">&quot;Division&quot;</span>)<span class="operator">,</span> <span class="string">&quot;/&quot;</span>);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>clear()
+ {
+     foreach (<span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>i<span class="operator">,</span> table<span class="operator">-</span><span class="operator">&gt;</span>selectedItems())
+         i<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;&quot;</span>);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>setupContextMenu()
+ {
+     addAction(cell_addAction);
+     addAction(cell_subAction);
+     addAction(cell_mulAction);
+     addAction(cell_divAction);
+     addAction(cell_sumAction);
+     addAction(firstSeparator);
+     addAction(colorAction);
+     addAction(fontAction);
+     addAction(secondSeparator);
+     addAction(clearAction);
+     setContextMenuPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ActionsContextMenu);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>setupContents()
+ {
+     <span class="type"><a href="qcolor.html">QColor</a></span> titleBackground(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+     <span class="type"><a href="qfont.html">QFont</a></span> titleFont <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>font();
+     titleFont<span class="operator">.</span>setBold(<span class="keyword">true</span>);
+
+     <span class="comment">// column 0</span>
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Item&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(titleBackground);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(<span class="string">&quot;This column shows the purchased item/service&quot;</span>);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>setFont(titleFont);
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;AirportBus&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Flight (Munich)&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">3</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Lunch&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">4</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Flight (LA)&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">5</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Taxi&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">6</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Dinner&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">7</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Hotel&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">8</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Flight (Oslo)&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">9</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Total:&quot;</span>));
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">9</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>setFont(titleFont);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">9</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+
+     <span class="comment">// column 1</span>
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Date&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(titleBackground);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(<span class="string">&quot;This column shows the purchase date, double click to change&quot;</span>);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">-</span><span class="operator">&gt;</span>setFont(titleFont);
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;15/6/2006&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;15/6/2006&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">3</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;15/6/2006&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;21/5/2006&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">5</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;16/6/2006&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">6</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;16/6/2006&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">7</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;16/6/2006&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">8</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;18/6/2006&quot;</span>));
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">9</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem());
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">9</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+
+     <span class="comment">// column 2</span>
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">0</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Price&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">2</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(titleBackground);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">2</span>)<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(<span class="string">&quot;This column shows the price of the purchase&quot;</span>);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">2</span>)<span class="operator">-</span><span class="operator">&gt;</span>setFont(titleFont);
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;150&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">2</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;2350&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">3</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;-14&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">4</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;980&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">5</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;5&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">6</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;120&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">7</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;300&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">8</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;1240&quot;</span>));
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">9</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem());
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">9</span><span class="operator">,</span> <span class="number">2</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+
+     <span class="comment">// column 3</span>
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">0</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Currency&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">3</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(titleBackground);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">3</span>)<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(<span class="string">&quot;This column shows the currency&quot;</span>);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">3</span>)<span class="operator">-</span><span class="operator">&gt;</span>setFont(titleFont);
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">1</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;NOK&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">2</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;NOK&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;EUR&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">4</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;EUR&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">5</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;USD&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">6</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;USD&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">7</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;USD&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">8</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;USD&quot;</span>));
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">9</span><span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem());
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">9</span><span class="operator">,</span><span class="number">3</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+
+     <span class="comment">// column 4</span>
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">0</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;Ex. Rate&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">4</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(titleBackground);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">4</span>)<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(<span class="string">&quot;This column shows the exchange rate to NOK&quot;</span>);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">4</span>)<span class="operator">-</span><span class="operator">&gt;</span>setFont(titleFont);
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">1</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;1&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">2</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;1&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">3</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;8&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">4</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;8&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">5</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;7&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">6</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;7&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">7</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;7&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">8</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;7&quot;</span>));
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">9</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem());
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">9</span><span class="operator">,</span><span class="number">4</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+
+     <span class="comment">// column 5</span>
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">0</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;NOK&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">5</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(titleBackground);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">5</span>)<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(<span class="string">&quot;This column shows the expenses in NOK&quot;</span>);
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">0</span><span class="operator">,</span> <span class="number">5</span>)<span class="operator">-</span><span class="operator">&gt;</span>setFont(titleFont);
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">1</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C2 E2&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">2</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C3 E3&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">3</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C4 E4&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">4</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C5 E5&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">5</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C6 E6&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">6</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C7 E7&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">7</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C8 E8&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">8</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;* C9 E9&quot;</span>));
+
+     table<span class="operator">-</span><span class="operator">&gt;</span>setItem(<span class="number">9</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="keyword">new</span> SpreadSheetItem(<span class="string">&quot;sum F2 F9&quot;</span>));
+     table<span class="operator">-</span><span class="operator">&gt;</span>item(<span class="number">9</span><span class="operator">,</span><span class="number">5</span>)<span class="operator">-</span><span class="operator">&gt;</span>setBackgroundColor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+ }
+
+ <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>htmlText <span class="operator">=</span>
+ <span class="string">&quot;&lt;HTML&gt;&quot;</span>
+ <span class="string">&quot;&lt;p&gt;&lt;b&gt;This demo shows use of &lt;c&gt;QTableWidget&lt;/c&gt; with custom handling for&quot;</span>
+ <span class="string">&quot; individual cells.&lt;/b&gt;&lt;/p&gt;&quot;</span>
+ <span class="string">&quot;&lt;p&gt;Using a customized table item we make it possible to have dynamic&quot;</span>
+ <span class="string">&quot; output in different cells. The content that is implemented for this&quot;</span>
+ <span class="string">&quot; particular demo is:&quot;</span>
+ <span class="string">&quot;&lt;ul&gt;&quot;</span>
+ <span class="string">&quot;&lt;li&gt;Adding two cells.&lt;/li&gt;&quot;</span>
+ <span class="string">&quot;&lt;li&gt;Subtracting one cell from another.&lt;/li&gt;&quot;</span>
+ <span class="string">&quot;&lt;li&gt;Multiplying two cells.&lt;/li&gt;&quot;</span>
+ <span class="string">&quot;&lt;li&gt;Dividing one cell with another.&lt;/li&gt;&quot;</span>
+ <span class="string">&quot;&lt;li&gt;Summing the contents of an arbitrary number of cells.&lt;/li&gt;&quot;</span>
+ <span class="string">&quot;&lt;/HTML&gt;&quot;</span>;
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>showAbout()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>about(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;About Spreadsheet&quot;</span><span class="operator">,</span> htmlText);
+ }
+
+ <span class="type">void</span> decode_pos(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>pos<span class="operator">,</span> <span class="type">int</span> <span class="operator">*</span>row<span class="operator">,</span> <span class="type">int</span> <span class="operator">*</span>col)
+ {
+     <span class="keyword">if</span> (pos<span class="operator">.</span>isEmpty()) {
+         <span class="operator">*</span>col <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+         <span class="operator">*</span>row <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+     } <span class="keyword">else</span> {
+         <span class="operator">*</span>col <span class="operator">=</span> pos<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">.</span>toLatin1() <span class="operator">-</span> <span class="char">'A'</span>;
+         <span class="operator">*</span>row <span class="operator">=</span> pos<span class="operator">.</span>right(pos<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">1</span>)<span class="operator">.</span>toInt() <span class="operator">-</span> <span class="number">1</span>;
+     }
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> encode_pos(<span class="type">int</span> row<span class="operator">,</span> <span class="type">int</span> col)
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>(col <span class="operator">+</span> <span class="char">'A'</span>) <span class="operator">+</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(row <span class="operator">+</span> <span class="number">1</span>);
+ }
+
+ <span class="type">void</span> SpreadSheet<span class="operator">::</span>print()
+ {
+ <span class="preprocessor">#ifndef QT_NO_PRINTER</span>
+     <span class="type"><a href="qprinter.html">QPrinter</a></span> printer(<span class="type"><a href="qprinter.html">QPrinter</a></span><span class="operator">::</span>ScreenResolution);
+     <span class="type"><a href="qprintpreviewdialog.html">QPrintPreviewDialog</a></span> dlg(<span class="operator">&amp;</span>printer);
+     PrintView view;
+     view<span class="operator">.</span>setModel(table<span class="operator">-</span><span class="operator">&gt;</span>model());
+     connect(<span class="operator">&amp;</span>dlg<span class="operator">,</span> SIGNAL(paintRequested(<span class="type"><a href="qprinter.html">QPrinter</a></span><span class="operator">*</span>))<span class="operator">,</span>
+             <span class="operator">&amp;</span>view<span class="operator">,</span> SLOT(print(<span class="type"><a href="qprinter.html">QPrinter</a></span><span class="operator">*</span>)));
+     dlg<span class="operator">.</span>exec();
+ <span class="preprocessor">#endif</span>
+ }</pre>
+</div>
+<!-- @@@demos/spreadsheet/spreadsheet.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

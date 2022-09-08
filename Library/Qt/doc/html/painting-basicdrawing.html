@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- basicdrawing.qdoc -->
+  <title>Qt 4.8: Basic Drawing Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Basic Drawing Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#window-class-definition">Window Class Definition</a></li>
+<li class="level1"><a href="#window-class-implementation">Window Class Implementation</a></li>
+<li class="level1"><a href="#renderarea-class-definition">RenderArea Class Definition</a></li>
+<li class="level1"><a href="#renderarea-class-implementation">RenderArea Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Basic Drawing Example</h1>
+<span class="subtitle"></span>
+<!-- $$$painting/basicdrawing-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="painting-basicdrawing-renderarea-cpp.html">painting/basicdrawing/renderarea.cpp</a></li>
+<li><a href="painting-basicdrawing-renderarea-h.html">painting/basicdrawing/renderarea.h</a></li>
+<li><a href="painting-basicdrawing-window-cpp.html">painting/basicdrawing/window.cpp</a></li>
+<li><a href="painting-basicdrawing-window-h.html">painting/basicdrawing/window.h</a></li>
+<li><a href="painting-basicdrawing-main-cpp.html">painting/basicdrawing/main.cpp</a></li>
+<li><a href="painting-basicdrawing-basicdrawing-pro.html">painting/basicdrawing/basicdrawing.pro</a></li>
+<li><a href="painting-basicdrawing-basicdrawing-qrc.html">painting/basicdrawing/basicdrawing.qrc</a></li>
+</ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/painting/basicdrawing/images/brick.png">painting/basicdrawing/images/brick.png</a></li>
+<li><a href="images/used-in-examples/painting/basicdrawing/images/qt-logo.png">painting/basicdrawing/images/qt-logo.png</a></li>
+</ul>
+<p>The Basic Drawing example shows how to display basic graphics primitives in a variety of styles using the <a href="qpainter.html">QPainter</a> class.<p><a href="qpainter.html">QPainter</a> performs low-level painting on widgets and other paint devices. The class can draw everything from simple lines to complex shapes like pies and chords. It can also draw aligned text and pixmaps. Normally, it draws in a &quot;natural&quot; coordinate system, but it can in addition do view and world transformation.</p>
+<p class="centerAlign"><img src="images/basicdrawing-example.png" alt="" /></p><p>The example provides a render area, displaying the currently active shape, and lets the user manipulate the rendered shape and its appearance using the <a href="qpainter.html">QPainter</a> parameters: The user can change the active shape (<b>Shape</b>), and modify the <a href="qpainter.html">QPainter</a>'s pen (<b>Pen Width</b>, <b>Pen Style</b>, <b>Pen Cap</b>, <b>Pen Join</b>), brush (<b>Brush Style</b>) and render hints (<b>Antialiasing</b>). In addition the user can rotate a shape (<b>Transformations</b>); behind the scenes we use <a href="qpainter.html">QPainter</a>'s ability to manipulate the coordinate system to perform the rotation.</p>
+<p>The Basic Drawing example consists of two classes:</p>
+<ul>
+<li><tt>RenderArea</tt> is a custom widget that renders multiple copies of the currently active shape.</li>
+<li><tt>Window</tt> is the application's main window displaying a <tt>RenderArea</tt> widget in addition to several parameter widgets.</li>
+</ul>
+<p>First we will review the <tt>Window</tt> class, then we will take a look at the <tt>RenderArea</tt> class.</p>
+<a name="window-class-definition"></a>
+<h2>Window Class Definition</h2>
+<p>The Window class inherits <a href="qwidget.html">QWidget</a>, and is the application's main window displaying a <tt>RenderArea</tt> widget in addition to several parameter widgets.</p>
+<pre class="cpp"> <span class="keyword">class</span> Window : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Window();
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> shapeChanged();
+     <span class="type">void</span> penChanged();
+     <span class="type">void</span> brushChanged();
+
+ <span class="keyword">private</span>:
+     RenderArea <span class="operator">*</span>renderArea;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>shapeLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>penWidthLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>penStyleLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>penCapLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>penJoinLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>brushStyleLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>otherOptionsLabel;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>shapeComboBox;
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>penWidthSpinBox;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>penStyleComboBox;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>penCapComboBox;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>penJoinComboBox;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>brushStyleComboBox;
+     <span class="type"><a href="qcheckbox.html">QCheckBox</a></span> <span class="operator">*</span>antialiasingCheckBox;
+     <span class="type"><a href="qcheckbox.html">QCheckBox</a></span> <span class="operator">*</span>transformationsCheckBox;
+ };</pre>
+<p>We declare the various widgets, and three private slots updating the <tt>RenderArea</tt> widget: The <tt>shapeChanged()</tt> slot updates the <tt>RenderArea</tt> widget when the user changes the currently active shape. We call the <tt>penChanged()</tt> slot when either of the <a href="qpainter.html">QPainter</a>'s pen parameters changes. And the <tt>brushChanged()</tt> slot updates the <tt>RenderArea</tt> widget when the user changes the painter's brush style.</p>
+<a name="window-class-implementation"></a>
+<h2>Window Class Implementation</h2>
+<p>In the constructor we create and initialize the various widgets appearing in the main application window.</p>
+<pre class="cpp"> Window<span class="operator">::</span>Window()
+ {
+     renderArea <span class="operator">=</span> <span class="keyword">new</span> RenderArea;
+
+     shapeComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Polygon&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Polygon);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Rectangle&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Rect);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Rounded Rectangle&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>RoundedRect);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Ellipse&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Ellipse);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Pie&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Pie);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Chord&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Chord);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Path&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Path);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Line&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Line);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Polyline&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Polyline);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Arc&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Arc);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Points&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Points);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Text&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Text);
+     shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Pixmap&quot;</span>)<span class="operator">,</span> RenderArea<span class="operator">::</span>Pixmap);
+
+     shapeLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;&amp;Shape:&quot;</span>));
+     shapeLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(shapeComboBox);</pre>
+<p>First we create the <tt>RenderArea</tt> widget that will render the currently active shape. Then we create the <b>Shape</b> combobox, and add the associated items (i.e&#x2e; the different shapes a <a href="qpainter.html">QPainter</a> can draw).</p>
+<pre class="cpp">     penWidthSpinBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qspinbox.html">QSpinBox</a></span>;
+     penWidthSpinBox<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> <span class="number">20</span>);
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+     penWidthSpinBox<span class="operator">-</span><span class="operator">&gt;</span>setSpecialValueText(tr(<span class="string">&quot;0&quot;</span>));
+ <span class="preprocessor">#else</span>
+     penWidthSpinBox<span class="operator">-</span><span class="operator">&gt;</span>setSpecialValueText(tr(<span class="string">&quot;0 (cosmetic pen)&quot;</span>));
+ <span class="preprocessor">#endif</span>
+
+     penWidthLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Pen &amp;Width:&quot;</span>));
+     penWidthLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(penWidthSpinBox);</pre>
+<p><a href="qpainter.html">QPainter</a>'s pen is a <a href="qpen.html">QPen</a> object; the <a href="qpen.html">QPen</a> class defines how a painter should draw lines and outlines of shapes. A pen has several properties: Width, style, cap and join.</p>
+<p>A pen's width can be <i>zero</i> or greater, but the most common width is zero. Note that this doesn't mean 0 pixels, but implies that the shape is drawn as smoothly as possible although perhaps not mathematically correct.</p>
+<p>We create a <a href="qspinbox.html">QSpinBox</a> for the <b>Pen Width</b> parameter.</p>
+<pre class="cpp">     penStyleComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Solid&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SolidLine);
+     penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dash&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DashLine);
+     penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dot&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DotLine);
+     penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dash Dot&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DashDotLine);
+     penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dash Dot Dot&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DashDotDotLine);
+     penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;None&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+
+     penStyleLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;&amp;Pen Style:&quot;</span>));
+     penStyleLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(penStyleComboBox);
+
+     penCapComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     penCapComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Flat&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>FlatCap);
+     penCapComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Square&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SquareCap);
+     penCapComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Round&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundCap);
+
+     penCapLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Pen &amp;Cap:&quot;</span>));
+     penCapLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(penCapComboBox);
+
+     penJoinComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     penJoinComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Miter&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MiterJoin);
+     penJoinComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Bevel&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BevelJoin);
+     penJoinComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Round&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundJoin);
+
+     penJoinLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Pen &amp;Join:&quot;</span>));
+     penJoinLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(penJoinComboBox);</pre>
+<p>The pen style defines the line type. The default style is solid (<a href="qt.html#PenStyle-enum">Qt::SolidLine</a>). Setting the style to none (<a href="qt.html#PenStyle-enum">Qt::NoPen</a>) tells the painter to not draw lines or outlines. The pen cap defines how the end points of lines are drawn. And the pen join defines how two lines join when multiple connected lines are drawn. The cap and join only apply to lines with a width of 1 pixel or greater.</p>
+<p>We create <a href="qcombobox.html">QComboBox</a>es for each of the <b>Pen Style</b>, <b>Pen Cap</b> and <b>Pen Join</b> parameters, and adds the associated items (i.e the values of the <a href="qt.html#PenStyle-enum">Qt::PenStyle</a>, <a href="qt.html#PenCapStyle-enum">Qt::PenCapStyle</a> and <a href="qt.html#PenJoinStyle-enum">Qt::PenJoinStyle</a> enums respectively).</p>
+<pre class="cpp">     brushStyleComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Linear Gradient&quot;</span>)<span class="operator">,</span>
+             <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LinearGradientPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Radial Gradient&quot;</span>)<span class="operator">,</span>
+             <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RadialGradientPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Conical Gradient&quot;</span>)<span class="operator">,</span>
+             <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ConicalGradientPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Texture&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TexturePattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Solid&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SolidPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Horizontal&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>HorPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Vertical&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>VerPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Cross&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CrossPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Backward Diagonal&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BDiagPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Forward Diagonal&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>FDiagPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Diagonal Cross&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DiagCrossPattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dense 1&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense1Pattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dense 2&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense2Pattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dense 3&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense3Pattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dense 4&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense4Pattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dense 5&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense5Pattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dense 6&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense6Pattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Dense 7&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Dense7Pattern);
+     brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;None&quot;</span>)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoBrush);
+
+     brushStyleLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;&amp;Brush:&quot;</span>));
+     brushStyleLabel<span class="operator">-</span><span class="operator">&gt;</span>setBuddy(brushStyleComboBox);</pre>
+<p>The <a href="qbrush.html">QBrush</a> class defines the fill pattern of shapes drawn by a <a href="qpainter.html">QPainter</a>. The default brush style is <a href="qt.html#BrushStyle-enum">Qt::NoBrush</a>. This style tells the painter to not fill shapes. The standard style for filling is <a href="qt.html#BrushStyle-enum">Qt::SolidPattern</a>.</p>
+<p>We create a <a href="qcombobox.html">QComboBox</a> for the <b>Brush Style</b> parameter, and add the associated items (i.e&#x2e; the values of the <a href="qt.html#BrushStyle-enum">Qt::BrushStyle</a> enum).</p>
+<pre class="cpp">     otherOptionsLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Options:&quot;</span>));
+     antialiasingCheckBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span>(tr(<span class="string">&quot;&amp;Antialiasing&quot;</span>));</pre>
+<p>Antialiasing is a feature that &quot;smoothes&quot; the pixels to create more even and less jagged lines, and can be applied using <a href="qpainter.html">QPainter</a>'s render hints. <a href="qpainter.html#RenderHint-enum">QPainter::RenderHints</a> are used to specify flags to <a href="qpainter.html">QPainter</a> that may or may not be respected by any given engine.</p>
+<p>We simply create a <a href="qcheckbox.html">QCheckBox</a> for the <b>Antialiasing</b> option.</p>
+<pre class="cpp">     transformationsCheckBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span>(tr(<span class="string">&quot;&amp;Transformations&quot;</span>));</pre>
+<p>The <b>Transformations</b> option implies a manipulation of the coordinate system that will appear as if the rendered shape is rotated in three dimensions.</p>
+<p>We use the <a href="qpainter.html#translate">QPainter::translate</a>(), <a href="qpainter.html#rotate">QPainter::rotate</a>() and <a href="qpainter.html#scale">QPainter::scale</a>() functions to implement this feature represented in the main application window by a simple <a href="qcheckbox.html">QCheckBox</a>.</p>
+<pre class="cpp">     connect(shapeComboBox<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(shapeChanged()));
+     connect(penWidthSpinBox<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(penChanged()));
+     connect(penStyleComboBox<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(penChanged()));
+     connect(penCapComboBox<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(penChanged()));
+     connect(penJoinComboBox<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(penChanged()));
+     connect(brushStyleComboBox<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(brushChanged()));
+     connect(antialiasingCheckBox<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span>
+             renderArea<span class="operator">,</span> SLOT(setAntialiased(<span class="type">bool</span>)));
+     connect(transformationsCheckBox<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span>
+             renderArea<span class="operator">,</span> SLOT(setTransformed(<span class="type">bool</span>)));</pre>
+<p>Then we connect the parameter widgets with their associated slots using the static <a href="qobject.html#connect">QObject::connect</a>() function, ensuring that the <tt>RenderArea</tt> widget is updated whenever the user changes the shape, or any of the other parameters.</p>
+<pre class="cpp">     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>setSizeConstraint(<span class="type"><a href="qlayout.html">QLayout</a></span><span class="operator">::</span>SetNoConstraint);
+ <span class="preprocessor">#endif</span>
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>setColumnStretch(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>setColumnStretch(<span class="number">3</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(renderArea<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">4</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(shapeLabel<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(shapeComboBox<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penWidthLabel<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penWidthSpinBox<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penStyleLabel<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penStyleComboBox<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penCapLabel<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penCapComboBox<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">3</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penJoinLabel<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(penJoinComboBox<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(brushStyleLabel<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(brushStyleComboBox<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">3</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(otherOptionsLabel<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(antialiasingCheckBox<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(transformationsCheckBox<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     setLayout(mainLayout);
+
+     shapeChanged();
+     penChanged();
+     brushChanged();
+     antialiasingCheckBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+
+     setWindowTitle(tr(<span class="string">&quot;Basic Drawing&quot;</span>));
+ }</pre>
+<p>Finally, we add the various widgets to a layout, and call the <tt>shapeChanged()</tt>, <tt>penChanged()</tt>, and <tt>brushChanged()</tt> slots to initialize the application. We also turn on antialiasing.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>shapeChanged()
+ {
+     RenderArea<span class="operator">::</span>Shape shape <span class="operator">=</span> RenderArea<span class="operator">::</span>Shape(shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(
+             shapeComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()<span class="operator">,</span> IdRole)<span class="operator">.</span>toInt());
+     renderArea<span class="operator">-</span><span class="operator">&gt;</span>setShape(shape);
+ }</pre>
+<p>The <tt>shapeChanged()</tt> slot is called whenever the user changes the currently active shape.</p>
+<p>First we retrieve the shape the user has chosen using the <a href="qcombobox.html#itemData">QComboBox::itemData</a>() function. This function returns the data for the given role in the given index in the combobox. We use <a href="qcombobox.html#currentIndex-prop">QComboBox::currentIndex</a>() to retrieve the index of the shape, and the role is defined by the <a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a> enum; <tt>IdRole</tt> is an alias for <a href="qt.html#ItemDataRole-enum">Qt::UserRole</a>.</p>
+<p>Note that <a href="qt.html#ItemDataRole-enum">Qt::UserRole</a> is only the first role that can be used for application-specific purposes. If you need to store different data in the same index, you can use different roles by simply incrementing the value of <a href="qt.html#ItemDataRole-enum">Qt::UserRole</a>, for example: '<a href="qt.html#ItemDataRole-enum">Qt::UserRole</a> + 1' and '<a href="qt.html#ItemDataRole-enum">Qt::UserRole</a> + 2'. However, it is a good programming practice to give each role their own name: 'myFirstRole = <a href="qt.html#ItemDataRole-enum">Qt::UserRole</a> + 1' and 'mySecondRole = <a href="qt.html#ItemDataRole-enum">Qt::UserRole</a> + 2'. Even though we only need a single role in this particular example, we add the following line of code to the beginning of the <tt>window.cpp</tt> file.</p>
+<pre class="cpp"> <span class="keyword">const</span> <span class="type">int</span> IdRole <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>UserRole;</pre>
+<p>The <a href="qcombobox.html#itemData">QComboBox::itemData</a>() function returns the data as a <a href="qvariant.html">QVariant</a>, so we need to cast the data to <tt>RenderArea::Shape</tt>. If there is no data for the given role, the function returns <a href="qvariant.html#Type-enum">QVariant::Invalid</a>.</p>
+<p>In the end we call the <tt>RenderArea::setShape()</tt> slot to update the <tt>RenderArea</tt> widget.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>penChanged()
+ {
+     <span class="type">int</span> width <span class="operator">=</span> penWidthSpinBox<span class="operator">-</span><span class="operator">&gt;</span>value();
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenStyle style <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenStyle(penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(
+             penStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()<span class="operator">,</span> IdRole)<span class="operator">.</span>toInt());
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenCapStyle cap <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenCapStyle(penCapComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(
+             penCapComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()<span class="operator">,</span> IdRole)<span class="operator">.</span>toInt());
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenJoinStyle join <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenJoinStyle(penJoinComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(
+             penJoinComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()<span class="operator">,</span> IdRole)<span class="operator">.</span>toInt());
+
+     renderArea<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue<span class="operator">,</span> width<span class="operator">,</span> style<span class="operator">,</span> cap<span class="operator">,</span> join));
+ }</pre>
+<p>We call the <tt>penChanged()</tt> slot whenever the user changes any of the pen parameters. Again we use the <a href="qcombobox.html#itemData">QComboBox::itemData</a>() function to retrieve the parameters, and then we call the <tt>RenderArea::setPen()</tt> slot to update the <tt>RenderArea</tt> widget.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>brushChanged()
+ {
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BrushStyle style <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BrushStyle(brushStyleComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(</pre>
+<p>The brushChanged() slot is called whenever the user changes the brush parameter which we retrieve using the <a href="qcombobox.html#itemData">QComboBox::itemData</a>() function as before.</p>
+<pre class="cpp">     <span class="keyword">if</span> (style <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LinearGradientPattern) {
+         <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span> linearGradient(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);
+         linearGradient<span class="operator">.</span>setColorAt(<span class="number">0.0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+         linearGradient<span class="operator">.</span>setColorAt(<span class="number">0.2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green);
+         linearGradient<span class="operator">.</span>setColorAt(<span class="number">1.0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+         renderArea<span class="operator">-</span><span class="operator">&gt;</span>setBrush(linearGradient);</pre>
+<p>If the brush parameter is a gradient fill, special actions are required.</p>
+<p>The <a href="qgradient.html">QGradient</a> class is used in combination with <a href="qbrush.html">QBrush</a> to specify gradient fills. Qt currently supports three types of gradient fills: linear, radial and conical. Each of these is represented by a subclass of <a href="qgradient.html">QGradient</a>: <a href="qlineargradient.html">QLinearGradient</a>, <a href="qradialgradient.html">QRadialGradient</a> and <a href="qconicalgradient.html">QConicalGradient</a>.</p>
+<p>So if the brush style is <a href="qt.html#BrushStyle-enum">Qt::LinearGradientPattern</a>, we first create a <a href="qlineargradient.html">QLinearGradient</a> object with interpolation area between the coordinates passed as arguments to the constructor. The positions are specified using logical coordinates. Then we set the gradient's colors using the <a href="qgradient.html#setColorAt">QGradient::setColorAt</a>() function. The colors is defined using stop points which are composed by a position (between 0 and 1) and a <a href="qcolor.html">QColor</a>. The set of stop points describes how the gradient area should be filled. A gradient can have an arbitrary number of stop points.</p>
+<p>In the end we call <tt>RenderArea::setBrush()</tt> slot to update the <tt>RenderArea</tt> widget's brush with the <a href="qlineargradient.html">QLinearGradient</a> object.</p>
+<pre class="cpp">     } <span class="keyword">else</span> <span class="keyword">if</span> (style <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RadialGradientPattern) {
+         <span class="type"><a href="qradialgradient.html">QRadialGradient</a></span> radialGradient(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">70</span><span class="operator">,</span> <span class="number">70</span>);
+         radialGradient<span class="operator">.</span>setColorAt(<span class="number">0.0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+         radialGradient<span class="operator">.</span>setColorAt(<span class="number">0.2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green);
+         radialGradient<span class="operator">.</span>setColorAt(<span class="number">1.0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+         renderArea<span class="operator">-</span><span class="operator">&gt;</span>setBrush(radialGradient);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (style <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ConicalGradientPattern) {
+         <span class="type"><a href="qconicalgradient.html">QConicalGradient</a></span> conicalGradient(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">150</span>);
+         conicalGradient<span class="operator">.</span>setColorAt(<span class="number">0.0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+         conicalGradient<span class="operator">.</span>setColorAt(<span class="number">0.2</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green);
+         conicalGradient<span class="operator">.</span>setColorAt(<span class="number">1.0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+         renderArea<span class="operator">-</span><span class="operator">&gt;</span>setBrush(conicalGradient);</pre>
+<p>A similar pattern of actions, as the one used for <a href="qlineargradient.html">QLinearGradient</a>, is used in the cases of <a href="qt.html#BrushStyle-enum">Qt::RadialGradientPattern</a> and <a href="qt.html#BrushStyle-enum">Qt::ConicalGradientPattern</a>.</p>
+<p>The only difference is the arguments passed to the constructor: Regarding the <a href="qradialgradient.html">QRadialGradient</a> constructor the first argument is the center, and the second the radial gradient's radius. The third argument is optional, but can be used to define the focal point of the gradient inside the circle (the default focal point is the circle center). Regarding the <a href="qconicalgradient.html">QConicalGradient</a> constructor, the first argument specifies the center of the conical, and the second specifies the start angle of the interpolation.</p>
+<pre class="cpp">     } <span class="keyword">else</span> <span class="keyword">if</span> (style <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TexturePattern) {
+         renderArea<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qbrush.html">QBrush</a></span>(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/images/brick.png&quot;</span>)));</pre>
+<p>If the brush style is <a href="qt.html#BrushStyle-enum">Qt::TexturePattern</a> we create a <a href="qbrush.html">QBrush</a> from a <a href="qpixmap.html">QPixmap</a>. Then we call <tt>RenderArea::setBrush()</tt> slot to update the <tt>RenderArea</tt> widget with the newly created brush.</p>
+<pre class="cpp">     } <span class="keyword">else</span> {
+         renderArea<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qbrush.html">QBrush</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green<span class="operator">,</span> style));
+     }
+ }</pre>
+<p>Otherwise we simply create a brush with the given style and a green color, and then call <tt>RenderArea::setBrush()</tt> slot to update the <tt>RenderArea</tt> widget with the newly created brush.</p>
+<a name="renderarea-class-definition"></a>
+<h2>RenderArea Class Definition</h2>
+<p>The <tt>RenderArea</tt> class inherits <a href="qwidget.html">QWidget</a>, and renders multiple copies of the currently active shape using a <a href="qpainter.html">QPainter</a>.</p>
+<pre class="cpp"> <span class="keyword">class</span> RenderArea : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> Shape { Line<span class="operator">,</span> Points<span class="operator">,</span> Polyline<span class="operator">,</span> Polygon<span class="operator">,</span> Rect<span class="operator">,</span> RoundedRect<span class="operator">,</span> Ellipse<span class="operator">,</span> Arc<span class="operator">,</span>
+                  Chord<span class="operator">,</span> Pie<span class="operator">,</span> Path<span class="operator">,</span> Text<span class="operator">,</span> Pixmap };
+
+     RenderArea(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qsize.html">QSize</a></span> minimumSizeHint() <span class="keyword">const</span>;
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setShape(Shape shape);
+     <span class="type">void</span> setPen(<span class="keyword">const</span> <span class="type"><a href="qpen.html">QPen</a></span> <span class="operator">&amp;</span>pen);
+     <span class="type">void</span> setBrush(<span class="keyword">const</span> <span class="type"><a href="qbrush.html">QBrush</a></span> <span class="operator">&amp;</span>brush);
+     <span class="type">void</span> setAntialiased(<span class="type">bool</span> antialiased);
+     <span class="type">void</span> setTransformed(<span class="type">bool</span> transformed);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     Shape shape;
+     <span class="type"><a href="qpen.html">QPen</a></span> pen;
+     <span class="type"><a href="qbrush.html">QBrush</a></span> brush;
+     <span class="type">bool</span> antialiased;
+     <span class="type">bool</span> transformed;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap;
+ };</pre>
+<p>First we define a public <tt>Shape</tt> enum to hold the different shapes that can be rendered by the widget (i.e the shapes that can be rendered by a <a href="qpainter.html">QPainter</a>). Then we reimplement the constructor as well as two of <a href="qwidget.html">QWidget</a>'s public functions: <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> and <a href="qwidget.html#sizeHint-prop">sizeHint()</a>.</p>
+<p>We also reimplement the <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() function to be able to draw the currently active shape according to the specified parameters.</p>
+<p>We declare several private slots: The <tt>setShape()</tt> slot changes the <tt>RenderArea</tt>'s shape, the <tt>setPen()</tt> and <tt>setBrush()</tt> slots modify the widget's pen and brush, and the <tt>setAntialiased()</tt> and <tt>setTransformed()</tt> slots modify the widget's respective properties.</p>
+<a name="renderarea-class-implementation"></a>
+<h2>RenderArea Class Implementation</h2>
+<p>In the constructor we initialize some of the widget's variables.</p>
+<pre class="cpp"> RenderArea<span class="operator">::</span>RenderArea(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     shape <span class="operator">=</span> Polygon;
+     antialiased <span class="operator">=</span> <span class="keyword">false</span>;
+     transformed <span class="operator">=</span> <span class="keyword">false</span>;
+     pixmap<span class="operator">.</span>load(<span class="string">&quot;:/images/qt-logo.png&quot;</span>);
+
+     setBackgroundRole(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Base);
+     setAutoFillBackground(<span class="keyword">true</span>);
+ }</pre>
+<p>We set its shape to be a <b>Polygon</b>, its antialiased property to be false and we load an image into the widget's pixmap variable. In the end we set the widget's background role, defining the brush from the widget's <a href="qwidget.html#palette-prop">palette</a> that will be used to render the background. <a href="qpalette.html#ColorRole-enum">QPalette::Base</a> is typically white.</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> RenderArea<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">400</span><span class="operator">,</span> <span class="number">200</span>);
+ }</pre>
+<p>The <tt>RenderArea</tt> inherits <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#sizeHint-prop">sizeHint</a> property holding the recommended size for the widget. If the value of this property is an invalid size, no size is recommended.</p>
+<p>The default implementation of the <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() function returns an invalid size if there is no layout for the widget, and returns the layout's preferred size otherwise.</p>
+<p>Our reimplementation of the function returns a <a href="qsize.html">QSize</a> with a 400 pixels width and a 200 pixels height.</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> RenderArea<span class="operator">::</span>minimumSizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);
+ }</pre>
+<p><tt>RenderArea</tt> also inherits <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint</a> property holding the recommended minimum size for the widget. Again, if the value of this property is an invalid size, no size is recommended.</p>
+<p>The default implementation of <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>() returns an invalid size if there is no layout for the widget, and returns the layout's minimum size otherwise.</p>
+<p>Our reimplementation of the function returns a <a href="qsize.html">QSize</a> with a 100 pixels width and a 100 pixels height.</p>
+<pre class="cpp"> <span class="type">void</span> RenderArea<span class="operator">::</span>setShape(Shape shape)
+ {
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>shape <span class="operator">=</span> shape;
+     update();
+ }
+
+ <span class="type">void</span> RenderArea<span class="operator">::</span>setPen(<span class="keyword">const</span> <span class="type"><a href="qpen.html">QPen</a></span> <span class="operator">&amp;</span>pen)
+ {
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>pen <span class="operator">=</span> pen;
+     update();
+ }
+
+ <span class="type">void</span> RenderArea<span class="operator">::</span>setBrush(<span class="keyword">const</span> <span class="type"><a href="qbrush.html">QBrush</a></span> <span class="operator">&amp;</span>brush)
+ {
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>brush <span class="operator">=</span> brush;
+     update();
+ }</pre>
+<p>The public <tt>setShape()</tt>, <tt>setPen()</tt> and <tt>setBrush()</tt> slots are called whenever we want to modify a <tt>RenderArea</tt> widget's shape, pen or brush. We set the shape, pen or brush according to the slot parameter, and call <a href="qwidget.html#update">QWidget::update</a>() to make the changes visible in the <tt>RenderArea</tt> widget.</p>
+<p>The <a href="qwidget.html#update">QWidget::update</a>() slot does not cause an immediate repaint; instead it schedules a paint event for processing when Qt returns to the main event loop.</p>
+<pre class="cpp"> <span class="type">void</span> RenderArea<span class="operator">::</span>setAntialiased(<span class="type">bool</span> antialiased)
+ {
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>antialiased <span class="operator">=</span> antialiased;
+     update();
+ }
+
+ <span class="type">void</span> RenderArea<span class="operator">::</span>setTransformed(<span class="type">bool</span> transformed)
+ {
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>transformed <span class="operator">=</span> transformed;
+     update();
+ }</pre>
+<p>With the <tt>setAntialiased()</tt> and <tt>setTransformed()</tt> slots we change the state of the properties according to the slot parameter, and call the <a href="qwidget.html#update">QWidget::update</a>() slot to make the changes visible in the <tt>RenderArea</tt> widget.</p>
+<pre class="cpp"> <span class="type">void</span> RenderArea<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span> <span class="comment">/* event */</span>)
+ {
+     <span class="keyword">static</span> <span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> points<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> {
+         <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">10</span><span class="operator">,</span> <span class="number">80</span>)<span class="operator">,</span>
+         <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">20</span><span class="operator">,</span> <span class="number">10</span>)<span class="operator">,</span>
+         <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">80</span><span class="operator">,</span> <span class="number">30</span>)<span class="operator">,</span>
+         <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">90</span><span class="operator">,</span> <span class="number">70</span>)
+     };
+
+     <span class="type"><a href="qrect.html">QRect</a></span> rect(<span class="number">10</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">80</span><span class="operator">,</span> <span class="number">60</span>);
+
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+     path<span class="operator">.</span>moveTo(<span class="number">20</span><span class="operator">,</span> <span class="number">80</span>);
+     path<span class="operator">.</span>lineTo(<span class="number">20</span><span class="operator">,</span> <span class="number">30</span>);
+     path<span class="operator">.</span>cubicTo(<span class="number">80</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">80</span><span class="operator">,</span> <span class="number">80</span>);
+
+     <span class="type">int</span> startAngle <span class="operator">=</span> <span class="number">20</span> <span class="operator">*</span> <span class="number">16</span>;
+     <span class="type">int</span> arcLength <span class="operator">=</span> <span class="number">120</span> <span class="operator">*</span> <span class="number">16</span>;</pre>
+<p>Then we reimplement the <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() function. The first thing we do is to create the graphical objects we will need to draw the various shapes.</p>
+<p>We create a vector of four <a href="qpoint.html">QPoint</a>s. We use this vector to render the <b>Points</b>, <b>Polyline</b> and <b>Polygon</b> shapes. Then we create a <a href="qrect.html">QRect</a>, defining a rectangle in the plane, which we use as the bounding rectangle for all the shapes excluding the <b>Path</b> and the <b>Pixmap</b>.</p>
+<p>We also create a <a href="qpainterpath.html">QPainterPath</a>. The <a href="qpainterpath.html">QPainterPath</a> class provides a container for painting operations, enabling graphical shapes to be constructed and reused. A painter path is an object composed of a number of graphical building blocks, such as rectangles, ellipses, lines, and curves. For more information about the <a href="qpainterpath.html">QPainterPath</a> class, see the <a href="painting-painterpaths.html">Painter Paths</a> example. In this example, we create a painter path composed of one straight line and a Bezier curve.</p>
+<p>In addition we define a start angle and an arc length that we will use when drawing the <b>Arc</b>, <b>Chord</b> and <b>Pie</b> shapes.</p>
+<pre class="cpp">     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>setPen(pen);
+     painter<span class="operator">.</span>setBrush(brush);
+     <span class="keyword">if</span> (antialiased)
+         painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">true</span>);</pre>
+<p>We create a <a href="qpainter.html">QPainter</a> for the <tt>RenderArea</tt> widget, and set the painters pen and brush according to the <tt>RenderArea</tt>'s pen and brush. If the <b>Antialiasing</b> parameter option is checked, we also set the painter's render hints. <a href="qpainter.html#RenderHint-enum">QPainter::Antialiasing</a> indicates that the engine should antialias edges of primitives if possible.</p>
+<pre class="cpp">     <span class="keyword">for</span> (<span class="type">int</span> x <span class="operator">=</span> <span class="number">0</span>; x <span class="operator">&lt;</span> width(); x <span class="operator">+</span><span class="operator">=</span> <span class="number">100</span>) {
+         <span class="keyword">for</span> (<span class="type">int</span> y <span class="operator">=</span> <span class="number">0</span>; y <span class="operator">&lt;</span> height(); y <span class="operator">+</span><span class="operator">=</span> <span class="number">100</span>) {
+             painter<span class="operator">.</span>save();
+             painter<span class="operator">.</span>translate(x<span class="operator">,</span> y);</pre>
+<p>Finally, we render the multiple copies of the <tt>RenderArea</tt>'s shape. The number of copies is depending on the size of the <tt>RenderArea</tt> widget, and we calculate their positions using two <tt>for</tt> loops and the widgets height and width.</p>
+<p>For each copy we first save the current painter state (pushes the state onto a stack). Then we translate the coordinate system, using the <a href="qpainter.html#translate">QPainter::translate</a>() function, to the position determined by the variables of the <tt>for</tt> loops. If we omit this translation of the coordinate system all the copies of the shape will be rendered on top of each other in the top left cormer of the <tt>RenderArea</tt> widget.</p>
+<pre class="cpp">             <span class="keyword">if</span> (transformed) {
+                 painter<span class="operator">.</span>translate(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span>);
+                 painter<span class="operator">.</span>rotate(<span class="number">60.0</span>);
+                 painter<span class="operator">.</span>scale(<span class="number">0.6</span><span class="operator">,</span> <span class="number">0.9</span>);
+                 painter<span class="operator">.</span>translate(<span class="operator">-</span><span class="number">50</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span>);
+             }</pre>
+<p>If the <b>Transformations</b> parameter option is checked, we do an additional translation of the coordinate system before we rotate the coordinate system 60 degrees clockwise using the <a href="qpainter.html#rotate">QPainter::rotate</a>() function and scale it down in size using the <a href="qpainter.html#scale">QPainter::scale</a>() function. In the end we translate the coordinate system back to where it was before we rotated and scaled it.</p>
+<p>Now, when rendering the shape, it will appear as if it was rotated in three dimensions.</p>
+<pre class="cpp">             <span class="keyword">switch</span> (shape) {
+             <span class="keyword">case</span> Line:
+                 painter<span class="operator">.</span>drawLine(rect<span class="operator">.</span>bottomLeft()<span class="operator">,</span> rect<span class="operator">.</span>topRight());
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Points:
+                 painter<span class="operator">.</span>drawPoints(points<span class="operator">,</span> <span class="number">4</span>);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Polyline:
+                 painter<span class="operator">.</span>drawPolyline(points<span class="operator">,</span> <span class="number">4</span>);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Polygon:
+                 painter<span class="operator">.</span>drawPolygon(points<span class="operator">,</span> <span class="number">4</span>);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Rect:
+                 painter<span class="operator">.</span>drawRect(rect);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> RoundedRect:
+                 painter<span class="operator">.</span>drawRoundedRect(rect<span class="operator">,</span> <span class="number">25</span><span class="operator">,</span> <span class="number">25</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RelativeSize);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Ellipse:
+                 painter<span class="operator">.</span>drawEllipse(rect);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Arc:
+                 painter<span class="operator">.</span>drawArc(rect<span class="operator">,</span> startAngle<span class="operator">,</span> arcLength);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Chord:
+                 painter<span class="operator">.</span>drawChord(rect<span class="operator">,</span> startAngle<span class="operator">,</span> arcLength);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Pie:
+                 painter<span class="operator">.</span>drawPie(rect<span class="operator">,</span> startAngle<span class="operator">,</span> arcLength);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Path:
+                 painter<span class="operator">.</span>drawPath(path);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Text:
+                 painter<span class="operator">.</span>drawText(rect<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter<span class="operator">,</span> tr(<span class="string">&quot;Qt by\nNokia&quot;</span>));
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Pixmap:
+                 painter<span class="operator">.</span>drawPixmap(<span class="number">10</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> pixmap);
+             }</pre>
+<p>Next, we identify the <tt>RenderArea</tt>'s shape, and render it using the associated <a href="qpainter.html">QPainter</a> drawing function:</p>
+<ul>
+<li><a href="qpainter.html#drawLine">QPainter::drawLine</a>(),</li>
+<li><a href="qpainter.html#drawPoints">QPainter::drawPoints</a>(),</li>
+<li><a href="qpainter.html#drawPolyline">QPainter::drawPolyline</a>(),</li>
+<li><a href="qpainter.html#drawPolygon">QPainter::drawPolygon</a>(),</li>
+<li><a href="qpainter.html#drawRect">QPainter::drawRect</a>(),</li>
+<li><a href="qpainter.html#drawRoundedRect">QPainter::drawRoundedRect</a>(),</li>
+<li><a href="qpainter.html#drawEllipse">QPainter::drawEllipse</a>(),</li>
+<li><a href="qpainter.html#drawArc">QPainter::drawArc</a>(),</li>
+<li><a href="qpainter.html#drawChord">QPainter::drawChord</a>(),</li>
+<li><a href="qpainter.html#drawPie">QPainter::drawPie</a>(),</li>
+<li><a href="qpainter.html#drawPath">QPainter::drawPath</a>(),</li>
+<li><a href="qpainter.html#drawText">QPainter::drawText</a>() or</li>
+<li><a href="qpainter.html#drawPixmap">QPainter::drawPixmap</a>()</li>
+</ul>
+<p>Before we started rendering, we saved the current painter state (pushes the state onto a stack). The rationale for this is that we calculate each shape copy's position relative to the same point in the coordinate system. When translating the coordinate system, we lose the knowledge of this point unless we save the current painter state <i>before</i> we start the translating process.</p>
+<pre class="cpp">             painter<span class="operator">.</span>restore();
+         }
+     }
+
+     painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">false</span>);
+     painter<span class="operator">.</span>setPen(palette()<span class="operator">.</span>dark()<span class="operator">.</span>color());
+     painter<span class="operator">.</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoBrush);
+     painter<span class="operator">.</span>drawRect(<span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> height() <span class="operator">-</span> <span class="number">1</span>));
+ }</pre>
+<p>Then, when we are finished rendering a copy of the shape we can restore the original painter state, with its associated coordinate system, using the <a href="qpainter.html#restore">QPainter::restore</a>() function. In this way we ensure that the next shape copy will be rendered in the correct position.</p>
+<p>We could translate the coordinate system back using <a href="qpainter.html#translate">QPainter::translate</a>() instead of saving the painter state. But since we in addition to translating the coordinate system (when the <b>Transformation</b> parameter option is checked) both rotate and scale the coordinate system, the easiest solution is to save the current painter state.</p>
+</div>
+<!-- @@@painting/basicdrawing -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

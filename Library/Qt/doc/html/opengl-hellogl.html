@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- hellogl.qdoc -->
+  <title>Qt 4.8: Hello GL Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Hello GL Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#glwidget-class-definition">GLWidget Class Definition</a></li>
+<li class="level1"><a href="#glwidget-class-implementation">GLWidget Class Implementation</a></li>
+<li class="level2"><a href="#widget-construction-and-sizing">Widget Construction and Sizing</a></li>
+<li class="level2"><a href="#opengl-initialization">OpenGL Initialization</a></li>
+<li class="level2"><a href="#resizing-the-viewport">Resizing the Viewport</a></li>
+<li class="level2"><a href="#painting-the-scene">Painting the Scene</a></li>
+<li class="level2"><a href="#mouse-handling">Mouse Handling</a></li>
+<li class="level1"><a href="#qtlogo-class">QtLogo Class</a></li>
+<li class="level1"><a href="#window-class-definition">Window Class Definition</a></li>
+<li class="level1"><a href="#window-class-implementation">Window Class Implementation</a></li>
+<li class="level1"><a href="#summary">Summary</a></li>
+</ul>
+</div>
+<h1 class="title">Hello GL Example</h1>
+<span class="subtitle"></span>
+<!-- $$$opengl/hellogl-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="opengl-hellogl-glwidget-cpp.html">opengl/hellogl/glwidget.cpp</a></li>
+<li><a href="opengl-hellogl-glwidget-h.html">opengl/hellogl/glwidget.h</a></li>
+<li><a href="opengl-hellogl-window-cpp.html">opengl/hellogl/window.cpp</a></li>
+<li><a href="opengl-hellogl-window-h.html">opengl/hellogl/window.h</a></li>
+<li><a href="opengl-hellogl-main-cpp.html">opengl/hellogl/main.cpp</a></li>
+<li><a href="opengl-hellogl-hellogl-pro.html">opengl/hellogl/hellogl.pro</a></li>
+</ul>
+<p>The Hello GL example demonstrates the basic use of the OpenGL-related classes provided with Qt.<p class="centerAlign"><img src="images/hellogl-example.png" alt="" /></p><p>Qt provides the <a href="qglwidget.html">QGLWidget</a> class to enable OpenGL graphics to be rendered within a standard application user interface. By subclassing this class, and providing reimplementations of event handler functions, 3D scenes can be displayed on widgets that can be placed in layouts, connected to other objects using signals and slots, and manipulated like any other widget.</p>
+<a name="glwidget-class-definition"></a>
+<h2>GLWidget Class Definition</h2>
+<p>The <tt>GLWidget</tt> class contains some standard public definitions for the constructor, destructor, <a href="qwidget.html#sizeHint-prop">sizeHint()</a>, and <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> functions:</p>
+<pre class="cpp"> <span class="keyword">class</span> GLWidget : <span class="keyword">public</span> <span class="type"><a href="qglwidget.html">QGLWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     GLWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="operator">~</span>GLWidget();
+
+     <span class="type"><a href="qsize.html">QSize</a></span> minimumSizeHint() <span class="keyword">const</span>;
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;</pre>
+<p>We use a destructor to ensure that any OpenGL-specific data structures are deleted when the widget is no longer needed (although in this case nothing needs cleaning up).</p>
+<pre class="cpp"> <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setXRotation(<span class="type">int</span> angle);
+     <span class="type">void</span> setYRotation(<span class="type">int</span> angle);
+     <span class="type">void</span> setZRotation(<span class="type">int</span> angle);
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> xRotationChanged(<span class="type">int</span> angle);
+     <span class="type">void</span> yRotationChanged(<span class="type">int</span> angle);
+     <span class="type">void</span> zRotationChanged(<span class="type">int</span> angle);</pre>
+<p>The signals and slots are used to allow other objects to interact with the 3D scene.</p>
+<pre class="cpp"> <span class="keyword">protected</span>:
+     <span class="type">void</span> initializeGL();
+     <span class="type">void</span> paintGL();
+     <span class="type">void</span> resizeGL(<span class="type">int</span> width<span class="operator">,</span> <span class="type">int</span> height);
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);</pre>
+<p>OpenGL initialization, viewport resizing, and painting are handled by reimplementing the <a href="qglwidget.html#initializeGL">QGLWidget::initializeGL</a>(), <a href="qglwidget.html#resizeGL">QGLWidget::resizeGL</a>(), and <a href="qglwidget.html#paintGL">QGLWidget::paintGL</a>() handler functions. To enable the user to interact directly with the scene using the mouse, we reimplement <a href="qwidget.html#mousePressEvent">QWidget::mousePressEvent</a>() and <a href="qwidget.html#mouseMoveEvent">QWidget::mouseMoveEvent</a>().</p>
+<pre class="cpp"> <span class="keyword">private</span>:
+     <span class="type">QtLogo</span> <span class="operator">*</span>logo;
+     <span class="type">int</span> xRot;
+     <span class="type">int</span> yRot;
+     <span class="type">int</span> zRot;
+     <span class="type"><a href="qpoint.html">QPoint</a></span> lastPos;
+     <span class="type"><a href="qcolor.html">QColor</a></span> qtGreen;
+     <span class="type"><a href="qcolor.html">QColor</a></span> qtPurple;
+ };</pre>
+<p>The rest of the class contains utility functions and variables that are used to construct and hold orientation information for the scene. The <tt>logo</tt> variable will be used to hold a pointer to the QtLogo object which contains all the geometry.</p>
+<a name="glwidget-class-implementation"></a>
+<h2>GLWidget Class Implementation</h2>
+<p>In this example, we split the class into groups of functions and describe them separately. This helps to illustrate the differences between subclasses of native widgets (such as <a href="qwidget.html">QWidget</a> and <a href="qframe.html">QFrame</a>) and <a href="qglwidget.html">QGLWidget</a> subclasses.</p>
+<a name="widget-construction-and-sizing"></a>
+<h3>Widget Construction and Sizing</h3>
+<p>The constructor provides default rotation angles for the scene, sets the pointer to the QtLogo object to null, and sets up some colors for later use.</p>
+<pre class="cpp"> GLWidget<span class="operator">::</span>GLWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qglwidget.html">QGLWidget</a></span>(<span class="type"><a href="qglformat.html">QGLFormat</a></span>(QGL<span class="operator">::</span>SampleBuffers)<span class="operator">,</span> parent)
+ {
+     logo <span class="operator">=</span> <span class="number">0</span>;
+     xRot <span class="operator">=</span> <span class="number">0</span>;
+     yRot <span class="operator">=</span> <span class="number">0</span>;
+     zRot <span class="operator">=</span> <span class="number">0</span>;
+
+     qtGreen <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromCmykF(<span class="number">0.40</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     qtPurple <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>fromCmykF(<span class="number">0.39</span><span class="operator">,</span> <span class="number">0.39</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+ }</pre>
+<p>We also implement a destructor to release OpenGL-related resources when the widget is deleted:</p>
+<pre class="cpp"> GLWidget<span class="operator">::</span><span class="operator">~</span>GLWidget()
+ {
+ }</pre>
+<p>In this case nothing requires cleaning up.</p>
+<p>We provide size hint functions to ensure that the widget is shown at a reasonable size:</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> GLWidget<span class="operator">::</span>minimumSizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span>);
+ }
+
+ <span class="type"><a href="qsize.html">QSize</a></span> GLWidget<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">400</span><span class="operator">,</span> <span class="number">400</span>);
+ }</pre>
+<p>The widget provides three slots that enable other components in the example to change the orientation of the scene:</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>setXRotation(<span class="type">int</span> angle)
+ {
+     qNormalizeAngle(angle);
+     <span class="keyword">if</span> (angle <span class="operator">!</span><span class="operator">=</span> xRot) {
+         xRot <span class="operator">=</span> angle;
+         <span class="keyword">emit</span> xRotationChanged(angle);
+         updateGL();
+     }
+ }</pre>
+<p>In the above slot, the <tt>xRot</tt> variable is updated only if the new angle is different to the old one, the <tt>xRotationChanged()</tt> signal is emitted to allow other components to be updated, and the widget's <a href="qglwidget.html#updateGL">updateGL()</a> handler function is called.</p>
+<p>The <tt>setYRotation()</tt> and <tt>setZRotation()</tt> slots perform the same task for rotations measured by the <tt>yRot</tt> and <tt>zRot</tt> variables.</p>
+<a name="opengl-initialization"></a>
+<h3>OpenGL Initialization</h3>
+<p>The <a href="qglwidget.html#initializeGL">initializeGL()</a> function is used to perform useful initialization tasks that are needed to render the 3D scene. These often involve defining colors and materials, enabling and disabling certain rendering flags, and setting other properties used to customize the rendering process.</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>initializeGL()
+ {
+     qglClearColor(qtPurple<span class="operator">.</span>dark());
+
+     logo <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QtLogo</span>(<span class="keyword">this</span><span class="operator">,</span> <span class="number">64</span>);
+     logo<span class="operator">-</span><span class="operator">&gt;</span>setColor(qtGreen<span class="operator">.</span>dark());
+
+     glEnable(GL_DEPTH_TEST);
+     glEnable(GL_CULL_FACE);
+     glShadeModel(GL_SMOOTH);
+     glEnable(GL_LIGHTING);
+     glEnable(GL_LIGHT0);
+     glEnable(GL_MULTISAMPLE);
+     <span class="keyword">static</span> GLfloat lightPosition<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="number">0.5</span><span class="operator">,</span> <span class="number">5.0</span><span class="operator">,</span> <span class="number">7.0</span><span class="operator">,</span> <span class="number">1.0</span> };
+     glLightfv(GL_LIGHT0<span class="operator">,</span> GL_POSITION<span class="operator">,</span> lightPosition);
+ }</pre>
+<p>In this example, we reimplement the function to set the background color, create a QtLogo object instance which will contain all the geometry to display, and set up the rendering process to use a particular shading model and rendering flags.</p>
+<a name="resizing-the-viewport"></a>
+<h3>Resizing the Viewport</h3>
+<p>The <a href="qglwidget.html#resizeGL">resizeGL()</a> function is used to ensure that the OpenGL implementation renders the scene onto a viewport that matches the size of the widget, using the correct transformation from 3D coordinates to 2D viewport coordinates.</p>
+<p>The function is called whenever the widget's dimensions change, and is supplied with the new width and height. Here, we define a square viewport based on the length of the smallest side of the widget to ensure that the scene is not distorted if the widget has sides of unequal length:</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>resizeGL(<span class="type">int</span> width<span class="operator">,</span> <span class="type">int</span> height)
+ {
+     <span class="type">int</span> side <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(width<span class="operator">,</span> height);
+     glViewport((width <span class="operator">-</span> side) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> (height <span class="operator">-</span> side) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span> side<span class="operator">,</span> side);
+
+     glMatrixMode(GL_PROJECTION);
+     glLoadIdentity();
+ <span class="preprocessor">#ifdef QT_OPENGL_ES_1</span>
+     glOrthof(<span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">+</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">+</span><span class="number">0.5</span><span class="operator">,</span> <span class="number">4.0</span><span class="operator">,</span> <span class="number">15.0</span>);
+ <span class="preprocessor">#else</span>
+     glOrtho(<span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">+</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">0.5</span><span class="operator">,</span> <span class="operator">+</span><span class="number">0.5</span><span class="operator">,</span> <span class="number">4.0</span><span class="operator">,</span> <span class="number">15.0</span>);
+ <span class="preprocessor">#endif</span>
+     glMatrixMode(GL_MODELVIEW);
+ }</pre>
+<p>A discussion of the projection transformation used is outside the scope of this example. Please consult the OpenGL reference documentation for an explanation of projection matrices.</p>
+<a name="painting-the-scene"></a>
+<h3>Painting the Scene</h3>
+<p>The <a href="qglwidget.html#paintGL">paintGL()</a> function is used to paint the contents of the scene onto the widget. For widgets that only need to be decorated with pure OpenGL content, we reimplement <a href="qglwidget.html#paintGL">QGLWidget::paintGL</a>() <i>instead</i> of reimplementing <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>():</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>paintGL()
+ {
+     glClear(GL_COLOR_BUFFER_BIT <span class="operator">|</span> GL_DEPTH_BUFFER_BIT);
+     glLoadIdentity();
+     glTranslatef(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">10.0</span>);
+     glRotatef(xRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     glRotatef(yRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     glRotatef(zRot <span class="operator">/</span> <span class="number">16.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span>);
+     logo<span class="operator">-</span><span class="operator">&gt;</span>draw();
+ }</pre>
+<p>In this example, we clear the widget using the background color that we defined in the <a href="qglwidget.html#initializeGL">initializeGL()</a> function, set up the frame of reference for the geometry we want to display, and call the draw method of the QtLogo object to render the scene.</p>
+<a name="mouse-handling"></a>
+<h3>Mouse Handling</h3>
+<p>Just as in subclasses of native widgets, mouse events are handled by reimplementing functions such as <a href="qwidget.html#mousePressEvent">QWidget::mousePressEvent</a>() and <a href="qwidget.html#mouseMoveEvent">QWidget::mouseMoveEvent</a>().</p>
+<p>The <a href="qwidget.html#mousePressEvent">mousePressEvent()</a> function simply records the position of the mouse when a button is initially pressed:</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     lastPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+ }</pre>
+<p>The <a href="qwidget.html#mouseMoveEvent">mouseMoveEvent()</a> function uses the previous location of the mouse cursor to determine how much the object in the scene should be rotated, and in which direction:</p>
+<pre class="cpp"> <span class="type">void</span> GLWidget<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type">int</span> dx <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">-</span> lastPos<span class="operator">.</span>x();
+     <span class="type">int</span> dy <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">-</span> lastPos<span class="operator">.</span>y();
+
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         setXRotation(xRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dy);
+         setYRotation(yRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dx);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightButton) {
+         setXRotation(xRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dy);
+         setZRotation(zRot <span class="operator">+</span> <span class="number">8</span> <span class="operator">*</span> dx);
+     }
+     lastPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+ }</pre>
+<p>Since the user is expected to hold down the mouse button and drag the cursor to rotate the object, the cursor's position is updated every time a move event is received.</p>
+<a name="qtlogo-class"></a>
+<h2>QtLogo Class</h2>
+<p>This class encapsulates the OpenGL geometry data which will be rendered in the basic 3D scene.</p>
+<pre class="cpp"> <span class="keyword">class</span> <span class="type">QtLogo</span> : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+ <span class="keyword">public</span>:
+     <span class="type">QtLogo</span>(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="type">int</span> d <span class="operator">=</span> <span class="number">64</span><span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> s <span class="operator">=</span> <span class="number">1.0</span>);
+     <span class="operator">~</span><span class="type">QtLogo</span>();
+     <span class="type">void</span> setColor(<span class="type"><a href="qcolor.html">QColor</a></span> c);
+     <span class="type">void</span> draw() <span class="keyword">const</span>;
+ <span class="keyword">private</span>:
+     <span class="type">void</span> buildGeometry(<span class="type">int</span> d<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> s);
+
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Patch <span class="operator">*</span><span class="operator">&gt;</span> parts;
+     Geometry <span class="operator">*</span>geom;
+ };</pre>
+<p>The geometry is divided into a list of parts which may be rendered in different ways. The data itself is contained in a Geometry structure that includes the vertices, their lighting normals and index values which point into the vertices, grouping them into faces.</p>
+<pre class="cpp"> <span class="keyword">struct</span> Geometry
+ {
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span>GLushort<span class="operator">&gt;</span> faces;
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span>QVector3D<span class="operator">&gt;</span> vertices;
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span>QVector3D<span class="operator">&gt;</span> normals;
+     <span class="type">void</span> appendSmooth(<span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>a<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>n<span class="operator">,</span> <span class="type">int</span> from);
+     <span class="type">void</span> appendFaceted(<span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>a<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>n);
+     <span class="type">void</span> finalize();
+     <span class="type">void</span> loadArrays() <span class="keyword">const</span>;
+ };</pre>
+<p>The data in the Geometry class is stored in <a href="qvector.html">QVector</a>&lt;<a href="qvector3d.html">QVector3D</a>&gt; members which are convenient for use with OpenGL because they expose raw contiguous floating point values via the constData() method. Methods are included for adding new vertex data, either with smooth normals, or facetted normals; and for enabling the geometry ready for rendering.</p>
+<pre class="cpp"> <span class="keyword">class</span> Patch
+ {
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> Smoothing { Faceted<span class="operator">,</span> Smooth };
+     Patch(Geometry <span class="operator">*</span>);
+     <span class="type">void</span> setSmoothing(Smoothing s) { sm <span class="operator">=</span> s; }
+     <span class="type">void</span> translate(<span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>t);
+     <span class="type">void</span> rotate(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> deg<span class="operator">,</span> QVector3D axis);
+     <span class="type">void</span> draw() <span class="keyword">const</span>;
+     <span class="type">void</span> addTri(<span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>a<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>b<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>c<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>n);
+     <span class="type">void</span> addQuad(<span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>a<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>b<span class="operator">,</span>  <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>c<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>d);
+
+     GLushort start;
+     GLushort count;
+     GLushort initv;
+
+     GLfloat faceColor<span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+     QMatrix4x4 mat;
+     Smoothing sm;
+     Geometry <span class="operator">*</span>geom;
+ };</pre>
+<p>The higher level Patch class has methods for accumulating the geometry one face at a time, and treating collections of faces or &quot;patches&quot; with transformations, applying different colors or smoothing. Although faces may be added as triangles or quads, at the OpenGL level all data is treated as triangles for compatibility with OpenGL/ES.</p>
+<pre class="cpp"> <span class="type">void</span> Patch<span class="operator">::</span>draw() <span class="keyword">const</span>
+ {
+     glPushMatrix();
+     qMultMatrix(mat);
+     glMaterialfv(GL_FRONT_AND_BACK<span class="operator">,</span> GL_AMBIENT_AND_DIFFUSE<span class="operator">,</span> faceColor);
+
+     <span class="keyword">const</span> GLushort <span class="operator">*</span>indices <span class="operator">=</span> geom<span class="operator">-</span><span class="operator">&gt;</span>faces<span class="operator">.</span>constData();
+     glDrawElements(GL_TRIANGLES<span class="operator">,</span> count<span class="operator">,</span> GL_UNSIGNED_SHORT<span class="operator">,</span> indices <span class="operator">+</span> start);
+     glPopMatrix();
+ }</pre>
+<p>Drawing a Patch is simply acheived by applying any transformation, and material effect, then drawing the data using the index range for the patch. The model-view matrix is saved and then restored so that any transformation does not affect other parts of the scene.</p>
+<pre class="cpp"> <span class="type">void</span> <span class="type">QtLogo</span><span class="operator">::</span>buildGeometry(<span class="type">int</span> divisions<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> scale)
+ {
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> cw <span class="operator">=</span> cross_width <span class="operator">*</span> scale;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> bt <span class="operator">=</span> bar_thickness <span class="operator">*</span> scale;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> ld <span class="operator">=</span> logo_depth <span class="operator">*</span> scale;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> th <span class="operator">=</span> tee_height <span class="operator">*</span>scale;
+
+     RectPrism cross(geom<span class="operator">,</span> cw<span class="operator">,</span> bt<span class="operator">,</span> ld);
+     RectPrism stem(geom<span class="operator">,</span> bt<span class="operator">,</span> th<span class="operator">,</span> ld);
+
+     QVector3D z(<span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span><span class="operator">,</span> <span class="number">1.0</span>);
+     cross<span class="operator">.</span>rotate(<span class="number">45.0</span><span class="operator">,</span> z);
+     stem<span class="operator">.</span>rotate(<span class="number">45.0</span><span class="operator">,</span> z);
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> stem_downshift <span class="operator">=</span> (th <span class="operator">+</span> bt) <span class="operator">/</span> <span class="number">2.0</span>;
+     stem<span class="operator">.</span>translate(QVector3D(<span class="number">0.0</span><span class="operator">,</span> <span class="operator">-</span>stem_downshift<span class="operator">,</span> <span class="number">0.0</span>));
+
+     RectTorus body(geom<span class="operator">,</span> <span class="number">0.20</span><span class="operator">,</span> <span class="number">0.30</span><span class="operator">,</span> <span class="number">0.1</span><span class="operator">,</span> divisions);
+
+     parts <span class="operator">&lt;</span><span class="operator">&lt;</span> stem<span class="operator">.</span>parts <span class="operator">&lt;</span><span class="operator">&lt;</span> cross<span class="operator">.</span>parts <span class="operator">&lt;</span><span class="operator">&lt;</span> body<span class="operator">.</span>parts;
+
+     geom<span class="operator">-</span><span class="operator">&gt;</span>finalize();
+ }</pre>
+<p>The geometry is built once on construction of the QtLogo, and it is paramaterized on a number of divisions - which controls how &quot;chunky&quot; the curved section of the logo looks - and on a scale, so larger and smaller QtLogo objects can be created without having to use OpenGL scaling (which would force normal recalculation).</p>
+<p>The building process is done by helper classes (read the source for full details) which only exist during the build phase, to assemble the parts of the scene.</p>
+<pre class="cpp"> <span class="type">void</span> <span class="type">QtLogo</span><span class="operator">::</span>draw() <span class="keyword">const</span>
+ {
+     geom<span class="operator">-</span><span class="operator">&gt;</span>loadArrays();
+
+     glEnableClientState(GL_VERTEX_ARRAY);
+     glEnableClientState(GL_NORMAL_ARRAY);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> parts<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i)
+         parts<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>draw();
+
+     glDisableClientState(GL_VERTEX_ARRAY);
+     glDisableClientState(GL_NORMAL_ARRAY);
+ }</pre>
+<p>Finally the complete QtLogo scene is simply drawn by enabling the data arrays and then iterating over the parts, calling draw() on each one.</p>
+<a name="window-class-definition"></a>
+<h2>Window Class Definition</h2>
+<p>The <tt>Window</tt> class is used as a container for the <tt>GLWidget</tt> used to display the scene:</p>
+<pre class="cpp"> <span class="keyword">class</span> GLWidget;
+
+ <span class="keyword">class</span> Window : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Window();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>createSlider();
+
+     GLWidget <span class="operator">*</span>glWidget;
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>xSlider;
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>ySlider;
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>zSlider;
+ };</pre>
+<p>In addition, it contains sliders that are used to change the orientation of the object in the scene.</p>
+<a name="window-class-implementation"></a>
+<h2>Window Class Implementation</h2>
+<p>The constructor constructs an instance of the <tt>GLWidget</tt> class and some sliders to manipulate its contents.</p>
+<pre class="cpp"> Window<span class="operator">::</span>Window()
+ {
+     glWidget <span class="operator">=</span> <span class="keyword">new</span> GLWidget;
+
+     xSlider <span class="operator">=</span> createSlider();
+     ySlider <span class="operator">=</span> createSlider();
+     zSlider <span class="operator">=</span> createSlider();
+
+     connect(xSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> glWidget<span class="operator">,</span> SLOT(setXRotation(<span class="type">int</span>)));
+     connect(glWidget<span class="operator">,</span> SIGNAL(xRotationChanged(<span class="type">int</span>))<span class="operator">,</span> xSlider<span class="operator">,</span> SLOT(setValue(<span class="type">int</span>)));
+     connect(ySlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> glWidget<span class="operator">,</span> SLOT(setYRotation(<span class="type">int</span>)));
+     connect(glWidget<span class="operator">,</span> SIGNAL(yRotationChanged(<span class="type">int</span>))<span class="operator">,</span> ySlider<span class="operator">,</span> SLOT(setValue(<span class="type">int</span>)));
+     connect(zSlider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> glWidget<span class="operator">,</span> SLOT(setZRotation(<span class="type">int</span>)));
+     connect(glWidget<span class="operator">,</span> SIGNAL(zRotationChanged(<span class="type">int</span>))<span class="operator">,</span> zSlider<span class="operator">,</span> SLOT(setValue(<span class="type">int</span>)));</pre>
+<p>We connect the <a href="qabstractslider.html#valueChanged">valueChanged()</a> signal from each of the sliders to the appropriate slots in <tt>glWidget</tt>. This allows the user to change the orientation of the object by dragging the sliders.</p>
+<p>We also connect the <tt>xRotationChanged()</tt>, <tt>yRotationChanged()</tt>, and <tt>zRotationChanged()</tt> signals from <tt>glWidget</tt> to the <a href="qabstractslider.html#value-prop">setValue()</a> slots in the corresponding sliders.</p>
+<pre class="cpp">     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(glWidget);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(xSlider);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(ySlider);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(zSlider);
+     setLayout(mainLayout);
+
+     xSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">15</span> <span class="operator">*</span> <span class="number">16</span>);
+     ySlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">345</span> <span class="operator">*</span> <span class="number">16</span>);
+     zSlider<span class="operator">-</span><span class="operator">&gt;</span>setValue(<span class="number">0</span> <span class="operator">*</span> <span class="number">16</span>);
+     setWindowTitle(tr(<span class="string">&quot;Hello GL&quot;</span>));
+ }</pre>
+<p>The sliders are placed horizontally in a layout alongside the <tt>GLWidget</tt>, and initialized with suitable default values.</p>
+<p>The <tt>createSlider()</tt> utility function constructs a <a href="qslider.html">QSlider</a>, and ensures that it is set up with a suitable range, step value, tick interval, and page step value before returning it to the calling function:</p>
+<pre class="cpp"> <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>Window<span class="operator">::</span>createSlider()
+ {
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>slider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Vertical);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> <span class="number">360</span> <span class="operator">*</span> <span class="number">16</span>);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setSingleStep(<span class="number">16</span>);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setPageStep(<span class="number">15</span> <span class="operator">*</span> <span class="number">16</span>);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setTickInterval(<span class="number">15</span> <span class="operator">*</span> <span class="number">16</span>);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setTickPosition(<span class="type"><a href="qslider.html">QSlider</a></span><span class="operator">::</span>TicksRight);
+     <span class="keyword">return</span> slider;
+ }</pre>
+<a name="summary"></a>
+<h2>Summary</h2>
+<p>The <tt>GLWidget</tt> class implementation shows how to subclass <a href="qglwidget.html">QGLWidget</a> for the purposes of rendering a 3D scene using OpenGL calls. Since <a href="qglwidget.html">QGLWidget</a> is a subclass of <a href="qwidget.html">QWidget</a>, subclasses of <a href="qglwidget.html">QGLWidget</a> can be placed in layouts and provided with interactive features just like normal custom widgets.</p>
+<p>We ensure that the widget is able to correctly render the scene using OpenGL by reimplementing the following functions:</p>
+<ul>
+<li><a href="qglwidget.html#initializeGL">QGLWidget::initializeGL</a>() sets up resources needed by the OpenGL implementation to render the scene.</li>
+<li><a href="qglwidget.html#resizeGL">QGLWidget::resizeGL</a>() resizes the viewport so that the rendered scene fits onto the widget, and sets up a projection matrix to map 3D coordinates to 2D viewport coordinates.</li>
+<li><a href="qglwidget.html#paintGL">QGLWidget::paintGL</a>() performs painting operations using OpenGL calls.</li>
+</ul>
+<p>Since <a href="qglwidget.html">QGLWidget</a> is a subclass of <a href="qwidget.html">QWidget</a>, it can also be used as a normal paint device, allowing 2D graphics to be drawn with <a href="qpainter.html">QPainter</a>. This use of <a href="qglwidget.html">QGLWidget</a> is discussed in the <a href="opengl-2dpainting.html">2D Painting</a> example.</p>
+<p>More advanced users may want to paint over parts of a scene rendered using OpenGL. <a href="qglwidget.html">QGLWidget</a> allows pure OpenGL rendering to be mixed with <a href="qpainter.html">QPainter</a> calls, but care must be taken to maintain the state of the OpenGL implementation. See the <a href="opengl-overpainting.html">Overpainting</a> example for more information.</p>
+</div>
+<!-- @@@opengl/hellogl -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

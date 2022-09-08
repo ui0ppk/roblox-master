@@ -1,0 +1,774 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Workspace" referent="RBX0">
+		<Properties>
+			<Ref name="CurrentCamera">RBX1</Ref>
+			<double name="DistributedGameTime">0</double>
+			<CoordinateFrame name="ModelInPrimary">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<string name="Name">Workspace</string>
+			<Ref name="PrimaryPart">null</Ref>
+		</Properties>
+		<Item class="Camera" referent="RBX1">
+			<Properties>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<CoordinateFrame name="CoordinateFrame">
+					<X>66.5552368</X>
+					<Y>28.3831482</Y>
+					<Z>10.512208</Z>
+					<R00>0.187403545</R00>
+					<R01>-0.102697119</R01>
+					<R02>0.976899803</R02>
+					<R10>-0</R10>
+					<R11>0.994519711</R11>
+					<R12>0.104549415</R12>
+					<R20>-0.982283056</R20>
+					<R21>-0.0195929315</R21>
+					<R22>0.186376512</R22>
+				</CoordinateFrame>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>47.0172424</X>
+					<Y>26.29216</Y>
+					<Z>6.78467798</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<string name="Name">Camera</string>
+			</Properties>
+		</Item>
+		<Item class="Terrain" referent="RBX2">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-2</X>
+					<Y>126</Y>
+					<Z>-2</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<string name="ClusterGridV2"></string>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Terrain</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<Vector3 name="size">
+					<X>2044</X>
+					<Y>252</Y>
+					<Z>2044</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX3">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<ProtectedString name="Source">local testService = game.ManualJointHelperTest
+
+local terrainCellSize = Vector3.new(4, 4, 4)
+local part = Instance.new(&quot;Part&quot;)
+local part2 = Instance.new(&quot;Part&quot;)
+local part3 = Instance.new(&quot;WedgePart&quot;)
+part.Anchored = true
+part2.Anchored = true
+part3.Anchored = true
+
+local joinableSurfaceTypes = {&quot;Smooth&quot;, &quot;Glue&quot;, &quot;Weld&quot;, &quot;Inlet&quot;, &quot;Studs&quot;, &quot;Universal&quot;, &quot;Hinge&quot;, &quot;Motor&quot;, &quot;SteppingMotor&quot;, &quot;Unjoinable&quot;}
+local surfaces = {&quot;BackSurface&quot;, &quot;BottomSurface&quot;, &quot;FrontSurface&quot;, &quot;LeftSurface&quot;, &quot;RightSurface&quot;, &quot;TopSurface&quot;}
+local reverseFaceMapping = {3, 6, 1, 5, 4, 2}
+local surfaceToWorldAxisMapping = {Vector3.new(0, 0, 1), Vector3.new(0, -1, 0), Vector3.new(0, 0, -1), Vector3.new(-1, 0, 0), Vector3.new(1, 0, 0), Vector3.new(0, 1, 0)}
+
+
+function testJoin(partA, partB, whichAxis)
+&#9;local madeJoint = false
+
+&#9;-- position partA next to partB
+&#9;partA.CFrame = partB.CFrame + partB.CFrame:vectorToWorldSpace(whichAxis * (partB.Size/2 + partA.Size/2))
+
+&#9;-- and then join and see if welds are created
+&#9;partA.Parent = game.Workspace
+&#9;partB.Parent = game.Workspace
+
+&#9;game.JointsService:SetJoinAfterMoveInstance(partA)
+&#9;game.JointsService:CreateJoinAfterMoveJoints()
+
+&#9;-- if there are any children, it&apos;s because a weld formed
+&#9;madeJoint = ( #(partA:GetChildren()) &gt; 0 or #(partB:GetChildren()) &gt; 0 )
+
+&#9;for a = 1, #partA:GetChildren() do partA:GetChildren()[a]:Remove() end
+&#9;for b = 1, #partB:GetChildren() do partB:GetChildren()[b]:Remove() end
+
+&#9;-- make them go away now
+&#9;partA.Parent = nil
+&#9;partB.Parent = nil
+
+&#9;return madeJoint
+end
+
+function testTerrainJoin(partA, partB, whichAxis)
+&#9;local madeJoint = false
+
+&#9;-- position partA next to partB
+&#9;partA.CFrame = partB.CFrame + partB.CFrame:vectorToWorldSpace(whichAxis * (partB.Size/2 + partA.Size/2))
+
+&#9;-- and then join and see if welds are created
+&#9;partA.Parent = game.Workspace
+
+&#9;game.JointsService:SetJoinAfterMoveInstance(partA)
+&#9;game.JointsService:CreateJoinAfterMoveJoints()
+
+&#9;-- if there are any children, it&apos;s because a weld formed
+&#9;madeJoint = #(partA:GetChildren()) &gt; 0
+
+&#9;for a = 1, #partA:GetChildren() do partA:GetChildren()[a]:Remove() end
+
+&#9;-- make them go away now
+&#9;partA.Parent = nil
+
+&#9;return madeJoint
+end
+
+function testJoinToAllSurfaces(partA, partB)
+&#9;local numJoins = 0
+&#9;for i = 1, 6 do
+&#9;&#9;for j = 1, #joinableSurfaceTypes do
+&#9;&#9;&#9;local oldSurfaceA = partA[surfaces[i]]
+&#9;&#9;&#9;partA[surfaces[i]] = joinableSurfaceTypes[j]
+
+&#9;&#9;&#9;for k = 1, #joinableSurfaceTypes do
+&#9;&#9;&#9;&#9;local oldSurfaceB = partB[surfaces[reverseFaceMapping[i]]]
+&#9;&#9;&#9;&#9;partB[surfaces[reverseFaceMapping[i]]] = joinableSurfaceTypes[k]
+&#9;&#9;&#9;&#9;if testJoin(partA, partB, surfaceToWorldAxisMapping[reverseFaceMapping[i]]) then 
+&#9;&#9;&#9;&#9;&#9;--print(joinableSurfaceTypes[j], joinableSurfaceTypes[k])
+&#9;&#9;&#9;&#9;&#9;numJoins = numJoins + 1 
+&#9;&#9;&#9;&#9;end
+&#9;&#9;&#9;&#9;partB[surfaces[reverseFaceMapping[i]]] = oldSurfaceB
+&#9;&#9;&#9;end
+
+&#9;&#9;&#9;partA[surfaces[i]] = oldSurfaceA
+&#9;&#9;end
+&#9;&#9;--print(numJoins)
+&#9;end
+&#9;return numJoins
+end
+
+function testJoinToTerrainAllSurfaces(partA, partB)
+&#9;local numJoins = 0
+&#9;for i = 1, 6 do
+&#9;&#9;for j = 1, #joinableSurfaceTypes do
+&#9;&#9;&#9;local oldSurfaceA = partA[surfaces[i]]
+&#9;&#9;&#9;partA[surfaces[i]] = joinableSurfaceTypes[j]
+
+&#9;&#9;&#9;if testTerrainJoin(partA, partB, surfaceToWorldAxisMapping[reverseFaceMapping[i]]) then
+&#9;&#9;&#9;&#9;--print(joinableSurfaceTypes[j])
+&#9;&#9;&#9;&#9;numJoins = numJoins + 1 
+&#9;&#9;&#9;end
+
+&#9;&#9;&#9;partA[surfaces[i]] = oldSurfaceA
+&#9;&#9;end
+&#9;&#9;--print(numJoins)
+&#9;end
+&#9;return numJoins
+end
+
+
+-- basic test suite
+part2.CFrame = CFrame.new()
+testService:Check( testJoinToAllSurfaces(part, part2) == 24, &quot;ManualJointHelper: Two blocks test&quot; )  -- only 4 combinations of surface types makes a weld * 6 faces
+
+-- test with a ball
+part2.Shape = &quot;Ball&quot;
+testService:Check( testJoinToAllSurfaces(part, part2) == 0, &quot;ManualJointHelper: Block and ball test&quot; )
+
+-- test with an off-axis brick
+part2.Shape = &quot;Block&quot;
+part2.CFrame = CFrame.Angles(.1, math.pi+.2, .7)
+testService:Check( testJoinToAllSurfaces(part, part2) == 24, &quot;ManualJointHelper: Off-axis blocks test&quot; )
+
+-- test with a default wedge
+part3.CFrame = CFrame.new()
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Wedge-block test 1&quot; )
+
+-- test with an off-axis wedge
+part3.CFrame = CFrame.Angles(.1, math.pi+.2, .7)
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Off-axis wedge-block test 1&quot; )
+
+-- test with a wedge whose default sides are all unjoinable
+for i = 1, 6 do part3[surfaces[i]] = &quot;Unjoinable&quot; end
+part3.CFrame = CFrame.new()
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Wedge-block test 2&quot; )
+
+-- off-axis previous test
+part3.CFrame = CFrame.Angles(.1, math.pi+.2, .7)
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Off-axis wedge-block test 2&quot; )
+
+-- test with a terrain block
+local oldValA, oldValB, oldValC = game.Workspace.Terrain:GetCell(0, 0, 0)
+game.Workspace.Terrain:SetCell(0, 0, 0, 1, 0, 0)
+local fakeTerrainPart = Instance.new(&quot;Part&quot;)
+fakeTerrainPart.formFactor = &quot;Custom&quot;
+fakeTerrainPart.Size = terrainCellSize
+fakeTerrainPart.CFrame = CFrame.new(game.Workspace.Terrain:CellCenterToWorld(0, 0, 0))
+
+testService:Check( testJoinToTerrainAllSurfaces(part, fakeTerrainPart) == 54, &quot;ManualJointHelper: Basic block-terrain test&quot; )  -- everything except Unjoinable makes a weld (9*6)
+testService:Check( testJoinToTerrainAllSurfaces(part3, fakeTerrainPart) == 36, &quot;ManualJointHelper: Basic wedge-terrain test&quot; )
+
+game.Workspace.Terrain:SetCell(0, 0, 0, oldValA, oldValB, oldValC)
+
+ --_G[&quot;testJoin&quot;] = testJoin  -- for manual testing</ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX4">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>1</X>
+					<Y>10.2000008</Y>
+					<Z>-10</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">PartA</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>4</X>
+					<Y>1.20000005</Y>
+					<Z>2</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX5">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>0</X>
+					<Y>9</Y>
+					<Z>-10</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">PartB</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>4</X>
+					<Y>1.20000005</Y>
+					<Z>2</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="WedgePart" referent="RBX6">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-1</X>
+					<Y>21.2000008</Y>
+					<Z>-2</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Wedge</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<Vector3 name="size">
+					<X>4</X>
+					<Y>1.20000005</Y>
+					<Z>2</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="StarterPack" referent="RBX7">
+		<Properties>
+			<string name="Name">StarterPack</string>
+		</Properties>
+	</Item>
+	<Item class="StarterGui" referent="RBX8">
+		<Properties>
+			<string name="Name">StarterGui</string>
+			<bool name="ShowDevelopmentGui">true</bool>
+		</Properties>
+	</Item>
+	<Item class="SoundService" referent="RBX9">
+		<Properties>
+			<token name="AmbientReverb">0</token>
+			<float name="DistanceFactor">10</float>
+			<float name="DopplerScale">1</float>
+			<string name="Name">Soundscape</string>
+			<float name="RolloffScale">1</float>
+		</Properties>
+	</Item>
+	<Item class="CollectionService" referent="RBX10">
+		<Properties>
+			<string name="Name">CollectionService</string>
+		</Properties>
+	</Item>
+	<Item class="PhysicsService" referent="RBX11">
+		<Properties>
+			<string name="Name">PhysicsService</string>
+		</Properties>
+	</Item>
+	<Item class="BadgeService" referent="RBX12">
+		<Properties>
+			<string name="Name">BadgeService</string>
+		</Properties>
+	</Item>
+	<Item class="Geometry" referent="RBX13">
+		<Properties>
+			<string name="Name">Geometry</string>
+		</Properties>
+	</Item>
+	<Item class="RenderHooksService" referent="RBX14">
+		<Properties>
+			<string name="Name">RenderHooksService</string>
+		</Properties>
+	</Item>
+	<Item class="SocialService" referent="RBX15">
+		<Properties>
+			<string name="Name">SocialService</string>
+		</Properties>
+	</Item>
+	<Item class="Debris" referent="RBX16">
+		<Properties>
+			<int name="MaxItems">1000</int>
+			<string name="Name">Debris</string>
+		</Properties>
+	</Item>
+	<Item class="TimerService" referent="RBX17">
+		<Properties>
+			<string name="Name">Instance</string>
+		</Properties>
+	</Item>
+	<Item class="ScriptInformationProvider" referent="RBX18">
+		<Properties>
+			<string name="Name">Instance</string>
+		</Properties>
+	</Item>
+	<Item class="CookiesService" referent="RBX19">
+		<Properties>
+			<string name="Name">CookiesService</string>
+		</Properties>
+	</Item>
+	<Item class="TeleportService" referent="RBX20">
+		<Properties>
+			<string name="Name">Teleport Service</string>
+		</Properties>
+	</Item>
+	<Item class="Players" referent="RBX21">
+		<Properties>
+			<string name="Name">Players</string>
+		</Properties>
+	</Item>
+	<Item class="Selection" referent="RBX22">
+		<Properties>
+			<string name="Name">Selection</string>
+		</Properties>
+	</Item>
+	<Item class="Lighting" referent="RBX23">
+		<Properties>
+			<Color3 name="Ambient">4286611584</Color3>
+			<float name="Brightness">1</float>
+			<Color3 name="ColorShift_Bottom">4278190080</Color3>
+			<Color3 name="ColorShift_Top">4278190080</Color3>
+			<Color3 name="FogColor">4290822336</Color3>
+			<float name="FogEnd">100000</float>
+			<float name="FogStart">0</float>
+			<float name="GeographicLatitude">41.7332993</float>
+			<string name="Name">Lighting</string>
+			<Color3 name="ShadowColor">4289967032</Color3>
+			<float name="SkyFogLower">1</float>
+			<float name="SkyFogUpper">0</float>
+			<string name="TimeOfDay">14:00:00</string>
+		</Properties>
+	</Item>
+	<Item class="ChangeHistoryService" referent="RBX24">
+		<Properties>
+			<string name="Name">ChangeHistoryService</string>
+		</Properties>
+	</Item>
+	<Item class="TestService" referent="RBX25">
+		<Properties>
+			<string name="Description">Tests the &quot;Unjoinable&quot; SurfaceType</string>
+			<bool name="Is30FpsThrottleEnabled">true</bool>
+			<bool name="IsPhysicsEnvironmentalThrottled">true</bool>
+			<bool name="IsSleepAllowed">true</bool>
+			<string name="Name">ManualJointHelperTest</string>
+			<double name="Timeout">10</double>
+		</Properties>
+		<Item class="Script" referent="RBX26">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<ProtectedString name="Source">local testService = script.Parent
+
+local terrainCellSize = Vector3.new(4, 4, 4)
+local part = Instance.new(&quot;Part&quot;)
+local part2 = Instance.new(&quot;Part&quot;)
+local part3 = Instance.new(&quot;WedgePart&quot;)
+part.Anchored = true
+part2.Anchored = true
+part3.Anchored = true
+
+local joinableSurfaceTypes = {&quot;Smooth&quot;, &quot;Glue&quot;, &quot;Weld&quot;, &quot;Inlet&quot;, &quot;Studs&quot;, &quot;Universal&quot;, &quot;Hinge&quot;, &quot;Motor&quot;, &quot;SteppingMotor&quot;, &quot;Unjoinable&quot;}
+local surfaces = {&quot;BackSurface&quot;, &quot;BottomSurface&quot;, &quot;FrontSurface&quot;, &quot;LeftSurface&quot;, &quot;RightSurface&quot;, &quot;TopSurface&quot;}
+local reverseFaceMapping = {3, 6, 1, 5, 4, 2}
+local surfaceToWorldAxisMapping = {Vector3.new(0, 0, 1), Vector3.new(0, -1, 0), Vector3.new(0, 0, -1), Vector3.new(-1, 0, 0), Vector3.new(1, 0, 0), Vector3.new(0, 1, 0)}
+
+
+function testJoin(partA, partB, whichAxis)
+&#9;local madeJoint = false
+
+&#9;-- position partA next to partB
+&#9;partA.CFrame = partB.CFrame + partB.CFrame:vectorToWorldSpace(whichAxis * (partB.Size/2 + partA.Size/2))
+
+&#9;-- and then join and see if welds are created
+&#9;partA.Parent = game.Workspace
+&#9;partB.Parent = game.Workspace
+
+&#9;game.JointsService:SetJoinAfterMoveInstance(partA)
+&#9;game.JointsService:CreateJoinAfterMoveJoints()
+
+&#9;-- if there are any children, it&apos;s because a weld formed
+&#9;madeJoint = ( #(partA:GetChildren()) &gt; 0 or #(partB:GetChildren()) &gt; 0 )
+
+&#9;for a = 1, #partA:GetChildren() do partA:GetChildren()[a]:Remove() end
+&#9;for b = 1, #partB:GetChildren() do partB:GetChildren()[b]:Remove() end
+
+&#9;-- make them go away now
+&#9;partA.Parent = nil
+&#9;partB.Parent = nil
+
+&#9;return madeJoint
+end
+
+function testTerrainJoin(partA, partB, whichAxis)
+&#9;local madeJoint = false
+
+&#9;-- position partA next to partB
+&#9;partA.CFrame = partB.CFrame + partB.CFrame:vectorToWorldSpace(whichAxis * (partB.Size/2 + partA.Size/2))
+
+&#9;-- and then join and see if welds are created
+&#9;partA.Parent = game.Workspace
+
+&#9;game.JointsService:SetJoinAfterMoveInstance(partA)
+&#9;game.JointsService:CreateJoinAfterMoveJoints()
+
+&#9;-- if there are any children, it&apos;s because a weld formed
+&#9;madeJoint = #(partA:GetChildren()) &gt; 0
+
+&#9;for a = 1, #partA:GetChildren() do partA:GetChildren()[a]:Remove() end
+
+&#9;-- make them go away now
+&#9;partA.Parent = nil
+
+&#9;return madeJoint
+end
+
+function testJoinToAllSurfaces(partA, partB)
+&#9;local numJoins = 0
+&#9;for i = 1, 6 do
+&#9;&#9;for j = 1, #joinableSurfaceTypes do
+&#9;&#9;&#9;local oldSurfaceA = partA[surfaces[i]]
+&#9;&#9;&#9;partA[surfaces[i]] = joinableSurfaceTypes[j]
+
+&#9;&#9;&#9;for k = 1, #joinableSurfaceTypes do
+&#9;&#9;&#9;&#9;local oldSurfaceB = partB[surfaces[reverseFaceMapping[i]]]
+&#9;&#9;&#9;&#9;partB[surfaces[reverseFaceMapping[i]]] = joinableSurfaceTypes[k]
+&#9;&#9;&#9;&#9;if testJoin(partA, partB, surfaceToWorldAxisMapping[reverseFaceMapping[i]]) then 
+&#9;&#9;&#9;&#9;&#9;--print(joinableSurfaceTypes[j], joinableSurfaceTypes[k])
+&#9;&#9;&#9;&#9;&#9;numJoins = numJoins + 1 
+&#9;&#9;&#9;&#9;end
+&#9;&#9;&#9;&#9;partB[surfaces[reverseFaceMapping[i]]] = oldSurfaceB
+&#9;&#9;&#9;end
+
+&#9;&#9;&#9;partA[surfaces[i]] = oldSurfaceA
+&#9;&#9;end
+&#9;&#9;--print(numJoins)
+&#9;end
+&#9;return numJoins
+end
+
+function testJoinToTerrainAllSurfaces(partA, partB)
+&#9;local numJoins = 0
+&#9;for i = 1, 6 do
+&#9;&#9;for j = 1, #joinableSurfaceTypes do
+&#9;&#9;&#9;local oldSurfaceA = partA[surfaces[i]]
+&#9;&#9;&#9;partA[surfaces[i]] = joinableSurfaceTypes[j]
+
+&#9;&#9;&#9;if testTerrainJoin(partA, partB, surfaceToWorldAxisMapping[reverseFaceMapping[i]]) then
+&#9;&#9;&#9;&#9;--print(joinableSurfaceTypes[j])
+&#9;&#9;&#9;&#9;numJoins = numJoins + 1 
+&#9;&#9;&#9;end
+
+&#9;&#9;&#9;partA[surfaces[i]] = oldSurfaceA
+&#9;&#9;end
+&#9;&#9;--print(numJoins)
+&#9;end
+&#9;return numJoins
+end
+
+
+-- basic test suite
+part2.CFrame = CFrame.new()
+testService:Check( testJoinToAllSurfaces(part, part2) == 24, &quot;ManualJointHelper: Two blocks test&quot; )  -- only 4 combinations of surface types makes a weld * 6 faces
+
+-- test with a ball
+part2.Shape = &quot;Ball&quot;
+testService:Check( testJoinToAllSurfaces(part, part2) == 0, &quot;ManualJointHelper: Block and ball test&quot; )
+
+-- test with an off-axis brick
+part2.Shape = &quot;Block&quot;
+part2.CFrame = CFrame.Angles(.1, math.pi+.2, .7)
+testService:Check( testJoinToAllSurfaces(part, part2) == 24, &quot;ManualJointHelper: Off-axis blocks test&quot; )
+
+-- test with a default wedge
+part3.CFrame = CFrame.new()
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Wedge-block test 1&quot; )
+
+-- test with an off-axis wedge
+part3.CFrame = CFrame.Angles(.1, math.pi+.2, .7)
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Off-axis wedge-block test 1&quot; )
+
+-- test with a wedge whose default sides are all unjoinable
+for i = 1, 6 do part3[surfaces[i]] = &quot;Unjoinable&quot; end
+part3.CFrame = CFrame.new()
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Wedge-block test 2&quot; )
+
+-- off-axis previous test
+part3.CFrame = CFrame.Angles(.1, math.pi+.2, .7)
+testService:Check( testJoinToAllSurfaces(part, part3) == 16, &quot;ManualJointHelper: Off-axis wedge-block test 2&quot; )
+
+-- test with a terrain block
+local oldValA, oldValB, oldValC = game.Workspace.Terrain:GetCell(0, 0, 0)
+game.Workspace.Terrain:SetCell(0, 0, 0, 1, 0, 0)
+local fakeTerrainPart = Instance.new(&quot;Part&quot;)
+fakeTerrainPart.formFactor = &quot;Custom&quot;
+fakeTerrainPart.Size = terrainCellSize
+fakeTerrainPart.CFrame = CFrame.new(game.Workspace.Terrain:CellCenterToWorld(0, 0, 0))
+
+testService:Check( testJoinToTerrainAllSurfaces(part, fakeTerrainPart) == 54, &quot;ManualJointHelper: Basic block-terrain test&quot; )  -- everything except Unjoinable makes a weld (9*6)
+testService:Check( testJoinToTerrainAllSurfaces(part3, fakeTerrainPart) == 36, &quot;ManualJointHelper: Basic wedge-terrain test&quot; )
+
+game.Workspace.Terrain:SetCell(0, 0, 0, oldValA, oldValB, oldValC)
+
+ --_G[&quot;testJoin&quot;] = testJoin  -- for manual testing</ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

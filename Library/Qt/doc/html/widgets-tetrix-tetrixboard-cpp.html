@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: tetrixboard.cpp Example File (widgets/tetrix/tetrixboard.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">tetrixboard.cpp Example File</h1>
+<span class="small-subtitle">widgets/tetrix/tetrixboard.cpp</span>
+<!-- $$$widgets/tetrix/tetrixboard.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="preprocessor">#include &quot;tetrixboard.h&quot;</span>
+
+ TetrixBoard<span class="operator">::</span>TetrixBoard(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qframe.html">QFrame</a></span>(parent)
+ {
+     setFrameStyle(<span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>Panel <span class="operator">|</span> <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>Sunken);
+     setFocusPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>StrongFocus);
+     isStarted <span class="operator">=</span> <span class="keyword">false</span>;
+     isPaused <span class="operator">=</span> <span class="keyword">false</span>;
+     clearBoard();
+
+     nextPiece<span class="operator">.</span>setRandomShape();
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>setNextPieceLabel(<span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>label)
+ {
+     nextPieceLabel <span class="operator">=</span> label;
+ }
+
+ <span class="type"><a href="qsize.html">QSize</a></span> TetrixBoard<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(BoardWidth <span class="operator">*</span> <span class="number">15</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span><span class="operator">,</span>
+                  BoardHeight <span class="operator">*</span> <span class="number">15</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span>);
+ }
+
+ <span class="type"><a href="qsize.html">QSize</a></span> TetrixBoard<span class="operator">::</span>minimumSizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(BoardWidth <span class="operator">*</span> <span class="number">5</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span><span class="operator">,</span>
+                  BoardHeight <span class="operator">*</span> <span class="number">5</span> <span class="operator">+</span> frameWidth() <span class="operator">*</span> <span class="number">2</span>);
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>start()
+ {
+     <span class="keyword">if</span> (isPaused)
+         <span class="keyword">return</span>;
+
+     isStarted <span class="operator">=</span> <span class="keyword">true</span>;
+     isWaitingAfterLine <span class="operator">=</span> <span class="keyword">false</span>;
+     numLinesRemoved <span class="operator">=</span> <span class="number">0</span>;
+     numPiecesDropped <span class="operator">=</span> <span class="number">0</span>;
+     score <span class="operator">=</span> <span class="number">0</span>;
+     level <span class="operator">=</span> <span class="number">1</span>;
+     clearBoard();
+
+     <span class="keyword">emit</span> linesRemovedChanged(numLinesRemoved);
+     <span class="keyword">emit</span> scoreChanged(score);
+     <span class="keyword">emit</span> levelChanged(level);
+
+     newPiece();
+     timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>pause()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>isStarted)
+         <span class="keyword">return</span>;
+
+     isPaused <span class="operator">=</span> <span class="operator">!</span>isPaused;
+     <span class="keyword">if</span> (isPaused) {
+         timer<span class="operator">.</span>stop();
+     } <span class="keyword">else</span> {
+         timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+     }
+     update();
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>paintEvent(event);
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> contentsRect();
+
+     <span class="keyword">if</span> (isPaused) {
+         painter<span class="operator">.</span>drawText(rect<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter<span class="operator">,</span> tr(<span class="string">&quot;Pause&quot;</span>));
+         <span class="keyword">return</span>;
+     }
+
+     <span class="type">int</span> boardTop <span class="operator">=</span> rect<span class="operator">.</span>bottom() <span class="operator">-</span> BoardHeight<span class="operator">*</span>squareHeight();
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> BoardHeight; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j) {
+             TetrixShape shape <span class="operator">=</span> shapeAt(j<span class="operator">,</span> BoardHeight <span class="operator">-</span> i <span class="operator">-</span> <span class="number">1</span>);
+             <span class="keyword">if</span> (shape <span class="operator">!</span><span class="operator">=</span> NoShape)
+                 drawSquare(painter<span class="operator">,</span> rect<span class="operator">.</span>left() <span class="operator">+</span> j <span class="operator">*</span> squareWidth()<span class="operator">,</span>
+                            boardTop <span class="operator">+</span> i <span class="operator">*</span> squareHeight()<span class="operator">,</span> shape);
+         }
+     }
+
+     <span class="keyword">if</span> (curPiece<span class="operator">.</span>shape() <span class="operator">!</span><span class="operator">=</span> NoShape) {
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+             <span class="type">int</span> x <span class="operator">=</span> curX <span class="operator">+</span> curPiece<span class="operator">.</span>x(i);
+             <span class="type">int</span> y <span class="operator">=</span> curY <span class="operator">-</span> curPiece<span class="operator">.</span>y(i);
+             drawSquare(painter<span class="operator">,</span> rect<span class="operator">.</span>left() <span class="operator">+</span> x <span class="operator">*</span> squareWidth()<span class="operator">,</span>
+                        boardTop <span class="operator">+</span> (BoardHeight <span class="operator">-</span> y <span class="operator">-</span> <span class="number">1</span>) <span class="operator">*</span> squareHeight()<span class="operator">,</span>
+                        curPiece<span class="operator">.</span>shape());
+         }
+     }
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>isStarted <span class="operator">|</span><span class="operator">|</span> isPaused <span class="operator">|</span><span class="operator">|</span> curPiece<span class="operator">.</span>shape() <span class="operator">=</span><span class="operator">=</span> NoShape) {
+         <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>keyPressEvent(event);
+         <span class="keyword">return</span>;
+     }
+
+     <span class="keyword">switch</span> (event<span class="operator">-</span><span class="operator">&gt;</span>key()) {
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Left:
+         tryMove(curPiece<span class="operator">,</span> curX <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Right:
+         tryMove(curPiece<span class="operator">,</span> curX <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Down:
+         tryMove(curPiece<span class="operator">.</span>rotatedRight()<span class="operator">,</span> curX<span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Up:
+         tryMove(curPiece<span class="operator">.</span>rotatedLeft()<span class="operator">,</span> curX<span class="operator">,</span> curY);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Space:
+         dropDown();
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_D:
+         oneLineDown();
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>keyPressEvent(event);
+     }
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>timerId() <span class="operator">=</span><span class="operator">=</span> timer<span class="operator">.</span>timerId()) {
+         <span class="keyword">if</span> (isWaitingAfterLine) {
+             isWaitingAfterLine <span class="operator">=</span> <span class="keyword">false</span>;
+             newPiece();
+             timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+         } <span class="keyword">else</span> {
+             oneLineDown();
+         }
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>timerEvent(event);
+     }
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>clearBoard()
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> BoardHeight <span class="operator">*</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>i)
+         board<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> NoShape;
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>dropDown()
+ {
+     <span class="type">int</span> dropHeight <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> newY <span class="operator">=</span> curY;
+     <span class="keyword">while</span> (newY <span class="operator">&gt;</span> <span class="number">0</span>) {
+         <span class="keyword">if</span> (<span class="operator">!</span>tryMove(curPiece<span class="operator">,</span> curX<span class="operator">,</span> newY <span class="operator">-</span> <span class="number">1</span>))
+             <span class="keyword">break</span>;
+         <span class="operator">-</span><span class="operator">-</span>newY;
+         <span class="operator">+</span><span class="operator">+</span>dropHeight;
+     }
+     pieceDropped(dropHeight);
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>oneLineDown()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>tryMove(curPiece<span class="operator">,</span> curX<span class="operator">,</span> curY <span class="operator">-</span> <span class="number">1</span>))
+         pieceDropped(<span class="number">0</span>);
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>pieceDropped(<span class="type">int</span> dropHeight)
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> x <span class="operator">=</span> curX <span class="operator">+</span> curPiece<span class="operator">.</span>x(i);
+         <span class="type">int</span> y <span class="operator">=</span> curY <span class="operator">-</span> curPiece<span class="operator">.</span>y(i);
+         shapeAt(x<span class="operator">,</span> y) <span class="operator">=</span> curPiece<span class="operator">.</span>shape();
+     }
+
+     <span class="operator">+</span><span class="operator">+</span>numPiecesDropped;
+     <span class="keyword">if</span> (numPiecesDropped <span class="operator">%</span> <span class="number">25</span> <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+         <span class="operator">+</span><span class="operator">+</span>level;
+         timer<span class="operator">.</span>start(timeoutTime()<span class="operator">,</span> <span class="keyword">this</span>);
+         <span class="keyword">emit</span> levelChanged(level);
+     }
+
+     score <span class="operator">+</span><span class="operator">=</span> dropHeight <span class="operator">+</span> <span class="number">7</span>;
+     <span class="keyword">emit</span> scoreChanged(score);
+     removeFullLines();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>isWaitingAfterLine)
+         newPiece();
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>removeFullLines()
+ {
+     <span class="type">int</span> numFullLines <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> BoardHeight <span class="operator">-</span> <span class="number">1</span>; i <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>; <span class="operator">-</span><span class="operator">-</span>i) {
+         <span class="type">bool</span> lineIsFull <span class="operator">=</span> <span class="keyword">true</span>;
+
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j) {
+             <span class="keyword">if</span> (shapeAt(j<span class="operator">,</span> i) <span class="operator">=</span><span class="operator">=</span> NoShape) {
+                 lineIsFull <span class="operator">=</span> <span class="keyword">false</span>;
+                 <span class="keyword">break</span>;
+             }
+         }
+
+         <span class="keyword">if</span> (lineIsFull) {
+             <span class="operator">+</span><span class="operator">+</span>numFullLines;
+             <span class="keyword">for</span> (<span class="type">int</span> k <span class="operator">=</span> i; k <span class="operator">&lt;</span> BoardHeight <span class="operator">-</span> <span class="number">1</span>; <span class="operator">+</span><span class="operator">+</span>k) {
+                 <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j)
+                     shapeAt(j<span class="operator">,</span> k) <span class="operator">=</span> shapeAt(j<span class="operator">,</span> k <span class="operator">+</span> <span class="number">1</span>);
+             }
+             <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> BoardWidth; <span class="operator">+</span><span class="operator">+</span>j)
+                 shapeAt(j<span class="operator">,</span> BoardHeight <span class="operator">-</span> <span class="number">1</span>) <span class="operator">=</span> NoShape;
+         }
+     }
+
+     <span class="keyword">if</span> (numFullLines <span class="operator">&gt;</span> <span class="number">0</span>) {
+         numLinesRemoved <span class="operator">+</span><span class="operator">=</span> numFullLines;
+         score <span class="operator">+</span><span class="operator">=</span> <span class="number">10</span> <span class="operator">*</span> numFullLines;
+         <span class="keyword">emit</span> linesRemovedChanged(numLinesRemoved);
+         <span class="keyword">emit</span> scoreChanged(score);
+
+         timer<span class="operator">.</span>start(<span class="number">500</span><span class="operator">,</span> <span class="keyword">this</span>);
+         isWaitingAfterLine <span class="operator">=</span> <span class="keyword">true</span>;
+         curPiece<span class="operator">.</span>setShape(NoShape);
+         update();
+     }
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>newPiece()
+ {
+     curPiece <span class="operator">=</span> nextPiece;
+     nextPiece<span class="operator">.</span>setRandomShape();
+     showNextPiece();
+     curX <span class="operator">=</span> BoardWidth <span class="operator">/</span> <span class="number">2</span> <span class="operator">+</span> <span class="number">1</span>;
+     curY <span class="operator">=</span> BoardHeight <span class="operator">-</span> <span class="number">1</span> <span class="operator">+</span> curPiece<span class="operator">.</span>minY();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>tryMove(curPiece<span class="operator">,</span> curX<span class="operator">,</span> curY)) {
+         curPiece<span class="operator">.</span>setShape(NoShape);
+         timer<span class="operator">.</span>stop();
+         isStarted <span class="operator">=</span> <span class="keyword">false</span>;
+     }
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>showNextPiece()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>nextPieceLabel)
+         <span class="keyword">return</span>;
+
+     <span class="type">int</span> dx <span class="operator">=</span> nextPiece<span class="operator">.</span>maxX() <span class="operator">-</span> nextPiece<span class="operator">.</span>minX() <span class="operator">+</span> <span class="number">1</span>;
+     <span class="type">int</span> dy <span class="operator">=</span> nextPiece<span class="operator">.</span>maxY() <span class="operator">-</span> nextPiece<span class="operator">.</span>minY() <span class="operator">+</span> <span class="number">1</span>;
+
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap(dx <span class="operator">*</span> squareWidth()<span class="operator">,</span> dy <span class="operator">*</span> squareHeight());
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="operator">&amp;</span>pixmap);
+     painter<span class="operator">.</span>fillRect(pixmap<span class="operator">.</span>rect()<span class="operator">,</span> nextPieceLabel<span class="operator">-</span><span class="operator">&gt;</span>palette()<span class="operator">.</span>background());
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> x <span class="operator">=</span> nextPiece<span class="operator">.</span>x(i) <span class="operator">-</span> nextPiece<span class="operator">.</span>minX();
+         <span class="type">int</span> y <span class="operator">=</span> nextPiece<span class="operator">.</span>y(i) <span class="operator">-</span> nextPiece<span class="operator">.</span>minY();
+         drawSquare(painter<span class="operator">,</span> x <span class="operator">*</span> squareWidth()<span class="operator">,</span> y <span class="operator">*</span> squareHeight()<span class="operator">,</span>
+                    nextPiece<span class="operator">.</span>shape());
+     }
+     nextPieceLabel<span class="operator">-</span><span class="operator">&gt;</span>setPixmap(pixmap);
+ }
+
+ <span class="type">bool</span> TetrixBoard<span class="operator">::</span>tryMove(<span class="keyword">const</span> TetrixPiece <span class="operator">&amp;</span>newPiece<span class="operator">,</span> <span class="type">int</span> newX<span class="operator">,</span> <span class="type">int</span> newY)
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> x <span class="operator">=</span> newX <span class="operator">+</span> newPiece<span class="operator">.</span>x(i);
+         <span class="type">int</span> y <span class="operator">=</span> newY <span class="operator">-</span> newPiece<span class="operator">.</span>y(i);
+         <span class="keyword">if</span> (x <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> x <span class="operator">&gt;</span><span class="operator">=</span> BoardWidth <span class="operator">|</span><span class="operator">|</span> y <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> y <span class="operator">&gt;</span><span class="operator">=</span> BoardHeight)
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+         <span class="keyword">if</span> (shapeAt(x<span class="operator">,</span> y) <span class="operator">!</span><span class="operator">=</span> NoShape)
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+     }
+
+     curPiece <span class="operator">=</span> newPiece;
+     curX <span class="operator">=</span> newX;
+     curY <span class="operator">=</span> newY;
+     update();
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type">void</span> TetrixBoard<span class="operator">::</span>drawSquare(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">&amp;</span>painter<span class="operator">,</span> <span class="type">int</span> x<span class="operator">,</span> <span class="type">int</span> y<span class="operator">,</span> TetrixShape shape)
+ {
+     <span class="keyword">static</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html#QRgb-typedef">QRgb</a></span> colorTable<span class="operator">[</span><span class="number">8</span><span class="operator">]</span> <span class="operator">=</span> {
+         <span class="number">0x000000</span><span class="operator">,</span> <span class="number">0xCC6666</span><span class="operator">,</span> <span class="number">0x66CC66</span><span class="operator">,</span> <span class="number">0x6666CC</span><span class="operator">,</span>
+         <span class="number">0xCCCC66</span><span class="operator">,</span> <span class="number">0xCC66CC</span><span class="operator">,</span> <span class="number">0x66CCCC</span><span class="operator">,</span> <span class="number">0xDAAA00</span>
+     };
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> color <span class="operator">=</span> colorTable<span class="operator">[</span><span class="type">int</span>(shape)<span class="operator">]</span>;
+     painter<span class="operator">.</span>fillRect(x <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> squareWidth() <span class="operator">-</span> <span class="number">2</span><span class="operator">,</span> squareHeight() <span class="operator">-</span> <span class="number">2</span><span class="operator">,</span>
+                      color);
+
+     painter<span class="operator">.</span>setPen(color<span class="operator">.</span>light());
+     painter<span class="operator">.</span>drawLine(x<span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> x<span class="operator">,</span> y);
+     painter<span class="operator">.</span>drawLine(x<span class="operator">,</span> y<span class="operator">,</span> x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y);
+
+     painter<span class="operator">.</span>setPen(color<span class="operator">.</span>dark());
+     painter<span class="operator">.</span>drawLine(x <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span>
+                      x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span>);
+     painter<span class="operator">.</span>drawLine(x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> squareHeight() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span>
+                      x <span class="operator">+</span> squareWidth() <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> <span class="number">1</span>);
+ }</pre>
+</div>
+<!-- @@@widgets/tetrix/tetrixboard.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: robot.cpp Example File (graphicsview/dragdroprobot/robot.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">robot.cpp Example File</h1>
+<span class="small-subtitle">graphicsview/dragdroprobot/robot.cpp</span>
+<!-- $$$graphicsview/dragdroprobot/robot.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="preprocessor">#include &quot;robot.h&quot;</span>
+
+ RobotPart<span class="operator">::</span>RobotPart(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span>(parent)<span class="operator">,</span> color(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray)<span class="operator">,</span> dragOver(<span class="keyword">false</span>)
+ {
+     setAcceptDrops(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> RobotPart<span class="operator">::</span>dragEnterEvent(<span class="type"><a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasColor()) {
+         event<span class="operator">-</span><span class="operator">&gt;</span>setAccepted(<span class="keyword">true</span>);
+         dragOver <span class="operator">=</span> <span class="keyword">true</span>;
+         update();
+     } <span class="keyword">else</span> {
+         event<span class="operator">-</span><span class="operator">&gt;</span>setAccepted(<span class="keyword">false</span>);
+     }
+ }
+
+ <span class="type">void</span> RobotPart<span class="operator">::</span>dragLeaveEvent(<span class="type"><a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a></span> <span class="operator">*</span>event)
+ {
+     Q_UNUSED(event);
+     dragOver <span class="operator">=</span> <span class="keyword">false</span>;
+     update();
+ }
+
+ <span class="type">void</span> RobotPart<span class="operator">::</span>dropEvent(<span class="type"><a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a></span> <span class="operator">*</span>event)
+ {
+     dragOver <span class="operator">=</span> <span class="keyword">false</span>;
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasColor())
+         color <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span>(event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>colorData());
+     update();
+ }
+
+ RobotHead<span class="operator">::</span>RobotHead(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>parent)
+     : RobotPart(parent)
+ {
+ }
+
+ <span class="type"><a href="qrectf.html">QRectF</a></span> RobotHead<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="operator">-</span><span class="number">15</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span><span class="operator">,</span> <span class="number">30</span><span class="operator">,</span> <span class="number">50</span>);
+ }
+
+ <span class="type">void</span> RobotHead<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span>
+            <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget)
+ {
+     Q_UNUSED(option);
+     Q_UNUSED(widget);
+     <span class="keyword">if</span> (pixmap<span class="operator">.</span>isNull()) {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(dragOver <span class="operator">?</span> color<span class="operator">.</span>light(<span class="number">130</span>) : color);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawRoundedRect(<span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="operator">-</span><span class="number">30</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">30</span><span class="operator">,</span> <span class="number">25</span><span class="operator">,</span> <span class="number">25</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RelativeSize);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">7</span><span class="operator">,</span> <span class="operator">-</span><span class="number">3</span> <span class="operator">-</span> <span class="number">20</span><span class="operator">,</span> <span class="number">7</span><span class="operator">,</span> <span class="number">7</span>);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">3</span> <span class="operator">-</span> <span class="number">20</span><span class="operator">,</span> <span class="number">7</span><span class="operator">,</span> <span class="number">7</span>);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">-</span> <span class="number">20</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">2</span>);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="number">2</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">-</span> <span class="number">20</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">2</span>);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black<span class="operator">,</span> <span class="number">2</span>));
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoBrush);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawArc(<span class="operator">-</span><span class="number">6</span><span class="operator">,</span> <span class="operator">-</span><span class="number">2</span> <span class="operator">-</span> <span class="number">20</span><span class="operator">,</span> <span class="number">12</span><span class="operator">,</span> <span class="number">15</span><span class="operator">,</span> <span class="number">190</span> <span class="operator">*</span> <span class="number">16</span><span class="operator">,</span> <span class="number">160</span> <span class="operator">*</span> <span class="number">16</span>);
+     } <span class="keyword">else</span> {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>scale(<span class="operator">.</span><span class="number">2272</span><span class="operator">,</span> <span class="operator">.</span><span class="number">2824</span>);
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawPixmap(<span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="operator">-</span><span class="number">15</span> <span class="operator">*</span> <span class="number">4.4</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span> <span class="operator">*</span> <span class="number">3.54</span>)<span class="operator">,</span> pixmap);
+     }
+ }
+
+ <span class="type">void</span> RobotHead<span class="operator">::</span>dragEnterEvent(<span class="type"><a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasImage()) {
+         event<span class="operator">-</span><span class="operator">&gt;</span>setAccepted(<span class="keyword">true</span>);
+         dragOver <span class="operator">=</span> <span class="keyword">true</span>;
+         update();
+     } <span class="keyword">else</span> {
+         RobotPart<span class="operator">::</span>dragEnterEvent(event);
+     }
+ }
+
+ <span class="type">void</span> RobotHead<span class="operator">::</span>dropEvent(<span class="type"><a href="qgraphicsscenedragdropevent.html">QGraphicsSceneDragDropEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>hasImage()) {
+         dragOver <span class="operator">=</span> <span class="keyword">false</span>;
+         pixmap <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span>(event<span class="operator">-</span><span class="operator">&gt;</span>mimeData()<span class="operator">-</span><span class="operator">&gt;</span>imageData());
+         update();
+     } <span class="keyword">else</span> {
+         RobotPart<span class="operator">::</span>dropEvent(event);
+     }
+ }
+
+ RobotTorso<span class="operator">::</span>RobotTorso(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>parent)
+     : RobotPart(parent)
+ {
+ }
+
+ <span class="type"><a href="qrectf.html">QRectF</a></span> RobotTorso<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="operator">-</span><span class="number">30</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">60</span><span class="operator">,</span> <span class="number">60</span>);
+ }
+
+ <span class="type">void</span> RobotTorso<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span>
+            <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget)
+ {
+     Q_UNUSED(option);
+     Q_UNUSED(widget);
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(dragOver <span class="operator">?</span> color<span class="operator">.</span>light(<span class="number">130</span>) : color);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawRoundedRect(<span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">40</span><span class="operator">,</span> <span class="number">60</span><span class="operator">,</span> <span class="number">25</span><span class="operator">,</span> <span class="number">25</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RelativeSize);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">25</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="number">5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">22</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="number">0</span><span class="operator">,</span> <span class="number">22</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+ }
+
+ RobotLimb<span class="operator">::</span>RobotLimb(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>parent)
+     : RobotPart(parent)
+ {
+ }
+
+ <span class="type"><a href="qrectf.html">QRectF</a></span> RobotLimb<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="number">40</span><span class="operator">,</span> <span class="number">10</span>);
+ }
+
+ <span class="type">void</span> RobotLimb<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span>
+            <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget)
+ {
+     Q_UNUSED(option);
+     Q_UNUSED(widget);
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(dragOver <span class="operator">?</span> color<span class="operator">.</span>light(<span class="number">130</span>) : color);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawRoundedRect(boundingRect()<span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RelativeSize);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="operator">-</span><span class="number">5</span><span class="operator">,</span> <span class="number">10</span><span class="operator">,</span> <span class="number">10</span>);
+ }
+
+ Robot<span class="operator">::</span>Robot(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>parent)
+     : RobotPart(parent)
+ {
+     setFlag(ItemHasNoContents);
+
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>torsoItem <span class="operator">=</span> <span class="keyword">new</span> RobotTorso(<span class="keyword">this</span>);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>headItem <span class="operator">=</span> <span class="keyword">new</span> RobotHead(torsoItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>upperLeftArmItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(torsoItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>lowerLeftArmItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(upperLeftArmItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>upperRightArmItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(torsoItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>lowerRightArmItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(upperRightArmItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>upperRightLegItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(torsoItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>lowerRightLegItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(upperRightLegItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>upperLeftLegItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(torsoItem);
+     <span class="type"><a href="qgraphicsobject.html">QGraphicsObject</a></span> <span class="operator">*</span>lowerLeftLegItem <span class="operator">=</span> <span class="keyword">new</span> RobotLimb(upperLeftLegItem);
+
+     headItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">18</span>);
+     upperLeftArmItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="operator">-</span><span class="number">15</span><span class="operator">,</span> <span class="operator">-</span><span class="number">10</span>);
+     lowerLeftArmItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">30</span><span class="operator">,</span> <span class="number">0</span>);
+     upperRightArmItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">15</span><span class="operator">,</span> <span class="operator">-</span><span class="number">10</span>);
+     lowerRightArmItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">30</span><span class="operator">,</span> <span class="number">0</span>);
+     upperRightLegItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">10</span><span class="operator">,</span> <span class="number">32</span>);
+     lowerRightLegItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">30</span><span class="operator">,</span> <span class="number">0</span>);
+     upperLeftLegItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="number">32</span>);
+     lowerLeftLegItem<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">30</span><span class="operator">,</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qparallelanimationgroup.html">QParallelAnimationGroup</a></span> <span class="operator">*</span>animation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qparallelanimationgroup.html">QParallelAnimationGroup</a></span>(<span class="keyword">this</span>);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>headAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(headItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     headAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">20</span>);
+     headAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="operator">-</span><span class="number">20</span>);
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>headScaleAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(headItem<span class="operator">,</span> <span class="string">&quot;scale&quot;</span>);
+     headScaleAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">1.1</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(headAnimation);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(headScaleAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>upperLeftArmAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(upperLeftArmItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     upperLeftArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">190</span>);
+     upperLeftArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">180</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(upperLeftArmAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>lowerLeftArmAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(lowerLeftArmItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     lowerLeftArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">50</span>);
+     lowerLeftArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">10</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(lowerLeftArmAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>upperRightArmAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(upperRightArmItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     upperRightArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">300</span>);
+     upperRightArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">310</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(upperRightArmAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>lowerRightArmAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(lowerRightArmItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     lowerRightArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">0</span>);
+     lowerRightArmAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="operator">-</span><span class="number">70</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(lowerRightArmAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>upperLeftLegAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(upperLeftLegItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     upperLeftLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">150</span>);
+     upperLeftLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">80</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(upperLeftLegAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>lowerLeftLegAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(lowerLeftLegItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     lowerLeftLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">70</span>);
+     lowerLeftLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">10</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(lowerLeftLegAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>upperRightLegAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(upperRightLegItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     upperRightLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">40</span>);
+     upperRightLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">120</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(upperRightLegAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>lowerRightLegAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(lowerRightLegItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     lowerRightLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">10</span>);
+     lowerRightLegAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">50</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(lowerRightLegAnimation);
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>torsoAnimation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(torsoItem<span class="operator">,</span> <span class="string">&quot;rotation&quot;</span>);
+     torsoAnimation<span class="operator">-</span><span class="operator">&gt;</span>setStartValue(<span class="number">5</span>);
+     torsoAnimation<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="operator">-</span><span class="number">20</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(torsoAnimation);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> animation<span class="operator">-</span><span class="operator">&gt;</span>animationCount(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>anim <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(animation<span class="operator">-</span><span class="operator">&gt;</span>animationAt(i));
+         anim<span class="operator">-</span><span class="operator">&gt;</span>setEasingCurve(<span class="type"><a href="qeasingcurve.html">QEasingCurve</a></span><span class="operator">::</span>SineCurve);
+         anim<span class="operator">-</span><span class="operator">&gt;</span>setDuration(<span class="number">2000</span>);
+     }
+
+     animation<span class="operator">-</span><span class="operator">&gt;</span>setLoopCount(<span class="operator">-</span><span class="number">1</span>);
+     animation<span class="operator">-</span><span class="operator">&gt;</span>start();
+ }
+
+ <span class="type"><a href="qrectf.html">QRectF</a></span> Robot<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>();
+ }
+
+ <span class="type">void</span> Robot<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span>
+                   <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget)
+ {
+     Q_UNUSED(painter);
+     Q_UNUSED(option);
+     Q_UNUSED(widget);
+ }</pre>
+</div>
+<!-- @@@graphicsview/dragdroprobot/robot.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

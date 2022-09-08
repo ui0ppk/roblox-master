@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- calculator.qdoc -->
+  <title>Qt 4.8: Calculator Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Calculator Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#calculator-class-definition">Calculator Class Definition</a></li>
+<li class="level1"><a href="#calculator-class-implementation">Calculator Class Implementation</a></li>
+<li class="level1"><a href="#button-class-definition">Button Class Definition</a></li>
+<li class="level1"><a href="#button-class-implementation">Button Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Calculator Example</h1>
+<span class="subtitle"></span>
+<!-- $$$widgets/calculator-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="widgets-calculator-button-cpp.html">widgets/calculator/button.cpp</a></li>
+<li><a href="widgets-calculator-button-h.html">widgets/calculator/button.h</a></li>
+<li><a href="widgets-calculator-calculator-cpp.html">widgets/calculator/calculator.cpp</a></li>
+<li><a href="widgets-calculator-calculator-h.html">widgets/calculator/calculator.h</a></li>
+<li><a href="widgets-calculator-main-cpp.html">widgets/calculator/main.cpp</a></li>
+<li><a href="widgets-calculator-calculator-pro.html">widgets/calculator/calculator.pro</a></li>
+</ul>
+<p>The example shows how to use signals and slots to implement the functionality of a calculator widget, and how to use <a href="qgridlayout.html">QGridLayout</a> to place child widgets in a grid.<p class="centerAlign"><img src="images/calculator-example.png" alt="Screenshot of the Calculator example" /></p><p>The example consists of two classes:</p>
+<ul>
+<li><tt>Calculator</tt> is the calculator widget, with all the calculator functionality.</li>
+<li><tt>Button</tt> is the widget used for each of the calculator button. It derives from <a href="qtoolbutton.html">QToolButton</a>.</li>
+</ul>
+<p>We will start by reviewing <tt>Calculator</tt>, then we will take a look at <tt>Button</tt>.</p>
+<a name="calculator-class-definition"></a>
+<h2>Calculator Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> Calculator : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Calculator(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> digitClicked();
+     <span class="type">void</span> unaryOperatorClicked();
+     <span class="type">void</span> additiveOperatorClicked();
+     <span class="type">void</span> multiplicativeOperatorClicked();
+     <span class="type">void</span> equalClicked();
+     <span class="type">void</span> pointClicked();
+     <span class="type">void</span> changeSignClicked();
+     <span class="type">void</span> backspaceClicked();
+     <span class="type">void</span> clear();
+     <span class="type">void</span> clearAll();
+     <span class="type">void</span> clearMemory();
+     <span class="type">void</span> readMemory();
+     <span class="type">void</span> setMemory();
+     <span class="type">void</span> addToMemory();</pre>
+<p>The <tt>Calculator</tt> class provides a simple calculator widget. It inherits from <a href="qdialog.html">QDialog</a> and has several private slots associated with the calculator's buttons. <a href="qobject.html#eventFilter">QObject::eventFilter</a>() is reimplemented to handle mouse events on the calculator's display.</p>
+<p>Buttons are grouped in categories according to their behavior. For example, all the digit buttons (labeled <b>0</b> to <b>9</b>) append a digit to the current operand. For these, we connect multiple buttons to the same slot (e.g&#x2e;, <tt>digitClicked()</tt>). The categories are digits, unary operators (<b>Sqrt</b>, <b>x²</b>, <b>1/x</b>), additive operators (<b>+</b>, <b>-</b>), and multiplicative operators (<b>×</b>, <b>÷</b>). The other buttons have their own slots.</p>
+<pre class="cpp"> <span class="keyword">private</span>:
+     Button <span class="operator">*</span>createButton(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>member);
+     <span class="type">void</span> abortOperation();
+     <span class="type">bool</span> calculate(<span class="type">double</span> rightOperand<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>pendingOperator);</pre>
+<p>The private <tt>createButton()</tt> function is used as part of the widget construction. <tt>abortOperation()</tt> is called whenever a division by zero occurs or when a square root operation is applied to a negative number. <tt>calculate()</tt> applies a binary operator (<b>+</b>, <b>-</b>, <b>×</b>, or <b>÷</b>).</p>
+<pre class="cpp">     <span class="type">double</span> sumInMemory;
+     <span class="type">double</span> sumSoFar;
+     <span class="type">double</span> factorSoFar;
+     <span class="type"><a href="qstring.html">QString</a></span> pendingAdditiveOperator;
+     <span class="type"><a href="qstring.html">QString</a></span> pendingMultiplicativeOperator;
+     <span class="type">bool</span> waitingForOperand;</pre>
+<p>These variables, together with the contents of the calculator display (a <a href="qlineedit.html">QLineEdit</a>), encode the state of the calculator:</p>
+<ul>
+<li><tt>sumInMemory</tt> contains the value stored in the calculator's memory (using <b>MS</b>, <b>M+</b>, or <b>MC</b>).</li>
+<li><tt>sumSoFar</tt> stores the value accumulated so far. When the user clicks <b>=</b>, <tt>sumSoFar</tt> is recomputed and shown on the display. <b>Clear All</b> resets <tt>sumSoFar</tt> to zero.</li>
+<li><tt>factorSoFar</tt> stores a temporary value when doing multiplications and divisions.</li>
+<li><tt>pendingAdditiveOperator</tt> stores the last additive operator clicked by the user.</li>
+<li><tt>pendingMultiplicativeOperator</tt> stores the last multiplicative operator clicked by the user.</li>
+<li><tt>waitingForOperand</tt> is <tt>true</tt> when the calculator is expecting the user to start typing an operand.</li>
+</ul>
+<p>Additive and multiplicative operators are treated differently because they have different precedences. For example, <b>1 + 2 ÷ 3</b> is interpreted as <b>1 + (2 ÷ 3)</b> because <b>÷</b> has higher precedence than <b>+</b>.</p>
+<p>The table below shows the evolution of the calculator state as the user enters a mathematical expression.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >User Input</th><th >Display</th><th >Sum so Far</th><th >Add. Op.</th><th >Factor so Far</th><th >Mult. Op.</th><th >Waiting for Operand?</th></tr></thead>
+<tr valign="top" class="odd"><td ></td><td >0</td><td >0</td><td ></td><td ></td><td ></td><td ><tt>true</tt></td></tr>
+<tr valign="top" class="even"><td ><b>1</b></td><td >1</td><td >0</td><td ></td><td ></td><td ></td><td ><tt>false</tt></td></tr>
+<tr valign="top" class="odd"><td ><b>1 +</b></td><td >1</td><td >1</td><td ><b>+</b></td><td ></td><td ></td><td ><tt>true</tt></td></tr>
+<tr valign="top" class="even"><td ><b>1 + 2</b></td><td >2</td><td >1</td><td ><b>+</b></td><td ></td><td ></td><td ><tt>false</tt></td></tr>
+<tr valign="top" class="odd"><td ><b>1 + 2 ÷</b></td><td >2</td><td >1</td><td ><b>+</b></td><td >2</td><td ><b>÷</b></td><td ><tt>true</tt></td></tr>
+<tr valign="top" class="even"><td ><b>1 + 2 ÷ 3</b></td><td >3</td><td >1</td><td ><b>+</b></td><td >2</td><td ><b>÷</b></td><td ><tt>false</tt></td></tr>
+<tr valign="top" class="odd"><td ><b>1 + 2 ÷ 3 -</b></td><td >1.66667</td><td >1.66667</td><td ><b>-</b></td><td ></td><td ></td><td ><tt>true</tt></td></tr>
+<tr valign="top" class="even"><td ><b>1 + 2 ÷ 3 - 4</b></td><td >4</td><td >1.66667</td><td ><b>-</b></td><td ></td><td ></td><td ><tt>false</tt></td></tr>
+<tr valign="top" class="odd"><td ><b>1 + 2 ÷ 3 - 4 =</b></td><td >-2.33333</td><td >0</td><td ></td><td ></td><td ></td><td ><tt>true</tt></td></tr>
+</table>
+<p>Unary operators, such as <b>Sqrt</b>, require no special handling; they can be applied immediately since the operand is already known when the operator button is clicked.</p>
+<pre class="cpp">     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>display;
+
+     <span class="keyword">enum</span> { NumDigitButtons <span class="operator">=</span> <span class="number">10</span> };
+     Button <span class="operator">*</span>digitButtons<span class="operator">[</span>NumDigitButtons<span class="operator">]</span>;
+ };</pre>
+<p>Finally, we declare the variables associated with the display and the buttons used to display numerals.</p>
+<a name="calculator-class-implementation"></a>
+<h2>Calculator Class Implementation</h2>
+<pre class="cpp"> Calculator<span class="operator">::</span>Calculator(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     sumInMemory <span class="operator">=</span> <span class="number">0.0</span>;
+     sumSoFar <span class="operator">=</span> <span class="number">0.0</span>;
+     factorSoFar <span class="operator">=</span> <span class="number">0.0</span>;
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;</pre>
+<p>In the constructor, we initialize the calculator's state. The <tt>pendingAdditiveOperator</tt> and <tt>pendingMultiplicativeOperator</tt> variables don't need to be initialized explicitly, because the <a href="qstring.html">QString</a> constructor initializes them to empty strings.</p>
+<pre class="cpp">     display <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>(<span class="string">&quot;0&quot;</span>);
+     display<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
+     display<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+     display<span class="operator">-</span><span class="operator">&gt;</span>setMaxLength(<span class="number">15</span>);
+
+     <span class="type"><a href="qfont.html">QFont</a></span> font <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>font();
+     font<span class="operator">.</span>setPointSize(font<span class="operator">.</span>pointSize() <span class="operator">+</span> <span class="number">8</span>);
+     display<span class="operator">-</span><span class="operator">&gt;</span>setFont(font);</pre>
+<p>We create the <a href="qlineedit.html">QLineEdit</a> representing the calculator's display and set up some of its properties. In particular, we set it to be read-only.</p>
+<p>We also enlarge <tt>display</tt>'s font by 8 points.</p>
+<pre class="cpp">     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> NumDigitButtons; <span class="operator">+</span><span class="operator">+</span>i) {
+         digitButtons<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> createButton(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(i)<span class="operator">,</span> SLOT(digitClicked()));
+     }
+
+     Button <span class="operator">*</span>pointButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;.&quot;</span>)<span class="operator">,</span> SLOT(pointClicked()));
+     Button <span class="operator">*</span>changeSignButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;\261&quot;</span>)<span class="operator">,</span> SLOT(changeSignClicked()));
+
+     Button <span class="operator">*</span>backspaceButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;Backspace&quot;</span>)<span class="operator">,</span> SLOT(backspaceClicked()));
+     Button <span class="operator">*</span>clearButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;Clear&quot;</span>)<span class="operator">,</span> SLOT(clear()));
+     Button <span class="operator">*</span>clearAllButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;Clear All&quot;</span>)<span class="operator">,</span> SLOT(clearAll()));
+
+     Button <span class="operator">*</span>clearMemoryButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;MC&quot;</span>)<span class="operator">,</span> SLOT(clearMemory()));
+     Button <span class="operator">*</span>readMemoryButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;MR&quot;</span>)<span class="operator">,</span> SLOT(readMemory()));
+     Button <span class="operator">*</span>setMemoryButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;MS&quot;</span>)<span class="operator">,</span> SLOT(setMemory()));
+     Button <span class="operator">*</span>addToMemoryButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;M+&quot;</span>)<span class="operator">,</span> SLOT(addToMemory()));
+
+     Button <span class="operator">*</span>divisionButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;\367&quot;</span>)<span class="operator">,</span> SLOT(multiplicativeOperatorClicked()));
+     Button <span class="operator">*</span>timesButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;\327&quot;</span>)<span class="operator">,</span> SLOT(multiplicativeOperatorClicked()));
+     Button <span class="operator">*</span>minusButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;-&quot;</span>)<span class="operator">,</span> SLOT(additiveOperatorClicked()));
+     Button <span class="operator">*</span>plusButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;+&quot;</span>)<span class="operator">,</span> SLOT(additiveOperatorClicked()));
+
+     Button <span class="operator">*</span>squareRootButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;Sqrt&quot;</span>)<span class="operator">,</span> SLOT(unaryOperatorClicked()));
+     Button <span class="operator">*</span>powerButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;x\262&quot;</span>)<span class="operator">,</span> SLOT(unaryOperatorClicked()));
+     Button <span class="operator">*</span>reciprocalButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;1/x&quot;</span>)<span class="operator">,</span> SLOT(unaryOperatorClicked()));
+     Button <span class="operator">*</span>equalButton <span class="operator">=</span> createButton(tr(<span class="string">&quot;=&quot;</span>)<span class="operator">,</span> SLOT(equalClicked()));</pre>
+<p>For each button, we call the private <tt>createButton()</tt> function with the proper text label and a slot to connect to the button.</p>
+<pre class="cpp">     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>setSizeConstraint(<span class="type"><a href="qlayout.html">QLayout</a></span><span class="operator">::</span>SetNoConstraint);
+ <span class="preprocessor">#else</span>
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>setSizeConstraint(<span class="type"><a href="qlayout.html">QLayout</a></span><span class="operator">::</span>SetFixedSize);
+ <span class="preprocessor">#endif</span>
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(display<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">6</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(backspaceButton<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(clearButton<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(clearAllButton<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(clearMemoryButton<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(readMemoryButton<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">0</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(setMemoryButton<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">0</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(addToMemoryButton<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">0</span>);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> NumDigitButtons; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type">int</span> row <span class="operator">=</span> ((<span class="number">9</span> <span class="operator">-</span> i) <span class="operator">/</span> <span class="number">3</span>) <span class="operator">+</span> <span class="number">2</span>;
+         <span class="type">int</span> column <span class="operator">=</span> ((i <span class="operator">-</span> <span class="number">1</span>) <span class="operator">%</span> <span class="number">3</span>) <span class="operator">+</span> <span class="number">1</span>;
+         mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(digitButtons<span class="operator">[</span>i<span class="operator">]</span><span class="operator">,</span> row<span class="operator">,</span> column);
+     }
+
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(digitButtons<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">1</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(pointButton<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">2</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(changeSignButton<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">3</span>);
+
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(divisionButton<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">4</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(timesButton<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">4</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(minusButton<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">4</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(plusButton<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">4</span>);
+
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(squareRootButton<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">5</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(powerButton<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> <span class="number">5</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(reciprocalButton<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">5</span>);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(equalButton<span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">5</span>);
+     setLayout(mainLayout);
+
+     setWindowTitle(tr(<span class="string">&quot;Calculator&quot;</span>));
+ }</pre>
+<p>The layout is handled by a single <a href="qgridlayout.html">QGridLayout</a>. The <a href="qlayout.html#sizeConstraint-prop">QLayout::setSizeConstraint</a>() call ensures that the <tt>Calculator</tt> widget is always shown as its optimal size (its <a href="qwidget.html#sizeHint-prop">size hint</a>), preventing the user from resizing the calculator. The size hint is determined by the size and <a href="qwidget.html#sizePolicy-prop">size policy</a> of the child widgets.</p>
+<p>Most child widgets occupy only one cell in the grid layout. For these, we only need to pass a row and a column to <a href="qgridlayout.html#addWidget">QGridLayout::addWidget</a>(). The <tt>display</tt>, <tt>backspaceButton</tt>, <tt>clearButton</tt>, and <tt>clearAllButton</tt> widgets occupy more than one column; for these we must also pass a row span and a column span.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>digitClicked()
+ {
+     Button <span class="operator">*</span>clickedButton <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>Button <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     <span class="type">int</span> digitValue <span class="operator">=</span> clickedButton<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toInt();
+     <span class="keyword">if</span> (display<span class="operator">-</span><span class="operator">&gt;</span>text() <span class="operator">=</span><span class="operator">=</span> <span class="string">&quot;0&quot;</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> digitValue <span class="operator">=</span><span class="operator">=</span> <span class="number">0.0</span>)
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (waitingForOperand) {
+         display<span class="operator">-</span><span class="operator">&gt;</span>clear();
+         waitingForOperand <span class="operator">=</span> <span class="keyword">false</span>;
+     }
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(display<span class="operator">-</span><span class="operator">&gt;</span>text() <span class="operator">+</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(digitValue));
+ }</pre>
+<p>Pressing one of the calculator's digit buttons will emit the button's <a href="qabstractbutton.html#clicked">clicked()</a> signal, which will trigger the <tt>digitClicked()</tt> slot.</p>
+<p>First, we find out which button sent the signal using <a href="qobject.html#sender">QObject::sender</a>(). This function returns the sender as a <a href="qobject.html">QObject</a> pointer. Since we know that the sender is a <tt>Button</tt> object, we can safely cast the <a href="qobject.html">QObject</a>. We could have used a C-style cast or a C++ <tt>static_cast&lt;&gt;()</tt>, but as a defensive programming technique we use a <a href="qobject.html#qobject_cast">qobject_cast</a>(). The advantage is that if the object has the wrong type, a null pointer is returned. Crashes due to null pointers are much easier to diagnose than crashes due to unsafe casts. Once we have the button, we extract the operator using <a href="qabstractbutton.html#text-prop">QToolButton::text</a>().</p>
+<p>The slot needs to consider two situations in particular. If <tt>display</tt> contains &quot;0&quot; and the user clicks the <b>0</b> button, it would be silly to show &quot;00&quot;. And if the calculator is in a state where it is waiting for a new operand, the new digit is the first digit of that new operand; in that case, any result of a previous calculation must be cleared first.</p>
+<p>At the end, we append the new digit to the value in the display.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>unaryOperatorClicked()
+ {
+     Button <span class="operator">*</span>clickedButton <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>Button <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     <span class="type"><a href="qstring.html">QString</a></span> clickedOperator <span class="operator">=</span> clickedButton<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type">double</span> operand <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toDouble();
+     <span class="type">double</span> result <span class="operator">=</span> <span class="number">0.0</span>;
+
+     <span class="keyword">if</span> (clickedOperator <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;Sqrt&quot;</span>)) {
+         <span class="keyword">if</span> (operand <span class="operator">&lt;</span> <span class="number">0.0</span>) {
+             abortOperation();
+             <span class="keyword">return</span>;
+         }
+         result <span class="operator">=</span> sqrt(operand);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (clickedOperator <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;x\262&quot;</span>)) {
+         result <span class="operator">=</span> pow(operand<span class="operator">,</span> <span class="number">2.0</span>);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (clickedOperator <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;1/x&quot;</span>)) {
+         <span class="keyword">if</span> (operand <span class="operator">=</span><span class="operator">=</span> <span class="number">0.0</span>) {
+             abortOperation();
+             <span class="keyword">return</span>;
+         }
+         result <span class="operator">=</span> <span class="number">1.0</span> <span class="operator">/</span> operand;
+     }
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(result));
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+ }</pre>
+<p>The <tt>unaryOperatorClicked()</tt> slot is called whenever one of the unary operator buttons is clicked. Again a pointer to the clicked button is retrieved using <a href="qobject.html#sender">QObject::sender</a>(). The operator is extracted from the button's text and stored in <tt>clickedOperator</tt>. The operand is obtained from <tt>display</tt>.</p>
+<p>Then we perform the operation. If <b>Sqrt</b> is applied to a negative number or <b>1/x</b> to zero, we call <tt>abortOperation()</tt>. If everything goes well, we display the result of the operation in the line edit and we set <tt>waitingForOperand</tt> to <tt>true</tt>. This ensures that if the user types a new digit, the digit will be considered as a new operand, instead of being appended to the current value.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>additiveOperatorClicked()
+ {
+     Button <span class="operator">*</span>clickedButton <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>Button <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     <span class="type"><a href="qstring.html">QString</a></span> clickedOperator <span class="operator">=</span> clickedButton<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type">double</span> operand <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toDouble();</pre>
+<p>The <tt>additiveOperatorClicked()</tt> slot is called when the user clicks the <b>+</b> or <b>-</b> button.</p>
+<p>Before we can actually do something about the clicked operator, we must handle any pending operations. We start with the multiplicative operators, since these have higher precedence than additive operators:</p>
+<pre class="cpp">     <span class="keyword">if</span> (<span class="operator">!</span>pendingMultiplicativeOperator<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">if</span> (<span class="operator">!</span>calculate(operand<span class="operator">,</span> pendingMultiplicativeOperator)) {
+             abortOperation();
+             <span class="keyword">return</span>;
+         }
+         display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(factorSoFar));
+         operand <span class="operator">=</span> factorSoFar;
+         factorSoFar <span class="operator">=</span> <span class="number">0.0</span>;
+         pendingMultiplicativeOperator<span class="operator">.</span>clear();
+     }</pre>
+<p>If <b>×</b> or <b>÷</b> has been clicked earlier, without clicking <b>=</b> afterward, the current value in the display is the right operand of the <b>×</b> or <b>÷</b> operator and we can finally perform the operation and update the display.</p>
+<pre class="cpp">     <span class="keyword">if</span> (<span class="operator">!</span>pendingAdditiveOperator<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">if</span> (<span class="operator">!</span>calculate(operand<span class="operator">,</span> pendingAdditiveOperator)) {
+             abortOperation();
+             <span class="keyword">return</span>;
+         }
+         display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(sumSoFar));
+     } <span class="keyword">else</span> {
+         sumSoFar <span class="operator">=</span> operand;
+     }</pre>
+<p>If <b>+</b> or <b>-</b> has been clicked earlier, <tt>sumSoFar</tt> is the left operand and the current value in the display is the right operand of the operator. If there is no pending additive operator, <tt>sumSoFar</tt> is simply set to be the text in the display.</p>
+<pre class="cpp">     pendingAdditiveOperator <span class="operator">=</span> clickedOperator;
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+ }</pre>
+<p>Finally, we can take care of the operator that was just clicked. Since we don't have the right-hand operand yet, we store the clicked operator in the <tt>pendingAdditiveOperator</tt> variable. We will apply the operation later, when we have a right operand, with <tt>sumSoFar</tt> as the left operand.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>multiplicativeOperatorClicked()
+ {
+     Button <span class="operator">*</span>clickedButton <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>Button <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     <span class="type"><a href="qstring.html">QString</a></span> clickedOperator <span class="operator">=</span> clickedButton<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type">double</span> operand <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toDouble();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>pendingMultiplicativeOperator<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">if</span> (<span class="operator">!</span>calculate(operand<span class="operator">,</span> pendingMultiplicativeOperator)) {
+             abortOperation();
+             <span class="keyword">return</span>;
+         }
+         display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(factorSoFar));
+     } <span class="keyword">else</span> {
+         factorSoFar <span class="operator">=</span> operand;
+     }
+
+     pendingMultiplicativeOperator <span class="operator">=</span> clickedOperator;
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+ }</pre>
+<p>The <tt>multiplicativeOperatorClicked()</tt> slot is similar to <tt>additiveOperatorClicked()</tt>. We don't need to worry about pending additive operators here, because multiplicative operators have precedence over additive operators.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>equalClicked()
+ {
+     <span class="type">double</span> operand <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toDouble();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>pendingMultiplicativeOperator<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">if</span> (<span class="operator">!</span>calculate(operand<span class="operator">,</span> pendingMultiplicativeOperator)) {
+             abortOperation();
+             <span class="keyword">return</span>;
+         }
+         operand <span class="operator">=</span> factorSoFar;
+         factorSoFar <span class="operator">=</span> <span class="number">0.0</span>;
+         pendingMultiplicativeOperator<span class="operator">.</span>clear();
+     }
+     <span class="keyword">if</span> (<span class="operator">!</span>pendingAdditiveOperator<span class="operator">.</span>isEmpty()) {
+         <span class="keyword">if</span> (<span class="operator">!</span>calculate(operand<span class="operator">,</span> pendingAdditiveOperator)) {
+             abortOperation();
+             <span class="keyword">return</span>;
+         }
+         pendingAdditiveOperator<span class="operator">.</span>clear();
+     } <span class="keyword">else</span> {
+         sumSoFar <span class="operator">=</span> operand;
+     }
+
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(sumSoFar));
+     sumSoFar <span class="operator">=</span> <span class="number">0.0</span>;
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+ }</pre>
+<p>Like in <tt>additiveOperatorClicked()</tt>, we start by handing any pending multiplicative and additive operators. Then we display <tt>sumSoFar</tt> and reset the variable to zero. Resetting the variable to zero is necessary to avoid counting the value twice.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>pointClicked()
+ {
+     <span class="keyword">if</span> (waitingForOperand)
+         display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;0&quot;</span>);
+     <span class="keyword">if</span> (<span class="operator">!</span>display<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>contains(<span class="string">&quot;.&quot;</span>))
+         display<span class="operator">-</span><span class="operator">&gt;</span>setText(display<span class="operator">-</span><span class="operator">&gt;</span>text() <span class="operator">+</span> tr(<span class="string">&quot;.&quot;</span>));
+     waitingForOperand <span class="operator">=</span> <span class="keyword">false</span>;
+ }</pre>
+<p>The <tt>pointClicked()</tt> slot adds a decimal point to the content in <tt>display</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>changeSignClicked()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type">double</span> value <span class="operator">=</span> text<span class="operator">.</span>toDouble();
+
+     <span class="keyword">if</span> (value <span class="operator">&gt;</span> <span class="number">0.0</span>) {
+         text<span class="operator">.</span>prepend(tr(<span class="string">&quot;-&quot;</span>));
+     } <span class="keyword">else</span> <span class="keyword">if</span> (value <span class="operator">&lt;</span> <span class="number">0.0</span>) {
+         text<span class="operator">.</span>remove(<span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     }
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(text);
+ }</pre>
+<p>The <tt>changeSignClicked()</tt> slot changes the sign of the value in <tt>display</tt>. If the current value is positive, we prepend a minus sign; if the current value is negative, we remove the first character from the value (the minus sign).</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>backspaceClicked()
+ {
+     <span class="keyword">if</span> (waitingForOperand)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text();
+     text<span class="operator">.</span>chop(<span class="number">1</span>);
+     <span class="keyword">if</span> (text<span class="operator">.</span>isEmpty()) {
+         text <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;
+         waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+     }
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(text);
+ }</pre>
+<p>The <tt>backspaceClicked()</tt> removes the rightmost character in the display. If we get an empty string, we show &quot;0&quot; and set <tt>waitingForOperand</tt> to <tt>true</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>clear()
+ {
+     <span class="keyword">if</span> (waitingForOperand)
+         <span class="keyword">return</span>;
+
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;0&quot;</span>);
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+ }</pre>
+<p>The <tt>clear()</tt> slot resets the current operand to zero. It is equivalent to clicking <b>Backspace</b> enough times to erase the entire operand.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>clearAll()
+ {
+     sumSoFar <span class="operator">=</span> <span class="number">0.0</span>;
+     factorSoFar <span class="operator">=</span> <span class="number">0.0</span>;
+     pendingAdditiveOperator<span class="operator">.</span>clear();
+     pendingMultiplicativeOperator<span class="operator">.</span>clear();
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;0&quot;</span>);
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+ }</pre>
+<p>The <tt>clearAll()</tt> slot resets the calculator to its initial state.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>clearMemory()
+ {
+     sumInMemory <span class="operator">=</span> <span class="number">0.0</span>;
+ }
+
+ <span class="type">void</span> Calculator<span class="operator">::</span>readMemory()
+ {
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(sumInMemory));
+     waitingForOperand <span class="operator">=</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type">void</span> Calculator<span class="operator">::</span>setMemory()
+ {
+     equalClicked();
+     sumInMemory <span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toDouble();
+ }
+
+ <span class="type">void</span> Calculator<span class="operator">::</span>addToMemory()
+ {
+     equalClicked();
+     sumInMemory <span class="operator">+</span><span class="operator">=</span> display<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toDouble();
+ }</pre>
+<p>The <tt>clearMemory()</tt> slot erases the sum kept in memory, <tt>readMemory()</tt> displays the sum as an operand, <tt>setMemory()</tt> replace the sum in memory with the current sum, and <tt>addToMemory()</tt> adds the current value to the value in memory. For <tt>setMemory()</tt> and <tt>addToMemory()</tt>, we start by calling <tt>equalClicked()</tt> to update <tt>sumSoFar</tt> and the value in the display.</p>
+<pre class="cpp"> Button <span class="operator">*</span>Calculator<span class="operator">::</span>createButton(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>member)
+ {
+     Button <span class="operator">*</span>button <span class="operator">=</span> <span class="keyword">new</span> Button(text);
+     connect(button<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> member);
+     <span class="keyword">return</span> button;
+ }</pre>
+<p>The private <tt>createButton()</tt> function is called from the constructor to create calculator buttons.</p>
+<pre class="cpp"> <span class="type">void</span> Calculator<span class="operator">::</span>abortOperation()
+ {
+     clearAll();
+     display<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;####&quot;</span>));
+ }</pre>
+<p>The private <tt>abortOperation()</tt> function is called whenever a calculation fails. It resets the calculator state and displays &quot;####&quot;.</p>
+<pre class="cpp"> <span class="type">bool</span> Calculator<span class="operator">::</span>calculate(<span class="type">double</span> rightOperand<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>pendingOperator)
+ {
+     <span class="keyword">if</span> (pendingOperator <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;+&quot;</span>)) {
+         sumSoFar <span class="operator">+</span><span class="operator">=</span> rightOperand;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (pendingOperator <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;-&quot;</span>)) {
+         sumSoFar <span class="operator">-</span><span class="operator">=</span> rightOperand;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (pendingOperator <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;\327&quot;</span>)) {
+         factorSoFar <span class="operator">*</span><span class="operator">=</span> rightOperand;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (pendingOperator <span class="operator">=</span><span class="operator">=</span> tr(<span class="string">&quot;\367&quot;</span>)) {
+         <span class="keyword">if</span> (rightOperand <span class="operator">=</span><span class="operator">=</span> <span class="number">0.0</span>)
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+         factorSoFar <span class="operator">/</span><span class="operator">=</span> rightOperand;
+     }
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>The private <tt>calculate()</tt> function performs a binary operation. The right operand is given by <tt>rightOperand</tt>. For additive operators, the left operand is <tt>sumSoFar</tt>; for multiplicative operators, the left operand is <tt>factorSoFar</tt>. The function return <tt>false</tt> if a division by zero occurs.</p>
+<a name="button-class-definition"></a>
+<h2>Button Class Definition</h2>
+<p>Let's now take a look at the <tt>Button</tt> class:</p>
+<pre class="cpp"> <span class="keyword">class</span> Button : <span class="keyword">public</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Button(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;
+ };</pre>
+<p>The <tt>Button</tt> class has a convenience constructor that takes a text label and a parent widget, and it reimplements <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() to provide more space around the text than the amount <a href="qtoolbutton.html">QToolButton</a> normally provides.</p>
+<a name="button-class-implementation"></a>
+<h2>Button Class Implementation</h2>
+<pre class="cpp"> Button<span class="operator">::</span>Button(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qtoolbutton.html">QToolButton</a></span>(parent)
+ {
+     setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Preferred);
+     setText(text);
+ }</pre>
+<p>The buttons' appearance is determined by the layout of the calculator widget through the size and <a href="qwidget.html#sizePolicy-prop">size policy</a> of the layout's child widgets. The call to the <a href="qwidget.html#sizePolicy-prop">setSizePolicy()</a> function in the constructor ensures that the button will expand horizontally to fill all the available space; by default, <a href="qtoolbutton.html">QToolButton</a>s don't expand to fill available space. Without this call, the different buttons in a same column would have different widths.</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> Button<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qsize.html">QSize</a></span> size <span class="operator">=</span> <span class="type"><a href="qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>sizeHint();
+     size<span class="operator">.</span>rheight() <span class="operator">+</span><span class="operator">=</span> <span class="number">20</span>;
+     size<span class="operator">.</span>rwidth() <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(size<span class="operator">.</span>width()<span class="operator">,</span> size<span class="operator">.</span>height());
+     <span class="keyword">return</span> size;
+ }</pre>
+<p>In <a href="qwidget.html#sizeHint-prop">sizeHint()</a>, we try to return a size that looks good for most buttons. We reuse the size hint of the base class (<a href="qtoolbutton.html">QToolButton</a>) but modify it in the following ways:</p>
+<ul>
+<li>We add 20 to the <a href="qsize.html#height">height</a> component of the size hint.</li>
+<li>We make the <a href="qsize.html#width">width</a> component of the size hint at least as much as the <a href="qsize.html#width">height</a>.</li>
+</ul>
+<p>This ensures that with most fonts, the digit and operator buttons will be square, without truncating the text on the <b>Backspace</b>, <b>Clear</b>, and <b>Clear All</b> buttons.</p>
+<p>The screenshot below shows how the <tt>Calculator</tt> widget would look like if we <i>didn't</i> set the horizontal size policy to <a href="qsizepolicy.html#Policy-enum">QSizePolicy::Expanding</a> in the constructor and if we didn't reimplement <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>().</p>
+<p class="centerAlign"><img src="images/calculator-ugly.png" alt="The Calculator example with default size policies and size hints" /></p></div>
+<!-- @@@widgets/calculator -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A38738A7-69F5-4246-9263-EEB2B193FDA3}</ProjectGuid>
+    <RootNamespace>AppUnitTest</RootNamespace>
+    <SccProjectName>Perforce Project</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccProvider>MSSCCI:Perforce SCM</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="..\CustomBuildRules.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;..\Library\SDL2\include;..\Library\boost\include;..\TBB_4_1\include;..\Base;..\Base\include;..\Base.UnitTest.Lib\include;..\App.UnitTest.Lib\include;..\App\include;..\App\util;..\App\lua-5.1.4\src;..\Network;..\Network\include;..\Rendering;..\Rendering\AppDraw\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;..\Rendering\g3d\png;..\Rendering\GfxBase\include;..\DeviceCaps\include;..\fmod\include;..\Network\raknet\Source;..\Log\include;..\ClientShared;..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_BUILD_LIB;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\TBB_4_1\lib;..\fmod\win32\lib;..\Library\SDK\Lib;..\Library\VMProtect\lib;..\Library\zlib\lib\debug;..\Library\curl\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>zlibd.lib;libcurl-d.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <BaseAddress>0x00400000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/D "_SECURE_SCL=0" %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>.;..\Library\SDL2\include;..\Library\boost\include;..\TBB_4_1\include;..\Base;..\Base\include;..\Base.UnitTest.Lib\include;..\App.UnitTest.Lib\include;..\App\include;..\App\util;..\App\lua-5.1.4\src;..\Network;..\Network\include;..\Rendering;..\Rendering\AppDraw\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;..\Rendering\g3d\png;..\Rendering\GfxBase\include;..\DeviceCaps\include;..\fmod\include;..\Network\raknet\Source;..\Log\include;..\ClientShared;..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_THREAD_BUILD_LIB;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\TBB_4_1\lib;..\fmod\win32\lib;..\Library\SDK\Lib;..\Library\VMProtect\lib;..\Library\zlib\lib\release;..\Library\curl\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>zlib.lib;libcurl.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <BaseAddress>0x00400000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\App\script\LuaVMDummy.cpp" />
+    <ClCompile Include="App.UnitTest.cpp" />
+    <ClCompile Include="AutowedgeTest.cpp" />
+    <ClCompile Include="Base64BinaryStreamTest.cpp" />
+    <ClCompile Include="ChatTests.cpp" />
+    <ClCompile Include="ClusterChangeHistoryTest.cpp" />
+    <ClCompile Include="ClusterDeprecatedPropertyTest.cpp" />
+    <ClCompile Include="ClusterReplicationTest.cpp" />
+    <ClCompile Include="ContentProviderTest.cpp" />
+    <ClCompile Include="CustomEvents.cpp" />
+    <ClCompile Include="..\ClientShared\DataModelSerialize.cpp" />
+    <ClCompile Include="FastLogSettingsTest.cpp" />
+    <ClCompile Include="G3D.cpp" />
+    <ClCompile Include="HeapValueTest.cpp" />
+    <ClCompile Include="HttpCacheEntryTest.cpp" />
+    <ClCompile Include="HTTPTest.cpp" />
+    <ClCompile Include="HumanoidTest.cpp" />
+    <ClCompile Include="Instance.cpp" />
+    <ClCompile Include="LogServiceTest.cpp" />
+    <ClCompile Include="LuaDebugger.cpp" />
+    <ClCompile Include="LuaReflection.cpp" />
+    <ClCompile Include="LuaSandbox.cpp" />
+    <ClCompile Include="LuaTokenizer.cpp" />
+    <ClCompile Include="LuaVector3Test.cpp" />
+    <ClCompile Include="LuaYieldingTest.cpp" />
+    <ClCompile Include="MD5.cpp" />
+    <ClCompile Include="MemoryTests.cpp" />
+    <ClCompile Include="MiscRegression.cpp" />
+    <ClCompile Include="ModuleScriptTest.cpp" />
+    <ClCompile Include="Network.cpp" />
+    <ClCompile Include="NetworkSecurity.cpp" />
+    <ClCompile Include="PathfindingTest.cpp" />
+    <ClCompile Include="RakNet.cpp" />
+    <ClCompile Include="RaycastTest.cpp" />
+    <ClCompile Include="ReflectionTest.cpp" />
+    <ClCompile Include="RemoteSignal.cpp" />
+    <ClCompile Include="ReplicatorGcJobTest.cpp" />
+    <ClCompile Include="ReplicatorStreamJobTest.cpp" />
+    <ClCompile Include="SelectionTest.cpp" />
+    <ClCompile Include="SerializationTest.cpp" />
+    <ClCompile Include="SettingsTest.cpp" />
+    <ClCompile Include="SettingsURL.cpp" />
+    <ClCompile Include="SpatialHashTest.cpp" />
+    <ClCompile Include="SpatialRegionTest.cpp" />
+    <ClCompile Include="StatsServiceTest.cpp" />
+    <ClCompile Include="StreamRegionTest.cpp" />
+    <ClCompile Include="ThreadPoolTest.cpp" />
+    <ClCompile Include="ToolTest.cpp" />
+    <ClCompile Include="URLParserTest.cpp" />
+    <ClCompile Include="VoxelCellUtilTest.cpp" />
+    <ClCompile Include="VoxelCellUtilV1Deprecated.cpp" />
+    <ClCompile Include="WebParserTest.cpp" />
+    <ClCompile Include="WebSerializerTest.cpp" />
+    <ClCompile Include="XmlElement.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="VoxelCellUtilV1Deprecated.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TestSettings.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishDLLDependency Include="..\fmod\win32\fmod.dll" />
+    <PublishDLLDependency Include="..\VMProtect\VMProtectSDK32.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.BulletPhysics\App.BulletPhysics.vcxproj">
+      <Project>{c9285114-dcc1-4e90-aa76-f590cefb94c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\App.UnitTest.Lib\App.UnitTest.Lib.vcxproj">
+      <Project>{de42a59c-daef-46e0-89de-7ced362460e0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\App\App.vcxproj">
+      <Project>{63db8347-940b-4a05-8975-6a6545c315dc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Base.UnitTest.Lib\Base.UnitTest.Lib.vcxproj">
+      <Project>{c5e89a79-bbc2-4ff3-80e1-69f5291f0c3c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.vcxproj">
+      <Project>{3025c00a-7746-469b-a279-96127c72abee}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\boostlibs\boost.test.vcxproj">
+      <Project>{55b54c4c-1951-4d6b-af5a-794214553001}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Network\Network.vcxproj">
+      <Project>{9b9eb5c6-15d1-4765-bcc7-8a42f2c9f6cc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\AppDraw\AppDraw.vcxproj">
+      <Project>{43afcf25-5133-4978-8b2c-d02ee0eee199}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\g3d\graphics3D.vcxproj">
+      <Project>{05c08695-1eca-489c-815d-d74d65f353f0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\GfxBase\GfxBase.vcxproj">
+      <Project>{857de167-1ed8-4e4d-955a-5cc5cc3944c1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Rendering\RbxG3D\RbxG3D.vcxproj">
+      <Project>{7d55bdab-c90b-4b36-9b2c-af8ef3e9129f}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\CustomBuildRules.targets" />
+  </ImportGroup>
+</Project>

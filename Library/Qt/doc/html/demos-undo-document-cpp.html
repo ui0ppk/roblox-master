@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: document.cpp Example File (demos/undo/document.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">document.cpp Example File</h1>
+<span class="small-subtitle">demos/undo/document.cpp</span>
+<!-- $$$demos/undo/document.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;qevent.h&gt;</span>
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QTextStream&gt;</span>
+ <span class="preprocessor">#include &lt;QUndoStack&gt;</span>
+ <span class="preprocessor">#include &quot;document.h&quot;</span>
+ <span class="preprocessor">#include &quot;commands.h&quot;</span>
+
+ <span class="keyword">static</span> <span class="keyword">const</span> <span class="type">int</span> resizeHandleWidth <span class="operator">=</span> <span class="number">6</span>;
+
+ <span class="comment">/******************************************************************************
+ ** Shape
+ */</span>
+
+ <span class="keyword">const</span> <span class="type"><a href="qsize.html">QSize</a></span> Shape<span class="operator">::</span>minSize(<span class="number">80</span><span class="operator">,</span> <span class="number">50</span>);
+
+ Shape<span class="operator">::</span>Shape(Type type<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect)
+     : m_type(type)<span class="operator">,</span> m_rect(rect)<span class="operator">,</span> m_color(color)
+ {
+ }
+
+ Shape<span class="operator">::</span>Type Shape<span class="operator">::</span>type() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_type;
+ }
+
+ <span class="type"><a href="qrect.html">QRect</a></span> Shape<span class="operator">::</span>rect() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_rect;
+ }
+
+ <span class="type"><a href="qcolor.html">QColor</a></span> Shape<span class="operator">::</span>color() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_color;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> Shape<span class="operator">::</span>name() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_name;
+ }
+
+ <span class="type"><a href="qrect.html">QRect</a></span> Shape<span class="operator">::</span>resizeHandle() <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qpoint.html">QPoint</a></span> br <span class="operator">=</span> m_rect<span class="operator">.</span>bottomRight();
+     <span class="keyword">return</span> <span class="type"><a href="qrect.html">QRect</a></span>(br <span class="operator">-</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(resizeHandleWidth<span class="operator">,</span> resizeHandleWidth)<span class="operator">,</span> br);
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> Shape<span class="operator">::</span>typeToString(Type type)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> result;
+
+     <span class="keyword">switch</span> (type) {
+         <span class="keyword">case</span> Rectangle:
+             result <span class="operator">=</span> QLatin1String(<span class="string">&quot;Rectangle&quot;</span>);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> Circle:
+             result <span class="operator">=</span> QLatin1String(<span class="string">&quot;Circle&quot;</span>);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> Triangle:
+             result <span class="operator">=</span> QLatin1String(<span class="string">&quot;Triangle&quot;</span>);
+             <span class="keyword">break</span>;
+     }
+
+     <span class="keyword">return</span> result;
+ }
+
+ Shape<span class="operator">::</span>Type Shape<span class="operator">::</span>stringToType(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>s<span class="operator">,</span> <span class="type">bool</span> <span class="operator">*</span>ok)
+ {
+     <span class="keyword">if</span> (ok <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="operator">*</span>ok <span class="operator">=</span> <span class="keyword">true</span>;
+
+     <span class="keyword">if</span> (s <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;Rectangle&quot;</span>))
+         <span class="keyword">return</span> Rectangle;
+     <span class="keyword">if</span> (s <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;Circle&quot;</span>))
+         <span class="keyword">return</span> Circle;
+     <span class="keyword">if</span> (s <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;Triangle&quot;</span>))
+         <span class="keyword">return</span> Triangle;
+
+     <span class="keyword">if</span> (ok <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="operator">*</span>ok <span class="operator">=</span> <span class="keyword">false</span>;
+     <span class="keyword">return</span> Rectangle;
+ }
+
+ <span class="comment">/******************************************************************************
+ ** Document
+ */</span>
+
+ Document<span class="operator">::</span>Document(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span> m_currentIndex(<span class="operator">-</span><span class="number">1</span>)<span class="operator">,</span> m_mousePressIndex(<span class="operator">-</span><span class="number">1</span>)<span class="operator">,</span> m_resizeHandlePressed(<span class="keyword">false</span>)
+ {
+     m_undoStack <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qundostack.html">QUndoStack</a></span>(<span class="keyword">this</span>);
+
+     setAutoFillBackground(<span class="keyword">true</span>);
+     setBackgroundRole(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Base);
+
+     <span class="type"><a href="qpalette.html">QPalette</a></span> pal <span class="operator">=</span> palette();
+     pal<span class="operator">.</span>setBrush(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Base<span class="operator">,</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/icons/background.png&quot;</span>));
+     pal<span class="operator">.</span>setColor(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>HighlightedText<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red);
+     setPalette(pal);
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> Document<span class="operator">::</span>addShape(<span class="keyword">const</span> Shape <span class="operator">&amp;</span>shape)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> Shape<span class="operator">::</span>typeToString(shape<span class="operator">.</span>type());
+     name <span class="operator">=</span> uniqueName(name);
+
+     m_shapeList<span class="operator">.</span>append(shape);
+     m_shapeList<span class="operator">[</span>m_shapeList<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span><span class="operator">]</span><span class="operator">.</span>m_name <span class="operator">=</span> name;
+     setCurrentShape(m_shapeList<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>);
+
+     <span class="keyword">return</span> name;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>deleteShape(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>shapeName)
+ {
+     <span class="type">int</span> index <span class="operator">=</span> indexOf(shapeName);
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span>;
+
+     update(m_shapeList<span class="operator">.</span>at(index)<span class="operator">.</span>rect());
+
+     m_shapeList<span class="operator">.</span>removeAt(index);
+
+     <span class="keyword">if</span> (index <span class="operator">&lt;</span><span class="operator">=</span> m_currentIndex) {
+         m_currentIndex <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+         <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> m_shapeList<span class="operator">.</span>count())
+             <span class="operator">-</span><span class="operator">-</span>index;
+         setCurrentShape(index);
+     }
+ }
+
+ Shape Document<span class="operator">::</span>shape(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>shapeName) <span class="keyword">const</span>
+ {
+     <span class="type">int</span> index <span class="operator">=</span> indexOf(shapeName);
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span> Shape();
+     <span class="keyword">return</span> m_shapeList<span class="operator">.</span>at(index);
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>setShapeRect(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>shapeName<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect)
+ {
+     <span class="type">int</span> index <span class="operator">=</span> indexOf(shapeName);
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span>;
+
+     Shape <span class="operator">&amp;</span>shape <span class="operator">=</span> m_shapeList<span class="operator">[</span>index<span class="operator">]</span>;
+
+     update(shape<span class="operator">.</span>rect());
+     update(rect);
+
+     shape<span class="operator">.</span>m_rect <span class="operator">=</span> rect;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>setShapeColor(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>shapeName<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color)
+ {
+
+     <span class="type">int</span> index <span class="operator">=</span> indexOf(shapeName);
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span>;
+
+     Shape <span class="operator">&amp;</span>shape <span class="operator">=</span> m_shapeList<span class="operator">[</span>index<span class="operator">]</span>;
+     shape<span class="operator">.</span>m_color <span class="operator">=</span> color;
+
+     update(shape<span class="operator">.</span>rect());
+ }
+
+ <span class="type"><a href="qundostack.html">QUndoStack</a></span> <span class="operator">*</span>Document<span class="operator">::</span>undoStack() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_undoStack;
+ }
+
+ <span class="type">bool</span> Document<span class="operator">::</span>load(<span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">&amp;</span>stream)
+ {
+     m_shapeList<span class="operator">.</span>clear();
+
+     <span class="keyword">while</span> (<span class="operator">!</span>stream<span class="operator">.</span>atEnd()) {
+         <span class="type"><a href="qstring.html">QString</a></span> shapeType<span class="operator">,</span> shapeName<span class="operator">,</span> colorName;
+         <span class="type">int</span> left<span class="operator">,</span> top<span class="operator">,</span> width<span class="operator">,</span> height;
+         stream <span class="operator">&gt;</span><span class="operator">&gt;</span> shapeType <span class="operator">&gt;</span><span class="operator">&gt;</span> shapeName <span class="operator">&gt;</span><span class="operator">&gt;</span> colorName <span class="operator">&gt;</span><span class="operator">&gt;</span> left <span class="operator">&gt;</span><span class="operator">&gt;</span> top <span class="operator">&gt;</span><span class="operator">&gt;</span> width <span class="operator">&gt;</span><span class="operator">&gt;</span> height;
+         <span class="keyword">if</span> (stream<span class="operator">.</span>status() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qtextstream.html">QTextStream</a></span><span class="operator">::</span>Ok)
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+         <span class="type">bool</span> ok;
+         Shape<span class="operator">::</span>Type type <span class="operator">=</span> Shape<span class="operator">::</span>stringToType(shapeType<span class="operator">,</span> <span class="operator">&amp;</span>ok);
+         <span class="keyword">if</span> (<span class="operator">!</span>ok)
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+         <span class="type"><a href="qcolor.html">QColor</a></span> color(colorName);
+         <span class="keyword">if</span> (<span class="operator">!</span>color<span class="operator">.</span>isValid())
+             <span class="keyword">return</span> <span class="keyword">false</span>;
+
+         Shape shape(type);
+         shape<span class="operator">.</span>m_name <span class="operator">=</span> shapeName;
+         shape<span class="operator">.</span>m_color <span class="operator">=</span> color;
+         shape<span class="operator">.</span>m_rect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>(left<span class="operator">,</span> top<span class="operator">,</span> width<span class="operator">,</span> height);
+
+         m_shapeList<span class="operator">.</span>append(shape);
+     }
+
+     m_currentIndex <span class="operator">=</span> m_shapeList<span class="operator">.</span>isEmpty() <span class="operator">?</span> <span class="operator">-</span><span class="number">1</span> : <span class="number">0</span>;
+
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>save(<span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">&amp;</span>stream)
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> m_shapeList<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">const</span> Shape <span class="operator">&amp;</span>shape <span class="operator">=</span> m_shapeList<span class="operator">.</span>at(i);
+         <span class="type"><a href="qrect.html">QRect</a></span> r <span class="operator">=</span> shape<span class="operator">.</span>rect();
+         stream <span class="operator">&lt;</span><span class="operator">&lt;</span> Shape<span class="operator">::</span>typeToString(shape<span class="operator">.</span>type()) <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1Char(<span class="char">' '</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> shape<span class="operator">.</span>name() <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1Char(<span class="char">' '</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> shape<span class="operator">.</span>color()<span class="operator">.</span>name() <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1Char(<span class="char">' '</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> r<span class="operator">.</span>left() <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1Char(<span class="char">' '</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> r<span class="operator">.</span>top() <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1Char(<span class="char">' '</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> r<span class="operator">.</span>width() <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1Char(<span class="char">' '</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> r<span class="operator">.</span>height();
+         <span class="keyword">if</span> (i <span class="operator">!</span><span class="operator">=</span> m_shapeList<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>)
+             stream <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1Char(<span class="char">'\n'</span>);
+     }
+     m_undoStack<span class="operator">-</span><span class="operator">&gt;</span>setClean();
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> Document<span class="operator">::</span>fileName() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_fileName;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>setFileName(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
+ {
+     m_fileName <span class="operator">=</span> fileName;
+ }
+
+ <span class="type">int</span> Document<span class="operator">::</span>indexAt(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>pos) <span class="keyword">const</span>
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> m_shapeList<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>; i <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>; <span class="operator">-</span><span class="operator">-</span>i) {
+         <span class="keyword">if</span> (m_shapeList<span class="operator">.</span>at(i)<span class="operator">.</span>rect()<span class="operator">.</span>contains(pos))
+             <span class="keyword">return</span> i;
+     }
+     <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     <span class="type">int</span> index <span class="operator">=</span> indexAt(event<span class="operator">-</span><span class="operator">&gt;</span>pos());;
+     <span class="keyword">if</span> (index <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         setCurrentShape(index);
+
+         <span class="keyword">const</span> Shape <span class="operator">&amp;</span>shape <span class="operator">=</span> m_shapeList<span class="operator">.</span>at(index);
+         m_resizeHandlePressed <span class="operator">=</span> shape<span class="operator">.</span>resizeHandle()<span class="operator">.</span>contains(event<span class="operator">-</span><span class="operator">&gt;</span>pos());
+
+         <span class="keyword">if</span> (m_resizeHandlePressed)
+             m_mousePressOffset <span class="operator">=</span> shape<span class="operator">.</span>rect()<span class="operator">.</span>bottomRight() <span class="operator">-</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+         <span class="keyword">else</span>
+             m_mousePressOffset <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">-</span> shape<span class="operator">.</span>rect()<span class="operator">.</span>topLeft();
+     }
+     m_mousePressIndex <span class="operator">=</span> index;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+     m_mousePressIndex <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+
+     <span class="keyword">if</span> (m_mousePressIndex <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span>;
+
+     <span class="keyword">const</span> Shape <span class="operator">&amp;</span>shape <span class="operator">=</span> m_shapeList<span class="operator">.</span>at(m_mousePressIndex);
+
+     <span class="type"><a href="qrect.html">QRect</a></span> rect;
+     <span class="keyword">if</span> (m_resizeHandlePressed) {
+         rect <span class="operator">=</span> <span class="type"><a href="qrect.html">QRect</a></span>(shape<span class="operator">.</span>rect()<span class="operator">.</span>topLeft()<span class="operator">,</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">+</span> m_mousePressOffset);
+     } <span class="keyword">else</span> {
+         rect <span class="operator">=</span> shape<span class="operator">.</span>rect();
+         rect<span class="operator">.</span>moveTopLeft(event<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">-</span> m_mousePressOffset);
+     }
+
+     <span class="type"><a href="qsize.html">QSize</a></span> size <span class="operator">=</span> rect<span class="operator">.</span>size()<span class="operator">.</span>expandedTo(Shape<span class="operator">::</span>minSize);
+     rect<span class="operator">.</span>setSize(size);
+
+     m_undoStack<span class="operator">-</span><span class="operator">&gt;</span>push(<span class="keyword">new</span> SetShapeRectCommand(<span class="keyword">this</span><span class="operator">,</span> shape<span class="operator">.</span>name()<span class="operator">,</span> rect));
+ }
+
+ <span class="keyword">static</span> <span class="type"><a href="qgradient.html">QGradient</a></span> gradient(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect)
+ {
+     <span class="type"><a href="qcolor.html">QColor</a></span> c <span class="operator">=</span> color;
+     c<span class="operator">.</span>setAlpha(<span class="number">160</span>);
+     <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span> result(rect<span class="operator">.</span>topLeft()<span class="operator">,</span> rect<span class="operator">.</span>bottomRight());
+     result<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> c<span class="operator">.</span>dark(<span class="number">150</span>));
+     result<span class="operator">.</span>setColorAt(<span class="number">0.5</span><span class="operator">,</span> c<span class="operator">.</span>light(<span class="number">200</span>));
+     result<span class="operator">.</span>setColorAt(<span class="number">1</span><span class="operator">,</span> c<span class="operator">.</span>dark(<span class="number">150</span>));
+     <span class="keyword">return</span> result;
+ }
+
+ <span class="keyword">static</span> <span class="type"><a href="qpolygon.html">QPolygon</a></span> triangle(<span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect)
+ {
+     <span class="type"><a href="qpolygon.html">QPolygon</a></span> result(<span class="number">3</span>);
+     result<span class="operator">.</span>setPoint(<span class="number">0</span><span class="operator">,</span> rect<span class="operator">.</span>center()<span class="operator">.</span>x()<span class="operator">,</span> rect<span class="operator">.</span>top());
+     result<span class="operator">.</span>setPoint(<span class="number">1</span><span class="operator">,</span> rect<span class="operator">.</span>right()<span class="operator">,</span> rect<span class="operator">.</span>bottom());
+     result<span class="operator">.</span>setPoint(<span class="number">2</span><span class="operator">,</span> rect<span class="operator">.</span>left()<span class="operator">,</span> rect<span class="operator">.</span>bottom());
+     <span class="keyword">return</span> result;
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qregion.html">QRegion</a></span> paintRegion <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>region();
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     <span class="type"><a href="qpalette.html">QPalette</a></span> pal <span class="operator">=</span> palette();
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> m_shapeList<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">const</span> Shape <span class="operator">&amp;</span>shape <span class="operator">=</span> m_shapeList<span class="operator">.</span>at(i);
+
+         <span class="keyword">if</span> (<span class="operator">!</span>paintRegion<span class="operator">.</span>contains(shape<span class="operator">.</span>rect()))
+             <span class="keyword">continue</span>;
+
+         <span class="type"><a href="qpen.html">QPen</a></span> pen <span class="operator">=</span> pal<span class="operator">.</span>text()<span class="operator">.</span>color();
+         pen<span class="operator">.</span>setWidth(i <span class="operator">=</span><span class="operator">=</span> m_currentIndex <span class="operator">?</span> <span class="number">2</span> : <span class="number">1</span>);
+         painter<span class="operator">.</span>setPen(pen);
+         painter<span class="operator">.</span>setBrush(gradient(shape<span class="operator">.</span>color()<span class="operator">,</span> shape<span class="operator">.</span>rect()));
+
+         <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> shape<span class="operator">.</span>rect();
+         rect<span class="operator">.</span>adjust(<span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">-</span>resizeHandleWidth<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> <span class="operator">-</span>resizeHandleWidth<span class="operator">/</span><span class="number">2</span>);
+
+         <span class="comment">// paint the shape</span>
+         <span class="keyword">switch</span> (shape<span class="operator">.</span>type()) {
+             <span class="keyword">case</span> Shape<span class="operator">::</span>Rectangle:
+                 painter<span class="operator">.</span>drawRect(rect);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Shape<span class="operator">::</span>Circle:
+                 painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+                 painter<span class="operator">.</span>drawEllipse(rect);
+                 painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">false</span>);
+                 <span class="keyword">break</span>;
+             <span class="keyword">case</span> Shape<span class="operator">::</span>Triangle:
+                 painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+                 painter<span class="operator">.</span>drawPolygon(triangle(rect));
+                 painter<span class="operator">.</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">false</span>);
+                 <span class="keyword">break</span>;
+         }
+
+         <span class="comment">// paint the resize handle</span>
+         painter<span class="operator">.</span>setPen(pal<span class="operator">.</span>text()<span class="operator">.</span>color());
+         painter<span class="operator">.</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+         painter<span class="operator">.</span>drawRect(shape<span class="operator">.</span>resizeHandle()<span class="operator">.</span>adjusted(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span>));
+
+         <span class="comment">// paint the shape name</span>
+         painter<span class="operator">.</span>setBrush(pal<span class="operator">.</span>text());
+         <span class="keyword">if</span> (shape<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> Shape<span class="operator">::</span>Triangle)
+             rect<span class="operator">.</span>adjust(<span class="number">0</span><span class="operator">,</span> rect<span class="operator">.</span>height()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+         painter<span class="operator">.</span>drawText(rect<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter<span class="operator">,</span> shape<span class="operator">.</span>name());
+     }
+ }
+
+ <span class="type">void</span> Document<span class="operator">::</span>setCurrentShape(<span class="type">int</span> index)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> currentName;
+
+     <span class="keyword">if</span> (m_currentIndex <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         update(m_shapeList<span class="operator">.</span>at(m_currentIndex)<span class="operator">.</span>rect());
+
+     m_currentIndex <span class="operator">=</span> index;
+
+     <span class="keyword">if</span> (m_currentIndex <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         <span class="keyword">const</span> Shape <span class="operator">&amp;</span>current <span class="operator">=</span> m_shapeList<span class="operator">.</span>at(m_currentIndex);
+         update(current<span class="operator">.</span>rect());
+         currentName <span class="operator">=</span> current<span class="operator">.</span>name();
+     }
+
+     <span class="keyword">emit</span> currentShapeChanged(currentName);
+ }
+
+ <span class="type">int</span> Document<span class="operator">::</span>indexOf(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>shapeName) <span class="keyword">const</span>
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> m_shapeList<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (m_shapeList<span class="operator">.</span>at(i)<span class="operator">.</span>name() <span class="operator">=</span><span class="operator">=</span> shapeName)
+             <span class="keyword">return</span> i;
+     }
+     <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> Document<span class="operator">::</span>uniqueName(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> unique;
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; ; <span class="operator">+</span><span class="operator">+</span>i) {
+         unique <span class="operator">=</span> name;
+         <span class="keyword">if</span> (i <span class="operator">&gt;</span> <span class="number">0</span>)
+             unique <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(i);
+         <span class="keyword">if</span> (indexOf(unique) <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+             <span class="keyword">break</span>;
+     }
+
+     <span class="keyword">return</span> unique;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> Document<span class="operator">::</span>currentShapeName() <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (m_currentIndex <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+     <span class="keyword">return</span> m_shapeList<span class="operator">.</span>at(m_currentIndex)<span class="operator">.</span>name();
+ }</pre>
+</div>
+<!-- @@@demos/undo/document.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

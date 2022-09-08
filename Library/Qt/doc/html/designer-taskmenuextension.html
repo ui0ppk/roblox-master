@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- taskmenuextension.qdoc -->
+  <title>Qt 4.8: Task Menu Extension Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Task Menu Extension Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-project-file-taskmenuextension-pro">The Project File: taskmenuextension.pro</a></li>
+<li class="level1"><a href="#tictactoeplugin-class-definition">TicTacToePlugin Class Definition</a></li>
+<li class="level1"><a href="#tictactoeplugin-class-implementation">TicTacToePlugin Class Implementation</a></li>
+<li class="level1"><a href="#tictactoetaskmenufactory-class-definition">TicTacToeTaskMenuFactory Class Definition</a></li>
+<li class="level1"><a href="#tictactoetaskmenufactory-class-implementation">TicTacToeTaskMenuFactory Class Implementation</a></li>
+<li class="level1"><a href="#tictactoetaskmenu-class-definition">TicTacToeTaskMenu Class Definition</a></li>
+<li class="level1"><a href="#tictactoetaskmenu-class-implementation">TicTacToeTaskMenu Class Implementation</a></li>
+<li class="level1"><a href="#tictactoedialog-class-definition">TicTacToeDialog Class Definition</a></li>
+<li class="level1"><a href="#tictactoedialog-class-implementation">TicTacToeDialog Class Implementation</a></li>
+<li class="level1"><a href="#tictactoe-class-definition">TicTacToe Class Definition</a></li>
+</ul>
+</div>
+<h1 class="title">Task Menu Extension Example</h1>
+<span class="subtitle"></span>
+<!-- $$$designer/taskmenuextension-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="designer-taskmenuextension-tictactoe-cpp.html">designer/taskmenuextension/tictactoe.cpp</a></li>
+<li><a href="designer-taskmenuextension-tictactoe-h.html">designer/taskmenuextension/tictactoe.h</a></li>
+<li><a href="designer-taskmenuextension-tictactoedialog-cpp.html">designer/taskmenuextension/tictactoedialog.cpp</a></li>
+<li><a href="designer-taskmenuextension-tictactoedialog-h.html">designer/taskmenuextension/tictactoedialog.h</a></li>
+<li><a href="designer-taskmenuextension-tictactoeplugin-cpp.html">designer/taskmenuextension/tictactoeplugin.cpp</a></li>
+<li><a href="designer-taskmenuextension-tictactoeplugin-h.html">designer/taskmenuextension/tictactoeplugin.h</a></li>
+<li><a href="designer-taskmenuextension-tictactoetaskmenu-cpp.html">designer/taskmenuextension/tictactoetaskmenu.cpp</a></li>
+<li><a href="designer-taskmenuextension-tictactoetaskmenu-h.html">designer/taskmenuextension/tictactoetaskmenu.h</a></li>
+<li><a href="designer-taskmenuextension-taskmenuextension-pro.html">designer/taskmenuextension/taskmenuextension.pro</a></li>
+</ul>
+<p>The Task Menu Extension example shows how to create a custom widget plugin for <a href="designer-manual.html"><i>Qt Designer</i></a>, and how to to use the <a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a> class to provide custom task menu entries associated with the plugin.<p class="centerAlign"><img src="images/taskmenuextension-example-faded.png" alt="" /></p><p>To provide a custom widget that can be used with <i>Qt Designer</i>, we need to supply a self-contained implementation. In this example we use a custom widget designed to show the task menu extension feature: The TicTacToe widget.</p>
+<p>An extension is an object which modifies the behavior of <i>Qt Designer</i>. The <a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a> can provide custom task menu entries when a widget with this extension is selected.</p>
+<p>There are four available types of extensions in <i>Qt Designer</i>:</p>
+<ul>
+<li><a href="qdesignercontainerextension.html">QDesignerContainerExtension</a> provides an extension that allows you to add (and delete) pages to a multi-page container plugin in <i>Qt Designer</i>.</li>
+<li><a href="qdesignermembersheetextension.html">QDesignerMemberSheetExtension</a> provides an extension that allows you to manipulate a widget's member functions which is displayed when configuring connections using Qt Designer's mode for editing signals and slots.</li>
+<li><a href="qdesignerpropertysheetextension.html">QDesignerPropertySheetExtension</a> provides an extension that allows you to manipulate a widget's properties which is displayed in Qt Designer's property editor.</li>
+<li><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a> provides an extension that allows you to add custom menu entries to <i>Qt Designer</i>'s task menu.</li>
+</ul>
+<p>You can use all the extensions following the same pattern as in this example, only replacing the respective extension base class. For more information, see the <a href="qtdesigner.html">QtDesigner Module</a>.</p>
+<p>The Task Menu Extension example consists of five classes:</p>
+<ul>
+<li><tt>TicTacToe</tt> is a custom widget that lets the user play the Tic-Tac-Toe game.</li>
+<li><tt>TicTacToePlugin</tt> exposes the <tt>TicTacToe</tt> class to <i>Qt Designer</i>.</li>
+<li><tt>TicTacToeTaskMenuFactory</tt> creates a <tt>TicTacToeTaskMenu</tt> object.</li>
+<li><tt>TicTacToeTaskMenu</tt> provides the task menu extension, i.e the plugin's associated task menu entries.</li>
+<li><tt>TicTacToeDialog</tt> lets the user modify the state of a Tic-Tac-Toe plugin loaded into <i>Qt Designer</i>.</li>
+</ul>
+<p>The project file for custom widget plugins needs some additional information to ensure that they will work within <i>Qt Designer</i>. For example, custom widget plugins rely on components supplied with <i>Qt Designer</i>, and this must be specified in the project file that we use. We will first take a look at the plugin's project file.</p>
+<p>Then we will continue by reviewing the <tt>TicTacToePlugin</tt> class, and take a look at the <tt>TicTacToeTaskMenuFactory</tt> and <tt>TicTacToeTaskMenu</tt> classes. Finally, we will review the <tt>TicTacToeDialog</tt> class before we take a quick look at the <tt>TicTacToe</tt> widget's class definition.</p>
+<a name="the-project-file-taskmenuextension-pro"></a>
+<h2>The Project File: taskmenuextension.pro</h2>
+<p>The project file must contain some additional information to ensure that the plugin will work as expected:</p>
+<pre class="cpp"> TEMPLATE = lib
+ CONFIG  += designer plugin</pre>
+<p>The <tt>TEMPLATE</tt> variable's value makes <tt>qmake</tt> create the custom widget as a library. Later, we will ensure that the widget will be recognized as a plugin by Qt by using the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro to export the relevant widget information.</p>
+<p>The <tt>CONFIG</tt> variable contains two values, <tt>designer</tt> and <tt>plugin</tt>:</p>
+<ul>
+<li><tt>designer</tt>: Since custom widgets plugins rely on components supplied with <i>Qt Designer</i>, this value ensures that our plugin links against <i>Qt Designer</i>'s library (<tt>libQtDesigner.so</tt>).</li>
+<li><tt>plugin</tt>: We also need to ensure that <tt>qmake</tt> considers the custom widget a <i>plugin</i> library.</li>
+</ul>
+<p>When Qt is configured to build in both debug and release modes, <i>Qt Designer</i> will be built in release mode. When this occurs, it is necessary to ensure that plugins are also built in release mode. For that reason we add the <tt>debug_and_release</tt> value to the <tt>CONFIG</tt> variable. Otherwise, if a plugin is built in a mode that is incompatible with <i>Qt Designer</i>, it won't be loaded and installed.</p>
+<p>The header and source files for the widget are declared in the usual way:</p>
+<pre class="cpp"> HEADERS += tictactoe.h \
+            tictactoedialog.h \
+            tictactoeplugin.h \
+            tictactoetaskmenu.h
+ SOURCES += tictactoe.cpp \
+            tictactoedialog.cpp \
+            tictactoeplugin.cpp \
+            tictactoetaskmenu.cpp</pre>
+<p>We provide an implementation of the plugin interface so that <i>Qt Designer</i> can use the custom widget. In this particular example we also provide implementations of the task menu extension and the extension factory as well as a dialog implementation.</p>
+<p>It is important to ensure that the plugin is installed in a location that is searched by <i>Qt Designer</i>. We do this by specifying a target path for the project and adding it to the list of items to install:</p>
+<pre class="cpp"> target.path = $$[QT_INSTALL_PLUGINS]/designer
+ INSTALLS += target</pre>
+<p>The task menu extension is created as a library, and will be installed alongside the other <i>Qt Designer</i> plugins when the project is installed (using <tt>make install</tt> or an equivalent installation procedure).</p>
+<p>Note that if you want the plugins to appear in a Visual Studio integration, the plugins must be built in release mode and their libraries must be copied into the plugin directory in the install path of the integration (for an example, see <tt>C:/program files/trolltech as/visual studio integration/plugins</tt>).</p>
+<p>For more information about plugins, see the <a href="plugins-howto.html">How to Create Qt Plugins</a> documentation.</p>
+<a name="tictactoeplugin-class-definition"></a>
+<h2>TicTacToePlugin Class Definition</h2>
+<p>The <tt>TicTacToePlugin</tt> class exposes <tt>the</tt> TicTacToe class to <i>Qt Designer</i>. Its definition is equivalent to the <a href="designer-customwidgetplugin.html">Custom Widget Plugin</a> example's plugin class which is explained in detail. The only part of the class definition that is specific to this particular custom widget is the class name:</p>
+<pre class="cpp"> <span class="preprocessor">#ifndef TICTACTOEPLUGIN_H</span>
+ <span class="preprocessor">#define TICTACTOEPLUGIN_H</span>
+
+ <span class="preprocessor">#include &lt;QDesignerCustomWidgetInterface&gt;</span>
+
+ <span class="keyword">class</span> <span class="type"><a href="qicon.html">QIcon</a></span>;
+ <span class="keyword">class</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;
+
+ <span class="keyword">class</span> TicTacToePlugin : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span>)
+
+ <span class="keyword">public</span>:
+     TicTacToePlugin(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qstring.html">QString</a></span> name() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> group() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> toolTip() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> whatsThis() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> includeFile() <span class="keyword">const</span>;
+     <span class="type"><a href="qicon.html">QIcon</a></span> icon() <span class="keyword">const</span>;
+     <span class="type">bool</span> isContainer() <span class="keyword">const</span>;
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>createWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+     <span class="type">bool</span> isInitialized() <span class="keyword">const</span>;
+     <span class="type">void</span> initialize(<span class="type"><a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a></span> <span class="operator">*</span>formEditor);
+     <span class="type"><a href="qstring.html">QString</a></span> domXml() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     <span class="type">bool</span> initialized;
+ };
+
+ <span class="preprocessor">#endif</span></pre>
+<p>The plugin class provides <i>Qt Designer</i> with basic information about our plugin, such as its class name and its include file. Furthermore it knows how to create instances of the <tt>TicTacToe</tt> widget. TicTacToePlugin also defines the <a href="qdesignercustomwidgetinterface.html#initialize">initialize()</a> function which is called after the plugin is loaded into <i>Qt Designer</i>. The function's <a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a> parameter provides the plugin with a gateway to all of <i>Qt Designer</i>'s API's.</p>
+<p>The <tt>TicTacToePlugin</tt> class inherits from both <a href="qobject.html">QObject</a> and <a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a>. It is important to remember, when using multiple inheritance, to ensure that all the interfaces (i.e&#x2e; the classes that doesn't inherit <a href="qobject.html#Q_OBJECT">Q_OBJECT</a>) are made known to the meta object system using the <a href="qobject.html#Q_INTERFACES">Q_INTERFACES</a>() macro. This enables <i>Qt Designer</i> to use <a href="qobject.html#qobject_cast">qobject_cast</a>() to query for supported interfaces using nothing but a <a href="qobject.html">QObject</a> pointer.</p>
+<a name="tictactoeplugin-class-implementation"></a>
+<h2>TicTacToePlugin Class Implementation</h2>
+<p>The TicTacToePlugin class implementation is in most parts equivalent to the <a href="designer-customwidgetplugin.html">Custom Widget Plugin</a> example's plugin class:</p>
+<pre class="cpp"> TicTacToePlugin<span class="operator">::</span>TicTacToePlugin(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qobject.html">QObject</a></span>(parent)
+ {
+     initialized <span class="operator">=</span> <span class="keyword">false</span>;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> TicTacToePlugin<span class="operator">::</span>name() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;TicTacToe&quot;</span>;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> TicTacToePlugin<span class="operator">::</span>group() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;Display Widgets [Examples]&quot;</span>;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> TicTacToePlugin<span class="operator">::</span>toolTip() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> TicTacToePlugin<span class="operator">::</span>whatsThis() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> TicTacToePlugin<span class="operator">::</span>includeFile() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="string">&quot;tictactoe.h&quot;</span>;
+ }
+
+ <span class="type"><a href="qicon.html">QIcon</a></span> TicTacToePlugin<span class="operator">::</span>icon() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qicon.html">QIcon</a></span>();
+ }
+
+ <span class="type">bool</span> TicTacToePlugin<span class="operator">::</span>isContainer() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="keyword">false</span>;
+ }
+
+ <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>TicTacToePlugin<span class="operator">::</span>createWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+ {
+     TicTacToe <span class="operator">*</span>ticTacToe <span class="operator">=</span> <span class="keyword">new</span> TicTacToe(parent);
+     ticTacToe<span class="operator">-</span><span class="operator">&gt;</span>setState(<span class="string">&quot;-X-XO----&quot;</span>);
+     <span class="keyword">return</span> ticTacToe;
+ }
+
+ <span class="type">bool</span> TicTacToePlugin<span class="operator">::</span>isInitialized() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> initialized;
+ }</pre>
+<p>The only function that differs significantly is the initialize() function:</p>
+<pre class="cpp"> <span class="type">void</span> TicTacToePlugin<span class="operator">::</span>initialize(<span class="type"><a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a></span> <span class="operator">*</span>formEditor)
+ {</pre>
+<p>The <tt>initialize()</tt> function takes a <a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a> object as argument. The <a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a> class provides access to Qt Designer's components.</p>
+<p>In <i>Qt Designer</i> you can create two kinds of plugins: custom widget plugins and tool plugins. <a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a> provides access to all the <i>Qt Designer</i> components that you normally need to create a tool plugin: the extension manager, the object inspector, the property editor and the widget box. Custom widget plugins have access to the same components.</p>
+<pre class="cpp">     <span class="keyword">if</span> (initialized)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qextensionmanager.html">QExtensionManager</a></span> <span class="operator">*</span>manager <span class="operator">=</span> formEditor<span class="operator">-</span><span class="operator">&gt;</span>extensionManager();
+     Q_ASSERT(manager <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>);</pre>
+<p>When creating extensions associated with custom widget plugins, we need to access <i>Qt Designer</i>'s current extension manager which we retrieve from the <a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a> parameter.</p>
+<p><i>Qt Designer</i>'s <a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a> holds information about all Qt Designer's components: The action editor, the object inspector, the property editor, the widget box, and the extension and form window managers.</p>
+<p>The <a href="qextensionmanager.html">QExtensionManager</a> class provides extension management facilities for <i>Qt Designer</i>. Using <i>Qt Designer</i>'s current extension manager you can retrieve the extension for a given object. You can also register and unregister an extension for a given object. Remember that an extension is an object which modifies the behavior of <i>Qt Designer</i>.</p>
+<p>When registrering an extension, it is actually the associated extension factory that is registered. In <i>Qt Designer</i>, extension factories are used to look up and create named extensions as they are required. So, in this example, the task menu extension itself is not created until a task menu is requested by the user.</p>
+<pre class="cpp">     manager<span class="operator">-</span><span class="operator">&gt;</span>registerExtensions(<span class="keyword">new</span> TicTacToeTaskMenuFactory(manager)<span class="operator">,</span>
+                                 Q_TYPEID(<span class="type"><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a></span>));
+
+     initialized <span class="operator">=</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> TicTacToePlugin<span class="operator">::</span>domXml() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> QLatin1String(<span class="string">&quot;\
+ &lt;ui language=\&quot;c++\&quot;&gt;\
+     &lt;widget class=\&quot;TicTacToe\&quot; name=\&quot;ticTacToe\&quot;/&gt;\
+     &lt;customwidgets&gt;\
+         &lt;customwidget&gt;\
+             &lt;class&gt;TicTacToe&lt;/class&gt;\
+             &lt;propertyspecifications&gt;\
+             &lt;stringpropertyspecification name=\&quot;state\&quot; notr=\&quot;true\&quot; type=\&quot;singleline\&quot;/&gt;\
+             &lt;/propertyspecifications&gt;\
+         &lt;/customwidget&gt;\
+     &lt;/customwidgets&gt;\
+ &lt;/ui&gt;&quot;</span>);
+ }</pre>
+<p>We create a <tt>TicTacToeTaskMenuFactory</tt> object that we register using <i>Qt Designer</i>'s current <a href="qextensionmanager.html">extension manager</a> retrieved from the <a href="qdesignerformeditorinterface.html">QDesignerFormEditorInterface</a> parameter. The first argument is the newly created factory and the second argument is an extension identifier which is a string. The <tt>Q_TYPEID()</tt> macro simply converts the string into a <a href="qlatin1string.html">QLatin1String</a>.</p>
+<p>The <tt>TicTacToeTaskMenuFactory</tt> class is a subclass of <a href="qextensionfactory.html">QExtensionFactory</a>. When the user request a task menu by clicking the right mouse button over a widget with the specified task menu extension, <i>Qt Designer</i>'s extension manager will run through all its registered factories invoking the first one that is able to create a task menu extension for the selected widget. This factory will in turn create a <tt>TicTacToeTaskMenu</tt> object (the extension).</p>
+<p>We omit to reimplement the <a href="qdesignercustomwidgetinterface.html#domXml">QDesignerCustomWidgetInterface::domXml</a>() function (which include default settings for the widget in the standard XML format used by Qt Designer), since no default values are necessary.</p>
+<pre class="cpp"> <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>(taskmenuextension<span class="operator">,</span> TicTacToePlugin)</pre>
+<p>Finally, we use the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro to export the TicTacToePlugin class for use with Qt's plugin handling classes: This macro ensures that <i>Qt Designer</i> can access and construct the custom widget. Without this macro, there is no way for <i>Qt Designer</i> to use the widget.</p>
+<a name="tictactoetaskmenufactory-class-definition"></a>
+<h2>TicTacToeTaskMenuFactory Class Definition</h2>
+<p>The <tt>TicTacToeTaskMenuFactory</tt> class inherits <a href="qextensionfactory.html">QExtensionFactory</a> which provides a standard extension factory for <i>Qt Designer</i>.</p>
+<pre class="cpp"> <span class="keyword">class</span> TicTacToeTaskMenuFactory : <span class="keyword">public</span> <span class="type"><a href="qextensionfactory.html">QExtensionFactory</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     TicTacToeTaskMenuFactory(<span class="type"><a href="qextensionmanager.html">QExtensionManager</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">protected</span>:
+     <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>createExtension(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>iid<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent) <span class="keyword">const</span>;
+ };</pre>
+<p>The subclass's purpose is to reimplement the <a href="qextensionfactory.html#createExtension">QExtensionFactory::createExtension</a>() function, making it able to create a <tt>TicTacToe</tt> task menu extension.</p>
+<a name="tictactoetaskmenufactory-class-implementation"></a>
+<h2>TicTacToeTaskMenuFactory Class Implementation</h2>
+<p>The class constructor simply calls the <a href="qextensionfactory.html">QExtensionFactory</a> base class constructor:</p>
+<pre class="cpp"> TicTacToeTaskMenuFactory<span class="operator">::</span>TicTacToeTaskMenuFactory(<span class="type"><a href="qextensionmanager.html">QExtensionManager</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qextensionfactory.html">QExtensionFactory</a></span>(parent)
+ {
+ }</pre>
+<p>As described above, the factory is invoked when the user request a task menu by clicking the right mouse button over a widget with the specified task menu extension in <i>Qt Designer</i>.</p>
+<p><i>Qt Designer</i>'s behavior is the same whether the requested extension is associated with a container, a member sheet, a property sheet or a task menu: Its extension manager runs through all its registered extension factories calling <tt>createExtension()</tt> for each until one responds by creating the requested extension.</p>
+<pre class="cpp"> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>TicTacToeTaskMenuFactory<span class="operator">::</span>createExtension(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object<span class="operator">,</span>
+                                                    <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>iid<span class="operator">,</span>
+                                                    <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (iid <span class="operator">!</span><span class="operator">=</span> Q_TYPEID(<span class="type"><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a></span>))
+         <span class="keyword">return</span> <span class="number">0</span>;
+
+     <span class="keyword">if</span> (TicTacToe <span class="operator">*</span>tic <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>TicTacToe<span class="operator">*</span><span class="operator">&gt;</span>(object))
+         <span class="keyword">return</span> <span class="keyword">new</span> TicTacToeTaskMenu(tic<span class="operator">,</span> parent);
+
+     <span class="keyword">return</span> <span class="number">0</span>;
+ }</pre>
+<p>So the first thing we do in <tt>TicTacToeTaskMenuFactory::createExtension()</tt> is to check if the requested extension is a task menu extension. If it is, and the widget requesting it is a <tt>TicTacToe</tt> widget, we create and return a <tt>TicTacToeTaskMenu</tt> object. Otherwise, we simply return a null pointer, allowing <i>Qt Designer</i>'s extension manager to continue its search through the registered factories.</p>
+<a name="tictactoetaskmenu-class-definition"></a>
+<h2>TicTacToeTaskMenu Class Definition</h2>
+<p class="centerAlign"><img src="images/taskmenuextension-menu.png" alt="" /></p><p>The <tt>TicTacToeTaskMenu</tt> class inherits <a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a> which allows you to add custom entries (in the form of QActions) to the task menu in <i>Qt Designer</i>.</p>
+<pre class="cpp"> <span class="keyword">class</span> TicTacToeTaskMenu : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a></span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type"><a href="qdesignertaskmenuextension.html">QDesignerTaskMenuExtension</a></span>)
+
+ <span class="keyword">public</span>:
+     TicTacToeTaskMenu(TicTacToe <span class="operator">*</span>tic<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent);
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>preferredEditAction() <span class="keyword">const</span>;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span> taskActions() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> editState();
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>editStateAction;
+     TicTacToe <span class="operator">*</span>ticTacToe;
+ };</pre>
+<p>We reimplement the <tt>preferredEditAction()</tt> and <tt>taskActions()</tt> functions. Note that we implement a constructor that takes <i>two</i> arguments: the parent widget, and the <tt>TicTacToe</tt> widget for which the task menu is requested.</p>
+<p>In addition we declare the private <tt>editState()</tt> slot, our custom <tt>editStateAction</tt> and a private pointer to the <tt>TicTacToe</tt> widget which state we want to modify.</p>
+<a name="tictactoetaskmenu-class-implementation"></a>
+<h2>TicTacToeTaskMenu Class Implementation</h2>
+<pre class="cpp"> TicTacToeTaskMenu<span class="operator">::</span>TicTacToeTaskMenu(TicTacToe <span class="operator">*</span>tic<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qobject.html">QObject</a></span>(parent)
+ {
+     ticTacToe <span class="operator">=</span> tic;
+
+     editStateAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Edit State...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(editStateAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(editState()));
+ }</pre>
+<p>In the constructor we first save the reference to the <tt>TicTacToe</tt> widget sent as parameter, i.e the widget which state we want to modify. We will need this later when our custom action is invoked. We also create our custom <tt>editStateAction</tt> and connect it to the <tt>editState()</tt> slot.</p>
+<pre class="cpp"> <span class="type">void</span> TicTacToeTaskMenu<span class="operator">::</span>editState()
+ {
+     TicTacToeDialog dialog(ticTacToe);
+     dialog<span class="operator">.</span>exec();
+ }</pre>
+<p>The <tt>editState()</tt> slot is called whenever the user chooses the <b>Edit State..&#x2e;</b> option in a <tt>TicTacToe</tt> widget's task menu. The slot creates a <tt>TicTacToeDialog</tt> presenting the current state of the widget, and allowing the user to edit its state by playing the game.</p>
+<pre class="cpp"> <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>TicTacToeTaskMenu<span class="operator">::</span>preferredEditAction() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> editStateAction;
+ }</pre>
+<p>We reimplement the <tt>preferredEditAction()</tt> function to return our custom <tt>editStateAction</tt> as the action that should be invoked when selecting a <tt>TicTacToe</tt> widget and pressing <b>F2</b> .</p>
+<pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span> TicTacToeTaskMenu<span class="operator">::</span>taskActions() <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span> list;
+     list<span class="operator">.</span>append(editStateAction);
+     <span class="keyword">return</span> list;
+ }</pre>
+<p>We reimplement the <tt>taskActions()</tt> function to return a list of our custom actions making these appear on top of the default menu entries in a <tt>TicTacToe</tt> widget's task menu.</p>
+<a name="tictactoedialog-class-definition"></a>
+<h2>TicTacToeDialog Class Definition</h2>
+<p class="centerAlign"><img src="images/taskmenuextension-dialog.png" alt="" /></p><p>The <tt>TicTacToeDialog</tt> class inherits <a href="qdialog.html">QDialog</a>. The dialog lets the user modify the state of the currently selected Tic-Tac-Toe plugin.</p>
+<pre class="cpp"> <span class="keyword">class</span> TicTacToeDialog : <span class="keyword">public</span> <span class="type"><a href="qdialog.html">QDialog</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     <span class="keyword">explicit</span> TicTacToeDialog(TicTacToe <span class="operator">*</span>plugin <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> resetState();
+     <span class="type">void</span> saveState();
+
+ <span class="keyword">private</span>:
+     TicTacToe <span class="operator">*</span>editor;
+     TicTacToe <span class="operator">*</span>ticTacToe;
+     <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span> <span class="operator">*</span>buttonBox;
+ };</pre>
+<p>We reimplement the <tt>sizeHint()</tt> function. We also declare two private slots: <tt>resetState()</tt> and <tt>saveState()</tt>. In addition to the dialog's buttons and layouts we declare two <tt>TicTacToe</tt> pointers, one to the widget the user can interact with and the other to the original custom widget plugin which state the user wants to edit.</p>
+<a name="tictactoedialog-class-implementation"></a>
+<h2>TicTacToeDialog Class Implementation</h2>
+<pre class="cpp"> TicTacToeDialog<span class="operator">::</span>TicTacToeDialog(TicTacToe <span class="operator">*</span>tic<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qdialog.html">QDialog</a></span>(parent)
+ {
+     ticTacToe <span class="operator">=</span> tic;
+     editor <span class="operator">=</span> <span class="keyword">new</span> TicTacToe;
+     editor<span class="operator">-</span><span class="operator">&gt;</span>setState(ticTacToe<span class="operator">-</span><span class="operator">&gt;</span>state());
+
+     buttonBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span>(<span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Ok
+                                      <span class="operator">|</span> <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Cancel
+                                      <span class="operator">|</span> <span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Reset);
+
+     connect(buttonBox<span class="operator">-</span><span class="operator">&gt;</span>button(<span class="type"><a href="qdialogbuttonbox.html">QDialogButtonBox</a></span><span class="operator">::</span>Reset)<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(resetState()));
+     connect(buttonBox<span class="operator">,</span> SIGNAL(accepted())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(saveState()));
+     connect(buttonBox<span class="operator">,</span> SIGNAL(rejected())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(reject()));
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(editor);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(buttonBox);
+
+     setLayout(mainLayout);
+     setWindowTitle(tr(<span class="string">&quot;Edit State&quot;</span>));
+ }</pre>
+<p>In the constructor we first save the reference to the TicTacToe widget sent as parameter, i.e the widget which state the user want to modify. Then we create a new <tt>TicTacToe</tt> widget, and set its state to be equivalent to the parameter widget's state.</p>
+<p>Finally, we create the dialog's buttons and layout.</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> TicTacToeDialog<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">250</span>);
+ }</pre>
+<p>We reimplement the <tt>sizeHint()</tt> function to ensure that the dialog is given a reasonable size.</p>
+<pre class="cpp"> <span class="type">void</span> TicTacToeDialog<span class="operator">::</span>resetState()
+ {
+     editor<span class="operator">-</span><span class="operator">&gt;</span>clearBoard();
+ }</pre>
+<p>The <tt>resetState()</tt> slot is called whenever the user press the <b>Reset</b> button. The only thing we do is to call the <tt>clearBoard()</tt> function for the editor widget, i.e&#x2e; the <tt>TicTacToe</tt> widget we created in the dialog's constructor.</p>
+<pre class="cpp"> <span class="type">void</span> TicTacToeDialog<span class="operator">::</span>saveState()
+ {</pre>
+<p>The <tt>saveState()</tt> slot is called whenever the user press the <b>OK</b> button, and transfers the state of the editor widget to the widget which state we want to modify. In order to make the change of state visible to <i>Qt Designer</i> we need to set the latter widget's state property using the <a href="qdesignerformwindowinterface.html">QDesignerFormWindowInterface</a> class.</p>
+<p><a href="qdesignerformwindowinterface.html">QDesignerFormWindowInterface</a> provides you with information about the associated form window as well as allowing you to alter its properties. The interface is not intended to be instantiated directly, but to provide access to Qt Designer's current form windows controlled by Qt Designer's form window manager.</p>
+<p>If you are looking for the form window containing a specific widget, you can use the static <a href="qdesignerformwindowinterface.html#findFormWindow">QDesignerFormWindowInterface::findFormWindow</a>() function:</p>
+<pre class="cpp">     <span class="keyword">if</span> (<span class="type"><a href="qdesignerformwindowinterface.html">QDesignerFormWindowInterface</a></span> <span class="operator">*</span>formWindow
+             <span class="operator">=</span> <span class="type"><a href="qdesignerformwindowinterface.html">QDesignerFormWindowInterface</a></span><span class="operator">::</span>findFormWindow(ticTacToe)) {
+         formWindow<span class="operator">-</span><span class="operator">&gt;</span>cursor()<span class="operator">-</span><span class="operator">&gt;</span>setProperty(<span class="string">&quot;state&quot;</span><span class="operator">,</span> editor<span class="operator">-</span><span class="operator">&gt;</span>state());
+     }</pre>
+<p>After retrieving the form window of the widget (which state we want to modify), we use the <a href="qdesignerformwindowinterface.html#cursor">QDesignerFormWindowInterface::cursor</a>() function to retrieve the form window's cursor.</p>
+<p>The <a href="qdesignerformwindowcursorinterface.html">QDesignerFormWindowCursorInterface</a> class provides an interface to the form window's text cursor. Once we have cursor, we can finally set the state property using the <a href="qdesignerformwindowcursorinterface.html#setProperty">QDesignerFormWindowCursorInterface::setProperty</a>() function.</p>
+<pre class="cpp">     accept();
+ }</pre>
+<p>In the end we call the <a href="qevent.html#accept">QEvent::accept</a>() function which sets the accept flag of the event object. Setting the <tt>accept</tt> parameter indicates that the event receiver wants the event. Unwanted events might be propagated to the parent widget.</p>
+<a name="tictactoe-class-definition"></a>
+<h2>TicTacToe Class Definition</h2>
+<p>The <tt>TicTacToe</tt> class is a custom widget that lets the user play the Tic-Tac-Toe game.</p>
+<pre class="cpp"> <span class="keyword">class</span> TicTacToe : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> state READ state WRITE setState)
+
+ <span class="keyword">public</span>:
+     TicTacToe(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qsize.html">QSize</a></span> minimumSizeHint() <span class="keyword">const</span>;
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;
+     <span class="type">void</span> setState(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>newState);
+     <span class="type"><a href="qstring.html">QString</a></span> state() <span class="keyword">const</span>;
+     <span class="type">void</span> clearBoard();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     <span class="keyword">enum</span> { Empty <span class="operator">=</span> <span class="char">'-'</span><span class="operator">,</span> Cross <span class="operator">=</span> <span class="char">'X'</span><span class="operator">,</span> Nought <span class="operator">=</span> <span class="char">'O'</span> };
+
+     <span class="type"><a href="qrect.html">QRect</a></span> cellRect(<span class="type">int</span> row<span class="operator">,</span> <span class="type">int</span> col) <span class="keyword">const</span>;
+     <span class="type">int</span> cellWidth() <span class="keyword">const</span> { <span class="keyword">return</span> width() <span class="operator">/</span> <span class="number">3</span>; }
+     <span class="type">int</span> cellHeight() <span class="keyword">const</span> { <span class="keyword">return</span> height() <span class="operator">/</span> <span class="number">3</span>; }
+
+     <span class="type"><a href="qstring.html">QString</a></span> myState;
+     <span class="type">int</span> turnNumber;
+ };</pre>
+<p>The main details to observe in the <tt>TicTacToe</tt> class defintion is the declaration of the <tt>state</tt> property and its <tt>state()</tt> and <tt>setState()</tt> functions.</p>
+<p>We need to declare the <tt>TicTacToe</tt> widget's state as a property to make it visible to <i>Qt Designer</i>; allowing <i>Qt Designer</i> to manage it in the same way it manages the properties the <tt>TicTacToe</tt> widget inherits from <a href="qwidget.html">QWidget</a> and <a href="qobject.html">QObject</a>, for example featuring the property editor.</p>
+</div>
+<!-- @@@designer/taskmenuextension -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<HTML>
+<HEAD>
+  <TITLE>Line Mode Browser Commands</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../"><IMG BORDER="0" ALT="W3C" SRC="../../Icons/WWW/w3c_home" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../"><IMG BORDER="0" ALT="LMB" SRC="../../Icons/WWW/LMB48x" WIDTH="48" HEIGHT="48"
+    BORDER="0"></A> <IMG BORDER="0" ALT="MANUAL" SRC="../../Icons/WWW/doc48x">
+<H1>
+  Line Mode Browser Commands
+</H1>
+<P>
+The following commands are available at the prompt within <A HREF="../">WWW
+Line Mode Browser</A> when used in interactive mode. Not all of them are
+applicable at all times, but the online help shows which commands can be
+used at a particular moment. All commands may be abbreviated and case is
+not significant. As an example, you can type "<A HREF="#put">put</A>" as:
+<PRE>	pu, put, Put, PUT, etc.
+</PRE>
+<P>
+If the browser is run in "multi threaded" mode, then you can type in a new
+command at all times. You do not have to wait until a command is terminated.
+All requests can be interrupted by hitting 'z' (or 'Z') and then return:
+<PRE>	<B>z</B> &lt;RETURN&gt;
+</PRE>
+<P>
+When run in single threaded mode using the
+<A HREF="CommandLine.html#single">-single</A> command line option, it is
+not possible to interrupt a request.
+<H3>
+  Getting Help and Information
+</H3>
+<DL>
+  <DT>
+    <B>help</B>, <B>?</B>
+  <DD>
+    Gives a list of available commands depending on the context, the version
+    number of the www program, and the
+    <A HREF="../../Addressing/Addressing.html">hypertext address</A>, (or URL)
+    of the document you are reading.
+  <DT>
+    <B>manual</B>
+  <DD>
+    Jumps directly to the master document of the online manual.
+  <DT>
+    <B>verbose</B>
+  <DD>
+    Toggles verbose mode (for maintenance purposes)
+  <DT>
+    <B>which</B>
+  <DD>
+    Shows the title and location of the current document
+</DL>
+<H3>
+  Getting around in a document
+</H3>
+<DL>
+  <DT>
+    <B>&lt;return&gt;</B>
+  <DD>
+    Just hitting Return displays the next page (if any) of the current document.
+  <DT>
+    <B>top</B>, <B>bottom</B>
+  <DD>
+    Goes to the top or the bottom of the current document
+  <DT>
+    <B>up</B>, <B>down</B>
+  <DD>
+    Scrolls up or down one page in the current document.
+</DL>
+<H3>
+  Load a Document
+</H3>
+<DL>
+  <DT>
+    <B>&lt;number&gt;</B>
+  <DD>
+    Typing a number by itself follows the corresponding reference from the currently
+    displayed document.
+  <DT>
+    <B>back</B>
+  <DD>
+    Goes back to the document you were reading before.
+  <DT>
+    <B>forward</B>
+  <DD>
+    Goes to the next document in the history list if any.
+  <DT>
+    <B>goto</B> &lt;address&gt;
+  <DD>
+    Goes to the document represented by the given hypertext address, which is
+    interpreted relatively to the current document.
+  <DT>
+    <B>home</B>
+  <DD>
+    Goes back to the first document you were reading.
+</DL>
+<H3>
+  Search a Document
+</H3>
+<DL>
+  <DT>
+    <B>find</B>, <B>keyword</B> &lt;keywords&gt;
+  <DD>
+    Queries the current index with the supplied keywords (separated by blanks).
+    The interpretation of the keywords depends on the particular information
+    server you're looking at. In most cases, it will search a database for entries
+    matching the keywords, and will display the results with possibly links to
+    further details. For more complex queries, instructions should be present
+    in the cover page. The "Find" (or "Keywords") command can be omitted if the
+    first keyword does not conflict with another www command.
+</DL>
+<H3>
+  Find out information about a Document
+</H3>
+<DL>
+  <DT>
+    <A NAME="options">options</A>
+  <DD>
+    Issues a request on the current document using the HTTP OPTIONS method.
+</DL>
+<H3>
+  Upload a Document to a remote server
+</H3>
+<P>
+In version 3.1 and later of the Line Mode Browser you can send a document
+to a remote HTTP server using PUT or POST.
+<DL>
+  <DT>
+    <A NAME="put"><B>put</B></A>
+  <DD>
+    Put the current document to a remote HTTP server using the PUT method.
+    <PRE>
+	put
+	Destination: http://www.my.server
+</PRE>
+  <DT>
+    <A NAME="post"><B>post</B></A>
+  <DD>
+    Post the current document to a remote HTTP server using the POST method.
+    The syntax is the same as for PUT.
+</DL>
+<H3>
+  Delete a Document on a remote server
+</H3>
+<P>
+You can also use the DELETE method in the Line Mode browser to remove a document
+on a remote HTTP server.
+<DL>
+  <DT>
+    <A NAME="delete"><B>delete</B></A>
+  <DD>
+    Deletes the curent document on a remote HTTP server using the DELETE method.
+</DL>
+<H3>
+  Killer Features
+</H3>
+<DL>
+  <DT>
+    <B>clear</B>
+  <DD>
+    Clears the history list
+  <DT>
+    <B>list</B>
+  <DD>
+    Gives a numbered list of the links from the current document, giving the
+    title of the target documents if it is known otherwise the URL To follow
+    a link, type the number by itself as above. By using
+    <A NAME="z9" HREF="#z11">source</A>, only the URL's are displayed.
+  <DT>
+    <B>quit</B>, <B>exit</B>
+  <DD>
+    Leaves the application.
+  <DT>
+    <B>recall</B> [ n ]
+  <DD>
+    Without a parameter (n), "recall" gives a numbered list of the documents
+    you have visited. To select one, type "recall" followed by the number.
+  <DT>
+    <B>refresh</B>
+  <DD>
+    Refresh the screen but does not cause freshness validation of any kind
+  <DT>
+    <A NAME="z11"><B>source</B></A>
+  <DD>
+    Followed by another command, causes raw source to be generated for that command
+    but without any MIME headers wrapped around it.
+</DL>
+<H3>
+  Persistent Cache Management
+</H3>
+<DL>
+  <DT>
+    <B>flush</B>
+  <DD>
+    Flushes the persistent cache by deleting all entries on disk
+  <DT>
+    <B>validate</B>
+  <DD>
+    Validates the current document with the nearest cache or at the origin server
+  <DT>
+    <B>revalidate</B>
+  <DD>
+    End-validates the current document by forcing validation of all caches and
+    at the origin server
+  <DT>
+    <B>reload</B>
+  <DD>
+    Forces a full reload of the document regardless of whether the object might
+    already be in either the memory cache or in the local file cache.
+</DL>
+<H3>
+  On Unix versions, the following extra commands are available:
+</H3>
+<DL>
+  <DT>
+    <B>print</B>
+  <DD>
+    Prints the current document, without the numbered document references. A
+    background www is launched to do that, and its output is piped to the command
+    defined by the environment variable WWW_PRINT_COMMAND ("lpr" by default).
+    Can be used with <A NAME="z12" HREF="#z11">source</A> .
+  <DT>
+    <B>&gt;</B> &lt;file&gt;
+  <DD>
+    Saves the current document to the given file, without the numbered document
+    references. A background www is launched to do that. If the file exists,
+    a "&gt;!" will overwrite it. Can be used with
+    <A NAME="z13" HREF="#z11">source</A> .
+  <DT>
+    <B>&gt;&gt;</B> &lt;file&gt;
+  <DD>
+    Appends the current document to the given file without the numbered links.
+    Can be used with <A NAME="z14" HREF="#z11">source</A>.
+  <DT>
+    <B>|</B> &lt;command&gt;
+  <DD>
+    Pipes the current document to the given command, without the numbered document
+    references. A background www is launched to do that. Can be used with
+    <A NAME="z15" HREF="#z11">source</A> .
+  <DT>
+    <B>!</B> &lt;command&gt;
+  <DD>
+    Executes the given shell command without leaving www.
+  <DT>
+    <B>cd</B>, <B>lcd</B> &lt;directory&gt;
+  <DD>
+    Changes the local working directory. "! cd directory" won't do this because
+    it applies to a subshell.
+</DL>
+<P>
+  <HR>
+<ADDRESS>
+  <A HREF="../../People.html#BernersLee">Tim BL</A>, and
+  <A HREF="../../People.html#Frystyk">Henrik Frystyk Nielsen</A>,
+  <A HREF="mailto:libwww@w3.org">libwww@w3.org</A>,
+  <P>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

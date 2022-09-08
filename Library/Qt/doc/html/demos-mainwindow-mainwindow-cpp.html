@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: mainwindow.cpp Example File (demos/mainwindow/mainwindow.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">mainwindow.cpp Example File</h1>
+<span class="small-subtitle">demos/mainwindow/mainwindow.cpp</span>
+<!-- $$$demos/mainwindow/mainwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Digia.  For licensing terms and
+ ** conditions see http://qt.digia.com/licensing.  For further information
+ ** use the contact form at http://qt.digia.com/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Digia gives you certain additional
+ ** rights.  These rights are described in the Digia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+ <span class="preprocessor">#include &quot;colorswatch.h&quot;</span>
+ <span class="preprocessor">#include &quot;toolbar.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QAction&gt;</span>
+ <span class="preprocessor">#include &lt;QLayout&gt;</span>
+ <span class="preprocessor">#include &lt;QMenu&gt;</span>
+ <span class="preprocessor">#include &lt;QMenuBar&gt;</span>
+ <span class="preprocessor">#include &lt;QStatusBar&gt;</span>
+ <span class="preprocessor">#include &lt;QTextEdit&gt;</span>
+ <span class="preprocessor">#include &lt;QFile&gt;</span>
+ <span class="preprocessor">#include &lt;QDataStream&gt;</span>
+ <span class="preprocessor">#include &lt;QFileDialog&gt;</span>
+ <span class="preprocessor">#include &lt;QMessageBox&gt;</span>
+ <span class="preprocessor">#include &lt;QSignalMapper&gt;</span>
+ <span class="preprocessor">#include &lt;QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QMouseEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QLineEdit&gt;</span>
+ <span class="preprocessor">#include &lt;QComboBox&gt;</span>
+ <span class="preprocessor">#include &lt;QLabel&gt;</span>
+ <span class="preprocessor">#include &lt;QPushButton&gt;</span>
+ <span class="preprocessor">#include &lt;qdebug.h&gt;</span>
+
+ <span class="keyword">static</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span> <span class="keyword">const</span> message <span class="operator">=</span>
+     <span class="string">&quot;&lt;p&gt;&lt;b&gt;Qt Main Window Demo&lt;/b&gt;&lt;/p&gt;&quot;</span>
+
+     <span class="string">&quot;&lt;p&gt;This is a demonstration of the QMainWindow, QToolBar and &quot;</span>
+     <span class="string">&quot;QDockWidget classes.&lt;/p&gt;&quot;</span>
+
+     <span class="string">&quot;&lt;p&gt;The tool bar and dock widgets can be dragged around and rearranged &quot;</span>
+     <span class="string">&quot;using the mouse or via the menu.&lt;/p&gt;&quot;</span>
+
+     <span class="string">&quot;&lt;p&gt;Each dock widget contains a colored frame and a context &quot;</span>
+     <span class="string">&quot;(right-click) menu.&lt;/p&gt;&quot;</span>
+
+ <span class="preprocessor">#ifdef Q_WS_MAC</span>
+     <span class="string">&quot;&lt;p&gt;On Mac OS X, the \&quot;Black\&quot; dock widget has been created as a &quot;</span>
+     <span class="string">&quot;&lt;em&gt;Drawer&lt;/em&gt;, which is a special kind of QDockWidget.&lt;/p&gt;&quot;</span>
+ <span class="preprocessor">#endif</span>
+     ;
+
+ <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(<span class="type"><a href="qdockwidget.html">QDockWidget</a></span><span class="operator">::</span>DockWidgetFeatures)
+
+ MainWindow<span class="operator">::</span>MainWindow(<span class="keyword">const</span> <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type"><a href="qsize.html">QSize</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>customSizeHints<span class="operator">,</span>
+                         <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowFlags flags)
+     : <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent<span class="operator">,</span> flags)
+ {
+     setObjectName(<span class="string">&quot;MainWindow&quot;</span>);
+     setWindowTitle(<span class="string">&quot;Qt Main Window Demo&quot;</span>);
+
+     center <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>(<span class="keyword">this</span>);
+     center<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
+     center<span class="operator">-</span><span class="operator">&gt;</span>setMinimumSize(<span class="number">400</span><span class="operator">,</span> <span class="number">205</span>);
+     setCentralWidget(center);
+
+     setupToolBar();
+     setupMenuBar();
+     setupDockWidgets(customSizeHints);
+
+     statusBar()<span class="operator">-</span><span class="operator">&gt;</span>showMessage(tr(<span class="string">&quot;Status Bar&quot;</span>));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>actionTriggered(<span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action)
+ {
+     <a href="qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;action '%s' triggered&quot;</span><span class="operator">,</span> action<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>toLocal8Bit()<span class="operator">.</span>data());
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>setupToolBar()
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">3</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         ToolBar <span class="operator">*</span>tb <span class="operator">=</span> <span class="keyword">new</span> ToolBar(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Tool Bar %1&quot;</span>)<span class="operator">.</span>arg(i <span class="operator">+</span> <span class="number">1</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+         toolBars<span class="operator">.</span>append(tb);
+         addToolBar(tb);
+     }
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>setupMenuBar()
+ {
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>menu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;File&quot;</span>));
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action <span class="operator">=</span> menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Save layout...&quot;</span>));
+     connect(action<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(saveLayout()));
+
+     action <span class="operator">=</span> menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Load layout...&quot;</span>));
+     connect(action<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(loadLayout()));
+
+     action <span class="operator">=</span> menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Switch layout direction&quot;</span>));
+     connect(action<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(switchLayoutDirection()));
+
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+
+     menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;&amp;Quit&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(close()));
+
+     mainWindowMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;Main window&quot;</span>));
+
+     action <span class="operator">=</span> mainWindowMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Animated docks&quot;</span>));
+     action<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     action<span class="operator">-</span><span class="operator">&gt;</span>setChecked(dockOptions() <span class="operator">&amp;</span> AnimatedDocks);
+     connect(action<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDockOptions()));
+
+     action <span class="operator">=</span> mainWindowMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Allow nested docks&quot;</span>));
+     action<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     action<span class="operator">-</span><span class="operator">&gt;</span>setChecked(dockOptions() <span class="operator">&amp;</span> AllowNestedDocks);
+     connect(action<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDockOptions()));
+
+     action <span class="operator">=</span> mainWindowMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Allow tabbed docks&quot;</span>));
+     action<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     action<span class="operator">-</span><span class="operator">&gt;</span>setChecked(dockOptions() <span class="operator">&amp;</span> AllowTabbedDocks);
+     connect(action<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDockOptions()));
+
+     action <span class="operator">=</span> mainWindowMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Force tabbed docks&quot;</span>));
+     action<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     action<span class="operator">-</span><span class="operator">&gt;</span>setChecked(dockOptions() <span class="operator">&amp;</span> ForceTabbedDocks);
+     connect(action<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDockOptions()));
+
+     action <span class="operator">=</span> mainWindowMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(tr(<span class="string">&quot;Vertical tabs&quot;</span>));
+     action<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     action<span class="operator">-</span><span class="operator">&gt;</span>setChecked(dockOptions() <span class="operator">&amp;</span> VerticalTabs);
+     connect(action<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setDockOptions()));
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>toolBarMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;Tool bars&quot;</span>));
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> toolBars<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i)
+         toolBarMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(toolBars<span class="operator">.</span>at(i)<span class="operator">-</span><span class="operator">&gt;</span>menu);
+
+     dockWidgetMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Dock Widgets&quot;</span>));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>setDockOptions()
+ {
+     DockOptions opts;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span><span class="operator">*</span><span class="operator">&gt;</span> actions <span class="operator">=</span> mainWindowMenu<span class="operator">-</span><span class="operator">&gt;</span>actions();
+
+     <span class="keyword">if</span> (actions<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>isChecked())
+         opts <span class="operator">|</span><span class="operator">=</span> AnimatedDocks;
+     <span class="keyword">if</span> (actions<span class="operator">.</span>at(<span class="number">1</span>)<span class="operator">-</span><span class="operator">&gt;</span>isChecked())
+         opts <span class="operator">|</span><span class="operator">=</span> AllowNestedDocks;
+     <span class="keyword">if</span> (actions<span class="operator">.</span>at(<span class="number">2</span>)<span class="operator">-</span><span class="operator">&gt;</span>isChecked())
+         opts <span class="operator">|</span><span class="operator">=</span> AllowTabbedDocks;
+     <span class="keyword">if</span> (actions<span class="operator">.</span>at(<span class="number">3</span>)<span class="operator">-</span><span class="operator">&gt;</span>isChecked())
+         opts <span class="operator">|</span><span class="operator">=</span> ForceTabbedDocks;
+     <span class="keyword">if</span> (actions<span class="operator">.</span>at(<span class="number">4</span>)<span class="operator">-</span><span class="operator">&gt;</span>isChecked())
+         opts <span class="operator">|</span><span class="operator">=</span> VerticalTabs;
+
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setDockOptions(opts);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>saveLayout()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> fileName
+         <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getSaveFileName(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Save layout&quot;</span>));
+     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+     <span class="type"><a href="qfile.html">QFile</a></span> file(fileName);
+     <span class="keyword">if</span> (<span class="operator">!</span>file<span class="operator">.</span>open(<span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>WriteOnly)) {
+         <span class="type"><a href="qstring.html">QString</a></span> msg <span class="operator">=</span> tr(<span class="string">&quot;Failed to open %1\n%2&quot;</span>)
+                         <span class="operator">.</span>arg(fileName)
+                         <span class="operator">.</span>arg(file<span class="operator">.</span>errorString());
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Error&quot;</span>)<span class="operator">,</span> msg);
+         <span class="keyword">return</span>;
+     }
+
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> geo_data <span class="operator">=</span> saveGeometry();
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> layout_data <span class="operator">=</span> saveState();
+
+     <span class="type">bool</span> ok <span class="operator">=</span> file<span class="operator">.</span>putChar((<span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span>)geo_data<span class="operator">.</span>size());
+     <span class="keyword">if</span> (ok)
+         ok <span class="operator">=</span> file<span class="operator">.</span>write(geo_data) <span class="operator">=</span><span class="operator">=</span> geo_data<span class="operator">.</span>size();
+     <span class="keyword">if</span> (ok)
+         ok <span class="operator">=</span> file<span class="operator">.</span>write(layout_data) <span class="operator">=</span><span class="operator">=</span> layout_data<span class="operator">.</span>size();
+
+     <span class="keyword">if</span> (<span class="operator">!</span>ok) {
+         <span class="type"><a href="qstring.html">QString</a></span> msg <span class="operator">=</span> tr(<span class="string">&quot;Error writing to %1\n%2&quot;</span>)
+                         <span class="operator">.</span>arg(fileName)
+                         <span class="operator">.</span>arg(file<span class="operator">.</span>errorString());
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Error&quot;</span>)<span class="operator">,</span> msg);
+         <span class="keyword">return</span>;
+     }
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>loadLayout()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> fileName
+         <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getOpenFileName(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Load layout&quot;</span>));
+     <span class="keyword">if</span> (fileName<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+     <span class="type"><a href="qfile.html">QFile</a></span> file(fileName);
+     <span class="keyword">if</span> (<span class="operator">!</span>file<span class="operator">.</span>open(<span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>ReadOnly)) {
+         <span class="type"><a href="qstring.html">QString</a></span> msg <span class="operator">=</span> tr(<span class="string">&quot;Failed to open %1\n%2&quot;</span>)
+                         <span class="operator">.</span>arg(fileName)
+                         <span class="operator">.</span>arg(file<span class="operator">.</span>errorString());
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Error&quot;</span>)<span class="operator">,</span> msg);
+         <span class="keyword">return</span>;
+     }
+
+     <span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> geo_size;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> geo_data;
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> layout_data;
+
+     <span class="type">bool</span> ok <span class="operator">=</span> file<span class="operator">.</span>getChar((<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>geo_size);
+     <span class="keyword">if</span> (ok) {
+         geo_data <span class="operator">=</span> file<span class="operator">.</span>read(geo_size);
+         ok <span class="operator">=</span> geo_data<span class="operator">.</span>size() <span class="operator">=</span><span class="operator">=</span> geo_size;
+     }
+     <span class="keyword">if</span> (ok) {
+         layout_data <span class="operator">=</span> file<span class="operator">.</span>readAll();
+         ok <span class="operator">=</span> layout_data<span class="operator">.</span>size() <span class="operator">&gt;</span> <span class="number">0</span>;
+     }
+
+     <span class="keyword">if</span> (ok)
+         ok <span class="operator">=</span> restoreGeometry(geo_data);
+     <span class="keyword">if</span> (ok)
+         ok <span class="operator">=</span> restoreState(layout_data);
+
+     <span class="keyword">if</span> (<span class="operator">!</span>ok) {
+         <span class="type"><a href="qstring.html">QString</a></span> msg <span class="operator">=</span> tr(<span class="string">&quot;Error reading %1&quot;</span>)
+                         <span class="operator">.</span>arg(fileName);
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Error&quot;</span>)<span class="operator">,</span> msg);
+         <span class="keyword">return</span>;
+     }
+ }
+
+ <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>addAction(<span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>menu<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span> <span class="operator">*</span>group<span class="operator">,</span> <span class="type"><a href="qsignalmapper.html">QSignalMapper</a></span> <span class="operator">*</span>mapper<span class="operator">,</span>
+                     <span class="type">int</span> id)
+ {
+     <span class="type">bool</span> first <span class="operator">=</span> group<span class="operator">-</span><span class="operator">&gt;</span>actions()<span class="operator">.</span>isEmpty();
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>result <span class="operator">=</span> menu<span class="operator">-</span><span class="operator">&gt;</span>addAction(text);
+     result<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     result<span class="operator">-</span><span class="operator">&gt;</span>setChecked(first);
+     group<span class="operator">-</span><span class="operator">&gt;</span>addAction(result);
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(result<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> mapper<span class="operator">,</span> SLOT(map()));
+     mapper<span class="operator">-</span><span class="operator">&gt;</span>setMapping(result<span class="operator">,</span> id);
+     <span class="keyword">return</span> result;
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>setupDockWidgets(<span class="keyword">const</span> <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type"><a href="qsize.html">QSize</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>customSizeHints)
+ {
+     <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a><span class="operator">&lt;</span><span class="type"><a href="qdockwidget.html">QDockWidget</a></span><span class="operator">::</span>DockWidgetFeatures<span class="operator">&gt;</span>();
+
+     mapper <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsignalmapper.html">QSignalMapper</a></span>(<span class="keyword">this</span>);
+     connect(mapper<span class="operator">,</span> SIGNAL(mapped(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setCorner(<span class="type">int</span>)));
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>corner_menu <span class="operator">=</span> dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;Top left corner&quot;</span>));
+     <span class="type"><a href="qactiongroup.html">QActionGroup</a></span> <span class="operator">*</span>group <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(<span class="keyword">this</span>);
+     group<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">true</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Top dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">0</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Left dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">1</span>);
+
+     corner_menu <span class="operator">=</span> dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;Top right corner&quot;</span>));
+     group <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(<span class="keyword">this</span>);
+     group<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">true</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Top dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">2</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Right dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">3</span>);
+
+     corner_menu <span class="operator">=</span> dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;Bottom left corner&quot;</span>));
+     group <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(<span class="keyword">this</span>);
+     group<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">true</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Bottom dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">4</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Left dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">5</span>);
+
+     corner_menu <span class="operator">=</span> dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;Bottom right corner&quot;</span>));
+     group <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qactiongroup.html">QActionGroup</a></span>(<span class="keyword">this</span>);
+     group<span class="operator">-</span><span class="operator">&gt;</span>setExclusive(<span class="keyword">true</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Bottom dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">6</span>);
+     <span class="operator">::</span>addAction(corner_menu<span class="operator">,</span> tr(<span class="string">&quot;Right dock area&quot;</span>)<span class="operator">,</span> group<span class="operator">,</span> mapper<span class="operator">,</span> <span class="number">7</span>);
+
+     dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+
+     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">struct</span> Set {
+         <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span> name;
+         <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> flags;
+         <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DockWidgetArea area;
+     } sets <span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {
+ <span class="preprocessor">#ifndef Q_WS_MAC</span>
+         { <span class="string">&quot;Black&quot;</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftDockWidgetArea }<span class="operator">,</span>
+ <span class="preprocessor">#else</span>
+         { <span class="string">&quot;Black&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Drawer<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftDockWidgetArea }<span class="operator">,</span>
+ <span class="preprocessor">#endif</span>
+         { <span class="string">&quot;White&quot;</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightDockWidgetArea }<span class="operator">,</span>
+         { <span class="string">&quot;Red&quot;</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopDockWidgetArea }<span class="operator">,</span>
+         { <span class="string">&quot;Green&quot;</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopDockWidgetArea }<span class="operator">,</span>
+         { <span class="string">&quot;Blue&quot;</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomDockWidgetArea }<span class="operator">,</span>
+         { <span class="string">&quot;Yellow&quot;</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomDockWidgetArea }
+     };
+     <span class="keyword">const</span> <span class="type">int</span> setCount <span class="operator">=</span> <span class="keyword">sizeof</span>(sets) <span class="operator">/</span> <span class="keyword">sizeof</span>(Set);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> setCount; <span class="operator">+</span><span class="operator">+</span>i) {
+         ColorSwatch <span class="operator">*</span>swatch <span class="operator">=</span> <span class="keyword">new</span> ColorSwatch(tr(sets<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>name)<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindowFlags(sets<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>flags));
+         <span class="keyword">if</span> (i<span class="operator">%</span><span class="number">2</span>)
+             swatch<span class="operator">-</span><span class="operator">&gt;</span>setWindowIcon(<span class="type"><a href="qicon.html">QIcon</a></span>(<span class="type"><a href="qpixmap.html">QPixmap</a></span>(<span class="string">&quot;:/res/qt.png&quot;</span>)));
+         <span class="keyword">if</span> (qstrcmp(sets<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>name<span class="operator">,</span> <span class="string">&quot;Blue&quot;</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+             BlueTitleBar <span class="operator">*</span>titlebar <span class="operator">=</span> <span class="keyword">new</span> BlueTitleBar(swatch);
+             swatch<span class="operator">-</span><span class="operator">&gt;</span>setTitleBarWidget(titlebar);
+             connect(swatch<span class="operator">,</span> SIGNAL(topLevelChanged(<span class="type">bool</span>))<span class="operator">,</span> titlebar<span class="operator">,</span> SLOT(updateMask()));
+             connect(swatch<span class="operator">,</span> SIGNAL(featuresChanged(<span class="type"><a href="qdockwidget.html">QDockWidget</a></span><span class="operator">::</span>DockWidgetFeatures))<span class="operator">,</span> titlebar<span class="operator">,</span> SLOT(updateMask())<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>QueuedConnection);
+
+ <span class="preprocessor">#ifdef Q_WS_QWS</span>
+             <span class="type"><a href="qpalette.html">QPalette</a></span> pal <span class="operator">=</span> palette();
+             pal<span class="operator">.</span>setBrush(backgroundRole()<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">0</span>));
+             swatch<span class="operator">-</span><span class="operator">&gt;</span>setPalette(pal);
+ <span class="preprocessor">#endif</span>
+         }
+
+         <span class="type"><a href="qstring.html">QString</a></span> name <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(sets<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>name);
+         <span class="keyword">if</span> (customSizeHints<span class="operator">.</span>contains(name))
+             swatch<span class="operator">-</span><span class="operator">&gt;</span>setCustomSizeHint(customSizeHints<span class="operator">.</span>value(name));
+
+         addDockWidget(sets<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>area<span class="operator">,</span> swatch);
+         dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(swatch<span class="operator">-</span><span class="operator">&gt;</span>menu);
+     }
+
+     createDockWidgetAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(tr(<span class="string">&quot;Add dock widget...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     connect(createDockWidgetAction<span class="operator">,</span> SIGNAL(triggered())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(createDockWidget()));
+     destroyDockWidgetMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(tr(<span class="string">&quot;Destroy dock widget&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+     destroyDockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     connect(destroyDockWidgetMenu<span class="operator">,</span> SIGNAL(triggered(<span class="type"><a href="qaction.html">QAction</a></span><span class="operator">*</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(destroyDockWidget(<span class="type"><a href="qaction.html">QAction</a></span><span class="operator">*</span>)));
+
+     dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addSeparator();
+     dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(createDockWidgetAction);
+     dockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addMenu(destroyDockWidgetMenu);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>setCorner(<span class="type">int</span> id)
+ {
+     <span class="keyword">switch</span> (id) {
+         <span class="keyword">case</span> <span class="number">0</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopLeftCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopDockWidgetArea);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="number">1</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopLeftCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftDockWidgetArea);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="number">2</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopRightCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopDockWidgetArea);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="number">3</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopRightCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightDockWidgetArea);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="number">4</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomLeftCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomDockWidgetArea);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="number">5</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomLeftCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftDockWidgetArea);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="number">6</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomRightCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomDockWidgetArea);
+             <span class="keyword">break</span>;
+         <span class="keyword">case</span> <span class="number">7</span>:
+             <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>setCorner(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomRightCorner<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightDockWidgetArea);
+             <span class="keyword">break</span>;
+     }
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>showEvent(<span class="type"><a href="qshowevent.html">QShowEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>showEvent(event);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>switchLayoutDirection()
+ {
+     <span class="keyword">if</span> (layoutDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToRight)
+         qApp<span class="operator">-</span><span class="operator">&gt;</span>setLayoutDirection(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightToLeft);
+     <span class="keyword">else</span>
+         qApp<span class="operator">-</span><span class="operator">&gt;</span>setLayoutDirection(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftToRight);
+ }
+
+ <span class="keyword">class</span> CreateDockWidgetDialog : <span class="keyword">public</span> <span class="type"><a href="qdialog.html">QDialog</a></span>
+ {
+ <span class="keyword">public</span>:
+     CreateDockWidgetDialog(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qstring.html">QString</a></span> objectName() <span class="keyword">const</span>;
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DockWidgetArea location() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>m_objectName;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>m_location;
+ };
+
+ CreateDockWidgetDialog<span class="operator">::</span>CreateDockWidgetDialog(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qdialog.html">QDialog</a></span>(parent)
+ {
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>(<span class="keyword">this</span>);
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Object name:&quot;</span>))<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     m_objectName <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_objectName<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(<span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Location:&quot;</span>))<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     m_location <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+     m_location<span class="operator">-</span><span class="operator">&gt;</span>setEditable(<span class="keyword">false</span>);
+     m_location<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Top&quot;</span>));
+     m_location<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Left&quot;</span>));
+     m_location<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Right&quot;</span>));
+     m_location<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Bottom&quot;</span>));
+     m_location<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Restore&quot;</span>));
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_location<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>buttonLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(buttonLayout<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+     buttonLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch();
+
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>cancelButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Cancel&quot;</span>));
+     connect(cancelButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(reject()));
+     buttonLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(cancelButton);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>okButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Ok&quot;</span>));
+     connect(okButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(accept()));
+     buttonLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(okButton);
+
+     okButton<span class="operator">-</span><span class="operator">&gt;</span>setDefault(<span class="keyword">true</span>);
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> CreateDockWidgetDialog<span class="operator">::</span>objectName() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_objectName<span class="operator">-</span><span class="operator">&gt;</span>text();
+ }
+
+ <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DockWidgetArea CreateDockWidgetDialog<span class="operator">::</span>location() <span class="keyword">const</span>
+ {
+     <span class="keyword">switch</span> (m_location<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()) {
+         <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopDockWidgetArea;
+         <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftDockWidgetArea;
+         <span class="keyword">case</span> <span class="number">2</span>: <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightDockWidgetArea;
+         <span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomDockWidgetArea;
+         <span class="keyword">default</span>:
+             <span class="keyword">break</span>;
+     }
+     <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoDockWidgetArea;
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>createDockWidget()
+ {
+     CreateDockWidgetDialog dialog(<span class="keyword">this</span>);
+     <span class="type">int</span> ret <span class="operator">=</span> dialog<span class="operator">.</span>exec();
+     <span class="keyword">if</span> (ret <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Rejected)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qdockwidget.html">QDockWidget</a></span> <span class="operator">*</span>dw <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdockwidget.html">QDockWidget</a></span>;
+     dw<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(dialog<span class="operator">.</span>objectName());
+     dw<span class="operator">-</span><span class="operator">&gt;</span>setWindowTitle(dialog<span class="operator">.</span>objectName());
+     dw<span class="operator">-</span><span class="operator">&gt;</span>setWidget(<span class="keyword">new</span> <span class="type"><a href="qtextedit.html">QTextEdit</a></span>);
+
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DockWidgetArea area <span class="operator">=</span> dialog<span class="operator">.</span>location();
+     <span class="keyword">switch</span> (area) {
+         <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftDockWidgetArea:
+         <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RightDockWidgetArea:
+         <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TopDockWidgetArea:
+         <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BottomDockWidgetArea:
+             addDockWidget(area<span class="operator">,</span> dw);
+             <span class="keyword">break</span>;
+         <span class="keyword">default</span>:
+             <span class="keyword">if</span> (<span class="operator">!</span>restoreDockWidget(dw)) {
+                 <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">,</span> tr(<span class="string">&quot;Failed to restore dock widget&quot;</span>));
+                 <span class="keyword">delete</span> dw;
+                 <span class="keyword">return</span>;
+             }
+             <span class="keyword">break</span>;
+     }
+
+     extraDockWidgets<span class="operator">.</span>append(dw);
+     destroyDockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+     destroyDockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(<span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(dialog<span class="operator">.</span>objectName()<span class="operator">,</span> <span class="keyword">this</span>));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>destroyDockWidget(<span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>action)
+ {
+     <span class="type">int</span> index <span class="operator">=</span> destroyDockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>actions()<span class="operator">.</span>indexOf(action);
+     <span class="keyword">delete</span> extraDockWidgets<span class="operator">.</span>takeAt(index);
+     destroyDockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>removeAction(action);
+     action<span class="operator">-</span><span class="operator">&gt;</span>deleteLater();
+
+     <span class="keyword">if</span> (destroyDockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>isEmpty())
+         destroyDockWidgetMenu<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+ }</pre>
+</div>
+<!-- @@@demos/mainwindow/mainwindow.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

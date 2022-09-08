@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- stardelegate.qdoc -->
+  <title>Qt 4.8: Star Delegate Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Star Delegate Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#stardelegate-class-definition">StarDelegate Class Definition</a></li>
+<li class="level1"><a href="#stardelegate-class-implementation">StarDelegate Class Implementation</a></li>
+<li class="level1"><a href="#stareditor-class-definition">StarEditor Class Definition</a></li>
+<li class="level1"><a href="#stareditor-class-implementation">StarEditor Class Implementation</a></li>
+<li class="level1"><a href="#starrating-class-definition">StarRating Class Definition</a></li>
+<li class="level1"><a href="#starrating-class-implementation">StarRating Class Implementation</a></li>
+<li class="level1"><a href="#the-function">The <tt>main()</tt> Function</a></li>
+<li class="level1"><a href="#possible-extensions-and-suggestions">Possible Extensions and Suggestions</a></li>
+</ul>
+</div>
+<h1 class="title">Star Delegate Example</h1>
+<span class="subtitle"></span>
+<!-- $$$itemviews/stardelegate-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="itemviews-stardelegate-stardelegate-cpp.html">itemviews/stardelegate/stardelegate.cpp</a></li>
+<li><a href="itemviews-stardelegate-stardelegate-h.html">itemviews/stardelegate/stardelegate.h</a></li>
+<li><a href="itemviews-stardelegate-stareditor-cpp.html">itemviews/stardelegate/stareditor.cpp</a></li>
+<li><a href="itemviews-stardelegate-stareditor-h.html">itemviews/stardelegate/stareditor.h</a></li>
+<li><a href="itemviews-stardelegate-starrating-cpp.html">itemviews/stardelegate/starrating.cpp</a></li>
+<li><a href="itemviews-stardelegate-starrating-h.html">itemviews/stardelegate/starrating.h</a></li>
+<li><a href="itemviews-stardelegate-main-cpp.html">itemviews/stardelegate/main.cpp</a></li>
+<li><a href="itemviews-stardelegate-stardelegate-pro.html">itemviews/stardelegate/stardelegate.pro</a></li>
+</ul>
+<p>The Star Delegate example shows how to create a delegate that can paint itself and that supports editing.<p class="centerAlign"><img src="images/stardelegate.png" alt="The Star Delegate Example" /></p><p>When displaying data in a <a href="qlistview.html">QListView</a>, <a href="qtableview.html">QTableView</a>, or <a href="qtreeview.html">QTreeView</a>, the individual items are drawn by a <a href="model-view-programming.html#delegate-classes">delegate</a>. Also, when the user starts editing an item (e.g&#x2e;, by double-clicking the item), the delegate provides an editor widget that is placed on top of the item while editing takes place.</p>
+<p>Delegates are subclasses of <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a>. Qt provides <a href="qstyleditemdelegate.html">QStyledItemDelegate</a>, which inherits <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a> and handles the most common data types (notably <tt>int</tt> and <a href="qstring.html">QString</a>). If we need to support custom data types, or want to customize the rendering or the editing for existing data types, we can subclass <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a> or <a href="qstyleditemdelegate.html">QStyledItemDelegate</a>. See <a href="model-view-programming.html#delegate-classes">Delegate Classes</a> for more information about delegates, and <a href="model-view-programming.html">Model/View Programming</a> if you need a high-level introduction to Qt's model/view architecture (including delegates).</p>
+<p>In this example, we will see how to implement a custom delegate to render and edit a &quot;star rating&quot; data type, which can store values such as &quot;1 out of 5 stars&quot;.</p>
+<p>The example consists of the following classes:</p>
+<ul>
+<li><tt>StarRating</tt> is the custom data type. It stores a rating expressed as stars, such as &quot;2 out of 5 stars&quot; or &quot;5 out of 6 stars&quot;.</li>
+<li><tt>StarDelegate</tt> inherits <a href="qstyleditemdelegate.html">QStyledItemDelegate</a> and provides support for <tt>StarRating</tt> (in addition to the data types already handled by <a href="qstyleditemdelegate.html">QStyledItemDelegate</a>).</li>
+<li><tt>StarEditor</tt> inherits <a href="qwidget.html">QWidget</a> and is used by <tt>StarDelegate</tt> to let the user edit a star rating using the mouse.</li>
+</ul>
+<p>To show the <tt>StarDelegate</tt> in action, we will fill a <a href="qtablewidget.html">QTableWidget</a> with some data and install the delegate on it.</p>
+<a name="stardelegate-class-definition"></a>
+<h2>StarDelegate Class Definition</h2>
+<p>Here's the definition of the <tt>StarDelegate</tt> class:</p>
+<pre class="cpp"> <span class="keyword">class</span> StarDelegate : <span class="keyword">public</span> <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     StarDelegate(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>) : <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span>(parent) {}
+
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint(<span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                    <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>createEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                           <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+     <span class="type">void</span> setEditorData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+     <span class="type">void</span> setModelData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span> <span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> <span class="operator">*</span>model<span class="operator">,</span>
+                       <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>;
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> commitAndCloseEditor();
+ };</pre>
+<p>All public functions are reimplemented virtual functions from <a href="qstyleditemdelegate.html">QStyledItemDelegate</a> to provide custom rendering and editing.</p>
+<a name="stardelegate-class-implementation"></a>
+<h2>StarDelegate Class Implementation</h2>
+<p>The <a href="qabstractitemdelegate.html#paint">paint()</a> function is reimplemented from <a href="qstyleditemdelegate.html">QStyledItemDelegate</a> and is called whenever the view needs to repaint an item:</p>
+<pre class="cpp"> <span class="type">void</span> StarDelegate<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                          <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (index<span class="operator">.</span>data()<span class="operator">.</span>canConvert<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>()) {
+         StarRating starRating <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>(index<span class="operator">.</span>data());
+
+         <span class="keyword">if</span> (option<span class="operator">.</span>state <span class="operator">&amp;</span> <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>State_Selected)
+             painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(option<span class="operator">.</span>rect<span class="operator">,</span> option<span class="operator">.</span>palette<span class="operator">.</span>highlight());
+
+         starRating<span class="operator">.</span>paint(painter<span class="operator">,</span> option<span class="operator">.</span>rect<span class="operator">,</span> option<span class="operator">.</span>palette<span class="operator">,</span>
+                          StarRating<span class="operator">::</span>ReadOnly);
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span><span class="operator">::</span>paint(painter<span class="operator">,</span> option<span class="operator">,</span> index);
+     }</pre>
+<p>The function is invoked once for each item, represented by a <a href="qmodelindex.html">QModelIndex</a> object from the model. If the data stored in the item is a <tt>StarRating</tt>, we paint it ourselves; otherwise, we let <a href="qstyleditemdelegate.html">QStyledItemDelegate</a> paint it for us. This ensures that the <tt>StarDelegate</tt> can handle the most common data types.</p>
+<p>In the case where the item is a <tt>StarRating</tt>, we draw the background if the item is selected, and we draw the item using <tt>StarRating::paint()</tt>, which we will review later.</p>
+<p><tt>StartRating</tt>s can be stored in a <a href="qvariant.html">QVariant</a> thanks to the <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() macro appearing in <tt>starrating.h</tt>. More on this later.</p>
+<p>The <a href="qabstractitemdelegate.html#createEditor">createEditor()</a> function is called when the user starts editing an item:</p>
+<pre class="cpp"> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>StarDelegate<span class="operator">::</span>createEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span>
+                                     <span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                                     <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+
+ {
+     <span class="keyword">if</span> (index<span class="operator">.</span>data()<span class="operator">.</span>canConvert<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>()) {
+         StarEditor <span class="operator">*</span>editor <span class="operator">=</span> <span class="keyword">new</span> StarEditor(parent);
+         connect(editor<span class="operator">,</span> SIGNAL(editingFinished())<span class="operator">,</span>
+                 <span class="keyword">this</span><span class="operator">,</span> SLOT(commitAndCloseEditor()));
+         <span class="keyword">return</span> editor;
+     } <span class="keyword">else</span> {
+         <span class="keyword">return</span> <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span><span class="operator">::</span>createEditor(parent<span class="operator">,</span> option<span class="operator">,</span> index);
+     }
+ }</pre>
+<p>If the item is a <tt>StarRating</tt>, we create a <tt>StarEditor</tt> and connect its <tt>editingFinished()</tt> signal to our <tt>commitAndCloseEditor()</tt> slot, so we can update the model when the editor closes.</p>
+<p>Here's the implementation of <tt>commitAndCloseEditor()</tt>:</p>
+<pre class="cpp"> <span class="type">void</span> StarDelegate<span class="operator">::</span>commitAndCloseEditor()
+ {
+     StarEditor <span class="operator">*</span>editor <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>StarEditor <span class="operator">*</span><span class="operator">&gt;</span>(sender());
+     <span class="keyword">emit</span> commitData(editor);
+     <span class="keyword">emit</span> closeEditor(editor);
+ }</pre>
+<p>When the user is done editing, we emit <a href="qabstractitemdelegate.html#commitData">commitData()</a> and <a href="qabstractitemdelegate.html#closeEditor">closeEditor()</a> (both declared in <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a>), to tell the model that there is edited data and to inform the view that the editor is no longer needed.</p>
+<p>The <a href="qabstractitemdelegate.html#setEditorData">setEditorData()</a> function is called when an editor is created to initialize it with data from the model:</p>
+<pre class="cpp"> <span class="type">void</span> StarDelegate<span class="operator">::</span>setEditorData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span>
+                                  <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (index<span class="operator">.</span>data()<span class="operator">.</span>canConvert<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>()) {
+         StarRating starRating <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>(index<span class="operator">.</span>data());
+         StarEditor <span class="operator">*</span>starEditor <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>StarEditor <span class="operator">*</span><span class="operator">&gt;</span>(editor);
+         starEditor<span class="operator">-</span><span class="operator">&gt;</span>setStarRating(starRating);
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span><span class="operator">::</span>setEditorData(editor<span class="operator">,</span> index);
+     }
+ }</pre>
+<p>We simply call <tt>setStarRating()</tt> on the editor.</p>
+<p>The <a href="qabstractitemdelegate.html#setModelData">setModelData()</a> function is called when editing is finished, to commit data from the editor to the model:</p>
+<pre class="cpp"> <span class="type">void</span> StarDelegate<span class="operator">::</span>setModelData(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>editor<span class="operator">,</span> <span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> <span class="operator">*</span>model<span class="operator">,</span>
+                                 <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (index<span class="operator">.</span>data()<span class="operator">.</span>canConvert<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>()) {
+         StarEditor <span class="operator">*</span>starEditor <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>StarEditor <span class="operator">*</span><span class="operator">&gt;</span>(editor);
+         model<span class="operator">-</span><span class="operator">&gt;</span>setData(index<span class="operator">,</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(starEditor<span class="operator">-</span><span class="operator">&gt;</span>starRating()));
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span><span class="operator">::</span>setModelData(editor<span class="operator">,</span> model<span class="operator">,</span> index);
+     }
+ }</pre>
+<p>The <tt>sizeHint()</tt> function returns an item's preferred size:</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> StarDelegate<span class="operator">::</span>sizeHint(<span class="keyword">const</span> <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> <span class="operator">&amp;</span>option<span class="operator">,</span>
+                              <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (index<span class="operator">.</span>data()<span class="operator">.</span>canConvert<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>()) {
+         StarRating starRating <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span>StarRating<span class="operator">&gt;</span>(index<span class="operator">.</span>data());
+         <span class="keyword">return</span> starRating<span class="operator">.</span>sizeHint();
+     } <span class="keyword">else</span> {
+         <span class="keyword">return</span> <span class="type"><a href="qstyleditemdelegate.html">QStyledItemDelegate</a></span><span class="operator">::</span>sizeHint(option<span class="operator">,</span> index);
+     }
+ }</pre>
+<p>We simply forward the call to <tt>StarRating</tt>.</p>
+<a name="stareditor-class-definition"></a>
+<h2>StarEditor Class Definition</h2>
+<p>The <tt>StarEditor</tt> class was used when implementing <tt>StarDelegate</tt>. Here's the class definition:</p>
+<pre class="cpp"> <span class="keyword">class</span> StarEditor : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     StarEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;
+     <span class="type">void</span> setStarRating(<span class="keyword">const</span> StarRating <span class="operator">&amp;</span>starRating) {
+         myStarRating <span class="operator">=</span> starRating;
+     }
+     StarRating starRating() { <span class="keyword">return</span> myStarRating; }
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> editingFinished();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> starAtPosition(<span class="type">int</span> x);
+
+     StarRating myStarRating;
+ };</pre>
+<p>The class lets the user edit a <tt>StarRating</tt> by moving the mouse over the editor. It emits the <tt>editingFinished()</tt> signal when the user clicks on the editor.</p>
+<p>The protected functions are reimplemented from <a href="qwidget.html">QWidget</a> to handle mouse and paint events. The private function <tt>starAtPosition()</tt> is a helper function that returns the number of the star under the mouse pointer.</p>
+<a name="stareditor-class-implementation"></a>
+<h2>StarEditor Class Implementation</h2>
+<p>Let's start with the constructor:</p>
+<pre class="cpp"> StarEditor<span class="operator">::</span>StarEditor(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     setMouseTracking(<span class="keyword">true</span>);
+     setAutoFillBackground(<span class="keyword">true</span>);
+ }</pre>
+<p>We enable <a href="qwidget.html#mouseTracking-prop">mouse tracking</a> on the widget so we can follow the cursor even when the user doesn't hold down any mouse button. We also turn on <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#autoFillBackground-prop">auto-fill background</a> feature to obtain an opaque background. (Without the call, the view's background would shine through the editor.)</p>
+<p>The <a href="qwidget.html#paintEvent">paintEvent()</a> function is reimplemented from <a href="qwidget.html">QWidget</a>:</p>
+<pre class="cpp"> <span class="type">void</span> StarEditor<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     myStarRating<span class="operator">.</span>paint(<span class="operator">&amp;</span>painter<span class="operator">,</span> rect()<span class="operator">,</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>palette()<span class="operator">,</span>
+                        StarRating<span class="operator">::</span>Editable);
+ }</pre>
+<p>We simply call <tt>StarRating::paint()</tt> to draw the stars, just like we did when implementing <tt>StarDelegate</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> StarEditor<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type">int</span> star <span class="operator">=</span> starAtPosition(event<span class="operator">-</span><span class="operator">&gt;</span>x());
+
+     <span class="keyword">if</span> (star <span class="operator">!</span><span class="operator">=</span> myStarRating<span class="operator">.</span>starCount() <span class="operator">&amp;</span><span class="operator">&amp;</span> star <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         myStarRating<span class="operator">.</span>setStarCount(star);
+         update();
+     }
+ }</pre>
+<p>In the mouse event handler, we call <tt>setStarCount()</tt> on the private data member <tt>myStarRating</tt> to reflect the current cursor position, and we call <a href="qwidget.html#update">QWidget::update</a>() to force a repaint.</p>
+<pre class="cpp"> <span class="type">void</span> StarEditor<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span> <span class="comment">/* event */</span>)
+ {
+     <span class="keyword">emit</span> editingFinished();
+ }</pre>
+<p>When the user releases a mouse button, we simply emit the <tt>editingFinished()</tt> signal.</p>
+<pre class="cpp"> <span class="type">int</span> StarEditor<span class="operator">::</span>starAtPosition(<span class="type">int</span> x)
+ {
+     <span class="type">int</span> star <span class="operator">=</span> (x <span class="operator">/</span> (myStarRating<span class="operator">.</span>sizeHint()<span class="operator">.</span>width()
+                      <span class="operator">/</span> myStarRating<span class="operator">.</span>maxStarCount())) <span class="operator">+</span> <span class="number">1</span>;
+     <span class="keyword">if</span> (star <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> star <span class="operator">&gt;</span> myStarRating<span class="operator">.</span>maxStarCount())
+         <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+
+     <span class="keyword">return</span> star;
+ }</pre>
+<p>The <tt>starAtPosition()</tt> function uses basic linear algebra to find out which star is under the cursor.</p>
+<a name="starrating-class-definition"></a>
+<h2>StarRating Class Definition</h2>
+<pre class="cpp"> <span class="keyword">class</span> StarRating
+ {
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> EditMode { Editable<span class="operator">,</span> ReadOnly };
+
+     StarRating(<span class="type">int</span> starCount <span class="operator">=</span> <span class="number">1</span><span class="operator">,</span> <span class="type">int</span> maxStarCount <span class="operator">=</span> <span class="number">5</span>);
+
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect<span class="operator">,</span>
+                <span class="keyword">const</span> <span class="type"><a href="qpalette.html">QPalette</a></span> <span class="operator">&amp;</span>palette<span class="operator">,</span> EditMode mode) <span class="keyword">const</span>;
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span>;
+     <span class="type">int</span> starCount() <span class="keyword">const</span> { <span class="keyword">return</span> myStarCount; }
+     <span class="type">int</span> maxStarCount() <span class="keyword">const</span> { <span class="keyword">return</span> myMaxStarCount; }
+     <span class="type">void</span> setStarCount(<span class="type">int</span> starCount) { myStarCount <span class="operator">=</span> starCount; }
+     <span class="type">void</span> setMaxStarCount(<span class="type">int</span> maxStarCount) { myMaxStarCount <span class="operator">=</span> maxStarCount; }
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> starPolygon;
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> diamondPolygon;
+     <span class="type">int</span> myStarCount;
+     <span class="type">int</span> myMaxStarCount;
+ };
+
+ <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(StarRating)</pre>
+<p>The <tt>StarRating</tt> class represents a rating as a number of stars. In addition to holding the data, it is also capable of painting the stars on a <a href="qpaintdevice.html">QPaintDevice</a>, which in this example is either a view or an editor. The <tt>myStarCount</tt> member variable stores the current rating, and <tt>myMaxStarCount</tt> stores the highest possible rating (typically 5).</p>
+<p>The <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() macro makes the type <tt>StarRating</tt> known to <a href="qvariant.html">QVariant</a>, making it possible to store <tt>StarRating</tt> values in <a href="qvariant.html">QVariant</a>.</p>
+<a name="starrating-class-implementation"></a>
+<h2>StarRating Class Implementation</h2>
+<p>The constructor initializes <tt>myStarCount</tt> and <tt>myMaxStarCount</tt>, and sets up the polygons used to draw stars and diamonds:</p>
+<pre class="cpp"> StarRating<span class="operator">::</span>StarRating(<span class="type">int</span> starCount<span class="operator">,</span> <span class="type">int</span> maxStarCount)
+ {
+     myStarCount <span class="operator">=</span> starCount;
+     myMaxStarCount <span class="operator">=</span> maxStarCount;
+
+     starPolygon <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">1.0</span><span class="operator">,</span> <span class="number">0.5</span>);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span> <span class="number">5</span>; <span class="operator">+</span><span class="operator">+</span>i)
+         starPolygon <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.5</span> <span class="operator">+</span> <span class="number">0.5</span> <span class="operator">*</span> cos(<span class="number">0.8</span> <span class="operator">*</span> i <span class="operator">*</span> <span class="number">3.14</span>)<span class="operator">,</span>
+                                <span class="number">0.5</span> <span class="operator">+</span> <span class="number">0.5</span> <span class="operator">*</span> sin(<span class="number">0.8</span> <span class="operator">*</span> i <span class="operator">*</span> <span class="number">3.14</span>));
+
+     diamondPolygon <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.4</span><span class="operator">,</span> <span class="number">0.5</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.5</span><span class="operator">,</span> <span class="number">0.4</span>)
+                    <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.6</span><span class="operator">,</span> <span class="number">0.5</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.5</span><span class="operator">,</span> <span class="number">0.6</span>)
+                    <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(<span class="number">0.4</span><span class="operator">,</span> <span class="number">0.5</span>);
+ }</pre>
+<p>The <tt>paint()</tt> function paints the stars in this <tt>StarRating</tt> object on a paint device:</p>
+<pre class="cpp"> <span class="type">void</span> StarRating<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect<span class="operator">,</span>
+                        <span class="keyword">const</span> <span class="type"><a href="qpalette.html">QPalette</a></span> <span class="operator">&amp;</span>palette<span class="operator">,</span> EditMode mode) <span class="keyword">const</span>
+ {
+     painter<span class="operator">-</span><span class="operator">&gt;</span>save();
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> <span class="keyword">true</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+
+     <span class="keyword">if</span> (mode <span class="operator">=</span><span class="operator">=</span> Editable) {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(palette<span class="operator">.</span>highlight());
+     } <span class="keyword">else</span> {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(palette<span class="operator">.</span>foreground());
+     }
+
+     <span class="type">int</span> yOffset <span class="operator">=</span> (rect<span class="operator">.</span>height() <span class="operator">-</span> PaintingScaleFactor) <span class="operator">/</span> <span class="number">2</span>;
+     painter<span class="operator">-</span><span class="operator">&gt;</span>translate(rect<span class="operator">.</span>x()<span class="operator">,</span> rect<span class="operator">.</span>y() <span class="operator">+</span> yOffset);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>scale(PaintingScaleFactor<span class="operator">,</span> PaintingScaleFactor);
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> myMaxStarCount; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">if</span> (i <span class="operator">&lt;</span> myStarCount) {
+             painter<span class="operator">-</span><span class="operator">&gt;</span>drawPolygon(starPolygon<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindingFill);
+         } <span class="keyword">else</span> <span class="keyword">if</span> (mode <span class="operator">=</span><span class="operator">=</span> Editable) {
+             painter<span class="operator">-</span><span class="operator">&gt;</span>drawPolygon(diamondPolygon<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WindingFill);
+         }
+         painter<span class="operator">-</span><span class="operator">&gt;</span>translate(<span class="number">1.0</span><span class="operator">,</span> <span class="number">0.0</span>);
+     }
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>restore();
+ }</pre>
+<p>We first set the pen and brush we will use for painting. The <tt>mode</tt> parameter can be either <tt>Editable</tt> or <tt>ReadOnly</tt>. If <tt>mode</tt> is editable, we use the <a href="qpalette.html#ColorRole-enum">Highlight</a> color instead of the <a href="qpalette.html#ColorRole-enum">Foreground</a> color to draw the stars.</p>
+<p>Then we draw the stars. If we are in <tt>Edit</tt> mode, we paint diamonds in place of stars if the rating is less than the highest rating.</p>
+<p>The <tt>sizeHint()</tt> function returns the preferred size for an area to paint the stars on:</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> StarRating<span class="operator">::</span>sizeHint() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> PaintingScaleFactor <span class="operator">*</span> <span class="type"><a href="qsize.html">QSize</a></span>(myMaxStarCount<span class="operator">,</span> <span class="number">1</span>);
+ }</pre>
+<p>The preferred size is just enough to paint the maximum number of stars. The function is called by both <tt>StarDelegate::sizeHint()</tt> and <tt>StarEditor::sizeHint()</tt>.</p>
+<a name="the-function"></a>
+<h2>The <tt>main()</tt> Function</h2>
+<p>Here's the program's <tt>main()</tt> function:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qtablewidget.html">QTableWidget</a></span> tableWidget(<span class="number">4</span><span class="operator">,</span> <span class="number">4</span>);
+     tableWidget<span class="operator">.</span>setItemDelegate(<span class="keyword">new</span> StarDelegate);
+     tableWidget<span class="operator">.</span>setEditTriggers(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>DoubleClicked
+                                 <span class="operator">|</span> <span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>SelectedClicked);
+     tableWidget<span class="operator">.</span>setSelectionBehavior(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>SelectRows);
+
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> headerLabels;
+     headerLabels <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Title&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Genre&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Artist&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Rating&quot;</span>;
+     tableWidget<span class="operator">.</span>setHorizontalHeaderLabels(headerLabels);
+
+     populateTableWidget(<span class="operator">&amp;</span>tableWidget);
+
+     tableWidget<span class="operator">.</span>resizeColumnsToContents();
+     tableWidget<span class="operator">.</span>resize(<span class="number">500</span><span class="operator">,</span> <span class="number">300</span>);
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN)</span>
+     tableWidget<span class="operator">.</span>showMaximized();
+ <span class="preprocessor">#else</span>
+     tableWidget<span class="operator">.</span>show();
+ <span class="preprocessor">#endif</span>
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>The <tt>main()</tt> function creates a <a href="qtablewidget.html">QTableWidget</a> and sets a <tt>StarDelegate</tt> on it. <a href="qabstractitemview.html#EditTrigger-enum">DoubleClicked</a> and <a href="qabstractitemview.html#EditTrigger-enum">SelectedClicked</a> are set as <a href="qabstractitemview.html#editTriggers-prop">edit triggers</a>, so that the editor is opened with a single click when the star rating item is selected.</p>
+<p>The <tt>populateTableWidget()</tt> function fills the <a href="qtablewidget.html">QTableWidget</a> with data:</p>
+<pre class="cpp"> <span class="type">void</span> populateTableWidget(<span class="type"><a href="qtablewidget.html">QTableWidget</a></span> <span class="operator">*</span>tableWidget)
+ {
+     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">struct</span> {
+         <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>title;
+         <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>genre;
+         <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>artist;
+         <span class="type">int</span> rating;
+     } staticData<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {
+         { <span class="string">&quot;Mass in B-Minor&quot;</span><span class="operator">,</span> <span class="string">&quot;Baroque&quot;</span><span class="operator">,</span> <span class="string">&quot;J.S. Bach&quot;</span><span class="operator">,</span> <span class="number">5</span> }<span class="operator">,</span>
+     ...
+         { <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span> }
+     };
+
+     <span class="keyword">for</span> (<span class="type">int</span> row <span class="operator">=</span> <span class="number">0</span>; staticData<span class="operator">[</span>row<span class="operator">]</span><span class="operator">.</span>title <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>; <span class="operator">+</span><span class="operator">+</span>row) {
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item0 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span>(staticData<span class="operator">[</span>row<span class="operator">]</span><span class="operator">.</span>title);
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span>(staticData<span class="operator">[</span>row<span class="operator">]</span><span class="operator">.</span>genre);
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item2 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span>(staticData<span class="operator">[</span>row<span class="operator">]</span><span class="operator">.</span>artist);
+         <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span> <span class="operator">*</span>item3 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtablewidgetitem.html">QTableWidgetItem</a></span>;
+         item3<span class="operator">-</span><span class="operator">&gt;</span>setData(<span class="number">0</span><span class="operator">,</span>
+                        <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(StarRating(staticData<span class="operator">[</span>row<span class="operator">]</span><span class="operator">.</span>rating)));
+
+         tableWidget<span class="operator">-</span><span class="operator">&gt;</span>setItem(row<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> item0);
+         tableWidget<span class="operator">-</span><span class="operator">&gt;</span>setItem(row<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> item1);
+         tableWidget<span class="operator">-</span><span class="operator">&gt;</span>setItem(row<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> item2);
+         tableWidget<span class="operator">-</span><span class="operator">&gt;</span>setItem(row<span class="operator">,</span> <span class="number">3</span><span class="operator">,</span> item3);
+     }
+ }</pre>
+<p>Notice the call to qVariantFromValue to convert a <tt>StarRating</tt> to a <a href="qvariant.html">QVariant</a>.</p>
+<a name="possible-extensions-and-suggestions"></a>
+<h2>Possible Extensions and Suggestions</h2>
+<p>There are many ways to customize Qt's <a href="model-view-programming.html">model/view framework</a>. The approach used in this example is appropriate for most custom delegates and editors. Examples of possibilities not used by the star delegate and star editor are:</p>
+<ul>
+<li>It is possible to open editors programmatically by calling <a href="qabstractitemview.html#edit">QAbstractItemView::edit</a>(), instead of relying on edit triggers. This could be use to support other edit triggers than those offered by the <a href="qabstractitemview.html#EditTrigger-enum">QAbstractItemView::EditTrigger</a> enum. For example, in the Star Delegate example, hovering over an item with the mouse might make sense as a way to pop up an editor.</li>
+<li>By reimplementing <a href="qabstractitemdelegate.html#editorEvent">QAbstractItemDelegate::editorEvent</a>(), it is possible to implement the editor directly in the delegate, instead of creating a separate <a href="qwidget.html">QWidget</a> subclass.</li>
+</ul>
+</div>
+<!-- @@@itemviews/stardelegate -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

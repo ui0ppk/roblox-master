@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: filetree.cpp Example File (xmlpatterns/filetree/filetree.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">filetree.cpp Example File</h1>
+<span class="small-subtitle">xmlpatterns/filetree/filetree.cpp</span>
+<!-- $$$xmlpatterns/filetree/filetree.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtCore/QUrl&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QVariant&gt;</span>
+ <span class="preprocessor">#include &lt;QtXmlPatterns/QXmlNamePool&gt;</span>
+ <span class="preprocessor">#include &quot;filetree.h&quot;</span>
+
+ <span class="comment">/*
+ The model has two types of nodes: elements &amp; attributes.
+
+     &lt;directory name=&quot;&quot;&gt;
+         &lt;file name=&quot;&quot;&gt;
+         &lt;/file&gt;
+     &lt;/directory&gt;
+
+   In QXmlNodeModelIndex we store two values. QXmlNodeIndex::data()
+   is treated as a signed int, and it is an index into m_fileInfos
+   unless it is -1, in which case it has no meaning and the value
+   of QXmlNodeModelIndex::additionalData() is a Type name instead.
+  */</span>
+
+ <span class="comment">/*!
+   The constructor passes \a pool to the base class, then loads an
+   internal vector with an instance of QXmlName for each of the
+   strings &quot;file&quot;, &quot;directory&quot;, &quot;fileName&quot;, &quot;filePath&quot;, &quot;size&quot;,
+   &quot;mimeType&quot;, and &quot;suffix&quot;.
+  */</span>
+ FileTree<span class="operator">::</span>FileTree(<span class="keyword">const</span> <span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span><span class="operator">&amp;</span> pool)
+   : <span class="type"><a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a></span>(pool)<span class="operator">,</span>
+     m_filterAllowAll(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllEntries <span class="operator">|</span>
+                      <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>AllDirs <span class="operator">|</span>
+                      <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>NoDotAndDotDot <span class="operator">|</span>
+                      <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Hidden)<span class="operator">,</span>
+     m_sortFlags(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Name)
+ {
+     <span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span> np <span class="operator">=</span> namePool();
+     m_names<span class="operator">.</span>resize(<span class="number">7</span>);
+     m_names<span class="operator">[</span>File<span class="operator">]</span>               <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;file&quot;</span>));
+     m_names<span class="operator">[</span>Directory<span class="operator">]</span>          <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;directory&quot;</span>));
+     m_names<span class="operator">[</span>AttributeFileName<span class="operator">]</span>  <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;fileName&quot;</span>));
+     m_names<span class="operator">[</span>AttributeFilePath<span class="operator">]</span>  <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;filePath&quot;</span>));
+     m_names<span class="operator">[</span>AttributeSize<span class="operator">]</span>      <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;size&quot;</span>));
+     m_names<span class="operator">[</span>AttributeMIMEType<span class="operator">]</span>  <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;mimeType&quot;</span>));
+     m_names<span class="operator">[</span>AttributeSuffix<span class="operator">]</span>    <span class="operator">=</span> <span class="type"><a href="qxmlname.html">QXmlName</a></span>(np<span class="operator">,</span> QLatin1String(<span class="string">&quot;suffix&quot;</span>));
+ }
+
+ <span class="comment">/*!
+   Returns the QXmlNodeModelIndex for the model node representing
+   the directory \a dirName.
+
+   It calls QDir::cleanPath(), because an instance of QFileInfo
+   constructed for a path ending in '/' will return the empty string in
+   fileName(), instead of the directory name.
+ */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> FileTree<span class="operator">::</span>nodeFor(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&amp;</span> dirName) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> dirInfo(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>cleanPath(dirName));
+     Q_ASSERT(dirInfo<span class="operator">.</span>exists());
+     <span class="keyword">return</span> toNodeIndex(dirInfo);
+ }
+
+ <span class="comment">/*!
+   Since the value will always be in m_fileInfos, it is safe for
+   us to return a const reference to it.
+  */</span>
+ <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span><span class="operator">&amp;</span>
+ FileTree<span class="operator">::</span>toFileInfo(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>nodeIndex) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_fileInfos<span class="operator">.</span>at(nodeIndex<span class="operator">.</span>data());
+ }
+
+ <span class="comment">/*!
+   Returns the model node index for the node specified by the
+   QFileInfo and node Type.
+  */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>
+ FileTree<span class="operator">::</span>toNodeIndex(<span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>fileInfo<span class="operator">,</span> Type attributeName) <span class="keyword">const</span>
+ {
+     <span class="keyword">const</span> <span class="type">int</span> indexOf <span class="operator">=</span> m_fileInfos<span class="operator">.</span>indexOf(fileInfo);
+
+     <span class="keyword">if</span> (indexOf <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         m_fileInfos<span class="operator">.</span>append(fileInfo);
+         <span class="keyword">return</span> createIndex(m_fileInfos<span class="operator">.</span>count()<span class="operator">-</span><span class="number">1</span><span class="operator">,</span> attributeName);
+     }
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> createIndex(indexOf<span class="operator">,</span> attributeName);
+ }
+
+ <span class="comment">/*!
+   Returns the model node index for the node specified by the
+   QFileInfo, which must be a  Type::File or Type::Directory.
+  */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> FileTree<span class="operator">::</span>toNodeIndex(<span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>fileInfo) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> toNodeIndex(fileInfo<span class="operator">,</span> fileInfo<span class="operator">.</span>isDir() <span class="operator">?</span> Directory : File);
+ }
+
+ <span class="comment">/*!
+   This private helper function is only called by nextFromSimpleAxis().
+   It is called whenever nextFromSimpleAxis() is called with an axis
+   parameter of either \c{PreviousSibling} or \c{NextSibling}.
+  */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> FileTree<span class="operator">::</span>nextSibling(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>nodeIndex<span class="operator">,</span>
+                                          <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>fileInfo<span class="operator">,</span>
+                                          <span class="type"><a href="qtglobal.html#qint8-typedef">qint8</a></span> offset) <span class="keyword">const</span>
+ {
+     Q_ASSERT(offset <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span> <span class="operator">|</span><span class="operator">|</span> offset <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>);
+
+     <span class="comment">// Get the context node's parent.</span>
+     <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> parent(nextFromSimpleAxis(Parent<span class="operator">,</span> nodeIndex));
+
+     <span class="keyword">if</span> (parent<span class="operator">.</span>isNull())
+         <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+
+     <span class="comment">// Get the parent's child list.</span>
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> parentFI(toFileInfo(parent));
+     Q_ASSERT(Type(parent<span class="operator">.</span>additionalData()) <span class="operator">=</span><span class="operator">=</span> Directory);
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html#QFileInfoList-typedef">QFileInfoList</a></span> siblings(<span class="type"><a href="qdir.html">QDir</a></span>(parentFI<span class="operator">.</span>absoluteFilePath())<span class="operator">.</span>entryInfoList(<span class="type"><a href="qstringlist.html">QStringList</a></span>()<span class="operator">,</span>
+                                                                                  m_filterAllowAll<span class="operator">,</span>
+                                                                                  m_sortFlags));
+     Q_ASSERT_X(<span class="operator">!</span>siblings<span class="operator">.</span>isEmpty()<span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;Can't happen! We started at a child.&quot;</span>);
+
+     <span class="comment">// Find the index of the child where we started.</span>
+     <span class="keyword">const</span> <span class="type">int</span> indexOfMe <span class="operator">=</span> siblings<span class="operator">.</span>indexOf(fileInfo);
+
+     <span class="comment">// Apply the offset.</span>
+     <span class="keyword">const</span> <span class="type">int</span> siblingIndex <span class="operator">=</span> indexOfMe <span class="operator">+</span> offset;
+     <span class="keyword">if</span> (siblingIndex <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> siblingIndex <span class="operator">&gt;</span> siblings<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> toNodeIndex(siblings<span class="operator">.</span>at(siblingIndex));
+ }
+
+ <span class="comment">/*!
+   This function is called by the QtXmlPatterns query engine when it
+   wants to move to the next node in the model. It moves along an \a
+   axis, \e from the node specified by \a nodeIndex.
+
+   This function is usually the one that requires the most design and
+   implementation work, because the implementation depends on the
+   perhaps unique structure of your non-XML data.
+
+   There are \l {QAbstractXmlNodeModel::SimpleAxis} {four values} for
+   \a axis that the implementation must handle, but there are really
+   only two axes, i.e., vertical and horizontal. Two of the four values
+   specify direction on the vertical axis (\c{Parent} and
+   \c{FirstChild}), and the other two values specify direction on the
+   horizontal axis (\c{PreviousSibling} and \c{NextSibling}).
+
+   The typical implementation will be a \c switch statement with
+   a case for each of the four \a axis values.
+  */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>
+ FileTree<span class="operator">::</span>nextFromSimpleAxis(SimpleAxis axis<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>nodeIndex) <span class="keyword">const</span>
+ {
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> fi(toFileInfo(nodeIndex));
+     <span class="keyword">const</span> Type type <span class="operator">=</span> Type(nodeIndex<span class="operator">.</span>additionalData());
+
+     <span class="keyword">if</span> (type <span class="operator">!</span><span class="operator">=</span> File <span class="operator">&amp;</span><span class="operator">&amp;</span> type <span class="operator">!</span><span class="operator">=</span> Directory) {
+         Q_ASSERT_X(axis <span class="operator">=</span><span class="operator">=</span> Parent<span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;An attribute only has a parent!&quot;</span>);
+         <span class="keyword">return</span> toNodeIndex(fi<span class="operator">,</span> Directory);
+     }
+
+     <span class="keyword">switch</span> (axis) {
+         <span class="keyword">case</span> Parent:
+             <span class="keyword">return</span> toNodeIndex(<span class="type"><a href="qfileinfo.html">QFileInfo</a></span>(fi<span class="operator">.</span>path())<span class="operator">,</span> Directory);
+
+         <span class="keyword">case</span> FirstChild:
+         {
+             <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> File) <span class="comment">// A file has no children.</span>
+                 <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+             <span class="keyword">else</span> {
+                 Q_ASSERT(type <span class="operator">=</span><span class="operator">=</span> Directory);
+                 Q_ASSERT_X(fi<span class="operator">.</span>isDir()<span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;It isn't really a directory!&quot;</span>);
+                 <span class="keyword">const</span> <span class="type"><a href="qdir.html">QDir</a></span> dir(fi<span class="operator">.</span>absoluteFilePath());
+                 Q_ASSERT(dir<span class="operator">.</span>exists());
+
+                 <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html#QFileInfoList-typedef">QFileInfoList</a></span> children(dir<span class="operator">.</span>entryInfoList(<span class="type"><a href="qstringlist.html">QStringList</a></span>()<span class="operator">,</span>
+                                                                m_filterAllowAll<span class="operator">,</span>
+                                                                m_sortFlags));
+                 <span class="keyword">if</span> (children<span class="operator">.</span>isEmpty())
+                     <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+                 <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> firstChild(children<span class="operator">.</span>first());
+                 <span class="keyword">return</span> toNodeIndex(firstChild);
+             }
+         }
+
+         <span class="keyword">case</span> PreviousSibling:
+             <span class="keyword">return</span> nextSibling(nodeIndex<span class="operator">,</span> fi<span class="operator">,</span> <span class="operator">-</span><span class="number">1</span>);
+
+         <span class="keyword">case</span> NextSibling:
+             <span class="keyword">return</span> nextSibling(nodeIndex<span class="operator">,</span> fi<span class="operator">,</span> <span class="number">1</span>);
+     }
+
+     Q_ASSERT_X(<span class="keyword">false</span><span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;Don't ever get here!&quot;</span>);
+     <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span>();
+ }
+
+ <span class="comment">/*!
+   No matter what part of the file system we model (the whole file
+   tree or a subtree), \a node will always have \c{file:///} as
+   the document URI.
+  */</span>
+ <span class="type"><a href="qurl.html">QUrl</a></span> FileTree<span class="operator">::</span>documentUri(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>
+ {
+     Q_UNUSED(node);
+     <span class="keyword">return</span> <span class="type"><a href="qurl.html">QUrl</a></span>(<span class="string">&quot;file:///&quot;</span>);
+ }
+
+ <span class="comment">/*!
+   This function returns QXmlNodeModelIndex::Element if \a node
+   is a directory or a file, and QXmlNodeModelIndex::Attribute
+   otherwise.
+  */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">::</span>NodeKind
+ FileTree<span class="operator">::</span>kind(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>
+ {
+     <span class="keyword">switch</span> (Type(node<span class="operator">.</span>additionalData())) {
+         <span class="keyword">case</span> Directory:
+         <span class="keyword">case</span> File:
+             <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">::</span>Element;
+         <span class="keyword">default</span>:
+             <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">::</span>Attribute;
+     }
+ }
+
+ <span class="comment">/*!
+   No order is defined for this example, so we always return
+   QXmlNodeModelIndex::Precedes, just to keep everyone happy.
+  */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">::</span>DocumentOrder
+ FileTree<span class="operator">::</span>compareOrder(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&amp;</span><span class="operator">,</span>
+                        <span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&amp;</span>) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">::</span>Precedes;
+ }
+
+ <span class="comment">/*!
+   Returns the name of \a node. The caller guarantees that \a node is
+   not null and that it is contained in this node model.
+  */</span>
+ <span class="type"><a href="qxmlname.html">QXmlName</a></span> FileTree<span class="operator">::</span>name(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_names<span class="operator">.</span>at(node<span class="operator">.</span>additionalData());
+ }
+
+ <span class="comment">/*!
+   Always returns the QXmlNodeModelIndex for the root of the
+   file system, i.e. &quot;/&quot;.
+  */</span>
+ <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> FileTree<span class="operator">::</span>root(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>
+ {
+     Q_UNUSED(node);
+     <span class="keyword">return</span> toNodeIndex(<span class="type"><a href="qfileinfo.html">QFileInfo</a></span>(QLatin1String(<span class="string">&quot;/&quot;</span>)));
+ }
+
+ <span class="comment">/*!
+   Returns the typed value for \a node, which must be either an
+   attribute or an element. The QVariant returned represents the atomic
+   value of an attribute or the atomic value contained in an element.
+
+   If the QVariant is returned as a default constructed variant,
+   it means that \a node has no typed value.
+  */</span>
+ <span class="type"><a href="qvariant.html">QVariant</a></span> FileTree<span class="operator">::</span>typedValue(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>node) <span class="keyword">const</span>
+ {
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>fi <span class="operator">=</span> toFileInfo(node);
+
+     <span class="keyword">switch</span> (Type(node<span class="operator">.</span>additionalData())) {
+         <span class="keyword">case</span> Directory:
+             <span class="comment">// deliberate fall through.</span>
+         <span class="keyword">case</span> File:
+             <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+         <span class="keyword">case</span> AttributeFileName:
+             <span class="keyword">return</span> fi<span class="operator">.</span>fileName();
+         <span class="keyword">case</span> AttributeFilePath:
+             <span class="keyword">return</span> fi<span class="operator">.</span>filePath();
+         <span class="keyword">case</span> AttributeSize:
+             <span class="keyword">return</span> fi<span class="operator">.</span>size();
+         <span class="keyword">case</span> AttributeMIMEType:
+             {
+                 <span class="comment">/* We don't have any MIME detection code currently, so return
+                  * the most generic one. */</span>
+                 <span class="keyword">return</span> QLatin1String(<span class="string">&quot;application/octet-stream&quot;</span>);
+             }
+         <span class="keyword">case</span> AttributeSuffix:
+             <span class="keyword">return</span> fi<span class="operator">.</span>suffix();
+     }
+
+     Q_ASSERT_X(<span class="keyword">false</span><span class="operator">,</span> Q_FUNC_INFO<span class="operator">,</span> <span class="string">&quot;This line should never be reached.&quot;</span>);
+     <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+ }
+
+ <span class="comment">/*!
+   Returns the attributes of \a element. The caller guarantees
+   that \a element is an element in this node model.
+  */</span>
+ <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&gt;</span>
+ FileTree<span class="operator">::</span>attributes(<span class="keyword">const</span> <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> <span class="operator">&amp;</span>element) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span><span class="operator">&gt;</span> result;
+
+     <span class="comment">/* Both elements has this attribute. */</span>
+     <span class="keyword">const</span> <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> <span class="operator">&amp;</span>forElement <span class="operator">=</span> toFileInfo(element);
+     result<span class="operator">.</span>append(toNodeIndex(forElement<span class="operator">,</span> AttributeFilePath));
+     result<span class="operator">.</span>append(toNodeIndex(forElement<span class="operator">,</span> AttributeFileName));
+
+     <span class="keyword">if</span> (Type(element<span class="operator">.</span>additionalData() <span class="operator">=</span><span class="operator">=</span> File)) {
+         result<span class="operator">.</span>append(toNodeIndex(forElement<span class="operator">,</span> AttributeSize));
+         result<span class="operator">.</span>append(toNodeIndex(forElement<span class="operator">,</span> AttributeSuffix));
+         <span class="comment">//result.append(toNodeIndex(forElement, AttributeMIMEType));</span>
+     }
+     <span class="keyword">else</span> {
+         Q_ASSERT(element<span class="operator">.</span>additionalData() <span class="operator">=</span><span class="operator">=</span> Directory);
+     }
+
+     <span class="keyword">return</span> result;
+ }</pre>
+</div>
+<!-- @@@xmlpatterns/filetree/filetree.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup
+    Condition="'$(PublishDLLDependencyBeforeTargets)' == '' and '$(PublishDLLDependencyAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <PublishDLLDependencyBeforeTargets>Midl</PublishDLLDependencyBeforeTargets>
+    <PublishDLLDependencyAfterTargets>CustomBuild</PublishDLLDependencyAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PublishDLLDependencyDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(PublishDLLDependencyDependsOn)</PublishDLLDependencyDependsOn>
+  </PropertyGroup>
+  
+  <!--  
+  <ItemDefinitionGroup>
+    <PublishDLLDependency>
+      <CommandLineTemplate>copy "%(FullPath)" "$(TargetDir)"</CommandLineTemplate>
+      <Outputs>"$(TargetDir)%(Filename)%(Extension)"</Outputs>
+      <ExecutionDescription>Copying %(FullPath)</ExecutionDescription>
+    </PublishDLLDependency>
+  </ItemDefinitionGroup>
+  -->
+  
+  <ItemDefinitionGroup>
+    <PublishDLLDependency>
+      <CommandLineTemplate>copy "%(FullPath)" "$(TargetDir)"</CommandLineTemplate>
+      <Outputs>$(TargetDir)%(Filename)%(Extension)</Outputs>
+      <ExecutionDescription>Copying %(FullPath)</ExecutionDescription>
+    </PublishDLLDependency>
+  </ItemDefinitionGroup>  
+  
+</Project>

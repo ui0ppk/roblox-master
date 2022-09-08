@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- schema.qdoc -->
+  <title>Qt 4.8: XML Schema Validation Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>XML Schema Validation Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#introduction">Introduction</a></li>
+<li class="level2"><a href="#the-user-interface">The User Interface</a></li>
+<li class="level2"><a href="#validating-xml-instance-documents">Validating XML Instance Documents</a></li>
+<li class="level1"><a href="#code-walk-through">Code Walk-Through</a></li>
+<li class="level2"><a href="#the-ui-class-mainwindow">The UI Class: MainWindow</a></li>
+</ul>
+</div>
+<h1 class="title">XML Schema Validation Example</h1>
+<span class="subtitle"></span>
+<!-- $$$xmlpatterns/schema-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="xmlpatterns-schema-mainwindow-cpp.html">xmlpatterns/schema/mainwindow.cpp</a></li>
+<li><a href="xmlpatterns-schema-mainwindow-h.html">xmlpatterns/schema/mainwindow.h</a></li>
+<li><a href="xmlpatterns-schema-schema-ui.html">xmlpatterns/schema/schema.ui</a></li>
+<li><a href="xmlpatterns-schema-schema-mobiles-ui.html">xmlpatterns/schema/schema_mobiles.ui</a></li>
+<li><a href="xmlpatterns-schema-files-invalid-contact-xml.html">xmlpatterns/schema/files/invalid_contact.xml</a></li>
+<li><a href="xmlpatterns-schema-files-invalid-order-xml.html">xmlpatterns/schema/files/invalid_order.xml</a></li>
+<li><a href="xmlpatterns-schema-files-invalid-recipe-xml.html">xmlpatterns/schema/files/invalid_recipe.xml</a></li>
+<li><a href="xmlpatterns-schema-files-valid-contact-xml.html">xmlpatterns/schema/files/valid_contact.xml</a></li>
+<li><a href="xmlpatterns-schema-files-valid-order-xml.html">xmlpatterns/schema/files/valid_order.xml</a></li>
+<li><a href="xmlpatterns-schema-files-valid-recipe-xml.html">xmlpatterns/schema/files/valid_recipe.xml</a></li>
+<li><a href="xmlpatterns-schema-main-cpp.html">xmlpatterns/schema/main.cpp</a></li>
+<li><a href="xmlpatterns-schema-schema-pro.html">xmlpatterns/schema/schema.pro</a></li>
+<li><a href="xmlpatterns-schema-schema-qrc.html">xmlpatterns/schema/schema.qrc</a></li>
+</ul>
+<p>The XML Schema Validation example shows how to use <a href="qtxmlpatterns.html">QtXmlPatterns</a> to validate XML with a W3C XML Schema.<a name="introduction"></a>
+<h2>Introduction</h2>
+<p>The example application shows different XML schema definitions and for every definition two XML instance documents, one that is valid according to the schema and one that is not. The user can select the valid or invalid instance document, change it and validate it again.</p>
+<a name="the-user-interface"></a>
+<h3>The User Interface</h3>
+<p>The UI for this example was created using <a href="designer-manual.html">Qt Designer</a>:</p>
+<p class="centerAlign"><img src="images/schema-example.png" alt="" /></p><p>The UI consists of three parts, at the top the XML schema <a href="qcombobox.html">selection</a> and the schema <a href="qtextbrowser.html">viewer</a>, below the XML instance <a href="qcombobox.html">selection</a> and the instance <a href="qtextedit.html">editor</a> and at the bottom the validation status <a href="qlabel.html">label</a> next to the validation <a href="qpushbutton.html">button</a>.</p>
+<a name="validating-xml-instance-documents"></a>
+<h3>Validating XML Instance Documents</h3>
+<p>You can select one of the three predefined XML schemas and for each schema an valid or invalid instance document. A click on the 'Validate' button will validate the content of the XML instance editor against the schema from the XML schema viewer. As you can modify the content of the instance editor, different instances can be tested and validation error messages analysed.</p>
+<a name="code-walk-through"></a>
+<h2>Code Walk-Through</h2>
+<p>The example's main() function creates the standard instance of <a href="qapplication.html">QApplication</a>. Then it creates an instance of the mainwindow class, shows it, and starts the Qt event loop:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span><span class="operator">*</span> argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     Q_INIT_RESOURCE(schema);
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     MainWindow<span class="operator">*</span> <span class="keyword">const</span> window <span class="operator">=</span> <span class="keyword">new</span> MainWindow;
+ <span class="preprocessor">#ifdef Q_OS_SYMBIAN</span>
+     window<span class="operator">-</span><span class="operator">&gt;</span>showMaximized();
+ <span class="preprocessor">#else</span>
+     window<span class="operator">-</span><span class="operator">&gt;</span>show();
+ <span class="preprocessor">#endif</span>
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<a name="the-ui-class-mainwindow"></a>
+<h3>The UI Class: MainWindow</h3>
+<p>The example's UI is a conventional Qt GUI application inheriting <a href="qmainwindow.html">QMainWindow</a> and the class generated by <a href="designer-manual.html">Qt Designer</a>:</p>
+<pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">,</span>
+                    <span class="keyword">private</span> Ui<span class="operator">::</span>SchemaMainWindow
+ {
+     Q_OBJECT
+
+   <span class="keyword">public</span>:
+     MainWindow();
+
+   <span class="keyword">private</span> Q_SLOTS:
+     <span class="type">void</span> schemaSelected(<span class="type">int</span> index);
+     <span class="type">void</span> instanceSelected(<span class="type">int</span> index);
+     <span class="type">void</span> validate();
+     <span class="type">void</span> textChanged();
+
+   <span class="keyword">private</span>:
+     <span class="type">void</span> moveCursor(<span class="type">int</span> line<span class="operator">,</span> <span class="type">int</span> column);
+ };</pre>
+<p>The constructor fills the schema and instance <a href="qcombobox.html">QComboBox</a> selections with the predefined schemas and instances and connects their <a href="qcombobox.html#currentIndexChanged">currentIndexChanged()</a> signals to the window's <tt>schemaSelected()</tt> resp. <tt>instanceSelected()</tt> slot. Furthermore the signal-slot connections for the validation <a href="qpushbutton.html">button</a> and the instance <a href="qtextedit.html">editor</a> are set up.</p>
+<p>The call to <tt>schemaSelected(0)</tt> and <tt>instanceSelected(0)</tt> will trigger the validation of the initial Contact Schema example.</p>
+<pre class="cpp"> MainWindow<span class="operator">::</span>MainWindow()
+ {
+     setupUi(<span class="keyword">this</span>);
+
+     <span class="keyword">new</span> XmlSyntaxHighlighter(schemaView<span class="operator">-</span><span class="operator">&gt;</span>document());
+     <span class="keyword">new</span> XmlSyntaxHighlighter(instanceEdit<span class="operator">-</span><span class="operator">&gt;</span>document());
+
+     schemaSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Contact Schema&quot;</span>));
+     schemaSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Recipe Schema&quot;</span>));
+     schemaSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Order Schema&quot;</span>));
+
+     instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Valid Contact Instance&quot;</span>));
+     instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Invalid Contact Instance&quot;</span>));
+
+     connect(schemaSelection<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span> SLOT(schemaSelected(<span class="type">int</span>)));
+     connect(instanceSelection<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span> SLOT(instanceSelected(<span class="type">int</span>)));
+     connect(validateButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> SLOT(validate()));
+     connect(instanceEdit<span class="operator">,</span> SIGNAL(textChanged())<span class="operator">,</span> SLOT(textChanged()));
+
+     validationStatus<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignVCenter);
+
+     schemaSelected(<span class="number">0</span>);
+     instanceSelected(<span class="number">0</span>);
+ }</pre>
+<p>In the <tt>schemaSelected()</tt> slot the content of the instance <a href="qcombobox.html">selection</a> is adapted to the selected schema and the corresponding schema is loaded from the <a href="resources.html">resource file</a> and displayed in the schema <a href="qtextbrowser.html">viewer</a>. At the end of the method a revalidation is triggered.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>schemaSelected(<span class="type">int</span> index)
+ {
+     instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>clear();
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+         instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Valid Contact Instance&quot;</span>));
+         instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Invalid Contact Instance&quot;</span>));
+     } <span class="keyword">else</span> <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>) {
+         instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Valid Recipe Instance&quot;</span>));
+         instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Invalid Recipe Instance&quot;</span>));
+     } <span class="keyword">else</span> <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="number">2</span>) {
+         instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Valid Order Instance&quot;</span>));
+         instanceSelection<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;Invalid Order Instance&quot;</span>));
+     }
+     textChanged();
+
+     <span class="type"><a href="qfile.html">QFile</a></span> schemaFile(<span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;:/schema_%1.xsd&quot;</span>)<span class="operator">.</span>arg(index));
+     schemaFile<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> schemaText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(schemaFile<span class="operator">.</span>readAll()));
+     schemaView<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(schemaText);
+
+     validate();
+ }</pre>
+<p>In the <tt>instanceSelected()</tt> slot the selected instance is loaded from the <a href="resources.html">resource file</a> and loaded into the instance <a href="qtextedit.html">editor</a> an the revalidation is triggered again.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>instanceSelected(<span class="type">int</span> index)
+ {
+     <span class="type"><a href="qfile.html">QFile</a></span> instanceFile(<span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;:/instance_%1.xml&quot;</span>)<span class="operator">.</span>arg((<span class="number">2</span><span class="operator">*</span>schemaSelection<span class="operator">-</span><span class="operator">&gt;</span>currentIndex()) <span class="operator">+</span> index));
+     instanceFile<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> instanceText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromUtf8(instanceFile<span class="operator">.</span>readAll()));
+     instanceEdit<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(instanceText);
+
+     validate();
+ }</pre>
+<p>The <tt>validate()</tt> slot does the actual work in this example. At first it stores the content of the schema <a href="qtextbrowser.html">viewer</a> and the <a href="qtextedit.html">editor</a> into temporary <a href="qbytearray.html">variables</a>. Then it instanciates a <tt>MessageHandler</tt> object which inherits from <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> and is a convenience class to store error messages from the XmlPatterns system.</p>
+<pre class="cpp"> <span class="keyword">class</span> MessageHandler : <span class="keyword">public</span> <span class="type"><a href="qabstractmessagehandler.html">QAbstractMessageHandler</a></span>
+ {
+     <span class="keyword">public</span>:
+         MessageHandler()
+             : <span class="type"><a href="qabstractmessagehandler.html">QAbstractMessageHandler</a></span>(<span class="number">0</span>)
+         {
+         }
+
+         <span class="type"><a href="qstring.html">QString</a></span> statusMessage() <span class="keyword">const</span>
+         {
+             <span class="keyword">return</span> m_description;
+         }
+
+         <span class="type">int</span> line() <span class="keyword">const</span>
+         {
+             <span class="keyword">return</span> m_sourceLocation<span class="operator">.</span>line();
+         }
+
+         <span class="type">int</span> column() <span class="keyword">const</span>
+         {
+             <span class="keyword">return</span> m_sourceLocation<span class="operator">.</span>column();
+         }
+
+     <span class="keyword">protected</span>:
+         <span class="keyword">virtual</span> <span class="type">void</span> handleMessage(<span class="type"><a href="qtglobal.html#QtMsgType-enum">QtMsgType</a></span> type<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>description<span class="operator">,</span>
+                                    <span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> <span class="operator">&amp;</span>identifier<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qsourcelocation.html">QSourceLocation</a></span> <span class="operator">&amp;</span>sourceLocation)
+         {
+             Q_UNUSED(type);
+             Q_UNUSED(identifier);
+
+             m_messageType <span class="operator">=</span> type;
+             m_description <span class="operator">=</span> description;
+             m_sourceLocation <span class="operator">=</span> sourceLocation;
+         }
+
+     <span class="keyword">private</span>:
+         <span class="type"><a href="qtglobal.html#QtMsgType-enum">QtMsgType</a></span> m_messageType;
+         <span class="type"><a href="qstring.html">QString</a></span> m_description;
+         <span class="type"><a href="qsourcelocation.html">QSourceLocation</a></span> m_sourceLocation;
+ };</pre>
+<p>After the <a href="qxmlschema.html">QXmlSchema</a> is instanciated and the message handler set on it, the <a href="qxmlschema.html#load">load()</a> method is called with the schema data as argument. If the schema is invalid or a parsing error has occured, <a href="qxmlschema.html#isValid">isValid()</a> returns <tt>false</tt> and the error is flagged in <tt>errorOccurred</tt>. If the loading was successful, a <a href="qxmlschemavalidator.html">QXmlSchemaValidator</a> is instanciated and the schema passed in the constructor. A call to <a href="qxmlschemavalidator.html#validate">validate()</a> will validate the passed XML instance data against the XML schema. The return value of that method signals whether the validation was successful. Depending on the success the status <a href="qlabel.html">label</a> is set to 'validation successful' or the error message stored in the <tt>MessageHandler</tt></p>
+<p>The rest of the code does only some fancy coloring and eyecandy.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>validate()
+ {
+     <span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> schemaData <span class="operator">=</span> schemaView<span class="operator">-</span><span class="operator">&gt;</span>toPlainText()<span class="operator">.</span>toUtf8();
+     <span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> instanceData <span class="operator">=</span> instanceEdit<span class="operator">-</span><span class="operator">&gt;</span>toPlainText()<span class="operator">.</span>toUtf8();
+
+     MessageHandler messageHandler;
+
+     <span class="type"><a href="qxmlschema.html">QXmlSchema</a></span> schema;
+     schema<span class="operator">.</span>setMessageHandler(<span class="operator">&amp;</span>messageHandler);
+
+     schema<span class="operator">.</span>load(schemaData);
+
+     <span class="type">bool</span> errorOccurred <span class="operator">=</span> <span class="keyword">false</span>;
+     <span class="keyword">if</span> (<span class="operator">!</span>schema<span class="operator">.</span>isValid()) {
+         errorOccurred <span class="operator">=</span> <span class="keyword">true</span>;
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="qxmlschemavalidator.html">QXmlSchemaValidator</a></span> validator(schema);
+         <span class="keyword">if</span> (<span class="operator">!</span>validator<span class="operator">.</span>validate(instanceData))
+             errorOccurred <span class="operator">=</span> <span class="keyword">true</span>;
+     }
+
+     <span class="keyword">if</span> (errorOccurred) {
+         validationStatus<span class="operator">-</span><span class="operator">&gt;</span>setText(messageHandler<span class="operator">.</span>statusMessage());
+         moveCursor(messageHandler<span class="operator">.</span>line()<span class="operator">,</span> messageHandler<span class="operator">.</span>column());
+     } <span class="keyword">else</span> {
+         validationStatus<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;validation successful&quot;</span>));
+     }
+
+     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> styleSheet <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;QLabel {background: %1; padding: 3px}&quot;</span>)
+                                       <span class="operator">.</span>arg(errorOccurred <span class="operator">?</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>red)<span class="operator">.</span>lighter(<span class="number">160</span>)<span class="operator">.</span>name() :
+                                                            <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>green)<span class="operator">.</span>lighter(<span class="number">160</span>)<span class="operator">.</span>name());
+     validationStatus<span class="operator">-</span><span class="operator">&gt;</span>setStyleSheet(styleSheet);
+ }</pre>
+</div>
+<!-- @@@xmlpatterns/schema -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

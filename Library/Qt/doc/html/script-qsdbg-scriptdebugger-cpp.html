@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: scriptdebugger.cpp Example File (script/qsdbg/scriptdebugger.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">scriptdebugger.cpp Example File</h1>
+<span class="small-subtitle">script/qsdbg/scriptdebugger.cpp</span>
+<!-- $$$script/qsdbg/scriptdebugger.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;scriptdebugger.h&quot;</span>
+ <span class="preprocessor">#include &quot;scriptbreakpointmanager.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QtScript/QScriptEngine&gt;</span>
+ <span class="preprocessor">#include &lt;QtScript/QScriptEngineAgent&gt;</span>
+ <span class="preprocessor">#include &lt;QtScript/QScriptContextInfo&gt;</span>
+ <span class="preprocessor">#include &lt;QtScript/QScriptValueIterator&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QTextStream&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QStack&gt;</span>
+
+ <span class="keyword">static</span> <span class="type"><a href="qstring.html">QString</a></span> safeValueToString(<span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>value)
+ {
+     <span class="keyword">if</span> (value<span class="operator">.</span>isObject())
+         <span class="keyword">return</span> QLatin1String(<span class="string">&quot;[object Object]&quot;</span>);
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> value<span class="operator">.</span>toString();
+ }
+
+ <span class="keyword">class</span> ScriptInfo;
+ <span class="keyword">class</span> ScriptBreakpointManager;
+
+ <span class="keyword">class</span> ScriptDebuggerPrivate
+     : <span class="keyword">public</span> <span class="type"><a href="qscriptengineagent.html">QScriptEngineAgent</a></span>
+ {
+     Q_DECLARE_PUBLIC(ScriptDebugger)
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> Mode {
+         Run<span class="operator">,</span>
+         StepInto<span class="operator">,</span>
+         StepOver
+     };
+
+     ScriptDebuggerPrivate(<span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> <span class="operator">*</span>engine);
+     <span class="operator">~</span>ScriptDebuggerPrivate();
+
+     <span class="comment">// QScriptEngineAgent interface</span>
+     <span class="type">void</span> scriptLoad(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> id<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>program<span class="operator">,</span>
+                     <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName<span class="operator">,</span> <span class="type">int</span> lineNumber);
+     <span class="type">void</span> scriptUnload(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> id);
+
+     <span class="type">void</span> positionChange(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> scriptId<span class="operator">,</span>
+                         <span class="type">int</span> lineNumber<span class="operator">,</span> <span class="type">int</span> columnNumber);
+
+     <span class="type">void</span> functionEntry(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> scriptId);
+     <span class="type">void</span> functionExit(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> scriptId<span class="operator">,</span>
+                       <span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>returnValue);
+
+     <span class="type">void</span> exceptionThrow(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> scriptId<span class="operator">,</span>
+                         <span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>exception<span class="operator">,</span> <span class="type">bool</span> hasHandler);
+
+     <span class="type">void</span> interactive();
+     <span class="type">bool</span> executeCommand(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>command<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> <span class="operator">&amp;</span>args);
+
+     <span class="type">void</span> setMode(Mode mode);
+     Mode mode() <span class="keyword">const</span>;
+
+     <span class="type">int</span> frameCount() <span class="keyword">const</span>;
+     <span class="type">void</span> setCurrentFrameIndex(<span class="type">int</span> index);
+     <span class="type">int</span> currentFrameIndex() <span class="keyword">const</span>;
+
+     <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>frameContext(<span class="type">int</span> index) <span class="keyword">const</span>;
+     <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>currentFrameContext() <span class="keyword">const</span>;
+
+     ScriptInfo <span class="operator">*</span>scriptInfo(<span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>context) <span class="keyword">const</span>;
+
+     <span class="type">int</span> listLineNumber() <span class="keyword">const</span>;
+     <span class="type">void</span> setListLineNumber(<span class="type">int</span> lineNumber);
+
+     <span class="type"><a href="qstring.html">QString</a></span> readLine();
+     <span class="type">void</span> output(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text);
+     <span class="type">void</span> message(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text);
+     <span class="type">void</span> errorMessage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text);
+
+     <span class="comment">// attributes</span>
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>m_defaultInputStream;
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>m_defaultOutputStream;
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>m_defaultErrorStream;
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>m_inputStream;
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>m_outputStream;
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>m_errorStream;
+
+     ScriptBreakpointManager <span class="operator">*</span>m_bpManager;
+     Mode m_mode;
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span><span class="operator">,</span> ScriptInfo<span class="operator">*</span><span class="operator">&gt;</span> m_scripts;
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qscriptcontext.html">QScriptContext</a></span><span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qstack.html">QStack</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span><span class="operator">&gt;</span> <span class="operator">&gt;</span> m_contextProgramIds;
+
+     <span class="type"><a href="qstring.html">QString</a></span> m_lastInteractiveCommand;
+     <span class="type"><a href="qstring.html">QString</a></span> m_commandPrefix;
+     <span class="type">int</span> m_stepDepth;
+     <span class="type">int</span> m_currentFrameIndex;
+     <span class="type">int</span> m_listLineNumber;
+
+     ScriptDebugger <span class="operator">*</span>q_ptr;
+ };
+
+ <span class="keyword">class</span> ScriptInfo
+ {
+ <span class="keyword">public</span>:
+     ScriptInfo(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>code<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName<span class="operator">,</span> <span class="type">int</span> lineNumber)
+         : m_code(code)<span class="operator">,</span> m_fileName(fileName)<span class="operator">,</span> m_lineNumber(lineNumber)
+         { }
+
+     <span class="keyword">inline</span> <span class="type"><a href="qstring.html">QString</a></span> code() <span class="keyword">const</span>
+         { <span class="keyword">return</span> m_code; }
+     <span class="keyword">inline</span> <span class="type"><a href="qstring.html">QString</a></span> fileName() <span class="keyword">const</span>
+         { <span class="keyword">return</span> m_fileName; }
+     <span class="keyword">inline</span> <span class="type">int</span> lineNumber() <span class="keyword">const</span>
+         { <span class="keyword">return</span> m_lineNumber; }
+
+     <span class="type"><a href="qstring.html">QString</a></span> lineText(<span class="type">int</span> lineNumber);
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span> m_lineOffsets;
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> lineOffset(<span class="type">int</span> lineNumber);
+
+     <span class="type"><a href="qstring.html">QString</a></span> m_code;
+     <span class="type"><a href="qstring.html">QString</a></span> m_fileName;
+     <span class="type">int</span> m_lineNumber;
+ };
+
+ <span class="type">int</span> ScriptInfo<span class="operator">::</span>lineOffset(<span class="type">int</span> lineNumber)
+ {
+     <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span><span class="operator">::</span>const_iterator it <span class="operator">=</span> m_lineOffsets<span class="operator">.</span>constFind(lineNumber);
+     <span class="keyword">if</span> (it <span class="operator">!</span><span class="operator">=</span> m_lineOffsets<span class="operator">.</span>constEnd())
+         <span class="keyword">return</span> it<span class="operator">.</span>value();
+
+     <span class="type">int</span> offset;
+     it <span class="operator">=</span> m_lineOffsets<span class="operator">.</span>constFind(lineNumber <span class="operator">-</span> <span class="number">1</span>);
+     <span class="keyword">if</span> (it <span class="operator">!</span><span class="operator">=</span> m_lineOffsets<span class="operator">.</span>constEnd()) {
+         offset <span class="operator">=</span> it<span class="operator">.</span>value();
+         offset <span class="operator">=</span> m_code<span class="operator">.</span>indexOf(QLatin1Char(<span class="char">'\n'</span>)<span class="operator">,</span> offset);
+         <span class="keyword">if</span> (offset <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+             <span class="operator">+</span><span class="operator">+</span>offset;
+         m_lineOffsets<span class="operator">.</span>insert(lineNumber<span class="operator">,</span> offset);
+     } <span class="keyword">else</span> {
+         <span class="type">int</span> index;
+         it <span class="operator">=</span> m_lineOffsets<span class="operator">.</span>lowerBound(lineNumber);
+         <span class="operator">-</span><span class="operator">-</span>it;
+         <span class="keyword">if</span> (it <span class="operator">!</span><span class="operator">=</span> m_lineOffsets<span class="operator">.</span>constBegin()) {
+             index <span class="operator">=</span> it<span class="operator">.</span>key();
+             offset <span class="operator">=</span> it<span class="operator">.</span>value();
+         } <span class="keyword">else</span> {
+             index <span class="operator">=</span> m_lineNumber;
+             offset <span class="operator">=</span> <span class="number">0</span>;
+         }
+         <span class="type">int</span> j <span class="operator">=</span> index;
+         <span class="keyword">for</span> ( ; j <span class="operator">&lt;</span> lineNumber; <span class="operator">+</span><span class="operator">+</span>j) {
+             m_lineOffsets<span class="operator">.</span>insert(j<span class="operator">,</span> offset);
+             offset <span class="operator">=</span> m_code<span class="operator">.</span>indexOf(QLatin1Char(<span class="char">'\n'</span>)<span class="operator">,</span> offset);
+             <span class="keyword">if</span> (offset <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+                 <span class="keyword">break</span>;
+             <span class="operator">+</span><span class="operator">+</span>offset;
+         }
+         m_lineOffsets<span class="operator">.</span>insert(j<span class="operator">,</span> offset);
+     }
+     <span class="keyword">return</span> offset;
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> ScriptInfo<span class="operator">::</span>lineText(<span class="type">int</span> lineNumber)
+ {
+     <span class="type">int</span> startOffset <span class="operator">=</span> lineOffset(lineNumber);
+     <span class="keyword">if</span> (startOffset <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span> <span class="type"><a href="qstring.html">QString</a></span>();
+     <span class="type">int</span> endOffset <span class="operator">=</span> lineOffset(lineNumber <span class="operator">+</span> <span class="number">1</span>);
+     <span class="keyword">if</span> (endOffset <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+         <span class="keyword">return</span> m_code<span class="operator">.</span>mid(startOffset);
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> m_code<span class="operator">.</span>mid(startOffset<span class="operator">,</span> endOffset <span class="operator">-</span> startOffset <span class="operator">-</span> <span class="number">1</span>);
+ }
+
+ ScriptDebuggerPrivate<span class="operator">::</span>ScriptDebuggerPrivate(<span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> <span class="operator">*</span>engine)
+     : <span class="type"><a href="qscriptengineagent.html">QScriptEngineAgent</a></span>(engine)<span class="operator">,</span> m_mode(Run)
+ {
+     m_commandPrefix <span class="operator">=</span> QLatin1String(<span class="string">&quot;.&quot;</span>);
+     m_bpManager <span class="operator">=</span> <span class="keyword">new</span> ScriptBreakpointManager;
+     m_defaultInputStream <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextstream.html">QTextStream</a></span>(stdin);
+     m_defaultOutputStream <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextstream.html">QTextStream</a></span>(stdout);
+     m_defaultErrorStream <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextstream.html">QTextStream</a></span>(stderr);
+     m_inputStream <span class="operator">=</span> m_defaultInputStream;
+     m_outputStream <span class="operator">=</span> m_defaultOutputStream;
+     m_errorStream <span class="operator">=</span> m_defaultErrorStream;
+ }
+
+ ScriptDebuggerPrivate<span class="operator">::</span><span class="operator">~</span>ScriptDebuggerPrivate()
+ {
+     <span class="keyword">delete</span> m_defaultInputStream;
+     <span class="keyword">delete</span> m_defaultOutputStream;
+     <span class="keyword">delete</span> m_defaultErrorStream;
+     <span class="keyword">delete</span> m_bpManager;
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(m_scripts);
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> ScriptDebuggerPrivate<span class="operator">::</span>readLine()
+ {
+     <span class="keyword">return</span> m_inputStream<span class="operator">-</span><span class="operator">&gt;</span>readLine();
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>output(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     <span class="operator">*</span>m_outputStream <span class="operator">&lt;</span><span class="operator">&lt;</span> text;
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>message(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     <span class="operator">*</span>m_outputStream <span class="operator">&lt;</span><span class="operator">&lt;</span> text <span class="operator">&lt;</span><span class="operator">&lt;</span> endl;
+     m_outputStream<span class="operator">-</span><span class="operator">&gt;</span>flush();
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>errorMessage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     <span class="operator">*</span>m_errorStream <span class="operator">&lt;</span><span class="operator">&lt;</span> text <span class="operator">&lt;</span><span class="operator">&lt;</span> endl;
+     m_errorStream<span class="operator">-</span><span class="operator">&gt;</span>flush();
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>setMode(Mode mode)
+ {
+     m_mode <span class="operator">=</span> mode;
+ }
+
+ ScriptDebuggerPrivate<span class="operator">::</span>Mode ScriptDebuggerPrivate<span class="operator">::</span>mode() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_mode;
+ }
+
+ <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ScriptDebuggerPrivate<span class="operator">::</span>frameContext(<span class="type">int</span> index) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>currentContext();
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> index; <span class="operator">+</span><span class="operator">+</span>i) {
+         ctx <span class="operator">=</span> ctx<span class="operator">-</span><span class="operator">&gt;</span>parentContext();
+         <span class="keyword">if</span> (<span class="operator">!</span>ctx)
+             <span class="keyword">break</span>;
+     }
+     <span class="keyword">return</span> ctx;
+ }
+
+ <span class="type">int</span> ScriptDebuggerPrivate<span class="operator">::</span>currentFrameIndex() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_currentFrameIndex;
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>setCurrentFrameIndex(<span class="type">int</span> index)
+ {
+     m_currentFrameIndex <span class="operator">=</span> index;
+     m_listLineNumber <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+ }
+
+ <span class="type">int</span> ScriptDebuggerPrivate<span class="operator">::</span>listLineNumber() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_listLineNumber;
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>setListLineNumber(<span class="type">int</span> lineNumber)
+ {
+     m_listLineNumber <span class="operator">=</span> lineNumber;
+ }
+
+ <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ScriptDebuggerPrivate<span class="operator">::</span>currentFrameContext() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> frameContext(currentFrameIndex());
+ }
+
+ <span class="type">int</span> ScriptDebuggerPrivate<span class="operator">::</span>frameCount() <span class="keyword">const</span>
+ {
+     <span class="type">int</span> count <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>currentContext();
+     <span class="keyword">while</span> (ctx) {
+         <span class="operator">+</span><span class="operator">+</span>count;
+         ctx <span class="operator">=</span> ctx<span class="operator">-</span><span class="operator">&gt;</span>parentContext();
+     }
+     <span class="keyword">return</span> count;
+ }
+
+ ScriptInfo <span class="operator">*</span>ScriptDebuggerPrivate<span class="operator">::</span>scriptInfo(<span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>context) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qstack.html">QStack</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span><span class="operator">&gt;</span> pids <span class="operator">=</span> m_contextProgramIds<span class="operator">.</span>value(context);
+     <span class="keyword">if</span> (pids<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span> <span class="number">0</span>;
+     <span class="keyword">return</span> m_scripts<span class="operator">.</span>value(pids<span class="operator">.</span>top());
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>interactive()
+ {
+     setCurrentFrameIndex(<span class="number">0</span>);
+
+     <span class="type"><a href="qstring.html">QString</a></span> qsdbgPrompt <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;(qsdbg) &quot;</span>);
+     <span class="type"><a href="qstring.html">QString</a></span> dotPrompt <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;.... &quot;</span>);
+     <span class="type"><a href="qstring.html">QString</a></span> prompt <span class="operator">=</span> qsdbgPrompt;
+
+     <span class="type"><a href="qstring.html">QString</a></span> code;
+
+     forever {
+
+          <span class="operator">*</span>m_outputStream <span class="operator">&lt;</span><span class="operator">&lt;</span> prompt;
+         m_outputStream<span class="operator">-</span><span class="operator">&gt;</span>flush();
+
+         <span class="type"><a href="qstring.html">QString</a></span> line <span class="operator">=</span> readLine();
+
+         <span class="keyword">if</span> (code<span class="operator">.</span>isEmpty() <span class="operator">&amp;</span><span class="operator">&amp;</span> (line<span class="operator">.</span>isEmpty() <span class="operator">|</span><span class="operator">|</span> line<span class="operator">.</span>startsWith(m_commandPrefix))) {
+             <span class="keyword">if</span> (line<span class="operator">.</span>isEmpty())
+                 line <span class="operator">=</span> m_lastInteractiveCommand;
+             <span class="keyword">else</span>
+                 m_lastInteractiveCommand <span class="operator">=</span> line;
+
+             <span class="type"><a href="qstringlist.html">QStringList</a></span> parts <span class="operator">=</span> line<span class="operator">.</span>split(QLatin1Char(<span class="char">' '</span>)<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>SkipEmptyParts);
+             <span class="keyword">if</span> (<span class="operator">!</span>parts<span class="operator">.</span>isEmpty()) {
+                 <span class="type"><a href="qstring.html">QString</a></span> command <span class="operator">=</span> parts<span class="operator">.</span>takeFirst()<span class="operator">.</span>mid(<span class="number">1</span>);
+                 <span class="keyword">if</span> (executeCommand(command<span class="operator">,</span> parts))
+                     <span class="keyword">break</span>;
+             }
+
+         } <span class="keyword">else</span> {
+             <span class="keyword">if</span> (line<span class="operator">.</span>isEmpty())
+                 <span class="keyword">continue</span>;
+
+             code <span class="operator">+</span><span class="operator">=</span> line;
+             code <span class="operator">+</span><span class="operator">=</span> QLatin1Char(<span class="char">'\n'</span>);
+
+             <span class="keyword">if</span> (line<span class="operator">.</span>trimmed()<span class="operator">.</span>isEmpty()) {
+                 <span class="keyword">continue</span>;
+
+             } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="operator">!</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>canEvaluate(code)) {
+                 prompt <span class="operator">=</span> dotPrompt;
+
+             } <span class="keyword">else</span> {
+                 setMode(Run);
+                 <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> result <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>evaluate(code<span class="operator">,</span> QLatin1String(<span class="string">&quot;typein&quot;</span>));
+
+                 code<span class="operator">.</span>clear();
+                 prompt <span class="operator">=</span> qsdbgPrompt;
+
+                 <span class="keyword">if</span> (<span class="operator">!</span> result<span class="operator">.</span>isUndefined()) {
+                     errorMessage(result<span class="operator">.</span>toString());
+                     engine()<span class="operator">-</span><span class="operator">&gt;</span>clearExceptions();
+                 }
+             }
+         }
+     }
+ }
+
+ <span class="type">bool</span> ScriptDebuggerPrivate<span class="operator">::</span>executeCommand(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>command<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> <span class="operator">&amp;</span>args)
+ {
+     <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;c&quot;</span>)
+         <span class="operator">|</span><span class="operator">|</span> command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;continue&quot;</span>)) {
+         setMode(Run);
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;s&quot;</span>)
+                <span class="operator">|</span><span class="operator">|</span> command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;step&quot;</span>)) {
+         setMode(StepInto);
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;n&quot;</span>)
+                <span class="operator">|</span><span class="operator">|</span> command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;next&quot;</span>)) {
+         setMode(StepOver);
+         m_stepDepth <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;f&quot;</span>)
+                <span class="operator">|</span><span class="operator">|</span> command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;frame&quot;</span>)) {
+         <span class="type">bool</span> ok <span class="operator">=</span> <span class="keyword">false</span>;
+         <span class="type">int</span> index <span class="operator">=</span> args<span class="operator">.</span>value(<span class="number">0</span>)<span class="operator">.</span>toInt(<span class="operator">&amp;</span>ok);
+         <span class="keyword">if</span> (ok) {
+             <span class="keyword">if</span> (index <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> index <span class="operator">&gt;</span><span class="operator">=</span> frameCount()) {
+                 errorMessage(<span class="string">&quot;No such frame.&quot;</span>);
+             } <span class="keyword">else</span> {
+                 setCurrentFrameIndex(index);
+                 <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> currentFrameContext();
+                 message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;#%0  %1&quot;</span>)<span class="operator">.</span>arg(index)<span class="operator">.</span>arg(ctx<span class="operator">-</span><span class="operator">&gt;</span>toString()));
+             }
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;bt&quot;</span>)
+                <span class="operator">|</span><span class="operator">|</span> command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;backtrace&quot;</span>)) {
+         <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>currentContext();
+         <span class="type">int</span> index <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+         <span class="keyword">while</span> (ctx) {
+             <span class="operator">+</span><span class="operator">+</span>index;
+             <span class="type"><a href="qstring.html">QString</a></span> line <span class="operator">=</span> ctx<span class="operator">-</span><span class="operator">&gt;</span>toString();
+             message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;#%0  %1&quot;</span>)<span class="operator">.</span>arg(index)<span class="operator">.</span>arg(line));
+             ctx <span class="operator">=</span> ctx<span class="operator">-</span><span class="operator">&gt;</span>parentContext();
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;up&quot;</span>)) {
+         <span class="type">int</span> index <span class="operator">=</span> currentFrameIndex() <span class="operator">+</span> <span class="number">1</span>;
+         <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> frameCount()) {
+             errorMessage(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Initial frame selected; you cannot go up.&quot;</span>));
+         } <span class="keyword">else</span> {
+             setCurrentFrameIndex(index);
+             <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> currentFrameContext();
+             message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;#%0  %1&quot;</span>)<span class="operator">.</span>arg(index)<span class="operator">.</span>arg(ctx<span class="operator">-</span><span class="operator">&gt;</span>toString()));
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;down&quot;</span>)) {
+         <span class="type">int</span> index <span class="operator">=</span> currentFrameIndex() <span class="operator">-</span> <span class="number">1</span>;
+         <span class="keyword">if</span> (index <span class="operator">&lt;</span> <span class="number">0</span>) {
+             errorMessage(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Bottom (innermost) frame selected; you cannot go down.&quot;</span>));
+         } <span class="keyword">else</span> {
+             setCurrentFrameIndex(index);
+             <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> currentFrameContext();
+             message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;#%0  %1&quot;</span>)<span class="operator">.</span>arg(index)<span class="operator">.</span>arg(ctx<span class="operator">-</span><span class="operator">&gt;</span>toString()));
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;b&quot;</span>)
+                <span class="operator">|</span><span class="operator">|</span> command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;break&quot;</span>)) {
+         <span class="type"><a href="qstring.html">QString</a></span> str <span class="operator">=</span> args<span class="operator">.</span>value(<span class="number">0</span>);
+         <span class="type">int</span> colonIndex <span class="operator">=</span> str<span class="operator">.</span>indexOf(QLatin1Char(<span class="char">':'</span>));
+         <span class="keyword">if</span> (colonIndex <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+             <span class="comment">// filename:line form</span>
+             <span class="type"><a href="qstring.html">QString</a></span> fileName <span class="operator">=</span> str<span class="operator">.</span>left(colonIndex);
+             <span class="type">int</span> lineNumber <span class="operator">=</span> str<span class="operator">.</span>mid(colonIndex<span class="operator">+</span><span class="number">1</span>)<span class="operator">.</span>toInt();
+             <span class="type">int</span> id <span class="operator">=</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>setBreakpoint(fileName<span class="operator">,</span> lineNumber);
+             message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Breakpoint %0 at %1, line %2.&quot;</span>)<span class="operator">.</span>arg(id<span class="operator">+</span><span class="number">1</span>)<span class="operator">.</span>arg(fileName)<span class="operator">.</span>arg(lineNumber));
+         } <span class="keyword">else</span> {
+             <span class="comment">// function</span>
+             <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> fun <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>globalObject()<span class="operator">.</span>property(str);
+             <span class="keyword">if</span> (fun<span class="operator">.</span>isFunction()) {
+                 <span class="type">int</span> id <span class="operator">=</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>setBreakpoint(fun);
+                 message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Breakpoint %0 at %1().&quot;</span>)<span class="operator">.</span>arg(id<span class="operator">+</span><span class="number">1</span>)<span class="operator">.</span>arg(str));
+             }
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;d&quot;</span>)
+                <span class="operator">|</span><span class="operator">|</span> command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;delete&quot;</span>)) {
+         <span class="type">int</span> id <span class="operator">=</span> args<span class="operator">.</span>value(<span class="number">0</span>)<span class="operator">.</span>toInt() <span class="operator">-</span> <span class="number">1</span>;
+         m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>removeBreakpoint(id);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;disable&quot;</span>)) {
+         <span class="type">int</span> id <span class="operator">=</span> args<span class="operator">.</span>value(<span class="number">0</span>)<span class="operator">.</span>toInt() <span class="operator">-</span> <span class="number">1</span>;
+         m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>setBreakpointEnabled(id<span class="operator">,</span> <span class="keyword">false</span>);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;enable&quot;</span>)) {
+         <span class="type">int</span> id <span class="operator">=</span> args<span class="operator">.</span>value(<span class="number">0</span>)<span class="operator">.</span>toInt() <span class="operator">-</span> <span class="number">1</span>;
+         m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>setBreakpointEnabled(id<span class="operator">,</span> <span class="keyword">true</span>);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;list&quot;</span>)) {
+         <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> currentFrameContext();
+         ScriptInfo <span class="operator">*</span>progInfo <span class="operator">=</span> scriptInfo(ctx);
+         <span class="keyword">if</span> (<span class="operator">!</span>progInfo) {
+             errorMessage(<span class="string">&quot;No source text available for this frame.&quot;</span>);
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qscriptcontextinfo.html">QScriptContextInfo</a></span> ctxInfo(ctx);
+             <span class="type">bool</span> ok;
+             <span class="type">int</span> line <span class="operator">=</span> args<span class="operator">.</span>value(<span class="number">0</span>)<span class="operator">.</span>toInt(<span class="operator">&amp;</span>ok);
+             <span class="keyword">if</span> (ok) {
+                 line <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="number">1</span><span class="operator">,</span> line <span class="operator">-</span> <span class="number">5</span>);
+             } <span class="keyword">else</span> {
+                 line <span class="operator">=</span> listLineNumber();
+                 <span class="keyword">if</span> (line <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>)
+                     line <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(progInfo<span class="operator">-</span><span class="operator">&gt;</span>lineNumber()<span class="operator">,</span> ctxInfo<span class="operator">.</span>lineNumber() <span class="operator">-</span> <span class="number">5</span>);
+             }
+             <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> line; i <span class="operator">&lt;</span> line <span class="operator">+</span> <span class="number">10</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+                 message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;%0\t%1&quot;</span>)<span class="operator">.</span>arg(i)<span class="operator">.</span>arg(progInfo<span class="operator">-</span><span class="operator">&gt;</span>lineText(i)));
+             }
+             setListLineNumber(line <span class="operator">+</span> <span class="number">10</span>);
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;info&quot;</span>)) {
+         <span class="keyword">if</span> (args<span class="operator">.</span>size() <span class="operator">&lt;</span> <span class="number">1</span>) {
+         } <span class="keyword">else</span> {
+             <span class="type"><a href="qstring.html">QString</a></span> what <span class="operator">=</span> args<span class="operator">.</span>value(<span class="number">0</span>);
+             <span class="keyword">if</span> (what <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;locals&quot;</span>)) {
+                 <span class="type"><a href="qscriptvalueiterator.html">QScriptValueIterator</a></span> it(currentFrameContext()<span class="operator">-</span><span class="operator">&gt;</span>activationObject());
+                 <span class="keyword">while</span> (it<span class="operator">.</span>hasNext()) {
+                     it<span class="operator">.</span>next();
+                     <span class="type"><a href="qstring.html">QString</a></span> line;
+                     line<span class="operator">.</span>append(it<span class="operator">.</span>name());
+                     line<span class="operator">.</span>append(QLatin1String(<span class="string">&quot; = &quot;</span>));
+                     line<span class="operator">.</span>append(safeValueToString(it<span class="operator">.</span>value()));
+                     message(line);
+                 }
+             }
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> (command <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;help&quot;</span>)) {
+         message(<span class="string">&quot;continue - continue execution\n&quot;</span>
+                 <span class="string">&quot;step     - step into statement\n&quot;</span>
+                 <span class="string">&quot;next     - step over statement\n&quot;</span>
+                 <span class="string">&quot;list     - show where you are\n&quot;</span>
+                 <span class="string">&quot;\n&quot;</span>
+                 <span class="string">&quot;break    - set breakpoint\n&quot;</span>
+                 <span class="string">&quot;delete   - remove breakpoint\n&quot;</span>
+                 <span class="string">&quot;disable  - disable breakpoint\n&quot;</span>
+                 <span class="string">&quot;enable   - enable breakpoint\n&quot;</span>
+                 <span class="string">&quot;\n&quot;</span>
+                 <span class="string">&quot;backtrace - show backtrace\n&quot;</span>
+                 <span class="string">&quot;up       - one frame up\n&quot;</span>
+                 <span class="string">&quot;down     - one frame down\n&quot;</span>
+                 <span class="string">&quot;frame    - set frame\n&quot;</span>
+                 <span class="string">&quot;\n&quot;</span>
+                 <span class="string">&quot;info locals - show local variables&quot;</span>);
+     } <span class="keyword">else</span> {
+         errorMessage(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Undefined command \&quot;%0\&quot;. Try \&quot;help\&quot;.&quot;</span>)
+                      <span class="operator">.</span>arg(command));
+     }
+
+     <span class="keyword">return</span> <span class="keyword">false</span>;
+ }
+
+ <span class="comment">// QScriptEngineAgent interface</span>
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>scriptLoad(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> id<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>program<span class="operator">,</span>
+                                        <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName<span class="operator">,</span> <span class="type">int</span> lineNumber)
+ {
+     ScriptInfo <span class="operator">*</span>info <span class="operator">=</span> <span class="keyword">new</span> ScriptInfo(program<span class="operator">,</span> fileName<span class="operator">,</span> lineNumber);
+     m_scripts<span class="operator">.</span>insert(id<span class="operator">,</span> info);
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>scriptUnload(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> id)
+ {
+     ScriptInfo <span class="operator">*</span>info <span class="operator">=</span> m_scripts<span class="operator">.</span>take(id);
+     <span class="keyword">delete</span> info;
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>functionEntry(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> scriptId)
+ {
+     <span class="keyword">if</span> (scriptId <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>currentContext();
+         <span class="type"><a href="qstack.html">QStack</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span><span class="operator">&gt;</span> ids <span class="operator">=</span> m_contextProgramIds<span class="operator">.</span>value(ctx);
+         ids<span class="operator">.</span>push(scriptId);
+         m_contextProgramIds<span class="operator">.</span>insert(ctx<span class="operator">,</span> ids);
+     }
+
+     <span class="keyword">if</span> (mode() <span class="operator">=</span><span class="operator">=</span> StepOver)
+         <span class="operator">+</span><span class="operator">+</span>m_stepDepth;
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>functionExit(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> scriptId<span class="operator">,</span>
+                                          <span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span><span class="comment">/*returnValue*/</span>)
+ {
+     <span class="keyword">if</span> (scriptId <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>currentContext();
+         <span class="type"><a href="qstack.html">QStack</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span><span class="operator">&gt;</span> ids <span class="operator">=</span> m_contextProgramIds<span class="operator">.</span>value(ctx);
+         Q_ASSERT(<span class="operator">!</span>ids<span class="operator">.</span>isEmpty());
+         Q_ASSERT(ids<span class="operator">.</span>top() <span class="operator">=</span><span class="operator">=</span> scriptId);
+         ids<span class="operator">.</span>pop();
+         m_contextProgramIds<span class="operator">.</span>insert(ctx<span class="operator">,</span> ids);
+     }
+
+     <span class="keyword">if</span> (mode() <span class="operator">=</span><span class="operator">=</span> StepOver)
+         <span class="operator">-</span><span class="operator">-</span>m_stepDepth;
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>positionChange(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> scriptId<span class="operator">,</span>
+                                            <span class="type">int</span> lineNumber<span class="operator">,</span> <span class="type">int</span> <span class="comment">/*columnNumber*/</span>)
+ {
+     ScriptInfo <span class="operator">*</span>info <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">bool</span> enterInteractiveMode <span class="operator">=</span> <span class="keyword">false</span>;
+
+     <span class="keyword">if</span> (m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>hasBreakpoints()) {
+         <span class="comment">// check if we hit a breakpoint</span>
+         info <span class="operator">=</span> m_scripts<span class="operator">.</span>value(scriptId);
+         <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>currentContext();
+         <span class="type"><a href="qscriptcontextinfo.html">QScriptContextInfo</a></span> ctxInfo(ctx);
+         <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> callee <span class="operator">=</span> ctx<span class="operator">-</span><span class="operator">&gt;</span>callee();
+
+         <span class="comment">// try fileName:lineNumber</span>
+         <span class="type">int</span> bpid <span class="operator">=</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>findBreakpoint(info<span class="operator">-</span><span class="operator">&gt;</span>fileName()<span class="operator">,</span> lineNumber);
+         <span class="keyword">if</span> ((bpid <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>isBreakpointEnabled(bpid)) {
+             message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Breakpoint %0 at %1:%2&quot;</span>)
+                     <span class="operator">.</span>arg(bpid <span class="operator">+</span> <span class="number">1</span>)<span class="operator">.</span>arg(info<span class="operator">-</span><span class="operator">&gt;</span>fileName())<span class="operator">.</span>arg(lineNumber));
+             <span class="keyword">if</span> (m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>isBreakpointSingleShot(bpid))
+                 m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>removeBreakpoint(bpid);
+         }
+         <span class="keyword">if</span> (bpid <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+             <span class="comment">// try function</span>
+             bpid <span class="operator">=</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>findBreakpoint(callee);
+             <span class="keyword">if</span> ((bpid <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>isBreakpointEnabled(bpid)) {
+                 message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Breakpoint %0, %1()&quot;</span>)
+                         <span class="operator">.</span>arg(bpid <span class="operator">+</span> <span class="number">1</span>)<span class="operator">.</span>arg(ctxInfo<span class="operator">.</span>functionName()));
+                 <span class="keyword">if</span> (m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>isBreakpointSingleShot(bpid))
+                     m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>removeBreakpoint(bpid);
+             }
+         }
+         <span class="keyword">if</span> ((bpid <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>ctxInfo<span class="operator">.</span>functionName()<span class="operator">.</span>isEmpty()) {
+             <span class="comment">// try functionName:fileName</span>
+             bpid <span class="operator">=</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>findBreakpoint(ctxInfo<span class="operator">.</span>functionName()<span class="operator">,</span> ctxInfo<span class="operator">.</span>fileName());
+             <span class="keyword">if</span> ((bpid <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>isBreakpointEnabled(bpid)) {
+                 message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;Breakpoint %0, %1():%2&quot;</span>)<span class="operator">.</span>arg(bpid <span class="operator">+</span> <span class="number">1</span>)
+                         <span class="operator">.</span>arg(ctxInfo<span class="operator">.</span>functionName())<span class="operator">.</span>arg(ctxInfo<span class="operator">.</span>fileName()));
+                 <span class="keyword">if</span> (m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>isBreakpointSingleShot(bpid))
+                     m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>removeBreakpoint(bpid);
+             }
+         }
+
+         enterInteractiveMode <span class="operator">=</span> (bpid <span class="operator">!</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>);
+     }
+
+     <span class="keyword">switch</span> (mode()) {
+     <span class="keyword">case</span> Run:
+         <span class="keyword">break</span>;
+
+     <span class="keyword">case</span> StepInto:
+         enterInteractiveMode <span class="operator">=</span> <span class="keyword">true</span>;
+         <span class="keyword">break</span>;
+
+     <span class="keyword">case</span> StepOver:
+         enterInteractiveMode <span class="operator">=</span> enterInteractiveMode <span class="operator">|</span><span class="operator">|</span> (m_stepDepth <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>);
+         <span class="keyword">break</span>;
+     }
+
+     <span class="keyword">if</span> (enterInteractiveMode) {
+         <span class="keyword">if</span> (<span class="operator">!</span>info)
+             info <span class="operator">=</span> m_scripts<span class="operator">.</span>value(scriptId);
+         Q_ASSERT(info);
+         message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;%0\t%1&quot;</span>)<span class="operator">.</span>arg(lineNumber)<span class="operator">.</span>arg(info<span class="operator">-</span><span class="operator">&gt;</span>lineText(lineNumber)));
+         interactive();
+     }
+ }
+
+ <span class="type">void</span> ScriptDebuggerPrivate<span class="operator">::</span>exceptionThrow(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <span class="comment">/*scriptId*/</span><span class="operator">,</span>
+                                            <span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>exception<span class="operator">,</span>
+                                            <span class="type">bool</span> hasHandler)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>hasHandler) {
+         errorMessage(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;uncaught exception: %0&quot;</span>)<span class="operator">.</span>arg(exception<span class="operator">.</span>toString()));
+         <span class="type"><a href="qscriptcontext.html">QScriptContext</a></span> <span class="operator">*</span>ctx <span class="operator">=</span> engine()<span class="operator">-</span><span class="operator">&gt;</span>currentContext();
+         <span class="type">int</span> lineNumber <span class="operator">=</span> <span class="type"><a href="qscriptcontextinfo.html">QScriptContextInfo</a></span>(ctx)<span class="operator">.</span>lineNumber();
+         ScriptInfo <span class="operator">*</span>info <span class="operator">=</span> scriptInfo(ctx);
+         <span class="type"><a href="qstring.html">QString</a></span> lineText <span class="operator">=</span> info <span class="operator">?</span> info<span class="operator">-</span><span class="operator">&gt;</span>lineText(lineNumber) : <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;(no source text available)&quot;</span>);
+         message(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;%0\t%1&quot;</span>)<span class="operator">.</span>arg(lineNumber)<span class="operator">.</span>arg(lineText));
+         interactive();
+     }
+ }
+
+ ScriptDebugger<span class="operator">::</span>ScriptDebugger(<span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> <span class="operator">*</span>engine)
+     : d_ptr(<span class="keyword">new</span> ScriptDebuggerPrivate(engine))
+ {
+     d_ptr<span class="operator">-</span><span class="operator">&gt;</span>q_ptr <span class="operator">=</span> <span class="keyword">this</span>;
+     engine<span class="operator">-</span><span class="operator">&gt;</span>setAgent(d_ptr);
+ }
+
+ ScriptDebugger<span class="operator">::</span>ScriptDebugger(<span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> <span class="operator">*</span>engine<span class="operator">,</span> ScriptDebuggerPrivate <span class="operator">&amp;</span>dd)
+     : d_ptr(<span class="operator">&amp;</span>dd)
+ {
+     d_ptr<span class="operator">-</span><span class="operator">&gt;</span>q_ptr <span class="operator">=</span> <span class="keyword">this</span>;
+     engine<span class="operator">-</span><span class="operator">&gt;</span>setAgent(d_ptr);
+ }
+
+ ScriptDebugger<span class="operator">::</span><span class="operator">~</span>ScriptDebugger()
+ {
+     <span class="keyword">delete</span> d_ptr;
+     d_ptr <span class="operator">=</span> <span class="number">0</span>;
+ }
+
+ <span class="type">void</span> ScriptDebugger<span class="operator">::</span>breakAtNextStatement()
+ {
+     Q_D(ScriptDebugger);
+     d<span class="operator">-</span><span class="operator">&gt;</span>setMode(ScriptDebuggerPrivate<span class="operator">::</span>StepInto);
+ }
+
+ <span class="type">void</span> ScriptDebugger<span class="operator">::</span>setBreakpoint(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName<span class="operator">,</span> <span class="type">int</span> lineNumber)
+ {
+     Q_D(ScriptDebugger);
+     d<span class="operator">-</span><span class="operator">&gt;</span>m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>setBreakpoint(fileName<span class="operator">,</span> lineNumber);
+ }
+
+ <span class="type">void</span> ScriptDebugger<span class="operator">::</span>setBreakpoint(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>functionName<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
+ {
+     Q_D(ScriptDebugger);
+     d<span class="operator">-</span><span class="operator">&gt;</span>m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>setBreakpoint(functionName<span class="operator">,</span> fileName);
+ }
+
+ <span class="type">void</span> ScriptDebugger<span class="operator">::</span>setBreakpoint(<span class="keyword">const</span> <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="operator">&amp;</span>function)
+ {
+     Q_D(ScriptDebugger);
+     d<span class="operator">-</span><span class="operator">&gt;</span>m_bpManager<span class="operator">-</span><span class="operator">&gt;</span>setBreakpoint(function);
+ }
+
+ <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>ScriptDebugger<span class="operator">::</span>inputStream() <span class="keyword">const</span>
+ {
+     Q_D(<span class="keyword">const</span> ScriptDebugger);
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>m_inputStream;
+ }
+
+ <span class="type">void</span> ScriptDebugger<span class="operator">::</span>setInputStream(<span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>inputStream)
+ {
+     Q_D(ScriptDebugger);
+     d<span class="operator">-</span><span class="operator">&gt;</span>m_inputStream <span class="operator">=</span> inputStream;
+ }
+
+ <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>ScriptDebugger<span class="operator">::</span>outputStream() <span class="keyword">const</span>
+ {
+     Q_D(<span class="keyword">const</span> ScriptDebugger);
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>m_outputStream;
+ }
+
+ <span class="type">void</span> ScriptDebugger<span class="operator">::</span>setOutputStream(<span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>outputStream)
+ {
+     Q_D(ScriptDebugger);
+     d<span class="operator">-</span><span class="operator">&gt;</span>m_outputStream <span class="operator">=</span> outputStream;
+ }
+
+ <span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>ScriptDebugger<span class="operator">::</span>errorStream() <span class="keyword">const</span>
+ {
+     Q_D(<span class="keyword">const</span> ScriptDebugger);
+     <span class="keyword">return</span> d<span class="operator">-</span><span class="operator">&gt;</span>m_errorStream;
+ }
+
+ <span class="type">void</span> ScriptDebugger<span class="operator">::</span>setErrorStream(<span class="type"><a href="qtextstream.html">QTextStream</a></span> <span class="operator">*</span>errorStream)
+ {
+     Q_D(ScriptDebugger);
+     d<span class="operator">-</span><span class="operator">&gt;</span>m_errorStream <span class="operator">=</span> errorStream;
+ }</pre>
+</div>
+<!-- @@@script/qsdbg/scriptdebugger.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

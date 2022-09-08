@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen,  2-Apr-1996 -->
+  <TITLE>W3C Sample Code Library libwww DNS Class</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Domain Name Service Class
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The DNS Class defines generic access to &nbsp;the DNS system. It maintains
+a cache of all visited hosts so that subsequent connects to the same host
+doesn't imply a new request to the DNS every time. Multihomed hosts are treated
+specially in that the time spend on every connect is measured and kept in
+the cache. On the next request to the same host, the IP-address with the
+lowest average connect time is chosen. If one IP-address fails completely,
+e.g. <EM>connection refused</EM> then it disabled and HTDoConnect tries one
+of the other IP-addresses to the same host.
+<P>
+Every entry in the cache has its own time to live (TTL) and hence the cache
+manages its own automatic garbage collection. Currently the TTL is <B>not</B>
+bound to the DNS records which should be changed. You can set the DNS object
+TTL
+<P>
+This module is implemented by <A HREF="HTDNS.c">HTDNS.c</A>, and it is a
+part of the <A HREF="http://www.w3.org/Library/"> W3C Sample Code Library</A>.
+<PRE>
+#ifndef HTDNS_H
+#define HTDNS_H
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<PRE>typedef struct _HTdns HTdns;
+</PRE>
+<H2>
+  DNS Cache Expiration Time
+</H2>
+<P>
+When to remove an entry in the DNS cache. We maintain our own DNS cache as
+we keep track of the connect time, pick the fastet host on multi-homed hosts
+etc. However we <STRONG>DO NOT HONOR DNS TTL Records</STRONG> which is the
+reason for why the expiration must be faily short (the default value is 30
+mins), so that it doesn't collide with the DNS mechanism for timing out DNS
+records befoew swapping IP addresses around.
+<PRE>
+extern void HTDNS_setTimeout (time_t timeout);
+extern time_t HTDNS_timeout  (time_t timeout);
+</PRE>
+<H2>
+  Creation and Deletion Methods
+</H2>
+<H3>
+  Add a DNS Object
+</H3>
+<P>
+Add an element to the cache of visited hosts. The <CODE>homes</CODE> variable
+indicates the number of IP addresses found when looking up the name. A host
+name must <B>NOT</B> contain a port number.
+<PRE>
+extern HTdns * HTDNS_add (HTList * list, struct hostent * element,
+			  char * host, int * homes);
+</PRE>
+<H3>
+  Delete a DNS object
+</H3>
+<P>
+This function flushes the DNS object from the cache and frees up memory
+<PRE>
+extern BOOL HTDNS_delete (const char * host);
+</PRE>
+<H3>
+  Delete ALL DNS objects
+</H3>
+<P>
+This function is called from <A HREF="HTLib.html"> HTLibTerminate</A>. It
+can be called at any point in time if the DNS cache is going to be flushed.
+<PRE>
+extern BOOL HTDNS_deleteAll (void);
+</PRE>
+<H2>
+  DNS Class Methods
+</H2>
+<H3>
+  Recalculating the Time Weights on Multihomed Host
+</H3>
+<P>
+On every connect to a multihomed host, the average connect time is updated
+exponentially for all the entries.
+<PRE>
+extern BOOL HTDNS_updateWeigths (HTdns *dns, int cur, ms_t deltatime);
+</PRE>
+<H2>
+  IDN (Internationalized Domain Names) Functions
+</H2>
+<H3>
+  Calculate ACE (punycode) from UTF-8 encoded IDN
+</H3>
+<P>
+Converts to ACE (Ascii-compatible encoding, punycode) from an
+Internationalized Domain name. %hh-escaping in domain name is
+accepted for backwards compatibility. Returns 0 if successful.
+</P>
+<PRE>
+extern int HTACEfromUTF8 (char *hostUTF8, char *punycode, size_t punyLength);
+</PRE>
+<H2>
+  Resolver Functions
+</H2>
+<P>
+These are the functions that resolve a host name
+<H3>
+  Get Host By Socket
+</H3>
+<P>
+This function should have been called HTGetHostByAddr but for historical
+reasons this is not the case.
+<PRE>
+extern char * HTGetHostBySock (int soc);
+</PRE>
+<H3>
+  Get Host By Name
+</H3>
+<P>
+This function gets the address of the host and puts it in to the socket
+structure. It maintains its own cache of connections so that the communication
+to the Domain Name Server is minimized. Returns the number of homes or -1
+if error.
+<PRE>
+extern int HTGetHostByName (HTHost * host, char *hostname, HTRequest * request);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTDNS_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

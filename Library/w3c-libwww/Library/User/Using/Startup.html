@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+   "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Getting Started</title>
+<link rel="STYLESHEET" href="/StyleSheets/libwww.css" type="text/css">
+</head>
+<body>
+
+<p><a href="../../../"><img border="0" src="../../../Icons/WWW/w3c_home"
+alt="W3C"></a> <a href="../../"><img border="0"
+src="../../../Icons/WWW/Lib48x" alt="libwww"></a> <a href="./"><img border="0"
+src="../../../Icons/WWW/guide48x" alt="Using"></a></p>
+
+<h1>Getting Started</h1>
+
+<p>This guide assumes that you have already <a
+href="../../../INSTALL.html">compiled libwww</a> and are ready to <a
+href="../../libwww-config.html">use it building an application</a>. Libwww is
+divided into a set of <i><a href="../Guide/">packages</a></i> containing
+various part of functionality. They all have a name starting with <em>WWW</em>
+- two of them are required to use in all libwww applications, <a
+href="../Guide/">the rest</a> is optional:</p>
+<dl>
+<dt><a href="../../src/WWWUtil.html">WWWUtil</a></dt>
+<dd>
+The WWW Utility module contains a lot of the functionality that makes it
+possible to make applications, that is container modules for data objects,
+basic string functionality etc. This module is the basis for all of the
+following modules and is used extensively.
+</dd>
+<dt><a href="../../src/WWWCore.html">WWWCore</a></dt>
+<dd>
+The WWW Core module is a set of registration modules that glues an application
+together. It contains no real functionality in itself; it is for example not
+capable of loading an HTML document. It only provides a large set of hooks
+which can be used to add functionality to libwww and to give an application
+"real life". We will here a lot more to the structure of the core, and much of
+this guide is actually describing how to add functionality to the core.
+</dd>
+</dl>
+
+<p>The application must explicitly initialize libwww before it can start using
+it so that the internal file descriptors, and variables can be set to their
+respective values. This only has to be done once while the application is
+running and is typically done when the application is started. The application
+also should close down libwww when it has stopped using it - typically when
+the application is closing down. Libwww will then return resources like file
+descriptors and dynamic memory to the operating system.</p>
+<ul>
+<li>
+<a href="../../Examples/libapp_1.c">See the starup/shutdown sample app for how
+to initialize/terminate libwww</a>
+</li>
+</ul>
+
+<h2>Building your first Application</h2>
+
+<p><em>Note: If you are on Unix and you have installed libwww then you can use
+the </em><a href="../../libwww-config.html"><em>libwww-config
+script</em></a><em> to make linking against libwww easier. In Windows MSVC you
+have to include the DLLs in your application project.</em></p>
+
+<p>The sample app above doesn't do anything whatsoever. There are now two ways
+you can go for intializing the features you need in libwww:</p>
+<ul>
+<li>
+Use <a href="../../src/HTProfil.html">libwww profiles</a> which sets up a long
+list of often used features for you. See for example the libwww <a
+href="../../Examples/LoadToFile.c">'load to file</a>' sample app
+</li>
+<li>
+Go through the <a href="../../src/HTInit.html">initialization routines</a>
+yourself. See for example the <a href="../../Examples/tiny.c">tiny browser</a>
+sample app
+</li>
+</ul>
+
+<p>Which method is right for you depends on your application and how much you
+want to get your feet wet. If you are in doubt then I would recommend using
+profiles.</p>
+
+<h2>Adding Functionality</h2>
+
+<p>Sometimes, profiles are not enough - you may need a combination of features
+that is not supported by a default profile. In this case, you may be able to
+take one of the profiles and then edit it to suit your needs. You can also
+have a look at the <a href="../../Examples/">sample applications</a> to get a
+better idea about which profiles can be used for what purposes.</p>
+
+<h2>Fetching a Document from the Web</h2>
+
+<p>Some operations that are often used is to get or save a document on the
+Web. There are already several sample applications that do this kind of thing
+- I recommend that you have a look at the <a
+href="../Applications.html">libwww applications </a>and see whether you can
+not start from there.</p>
+
+<p></p>
+<hr>
+
+<address>
+<a href="../../../People/Frystyk/">Henrik Frystyk Nielsen</a>,<br>
+@(#) $Id$ </address>
+</body>
+</html>

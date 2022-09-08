@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww Timer Class</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  The Timer Class
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The Timer class handles timers for libwww and the application. This works
+exactly as in X where you create a timer object with a callback function
+and a timeout. The callback will be called every time the timer expires.
+There are several timeouts that can be set in libwww:
+<OL>
+  <LI>
+    The time we keep an idle persistent connection open. Here there are in fact
+    two mechanisms depending on whether you use blocking or non-blocking sockets.
+    The default is 60 secs. The timers can be accessed using the functions defined
+    in the <A HREF="HTHost.html#Persistent">HTHost object</A>
+  <LI>
+    The idle time we want to wait when receiving a response from a server, that
+    is, if it doesn't send anything in a number of secs. The default here is
+    no timeout. It can be accessed in the
+    <A HREF="HTHost.html#RequestTimeout">HTHost object</A> as well.
+  <LI>
+    The timeout before we flush pending requests in a pipeline, the default here
+    is 30 ms. It is also accessed in the <A HREF="HTHost.html#Delayed">HTHost
+    object</A>
+  <LI>
+    The timeout before we start sending the body of a <TT>PUT</TT> or
+    <TT>POST</TT> request. Normally we send the <TT>Expect: 100-continue</TT>
+    header field but if the server doesn't send back a <TT>100 Continue</TT>
+    code then we upload the body anyway. The default is 2 secs and can be accessed
+    in the <A HREF="HTTP.html">HTTP module</A>.
+</OL>
+<PRE>
+#ifndef HTTIMER_H
+#define HTTIMER_H
+
+#include "wwwsys.h"
+#include "HTReq.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+
+typedef struct _HTTimer HTTimer;
+
+typedef int HTTimerCallback (HTTimer *, void *, HTEventType type);
+</PRE>
+<H2>
+  Create and Delete Timers
+</H2>
+<P>
+The callback function is the function that is to be called when timer expires.
+<PRE>
+extern HTTimer * HTTimer_new (HTTimer *, HTTimerCallback *, 
+			      void *, ms_t millis,
+                              BOOL relative, BOOL repetitive);
+extern BOOL HTTimer_delete (HTTimer * timer);
+extern BOOL HTTimer_deleteAll (void);
+extern BOOL HTTimer_expireAll (void);
+</PRE>
+<H2>
+  Dispatch Timer
+</H2>
+<P>
+Just do it
+<PRE>
+extern int HTTimer_dispatch (HTTimer * timer);
+</PRE>
+<H3>
+  Get the next timer in line
+</H3>
+<P>
+Dispatches all expired timers and optionally returns the time till the next
+one.
+<PRE>
+extern int HTTimer_next (ms_t * pSoonest);
+</PRE>
+<H3>
+  Reset an already existing Repetitive Timer
+</H3>
+<PRE>
+extern BOOL HTTimer_refresh(HTTimer * timer, ms_t now);
+</PRE>
+<H2>
+  Get Information about a Timer Object
+</H2>
+<H3>
+  Absolute Time when This Timer Expires
+</H3>
+<P>
+Absolute time in millies when this timer will expire
+<PRE>
+extern ms_t HTTimer_expiresAbsolute (HTTimer * timer);
+</PRE>
+<H3>
+  Relative Time this Timer is running
+</H3>
+<P>
+Gived the relative time in millies that this timer was registered with. For
+example, a relative timer set to expire in 20ms will return 20.
+<PRE>
+#define HTTimer_getTime(t)	HTTimer_expiresRelative(t)
+extern ms_t HTTimer_expiresRelative (HTTimer * timer);
+</PRE>
+<H3>
+  Has this Timer Expired?
+</H3>
+<P>
+If so then it's time to call the dispatcher!
+<PRE>
+extern BOOL HTTimer_hasTimerExpired (HTTimer * timer);
+</PRE>
+<H3>
+  What callback is this Timer Registered with?
+</H3>
+<PRE>
+extern HTTimerCallback * HTTimer_callback (HTTimer * timer);
+</PRE>
+<H3>
+  Is this Time relative or Absolute?
+</H3>
+<PRE>
+extern BOOL HTTimer_isRelative (HTTimer * timer);
+</PRE>
+<H2>
+  Platform Specific Timers
+</H2>
+<P>
+On some platform, timers are supported via events or other OS specific
+mechanisms. You can make libwww can support these by registering a platform
+specific timer add and timer delete method.
+<PRE>
+typedef BOOL HTTimerSetCallback (HTTimer * timer);
+
+extern BOOL HTTimer_registerSetTimerCallback (HTTimerSetCallback * cbf);
+extern BOOL HTTimer_registerDeleteTimerCallback (HTTimerSetCallback * cbf);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTTIMER_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

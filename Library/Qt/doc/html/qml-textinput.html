@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativetextinput.cpp -->
+  <title>Qt 4.8: QML TextInput Element</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML TextInput Element</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signal-handlers">Signal Handlers</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML TextInput Element</h1>
+<span class="subtitle"></span>
+<!-- $$$TextInput-brief -->
+<p>The TextInput item displays an editable line of text. <a href="#details">More...</a></p>
+<!-- @@@TextInput -->
+<p>Inherits <a href="qml-item.html">Item</a></p>
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-textinput-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-textinput.html#acceptableInput-prop">acceptableInput</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#autoScroll-prop">autoScroll</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#canPaste-prop">canPaste</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#color-prop">color</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-textinput.html#cursorDelegate-prop">cursorDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-textinput.html#cursorPosition-prop">cursorPosition</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-textinput.html#cursorVisible-prop">cursorVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#displayText-prop">displayText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-textinput.html#echoMode-prop">echoMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.bold-prop">font.bold</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.capitalization-prop">font.capitalization</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.family-prop">font.family</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.italic-prop">font.italic</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.letterSpacing-prop">font.letterSpacing</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.pixelSize-prop">font.pixelSize</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.pointSize-prop">font.pointSize</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.strikeout-prop">font.strikeout</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.underline-prop">font.underline</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.weight-prop">font.weight</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-textinput.html#font.wordSpacing-prop">font.wordSpacing</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-textinput.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-textinput.html#inputMask-prop">inputMask</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-textinput.html#inputMethodComposing-prop">inputMethodComposing</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#maximumLength-prop">maximumLength</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-textinput.html#mouseSelectionMode-prop">mouseSelectionMode</a></b></b> : enum</li>
+<li class="fn"><b><b><a href="qml-textinput.html#passwordCharacter-prop">passwordCharacter</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-textinput.html#readOnly-prop">readOnly</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectByMouse-prop">selectByMouse</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectedText-prop">selectedText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectedTextColor-prop">selectedTextColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectionColor-prop">selectionColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectionEnd-prop">selectionEnd</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectionStart-prop">selectionStart</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-textinput.html#smooth-prop">smooth</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-textinput.html#text-prop">text</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-textinput.html#validator-prop">validator</a></b></b> : Validator</li>
+</ul>
+<a name="signal-handlers"></a>
+<h2>Signal Handlers</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-textinput.html#onAccepted-signal">onAccepted</a></b></b></li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-textinput.html#closeSoftwareInputPanel-method">closeSoftwareInputPanel</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#copy-method">copy</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#cut-method">cut</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#deselect-method">deselect</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#isRightToLeft-method">isRightToLeft</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#moveCursorSelection-method">moveCursorSelection</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#openSoftwareInputPanel-method">openSoftwareInputPanel</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#paste-method">paste</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#positionAt-method">positionAt</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#positionToRectangle-method">positionToRectangle</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#select-method">select</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectAll-method">selectAll</a></b></b></li>
+<li class="fn"><b><b><a href="qml-textinput.html#selectWord-method">selectWord</a></b></b></li>
+</ul>
+<!-- $$$TextInput-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The TextInput element displays a single line of editable plain text.</p>
+<p>TextInput is used to accept a line of text input. Input constraints can be placed on a TextInput item (for example, through a <a href="qml-textinput.html#validator-prop">validator</a> or <a href="qml-textinput.html#inputMask-prop">inputMask</a>), and setting <a href="qml-textinput.html#echoMode-prop">echoMode</a> to an appropriate value enables TextInput to be used for a password input field.</p>
+<p>On Mac OS X, the Up/Down key bindings for Home/End are explicitly disabled. If you want such bindings (on any platform), you will need to construct them in QML.</p>
+<p><b>See also </b><a href="qml-textedit.html">TextEdit</a>, <a href="qml-text.html">Text</a>, and <a href="declarative-text-textselection.html">Text Selection example</a>.</p>
+<!-- @@@TextInput -->
+<h2>Property Documentation</h2>
+<!-- $$$acceptableInput -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="acceptableInput-prop"></a><span class="qmlreadonly">read-only</span><span class="name">acceptableInput</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property is always true unless a validator or input mask has been set. If a validator or input mask has been set, this property will only be true if the current text is acceptable to the validator or input mask as a final string (not as an intermediate string).</p>
+</div></div><!-- @@@acceptableInput -->
+<br/>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Whether the <a href="qml-textinput.html">TextInput</a> should gain active focus on a mouse press. By default this is set to true.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$autoScroll -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="autoScroll-prop"></a><span class="name">autoScroll</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Whether the <a href="qml-textinput.html">TextInput</a> should scroll when the text is longer than the width. By default this is set to true.</p>
+</div></div><!-- @@@autoScroll -->
+<br/>
+<!-- $$$canPaste -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="canPaste-prop"></a><span class="qmlreadonly">read-only</span><span class="name">canPaste</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Returns true if the <a href="qml-textinput.html">TextInput</a> is writable and the content of the clipboard is suitable for pasting into the <a href="qml-textedit.html">TextEdit</a>.</p>
+<p>This property group was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@canPaste -->
+<br/>
+<!-- $$$color -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="color-prop"></a><span class="name">color</span> : <span class="type"><a href="qml-color.html">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text color.</p>
+</div></div><!-- @@@color -->
+<br/>
+<!-- $$$cursorDelegate -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorDelegate-prop"></a><span class="name">cursorDelegate</span> : <span class="type"><a href="qml-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>The delegate for the cursor in the <a href="qml-textinput.html">TextInput</a>.</p>
+<p>If you set a cursorDelegate for a <a href="qml-textinput.html">TextInput</a>, this delegate will be used for drawing the cursor instead of the standard cursor. An instance of the delegate will be created and managed by the <a href="qml-textinput.html">TextInput</a> when a cursor is needed, and the x property of delegate instance will be set so as to be one pixel before the top left of the current character.</p>
+<p>Note that the root item of the delegate component must be a <a href="qdeclarativeitem.html">QDeclarativeItem</a> or <a href="qdeclarativeitem.html">QDeclarativeItem</a> derived item.</p>
+</div></div><!-- @@@cursorDelegate -->
+<br/>
+<!-- $$$cursorPosition -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorPosition-prop"></a><span class="name">cursorPosition</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The position of the cursor in the <a href="qml-textinput.html">TextInput</a>.</p>
+</div></div><!-- @@@cursorPosition -->
+<br/>
+<!-- $$$cursorVisible -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorVisible-prop"></a><span class="name">cursorVisible</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Set to true when the <a href="qml-textinput.html">TextInput</a> shows a cursor.</p>
+<p>This property is set and unset when the <a href="qml-textinput.html">TextInput</a> gets active focus, so that other properties can be bound to whether the cursor is currently showing. As it gets set and unset automatically, when you set the value yourself you must keep in mind that your value may be overwritten.</p>
+<p>It can be set directly in script, for example if a KeyProxy might forward keys to it and you desire it to look active when this happens (but without actually giving it active focus).</p>
+<p>It should not be set directly on the element, like in the below QML, as the specified value will be overridden an lost on focus changes.</p>
+<pre class="cpp"> TextInput {
+     text: <span class="string">&quot;Text&quot;</span>
+     cursorVisible: <span class="keyword">false</span>
+ }</pre>
+<p>In the above snippet the cursor will still become visible when the <a href="qml-textinput.html">TextInput</a> gains active focus.</p>
+</div></div><!-- @@@cursorVisible -->
+<br/>
+<!-- $$$displayText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="displayText-prop"></a><span class="qmlreadonly">read-only</span><span class="name">displayText</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This is the text displayed in the <a href="qml-textinput.html">TextInput</a>.</p>
+<p>If <a href="qml-textinput.html#echoMode-prop">echoMode</a> is set to TextInput::Normal, this holds the same value as the <a href="qml-textinput.html#text-prop">TextInput::text</a> property. Otherwise, this property holds the text visible to the user, while the <a href="qml-textinput.html#text-prop">text</a> property holds the actual entered text.</p>
+</div></div><!-- @@@displayText -->
+<br/>
+<!-- $$$echoMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="echoMode-prop"></a><span class="name">echoMode</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Specifies how the text should be displayed in the <a href="qml-textinput.html">TextInput</a>.</p>
+<ul>
+<li><a href="qml-textinput.html">TextInput</a>.Normal - Displays the text as it is. (Default)</li>
+<li><a href="qml-textinput.html">TextInput</a>.Password - Displays asterixes instead of characters.</li>
+<li><a href="qml-textinput.html">TextInput</a>.NoEcho - Displays nothing.</li>
+<li><a href="qml-textinput.html">TextInput</a>.PasswordEchoOnEdit - Displays characters as they are entered while editing, otherwise displays asterisks.</li>
+</ul>
+</div></div><!-- @@@echoMode -->
+<br/>
+<!-- $$$font.bold -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.bold-prop"></a><span class="name">font.bold</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets whether the font weight is bold.</p>
+</div></div><!-- @@@font.bold -->
+<br/>
+<!-- $$$font.capitalization -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.capitalization-prop"></a><span class="name">font.capitalization</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the capitalization for the text.</p>
+<ul>
+<li>Font.MixedCase - This is the normal text rendering option where no capitalization change is applied.</li>
+<li>Font.AllUppercase - This alters the text to be rendered in all uppercase type.</li>
+<li>Font.AllLowercase - This alters the text to be rendered in all lowercase type.</li>
+<li>Font.SmallCaps - This alters the text to be rendered in small-caps type.</li>
+<li>Font.Capitalize - This alters the text to be rendered with the first character of each word as an uppercase character.</li>
+</ul>
+<pre class="qml"> <span class="type"><a href="qml-textinput.html">TextInput</a></span> { <span class="name">text</span>: <span class="string">&quot;Hello&quot;</span>; <span class="name">font</span>.capitalization: <span class="name">Font</span>.<span class="name">AllLowercase</span> }</pre>
+</div></div><!-- @@@font.capitalization -->
+<br/>
+<!-- $$$font.family -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.family-prop"></a><span class="name">font.family</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the family name of the font.</p>
+<p>The family name is case insensitive and may optionally include a foundry name, e.g&#x2e; &quot;Helvetica [Cronyx]&quot;. If the family is available from more than one foundry and the foundry isn't specified, an arbitrary foundry is chosen. If the family isn't available a family will be set using the font matching algorithm.</p>
+</div></div><!-- @@@font.family -->
+<br/>
+<!-- $$$font.italic -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.italic-prop"></a><span class="name">font.italic</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets whether the font has an italic style.</p>
+</div></div><!-- @@@font.italic -->
+<br/>
+<!-- $$$font.letterSpacing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.letterSpacing-prop"></a><span class="name">font.letterSpacing</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the letter spacing for the font.</p>
+<p>Letter spacing changes the default spacing between individual letters in the font. A positive value increases the letter spacing by the corresponding pixels; a negative value decreases the spacing.</p>
+</div></div><!-- @@@font.letterSpacing -->
+<br/>
+<!-- $$$font.pixelSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.pixelSize-prop"></a><span class="name">font.pixelSize</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the font size in pixels.</p>
+<p>Using this function makes the font device dependent. Use <tt>pointSize</tt> to set the size of the font in a device independent manner.</p>
+</div></div><!-- @@@font.pixelSize -->
+<br/>
+<!-- $$$font.pointSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.pointSize-prop"></a><span class="name">font.pointSize</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the font size in points. The point size must be greater than zero.</p>
+</div></div><!-- @@@font.pointSize -->
+<br/>
+<!-- $$$font.strikeout -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.strikeout-prop"></a><span class="name">font.strikeout</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets whether the font has a strikeout style.</p>
+</div></div><!-- @@@font.strikeout -->
+<br/>
+<!-- $$$font.underline -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.underline-prop"></a><span class="name">font.underline</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets whether the text is underlined.</p>
+</div></div><!-- @@@font.underline -->
+<br/>
+<!-- $$$font.weight -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.weight-prop"></a><span class="name">font.weight</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the font's weight.</p>
+<p>The weight can be one of:</p>
+<ul>
+<li>Font.Light</li>
+<li>Font.Normal - the default</li>
+<li>Font.DemiBold</li>
+<li>Font.Bold</li>
+<li>Font.Black</li>
+</ul>
+<pre class="qml"> <span class="type"><a href="qml-textinput.html">TextInput</a></span> { <span class="name">text</span>: <span class="string">&quot;Hello&quot;</span>; <span class="name">font</span>.weight: <span class="name">Font</span>.<span class="name">DemiBold</span> }</pre>
+</div></div><!-- @@@font.weight -->
+<br/>
+<!-- $$$font.wordSpacing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font.wordSpacing-prop"></a><span class="name">font.wordSpacing</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the word spacing for the font.</p>
+<p>Word spacing changes the default spacing between individual words. A positive value increases the word spacing by a corresponding amount of pixels, while a negative value decreases the inter-word spacing accordingly.</p>
+</div></div><!-- @@@font.wordSpacing -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a><span class="name">horizontalAlignment</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the horizontal alignment of the text within the <a href="qml-textinput.html">TextInput</a> item's width and height. By default, the text alignment follows the natural alignment of the text, for example text that is read from left to right will be aligned to the left.</p>
+<p><a href="qml-textinput.html">TextInput</a> does not have vertical alignment, as the natural height is exactly the height of the single line of text. If you set the height manually to something larger, <a href="qml-textinput.html">TextInput</a> will always be top aligned vertically. You can use anchors to align it however you want within another item.</p>
+<p>The valid values for <tt>horizontalAlignment</tt> are <tt>TextInput.AlignLeft</tt>, <tt>TextInput.AlignRight</tt> and <tt>TextInput.AlignHCenter</tt>.</p>
+<p>When using the attached property <a href="qml-layoutmirroring.html#enabled-prop">LayoutMirroring::enabled</a> to mirror application layouts, the horizontal alignment of text will also be mirrored. However, the property <tt>horizontalAlignment</tt> will remain unchanged. To query the effective horizontal alignment of <a href="qml-textinput.html">TextInput</a>, use the property <a href="qml-layoutmirroring.html#enabled-prop">LayoutMirroring::enabled</a>.</p>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$inputMask -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="inputMask-prop"></a><span class="name">inputMask</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>Allows you to set an input mask on the <a href="qml-textinput.html">TextInput</a>, restricting the allowable text inputs. See <a href="qlineedit.html#inputMask-prop">QLineEdit::inputMask</a> for further details, as the exact same mask strings are used by <a href="qml-textinput.html">TextInput</a>.</p>
+<p><b>See also </b><a href="qml-textinput.html#acceptableInput-prop">acceptableInput</a> and <a href="qml-textinput.html#validator-prop">validator</a>.</p>
+</div></div><!-- @@@inputMask -->
+<br/>
+<!-- $$$inputMethodComposing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="inputMethodComposing-prop"></a><span class="qmlreadonly">read-only</span><span class="name">inputMethodComposing</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the <a href="qml-textinput.html">TextInput</a> has partial text input from an input method.</p>
+<p>While it is composing an input method may rely on mouse or key events from the <a href="qml-textinput.html">TextInput</a> to edit or commit the partial text. This property can be used to determine when to disable events handlers that may interfere with the correct operation of an input method.</p>
+<p>This property group was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@inputMethodComposing -->
+<br/>
+<!-- $$$maximumLength -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="maximumLength-prop"></a><span class="name">maximumLength</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The maximum permitted length of the text in the <a href="qml-textinput.html">TextInput</a>.</p>
+<p>If the text is too long, it is truncated at the limit.</p>
+<p>By default, this property contains a value of 32767.</p>
+</div></div><!-- @@@maximumLength -->
+<br/>
+<!-- $$$mouseSelectionMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="mouseSelectionMode-prop"></a><span class="name">mouseSelectionMode</span> : <span class="type">enum</span></p></td></tr></table></div><div class="qmldoc"><p>Specifies how text should be selected using a mouse.</p>
+<ul>
+<li><a href="qml-textinput.html">TextInput</a>.SelectCharacters - The selection is updated with individual characters. (Default)</li>
+<li><a href="qml-textinput.html">TextInput</a>.SelectWords - The selection is updated with whole words.</li>
+</ul>
+<p>This property only applies when <a href="qml-textinput.html#selectByMouse-prop">selectByMouse</a> is true.</p>
+<p>This property group was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@mouseSelectionMode -->
+<br/>
+<!-- $$$passwordCharacter -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="passwordCharacter-prop"></a><span class="name">passwordCharacter</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This is the character displayed when <a href="qml-textinput.html#echoMode-prop">echoMode</a> is set to Password or PasswordEchoOnEdit. By default it is an asterisk.</p>
+<p>If this property is set to a string with more than one character, the first character is used. If the string is empty, the value is ignored and the property is not set.</p>
+</div></div><!-- @@@passwordCharacter -->
+<br/>
+<!-- $$$readOnly -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="readOnly-prop"></a><span class="name">readOnly</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets whether user input can modify the contents of the <a href="qml-textinput.html">TextInput</a>.</p>
+<p>If readOnly is set to true, then user input will not affect the text property. Any bindings or attempts to set the text property will still work.</p>
+</div></div><!-- @@@readOnly -->
+<br/>
+<!-- $$$selectByMouse -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectByMouse-prop"></a><span class="name">selectByMouse</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Defaults to false.</p>
+<p>If true, the user can use the mouse to select text in some platform-specific way. Note that for some platforms this may not be an appropriate interaction (eg. may conflict with how the text needs to behave inside a Flickable.</p>
+</div></div><!-- @@@selectByMouse -->
+<br/>
+<!-- $$$selectedText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedText-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectedText</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This read-only property provides the text currently selected in the text input.</p>
+<p>It is equivalent to the following snippet, but is faster and easier to use.</p>
+<pre class="js"> <span class="name">myTextInput</span>.<span class="name">text</span>.<span class="name">toString</span>().<span class="name">substring</span>(<span class="name">myTextInput</span>.<span class="name">selectionStart</span>,
+     <span class="name">myTextInput</span>.<span class="name">selectionEnd</span>);</pre>
+</div></div><!-- @@@selectedText -->
+<br/>
+<!-- $$$selectedTextColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedTextColor-prop"></a><span class="name">selectedTextColor</span> : <span class="type"><a href="qml-textinput.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The highlighted text color, used in selections.</p>
+</div></div><!-- @@@selectedTextColor -->
+<br/>
+<!-- $$$selectionColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionColor-prop"></a><span class="name">selectionColor</span> : <span class="type"><a href="qml-textinput.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text highlight color, used behind selections.</p>
+</div></div><!-- @@@selectionColor -->
+<br/>
+<!-- $$$selectionEnd -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionEnd-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectionEnd</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The cursor position after the last character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-textinput.html#selectAll-method">selectAll()</a>, or <a href="qml-textinput.html#selectWord-method">selectWord()</a>.</p>
+<p><b>See also </b><a href="qml-textinput.html#selectionStart-prop">selectionStart</a>, <a href="qml-textinput.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-textinput.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionEnd -->
+<br/>
+<!-- $$$selectionStart -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionStart-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectionStart</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The cursor position before the first character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-textinput.html#selectAll-method">selectAll()</a>, or <a href="qml-textinput.html#selectWord-method">selectWord()</a>.</p>
+<p><b>See also </b><a href="qml-textinput.html#selectionEnd-prop">selectionEnd</a>, <a href="qml-textinput.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-textinput.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionStart -->
+<br/>
+<!-- $$$smooth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="smooth-prop"></a><span class="name">smooth</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the text is smoothly scaled or transformed.</p>
+<p>Smooth filtering gives better visual quality, but is slower. If the item is displayed at its natural size, this property has no visual or performance effect.</p>
+<p><b>Note:</b> Generally scaling artifacts are only visible if the item is stationary on the screen. A common pattern when animating an item is to disable smooth filtering at the beginning of the animation and reenable it at the conclusion.</p>
+</div></div><!-- @@@smooth -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text in the <a href="qml-textinput.html">TextInput</a>.</p>
+</div></div><!-- @@@text -->
+<br/>
+<!-- $$$validator -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="validator-prop"></a><span class="name">validator</span> : <span class="type">Validator</span></p></td></tr></table></div><div class="qmldoc"><p>Allows you to set a validator on the <a href="qml-textinput.html">TextInput</a>. When a validator is set the <a href="qml-textinput.html">TextInput</a> will only accept input which leaves the text property in an acceptable or intermediate state. The accepted signal will only be sent if the text is in an acceptable state when enter is pressed.</p>
+<p>Currently supported validators are <a href="qml-intvalidator.html">IntValidator</a>, <a href="qml-doublevalidator.html">DoubleValidator</a> and <a href="qml-regexpvalidator.html">RegExpValidator</a>. An example of using validators is shown below, which allows input of integers between 11 and 31 into the text input:</p>
+<pre class="cpp"> import <span class="type">QtQuick</span> <span class="number">1.0</span>
+ TextInput{
+     validator: IntValidator{bottom: <span class="number">11</span>; top: <span class="number">31</span>;}
+     focus: <span class="keyword">true</span>
+ }</pre>
+<p><b>See also </b><a href="qml-textinput.html#acceptableInput-prop">acceptableInput</a> and <a href="qml-textinput.html#inputMask-prop">inputMask</a>.</p>
+</div></div><!-- @@@validator -->
+<br/>
+<h2>Signal Handler Documentation</h2>
+<!-- $$$onAccepted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onAccepted-signal"></a>TextInput::<span class="name">onAccepted</span> ()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Return or Enter key is pressed. Note that if there is a <a href="qml-textinput.html#validator-prop">validator</a> or <a href="qml-textinput.html#inputMask-prop">inputMask</a> set on the text input, the handler will only be emitted if the input is in an acceptable state.</p>
+</div></div><!-- @@@onAccepted -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$closeSoftwareInputPanel -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="closeSoftwareInputPanel-method"></a><span class="type">void</span> TextInput::<span class="name">closeSoftwareInputPanel</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Closes a software input panel like a virtual keyboard shown on the screen, useful for customizing when you want the input keyboard to be shown and hidden in your application.</p>
+<p>By default the opening of input panels follows the platform style. On Symbian^1 and Symbian^3 -based devices the panels are opened by clicking <a href="qml-textinput.html">TextInput</a>. On other platforms the panels are automatically opened when <a href="qml-textinput.html">TextInput</a> element gains active focus. Input panels are always closed if no editor has active focus.</p>
+<p>. You can disable the automatic behavior by setting the property <tt>activeFocusOnPress</tt> to false and use functions <a href="qml-textinput.html#openSoftwareInputPanel-method">openSoftwareInputPanel()</a> and closeSoftwareInputPanel() to implement the behavior you want.</p>
+<p>Only relevant on platforms, which provide virtual keyboards.</p>
+<pre class="qml"> import QtQuick 1.0
+ <span class="type"><a href="qml-textinput.html">TextInput</a></span> {
+     <span class="name">id</span>: <span class="name">textInput</span>
+     <span class="name">text</span>: <span class="string">&quot;Hello world!&quot;</span>
+     <span class="name">activeFocusOnPress</span>: <span class="number">false</span>
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">onClicked</span>: {
+             <span class="keyword">if</span> (!<span class="name">textInput</span>.<span class="name">activeFocus</span>) {
+                 <span class="name">textInput</span>.<span class="name">forceActiveFocus</span>();
+                 <span class="name">textInput</span>.<span class="name">openSoftwareInputPanel</span>();
+             } else {
+                 <span class="name">textInput</span>.<span class="name">focus</span> <span class="operator">=</span> <span class="number">false</span>;
+             }
+         }
+         <span class="name">onPressAndHold</span>: <span class="name">textInput</span>.<span class="name">closeSoftwareInputPanel</span>();
+     }
+ }</pre>
+</div></div><!-- @@@closeSoftwareInputPanel -->
+<br/>
+<!-- $$$copy -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="copy-method"></a>TextInput::<span class="name">copy</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Copies the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@copy -->
+<br/>
+<!-- $$$cut -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="cut-method"></a>TextInput::<span class="name">cut</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Moves the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@cut -->
+<br/>
+<!-- $$$deselect -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="deselect-method"></a><span class="type">void</span> TextInput::<span class="name">deselect</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Removes active text selection.</p>
+<p>This documentation was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@deselect -->
+<br/>
+<!-- $$$isRightToLeft -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="isRightToLeft-method"></a><span class="type">void</span> TextInput::<span class="name">isRightToLeft</span> ( <span class="type"><a href="qml-int.html">int</a></span> <i>start</i>, <span class="type"><a href="qml-int.html">int</a></span> <i>end</i> )</p></td></tr></table></div><div class="qmldoc"><p>Returns true if the natural reading direction of the editor text found between positions <i>start</i> and <i>end</i> is right to left.</p>
+</div></div><!-- @@@isRightToLeft -->
+<br/>
+<!-- $$$moveCursorSelection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="moveCursorSelection-method"></a><span class="type">void</span> TextInput::<span class="name">moveCursorSelection</span> ( <span class="type"><a href="qml-int.html">int</a></span> <i>position</i>, <span class="type">SelectionMode</span> <i>mode</i> = TextInput.SelectCharacters )</p></td></tr></table></div><div class="qmldoc"><p>Moves the cursor to <i>position</i> and updates the selection according to the optional <i>mode</i> parameter. (To only move the cursor, set the <a href="qml-textinput.html#cursorPosition-prop">cursorPosition</a> property.)</p>
+<p>When this method is called it additionally sets either the <a href="qml-textinput.html#selectionStart-prop">selectionStart</a> or the <a href="qml-textinput.html#selectionEnd-prop">selectionEnd</a> (whichever was at the previous cursor position) to the specified position. This allows you to easily extend and contract the selected text range.</p>
+<p>The selection mode specifies whether the selection is updated on a per character or a per word basis. If not specified the selection mode will default to <a href="qml-textinput.html">TextInput</a>.SelectCharacters.</p>
+<ul>
+<li><a href="qml-textedit.html">TextEdit</a>.SelectCharacters - Sets either the <a href="qml-textinput.html#selectionStart-prop">selectionStart</a> or <a href="qml-textinput.html#selectionEnd-prop">selectionEnd</a> (whichever was at the previous cursor position) to the specified position.</li>
+<li><a href="qml-textedit.html">TextEdit</a>.SelectWords - Sets the <a href="qml-textinput.html#selectionStart-prop">selectionStart</a> and <a href="qml-textinput.html#selectionEnd-prop">selectionEnd</a> to include all words between the specified postion and the previous cursor position. Words partially in the range are included.</li>
+</ul>
+<p>For example, take this sequence of calls:</p>
+<pre class="cpp"> cursorPosition <span class="operator">=</span> <span class="number">5</span>
+ moveCursorSelection(<span class="number">9</span><span class="operator">,</span> TextInput<span class="operator">.</span>SelectCharacters)
+ moveCursorSelection(<span class="number">7</span><span class="operator">,</span> TextInput<span class="operator">.</span>SelectCharacters)</pre>
+<p>This moves the cursor to position 5, extend the selection end from 5 to 9 and then retract the selection end from 9 to 7, leaving the text from position 5 to 7 selected (the 6th and 7th characters).</p>
+<p>The same sequence with <a href="qml-textinput.html">TextInput</a>.SelectWords will extend the selection start to a word boundary before or on position 5 and extend the selection end to a word boundary on or past position 9.</p>
+<p>This documentation was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@moveCursorSelection -->
+<br/>
+<!-- $$$openSoftwareInputPanel -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="openSoftwareInputPanel-method"></a><span class="type">void</span> TextInput::<span class="name">openSoftwareInputPanel</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Opens software input panels like virtual keyboards for typing, useful for customizing when you want the input keyboard to be shown and hidden in your application.</p>
+<p>By default the opening of input panels follows the platform style. On Symbian^1 and Symbian^3 -based devices the panels are opened by clicking <a href="qml-textinput.html">TextInput</a>. On other platforms the panels are automatically opened when <a href="qml-textinput.html">TextInput</a> element gains active focus. Input panels are always closed if no editor has active focus.</p>
+<p>. You can disable the automatic behavior by setting the property <tt>activeFocusOnPress</tt> to false and use functions openSoftwareInputPanel() and <a href="qml-textinput.html#closeSoftwareInputPanel-method">closeSoftwareInputPanel()</a> to implement the behavior you want.</p>
+<p>Only relevant on platforms, which provide virtual keyboards.</p>
+<pre class="qml"> import QtQuick 1.0
+ <span class="type"><a href="qml-textinput.html">TextInput</a></span> {
+     <span class="name">id</span>: <span class="name">textInput</span>
+     <span class="name">text</span>: <span class="string">&quot;Hello world!&quot;</span>
+     <span class="name">activeFocusOnPress</span>: <span class="number">false</span>
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">onClicked</span>: {
+             <span class="keyword">if</span> (!<span class="name">textInput</span>.<span class="name">activeFocus</span>) {
+                 <span class="name">textInput</span>.<span class="name">forceActiveFocus</span>()
+                 <span class="name">textInput</span>.<span class="name">openSoftwareInputPanel</span>();
+             } else {
+                 <span class="name">textInput</span>.<span class="name">focus</span> <span class="operator">=</span> <span class="number">false</span>;
+             }
+         }
+         <span class="name">onPressAndHold</span>: <span class="name">textInput</span>.<span class="name">closeSoftwareInputPanel</span>();
+     }
+ }</pre>
+</div></div><!-- @@@openSoftwareInputPanel -->
+<br/>
+<!-- $$$paste -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="paste-method"></a>TextInput::<span class="name">paste</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Replaces the currently selected text by the contents of the system clipboard.</p>
+</div></div><!-- @@@paste -->
+<br/>
+<!-- $$$positionAt -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionAt-method"></a><span class="type"><a href="qml-int.html">int</a></span> TextInput::<span class="name">positionAt</span> ( <span class="type"><a href="qml-int.html">int</a></span> <i>x</i>, <span class="type">CursorPosition</span> <i>position</i> = CursorBetweenCharacters )</p></td></tr></table></div><div class="qmldoc"><p>This function returns the character position at x pixels from the left of the <a href="qtquick-whatsnew.html#textinput">textInput</a>. Position 0 is before the first character, position 1 is after the first character but before the second, and so on until position text.length, which is after all characters.</p>
+<p>This means that for all x values before the first character this function returns 0, and for all x values after the last character this function returns text.length.</p>
+<p>The cursor position type specifies how the cursor position should be resolved.</p>
+<ul>
+<li><a href="qml-textinput.html">TextInput</a>.CursorBetweenCharacters - Returns the position between characters that is nearest x.</li>
+<li><a href="qml-textinput.html">TextInput</a>.CursorOnCharacter - Returns the position before the character that is nearest x.</li>
+</ul>
+<p>This documentation was introduced in  QtQuick 1.1.</p>
+</div></div><!-- @@@positionAt -->
+<br/>
+<!-- $$$positionToRectangle -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionToRectangle-method"></a><span class="type"><a href="qml-rect.html">rect</a></span> TextInput::<span class="name">positionToRectangle</span> ( <span class="type"><a href="qml-int.html">int</a></span> <i>pos</i> )</p></td></tr></table></div><div class="qmldoc"><p>This function takes a character position and returns the rectangle that the cursor would occupy, if it was placed at that character position.</p>
+<p>This is similar to setting the <a href="qml-textinput.html#cursorPosition-prop">cursorPosition</a>, and then querying the cursor rectangle, but the <a href="qml-textinput.html#cursorPosition-prop">cursorPosition</a> is not changed.</p>
+</div></div><!-- @@@positionToRectangle -->
+<br/>
+<!-- $$$select -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="select-method"></a><span class="type">void</span> TextInput::<span class="name">select</span> ( <span class="type"><a href="qml-int.html">int</a></span> <i>start</i>, <span class="type"><a href="qml-int.html">int</a></span> <i>end</i> )</p></td></tr></table></div><div class="qmldoc"><p>Causes the text from <i>start</i> to <i>end</i> to be selected.</p>
+<p>If either start or end is out of range, the selection is not changed.</p>
+<p>After calling this, <a href="qml-textinput.html#selectionStart-prop">selectionStart</a> will become the lesser and <a href="qml-textinput.html#selectionEnd-prop">selectionEnd</a> will become the greater (regardless of the order passed to this method).</p>
+<p><b>See also </b><a href="qml-textinput.html#selectionStart-prop">selectionStart</a> and <a href="qml-textinput.html#selectionEnd-prop">selectionEnd</a>.</p>
+</div></div><!-- @@@select -->
+<br/>
+<!-- $$$selectAll -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="selectAll-method"></a><span class="type">void</span> TextInput::<span class="name">selectAll</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Causes all text to be selected.</p>
+</div></div><!-- @@@selectAll -->
+<br/>
+<!-- $$$selectWord -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="selectWord-method"></a><span class="type">void</span> TextInput::<span class="name">selectWord</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Causes the word closest to the current cursor position to be selected.</p>
+</div></div><!-- @@@selectWord -->
+<br/>
+<p class="naviNextPrevious footerNavi">
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+  <TITLE>System and Language Features to Avoid</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home"
+    WIDTH="72" HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww"
+    WIDTH="48" HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" ALT="C-Style" SRC="../../../Icons/WWW/progstyle48x"
+    WIDTH="48" HEIGHT="48" BORDER="0"></A>
+<H1>
+  System and Language Features to Avoid
+</H1>
+<P>
+Let us first start with some general language rules for how to provide
+maintainable and portable C code. One of the main objectives is to use the
+ANSI C and the POSIX.1 standard <EM>wherever possible</EM> in order to maximum
+portability. This means that we can not use (unfortunately!) neither objective
+C nor C++. However, we also want to support original Kernighan Ritchie C
+compilers and C++ compilers which brings in two important aspects in the
+coding style:
+<H2>
+  Reserved words
+</H2>
+<P>
+It is important that there are no reserved words used as variable names,
+function calls etc in our code. Some of the more common problem makes are
+listed below but see also <A HREF="Identifiers.html">Identifiers</A>
+<UL>
+  <LI>
+    <CODE>new</CODE>
+  <LI>
+    <CODE>this</CODE>
+  <LI>
+    <CODE>class</CODE>
+  <LI>
+    <CODE>template</CODE>
+  <LI>
+    <CODE>operator</CODE>
+  <LI>
+    <CODE>friend</CODE>
+  <LI>
+    <CODE>catch</CODE>
+</UL>
+<H2>
+  Specific Problems
+</H2>
+<P>
+As the world is not ideal, there are some traps that often show up when coding
+after these standards. This sections gives an overview of the more serious
+ones.
+<H3>
+  Syscalls to avoid
+</H3>
+<P>
+Actually, most system calls are to be avoided - they are very often supported
+via variuous libwww APIs, especially provided by the
+<A HREF="../../src/WWWUtil.html">libwww utilities</A> or
+<A HREF="../../src/WWWCore.html">core modules</A>. Explicitly the following
+should not be used:
+<UL>
+  <LI>
+    <CODE>printf</CODE> shouldn't be used to output debug messages, use the
+    <A HREF="../../src/HTTrace.html">libwww HTTrace</A> instead. Also, you may
+    want to use <A HREF="../../src/HTUtils.html#Debug">the trace filters</A>
+  <LI>
+    <CODE>strdup</CODE> is not supported on many platforms. Use
+    <A HREF="../../src/HTString.html">libwww dynamic strings</A> instead
+  <LI>
+    <CODE>sleep</CODE> put the whole application to sleep and it not very portable.
+    Use <A HREF="../../src/HTTimer.html">libwww timers</A> instead
+  <LI>
+    <CODE>memmove</CODE> is not supported on many any platforms or dump core
+  <LI>
+    <CODE>strcasecmp</CODE> and <CODE>strncasecmp</CODE> (use libwww's
+    <A HREF="../../src/HTString.html">strcasecomp and strncasecomp</A>)
+  <LI>
+    <CODE>malloc</CODE>, <CODE>calloc</CODE>, and <CODE>realloc</CODE> (use
+    <A HREF="../../src/HTMemory.html#Allocation">libwww's memory macros</A>)
+</UL>
+<H3>
+  Other Problems
+</H3>
+<DL>
+  <DT>
+  <DT>
+    <CODE>malloc</CODE>
+  <DD>
+    One some platforms <CODE>malloc()</CODE> returns <CODE>NULL</CODE> if size
+    is 0.
+  <DT>
+    <CODE>const</CODE> and <CODE>static</CODE>
+  <DD>
+    some versions of gcc have problems with variables declared both
+    <CODE>static</CODE> and <CODE>const</CODE>.
+  <DT>
+    Preprocessor statements
+    <UL>
+      <LI>
+	<B>Don't indent</B> any preprocessor statements. They must (for some compilers)
+	begin in column 1.
+      <LI>
+	If you add a comment after preprocessor directives, then it MUST be within
+	a C style comment <CODE>/* ... */</CODE>
+      <LI>
+	<B>Don't use <CODE>#elif</CODE></B>. Basic <B>cpp</B> doesn't know it.
+    </UL>
+  <DT>
+    Comments
+  <DD>
+    <B>Don't use <CODE>//</CODE> for comments</B>. This is not supported by ANSI
+    C.
+</DL>
+<P>
+Remember that your code should compile without warnings under an ANSI C compiler
+such as gcc with all warnings enabled <B>BUT</B> this is not enough. The
+more native compilers you can use the better - gcc is <EM>not</EM> the only
+example of an ANSI compiler.
+<P>
+  <HR>
+<ADDRESS>
+  <A HREF="../../../People.html#Frystyk">Henrik Frystyk Nielsen</A>,<BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

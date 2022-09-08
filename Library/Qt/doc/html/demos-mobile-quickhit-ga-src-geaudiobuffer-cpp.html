@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: GEAudioBuffer.cpp Example File (demos/mobile/quickhit/ga_src/GEAudioBuffer.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">GEAudioBuffer.cpp Example File</h1>
+<span class="small-subtitle">demos/mobile/quickhit/ga_src/GEAudioBuffer.cpp</span>
+<!-- $$$demos/mobile/quickhit/ga_src/GEAudioBuffer.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
+ <span class="preprocessor">#include &quot;GEAudioBuffer.h&quot;</span>
+
+ <span class="keyword">using</span> <span class="keyword">namespace</span> GE;
+
+ <span class="keyword">struct</span> SWavHeader {
+     <span class="type">char</span> chunkID<span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+     <span class="type">unsigned</span> <span class="type">int</span> chunkSize;
+     <span class="type">char</span> format<span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+
+     <span class="type">unsigned</span> <span class="type">char</span> subchunk1id<span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+     <span class="type">unsigned</span> <span class="type">int</span> subchunk1size;
+     <span class="type">unsigned</span> <span class="type">short</span> audioFormat;
+     <span class="type">unsigned</span> <span class="type">short</span> nofChannels;
+     <span class="type">unsigned</span> <span class="type">int</span> sampleRate;
+     <span class="type">unsigned</span> <span class="type">int</span> byteRate;
+
+     <span class="type">unsigned</span> <span class="type">short</span> blockAlign;
+     <span class="type">unsigned</span> <span class="type">short</span> bitsPerSample;
+
+     <span class="type">unsigned</span> <span class="type">char</span> subchunk2id<span class="operator">[</span><span class="number">4</span><span class="operator">]</span>;
+     <span class="type">unsigned</span> <span class="type">int</span> subchunk2size;
+
+ };
+
+ CAudioBuffer<span class="operator">::</span>CAudioBuffer() {
+     m_data <span class="operator">=</span> <span class="number">0</span>;
+     m_dataLength <span class="operator">=</span> <span class="number">0</span>;
+     m_sampleFunction <span class="operator">=</span> <span class="number">0</span>;
+ };
+
+ CAudioBuffer<span class="operator">::</span><span class="operator">~</span>CAudioBuffer() {
+     reallocate(<span class="number">0</span>);
+ }
+
+ <span class="type">void</span> CAudioBuffer<span class="operator">::</span>reallocate( <span class="type">int</span> length ) {
+     <span class="keyword">if</span> (m_data) <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> ((<span class="type">char</span><span class="operator">*</span>)m_data);
+     m_dataLength <span class="operator">=</span> length;
+     <span class="keyword">if</span> (m_dataLength<span class="operator">&gt;</span><span class="number">0</span>) {
+         m_data <span class="operator">=</span> <span class="keyword">new</span> <span class="type">char</span><span class="operator">[</span> m_dataLength <span class="operator">]</span>;
+     } <span class="keyword">else</span> m_data <span class="operator">=</span> <span class="number">0</span>;
+ };
+
+ CAudioBuffer<span class="operator">*</span> CAudioBuffer<span class="operator">::</span>loadWav( <span class="type"><a href="qstring.html">QString</a></span> fileName ) {
+     <span class="type"><a href="qfile.html">QFile</a></span> <span class="operator">*</span>wavFile <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qfile.html">QFile</a></span>( fileName );
+
+     <span class="keyword">if</span> (wavFile<span class="operator">-</span><span class="operator">&gt;</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly)) {
+         SWavHeader header;
+
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( header<span class="operator">.</span>chunkID<span class="operator">,</span> <span class="number">4</span> );
+         <span class="keyword">if</span> (header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'R'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'I'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'F'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'F'</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//  incorrect header</span>
+
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>chunkSize<span class="operator">,</span><span class="number">4</span> );
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>format<span class="operator">,</span><span class="number">4</span> );
+
+         <span class="keyword">if</span> (header<span class="operator">.</span>format<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'W'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>format<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'A'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>format<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'V'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>format<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'E'</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//  incorrect header</span>
+
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>subchunk1id<span class="operator">,</span><span class="number">4</span> );
+         <span class="keyword">if</span> (header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'f'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'m'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'t'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">' '</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//  incorrect header</span>
+
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>subchunk1size<span class="operator">,</span><span class="number">4</span> );
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>audioFormat<span class="operator">,</span><span class="number">2</span> );
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>nofChannels<span class="operator">,</span><span class="number">2</span> );
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>sampleRate<span class="operator">,</span><span class="number">4</span> );
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>byteRate<span class="operator">,</span><span class="number">4</span> );
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>blockAlign<span class="operator">,</span><span class="number">2</span> );
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>bitsPerSample<span class="operator">,</span><span class="number">2</span> );
+
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot; opened&quot;</span>;
+
+         <span class="keyword">while</span> (<span class="number">1</span>) {
+             <span class="keyword">if</span> (wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>subchunk2id<span class="operator">,</span><span class="number">4</span> ) <span class="operator">!</span><span class="operator">=</span> <span class="number">4</span>) <span class="keyword">return</span> <span class="number">0</span>;
+             <span class="keyword">if</span> (wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)<span class="operator">&amp;</span>header<span class="operator">.</span>subchunk2size<span class="operator">,</span><span class="number">4</span> ) <span class="operator">!</span><span class="operator">=</span> <span class="number">4</span>) <span class="keyword">return</span> <span class="number">0</span>;
+             <span class="comment">//int deb_size = header.subchunk2size;</span>
+             <span class="comment">//char tes[4];</span>
+             <span class="comment">//memcpy(tes, header.subchunk2id, 4 );</span>
+             <span class="comment">//if (header.subchunk2id[0]!='d' || header.subchunk2id[1]!='a' || header.subchunk2id[2]!='t' || header.subchunk2id[3]!='a') return 0;    //  incorrect header</span>
+             <span class="keyword">if</span> (header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">=</span><span class="operator">=</span><span class="char">'d'</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">=</span><span class="operator">=</span><span class="char">'a'</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">=</span><span class="operator">=</span><span class="char">'t'</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">=</span><span class="operator">=</span><span class="char">'a'</span>) <span class="keyword">break</span>;            <span class="comment">// found the data, chunk</span>
+             <span class="comment">// this was not the data-chunk. skip it</span>
+             <span class="keyword">if</span> (header<span class="operator">.</span>subchunk2size<span class="operator">&lt;</span><span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;           <span class="comment">// error in file</span>
+             <span class="type">char</span> <span class="operator">*</span>unused <span class="operator">=</span> <span class="keyword">new</span> <span class="type">char</span><span class="operator">[</span>header<span class="operator">.</span>subchunk2size<span class="operator">]</span>;
+             wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( unused<span class="operator">,</span> header<span class="operator">.</span>subchunk2size );
+             <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> unused;
+         }
+
+         <span class="comment">// the data follows.</span>
+         <span class="keyword">if</span> (header<span class="operator">.</span>subchunk2size<span class="operator">&lt;</span><span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;
+
+         CAudioBuffer <span class="operator">*</span>rval <span class="operator">=</span> <span class="keyword">new</span> CAudioBuffer;
+         rval<span class="operator">-</span><span class="operator">&gt;</span>m_nofChannels <span class="operator">=</span> header<span class="operator">.</span>nofChannels;
+         rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span> header<span class="operator">.</span>bitsPerSample;
+         rval<span class="operator">-</span><span class="operator">&gt;</span>m_samplesPerSec <span class="operator">=</span> header<span class="operator">.</span>sampleRate;
+         rval<span class="operator">-</span><span class="operator">&gt;</span>m_signedData <span class="operator">=</span> <span class="number">0</span>;        <span class="comment">// where to know this?</span>
+         rval<span class="operator">-</span><span class="operator">&gt;</span>reallocate( header<span class="operator">.</span>subchunk2size );
+
+         wavFile<span class="operator">-</span><span class="operator">&gt;</span>read( (<span class="type">char</span><span class="operator">*</span>)rval<span class="operator">-</span><span class="operator">&gt;</span>m_data<span class="operator">,</span> header<span class="operator">.</span>subchunk2size );
+
+         <span class="comment">// choose a good sampling function.</span>
+         rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_nofChannels<span class="operator">=</span><span class="operator">=</span><span class="number">1</span>) {
+             <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">8</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction8bitMono;
+             <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">16</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction16bitMono;
+         } <span class="keyword">else</span> {
+             <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">8</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction8bitStereo;
+             <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">16</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction16bitStereo;
+         }
+
+         <span class="keyword">return</span> rval;
+
+     } <span class="keyword">else</span> {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot; NOT opened&quot;</span>;
+         <span class="keyword">return</span> <span class="number">0</span>;
+     }
+
+     <span class="keyword">delete</span> wavFile;
+ };
+
+ CAudioBuffer<span class="operator">*</span> CAudioBuffer<span class="operator">::</span>loadWav( FILE <span class="operator">*</span>wavFile ) {
+     <span class="comment">// read the header.</span>
+     SWavHeader header;
+     fread( header<span class="operator">.</span>chunkID<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     <span class="keyword">if</span> (header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'R'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'I'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'F'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>chunkID<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'F'</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//  incorrect header</span>
+
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>chunkSize<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     fread( header<span class="operator">.</span>format<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     <span class="keyword">if</span> (header<span class="operator">.</span>format<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'W'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>format<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'A'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>format<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'V'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>format<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'E'</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//  incorrect header</span>
+
+     fread( header<span class="operator">.</span>subchunk1id<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     <span class="keyword">if</span> (header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'f'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'m'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'t'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk1id<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">' '</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//  incorrect header</span>
+
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>subchunk1size<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>audioFormat<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>nofChannels<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>sampleRate<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>byteRate<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>blockAlign<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>bitsPerSample<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+
+     fread( header<span class="operator">.</span>subchunk2id<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+     <span class="keyword">if</span> (header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'d'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'a'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">2</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'t'</span> <span class="operator">|</span><span class="operator">|</span> header<span class="operator">.</span>subchunk2id<span class="operator">[</span><span class="number">3</span><span class="operator">]</span><span class="operator">!</span><span class="operator">=</span><span class="char">'a'</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">//  incorrect header</span>
+     fread( <span class="operator">&amp;</span>header<span class="operator">.</span>subchunk2size<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> wavFile );
+
+     <span class="comment">// the data follows.</span>
+     <span class="keyword">if</span> (header<span class="operator">.</span>subchunk2size<span class="operator">&lt;</span><span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;
+
+     CAudioBuffer <span class="operator">*</span>rval <span class="operator">=</span> <span class="keyword">new</span> CAudioBuffer;
+     rval<span class="operator">-</span><span class="operator">&gt;</span>m_nofChannels <span class="operator">=</span> header<span class="operator">.</span>nofChannels;
+     rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span> header<span class="operator">.</span>bitsPerSample;
+     rval<span class="operator">-</span><span class="operator">&gt;</span>m_samplesPerSec <span class="operator">=</span> header<span class="operator">.</span>sampleRate;
+     rval<span class="operator">-</span><span class="operator">&gt;</span>m_signedData <span class="operator">=</span> <span class="number">0</span>;        <span class="comment">// where to know this?</span>
+     rval<span class="operator">-</span><span class="operator">&gt;</span>reallocate( header<span class="operator">.</span>subchunk2size );
+
+     fread( rval<span class="operator">-</span><span class="operator">&gt;</span>m_data<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> header<span class="operator">.</span>subchunk2size<span class="operator">,</span> wavFile );
+
+     <span class="comment">// choose a good sampling function.</span>
+     rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> <span class="number">0</span>;
+     <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_nofChannels<span class="operator">=</span><span class="operator">=</span><span class="number">1</span>) {
+         <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">8</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction8bitMono;
+         <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">16</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction16bitMono;
+     } <span class="keyword">else</span> {
+         <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">8</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction8bitStereo;
+         <span class="keyword">if</span> (rval<span class="operator">-</span><span class="operator">&gt;</span>m_bitsPerSample <span class="operator">=</span><span class="operator">=</span> <span class="number">16</span>) rval<span class="operator">-</span><span class="operator">&gt;</span>m_sampleFunction <span class="operator">=</span> sampleFunction16bitStereo;
+     }
+
+     <span class="keyword">return</span> rval;
+ };
+
+ AUDIO_SAMPLE_TYPE CAudioBuffer<span class="operator">::</span>sampleFunction8bitMono( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel ) {
+     <span class="keyword">return</span> (AUDIO_SAMPLE_TYPE)(((<span class="type">unsigned</span> <span class="type">char</span><span class="operator">*</span>)(abuffer<span class="operator">-</span><span class="operator">&gt;</span>m_data))<span class="operator">[</span>pos<span class="operator">]</span><span class="operator">-</span><span class="number">128</span>)<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="number">8</span>;
+ };
+
+ AUDIO_SAMPLE_TYPE CAudioBuffer<span class="operator">::</span>sampleFunction16bitMono( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel ) {
+     <span class="keyword">return</span> (AUDIO_SAMPLE_TYPE)(((<span class="type">short</span><span class="operator">*</span>)(abuffer<span class="operator">-</span><span class="operator">&gt;</span>m_data))<span class="operator">[</span>pos<span class="operator">]</span>);
+ };
+
+ AUDIO_SAMPLE_TYPE CAudioBuffer<span class="operator">::</span>sampleFunction8bitStereo( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel ) {
+     <span class="keyword">return</span> ((AUDIO_SAMPLE_TYPE)(((<span class="type">char</span><span class="operator">*</span>)(abuffer<span class="operator">-</span><span class="operator">&gt;</span>m_data))<span class="operator">[</span>pos<span class="operator">*</span>abuffer<span class="operator">-</span><span class="operator">&gt;</span>m_nofChannels <span class="operator">+</span> channel<span class="operator">]</span>)<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="number">8</span>);
+ };
+
+ AUDIO_SAMPLE_TYPE CAudioBuffer<span class="operator">::</span>sampleFunction16bitStereo( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel ) {
+     <span class="keyword">return</span> (AUDIO_SAMPLE_TYPE)(((<span class="type">short</span><span class="operator">*</span>)(abuffer<span class="operator">-</span><span class="operator">&gt;</span>m_data))<span class="operator">[</span>pos<span class="operator">*</span>abuffer<span class="operator">-</span><span class="operator">&gt;</span>m_nofChannels <span class="operator">+</span> channel<span class="operator">]</span>);
+ };
+
+ CAudioBufferPlayInstance <span class="operator">*</span>CAudioBuffer<span class="operator">::</span>playWithMixer( CAudioMixer <span class="operator">&amp;</span>mixer ) {
+     CAudioBufferPlayInstance <span class="operator">*</span>i <span class="operator">=</span> (CAudioBufferPlayInstance<span class="operator">*</span>)mixer<span class="operator">.</span>addAudioSource( <span class="keyword">new</span> CAudioBufferPlayInstance( <span class="keyword">this</span> ));
+     <span class="keyword">return</span> i;
+ };
+
+ CAudioBufferPlayInstance<span class="operator">::</span>CAudioBufferPlayInstance() {
+     m_fixedPos <span class="operator">=</span> <span class="number">0</span>;
+     m_fixedInc <span class="operator">=</span> <span class="number">0</span>;
+     m_buffer <span class="operator">=</span> <span class="number">0</span>;
+     m_fixedLeftVolume <span class="operator">=</span> <span class="number">4096</span>;
+     m_fixedRightVolume <span class="operator">=</span> <span class="number">4096</span>;
+     m_destroyWhenFinished <span class="operator">=</span> <span class="keyword">true</span>;
+     m_finished <span class="operator">=</span> <span class="keyword">false</span>;
+ };
+
+ CAudioBufferPlayInstance<span class="operator">::</span>CAudioBufferPlayInstance( CAudioBuffer <span class="operator">*</span>startPlaying ) {
+     m_fixedPos <span class="operator">=</span> <span class="number">0</span>;
+     m_fixedInc <span class="operator">=</span> <span class="number">0</span>;
+     m_fixedLeftVolume <span class="operator">=</span> <span class="number">4096</span>;
+     m_fixedRightVolume <span class="operator">=</span> <span class="number">4096</span>;
+     m_destroyWhenFinished <span class="operator">=</span> <span class="keyword">true</span>;
+     m_finished <span class="operator">=</span> <span class="keyword">false</span>;
+     playBuffer( startPlaying<span class="operator">,</span> <span class="number">1.0f</span><span class="operator">,</span> <span class="number">1.0f</span> );
+ };
+
+ <span class="type">void</span> CAudioBufferPlayInstance<span class="operator">::</span>playBuffer( CAudioBuffer <span class="operator">*</span>startPlaying<span class="operator">,</span> <span class="type">float</span> volume<span class="operator">,</span> <span class="type">float</span> speed<span class="operator">,</span> <span class="type">int</span> loopTimes ) {
+     m_buffer <span class="operator">=</span> startPlaying;
+     m_fixedLeftVolume <span class="operator">=</span> (<span class="type">int</span>)(<span class="number">4096.0f</span><span class="operator">*</span>volume);
+     m_fixedRightVolume <span class="operator">=</span> m_fixedLeftVolume;
+     m_fixedPos <span class="operator">=</span> <span class="number">0</span>;
+     <span class="comment">//m_fixedInc = ( startPlaying-&gt;getSamplesPerSec() * (int)(4096.0f*speed)) / AUDIO_FREQUENCY;</span>
+     setSpeed( speed );
+     m_loopTimes <span class="operator">=</span> loopTimes;
+
+ };
+
+ CAudioBufferPlayInstance<span class="operator">::</span><span class="operator">~</span>CAudioBufferPlayInstance() {
+
+ };
+
+ <span class="type">void</span> CAudioBufferPlayInstance<span class="operator">::</span>stop() {
+     m_buffer <span class="operator">=</span> <span class="number">0</span>;
+     m_finished <span class="operator">=</span> <span class="keyword">true</span>;
+ };
+
+ <span class="type">void</span> CAudioBufferPlayInstance<span class="operator">::</span>setSpeed( <span class="type">float</span> speed ) {
+     <span class="keyword">if</span> (<span class="operator">!</span>m_buffer) <span class="keyword">return</span>;
+     m_fixedInc <span class="operator">=</span> (<span class="type">int</span>)( ((<span class="type">float</span>)m_buffer<span class="operator">-</span><span class="operator">&gt;</span>getSamplesPerSec() <span class="operator">*</span> <span class="number">4096.0f</span><span class="operator">*</span>speed) <span class="operator">/</span> (<span class="type">float</span>)AUDIO_FREQUENCY );
+ };
+
+ <span class="type">void</span> CAudioBufferPlayInstance<span class="operator">::</span>setLeftVolume( <span class="type">float</span> vol ) {
+     m_fixedLeftVolume <span class="operator">=</span> (<span class="type">int</span>)(<span class="number">4096.0f</span><span class="operator">*</span>vol);
+ };
+
+ <span class="type">void</span> CAudioBufferPlayInstance<span class="operator">::</span>setRightVolume( <span class="type">float</span> vol ) {
+     m_fixedRightVolume <span class="operator">=</span> (<span class="type">int</span>)(<span class="number">4096.0f</span><span class="operator">*</span>vol);
+ };
+
+ <span class="type">bool</span> CAudioBufferPlayInstance<span class="operator">::</span>canBeDestroyed() {
+     <span class="keyword">if</span> (m_finished<span class="operator">=</span><span class="operator">=</span><span class="keyword">true</span> <span class="operator">&amp;</span><span class="operator">&amp;</span>
+         m_destroyWhenFinished<span class="operator">=</span><span class="operator">=</span><span class="keyword">true</span>) <span class="keyword">return</span> <span class="keyword">true</span>; <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;
+ };
+
+ <span class="comment">// Does not do any bound-checking. Must be checked before called.</span>
+ <span class="type">int</span> CAudioBufferPlayInstance<span class="operator">::</span>mixBlock( AUDIO_SAMPLE_TYPE <span class="operator">*</span>target<span class="operator">,</span> <span class="type">int</span> samplesToMix ) {
+     SAMPLE_FUNCTION_TYPE sampleFunction <span class="operator">=</span> m_buffer<span class="operator">-</span><span class="operator">&gt;</span>getSampleFunction();
+     <span class="keyword">if</span> (<span class="operator">!</span>sampleFunction) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// unsupported sampletype</span>
+     AUDIO_SAMPLE_TYPE <span class="operator">*</span>t_target <span class="operator">=</span> target<span class="operator">+</span>samplesToMix<span class="operator">*</span><span class="number">2</span>;
+     <span class="type">int</span> sourcepos;
+     <span class="comment">//int tempCounter = 0;</span>
+
+     <span class="keyword">if</span> (m_buffer<span class="operator">-</span><span class="operator">&gt;</span>getNofChannels() <span class="operator">=</span><span class="operator">=</span> <span class="number">2</span>) {         <span class="comment">// stereo</span>
+         <span class="keyword">while</span> (target<span class="operator">!</span><span class="operator">=</span>t_target) {
+             sourcepos <span class="operator">=</span> m_fixedPos<span class="operator">&gt;</span><span class="operator">&gt;</span><span class="number">12</span>;
+             target<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> (((((sampleFunction)( m_buffer<span class="operator">,</span> sourcepos<span class="operator">,</span> <span class="number">0</span>) <span class="operator">*</span> (<span class="number">4096</span><span class="operator">-</span>(m_fixedPos<span class="operator">&amp;</span><span class="number">4095</span>)) <span class="operator">+</span> (sampleFunction)( m_buffer<span class="operator">,</span> sourcepos<span class="operator">+</span><span class="number">1</span><span class="operator">,</span> <span class="number">0</span>) <span class="operator">*</span> (m_fixedPos<span class="operator">&amp;</span><span class="number">4095</span>) ) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">12</span>) <span class="operator">*</span> m_fixedLeftVolume) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">12</span>);
+             target<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> (((((sampleFunction)( m_buffer<span class="operator">,</span> sourcepos<span class="operator">,</span> <span class="number">1</span>) <span class="operator">*</span> (<span class="number">4096</span><span class="operator">-</span>(m_fixedPos<span class="operator">&amp;</span><span class="number">4095</span>)) <span class="operator">+</span> (sampleFunction)( m_buffer<span class="operator">,</span> sourcepos<span class="operator">+</span><span class="number">1</span><span class="operator">,</span> <span class="number">1</span>) <span class="operator">*</span> (m_fixedPos<span class="operator">&amp;</span><span class="number">4095</span>) ) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">12</span>) <span class="operator">*</span> m_fixedRightVolume) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">12</span>);
+             m_fixedPos<span class="operator">+</span><span class="operator">=</span>m_fixedInc;
+             target<span class="operator">+</span><span class="operator">=</span><span class="number">2</span>;
+             <span class="comment">//tempCounter++;</span>
+         };
+     } <span class="keyword">else</span> {                                      <span class="comment">// mono</span>
+         <span class="type">int</span> temp;
+         <span class="keyword">while</span> (target<span class="operator">!</span><span class="operator">=</span>t_target) {
+             sourcepos <span class="operator">=</span> m_fixedPos<span class="operator">&gt;</span><span class="operator">&gt;</span><span class="number">12</span>;
+             temp <span class="operator">=</span> (((sampleFunction)( m_buffer<span class="operator">,</span> sourcepos<span class="operator">,</span> <span class="number">0</span> ) <span class="operator">*</span> (<span class="number">4096</span><span class="operator">-</span>(m_fixedPos<span class="operator">&amp;</span><span class="number">4095</span>)) <span class="operator">+</span> (sampleFunction)( m_buffer<span class="operator">,</span> sourcepos<span class="operator">+</span><span class="number">1</span><span class="operator">,</span> <span class="number">0</span> ) <span class="operator">*</span> (m_fixedPos<span class="operator">&amp;</span><span class="number">4095</span>) ) <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">12</span>);
+             target<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> ((temp<span class="operator">*</span>m_fixedLeftVolume)<span class="operator">&gt;</span><span class="operator">&gt;</span><span class="number">12</span>);
+             target<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> <span class="operator">=</span> ((temp<span class="operator">*</span>m_fixedRightVolume)<span class="operator">&gt;</span><span class="operator">&gt;</span><span class="number">12</span>);
+             m_fixedPos<span class="operator">+</span><span class="operator">=</span>m_fixedInc;
+             target<span class="operator">+</span><span class="operator">=</span><span class="number">2</span>;
+             <span class="comment">//tempCounter++;</span>
+         };
+
+     };
+
+     <span class="keyword">return</span> samplesToMix;
+ };
+
+ <span class="type">int</span> CAudioBufferPlayInstance<span class="operator">::</span>pullAudio( AUDIO_SAMPLE_TYPE <span class="operator">*</span>target<span class="operator">,</span> <span class="type">int</span> bufferLength ) {
+     <span class="keyword">if</span> (<span class="operator">!</span>m_buffer) <span class="keyword">return</span> <span class="number">0</span>;            <span class="comment">// no sample associated to mix..</span>
+
+     <span class="type">int</span> channelLength <span class="operator">=</span> ((m_buffer<span class="operator">-</span><span class="operator">&gt;</span>getDataLength()) <span class="operator">/</span> (m_buffer<span class="operator">-</span><span class="operator">&gt;</span>getNofChannels()<span class="operator">*</span>m_buffer<span class="operator">-</span><span class="operator">&gt;</span>getBytesPerSample()))<span class="operator">-</span><span class="number">2</span>;
+
+     <span class="type">int</span> samplesToWrite <span class="operator">=</span> bufferLength<span class="operator">/</span><span class="number">2</span>;
+     <span class="type">int</span> amount;
+     <span class="type">int</span> totalMixed <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="keyword">while</span> (samplesToWrite<span class="operator">&gt;</span><span class="number">0</span>) {
+         <span class="type">int</span> samplesLeft <span class="operator">=</span> channelLength <span class="operator">-</span> (m_fixedPos<span class="operator">&gt;</span><span class="operator">&gt;</span><span class="number">12</span>);
+         <span class="type">int</span> maxMixAmount <span class="operator">=</span> (<span class="type">int</span>)(((<span class="type">long</span> <span class="type">long</span> <span class="type">int</span>)(samplesLeft)<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="number">12</span>) <span class="operator">/</span> m_fixedInc );         <span class="comment">// This is how much we can mix at least</span>
+         <span class="comment">//int maxMixAmount = (int)((float)samplesLeft / ((float)m_fixedInc/4096.0f));</span>
+         <span class="comment">//if (maxMixAmount&lt;1) maxMixAmount = 1;           // NOTE, THIS MIGHT CAUSE PROBLEMS. NEEDS CHECKING</span>
+         <span class="keyword">if</span> (maxMixAmount<span class="operator">&gt;</span>samplesToWrite) {
+             maxMixAmount<span class="operator">=</span>samplesToWrite;
+         }
+
+         <span class="keyword">if</span> (maxMixAmount <span class="operator">&gt;</span> <span class="number">0</span>) {
+             amount<span class="operator">=</span>mixBlock(target<span class="operator">+</span>totalMixed <span class="operator">*</span> <span class="number">2</span><span class="operator">,</span> maxMixAmount);
+
+             <span class="keyword">if</span> (amount <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+             {
+                 <span class="comment">// Error!</span>
+                 <span class="keyword">break</span>;
+             }
+
+             totalMixed<span class="operator">+</span><span class="operator">=</span>amount;
+         } <span class="keyword">else</span> {
+             amount <span class="operator">=</span> <span class="number">0</span>;
+             m_fixedPos <span class="operator">=</span> channelLength<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="number">12</span>;
+         }
+
+         <span class="comment">// sample is ended,.. check the looping variables and see what to do.</span>
+         <span class="keyword">if</span> ((m_fixedPos<span class="operator">&gt;</span><span class="operator">&gt;</span><span class="number">12</span>)<span class="operator">&gt;</span><span class="operator">=</span>channelLength) {
+             m_fixedPos <span class="operator">-</span><span class="operator">=</span> (channelLength<span class="operator">&lt;</span><span class="operator">&lt;</span><span class="number">12</span>);
+             <span class="keyword">if</span> (m_loopTimes<span class="operator">&gt;</span><span class="number">0</span>) m_loopTimes<span class="operator">-</span><span class="operator">-</span>;
+             <span class="keyword">if</span> (m_loopTimes<span class="operator">=</span><span class="operator">=</span><span class="number">0</span>) {
+                 stop();
+                 <span class="keyword">return</span> totalMixed;
+             }
+         }
+
+         samplesToWrite<span class="operator">-</span><span class="operator">=</span>amount;
+         <span class="keyword">if</span> (samplesToWrite<span class="operator">&lt;</span><span class="number">1</span>) <span class="keyword">break</span>;
+     };
+     <span class="keyword">return</span>  totalMixed<span class="operator">*</span><span class="number">2</span>;
+ };</pre>
+</div>
+<!-- @@@demos/mobile/quickhit/ga_src/GEAudioBuffer.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

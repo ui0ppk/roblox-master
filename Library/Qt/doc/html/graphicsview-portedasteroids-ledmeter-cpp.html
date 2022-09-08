@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: ledmeter.cpp Example File (graphicsview/portedasteroids/ledmeter.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">ledmeter.cpp Example File</h1>
+<span class="small-subtitle">graphicsview/portedasteroids/ledmeter.cpp</span>
+<!-- $$$graphicsview/portedasteroids/ledmeter.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="comment">/*
+  * KAsteroids - Copyright (c) Martin R. Jones 1997
+  *
+  * Part of the KDE project
+  */</span>
+
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QResizeEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QFrame&gt;</span>
+ <span class="preprocessor">#include &lt;QColorGroup&gt;</span>
+ <span class="preprocessor">#include &quot;ledmeter.h&quot;</span>
+
+ KALedMeter<span class="operator">::</span>KALedMeter( <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent ) : <span class="type"><a href="qframe.html">QFrame</a></span>( parent )
+ {
+     mRange <span class="operator">=</span> <span class="number">100</span>;
+     mCount <span class="operator">=</span> <span class="number">20</span>;
+     mCurrentCount <span class="operator">=</span> <span class="number">0</span>;
+     mValue <span class="operator">=</span> <span class="number">0</span>;
+     setMinimumWidth( mCount <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> frameWidth() );
+ }
+
+ KALedMeter<span class="operator">::</span><span class="operator">~</span>KALedMeter()
+ {
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(mCRanges);
+     mCRanges<span class="operator">.</span>clear();
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>setRange( <span class="type">int</span> r )
+ {
+     mRange <span class="operator">=</span> r;
+     <span class="keyword">if</span> ( mRange <span class="operator">&lt;</span> <span class="number">1</span> )
+         mRange <span class="operator">=</span> <span class="number">1</span>;
+     setValue( mValue );
+     update();
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>setCount( <span class="type">int</span> c )
+ {
+     mCount <span class="operator">=</span> c;
+     <span class="keyword">if</span> ( mCount <span class="operator">&lt;</span> <span class="number">1</span> )
+         mCount <span class="operator">=</span> <span class="number">1</span>;
+     setMinimumWidth( mCount <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> frameWidth() );
+     calcColorRanges();
+     setValue( mValue );
+     update();
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>setValue( <span class="type">int</span> v )
+ {
+     mValue <span class="operator">=</span> v;
+     <span class="keyword">if</span> ( mValue <span class="operator">&gt;</span> mRange )
+         mValue <span class="operator">=</span> mRange;
+     <span class="keyword">else</span> <span class="keyword">if</span> ( mValue <span class="operator">&lt;</span> <span class="number">0</span> )
+         mValue <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> c <span class="operator">=</span> ( mValue <span class="operator">+</span> mRange <span class="operator">/</span> mCount <span class="operator">-</span> <span class="number">1</span> ) <span class="operator">*</span> mCount <span class="operator">/</span> mRange;
+     <span class="keyword">if</span> ( c <span class="operator">!</span><span class="operator">=</span> mCurrentCount )
+     {
+         mCurrentCount <span class="operator">=</span> c;
+         update();
+     }
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>addColorRange( <span class="type">int</span> pc<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>c )
+ {
+     ColorRange <span class="operator">*</span>cr <span class="operator">=</span> <span class="keyword">new</span> ColorRange;
+     cr<span class="operator">-</span><span class="operator">&gt;</span>mPc <span class="operator">=</span> pc;
+     cr<span class="operator">-</span><span class="operator">&gt;</span>mColor <span class="operator">=</span> c;
+     mCRanges<span class="operator">.</span>append( cr );
+     calcColorRanges();
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>resizeEvent( <span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>e )
+ {
+     <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>resizeEvent( e );
+     <span class="type">int</span> w <span class="operator">=</span> ( width() <span class="operator">-</span> frameWidth() <span class="operator">-</span> <span class="number">2</span> ) <span class="operator">/</span> mCount <span class="operator">*</span> mCount;
+     w <span class="operator">+</span><span class="operator">=</span> frameWidth() <span class="operator">+</span> <span class="number">2</span>;
+     setFrameRect( <span class="type"><a href="qrect.html">QRect</a></span>( <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> w<span class="operator">,</span> height() ) );
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qframe.html">QFrame</a></span><span class="operator">::</span>paintEvent(event);
+
+     <span class="type"><a href="qrect.html">QRect</a></span> b <span class="operator">=</span> contentsRect();
+     <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="keyword">this</span>);
+
+     <span class="type">unsigned</span> cidx <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> ncol <span class="operator">=</span> mCount;
+     <span class="type"><a href="qcolor.html">QColor</a></span> col <span class="operator">=</span> palette()<span class="operator">.</span>foreground()<span class="operator">.</span>color();
+
+     <span class="keyword">if</span> ( <span class="operator">!</span>mCRanges<span class="operator">.</span>isEmpty() )
+     {
+         col <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mColor;
+         ncol <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mValue;
+     }
+     p<span class="operator">.</span>setBrush( col );
+     p<span class="operator">.</span>setPen( col );
+
+     <span class="type">int</span> lw <span class="operator">=</span> b<span class="operator">.</span>width() <span class="operator">/</span> mCount;
+     <span class="type">int</span> lx <span class="operator">=</span> b<span class="operator">.</span>left() <span class="operator">+</span> <span class="number">1</span>;
+     <span class="keyword">for</span> ( <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> mCurrentCount; i<span class="operator">+</span><span class="operator">+</span><span class="operator">,</span> lx <span class="operator">+</span><span class="operator">=</span> lw )
+     {
+         <span class="keyword">if</span> ( i <span class="operator">&gt;</span> ncol )
+         {
+             <span class="keyword">if</span> ( <span class="operator">+</span><span class="operator">+</span>cidx <span class="operator">&lt;</span> mCRanges<span class="operator">.</span>count() )
+             {
+                 col <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mColor;
+                 ncol <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mValue;
+                 p<span class="operator">.</span>setBrush( col );
+                 p<span class="operator">.</span>setPen( col );
+             }
+         }
+
+         p<span class="operator">.</span>drawRect( lx<span class="operator">,</span> b<span class="operator">.</span>top() <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> lw <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> b<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">2</span> );
+     }
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>calcColorRanges()
+ {
+     <span class="type">int</span> prev <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="keyword">for</span>(<span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>ColorRange<span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>iterator it <span class="operator">=</span> mCRanges<span class="operator">.</span>begin(); it <span class="operator">!</span><span class="operator">=</span> mCRanges<span class="operator">.</span>end(); it<span class="operator">+</span><span class="operator">+</span>)
+     {
+         ColorRange <span class="operator">*</span>cr <span class="operator">=</span> <span class="operator">*</span>it;
+         cr<span class="operator">-</span><span class="operator">&gt;</span>mValue <span class="operator">=</span> prev <span class="operator">+</span> cr<span class="operator">-</span><span class="operator">&gt;</span>mPc <span class="operator">*</span> mCount <span class="operator">/</span> <span class="number">100</span>;
+         prev <span class="operator">=</span> cr<span class="operator">-</span><span class="operator">&gt;</span>mValue;
+     }
+ }</pre>
+</div>
+<!-- @@@graphicsview/portedasteroids/ledmeter.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

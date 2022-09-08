@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qreadwritelock.cpp -->
+  <title>Qt 4.8: QReadWriteLock Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QReadWriteLock</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QReadWriteLock Class Reference</h1>
+<!-- $$$QReadWriteLock-brief -->
+<p>The QReadWriteLock class provides read-write locking. <a href="#details">More...</a></p>
+<!-- @@@QReadWriteLock -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QReadWriteLock&gt;</span></pre><p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<ul>
+<li><a href="qreadwritelock-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#RecursionMode-enum">RecursionMode</a></b> { Recursive, NonRecursive }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#QReadWriteLock">QReadWriteLock</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#QReadWriteLock-2">QReadWriteLock</a></b> ( RecursionMode <i>recursionMode</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#dtor.QReadWriteLock">~QReadWriteLock</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#lockForRead">lockForRead</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#lockForWrite">lockForWrite</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#tryLockForRead">tryLockForRead</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#tryLockForRead-2">tryLockForRead</a></b> ( int <i>timeout</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#tryLockForWrite">tryLockForWrite</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#tryLockForWrite-2">tryLockForWrite</a></b> ( int <i>timeout</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qreadwritelock.html#unlock">unlock</a></b> ()</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QReadWriteLock-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QReadWriteLock class provides read-write locking.</p>
+<p>A read-write lock is a synchronization tool for protecting resources that can be accessed for reading and writing. This type of lock is useful if you want to allow multiple threads to have simultaneous read-only access, but as soon as one thread wants to write to the resource, all other threads must be blocked until the writing is complete.</p>
+<p>In many cases, QReadWriteLock is a direct competitor to <a href="qmutex.html">QMutex</a>. QReadWriteLock is a good choice if there are many concurrent reads and writing occurs infrequently.</p>
+<p>Example:</p>
+<pre class="cpp"> <span class="type">QReadWriteLock</span> lock;
+
+ <span class="type">void</span> ReaderThread<span class="operator">::</span>run()
+ {
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+     lock<span class="operator">.</span>lockForRead();
+     read_file();
+     lock<span class="operator">.</span>unlock();
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ }
+
+ <span class="type">void</span> WriterThread<span class="operator">::</span>run()
+ {
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+     lock<span class="operator">.</span>lockForWrite();
+     write_file();
+     lock<span class="operator">.</span>unlock();
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ }</pre>
+<p>To ensure that writers aren't blocked forever by readers, readers attempting to obtain a lock will not succeed if there is a blocked writer waiting for access, even if the lock is currently only accessed by other readers. Also, if the lock is accessed by a writer and another writer comes in, that writer will have priority over any readers that might also be waiting.</p>
+<p>Like <a href="qmutex.html">QMutex</a>, a QReadWriteLock can be recursively locked by the same thread when constructed in <a href="qreadwritelock.html#RecursionMode-enum">QReadWriteLock::RecursionMode</a>. In such cases, <a href="qreadwritelock.html#unlock">unlock</a>() must be called the same number of times <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>() or <a href="qreadwritelock.html#lockForRead">lockForRead</a>() was called. Note that the lock type cannot be changed when trying to lock recursively, i.e&#x2e; it is not possible to lock for reading in a thread that already has locked for writing (and vice versa).</p>
+</div>
+<p><b>See also </b><a href="qreadlocker.html">QReadLocker</a>, <a href="qwritelocker.html">QWriteLocker</a>, <a href="qmutex.html">QMutex</a>, and <a href="qsemaphore.html">QSemaphore</a>.</p>
+<!-- @@@QReadWriteLock -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$RecursionMode$$$NonRecursive$$$Recursive -->
+<h3 class="fn"><a name="RecursionMode-enum"></a>enum QReadWriteLock::<span class="name">RecursionMode</span></h3>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QReadWriteLock::Recursive</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">In this mode, a thread can lock the same <a href="qreadwritelock.html">QReadWriteLock</a> multiple times and the mutex won't be unlocked until a corresponding number of <a href="qreadwritelock.html#unlock">unlock</a>() calls have been made.</td></tr>
+<tr><td class="topAlign"><tt>QReadWriteLock::NonRecursive</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">In this mode, a thread may only lock a <a href="qreadwritelock.html">QReadWriteLock</a> once.</td></tr>
+</table>
+<p>This enum was introduced or modified in Qt 4.4.</p>
+<p><b>See also </b><a href="qreadwritelock.html#QReadWriteLock">QReadWriteLock</a>().</p>
+<!-- @@@RecursionMode -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QReadWriteLock[overload1]$$$QReadWriteLock -->
+<h3 class="fn"><a name="QReadWriteLock"></a>QReadWriteLock::<span class="name">QReadWriteLock</span> ()</h3>
+<p>Constructs a <a href="qreadwritelock.html">QReadWriteLock</a> object in <a href="qreadwritelock.html#RecursionMode-enum">NonRecursive</a> mode.</p>
+<p><b>See also </b><a href="qreadwritelock.html#lockForRead">lockForRead</a>() and <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>().</p>
+<!-- @@@QReadWriteLock -->
+<!-- $$$QReadWriteLock$$$QReadWriteLockRecursionMode -->
+<h3 class="fn"><a name="QReadWriteLock-2"></a>QReadWriteLock::<span class="name">QReadWriteLock</span> ( <span class="type"><a href="qreadwritelock.html#RecursionMode-enum">RecursionMode</a></span> <i>recursionMode</i> )</h3>
+<p>Constructs a <a href="qreadwritelock.html">QReadWriteLock</a> object in the given <i>recursionMode</i>.</p>
+<p>This function was introduced in Qt 4.4.</p>
+<p><b>See also </b><a href="qreadwritelock.html#lockForRead">lockForRead</a>(), <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>(), and <a href="qreadwritelock.html#RecursionMode-enum">RecursionMode</a>.</p>
+<!-- @@@QReadWriteLock -->
+<!-- $$$~QReadWriteLock[overload1]$$$~QReadWriteLock -->
+<h3 class="fn"><a name="dtor.QReadWriteLock"></a>QReadWriteLock::<span class="name">~QReadWriteLock</span> ()</h3>
+<p>Destroys the <a href="qreadwritelock.html">QReadWriteLock</a> object.</p>
+<p><b>Warning:</b> Destroying a read-write lock that is in use may result in undefined behavior.</p>
+<!-- @@@~QReadWriteLock -->
+<!-- $$$lockForRead[overload1]$$$lockForRead -->
+<h3 class="fn"><a name="lockForRead"></a><span class="type">void</span> QReadWriteLock::<span class="name">lockForRead</span> ()</h3>
+<p>Locks the lock for reading. This function will block the current thread if any thread (including the current) has locked for writing.</p>
+<p><b>See also </b><a href="qreadwritelock.html#unlock">unlock</a>(), <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>(), and <a href="qreadwritelock.html#tryLockForRead">tryLockForRead</a>().</p>
+<!-- @@@lockForRead -->
+<!-- $$$lockForWrite[overload1]$$$lockForWrite -->
+<h3 class="fn"><a name="lockForWrite"></a><span class="type">void</span> QReadWriteLock::<span class="name">lockForWrite</span> ()</h3>
+<p>Locks the lock for writing. This function will block the current thread if another thread has locked for reading or writing.</p>
+<p><b>See also </b><a href="qreadwritelock.html#unlock">unlock</a>(), <a href="qreadwritelock.html#lockForRead">lockForRead</a>(), and <a href="qreadwritelock.html#tryLockForWrite">tryLockForWrite</a>().</p>
+<!-- @@@lockForWrite -->
+<!-- $$$tryLockForRead[overload1]$$$tryLockForRead -->
+<h3 class="fn"><a name="tryLockForRead"></a><span class="type">bool</span> QReadWriteLock::<span class="name">tryLockForRead</span> ()</h3>
+<p>Attempts to lock for reading. If the lock was obtained, this function returns true, otherwise it returns false instead of waiting for the lock to become available, i.e&#x2e; it does not block.</p>
+<p>The lock attempt will fail if another thread has locked for writing.</p>
+<p>If the lock was obtained, the lock must be unlocked with <a href="qreadwritelock.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
+<p><b>See also </b><a href="qreadwritelock.html#unlock">unlock</a>() and <a href="qreadwritelock.html#lockForRead">lockForRead</a>().</p>
+<!-- @@@tryLockForRead -->
+<!-- $$$tryLockForRead$$$tryLockForReadint -->
+<h3 class="fn"><a name="tryLockForRead-2"></a><span class="type">bool</span> QReadWriteLock::<span class="name">tryLockForRead</span> ( <span class="type">int</span> <i>timeout</i> )</h3>
+<p>This is an overloaded function.</p>
+<p>Attempts to lock for reading. This function returns true if the lock was obtained; otherwise it returns false. If another thread has locked for writing, this function will wait for at most <i>timeout</i> milliseconds for the lock to become available.</p>
+<p>Note: Passing a negative number as the <i>timeout</i> is equivalent to calling <a href="qreadwritelock.html#lockForRead">lockForRead</a>(), i.e&#x2e; this function will wait forever until lock can be locked for reading when <i>timeout</i> is negative.</p>
+<p>If the lock was obtained, the lock must be unlocked with <a href="qreadwritelock.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
+<p><b>See also </b><a href="qreadwritelock.html#unlock">unlock</a>() and <a href="qreadwritelock.html#lockForRead">lockForRead</a>().</p>
+<!-- @@@tryLockForRead -->
+<!-- $$$tryLockForWrite[overload1]$$$tryLockForWrite -->
+<h3 class="fn"><a name="tryLockForWrite"></a><span class="type">bool</span> QReadWriteLock::<span class="name">tryLockForWrite</span> ()</h3>
+<p>Attempts to lock for writing. If the lock was obtained, this function returns true; otherwise, it returns false immediately.</p>
+<p>The lock attempt will fail if another thread has locked for reading or writing.</p>
+<p>If the lock was obtained, the lock must be unlocked with <a href="qreadwritelock.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
+<p><b>See also </b><a href="qreadwritelock.html#unlock">unlock</a>() and <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>().</p>
+<!-- @@@tryLockForWrite -->
+<!-- $$$tryLockForWrite$$$tryLockForWriteint -->
+<h3 class="fn"><a name="tryLockForWrite-2"></a><span class="type">bool</span> QReadWriteLock::<span class="name">tryLockForWrite</span> ( <span class="type">int</span> <i>timeout</i> )</h3>
+<p>This is an overloaded function.</p>
+<p>Attempts to lock for writing. This function returns true if the lock was obtained; otherwise it returns false. If another thread has locked for reading or writing, this function will wait for at most <i>timeout</i> milliseconds for the lock to become available.</p>
+<p>Note: Passing a negative number as the <i>timeout</i> is equivalent to calling <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>(), i.e&#x2e; this function will wait forever until lock can be locked for writing when <i>timeout</i> is negative.</p>
+<p>If the lock was obtained, the lock must be unlocked with <a href="qreadwritelock.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
+<p><b>See also </b><a href="qreadwritelock.html#unlock">unlock</a>() and <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>().</p>
+<!-- @@@tryLockForWrite -->
+<!-- $$$unlock[overload1]$$$unlock -->
+<h3 class="fn"><a name="unlock"></a><span class="type">void</span> QReadWriteLock::<span class="name">unlock</span> ()</h3>
+<p>Unlocks the lock.</p>
+<p>Attempting to unlock a lock that is not locked is an error, and will result in program termination.</p>
+<p><b>See also </b><a href="qreadwritelock.html#lockForRead">lockForRead</a>(), <a href="qreadwritelock.html#lockForWrite">lockForWrite</a>(), <a href="qreadwritelock.html#tryLockForRead">tryLockForRead</a>(), and <a href="qreadwritelock.html#tryLockForWrite">tryLockForWrite</a>().</p>
+<!-- @@@unlock -->
+</div>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

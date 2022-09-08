@@ -1,0 +1,421 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Workspace" referent="RBX0">
+		<Properties>
+			<Ref name="CurrentCamera">RBX1</Ref>
+			<double name="DistributedGameTime">0</double>
+			<CoordinateFrame name="ModelInPrimary">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<string name="Name">Workspace</string>
+			<Ref name="PrimaryPart">null</Ref>
+		</Properties>
+		<Item class="Camera" referent="RBX1">
+			<Properties>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<CoordinateFrame name="CoordinateFrame">
+					<X>64.6447144</X>
+					<Y>30.3143482</Y>
+					<Z>0.148706198</Z>
+					<R00>-9.34668424e-006</R00>
+					<R01>-0.16160965</R01>
+					<R02>0.986854732</R02>
+					<R10>-0</R10>
+					<R11>0.986854732</R11>
+					<R12>0.16160965</R12>
+					<R20>-1</R20>
+					<R21>1.51051438e-006</R21>
+					<R22>-9.22381878e-006</R22>
+				</CoordinateFrame>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>44.9076195</X>
+					<Y>27.0821552</Y>
+					<Z>0.148890674</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<string name="Name">Camera</string>
+			</Properties>
+		</Item>
+		<Item class="Terrain" referent="RBX2">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<bool name="Archivable">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-2</X>
+					<Y>126</Y>
+					<Z>-2</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<string name="ClusterGridV2"></string>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Terrain</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<Vector3 name="size">
+					<X>2044</X>
+					<Y>252</Y>
+					<Z>2044</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX3">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ClockMaker</string>
+				<ProtectedString name="Source">-- goal is to create (recursively) a planet-system..
+local numRings = 6
+local numPartsPerRing = 5
+
+local ClockModel = Instance.new(&quot;Model&quot;, game.Workspace)
+ClockModel.Name = &quot;ClockModel&quot;
+
+
+local rotationBases = {CFrame.new(), CFrame.Angles(0, math.pi/2, 0), CFrame.Angles(0, 0, -math.pi/2), CFrame.Angles(math.pi/2, 0, 0)}
+
+local keyPart = Instance.new(&quot;Part&quot;)
+keyPart.formFactor = &quot;Custom&quot;
+keyPart.Size = Vector3.new(numRings + 2, numRings + 2, numRings + 2)
+keyPart.Anchored = false
+--keyPart.Anchored = true
+keyPart.CanCollide = false
+keyPart.CFrame = CFrame.new(Vector3.new(0, 300, 0))
+--keyPart.Parent = game.Workspace
+keyPart.Name = &quot;Torso&quot;
+
+--local newBP = Instance.new(&quot;BodyPosition&quot;)
+--newBP.P = 900000
+--newBP.maxForce = Vector3.new(newBP.P, newBP.P, newBP.P)
+--newBP.position = keyPart.CFrame.p
+--newBP.Parent = keyPart
+
+-- figure out total mass of contraption here
+-- mass is (numRings+2)^3 + numPartsPerRing*(numRings)^3 + numPartsPerRing^2(numRings-1)^3 + numPartsPerRing^3(numRings-2)^3 + ...
+
+local totalMass = (numRings+2)*(numRings+2)*(numRings+2)
+local multiplier = numPartsPerRing
+for i = numRings, 1, -1 do
+&#9;totalMass = totalMass + multiplier*i*i*i
+&#9;multiplier = multiplier * numPartsPerRing
+end
+
+local newBF = Instance.new(&quot;BodyForce&quot;)
+newBF.force = Vector3.new(0, totalMass*196.2, 0)
+newBF.Parent = keyPart
+
+keyPart.Parent = ClockModel
+
+--Instance.new(&quot;Humanoid&quot;, ClockModel)
+
+local colorTable = {BrickColor.new(&quot;Really red&quot;), BrickColor.new(&quot;Really blue&quot;), BrickColor.new(&quot;Camo&quot;), BrickColor.new(&quot;Lime green&quot;), BrickColor.new(&quot;Black&quot;), BrickColor.new(&quot;New Yeller&quot;), BrickColor.random(), BrickColor.random(), BrickColor.random()}
+
+function createSystem(mainPart, numLevels, numPartsPerLevel)
+&#9;if numLevels &lt;= 0 then return end
+
+&#9;for i = 1, numPartsPerLevel do
+&#9;&#9;-- figure out where to put slave part
+&#9;&#9;local alpha = math.pi*2*i/numPartsPerLevel
+&#9;&#9;--local slaveRadius = math.pow(4, numLevels)
+&#9;&#9;local slaveRadius = math.pow(2.2, numLevels) -- was 2.5
+&#9;&#9;local slavePartLocation = mainPart.CFrame.p + slaveRadius * Vector3.new(math.cos(alpha), 0, math.sin(alpha))
+
+&#9;&#9;-- create the slave part
+&#9;&#9;local slavePart = mainPart:Clone()
+
+&#9;&#9;--local slaveBP = slavePart:FindFirstChild(&quot;BodyPosition&quot;)
+&#9;&#9;--if slaveBP then slaveBP:Remove() end
+
+&#9;&#9;local slaveBF = slavePart:FindFirstChild(&quot;BodyForce&quot;)
+&#9;&#9;if slaveBF then slaveBF:Remove() end
+
+&#9;&#9;slavePart.Name = &quot;ClockPart&quot;
+&#9;&#9;slavePart.Size = Vector3.new(numLevels, numLevels, numLevels)
+&#9;&#9;slavePart.Anchored = false
+
+&#9;&#9;--local slaveBF = slavePart:FindFirstChild(&quot;BodyForce&quot;)
+&#9;&#9;--if slaveBF then slaveBF.force = Vector3.new(0, slavePart:GetMass()*196.1, 0) end
+
+&#9;&#9;--slavePart.Anchored = true
+&#9;&#9;slavePart.CFrame = CFrame.new(slavePartLocation)
+&#9;&#9;slavePart.BrickColor = colorTable[numLevels]
+
+&#9;&#9;-- create a motor so main part swings around slave part
+&#9;&#9;local newMotor = Instance.new(&quot;Motor6D&quot;)
+&#9;&#9;newMotor.Part0 = mainPart
+&#9;&#9;newMotor.Part1 = slavePart
+&#9;&#9;--newMotor.C0 = CFrame.new()
+&#9;&#9;newMotor.C0 = rotationBases[numLevels % (#rotationBases) + 1]
+&#9;&#9;newMotor.C1 = slavePart.CFrame:inverse()*mainPart.CFrame
+&#9;&#9;newMotor.MaxVelocity = .02 * (numRings + 1 - numLevels)
+&#9;&#9;newMotor.DesiredAngle = 2*math.pi*( numRings + 1 - numLevels)
+
+&#9;&#9;--newMotor.Parent = slavePart
+&#9;&#9;newMotor.Parent = keyPart
+&#9;&#9;--slavePart.Parent = game.Workspace
+&#9;&#9;--local newHumanoid = Instance.new(&quot;Humanoid&quot;, slavePart)
+&#9;&#9;slavePart.Parent = ClockModel
+
+&#9;&#9;-- keep going!
+&#9;&#9;createSystem(slavePart, numLevels - 1, numPartsPerLevel)
+&#9;end
+end
+
+createSystem(keyPart, numRings, numPartsPerRing)
+
+
+</ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="StarterPack" referent="RBX4">
+		<Properties>
+			<string name="Name">StarterPack</string>
+		</Properties>
+	</Item>
+	<Item class="StarterGui" referent="RBX5">
+		<Properties>
+			<string name="Name">StarterGui</string>
+			<bool name="ShowDevelopmentGui">true</bool>
+		</Properties>
+	</Item>
+	<Item class="SoundService" referent="RBX6">
+		<Properties>
+			<token name="AmbientReverb">0</token>
+			<float name="DistanceFactor">10</float>
+			<float name="DopplerScale">1</float>
+			<string name="Name">Soundscape</string>
+			<float name="RolloffScale">1</float>
+		</Properties>
+	</Item>
+	<Item class="CollectionService" referent="RBX7">
+		<Properties>
+			<string name="Name">CollectionService</string>
+		</Properties>
+	</Item>
+	<Item class="PhysicsService" referent="RBX8">
+		<Properties>
+			<string name="Name">PhysicsService</string>
+		</Properties>
+	</Item>
+	<Item class="BadgeService" referent="RBX9">
+		<Properties>
+			<string name="Name">BadgeService</string>
+		</Properties>
+	</Item>
+	<Item class="Geometry" referent="RBX10">
+		<Properties>
+			<string name="Name">Geometry</string>
+		</Properties>
+	</Item>
+	<Item class="RenderHooksService" referent="RBX11">
+		<Properties>
+			<string name="Name">RenderHooksService</string>
+		</Properties>
+	</Item>
+	<Item class="SocialService" referent="RBX12">
+		<Properties>
+			<string name="Name">SocialService</string>
+		</Properties>
+	</Item>
+	<Item class="Debris" referent="RBX13">
+		<Properties>
+			<int name="MaxItems">1000</int>
+			<string name="Name">Debris</string>
+		</Properties>
+	</Item>
+	<Item class="TimerService" referent="RBX14">
+		<Properties>
+			<string name="Name">Instance</string>
+		</Properties>
+	</Item>
+	<Item class="ScriptInformationProvider" referent="RBX15">
+		<Properties>
+			<string name="Name">Instance</string>
+		</Properties>
+	</Item>
+	<Item class="CookiesService" referent="RBX16">
+		<Properties>
+			<string name="Name">CookiesService</string>
+		</Properties>
+	</Item>
+	<Item class="TeleportService" referent="RBX17">
+		<Properties>
+			<string name="Name">Teleport Service</string>
+		</Properties>
+	</Item>
+	<Item class="Players" referent="RBX18">
+		<Properties>
+			<bool name="CharacterAutoLoads">true</bool>
+			<string name="Name">Players</string>
+		</Properties>
+	</Item>
+	<Item class="Selection" referent="RBX19">
+		<Properties>
+			<string name="Name">Selection</string>
+		</Properties>
+	</Item>
+	<Item class="Lighting" referent="RBX20">
+		<Properties>
+			<Color3 name="Ambient">4286611584</Color3>
+			<float name="Brightness">1</float>
+			<Color3 name="ColorShift_Bottom">4278190080</Color3>
+			<Color3 name="ColorShift_Top">4278190080</Color3>
+			<Color3 name="FogColor">4290822336</Color3>
+			<float name="FogEnd">100000</float>
+			<float name="FogStart">0</float>
+			<float name="GeographicLatitude">41.7332993</float>
+			<string name="Name">Lighting</string>
+			<Color3 name="ShadowColor">4289967032</Color3>
+			<string name="TimeOfDay">14:00:00</string>
+		</Properties>
+	</Item>
+	<Item class="ChangeHistoryService" referent="RBX21">
+		<Properties>
+			<string name="Name">ChangeHistoryService</string>
+		</Properties>
+	</Item>
+	<Item class="TestService" referent="RBX22">
+		<Properties>
+			<bool name="AutoRuns">true</bool>
+			<string name="Description"></string>
+			<bool name="Is30FpsThrottleEnabled">false</bool>
+			<bool name="IsPhysicsEnvironmentalThrottled">false</bool>
+			<bool name="IsSleepAllowed">false</bool>
+			<string name="Name">TestService</string>
+			<double name="Timeout">600</double>
+		</Properties>
+		<Item class="Script" referent="RBX23">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TestScript</string>
+				<ProtectedString name="Source">local numSecondsToRunFor = 11  -- number of physics seconds to run for (for stress tests, could take much longer in realtime)
+
+game.Workspace.ClockMaker.Disabled = false
+r = game:GetService(&quot;RunService&quot;)
+r:Pause()
+
+local clockModel = game.Workspace:FindFirstChild(&quot;ClockModel&quot;)
+while not clockModel do game.Workspace.ChildAdded:wait() clockModel = game.Workspace:FindFirstChild(&quot;ClockModel&quot;) end
+
+local numRings = 6
+local numPartsPerRing = 5
+
+-- because 1 + x + x^2 + x^3 + ... + x^k = [x^(k+1) - 1]/(x - 1)
+local numClockParts = (math.pow(numPartsPerRing, numRings+1) - 1) / (numPartsPerRing - 1)
+
+--[[local multiplier = numPartsPerRing
+local numClockParts = 1
+for i = numRings, 1, -1 do
+&#9;numClockParts = numClockParts + multiplier
+&#9;multiplier = multiplier * numPartsPerRing
+end]]
+
+local numClockChildren = #(clockModel:GetChildren())
+while numClockChildren &lt; numClockParts do wait() numClockChildren = #(clockModel:GetChildren()) end
+
+local cframeCheckTable = {}
+local clockParts = clockModel:GetChildren()
+for i = 1, #clockParts do
+&#9;table.insert(cframeCheckTable, clockParts[i].CFrame)
+end
+
+r:Run()
+
+start = tick()
+--r = game:service(&quot;RunService&quot;)
+t = r.Stepped:wait()
+local startT = t
+
+while (t - startT) &lt; numSecondsToRunFor do
+&#9;t = r.Stepped:wait()
+end
+
+stop = tick() - start
+
+-- just making it here without getting timed out is the win
+print(script.Parent.Name .. &quot; passed in &quot; .. stop .. &quot; seconds.&quot;)
+script.Parent:Check(true, &quot;passed in &quot; .. stop .. &quot; seconds.&quot;)
+
+local errorSq = 0
+for i = 1, #clockParts do
+&#9;local miniError = (cframeCheckTable[i].p - clockParts[i].CFrame.p)
+&#9;errorSq = errorSq + miniError:Dot(miniError)
+end
+
+print(&quot;Accuracy check (MSE): &quot;, errorSq)
+script.Parent:Check(errorSq &lt; .001, &quot;passed accuracy test.&quot;)
+</ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

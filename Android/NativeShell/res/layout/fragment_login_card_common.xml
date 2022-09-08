@@ -1,0 +1,133 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Header row start -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight=".2"
+        android:gravity="center_vertical">
+        <com.roblox.client.components.RbxTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/LoginWord"
+            android:textSize="@dimen/textSizeSignupHeader"
+            android:textColor="@color/RbxGray2"
+            android:gravity="bottom"
+            android:layout_weight="2"/>
+    </LinearLayout>
+    <!-- Header row end -->
+    <!-- This is a dummy view that absorbs the focus after we hit the
+        'Done' button on the keyboard while in the Email field. This view must
+        be immediately before the EditText we want to STOP from gaining focus. -->
+    <View
+        android:focusable="true" android:focusableInTouchMode="true"
+        android:layout_width="0px" android:layout_height="0px"/>
+    <com.roblox.client.components.RbxEditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        app:hintText="Username"
+        app:hintTextLong="Username (6-20 characters, no spaces)"
+        app:errorText="Username contains invalid characters"
+        style="@style/Theme.Roblox.EditText"
+        android:id="@+id/fragment_login_username"
+        android:layout_marginTop="3dp"
+        android:layout_weight="0.4"
+        android:contentDescription="loginUsername"/>
+    <com.roblox.client.components.RbxEditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        app:hintText="Password"
+        app:hintTextLong="Password (4 letters and 2 numbers min.)"
+        app:inputType="password"
+        style="@style/Theme.Roblox.EditText"
+        android:id="@+id/fragment_login_password"
+        android:layout_marginTop="2dp"
+        android:layout_weight="0.4"
+        android:contentDescription="loginPassword"/>
+    <!-- Bottom button row -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="3"/>
+            <com.roblox.client.components.RbxButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/CancelWord"
+                android:id="@+id/fragment_login_btn_cancel"
+                android:layout_gravity="center"
+                style="@style/Theme.Roblox.Button.Flat.White"
+                android:textSize="@dimen/textSizeBtnCancel"
+                android:layout_weight="10"
+                android:contentDescription="loginCancelButton"/>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"/>
+            <com.roblox.client.components.RbxProgressButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:defButtonText="@string/LoginWordLower"
+                android:id="@+id/fragment_login_btn_login"
+                android:layout_gravity="center"
+                style="@style/Theme.Roblox.Progress.Button.Blue"
+                app:buttonTextSize="@dimen/textSizeBtnSubmit"
+                app:progressTextSize="@dimen/textSizeBtnSubmitProgress"
+                android:layout_weight="10"
+                android:contentDescription="loginLoginButton"/>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="3"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.85"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="10dp">
+            <com.roblox.client.components.RbxTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Not a member?"
+                android:textSize="@dimen/textSizeLoginFinePrint"
+                android:gravity="center_vertical|right" />
+            <com.roblox.client.components.RbxButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:id="@+id/fragment_login_btn_signup"
+                android:textColor="@color/RbxBlue2"
+                android:background="@android:color/transparent"
+                android:textSize="@dimen/textSizeLoginFinePrint"
+                android:gravity="left"
+                android:paddingLeft="4dp" />
+            </LinearLayout>
+    </LinearLayout>
+    <!--<Space-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp" android:layout_weight="0.5" />-->
+</LinearLayout>

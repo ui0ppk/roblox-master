@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Getting Libwww from the CVS Repository</title>
+  <link rel="STYLESHEET" href="../StyleSheets/libwww.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html">
+</head>
+
+<body>
+<p><a href="../"><img src="../Icons/WWW/w3c_home" alt="W3C" border="0"></a> <a
+href="./"><img src="../Icons/WWW/Lib48x" alt="libwww" border="0"></a></p>
+
+<h1>Getting Libwww from the CVS Repository</h1>
+
+<p></p>
+
+<div class="intro">
+<a href="http://www.gnu.org/software/cvs">CVS</a> allows <strong>YOU</strong>
+to follow the development of <a href="./">libwww</a> and its <a
+href="User/Applications.html">sample applications</a> closely and to
+contribute with patches and new features.
+<ul>
+  <li><a href="#Releases">How does libwww releases and CVS work
+  together?</a></li>
+  <li><a href="#Anonymous">How to check out libwww from CVS</a></li>
+  <li><a href="#SSH">SSH Based CVS Checkout</a></li>
+  <li><a href="#update">How to get the latest edits from CVS</a></li>
+  <li><a href="#Write">CVS Write access and policy</a></li>
+  <li><a href="#Boot">How to get bootstrapped after checking out</a>
+    <ul>
+      <li><a href="#Easy">Generate Include files</a></li>
+      <li><a href="#More">Generate Makefiles</a></li>
+      <li><a href="#Compiling">Configure and compile libwww</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>The following requires that you are familiar with CVS - if not then look at
+<a href="http://www.cyclic.com/cvs/info.html">Cyclic's pages on CVS</a> or the
+<a href="http://www.loria.fr/~molli/cvs-index.html">excellent information</a>
+provided by <a href="http://www.loria.fr/~molli/">Pascal.Molli</a>.</p>
+</div>
+
+<p></p>
+<hr>
+
+<h2><a name="Releases">Libwww Releases</a></h2>
+
+<p>CVS allows you to use the very latest version of libwww - as soon as a fix
+or a new feature is commited to the CVS repository then you can update your
+working version and you will have it right away.</p>
+
+<p>The purpose of "releases" is to say that now we believe that the code is
+stable with a well defined set of features. Until now, we have been giving out
+distribution files every time we announced a release. This will not change,
+but you can <a href="http://dev.w3.org/cgi-bin/cvsweb/">use the CVS
+repository</a> in exactly the same way - often with much less overhead than
+dealing with a distribution package.</p>
+
+<p>Every release is marked in the CVS repository using tags, so that it is
+possible to retrieve a complete release using the CVS <code>-r </code>option
+(note that <code>-r</code> is "sticky"). Check out the online <a
+href="http://dev.w3.org/cgi-bin/cvsweb/">CVS log walker</a> for the current
+set of release tags. We were less strict tagging all the files in early
+releases so don't go too far back in the past if you expect to be able to
+compile the code!</p>
+
+<h2><a name="Anonymous">Anonymous CVS Checkout</a></h2>
+
+<p>Anonymous checkout is read-only access which allows you to get the latest
+edits and to provide patches to be integrated into the code base. The
+instructions should work for both <a
+href="http://www.cyclic.com/cvs/unix.html">Unix</a> and <a
+href="http://www.cyclic.com/cvs/windows.html">Windows</a>, and may even work
+for <a href="http://www.cyclic.com/cvs/mac.html">Macs</a> although I am not
+sure. A couple of notes:</p>
+<ul>
+  <li><a
+    href="http://lists.w3.org/Archives/Public/www-lib/1999AprJun/0169.html">Win95/98
+    doesn't have the notion of a home directory so you may have to set it
+    yourself</a> or define it in <code>Admin/Preferences/WinCVS</code> in <a
+    href="http://www.wincvs.org">WinCVS</a></li>
+  <li>Make sure you are running at least CVS 1.9 or later.</li>
+</ul>
+
+<p>Start by login as follows:</p>
+<pre>% <strong>cvs -d :pserver:anonymous@dev.w3.org:/sources/public login</strong></pre>
+
+<p>after which you type "<strong>anonymous</strong>" as password.</p>
+
+<h3><a name="latest">Checkout the Latest Version</a></h3>
+
+<p>To get the <em>latest</em> version from the CVS repository, run this
+command:</p>
+<pre>% <strong>cvs -d :pserver:anonymous@dev.w3.org:/sources/public -z3 checkout libwww</strong></pre>
+
+<p>After which you will get all the code coming at you, you'd better have at
+least 10MBytes available on your machine. Now you are ready to <a
+href="#Boot">getting boot strapped</a>.</p>
+
+<h3><a name="revision">Checkout a Specific Revision</a></h3>
+
+<p>If you want to get a <a href="#Releases">specific release</a> using CVS
+tags then you can do this by using the the CVS "<tt>-r</tt>" option, for
+example</p>
+<pre>% <strong>cvs -d :pserver:anonymous@dev.w3.org:/sources/public -z3 -r Release-5-2 checkout libwww</strong></pre>
+
+<p>Check the <a href="http://dev.w3.org/cgi-bin/cvsweb/">CVS log walker</a>
+for the current set of release tags. If you at some point want to revert to
+the latest untagged version then you should use the following command:</p>
+<pre>% <strong>cd libwww</strong>
+% <strong>cvs -z3 update -A</strong></pre>
+
+<h2><a name="Write">CVS Write Access</a></h2>
+
+<p>Only <a href="Collaborators.html">libwww collaborators</a> who have
+intimate knowledge of the code base and have proven their ability to code
+libwww have CVS write access. If you are <a
+href="Collaborators.html#How">considering becoming a libwww contributor</a>
+then make sure that you have read the <a href="User/Style/">libwww style
+guide</a> as well as <a href="BeforeCommitting.html">the list of things to
+do</a> before committing changes to libwww.</p>
+
+<h2><a name="SSH">SSH Based CVS Checkout</a></h2>
+
+<p><a href="Collaborators.html">Libwww collaborators</a> can get read/write
+access to the CVS repository using <a
+href="http://www.cs.hut.fi/ssh/">SSH</a>. You setup CVS to use SSH as remote
+shell by setting the <code>CVS_RSH</code> env variable. Using bash or similar,
+it looks like this: </p>
+<pre>% <strong>export CVS_RSH=/usr/local/bin/ssh</strong></pre>
+
+<p>When you are using SSH, you don't need to do a CVS login. Instead you can
+just go ahead checking out libwww like this</p>
+<pre>% <strong>cvs -d dev.w3.org:/sources/public checkout libwww</strong></pre>
+
+<p>and you will be prompted for your SSH credentials. Again, if you want a
+specific revision then use something like this</p>
+<pre>% <strong>cvs -d dev.w3.org:/sources/public -r Release-5-2 checkout libwww</strong></pre>
+
+<p>The <a href="http://www.apache.org">Apache Group</a> has some <a
+href="http://dev.apache.org/nt-cvs-ssh.txt">special notes on how to use SSH
+for Windows</a>.</p>
+
+<h2><a name="update">How to Get the Latest Updates</a></h2>
+
+<p>The big advantage of using CVS is that you easily can keep your version of
+the code base up to date with the <a href="Changes">latest edits and changes
+committed to CVS</a>. Whenever something has been committed, a notification
+will be sent to the &lt;<a
+href="http://lists.w3.org/Archives/Public/www-lib/">www-lib@w3.org</a>&gt;
+mailing list (<a href="http://www.w3.org/Mail/Request">see here how to
+subscribe</a>) as well as getting listed on the <a href="Changes">latest
+changes page</a>.</p>
+
+<p>Once you have <a href="#latest">checked out the libwww CVS tree</a> (<a
+href="#revision">not a specific revision</a>), you can get any updates
+committed to the tree by using the <a
+href="http://www.loria.fr/~molli/cvs/doc/cvs_16.html#SEC148">cvs update
+command</a> like this</p>
+<pre>% <strong>cd libwww</strong>
+% <strong>cvs -z3 update -d</strong>
+% <strong>cd ..</strong></pre>
+
+<p>It is important that you use the "<tt>-d</tt>" flag so that you get new
+directories as well as updated files. Now you <strong>MUST</strong> <a
+href="#Easy">repeat the compilation bootstrapping</a> procedure.</p>
+
+<h2><a name="Boot">Getting Bootstrapped</a></h2>
+
+<p>When compiling directly from the CVS repository there are a few steps you
+have to go through which are already done if compiling from a distribution
+package. Follow these three steps:</p>
+<ol>
+  <li><a href="#Easy">Generate include files</a></li>
+  <li><a href="#More">Unix only: generate make files</a></li>
+  <li><a href="#Compiling">Configure and compile libwww</a></li>
+</ol>
+
+<h3><a name="Easy">1. Generate Include Files (Windows &amp; Unix)</a></h3>
+
+<p>On <em>both</em> Windows and Unix you can generate the <tt>*.h</tt> files
+and the <tt>*.def</tt> files by running a <a
+href="http://www.perl.org">Perl</a> script provided by <a
+href="/People/Eric/">Eric Prud'hommeaux</a>. Never mind that it gives a few
+warnings when it runs - they are all OK. It requires that you have a recent
+version of <a href="http://www.perl.org">Perl</a> on your machine. Run the
+script like this (note the explicit use of the Perl interpreter):</p>
+<pre>% <strong>cd libwww</strong>
+% <strong>perl config/winConfigure.pl</strong></pre>
+
+<p>Windows people are now done and can jump directly to the instructions for
+<a href="../INSTALL.html#Windows">how to compile libwww for Windows</a>. On
+Unix, you <a href="#More">need some more</a>...</p>
+
+<h3><a name="More">2. Generate Makefile (Unix only)</a></h3>
+
+<p>On Unix you <strong>MUST</strong> have the following <a
+href="http://www.gnu.org/">GNU</a> tools installed in order to continue. Check
+that you have the following programs with the correct version number:</p>
+<dl>
+  <dt><a href="http://www.gnu.org/software/gcc/"><strong>gcc</strong></a> and
+  <a href="http://www.gnu.org/software/make"><strong>GNU
+  make</strong></a></dt>
+    <dd>Automake relies on features provided by gcc and GNU make that don't
+      come with other compilers and makes. When compiling directly from CVS
+      you MUST use these gcc and gmake.</dd>
+  <dt><strong><a href="http://sourceware.cygnus.com/automake/">GNU
+  automake</a> (version 1.4 or later)</strong></dt>
+    <dd>Automake is a tool for automatically generating
+      <code>Makefile.in</code>'s which are used by autoconf</dd>
+  <dt><strong><a href="http://www.gnu.org/software/autoconf/">GNU autoconf</a>
+  (version 2.13 or later, but avoid <a
+  href="http://geocrawler.com/archives/3/323/1999/7/0/2496195">version
+  2.14</a>) </strong></dt>
+    <dd>A tool for automatically generating <code>Makefile</code>'s which are
+      used by make.</dd>
+  <dt><strong><a href="http://www.gnu.org/software/libtool/libtool.html">GNU
+  libtool</a> (version 1.3.4 or later)</strong></dt>
+    <dd>A tool for automatically handling generation of shared libraries. If
+      you upgrade libtool to a new version then you <strong>MUST</strong>
+      rerun the configure script as some files used by libtool have to be
+      regenerated.</dd>
+</dl>
+
+<p>Now <a name="Using11">generate</a> the make files as follows - don't worry
+about the <a
+href="http://www.gnu.org/manual/autoconf/html_node/autoconf_45.html">warnings
+produced by autoconf</a>:</p>
+<pre>% <strong>aclocal; autoheader; automake; autoconf</strong></pre>
+
+<p>Now you <strong>MUST</strong> run the configure script as described in the
+next section on <a href="#Compiling">installation instructions</a>.</p>
+
+<p>If when you run the above commands, you get one or more error messages
+including one that says:</p>
+<pre>   macro "AM_PROG_LIBTOOL" not found in library</pre>
+<p>it may mean that libtool and automake are not installed under the same
+prefix. You will then have to run aclocal as:</p>
+<pre>   aclocal -I /prefix/of/libtool/share/aclocal</pre>
+
+<p>If for some reason <em>you have trouble</em> running the configure script
+then try and run this command instead</p>
+<pre>% <strong>make distclean; aclocal; autoheader; automake; </strong><strong>autoconf</strong></pre>
+
+<h3><a name="Compiling">3. Configuring and Compiling libwww</a></h3>
+
+<p>Remember to <a
+href="mailto:www-lib-request@w3.org?subject=subscribe">subscribe to the
+&lt;www-lib@w3.org&gt;</a> mailing list (<a
+href="http://www.findmail.com/list/www-lib/">findmail archives</a>) for
+information of new features as well as discussions of problems and ideas.</p>
+
+<p>Libwww uses <a href="http://www.gnu.org/software/libtool/libtool.html">GNU
+Libtool</a> in order to build shared libraries on a variety of systems. While
+this is very nice for making usable binaries, it can be a pain when trying to
+debug a program. For that reason, compilation of shared libraries can be
+turned off by specifying the <code>--disable-shared</code> option to
+<code>configure</code>.</p>
+
+<p>Congratulations - you are now ready to <a href="../INSTALL.html">configure
+and compile libwww</a>!</p>
+
+<p></p>
+<hr>
+<address>
+  <a href="/People/Jose/">José Kahan</a>,<br>
+  @(#) $Id$ 
+</address>
+</body>
+</html>

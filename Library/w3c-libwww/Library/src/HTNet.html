@@ -1,0 +1,684 @@
+<HTML>
+<HEAD>
+  <TITLE>W3C Sample Code Library libwww HTNet Class</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  The Net Class
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The Net class manages information related to a "thread" in libwww. As libwww
+threads are not really threads but a notion of using interleaved, non-blocking
+I/O for accessing data objects from the network (or local file system), they
+can be used on any platform with or without support for native threads. In
+the case where you have an application using real threads the Net class is
+simply a object maintaining links to all other objects involved in serving
+the request. If you are using the libwww pseudo threads then the Net object
+contains enough information to stop and start a request based on which BSD
+sockets are ready. In practise this is of course transparent to the application
+- this is just to explain the difference.
+<P>
+When a <A HREF="HTReq.html">Request object</A> is passed to the Library ,
+the core creates a new HTNet object per <A HREF="HTChannl.html">channel</A>
+used by the request. In many cases a request only uses a single
+<A HREF="HTChannl.html">channel object </A>but, for example, FTP requests use
+at least two - one for the control connection and one for the data connection.
+<P>
+You can find more information about the libwww pseudo thread model in the
+<A HREF="../User/Architecture/"> Multithread Specifications</A>.
+<P>
+This module is implemented by <A HREF="HTNet.c">HTNet.c</A>, and it is a
+part of the <A HREF="http://www.w3.org/Library/">W3C Sample Code Library</A>.
+<PRE>
+#ifndef HTNET_H
+#define HTNET_H
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<P>
+The <CODE>HTNet</CODE> object is the core of the request queue management.
+This object contains information about the socket descriptor, the input read
+buffer etc. required to identify and service a request.
+<PRE>
+typedef struct _HTNet HTNet;
+
+#include "HTEvent.h"
+#include "HTReq.h"
+#include "HTResponse.h"
+#include "HTTrans.h"
+#include "HTHost.h"
+#include "HTProt.h"
+#include "HTChannl.h"
+#include "HTDNS.h"
+</PRE>
+<H2>
+  <A NAME="callout">Generic BEFORE and AFTER Filter Management</A>
+</H2>
+<P>
+Filter functions can be registered to be called <EM>before</EM> and
+<EM>after</EM> a request has either been started or has terminated. The
+conditions for <I>BEFORE</I> and <I>AFTER</I> filters are not the same, and so
+we maintain them independently. Filters can be registered globally or locally.
+The global filters are registered directly by the Net Object (this module)
+and the local filters are registered by the
+<A HREF="HTReq.html">HTRequest</A> Object. However, both &nbsp;local and
+global filters use the same regisration mechanism which we provide here.
+<H3>
+  Filter Ordering
+</H3>
+<P>
+Filters can be registered by anyone and as they are an often used mechanism
+for introducing extensions in libwww, they are videly used to handle
+authentication, redirection, etc. Many filters can be registered at once
+and not all of the filters may know about the other filters. Therefore, it
+is difficult to specify an absolute ordering by which the filters should
+be called. Instead you can decide a relative order by which the filters should
+be called. The order works pretty much like the Unix priority mechanism running
+from <CODE>HT_FILTER_FIRST</CODE> to <CODE>HT_FILTER_LAST</CODE> having
+<CODE>HT_FILTER_MIDDLE</CODE> being the "normal" case.
+<PRE>
+typedef enum _HTFilterOrder {
+    HT_FILTER_FIRST	= 0x0,		/*     0 */
+    HT_FILTER_EARLY	= 0x3FFF,	/* 16383 */
+    HT_FILTER_MIDDLE	= 0x7FFF,	/* 32767 */
+    HT_FILTER_LATE	= 0xBFFE,	/* 49150 */
+    HT_FILTER_LAST	= 0xFFFF	/* 65535 */
+} HTFilterOrder;
+</PRE>
+<P>
+In case multiple filters are registered with the same order then they are
+called in the <I>inverse</I> order they were registered.&nbsp;
+<H3>
+  Filter URL Templates
+</H3>
+<P>
+Both <I>BEFORE</I> and <I>AFTER</I> filters can be registered with a <I>URL
+template</I> in which case they are only called when the <I>Request URL</I>
+matches the template. A template is simply a string which is matched against
+the <I>Request URL</I>. The string can be terminated by a&nbsp;single
+"<CODE>*</CODE>" in which case all strings matching the template up til the
+"*" is considered a match. A template can be as short as the access scheme
+which enmables a filter for a specific access method only, for example
+"<CODE>http//&lt;star&gt;</CODE>".
+<H3>
+  BEFORE Filters
+</H3>
+<P>
+A <I>BEFORE</I> filter is called whenever we issue a request and they have
+been selected by the execution procedure. <I>BEFORE</I> filters are registered
+with a <I>context</I> and a <I>filter order</I> by which they are to be called
+and a <I>URL template</I> which may be NULL. In this case, the filter is
+called on every request. The mode can be used by anybody to pass an extra
+parameter to a filter. This is not really OO thinking - but hey - this is
+C ;-)
+<PRE>typedef int HTNetBefore (HTRequest * request, void * param, int mode);
+</PRE>
+<P>
+You can add a <I>BEFORE</I> filter in the list provided by the caller. Several
+filters can be registered in which case they are called with the filter ordering
+in mind.
+<PRE>
+extern BOOL HTNetCall_addBefore (HTList * list, HTNetBefore * before,
+				 const char * tmplate, void * param,
+                                 HTFilterOrder order);
+</PRE>
+<P>
+You can also unregister all instances of a BEFORE filter from a list using
+the following function
+<PRE>
+extern BOOL HTNetCall_deleteBefore (HTList * list, HTNetBefore * before);
+</PRE>
+<P>
+You get rid of all BEFORE filters using this function
+<PRE>
+extern BOOL HTNetCall_deleteBeforeAll (HTList * list);
+</PRE>
+<P>
+The BEFORE filters are expected and called if appropriate every time we issue
+a new request. Libwww calls the BEFORE filters in the order specified at
+registration time. If a filter returns other than HT_OK then stop and return
+immediately. Otherwise return what the last filter returns.
+<PRE>
+extern int HTNetCall_executeBefore (HTList * list, HTRequest * request);
+</PRE>
+<H3>
+  AFTER Filters
+</H3>
+<P>
+An <I>AFTER</I> filter is called whenever we have terminated a request. That
+is, on the way out from the <A HREF="HTProt.html">protocol module</A> and
+back to the application. <I>AFTER</I> filters are registered with a
+<I>context</I>, a <I>status</I>, a <I>filter order</I> by which they are
+to be called and a <I>URL template</I> which may be NULL. The status of the
+request may determine which filter to call. The set of possible values are
+given below. An <I>AFTER</I> filter can be registered to handle one or more
+of the codes.
+<DL>
+  <DT>
+    HT_ERROR
+  <DD>
+    An error occured
+  <DT>
+    HT_LOADED
+  <DD>
+    The document was loaded
+  <DT>
+    HT_NO_DATA
+  <DD>
+    OK, but no data
+  <DT>
+    HT_NO_ACCESS
+  <DD>
+    The request could not be succeeded due to lack of credentials
+  <DT>
+    HT_NO_PROXY_ACCESS
+  <DD>
+    The request could not be succeeded due to lack of credentials for accessing
+    an intermediate proxy
+  <DT>
+    HT_RETRY
+  <DD>
+    Retry request after at a later time
+  <DT>
+    HT_PERM_REDIRECT
+  <DD>
+    The request has been permanently redirected and we send back the new URL
+  <DT>
+    HT_TEMP_REDIRECT
+  <DD>
+    The request has been temporarily redirected and we send back the new URL
+  <DT>
+    HT_ALL
+  <DD>
+    All of above
+</DL>
+<P>
+A Protocol module can also, in certain cases, return a <CODE>HT_IGNORE</CODE>
+in which case no filters are called
+<PRE>
+typedef int HTNetAfter (HTRequest * request, HTResponse * response,
+                        void * param, int status);
+</PRE>
+<P>
+You can register a AFTER filter in the list provided by the caller. Several
+filters can be registered in which case they are called with the filter ordering
+in mind.
+<PRE>
+extern BOOL HTNetCall_addAfter (HTList * list, HTNetAfter * after,
+				const char * tmplate, void * param,
+				int status, HTFilterOrder order);
+</PRE>
+<P>
+You can either unregister all filters registered for a given status using
+this function or the filter for all status codes.
+<PRE>
+extern BOOL HTNetCall_deleteAfter (HTList * list, HTNetAfter * after);
+extern BOOL HTNetCall_deleteAfterStatus (HTList * list, int status);
+</PRE>
+<P>
+You can also delete all AFTER filters in list
+<PRE>
+extern BOOL HTNetCall_deleteAfterAll (HTList * list);
+</PRE>
+<P>
+This function calls all the AFTER filters in the order specified at registration
+time and if it has the right status code and it's not <CODE>HT_IGNORE</CODE>.
+We also check for any template and whether it matches or not. If a filter
+returns other than HT_OK then stop and return immediately. Otherwise return
+what the last filter returns.
+<PRE>
+extern int HTNetCall_executeAfter (HTList * list, HTRequest * request,
+				   int status);
+</PRE>
+<H2>
+  <A NAME="Global">Global BEFORE and AFTER Filter Management</A>
+</H2>
+<P>
+Global filters are inspected on every request (they do not have to be called
+- only if the conditions match). You can also register filters locally in
+the Request object.
+<H4>
+  Global BEFORE Filters
+</H4>
+<P>
+These are the methods to handle global <I>BEFORE</I> Filters.
+<PRE>
+extern BOOL HTNet_setBefore (HTList * list);
+
+extern HTList * HTNet_before (void);
+
+extern BOOL HTNet_addBefore (HTNetBefore * before, const char * tmplate,
+			     void * param, HTFilterOrder order);
+
+extern BOOL HTNet_deleteBefore (HTNetBefore * before);
+</PRE>
+<P>
+You can call both the local and the global BEFORE filters (if any)
+<PRE>
+extern int HTNet_executeBeforeAll (HTRequest * request);
+</PRE>
+<H4>
+  Global AFTER Filters
+</H4>
+<P>
+These are the methods to handle global <I>AFTER</I> Filters.
+<PRE>
+extern BOOL HTNet_setAfter (HTList * list);
+
+extern HTList * HTNet_after (void);
+
+extern BOOL HTNet_addAfter (HTNetAfter * after, const char * tmplate,
+			    void * param, int status,
+                            HTFilterOrder order);
+
+extern BOOL HTNet_deleteAfter (HTNetAfter * after);
+
+extern BOOL HTNet_deleteAfterStatus (int status);
+</PRE>
+<P>
+You can call both the local and the global AFTER filters (if any)
+<PRE>
+extern int HTNet_executeAfterAll (HTRequest * request, int status);
+</PRE>
+<H2>
+  <A NAME="Resources">Socket Resource Management</A>
+</H2>
+<P>
+The request queue ensures that no more than a fixed number of TCP connections
+are open at the same time. If more requests are handed to the Library, they
+are put into the pending queue and initiated when sockets become free.
+<H3>
+  Number of Simultanous open TCP connections
+</H3>
+<P>
+Set the max number of simultanous sockets. The default value is HT_MAX_SOCKETS
+which is 6. The number of persistent connections depend on this value as
+a deadlock can occur if all available sockets a persistent (see the
+<A HREF="HTDNS.html">DNS Manager</A> for more information on setting the
+number of persistent connections). The number of persistent connections can
+never be more than the max number of sockets-2, so letting newmax=2 prevents
+persistent sockets.
+<PRE>
+extern BOOL HTNet_setMaxSocket (int newmax);
+extern int  HTNet_maxSocket (void);
+</PRE>
+<H3>
+  Socket Counters
+</H3>
+<PRE>
+extern void HTNet_increaseSocket (void);
+extern void HTNet_decreaseSocket (void);
+
+extern int HTNet_availableSockets (void);
+</PRE>
+<H3>
+  Persistent Socket Counters
+</H3>
+<PRE>
+extern void HTNet_increasePersistentSocket (void);
+extern void HTNet_decreasePersistentSocket (void);
+
+extern int HTNet_availablePersistentSockets (void);
+</PRE>
+<H3>
+  Any Ongoing Connections?
+</H3>
+<P>
+Returns whether there are active requests. Idle persistent sockets do not
+count as active.
+<PRE>
+extern BOOL HTNet_isIdle (void);
+</PRE>
+<H3>
+  List Active Queue
+</H3>
+<P>
+Returns the list of active requests that are currently having an open connection.
+Returns list of HTNet objects or NULL if error.
+<PRE>
+extern HTList *HTNet_activeQueue (void);
+extern BOOL HTNet_idle (void);
+</PRE>
+<H3>
+  Are we Active?
+</H3>
+<P>
+We have some small functions that tell whether there are registered requests
+in the Net manager. There are tree queues: The <EM>active</EM>, the
+<EM>pending</EM>, and the <EM>persistent</EM>. The <EM>active</EM> queue
+is the set of requests that are actively sending or receiving data. The
+<EM>pending</EM> is the requests that we have registered but which are waiting
+for a free socket. The <EM>Persistent</EM> queue are requets that are waiting
+to use the same socket in order to save network resoures (if the server
+understands persistent connections).
+<H4>
+  Active Requests?
+</H4>
+<P>
+Returns whether there are requests in the <EM>active</EM> queue or not
+<PRE>
+extern BOOL HTNet_idle (void);
+</PRE>
+<H4>
+  Registered Requests?
+</H4>
+<P>
+Returns whether there are requests registered in any of the lists or not
+<PRE>
+extern BOOL HTNet_isEmpty (void);
+extern int HTNet_count (void);
+</PRE>
+<H3>
+  List Pending Queue
+</H3>
+<P>
+Returns the list of pending requests that are waiting to become active. Returns
+list of HTNet objects or NULL if error
+<PRE>
+extern HTList *HTNet_pendingQueue (void);
+</PRE>
+<H2>
+  Creation and Deletion Methods
+</H2>
+<P>
+The Net object is intended to live as long as the request is still active.
+In that regard it is very similar to the <A HREF="HTReq.html">Request Object
+</A>. However, the main difference is that a Net object represents a "thread"
+in the Library and a request may have multiple "threads" - an example is
+a FTP request which has a thread to handle the control connection and one
+to handle the data connections.
+<H3>
+  Create a new Object
+</H3>
+<P>
+If we have more than HTMaxActive connections already then put this into the
+pending queue, else start the request by calling the call back function
+registered with this access method. Returns YES if OK, else NO
+<PRE>
+extern BOOL HTNet_newClient (HTRequest * request);
+</PRE>
+<P>
+You can create a new HTNet object as a new request to be handled. If we have
+more than HTMaxActive connections already then return NO. Returns YES if
+OK, else NO
+<PRE>
+extern BOOL HTNet_newServer (HTRequest * request);
+</PRE>
+<P>
+And you can create a plain new HTNet object using the following method:
+<PRE>
+extern HTNet * HTNet_new (HTHost * host);
+</PRE>
+<H3>
+  Duplicate an existing Object
+</H3>
+<P>
+Creates a new HTNet object as a duplicate of the same request. Returns YES
+if OK, else NO.
+<PRE>
+extern HTNet * HTNet_dup (HTNet * src);
+extern BOOL HTNet_deleteDup (HTNet * dup);
+</PRE>
+<H3>
+  Launch a Net Object
+</H3>
+<P>
+Start a Net obejct by calling the protocol module.
+<PRE>extern BOOL HTNet_start (HTNet * net);
+</PRE>
+<H3>
+  Call a Net Event Handler
+</H3>
+<P>
+This functions lets the caller play event manager as it can calls any event
+handler with the event type and context passed to the function
+<PRE>
+extern BOOL HTNet_execute (HTNet * net, HTEventType type);
+
+extern HTEvent * HTNet_event (HTNet * net);
+extern BOOL HTNet_setEventParam (HTNet * net, void * eventParam);
+extern void * HTNet_eventParam (HTNet * net);
+extern BOOL HTNet_setEventCallback(HTNet * net, HTEventCallback * cbf);
+extern HTEventCallback * HTNet_eventCallback(HTNet * net);
+</PRE>
+<H3>
+  Delete an Object
+</H3>
+<P>
+Deletes the HTNet object from the list of active requests and calls any
+registered call back functions IF not the status is HT_IGNORE. This is used
+if we have internal requests that the app doesn't know about. We also see
+if we have pending requests that can be started up now when we have a socket
+free. The filters are called in the reverse order of which they were registered
+(last one first);
+<PRE>
+extern BOOL HTNet_delete (HTNet * me, int status);
+</PRE>
+<H3>
+  Delete ALL HTNet Objects
+</H3>
+<P>
+Deletes all HTNet object that might either be active or pending We DO NOT
+call the call back functions - A crude way of saying goodbye!
+<PRE>
+extern BOOL HTNet_deleteAll (void);
+</PRE>
+<H2>
+  Net Class Methods
+</H2>
+<H3>
+  Make an Object Wait
+</H3>
+<P>
+Let a net object wait for a persistent socket. It will be launched from the
+HTNet_delete() function when the socket gets free.
+<PRE>
+extern BOOL HTNet_wait (HTNet *net);
+</PRE>
+<H3>
+  Priority Management
+</H3>
+<P>
+Each HTNet object is created with a priority which it inherits from the
+<A HREF="HTReq.html">Request manager</A>. However, in some stuations it is
+useful to be to change the current priority after the request has been started.
+These two functions allow you to do this. The effect will show up the first
+time (which might be imidiately) the socket blocks and control returns to
+the event loop. Also have a look at how you can do this before the request
+is issued in the <A HREF="HTReq.html">request manager</A>.
+<PRE>
+extern HTPriority HTNet_priority (HTNet * net);
+extern BOOL HTNet_setPriority (HTNet * net, HTPriority priority);
+</PRE>
+<H3>
+  Persistent Connections
+</H3>
+<P>
+You can set a Net object to handle persistent connections for example using
+HTTP, NNTP, or FTP. You can control whether a Net object supports persistent
+connections or not using this function.
+<PRE>
+extern BOOL HTNet_persistent (HTNet * net);
+</PRE>
+<P>
+You can set or disable a Net object supporting persistent connections using
+this function:
+<PRE>
+extern BOOL HTNet_setPersistent (HTNet *           net,
+                                 BOOL              persistent,
+                                 HTTransportMode   mode);
+</PRE>
+<H3>
+  Kill one or more Requests
+</H3>
+<H4>
+  Kill this request and all requests in the Pipeline
+</H4>
+<P>
+When pipelining, it is not possible to kill a single request as we then loose
+track of where we are in the pipe. It is therefore necessary to kill the
+whole pipeline.
+<PRE>
+extern BOOL HTNet_killPipe (HTNet * net);
+</PRE>
+<H4>
+  Kill a single Request
+</H4>
+<P>
+This is not often used anymore, consider using the pipeline version above.
+Kill the request by calling the call back function with a request for closing
+the connection. Does not remove the object. This is done by HTNet_delete()
+function which is called by the load routine. Returns OK if success, NO on
+error.
+<PRE>
+extern BOOL HTNet_kill (HTNet * me);
+</PRE>
+<H4>
+  Kill ALL Requests
+</H4>
+<P>
+Kills <B>all</B> registered (active as well as pending) requests by calling
+the call back function with a request for closing the connection. We do not
+remove the HTNet object as it is done by HTNet_delete(). Returns OK if success,
+NO on error
+<PRE>
+extern BOOL HTNet_killAll (void);
+</PRE>
+<H3>
+  Create Input and Output Streams
+</H3>
+<P>
+You create the input stream and bind it to the channel using the following
+methods. Please read the description in the
+<A HREF="HTIOStream.html">HTIOStream module</A> on the parameters
+<EM>target</EM>, <EM>param</EM>, and <EM>mode</EM>. Both methods return YES
+if OK, else NO.
+<PRE>
+#if 0
+extern HTInputStream * HTNet_getInput (HTNet * net, HTStream * target,
+				       void * param, int mode);
+#endif
+extern HTOutputStream * HTNet_getOutput (HTNet * me, void * param, int mode);
+</PRE>
+<H3>
+  Net Context Descriptor
+</H3>
+<P>
+Just like the <A HREF="../../../../WWW/Library/src/HTReq.html#context">request
+object</A>, a net object can be assigned a context which keeps track of context
+dependent information. The Library does not use this information nor does
+it depend on it but it allows the application to customize a net object to
+specific uses.
+<PRE>extern BOOL HTNet_setContext (HTNet * net, void * context);
+extern void * HTNet_context (HTNet * net);
+</PRE>
+<H3>
+  Socket Descriptor
+</H3>
+<PRE>
+extern BOOL HTNet_setSocket (HTNet * net, SOCKET sockfd);
+extern SOCKET HTNet_socket (HTNet * net);
+</PRE>
+<H3>
+  Preemptive or Non-preemptive Access
+</H3>
+<P>
+A access scheme is defined with a default for using either preemptive (blocking
+I/O) or non-premitve (non-blocking I/O). This is basically a result of the
+implementation of the protocol module itself. However, if non-blocking I/O
+is the default then some times it is nice to be able to set the mode to blocking
+instead. For example when loading the first document (the home page) then
+blocking can be used instead of non-blocking.
+<PRE>
+extern BOOL HTNet_preemptive (HTNet * net);
+</PRE>
+<H3>
+  The Request Object
+</H3>
+<P>
+The <A HREF="HTReq.html">Request object</A> is normally set up automatically
+but can be changed at a later time.
+<PRE>
+extern BOOL HTNet_setRequest (HTNet * net, HTRequest * request);
+extern HTRequest * HTNet_request (HTNet * net);
+</PRE>
+<H3>
+  The Protocol Object
+</H3>
+<PRE>
+extern BOOL HTNet_setProtocol (HTNet * net, HTProtocol * protocol);
+extern HTProtocol * HTNet_protocol (HTNet * net);
+</PRE>
+<H3>
+  The Transport Object
+</H3>
+<P>
+The <A HREF="HTTrans.html">transport object</A> is normally set up automatically
+but can be changed at a later time.
+<PRE>
+extern BOOL HTNet_setTransport (HTNet * net, HTTransport * tp);
+extern HTTransport * HTNet_transport (HTNet * net);
+</PRE>
+<H3>
+  The Channel Object
+</H3>
+<PRE>
+extern BOOL HTNet_setChannel (HTNet * net, HTChannel * channel);
+extern HTChannel * HTNet_channel (HTNet * net);
+</PRE>
+<H3>
+  The Host Object
+</H3>
+<PRE>
+extern BOOL HTNet_setHost (HTNet * net, HTHost * host);
+extern HTHost * HTNet_host (HTNet * net);
+</PRE>
+<H3>
+  The DNS Object
+</H3>
+<P>
+The DNS object keeps track of the DNS entries that we have already checked
+out.
+<PRE>
+extern BOOL HTNet_setDns (HTNet * net, HTdns * dns);
+extern HTdns * HTNet_dns (HTNet * net);
+</PRE>
+<H3>
+  Target for Input Read Stream
+</H3>
+<PRE>
+extern HTStream * HTNet_readStream(HTNet * net);
+extern BOOL HTNet_setReadStream (HTNet * net, HTStream * stream);
+</PRE>
+<H3>
+  Should we count Raw bytes?
+</H3>
+<P>
+This functions can be used to determine whether bytes count should be managed
+at the low level read stream or at a higher level. If the data transfer equals
+the lifetime of a single document like for example in FTP or HTTP/1.0 then
+this may be a reasonable thing to do.
+<PRE>extern BOOL HTNet_setRawBytesCount (HTNet * net, BOOL mode);
+extern BOOL HTNet_rawBytesCount (HTNet * net);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTNET_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

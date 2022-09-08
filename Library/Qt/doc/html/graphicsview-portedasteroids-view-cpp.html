@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: view.cpp Example File (graphicsview/portedasteroids/view.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">view.cpp Example File</h1>
+<span class="small-subtitle">graphicsview/portedasteroids/view.cpp</span>
+<!-- $$$graphicsview/portedasteroids/view.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="comment">/*
+  * KAsteroids - Copyright (c) Martin R. Jones 1997
+  *
+  * Part of the KDE project
+  */</span>
+
+ <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+ <span class="preprocessor">#include &lt;math.h&gt;</span>
+ <span class="preprocessor">#include &lt;qapplication.h&gt;</span>
+ <span class="preprocessor">#include &lt;qnamespace.h&gt;</span>
+ <span class="preprocessor">#include &lt;QAction&gt;</span>
+ <span class="preprocessor">#include &lt;QMessageBox&gt;</span>
+ <span class="preprocessor">#include &lt;QScrollArea&gt;</span>
+ <span class="preprocessor">#include &lt;QDir&gt;</span>
+ <span class="preprocessor">#include &lt;QGraphicsItem&gt;</span>
+ <span class="preprocessor">#include &lt;QTimerEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QPixmap&gt;</span>
+ <span class="preprocessor">#include &lt;QResizeEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QShowEvent&gt;</span>
+ <span class="preprocessor">#include &lt;QtDebug&gt;</span>
+
+ <span class="preprocessor">#include &quot;view.h&quot;</span>
+
+ <span class="preprocessor">#define IMG_BACKGROUND &quot;:/trolltech/examples/graphicsview/portedasteroids/bg.png&quot;</span>
+
+ <span class="preprocessor">#define REFRESH_DELAY           33</span>
+ <span class="preprocessor">#define SHIP_SPEED              0.3</span>
+ <span class="preprocessor">#define MISSILE_SPEED           10.0</span>
+ <span class="preprocessor">#define SHIP_STEPS              64</span>
+ <span class="preprocessor">#define ROTATE_RATE             2</span>
+ <span class="preprocessor">#define SHIELD_ON_COST          1</span>
+ <span class="preprocessor">#define SHIELD_HIT_COST         30</span>
+ <span class="preprocessor">#define BRAKE_ON_COST           4</span>
+
+ <span class="preprocessor">#define MAX_ROCK_SPEED          2.5</span>
+ <span class="preprocessor">#define MAX_POWERUP_SPEED       1.5</span>
+ <span class="preprocessor">#define MAX_SHIP_SPEED          12</span>
+ <span class="preprocessor">#define MAX_BRAKES              5</span>
+ <span class="preprocessor">#define MAX_SHIELDS             5</span>
+ <span class="preprocessor">#define MAX_FIREPOWER           5</span>
+
+ <span class="preprocessor">#define TEXT_SPEED              4</span>
+
+ <span class="preprocessor">#define PI_X_2                  6.283185307</span>
+ <span class="preprocessor">#ifndef M_PI</span>
+ <span class="preprocessor">#define M_PI 3.141592654</span>
+ <span class="preprocessor">#endif</span>
+
+ <span class="keyword">static</span> <span class="keyword">struct</span>
+ {
+     <span class="type">int</span> id;
+     <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>path;
+     <span class="type">int</span> frames;
+ }
+ kas_animations <span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span>
+ {
+     { ID_ROCK_LARGE<span class="operator">,</span>       <span class="string">&quot;rock1/rock1%1.png&quot;</span><span class="operator">,</span>       <span class="number">32</span> }<span class="operator">,</span>
+     { ID_ROCK_MEDIUM<span class="operator">,</span>      <span class="string">&quot;rock2/rock2%1.png&quot;</span><span class="operator">,</span>       <span class="number">32</span> }<span class="operator">,</span>
+     { ID_ROCK_SMALL<span class="operator">,</span>       <span class="string">&quot;rock3/rock3%1.png&quot;</span><span class="operator">,</span>       <span class="number">32</span> }<span class="operator">,</span>
+     { ID_SHIP<span class="operator">,</span>             <span class="string">&quot;ship/ship%1.png&quot;</span><span class="operator">,</span>         <span class="number">32</span> }<span class="operator">,</span>
+     { ID_MISSILE<span class="operator">,</span>          <span class="string">&quot;missile/missile.png&quot;</span><span class="operator">,</span>      <span class="number">1</span> }<span class="operator">,</span>
+     { ID_BIT<span class="operator">,</span>              <span class="string">&quot;bits/bits%1.png&quot;</span><span class="operator">,</span>         <span class="number">16</span> }<span class="operator">,</span>
+     { ID_EXHAUST<span class="operator">,</span>          <span class="string">&quot;exhaust/exhaust.png&quot;</span><span class="operator">,</span>      <span class="number">1</span> }<span class="operator">,</span>
+     { ID_ENERGY_POWERUP<span class="operator">,</span>   <span class="string">&quot;powerups/energy.png&quot;</span><span class="operator">,</span>      <span class="number">1</span> }<span class="operator">,</span>
+ <span class="comment">//    { ID_TELEPORT_POWERUP, &quot;powerups/teleport%1.png&quot;, 12 },</span>
+     { ID_BRAKE_POWERUP<span class="operator">,</span>    <span class="string">&quot;powerups/brake.png&quot;</span><span class="operator">,</span>       <span class="number">1</span> }<span class="operator">,</span>
+     { ID_SHIELD_POWERUP<span class="operator">,</span>   <span class="string">&quot;powerups/shield.png&quot;</span><span class="operator">,</span>      <span class="number">1</span> }<span class="operator">,</span>
+     { ID_SHOOT_POWERUP<span class="operator">,</span>    <span class="string">&quot;powerups/shoot.png&quot;</span><span class="operator">,</span>       <span class="number">1</span> }<span class="operator">,</span>
+     { ID_SHIELD<span class="operator">,</span>           <span class="string">&quot;shield/shield%1.png&quot;</span><span class="operator">,</span>      <span class="number">6</span> }<span class="operator">,</span>
+     { <span class="number">0</span><span class="operator">,</span>                   <span class="number">0</span><span class="operator">,</span>                          <span class="number">0</span> }
+ };
+
+ KAsteroidsView<span class="operator">::</span>KAsteroidsView( <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>( parent)<span class="operator">,</span>
+       field(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">640</span><span class="operator">,</span> <span class="number">440</span>)<span class="operator">,</span>
+       view(<span class="operator">&amp;</span>field<span class="operator">,</span> <span class="keyword">this</span>)
+ {
+     view<span class="operator">.</span>setVerticalScrollBarPolicy( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ScrollBarAlwaysOff );
+     view<span class="operator">.</span>setHorizontalScrollBarPolicy( <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ScrollBarAlwaysOff );
+     view<span class="operator">.</span>setCacheMode(<span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span><span class="operator">::</span>CacheBackground);
+     view<span class="operator">.</span>setViewportUpdateMode(<span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span><span class="operator">::</span>BoundingRectViewportUpdate);
+     view<span class="operator">.</span>setOptimizationFlags(<span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span><span class="operator">::</span>DontClipPainter
+                               <span class="operator">|</span> <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span><span class="operator">::</span>DontSavePainterState
+                               <span class="operator">|</span> <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span><span class="operator">::</span>DontAdjustForAntialiasing);
+     view<span class="operator">.</span>viewport()<span class="operator">-</span><span class="operator">&gt;</span>setFocusProxy( <span class="keyword">this</span> );
+
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pm( IMG_BACKGROUND );
+     field<span class="operator">.</span>setBackgroundBrush( pm );
+
+     textSprite <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgraphicstextitem.html">QGraphicsTextItem</a></span>( <span class="number">0</span><span class="operator">,</span> <span class="operator">&amp;</span>field );
+     <span class="type"><a href="qfont.html">QFont</a></span> font( <span class="string">&quot;helvetica&quot;</span><span class="operator">,</span> <span class="number">18</span> );
+     textSprite<span class="operator">-</span><span class="operator">&gt;</span>setFont( font );
+     textSprite<span class="operator">-</span><span class="operator">&gt;</span>setCacheMode(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>DeviceCoordinateCache);
+
+     shield <span class="operator">=</span> <span class="number">0</span>;
+     shieldOn <span class="operator">=</span> FALSE;
+     refreshRate <span class="operator">=</span> REFRESH_DELAY;
+
+     initialized <span class="operator">=</span> readSprites();
+
+     shieldTimer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>( <span class="keyword">this</span> );
+     connect( shieldTimer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(hideShield()) );
+     mTimerId <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+
+     shipPower <span class="operator">=</span> MAX_POWER_LEVEL;
+     vitalsChanged <span class="operator">=</span> TRUE;
+     can_destroy_powerups <span class="operator">=</span> FALSE;
+
+     mPaused <span class="operator">=</span> TRUE;
+
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized ) {
+         textSprite<span class="operator">-</span><span class="operator">&gt;</span>setHtml( tr(<span class="string">&quot;&lt;font color=red&gt;Error: Cannot read sprite images&lt;/font&gt;&quot;</span>) );
+         textSprite<span class="operator">-</span><span class="operator">&gt;</span>setPos( (field<span class="operator">.</span>width()<span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span>
+                             (field<span class="operator">.</span>height()<span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height()) <span class="operator">/</span> <span class="number">2</span> );
+     }
+ }
+
+ <span class="comment">// - - -</span>
+
+ KAsteroidsView<span class="operator">::</span><span class="operator">~</span>KAsteroidsView()
+ {
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(rocks);     rocks<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(missiles);  missiles<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(bits);      bits<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(powerups);  powerups<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(exhaust);   exhaust<span class="operator">.</span>clear();
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span><a href="qtextstream.html#reset">reset</a>()
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(rocks);      rocks<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(missiles);   missiles<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(bits);       bits<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(powerups);   powerups<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(exhaust);    exhaust<span class="operator">.</span>clear();
+
+     shotsFired <span class="operator">=</span> <span class="number">0</span>;
+     shotsHit <span class="operator">=</span> <span class="number">0</span>;
+
+     rockSpeed <span class="operator">=</span> <span class="number">1.0</span>;
+     powerupSpeed <span class="operator">=</span> <span class="number">1.0</span>;
+     mFrameNum <span class="operator">=</span> <span class="number">0</span>;
+     mPaused <span class="operator">=</span> FALSE;
+
+     ship<span class="operator">-</span><span class="operator">&gt;</span>hide();
+     shield<span class="operator">-</span><span class="operator">&gt;</span>hide();
+ <span class="comment">/*
+     if ( mTimerId &gt;= 0 ) {
+         killTimer( mTimerId );
+         mTimerId = -1;
+     }
+ */</span>
+ }
+
+ <span class="comment">// - --</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>newGame()
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> ( shieldOn )
+     {
+       shield<span class="operator">-</span><span class="operator">&gt;</span>hide();
+       shieldOn <span class="operator">=</span> FALSE;
+     }
+     reset();
+     <span class="keyword">if</span> ( mTimerId <span class="operator">&lt;</span> <span class="number">0</span> )
+         mTimerId <span class="operator">=</span> startTimer( REFRESH_DELAY );
+     <span class="keyword">emit</span> updateVitals();
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>endGame()
+ {
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(rocks);     rocks<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(missiles);  missiles<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(bits);      bits<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(powerups);  powerups<span class="operator">.</span>clear();
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(exhaust);   exhaust<span class="operator">.</span>clear();
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>pause( <span class="type">bool</span> p )
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> ( <span class="operator">!</span>mPaused <span class="operator">&amp;</span><span class="operator">&amp;</span> p ) {
+         <span class="keyword">if</span> ( mTimerId <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span> ) {
+             killTimer( mTimerId );
+             mTimerId <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+         }
+     } <span class="keyword">else</span> <span class="keyword">if</span> ( mPaused <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>p )
+         mTimerId <span class="operator">=</span> startTimer( REFRESH_DELAY );
+     mPaused <span class="operator">=</span> p;
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>newShip()
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     ship<span class="operator">-</span><span class="operator">&gt;</span>setPos( width()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> height()<span class="operator">/</span><span class="number">2</span> );
+     ship<span class="operator">-</span><span class="operator">&gt;</span>setFrame( <span class="number">0</span> );
+     shield<span class="operator">-</span><span class="operator">&gt;</span>setPos( width()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> height()<span class="operator">/</span><span class="number">2</span> );
+     shield<span class="operator">-</span><span class="operator">&gt;</span>setFrame( <span class="number">0</span> );
+     ship<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( <span class="number">0.0</span><span class="operator">,</span> <span class="number">0.0</span> );
+     shipDx <span class="operator">=</span> <span class="number">0</span>;
+     shipDy <span class="operator">=</span> <span class="number">0</span>;
+     shipAngle <span class="operator">=</span> <span class="number">0</span>;
+     rotateL <span class="operator">=</span> FALSE;
+     rotateR <span class="operator">=</span> FALSE;
+     thrustShip <span class="operator">=</span> FALSE;
+     shootShip <span class="operator">=</span> FALSE;
+     brakeShip <span class="operator">=</span> FALSE;
+     teleportShip <span class="operator">=</span> FALSE;
+     shieldOn <span class="operator">=</span> TRUE;
+     shootDelay <span class="operator">=</span> <span class="number">0</span>;
+     shipPower <span class="operator">=</span> MAX_POWER_LEVEL;
+     rotateRate <span class="operator">=</span> ROTATE_RATE;
+     rotateSlow <span class="operator">=</span> <span class="number">0</span>;
+
+     mBrakeCount <span class="operator">=</span> <span class="number">0</span>;
+     mTeleportCount <span class="operator">=</span> <span class="number">0</span>;
+     mShootCount <span class="operator">=</span> <span class="number">0</span>;
+
+     ship<span class="operator">-</span><span class="operator">&gt;</span>show();
+     shield<span class="operator">-</span><span class="operator">&gt;</span>show();
+     mShieldCount <span class="operator">=</span> <span class="number">1</span>;   <span class="comment">// just in case the ship appears on a rock.</span>
+     shieldTimer<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="number">1000</span>);
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>setShield( <span class="type">bool</span> s )
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> ( shieldTimer<span class="operator">-</span><span class="operator">&gt;</span>isActive() <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>s ) {
+         shieldTimer<span class="operator">-</span><span class="operator">&gt;</span>stop();
+         hideShield();
+     } <span class="keyword">else</span> {
+         shieldOn <span class="operator">=</span> s <span class="operator">&amp;</span><span class="operator">&amp;</span> mShieldCount;
+     }
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>brake( <span class="type">bool</span> b )
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> ( mBrakeCount )
+     {
+         <span class="keyword">if</span> ( brakeShip <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>b )
+         {
+             rotateL <span class="operator">=</span> FALSE;
+             rotateR <span class="operator">=</span> FALSE;
+             thrustShip <span class="operator">=</span> FALSE;
+             rotateRate <span class="operator">=</span> ROTATE_RATE;
+         }
+
+         brakeShip <span class="operator">=</span> b;
+     }
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">bool</span> KAsteroidsView<span class="operator">::</span>readSprites()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> sprites_prefix <span class="operator">=</span> <span class="string">&quot;:/trolltech/examples/graphicsview/portedasteroids/sprites/&quot;</span>;
+
+     <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>;
+     <span class="keyword">while</span> ( kas_animations<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>id )
+     {
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span> anim;
+         <span class="type"><a href="qstring.html">QString</a></span> wildcard <span class="operator">=</span> sprites_prefix <span class="operator">+</span> kas_animations<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>path;
+         wildcard<span class="operator">.</span>replace(<span class="string">&quot;%1&quot;</span><span class="operator">,</span> <span class="string">&quot;*&quot;</span>);
+         <span class="type"><a href="qfileinfo.html">QFileInfo</a></span> fi(wildcard);
+         foreach (<span class="type"><a href="qstring.html">QString</a></span> entry<span class="operator">,</span> <span class="type"><a href="qdir.html">QDir</a></span>(fi<span class="operator">.</span>path()<span class="operator">,</span> fi<span class="operator">.</span>fileName())<span class="operator">.</span>entryList())
+             anim <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span>(fi<span class="operator">.</span>path() <span class="operator">+</span> <span class="string">&quot;/&quot;</span> <span class="operator">+</span> entry);
+         animation<span class="operator">.</span>insert( kas_animations<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>id<span class="operator">,</span> anim );
+         i<span class="operator">+</span><span class="operator">+</span>;
+     }
+
+     ship <span class="operator">=</span> <span class="keyword">new</span> AnimatedPixmapItem( animation<span class="operator">[</span>ID_SHIP<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field );
+     ship<span class="operator">-</span><span class="operator">&gt;</span>hide();
+
+     shield <span class="operator">=</span> <span class="keyword">new</span> KShield( animation<span class="operator">[</span>ID_SHIELD<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field );
+     shield<span class="operator">-</span><span class="operator">&gt;</span>hide();
+
+     <span class="keyword">return</span> (<span class="operator">!</span>ship<span class="operator">-</span><span class="operator">&gt;</span>image(<span class="number">0</span>)<span class="operator">.</span>isNull() <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>shield<span class="operator">-</span><span class="operator">&gt;</span>image(<span class="number">0</span>)<span class="operator">.</span>isNull());
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>addRocks( <span class="type">int</span> num )
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     <span class="keyword">for</span> ( <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> num; i<span class="operator">+</span><span class="operator">+</span> )
+     {
+         KRock <span class="operator">*</span>rock <span class="operator">=</span> <span class="keyword">new</span> KRock( animation<span class="operator">[</span>ID_ROCK_LARGE<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field<span class="operator">,</span>
+                              ID_ROCK_LARGE<span class="operator">,</span> randInt(<span class="number">2</span>)<span class="operator">,</span> randInt(<span class="number">2</span>) <span class="operator">?</span> <span class="operator">-</span><span class="number">1</span> : <span class="number">1</span> );
+         <span class="type">double</span> dx <span class="operator">=</span> (<span class="number">2.0</span> <span class="operator">-</span> randDouble()<span class="operator">*</span><span class="number">4.0</span>) <span class="operator">*</span> rockSpeed;
+         <span class="type">double</span> dy <span class="operator">=</span> (<span class="number">2.0</span> <span class="operator">-</span> randDouble()<span class="operator">*</span><span class="number">4.0</span>) <span class="operator">*</span> rockSpeed;
+         rock<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( dx<span class="operator">,</span> dy );
+         rock<span class="operator">-</span><span class="operator">&gt;</span>setFrame( randInt( rock<span class="operator">-</span><span class="operator">&gt;</span>frameCount() ) );
+         <span class="keyword">if</span> ( dx <span class="operator">&gt;</span> <span class="number">0</span> )
+         {
+             <span class="keyword">if</span> ( dy <span class="operator">&gt;</span> <span class="number">0</span> )
+                 rock<span class="operator">-</span><span class="operator">&gt;</span>setPos( <span class="number">5</span><span class="operator">,</span> <span class="number">5</span> );
+             <span class="keyword">else</span>
+                 rock<span class="operator">-</span><span class="operator">&gt;</span>setPos( <span class="number">5</span><span class="operator">,</span> field<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">25</span> );
+             rock<span class="operator">-</span><span class="operator">&gt;</span>setFrame( <span class="number">0</span> );
+         }
+         <span class="keyword">else</span>
+         {
+             <span class="keyword">if</span> ( dy <span class="operator">&gt;</span> <span class="number">0</span> )
+                 rock<span class="operator">-</span><span class="operator">&gt;</span>setPos( field<span class="operator">.</span>width() <span class="operator">-</span> <span class="number">25</span><span class="operator">,</span> <span class="number">5</span> );
+             <span class="keyword">else</span>
+                 rock<span class="operator">-</span><span class="operator">&gt;</span>setPos( field<span class="operator">.</span>width() <span class="operator">-</span> <span class="number">25</span><span class="operator">,</span> field<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">25</span> );
+             rock<span class="operator">-</span><span class="operator">&gt;</span>setFrame( <span class="number">0</span> );
+         }
+         rock<span class="operator">-</span><span class="operator">&gt;</span>show();
+         rocks<span class="operator">.</span>append( rock );
+     }
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>showText( <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color<span class="operator">,</span> <span class="type">bool</span> scroll )
+ {
+     <span class="keyword">if</span> ( <span class="operator">!</span>initialized )
+         <span class="keyword">return</span>;
+     textSprite<span class="operator">-</span><span class="operator">&gt;</span>setHtml( <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;&lt;font color=#%1%2%3&gt;%4&lt;/font&gt;&quot;</span>)
+                          <span class="operator">.</span>arg(color<span class="operator">.</span>red()<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">16</span><span class="operator">,</span> QLatin1Char(<span class="char">'0'</span>))
+                          <span class="operator">.</span>arg(color<span class="operator">.</span>green()<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">16</span><span class="operator">,</span> QLatin1Char(<span class="char">'0'</span>))
+                          <span class="operator">.</span>arg(color<span class="operator">.</span>blue()<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">16</span><span class="operator">,</span> QLatin1Char(<span class="char">'0'</span>))
+                          <span class="operator">.</span>arg(text) );
+     Q_UNUSED(color);
+     <span class="comment">// ### Porting: no such thing textSprite-&gt;setColor( color );</span>
+
+     <span class="keyword">if</span> ( scroll ) {
+         textSprite<span class="operator">-</span><span class="operator">&gt;</span>setPos( (field<span class="operator">.</span>width()<span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span>
+                             <span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height() );
+         textDy <span class="operator">=</span> TEXT_SPEED;
+     } <span class="keyword">else</span> {
+         textSprite<span class="operator">-</span><span class="operator">&gt;</span>setPos( (field<span class="operator">.</span>width()<span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span>
+                             (field<span class="operator">.</span>height()<span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height()) <span class="operator">/</span> <span class="number">2</span> );
+         textDy <span class="operator">=</span> <span class="number">0</span>;
+     }
+     textSprite<span class="operator">-</span><span class="operator">&gt;</span>show();
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>hideText()
+ {
+     textDy <span class="operator">=</span> <span class="operator">-</span>TEXT_SPEED;
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span><span class="operator">*</span> event)
+ {
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>resizeEvent(event);
+     field<span class="operator">.</span>setSceneRect(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">-</span><span class="number">4</span><span class="operator">,</span> height()<span class="operator">-</span><span class="number">4</span>);
+     view<span class="operator">.</span>resize(width()<span class="operator">,</span>height());
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>timerEvent( <span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span> )
+ {
+     field<span class="operator">.</span>advance();
+
+     <span class="comment">// move rocks forward</span>
+     foreach(AnimatedPixmapItem <span class="operator">*</span>rock<span class="operator">,</span> rocks) {
+         ((KRock <span class="operator">*</span>)rock)<span class="operator">-</span><span class="operator">&gt;</span>nextFrame();
+         wrapSprite( rock );
+     }
+
+     wrapSprite( ship );
+
+     <span class="comment">// check for missile collision with rocks.</span>
+     processMissiles();
+
+     <span class="comment">// these are generated when a ship explodes</span>
+     <span class="keyword">for</span>(<span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>KBit<span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>iterator it <span class="operator">=</span> bits<span class="operator">.</span>begin(); it <span class="operator">!</span><span class="operator">=</span> bits<span class="operator">.</span>end(); it<span class="operator">+</span><span class="operator">+</span>)
+     {
+         KBit <span class="operator">*</span>bit <span class="operator">=</span> <span class="operator">*</span>it;
+         <span class="keyword">if</span>( bit<span class="operator">-</span><span class="operator">&gt;</span>expired() )
+         {
+             <span class="keyword">delete</span> bit;
+             it <span class="operator">=</span> bits<span class="operator">.</span>erase(it);
+             <span class="keyword">break</span>;
+         }
+         <span class="keyword">else</span>
+         {
+             bit<span class="operator">-</span><span class="operator">&gt;</span>growOlder();
+             bit<span class="operator">-</span><span class="operator">&gt;</span>setFrame( ( bit<span class="operator">-</span><span class="operator">&gt;</span>frame()<span class="operator">+</span><span class="number">1</span> ) <span class="operator">%</span> bit<span class="operator">-</span><span class="operator">&gt;</span>frameCount() );
+         }
+     }
+
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(exhaust);
+     exhaust<span class="operator">.</span>clear();
+
+     <span class="comment">// move / rotate ship.</span>
+     <span class="comment">// check for collision with a rock.</span>
+     processShip();
+
+     <span class="comment">// move powerups and check for collision with player and missiles</span>
+     processPowerups();
+
+     <span class="keyword">if</span> ( textSprite<span class="operator">-</span><span class="operator">&gt;</span>isVisible() )
+     {
+         <span class="keyword">if</span> ( textDy <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span>
+              textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>y() <span class="operator">&lt;</span><span class="operator">=</span> <span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height() ) {
+             textSprite<span class="operator">-</span><span class="operator">&gt;</span>hide();
+         } <span class="keyword">else</span> {
+             textSprite<span class="operator">-</span><span class="operator">&gt;</span>moveBy( <span class="number">0</span><span class="operator">,</span> textDy );
+         }
+
+         <span class="keyword">if</span> ( textSprite<span class="operator">-</span><span class="operator">&gt;</span>sceneBoundingRect()<span class="operator">.</span>y() <span class="operator">&gt;</span> (field<span class="operator">.</span>height()<span class="operator">-</span>textSprite<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height())<span class="operator">/</span><span class="number">2</span> )
+             textDy <span class="operator">=</span> <span class="number">0</span>;
+     }
+
+     <span class="keyword">if</span> ( vitalsChanged <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>(mFrameNum <span class="operator">%</span> <span class="number">10</span>) ) {
+         <span class="keyword">emit</span> updateVitals();
+         vitalsChanged <span class="operator">=</span> FALSE;
+     }
+
+     mFrameNum<span class="operator">+</span><span class="operator">+</span>;
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>wrapSprite( <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>s )
+ {
+     <span class="type">int</span> x <span class="operator">=</span> <span class="type">int</span>(s<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">+</span> s<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>width() <span class="operator">/</span> <span class="number">2</span>);
+     <span class="type">int</span> y <span class="operator">=</span> <span class="type">int</span>(s<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">+</span> s<span class="operator">-</span><span class="operator">&gt;</span>boundingRect()<span class="operator">.</span>height() <span class="operator">/</span> <span class="number">2</span>);
+
+     <span class="keyword">if</span> ( x <span class="operator">&gt;</span> field<span class="operator">.</span>width() )
+         s<span class="operator">-</span><span class="operator">&gt;</span>setPos( s<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">-</span> field<span class="operator">.</span>width()<span class="operator">,</span> s<span class="operator">-</span><span class="operator">&gt;</span>y() );
+     <span class="keyword">else</span> <span class="keyword">if</span> ( x <span class="operator">&lt;</span> <span class="number">0</span> )
+         s<span class="operator">-</span><span class="operator">&gt;</span>setPos( field<span class="operator">.</span>width() <span class="operator">+</span> s<span class="operator">-</span><span class="operator">&gt;</span>x()<span class="operator">,</span> s<span class="operator">-</span><span class="operator">&gt;</span>y() );
+
+     <span class="keyword">if</span> ( y <span class="operator">&gt;</span> field<span class="operator">.</span>height() )
+         s<span class="operator">-</span><span class="operator">&gt;</span>setPos( s<span class="operator">-</span><span class="operator">&gt;</span>x()<span class="operator">,</span> s<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">-</span> field<span class="operator">.</span>height() );
+     <span class="keyword">else</span> <span class="keyword">if</span> ( y <span class="operator">&lt;</span> <span class="number">0</span> )
+         s<span class="operator">-</span><span class="operator">&gt;</span>setPos( s<span class="operator">-</span><span class="operator">&gt;</span>x()<span class="operator">,</span> field<span class="operator">.</span>height() <span class="operator">+</span> s<span class="operator">-</span><span class="operator">&gt;</span>y() );
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>rockHit( AnimatedPixmapItem <span class="operator">*</span>hit )
+ {
+     KPowerup <span class="operator">*</span>nPup <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> rnd <span class="operator">=</span> <span class="type">int</span>(randDouble()<span class="operator">*</span><span class="number">30.0</span>) <span class="operator">%</span> <span class="number">30</span>;
+     <span class="keyword">switch</span>( rnd )
+     {
+       <span class="keyword">case</span> <span class="number">4</span>:
+       <span class="keyword">case</span> <span class="number">5</span>:
+           nPup <span class="operator">=</span> <span class="keyword">new</span> KPowerup( animation<span class="operator">[</span>ID_ENERGY_POWERUP<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field<span class="operator">,</span>
+                                ID_ENERGY_POWERUP );
+         <span class="keyword">break</span>;
+       <span class="keyword">case</span> <span class="number">10</span>:
+ <span class="comment">//        nPup = new KPowerup( animation[ID_TELEPORT_POWERUP], &amp;field,</span>
+ <span class="comment">//                             ID_TELEPORT_POWERUP );</span>
+         <span class="keyword">break</span>;
+       <span class="keyword">case</span> <span class="number">15</span>:
+           nPup <span class="operator">=</span> <span class="keyword">new</span> KPowerup( animation<span class="operator">[</span>ID_BRAKE_POWERUP<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field<span class="operator">,</span>
+                                ID_BRAKE_POWERUP );
+         <span class="keyword">break</span>;
+       <span class="keyword">case</span> <span class="number">20</span>:
+           nPup <span class="operator">=</span> <span class="keyword">new</span> KPowerup( animation<span class="operator">[</span>ID_SHIELD_POWERUP<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field<span class="operator">,</span>
+                                ID_SHIELD_POWERUP );
+         <span class="keyword">break</span>;
+       <span class="keyword">case</span> <span class="number">24</span>:
+       <span class="keyword">case</span> <span class="number">25</span>:
+           nPup <span class="operator">=</span> <span class="keyword">new</span> KPowerup( animation<span class="operator">[</span>ID_SHOOT_POWERUP<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field<span class="operator">,</span>
+                                ID_SHOOT_POWERUP );
+         <span class="keyword">break</span>;
+     }
+     <span class="keyword">if</span> ( nPup )
+     {
+         <span class="type">double</span> r <span class="operator">=</span> <span class="number">0.5</span> <span class="operator">-</span> randDouble();
+         nPup<span class="operator">-</span><span class="operator">&gt;</span>setPos( hit<span class="operator">-</span><span class="operator">&gt;</span>x()<span class="operator">,</span> hit<span class="operator">-</span><span class="operator">&gt;</span>y() );
+         nPup<span class="operator">-</span><span class="operator">&gt;</span>setFrame( <span class="number">0</span> );
+         nPup<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( hit<span class="operator">-</span><span class="operator">&gt;</span>xVelocity() <span class="operator">+</span> r<span class="operator">,</span> hit<span class="operator">-</span><span class="operator">&gt;</span>yVelocity() <span class="operator">+</span> r );
+         powerups<span class="operator">.</span>append( nPup );
+     }
+
+     <span class="keyword">if</span> ( hit<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> ID_ROCK_LARGE <span class="operator">|</span><span class="operator">|</span> hit<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> ID_ROCK_MEDIUM )
+     {
+         <span class="comment">// break into smaller rocks</span>
+         <span class="type">double</span> addx<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="number">1.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1.0</span> };
+         <span class="type">double</span> addy<span class="operator">[</span><span class="number">4</span><span class="operator">]</span> <span class="operator">=</span> { <span class="operator">-</span><span class="number">1.0</span><span class="operator">,</span> <span class="number">1.0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1.0</span><span class="operator">,</span> <span class="number">1.0</span> };
+
+         <span class="type">double</span> dx <span class="operator">=</span> hit<span class="operator">-</span><span class="operator">&gt;</span>xVelocity();
+         <span class="type">double</span> dy <span class="operator">=</span> hit<span class="operator">-</span><span class="operator">&gt;</span>yVelocity();
+
+         <span class="type">double</span> maxRockSpeed <span class="operator">=</span> MAX_ROCK_SPEED <span class="operator">*</span> rockSpeed;
+         <span class="keyword">if</span> ( dx <span class="operator">&gt;</span> maxRockSpeed )
+             dx <span class="operator">=</span> maxRockSpeed;
+         <span class="keyword">else</span> <span class="keyword">if</span> ( dx <span class="operator">&lt;</span> <span class="operator">-</span>maxRockSpeed )
+             dx <span class="operator">=</span> <span class="operator">-</span>maxRockSpeed;
+         <span class="keyword">if</span> ( dy <span class="operator">&gt;</span> maxRockSpeed )
+             dy <span class="operator">=</span> maxRockSpeed;
+         <span class="keyword">else</span> <span class="keyword">if</span> ( dy <span class="operator">&lt;</span> <span class="operator">-</span>maxRockSpeed )
+             dy <span class="operator">=</span> <span class="operator">-</span>maxRockSpeed;
+
+         AnimatedPixmapItem <span class="operator">*</span>nrock;
+
+         <span class="keyword">for</span> ( <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">4</span>; i<span class="operator">+</span><span class="operator">+</span> )
+         {
+             <span class="type">double</span> r <span class="operator">=</span> rockSpeed<span class="operator">/</span><span class="number">2</span> <span class="operator">-</span> randDouble()<span class="operator">*</span>rockSpeed;
+             <span class="keyword">if</span> ( hit<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> ID_ROCK_LARGE )
+             {
+                 nrock <span class="operator">=</span> <span class="keyword">new</span> KRock( animation<span class="operator">[</span>ID_ROCK_MEDIUM<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field<span class="operator">,</span>
+                                    ID_ROCK_MEDIUM<span class="operator">,</span> randInt(<span class="number">2</span>)<span class="operator">,</span> randInt(<span class="number">2</span>) <span class="operator">?</span> <span class="operator">-</span><span class="number">1</span> : <span class="number">1</span> );
+                 <span class="keyword">emit</span> rockHit( <span class="number">0</span> );
+             }
+             <span class="keyword">else</span>
+             {
+                 nrock <span class="operator">=</span> <span class="keyword">new</span> KRock( animation<span class="operator">[</span>ID_ROCK_SMALL<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field<span class="operator">,</span>
+                                    ID_ROCK_SMALL<span class="operator">,</span> randInt(<span class="number">2</span>)<span class="operator">,</span> randInt(<span class="number">2</span>) <span class="operator">?</span> <span class="operator">-</span><span class="number">1</span> : <span class="number">1</span> );
+                 <span class="keyword">emit</span> rockHit( <span class="number">1</span> );
+             }
+
+             nrock<span class="operator">-</span><span class="operator">&gt;</span>setPos( hit<span class="operator">-</span><span class="operator">&gt;</span>x()<span class="operator">,</span> hit<span class="operator">-</span><span class="operator">&gt;</span>y() );
+             nrock<span class="operator">-</span><span class="operator">&gt;</span>setFrame( <span class="number">0</span> );
+             nrock<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( dx<span class="operator">+</span>addx<span class="operator">[</span>i<span class="operator">]</span><span class="operator">*</span>rockSpeed<span class="operator">+</span>r<span class="operator">,</span> dy<span class="operator">+</span>addy<span class="operator">[</span>i<span class="operator">]</span><span class="operator">*</span>rockSpeed<span class="operator">+</span>r );
+             nrock<span class="operator">-</span><span class="operator">&gt;</span>setFrame( randInt( nrock<span class="operator">-</span><span class="operator">&gt;</span>frameCount() ) );
+             rocks<span class="operator">.</span>append( nrock );
+         }
+     }
+     <span class="keyword">else</span> <span class="keyword">if</span> ( hit<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> ID_ROCK_SMALL )
+         <span class="keyword">emit</span> rockHit( <span class="number">2</span> );
+
+     <span class="keyword">for</span>(<span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>AnimatedPixmapItem<span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>iterator it <span class="operator">=</span> rocks<span class="operator">.</span>begin(); it <span class="operator">!</span><span class="operator">=</span> rocks<span class="operator">.</span>end(); it<span class="operator">+</span><span class="operator">+</span>)
+     {
+         <span class="keyword">if</span>((<span class="operator">*</span>it) <span class="operator">=</span><span class="operator">=</span> hit) {
+             <span class="keyword">delete</span> <span class="operator">*</span>it;
+             it <span class="operator">=</span> rocks<span class="operator">.</span>erase(it);
+             <span class="keyword">break</span>;
+         }
+     }
+
+     <span class="keyword">if</span> ( rocks<span class="operator">.</span>count() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> )
+         <span class="keyword">emit</span> rocksRemoved();
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>reducePower( <span class="type">int</span> val )
+ {
+     shipPower <span class="operator">-</span><span class="operator">=</span> val;
+     <span class="keyword">if</span> ( shipPower <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span> )
+     {
+         shipPower <span class="operator">=</span> <span class="number">0</span>;
+         thrustShip <span class="operator">=</span> FALSE;
+         <span class="keyword">if</span> ( shieldOn )
+         {
+             shieldOn <span class="operator">=</span> FALSE;
+             shield<span class="operator">-</span><span class="operator">&gt;</span>hide();
+         }
+     }
+     vitalsChanged <span class="operator">=</span> TRUE;
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>addExhaust( <span class="type">double</span> x<span class="operator">,</span> <span class="type">double</span> y<span class="operator">,</span> <span class="type">double</span> dx<span class="operator">,</span>
+                                  <span class="type">double</span> dy<span class="operator">,</span> <span class="type">int</span> count )
+ {
+     <span class="keyword">for</span> ( <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> count; i<span class="operator">+</span><span class="operator">+</span> )
+     {
+         KExhaust <span class="operator">*</span>e <span class="operator">=</span> <span class="keyword">new</span> KExhaust( animation<span class="operator">[</span>ID_EXHAUST<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field );
+         e<span class="operator">-</span><span class="operator">&gt;</span>setPos( x <span class="operator">+</span> <span class="number">2</span> <span class="operator">-</span> randDouble()<span class="operator">*</span><span class="number">4</span><span class="operator">,</span> y <span class="operator">+</span> <span class="number">2</span> <span class="operator">-</span> randDouble()<span class="operator">*</span><span class="number">4</span> );
+         e<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( dx<span class="operator">,</span> dy );
+         exhaust<span class="operator">.</span>append( e );
+     }
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>processMissiles()
+ {
+     <span class="comment">// if a missile has hit a rock, remove missile and break rock into smaller</span>
+     <span class="comment">// rocks or remove completely.</span>
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>KMissile<span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>iterator itMissile <span class="operator">=</span> missiles<span class="operator">.</span>begin();
+     <span class="keyword">while</span>(itMissile <span class="operator">!</span><span class="operator">=</span> missiles<span class="operator">.</span>end())
+     {
+         (<span class="operator">*</span>itMissile)<span class="operator">-</span><span class="operator">&gt;</span>growOlder();
+
+         <span class="keyword">if</span> ( (<span class="operator">*</span>itMissile)<span class="operator">-</span><span class="operator">&gt;</span>expired() )
+         {
+             <span class="keyword">delete</span> (<span class="operator">*</span>itMissile);
+             itMissile <span class="operator">=</span> missiles<span class="operator">.</span>erase(itMissile);
+             <span class="keyword">continue</span>;
+         }
+
+         wrapSprite(<span class="operator">*</span>itMissile);
+
+         <span class="type">bool</span> missileErased <span class="operator">=</span> <span class="keyword">false</span>;
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">*</span><span class="operator">&gt;</span> hits <span class="operator">=</span> (<span class="operator">*</span>itMissile)<span class="operator">-</span><span class="operator">&gt;</span>collidingItems(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>IntersectsItemBoundingRect);
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>iterator itHit <span class="operator">=</span> hits<span class="operator">.</span>begin();
+
+         <span class="keyword">while</span> (itHit <span class="operator">!</span><span class="operator">=</span> hits<span class="operator">.</span>end())
+         {
+             <span class="keyword">if</span> ( (<span class="operator">*</span>itHit)<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">&gt;</span><span class="operator">=</span> ID_ROCK_LARGE <span class="operator">&amp;</span><span class="operator">&amp;</span>
+                  (<span class="operator">*</span>itHit)<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">&lt;</span><span class="operator">=</span> ID_ROCK_SMALL <span class="operator">&amp;</span><span class="operator">&amp;</span> (<span class="operator">*</span>itHit)<span class="operator">-</span><span class="operator">&gt;</span>collidesWithItem(<span class="operator">*</span>itMissile) )
+             {
+                 shotsHit<span class="operator">+</span><span class="operator">+</span>;
+                 rockHit( <span class="keyword">static_cast</span><span class="operator">&lt;</span>AnimatedPixmapItem <span class="operator">*</span><span class="operator">&gt;</span>(<span class="operator">*</span>itHit) );
+                 <span class="keyword">delete</span> <span class="operator">*</span>itMissile;
+                 itMissile <span class="operator">=</span> missiles<span class="operator">.</span>erase(itMissile);
+                 missileErased <span class="operator">=</span> <span class="keyword">true</span>;
+                 <span class="keyword">break</span>;
+             }
+             itHit<span class="operator">+</span><span class="operator">+</span>;
+         }
+
+         <span class="keyword">if</span>(<span class="operator">!</span>missileErased)
+             itMissile<span class="operator">+</span><span class="operator">+</span>;
+     }
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>processShip()
+ {
+     <span class="keyword">if</span> ( ship<span class="operator">-</span><span class="operator">&gt;</span>isVisible() )
+     {
+         <span class="keyword">if</span> ( shieldOn )
+         {
+             shield<span class="operator">-</span><span class="operator">&gt;</span>show();
+             reducePower( SHIELD_ON_COST );
+             <span class="keyword">static</span> <span class="type">int</span> sf <span class="operator">=</span> <span class="number">0</span>;
+             sf<span class="operator">+</span><span class="operator">+</span>;
+
+             <span class="keyword">if</span> ( sf <span class="operator">%</span> <span class="number">2</span> )
+                 shield<span class="operator">-</span><span class="operator">&gt;</span>setFrame( (shield<span class="operator">-</span><span class="operator">&gt;</span>frame()<span class="operator">+</span><span class="number">1</span>) <span class="operator">%</span> shield<span class="operator">-</span><span class="operator">&gt;</span>frameCount() );
+             shield<span class="operator">-</span><span class="operator">&gt;</span>setPos( ship<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">-</span> <span class="number">9</span><span class="operator">,</span> ship<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">-</span> <span class="number">9</span> );
+
+             <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> hits <span class="operator">=</span> shield<span class="operator">-</span><span class="operator">&gt;</span>collidingItems(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>IntersectsItemBoundingRect);
+             <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>Iterator it;
+             <span class="keyword">for</span> ( it <span class="operator">=</span> hits<span class="operator">.</span>begin(); it <span class="operator">!</span><span class="operator">=</span> hits<span class="operator">.</span>end(); <span class="operator">+</span><span class="operator">+</span>it )
+             {
+                 <span class="keyword">if</span> ( (<span class="operator">*</span>it)<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">&gt;</span><span class="operator">=</span> ID_ROCK_LARGE <span class="operator">&amp;</span><span class="operator">&amp;</span>
+                      (<span class="operator">*</span>it)<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">&lt;</span><span class="operator">=</span> ID_ROCK_SMALL <span class="operator">&amp;</span><span class="operator">&amp;</span> (<span class="operator">*</span>it)<span class="operator">-</span><span class="operator">&gt;</span>collidesWithItem(shield) )
+                 {
+                     <span class="type">int</span> factor;
+                     <span class="keyword">switch</span> ( (<span class="operator">*</span>it)<span class="operator">-</span><span class="operator">&gt;</span>type() )
+                     {
+                         <span class="keyword">case</span> ID_ROCK_LARGE:
+                             factor <span class="operator">=</span> <span class="number">3</span>;
+                             <span class="keyword">break</span>;
+
+                         <span class="keyword">case</span> ID_ROCK_MEDIUM:
+                             factor <span class="operator">=</span> <span class="number">2</span>;
+                             <span class="keyword">break</span>;
+
+                         <span class="keyword">default</span>:
+                             factor <span class="operator">=</span> <span class="number">1</span>;
+                     }
+
+                     <span class="keyword">if</span> ( factor <span class="operator">&gt;</span> mShieldCount )
+                     {
+                         <span class="comment">// shield not strong enough</span>
+                         shieldOn <span class="operator">=</span> FALSE;
+                         <span class="keyword">break</span>;
+                     }
+                     rockHit( <span class="keyword">static_cast</span><span class="operator">&lt;</span>AnimatedPixmapItem <span class="operator">*</span><span class="operator">&gt;</span>(<span class="operator">*</span>it) );
+                     <span class="comment">// the more shields we have the less costly</span>
+                     reducePower( factor <span class="operator">*</span> (SHIELD_HIT_COST <span class="operator">-</span> mShieldCount<span class="operator">*</span><span class="number">2</span>) );
+                 }
+             }
+         }
+
+         <span class="keyword">if</span> ( <span class="operator">!</span>shieldOn )
+         {
+             shield<span class="operator">-</span><span class="operator">&gt;</span>hide();
+             <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> hits <span class="operator">=</span> ship<span class="operator">-</span><span class="operator">&gt;</span>collidingItems(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>IntersectsItemBoundingRect);
+             <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>Iterator it;
+             <span class="keyword">for</span> ( it <span class="operator">=</span> hits<span class="operator">.</span>begin(); it <span class="operator">!</span><span class="operator">=</span> hits<span class="operator">.</span>end(); <span class="operator">+</span><span class="operator">+</span>it )
+             {
+                 <span class="keyword">if</span> ( (<span class="operator">*</span>it)<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">&gt;</span><span class="operator">=</span> ID_ROCK_LARGE <span class="operator">&amp;</span><span class="operator">&amp;</span>
+                      (<span class="operator">*</span>it)<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">&lt;</span><span class="operator">=</span> ID_ROCK_SMALL <span class="operator">&amp;</span><span class="operator">&amp;</span> (<span class="operator">*</span>it)<span class="operator">-</span><span class="operator">&gt;</span>collidesWithItem(ship))
+                 {
+                     KBit <span class="operator">*</span>bit;
+                     <span class="keyword">for</span> ( <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">12</span>; i<span class="operator">+</span><span class="operator">+</span> )
+                     {
+                       bit <span class="operator">=</span> <span class="keyword">new</span> KBit( animation<span class="operator">[</span>ID_BIT<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field );
+                       bit<span class="operator">-</span><span class="operator">&gt;</span>setPos( ship<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">+</span> <span class="number">5</span> <span class="operator">-</span> randDouble() <span class="operator">*</span> <span class="number">10</span><span class="operator">,</span>
+                                    ship<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">+</span> <span class="number">5</span> <span class="operator">-</span> randDouble() <span class="operator">*</span> <span class="number">10</span> );
+                       bit<span class="operator">-</span><span class="operator">&gt;</span>setFrame( randInt(bit<span class="operator">-</span><span class="operator">&gt;</span>frameCount()) );
+                       bit<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( <span class="number">1</span><span class="operator">-</span>randDouble()<span class="operator">*</span><span class="number">2</span><span class="operator">,</span>
+                                         <span class="number">1</span><span class="operator">-</span>randDouble()<span class="operator">*</span><span class="number">2</span> );
+                       bit<span class="operator">-</span><span class="operator">&gt;</span>setDeath( <span class="number">60</span> <span class="operator">+</span> randInt(<span class="number">60</span>) );
+                       bits<span class="operator">.</span>push_back( bit );
+                     }
+                     ship<span class="operator">-</span><span class="operator">&gt;</span>hide();
+                     shield<span class="operator">-</span><span class="operator">&gt;</span>hide();
+                     <span class="keyword">emit</span> shipKilled();
+                     <span class="keyword">break</span>;
+                 }
+             }
+         }
+
+         <span class="keyword">if</span> ( rotateSlow )
+             rotateSlow<span class="operator">-</span><span class="operator">-</span>;
+
+         <span class="keyword">if</span> ( rotateL )
+         {
+             shipAngle <span class="operator">-</span><span class="operator">=</span> rotateSlow <span class="operator">?</span> <span class="number">1</span> : rotateRate;
+             <span class="keyword">if</span> ( shipAngle <span class="operator">&lt;</span> <span class="number">0</span> )
+                 shipAngle <span class="operator">+</span><span class="operator">=</span> SHIP_STEPS;
+         }
+
+         <span class="keyword">if</span> ( rotateR )
+         {
+             shipAngle <span class="operator">+</span><span class="operator">=</span> rotateSlow <span class="operator">?</span> <span class="number">1</span> : rotateRate;
+             <span class="keyword">if</span> ( shipAngle <span class="operator">&gt;</span><span class="operator">=</span> SHIP_STEPS )
+                 shipAngle <span class="operator">-</span><span class="operator">=</span> SHIP_STEPS;
+         }
+
+         <span class="type">double</span> angle <span class="operator">=</span> shipAngle <span class="operator">*</span> PI_X_2 <span class="operator">/</span> SHIP_STEPS;
+         <span class="type">double</span> cosangle <span class="operator">=</span> cos( angle );
+         <span class="type">double</span> sinangle <span class="operator">=</span> sin( angle );
+
+         <span class="keyword">if</span> ( brakeShip )
+         {
+             thrustShip <span class="operator">=</span> FALSE;
+             rotateL <span class="operator">=</span> FALSE;
+             rotateR <span class="operator">=</span> FALSE;
+             rotateRate <span class="operator">=</span> ROTATE_RATE;
+             <span class="keyword">if</span> ( fabs(shipDx) <span class="operator">&lt;</span> <span class="number">2.5</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> fabs(shipDy) <span class="operator">&lt;</span> <span class="number">2.5</span> )
+             {
+                 shipDx <span class="operator">=</span> <span class="number">0.0</span>;
+                 shipDy <span class="operator">=</span> <span class="number">0.0</span>;
+                 ship<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( shipDx<span class="operator">,</span> shipDy );
+                 brakeShip <span class="operator">=</span> FALSE;
+             }
+             <span class="keyword">else</span>
+             {
+                 <span class="type">double</span> motionAngle <span class="operator">=</span> atan2( <span class="operator">-</span>shipDy<span class="operator">,</span> <span class="operator">-</span>shipDx );
+                 <span class="keyword">if</span> ( angle <span class="operator">&gt;</span> M_PI )
+                     angle <span class="operator">-</span><span class="operator">=</span> PI_X_2;
+                 <span class="type">double</span> angleDiff <span class="operator">=</span> angle <span class="operator">-</span> motionAngle;
+                 <span class="keyword">if</span> ( angleDiff <span class="operator">&gt;</span> M_PI )
+                     angleDiff <span class="operator">=</span> PI_X_2 <span class="operator">-</span> angleDiff;
+                 <span class="keyword">else</span> <span class="keyword">if</span> ( angleDiff <span class="operator">&lt;</span> <span class="operator">-</span>M_PI )
+                     angleDiff <span class="operator">=</span> PI_X_2 <span class="operator">+</span> angleDiff;
+                 <span class="type">double</span> fdiff <span class="operator">=</span> fabs( angleDiff );
+                 <span class="keyword">if</span> ( fdiff <span class="operator">&gt;</span> <span class="number">0.08</span> )
+                 {
+                     <span class="keyword">if</span> ( angleDiff <span class="operator">&gt;</span> <span class="number">0</span> )
+                         rotateL <span class="operator">=</span> TRUE;
+                     <span class="keyword">else</span> <span class="keyword">if</span> ( angleDiff <span class="operator">&lt;</span> <span class="number">0</span> )
+                         rotateR <span class="operator">=</span> TRUE;
+                     <span class="keyword">if</span> ( fdiff <span class="operator">&gt;</span> <span class="number">0.6</span> )
+                         rotateRate <span class="operator">=</span> mBrakeCount <span class="operator">+</span> <span class="number">1</span>;
+                     <span class="keyword">else</span> <span class="keyword">if</span> ( fdiff <span class="operator">&gt;</span> <span class="number">0.4</span> )
+                         rotateRate <span class="operator">=</span> <span class="number">2</span>;
+                     <span class="keyword">else</span>
+                         rotateRate <span class="operator">=</span> <span class="number">1</span>;
+
+                     <span class="keyword">if</span> ( rotateRate <span class="operator">&gt;</span> <span class="number">5</span> )
+                         rotateRate <span class="operator">=</span> <span class="number">5</span>;
+                 }
+                 <span class="keyword">else</span> <span class="keyword">if</span> ( fabs(shipDx) <span class="operator">&gt;</span> <span class="number">1</span> <span class="operator">|</span><span class="operator">|</span> fabs(shipDy) <span class="operator">&gt;</span> <span class="number">1</span> )
+                 {
+                     thrustShip <span class="operator">=</span> TRUE;
+                     <span class="comment">// we'll make braking a bit faster</span>
+                     shipDx <span class="operator">+</span><span class="operator">=</span> cosangle<span class="operator">/</span><span class="number">6</span> <span class="operator">*</span> (mBrakeCount <span class="operator">-</span> <span class="number">1</span>);
+                     shipDy <span class="operator">+</span><span class="operator">=</span> sinangle<span class="operator">/</span><span class="number">6</span> <span class="operator">*</span> (mBrakeCount <span class="operator">-</span> <span class="number">1</span>);
+                     reducePower( BRAKE_ON_COST );
+                     addExhaust( ship<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">+</span> <span class="number">20</span> <span class="operator">-</span> cosangle<span class="operator">*</span><span class="number">22</span><span class="operator">,</span>
+                                 ship<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">+</span> <span class="number">20</span> <span class="operator">-</span> sinangle<span class="operator">*</span><span class="number">22</span><span class="operator">,</span>
+                                 shipDx<span class="operator">-</span>cosangle<span class="operator">,</span> shipDy<span class="operator">-</span>sinangle<span class="operator">,</span>
+                                 mBrakeCount<span class="operator">+</span><span class="number">1</span> );
+                 }
+             }
+         }
+
+         <span class="keyword">if</span> ( thrustShip )
+         {
+             <span class="comment">// The ship has a terminal velocity, but trying to go faster</span>
+             <span class="comment">// still uses fuel (can go faster diagonally - don't care).</span>
+             <span class="type">double</span> thrustx <span class="operator">=</span> cosangle<span class="operator">/</span><span class="number">4</span>;
+             <span class="type">double</span> thrusty <span class="operator">=</span> sinangle<span class="operator">/</span><span class="number">4</span>;
+             <span class="keyword">if</span> ( fabs(shipDx <span class="operator">+</span> thrustx) <span class="operator">&lt;</span> MAX_SHIP_SPEED )
+                 shipDx <span class="operator">+</span><span class="operator">=</span> thrustx;
+             <span class="keyword">if</span> ( fabs(shipDy <span class="operator">+</span> thrusty) <span class="operator">&lt;</span> MAX_SHIP_SPEED )
+                 shipDy <span class="operator">+</span><span class="operator">=</span> thrusty;
+             ship<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( shipDx<span class="operator">,</span> shipDy );
+             reducePower( <span class="number">1</span> );
+             addExhaust( ship<span class="operator">-</span><span class="operator">&gt;</span>x() <span class="operator">+</span> <span class="number">20</span> <span class="operator">-</span> cosangle<span class="operator">*</span><span class="number">20</span><span class="operator">,</span>
+                         ship<span class="operator">-</span><span class="operator">&gt;</span>y() <span class="operator">+</span> <span class="number">20</span> <span class="operator">-</span> sinangle<span class="operator">*</span><span class="number">20</span><span class="operator">,</span>
+                         shipDx<span class="operator">-</span>cosangle<span class="operator">,</span> shipDy<span class="operator">-</span>sinangle<span class="operator">,</span> <span class="number">3</span> );
+         }
+
+         ship<span class="operator">-</span><span class="operator">&gt;</span>setFrame( shipAngle <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">1</span> );
+
+         <span class="keyword">if</span> ( shootShip )
+         {
+             <span class="keyword">if</span> ( <span class="operator">!</span>shootDelay <span class="operator">&amp;</span><span class="operator">&amp;</span> (<span class="type">int</span>)missiles<span class="operator">.</span>size() <span class="operator">&lt;</span> mShootCount <span class="operator">+</span> <span class="number">2</span> )
+             {
+               KMissile <span class="operator">*</span>missile <span class="operator">=</span> <span class="keyword">new</span> KMissile( animation<span class="operator">[</span>ID_MISSILE<span class="operator">]</span><span class="operator">,</span> <span class="operator">&amp;</span>field );
+               missile<span class="operator">-</span><span class="operator">&gt;</span>setPos( <span class="number">21</span><span class="operator">+</span>ship<span class="operator">-</span><span class="operator">&gt;</span>x()<span class="operator">+</span>cosangle<span class="operator">*</span><span class="number">21</span><span class="operator">,</span>
+                              <span class="number">21</span><span class="operator">+</span>ship<span class="operator">-</span><span class="operator">&gt;</span>y()<span class="operator">+</span>sinangle<span class="operator">*</span><span class="number">21</span> );
+               missile<span class="operator">-</span><span class="operator">&gt;</span>setFrame( <span class="number">0</span> );
+               missile<span class="operator">-</span><span class="operator">&gt;</span>setVelocity( shipDx <span class="operator">+</span> cosangle<span class="operator">*</span>MISSILE_SPEED<span class="operator">,</span>
+                                     shipDy <span class="operator">+</span> sinangle<span class="operator">*</span>MISSILE_SPEED );
+               missiles<span class="operator">.</span>push_back( missile );
+               shotsFired<span class="operator">+</span><span class="operator">+</span>;
+               reducePower( <span class="number">1</span> );
+
+               shootDelay <span class="operator">=</span> <span class="number">5</span>;
+             }
+
+             <span class="keyword">if</span> ( shootDelay )
+               shootDelay<span class="operator">-</span><span class="operator">-</span>;
+         }
+
+         <span class="keyword">if</span> ( teleportShip )
+         {
+             <span class="type">int</span> ra <span class="operator">=</span> qrand() <span class="operator">%</span> <span class="number">10</span>;
+             <span class="keyword">if</span>( ra <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span> )
+             ra <span class="operator">+</span><span class="operator">=</span> qrand() <span class="operator">%</span> <span class="number">20</span>;
+             <span class="type">int</span> xra <span class="operator">=</span> ra <span class="operator">*</span> <span class="number">60</span> <span class="operator">+</span> ( (qrand() <span class="operator">%</span> <span class="number">20</span>) <span class="operator">*</span> (qrand() <span class="operator">%</span> <span class="number">20</span>) );
+             <span class="type">int</span> yra <span class="operator">=</span> ra <span class="operator">*</span> <span class="number">50</span> <span class="operator">-</span> ( (qrand() <span class="operator">%</span> <span class="number">20</span>) <span class="operator">*</span> (qrand() <span class="operator">%</span> <span class="number">20</span>) );
+             ship<span class="operator">-</span><span class="operator">&gt;</span>setPos( xra<span class="operator">,</span> yra );
+         }
+
+         vitalsChanged <span class="operator">=</span> TRUE;
+     }
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>processPowerups()
+ {
+     <span class="comment">// if player gets the powerup remove it from the screen, if option</span>
+     <span class="comment">// &quot;Can destroy powerups&quot; is enabled and a missile hits the powerup</span>
+     <span class="comment">// destroy it</span>
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>KPowerup<span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>iterator itPup <span class="operator">=</span> powerups<span class="operator">.</span>begin();
+
+     <span class="keyword">while</span>(itPup <span class="operator">!</span><span class="operator">=</span> powerups<span class="operator">.</span>end())
+     {
+         (<span class="operator">*</span>itPup)<span class="operator">-</span><span class="operator">&gt;</span>growOlder();
+
+         <span class="keyword">if</span>((<span class="operator">*</span>itPup)<span class="operator">-</span><span class="operator">&gt;</span>expired())
+         {
+             <span class="keyword">delete</span> <span class="operator">*</span>itPup;
+             itPup <span class="operator">=</span> powerups<span class="operator">.</span>erase(itPup);
+             <span class="keyword">continue</span>;
+         }
+
+         wrapSprite(<span class="operator">*</span>itPup);
+
+         <span class="type">bool</span> pupErased <span class="operator">=</span> <span class="keyword">false</span>;
+
+         <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> hits <span class="operator">=</span> (<span class="operator">*</span>itPup)<span class="operator">-</span><span class="operator">&gt;</span>collidingItems();
+         <span class="keyword">for</span>(<span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span><span class="operator">::</span>Iterator itHits <span class="operator">=</span> hits<span class="operator">.</span>begin(); itHits <span class="operator">!</span><span class="operator">=</span> hits<span class="operator">.</span>end(); itHits<span class="operator">+</span><span class="operator">+</span>)
+         {
+             <span class="keyword">if</span> ( (<span class="operator">*</span>itHits) <span class="operator">=</span><span class="operator">=</span> ship )
+             {
+                 <span class="keyword">switch</span>( (<span class="operator">*</span>itPup)<span class="operator">-</span><span class="operator">&gt;</span>type() )
+                 {
+                   <span class="keyword">case</span> ID_ENERGY_POWERUP:
+                     shipPower <span class="operator">+</span><span class="operator">=</span> <span class="number">150</span>;
+                     <span class="keyword">if</span> ( shipPower <span class="operator">&gt;</span> MAX_POWER_LEVEL )
+                         shipPower <span class="operator">=</span> MAX_POWER_LEVEL;
+                     <span class="keyword">break</span>;
+                   <span class="keyword">case</span> ID_TELEPORT_POWERUP:
+                     mTeleportCount<span class="operator">+</span><span class="operator">+</span>;
+                     <span class="keyword">break</span>;
+                   <span class="keyword">case</span> ID_BRAKE_POWERUP:
+                     <span class="keyword">if</span> ( mBrakeCount <span class="operator">&lt;</span> MAX_BRAKES )
+                         mBrakeCount<span class="operator">+</span><span class="operator">+</span>;
+                     <span class="keyword">break</span>;
+                   <span class="keyword">case</span> ID_SHIELD_POWERUP:
+                     <span class="keyword">if</span> ( mShieldCount <span class="operator">&lt;</span> MAX_SHIELDS )
+                         mShieldCount<span class="operator">+</span><span class="operator">+</span>;
+                     <span class="keyword">break</span>;
+                   <span class="keyword">case</span> ID_SHOOT_POWERUP:
+                     <span class="keyword">if</span> ( mShootCount <span class="operator">&lt;</span> MAX_FIREPOWER )
+                         mShootCount<span class="operator">+</span><span class="operator">+</span>;
+                     <span class="keyword">break</span>;
+                 }
+
+                 <span class="keyword">delete</span> <span class="operator">*</span>itPup;
+                 itPup <span class="operator">=</span> powerups<span class="operator">.</span>erase(itPup);
+                 pupErased <span class="operator">=</span> <span class="keyword">true</span>;
+                 vitalsChanged <span class="operator">=</span> TRUE;
+                 <span class="keyword">break</span>;
+             }
+             <span class="keyword">else</span> <span class="keyword">if</span>((<span class="operator">*</span>itHits) <span class="operator">=</span><span class="operator">=</span> shield )
+             {
+                 <span class="keyword">delete</span> <span class="operator">*</span>itPup;
+                 itPup <span class="operator">=</span> powerups<span class="operator">.</span>erase(itPup);
+                 pupErased <span class="operator">=</span> <span class="keyword">true</span>;
+                 <span class="keyword">break</span>;
+             }
+             <span class="keyword">else</span> <span class="keyword">if</span> ( (<span class="operator">*</span>itHits)<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> ID_MISSILE )
+             {
+                 <span class="keyword">if</span> ( can_destroy_powerups )
+                 {
+                     <span class="keyword">delete</span> <span class="operator">*</span>itPup;
+                     itPup <span class="operator">=</span> powerups<span class="operator">.</span>erase(itPup);
+                     pupErased <span class="operator">=</span> <span class="keyword">true</span>;
+                     <span class="keyword">break</span>;
+                 }
+             }
+         }
+
+         <span class="keyword">if</span>(<span class="operator">!</span>pupErased)
+             itPup<span class="operator">+</span><span class="operator">+</span>;
+     }
+ }
+
+ <span class="comment">// - - -</span>
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>hideShield()
+ {
+     shield<span class="operator">-</span><span class="operator">&gt;</span>hide();
+     mShieldCount <span class="operator">=</span> <span class="number">0</span>;
+     shieldOn <span class="operator">=</span> FALSE;
+ }
+
+ <span class="type">double</span> KAsteroidsView<span class="operator">::</span>randDouble()
+ {
+     <span class="type">int</span> v <span class="operator">=</span> qrand();
+     <span class="keyword">return</span> (<span class="type">double</span>)v <span class="operator">/</span> (<span class="type">double</span>)RAND_MAX;
+ }
+
+ <span class="type">int</span> KAsteroidsView<span class="operator">::</span>randInt( <span class="type">int</span> range )
+ {
+     <span class="keyword">return</span> qrand() <span class="operator">%</span> range;
+ }
+
+ <span class="type">void</span> KAsteroidsView<span class="operator">::</span>showEvent( <span class="type"><a href="qshowevent.html">QShowEvent</a></span> <span class="operator">*</span>e )
+ {
+ <span class="preprocessor">#if defined( QT_LICENSE_PROFESSIONAL )</span>
+     <span class="keyword">static</span> <span class="type">bool</span> wasThere <span class="operator">=</span> FALSE;
+
+     <span class="keyword">if</span> ( <span class="operator">!</span>wasThere ) {
+         wasThere <span class="operator">=</span> TRUE;
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information( <span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;QGraphicsView demo&quot;</span>)<span class="operator">,</span>
+                                         tr(<span class="string">&quot;This game has been implemented using the QGraphicsView class.\n&quot;</span>
+                                            <span class="string">&quot;The QGraphicsView class is not part of the Light Platform Edition. Please \n&quot;</span>
+                                            <span class="string">&quot;contact Nokia if you want to upgrade to the Full Platform Edition.&quot;</span>) );
+     }
+ <span class="preprocessor">#endif</span>
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>showEvent( e );
+ }</pre>
+</div>
+<!-- @@@graphicsview/portedasteroids/view.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+                      "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>HTML Parser</title>
+</head>
+
+<body>
+<p><a href="../../../"><img border="0" src="../../../Icons/WWW/w3c_home"
+alt="W3C" width="72" height="48"></a> <a href="../../"><img border="0"
+src="../../../Icons/WWW/Lib48x" alt="libwww" width="48" height="48"></a> <a
+href="./"><img border="0" src="../../../Icons/WWW/guide48x" alt="Using"
+width="48" height="48"></a></p>
+
+<h1>Presentation Modules</h1>
+
+<p>The HTML parser has three different levels of APIs in order to make the
+implementation as flexible as possible. Depending on which API is used by the
+application, the output can be a stream, a structured stream or a set of
+callback functions as indicated in the figure below:</p>
+
+<p style="text-align: center"><img src="../Guide/Interfaces.gif"
+alt="HTMLParser" border="0" width="431" height="319"></p>
+
+<p>The default HTML parser in libwww is very simple. You can look at the <a
+href="../../../Amaya/">Amaya browser/editor</a> for a complete structured
+parser.</p>
+<dl>
+  <dt><b>SGML Stream Interface</b></dt>
+    <dd>This interface provides the most basic API consisting of the output
+      from a stream without any form for structure imposed on the data. The
+      internal <a href="../../src/SGML.html">SGML parser</a> parses the data
+      sequence, identifies SGML markup tags, and passes the information on the
+      the <a href="../../src/HTML.html">HTML parser</a>. However, if the
+      application has its own SGML parser and HTML parser, the internal
+      parsers can be disabled by removing the internal HTML converter called
+      <code>HTMLPresent()</code> used to present a graphic object on the
+      screen from both the global and the local list of converters and
+      presenters.</dd>
+  <dt><b>HTML Structured Stream Interface</b></dt>
+    <dd>If the application has its own <a href="../../src/HTML.html">HTML
+      parser</a> that understands the structured output from the internal SGML
+      parser then the second API can be used. The current HTML parser in
+      libwww is very basic and does not understand many of the new features in
+      HTML 2 and 3.</dd>
+  <dt><b>HText Call Back Interface</b></dt>
+    <dd>The last API can be in case the application prefers to use the
+      internal HTML parser and only wants to provide a platform dependent
+      definition of the callback functions defined in the <a
+      href="../../src/HText.html">HText module</a> which are all defined in <a
+      href="../../src/HText.html">HText module</a>.</dd>
+</dl>
+
+<p>Due to the limited functionality of the internal HTML parsing module, many
+applications have chosen to implement their own HTML parser. </p>
+
+<p><a href="../../src/HTHInit.html"><img border="0"
+src="../../../Icons/WWW/doc48x" alt="Documentation" width="48" height="48"
+align="middle">Registrering the HTML Parser</a></p>
+
+<p></p>
+<hr>
+
+<address>
+  <a href="/People/Frystyk/">Henrik Frystyk Nielsen</a>,<br>
+  @(#) $Id$ 
+</address>
+</body>
+</html>

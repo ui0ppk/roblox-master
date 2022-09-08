@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 17-Jan-1996 -->
+  <TITLE>The Protocol Class</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" SRC="../../../Icons/WWW/w3c_home" ALT="W3C" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/guide48x" ALT="Using" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  The Protocol Class
+</H1>
+<P>
+Libwww comes with a wide set of protocol modules that gives access to most
+popular Internet protocols including HTTP, FTP, Gopher, telnet, rlogin, NNTP
+and WAIS. However, as mentioned in the beginning, when the Library is first
+initialized it knows nothing about how to access the Internet. In fact it
+doesn't even know how to access the local file system. It is for the application
+to tell the Library what it can handle and where to go find the functionality.
+This is very much the same mechanism as we saw described in the previous
+chapter, so a lot of what is going on will hopefully become clear as we go
+along.
+<P>
+All protocol modules are dynamically bound to an access scheme. Take for
+example the following URL:
+<PRE>	<B>http</B>://www.w3.org/
+</PRE>
+<P>
+It has the access scheme <B>http</B> and if we have a protocol module capable
+of handling HTTP then we can make the binding between <B>http</B> and this
+module. As mentioned in the introduction to this chapter, the Library already
+comes with a large set of protocol module, including HTTP so all we have
+to do in this case is to register the HTTP module to the Library as being
+capable of handling <B>http</B> URLs.
+<P>
+One special case is the support for access to
+<A HREF="../../../../Products/WAIS/">WAIS</A> databases. WAIS has its own
+code Library called <A HREF="http://www.cnidr.org/" >freeWAIS</A> which is
+required in order to directly access wais URLs. We shall not describe in
+describe in detail here how this can be enabled as it is described in the
+<A HREF="../../../Gateways/WAISGate.html">the WWW-WAIS gateway</A>.
+<P>
+<A HREF="../../src/HTProt.html"><IMG BORDER="0" SRC="../../../Icons/WWW/doc48x" ALT="Documentation"
+    WIDTH="48" HEIGHT="48" BORDER="0" ALIGN="Middle">Constructors, Destructors
+and Methods</A>
+<P>
+  <HR>
+<ADDRESS>
+  Henrik Frystyk Nielsen,
+  <A HREF="mailto:libwww@w3.org">libwww@w3.org</A>,<BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

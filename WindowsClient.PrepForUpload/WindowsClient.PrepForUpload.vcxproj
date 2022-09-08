@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NoOpt|Win32">
+      <Configuration>NoOpt</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C6DA5E42-3FF4-49A6-8E4C-B654848CE7A7}</ProjectGuid>
+    <RootNamespace>WindowsClientPrepForUpload</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\content\
+xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\shaders\
+xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\BuiltInPlugins\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
+copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\Redist.zip
+copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\TextureManifest.txt
+..\WindowsClient\$(Platform)\$(Configuration)\RobloxPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\api.txt"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\content\
+xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\shaders\
+xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\BuiltInPlugins\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
+copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\Redist.zip
+copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\TextureManifest.txt
+..\WindowsClient\$(Platform)\$(Configuration)\RobloxPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\api.txt"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
+    <PostBuildEvent>
+      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Command>%40echo off
+mkdir ..\UploadBits
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\content\
+xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\shaders\
+xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\BuiltInPlugins\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
+copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\Redist.zip
+copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\TextureManifest.txt
+..\WindowsClient\$(Platform)\$(Configuration)\RobloxPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\api.txt"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="..\Roblox.PrepForUpload\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WindowsClient\WindowsClient.vcxproj">
+      <Project>{2475ddab-e4f7-42be-a5d4-58e2e070a34d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

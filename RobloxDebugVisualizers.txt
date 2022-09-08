@@ -1,0 +1,794 @@
+
+; Here are debug visualizers for Visual Studio.  Visualizers are used to provide custom 
+;  displays when mousing over a variable or in the watch window.  For example, rather 
+;  than showing pn and px details about a boost::shared_pointer, the real data will be 
+;  shown (if not NULL).
+;
+; Copy the following text to the end of autoexp.dat.  
+; You will need administrator privileges to edit the file.
+;
+; autoexp.dat can be found at:
+;
+; Visual Studio 2008: C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\Packages\Debugger
+; Visual Studio 2010: C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Packages\Debugger
+;
+; Feel free to add additional visualizers that you find useful.
+;
+; Here’s a tutorial: http://www.virtualdub.org/blog/pivot/entry.php?id=120
+;
+; To enable or disable all debug visualizers, go to “Tools/Options/Debugging” and 
+;   change “Show raw structure of objects in variables windows”.
+
+; START ROBLOX CUSTOM VISUALIZERS ----------------------------------------------
+
+[AutoExpand]
+
+;------------------------------------------------------------------------------
+;  Qt 
+;------------------------------------------------------------------------------
+
+QObject =classname=<staticMetaObject.d.stringdata,s> superclassname=<staticMetaObject.d.superdata->d.stringdata,s>
+QList<*>=size=<d->end,i>
+QLinkedList<*>=size=<d->end,i>
+QString=<d->data,su> size=<d->size,u>
+QByteArray=<d->data,s> size=<d->size,u>
+QUrl =<d->encodedOriginal.d->data,s>
+QUrlInfo =<d->name.d->data,su>
+QMap<*> =size=<d->size>
+QPoint =x=<xp> y=<yp>
+QPointF =x=<xp> y=<yp>
+QSize =width=<wd> height=<ht>
+QSizeF =width=<wd> height=<ht>
+QRect =x1=<x1> y1=<y1> x2=<x2> y2=<y2>
+QRectF =x=<xp> y=<yp> w=<w> h=<h>
+QVector<*> =size=<d->size>
+QHash<*> =size=<d->size>
+QFont =family=<d->request.family.d->data,su> size=<d->request.pointSize, f>
+QDomNode =name=<impl->name.d->data,su> value=<impl->value.d->data,su>
+QVarLengthArray<*> =size=<s> data=<ptr>
+
+
+[Visualizer]
+
+;------------------------------------------------------------------------------
+;  boost::shared_ptr 
+;------------------------------------------------------------------------------
+boost::shared_ptr<*>|shared_ptr<*>{
+    preview
+    (
+        #if ( !$e.px ) 
+        ( 
+            #( "NULL" )
+        )
+        #else 
+        (
+            #( *$e.px, " (shared_ptr)" )
+        )
+    )
+    children 
+    (
+        #if ( !$e.px ) 
+        ( 
+            #array( expr: 0, size: 0 ) 
+        ) 
+        #else 
+        (
+            #(
+                #( ptr : *$e.px ),
+                #( count : $e.pn.pi_->use_count_ ),
+                #( weak_count : $e.pn.pi_->weak_count_ )
+            )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  boost::scoped_ptr 
+;------------------------------------------------------------------------------
+boost::scoped_ptr<*>|scoped_ptr<*>{
+    preview
+    (
+        #if ( !$e.px ) 
+        ( 
+            #( "NULL" )
+        )
+        #else 
+        (
+            #( *$e.px, " (scoped_ptr)" )
+        )
+    )
+    children 
+    (
+        #if ( !$e.px ) 
+        ( 
+            #array( expr: 0, size: 0 ) 
+        ) 
+        #else 
+        (
+            #( ptr : *$e.px )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  boost::unordered::unordered_map
+;------------------------------------------------------------------------------
+boost::unordered::unordered_map<*,*,*,*,*>|boost::unordered_map<*,*,*,*,*>{
+    preview
+    (
+        #(
+            "[", $e.table_.size_, "](",
+            #list
+            (
+                head: $e.table_.buckets_[$e.table_.bucket_count_].next_,
+                size: $e.table_.size_,
+                next: next_
+            ) : #(*(std::pair<$T1 const ,$T2 >*)(boost::unordered::detail::ptr_node<std::pair<$T1 const ,$T2 > > *)(&$e)),
+            ")"
+        )
+    )
+    children
+    (
+        #(
+            #( size: $e.table_.size_ ),
+            #list
+            (
+                head: $e.table_.buckets_[$e.table_.bucket_count_].next_,
+                size: $e.table_.size_,
+                next: next_
+            ) : #(*(std::pair<$T1 const ,$T2 >*)(boost::unordered::detail::ptr_node<std::pair<$T1 const ,$T2 > > *)(&$e))
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  boost::unordered::unordered_set
+;------------------------------------------------------------------------------
+boost::unordered::unordered_set<*,*,*,*>|boost::unordered_set<*,*,*,*>{
+    preview
+    (
+        #(
+            "[",$e.table_.size_,"](",
+            #list
+            (
+                head: $e.table_.buckets_[$e.table_.bucket_count_].next_,
+                size: $e.table_.size_,
+                next: next_
+            ) : #(*($T1 *)(boost::unordered::detail::ptr_node<$T1 > *)(&$e)),
+            ")"
+        )
+    )
+    children
+    (
+        #(
+            #( size: $e.table_.size_ ),
+            #list
+            (
+                head: $e.table_.buckets_[$e.table_.bucket_count_].next_,
+                size: $e.table_.size_,
+                next: next_
+            ) : #(*($T1 *)(boost::unordered::detail::ptr_node<$T1 > *)(&$e)),
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  BaldPtr 
+;------------------------------------------------------------------------------
+BaldPtr<*>{ 
+    preview 
+    (
+        #if ( !$e.mPointer ) 
+        (  
+            #( "NULL" )
+        ) 
+        #else 
+        (  
+            #( *$e.mPointer, " (BaldPtr)" )
+        ) 
+    )
+    
+    children 
+    (
+        #if ( !$e.mPointer ) 
+        ( 
+            #array( expr: 0, size: 0 ) 
+        )
+        #else 
+        (
+            #( ptr : *$e.mPointer )
+        ) 
+    )
+} 
+
+;------------------------------------------------------------------------------
+;  G3D::Vector2
+;------------------------------------------------------------------------------
+G3D::Vector2|Vector2{
+    preview
+    (
+        #( 
+            "( ", 
+            [$e.x,g], " , ", 
+            [$e.y,g], 
+            " )" 
+        )
+    )
+    children
+    (
+        #(
+            #( x : $e.x ),
+            #( y : $e.y )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Vector3 
+;------------------------------------------------------------------------------
+G3D::Vector3|Vector3{
+    preview
+    (
+        #if ( $e.x == 1 && $e.y == 0 && $e.z == 0 )
+        ( 
+            #( "[X Axis]" )
+        )
+        #elif ( $e.x == 0 && $e.y == 1 && $e.z == 0 )
+        ( 
+            #( "[Y Axis]" )
+        )
+        #elif ( $e.x == 0 && $e.y == 0 && $e.z == 1 )
+        ( 
+            #( "[Z Axis]" )
+        )
+        #else
+        (
+            #( 
+                "( ", 
+                [$e.x,g], " , ", 
+                [$e.y,g], " , ", 
+                [$e.z,g], 
+                " )" 
+            )
+        )
+    )
+    children
+    (
+        #(
+            #( x : $e.x ),
+            #( y : $e.y ),
+            #( z : $e.z )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Vector4
+;------------------------------------------------------------------------------
+G3D::Vector4|Vector4{
+    preview
+    (
+        #if ( $e.x == 1 && $e.y == 0 && $e.z == 0 && $e.w == 0 )
+        ( 
+            #( "[X Axis]" )
+        )
+        #elif ( $e.x == 0 && $e.y == 1 && $e.z == 0 && $e.w == 0 )
+        ( 
+            #( "[Y Axis]" )
+        )
+        #elif ( $e.x == 0 && $e.y == 0 && $e.z == 1 && $e.w == 0 )
+        ( 
+            #( "[Z Axis]" )
+        )
+        #else
+        (
+            #( 
+                "( ", 
+                [$e.x,g], " , ", 
+                [$e.y,g], " , ",
+                [$e.z,g], " , ", 
+                [$e.w,g],
+                " )"
+            )
+        )
+    )
+    children
+    (
+        #(
+            #( x : $e.x ),
+            #( y : $e.y ),
+            #( z : $e.z ),
+            #( w : $e.w )
+        )
+    )
+}
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Matrix3
+;------------------------------------------------------------------------------
+G3D::Matrix3|Matrix3{
+    preview
+    (
+        #if ( $e.elt[0][0] == 1 && $e.elt[0][1] == 0 && $e.elt[0][2] == 0 && $e.elt[1][0] == 0 && $e.elt[1][1] == 1 && $e.elt[1][2] == 0 && $e.elt[2][0] == 0 && $e.elt[2][1] == 0 && $e.elt[2][2] == 1 )
+        (
+            #( "[Identity]" )
+        )
+        #else
+        (
+            #( 
+                "( ",
+                "(", [$e.elt[0][0],g], ",", [$e.elt[1][0],g], ",", [$e.elt[2][0],g], ")",
+                "(", [$e.elt[0][1],g], ",", [$e.elt[1][1],g], ",", [$e.elt[2][1],g], ")",
+                "(", [$e.elt[0][2],g], ",", [$e.elt[1][2],g], ",", [$e.elt[2][2],g], ")",
+                " )"
+            )
+        )
+    )
+    children
+    (
+        #(
+            #( col0.x : $e.elt[0][0]) ,
+            #( col0.y : $e.elt[1][0]) ,
+            #( col0.z : $e.elt[2][0]) ,
+
+            #( col1.x : $e.elt[0][1]) ,
+            #( col1.y : $e.elt[1][1]) ,
+            #( col1.z : $e.elt[2][1]) ,
+
+            #( col2.x : $e.elt[0][2]) ,
+            #( col2.y : $e.elt[1][2]) ,
+            #( col2.z : $e.elt[2][2]) ,
+
+            #( row0 : *(G3D::Vector3*)($e.elt[0]) ),
+            #( row1 : *(G3D::Vector3*)($e.elt[1]) ),
+            #( row2 : *(G3D::Vector3*)($e.elt[2]) ),
+            #( data : $e.elt )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Matrix4
+;------------------------------------------------------------------------------
+G3D::Matrix4|Matrix4{
+    preview
+    (
+       #if ( $e.elt[0][0] == 1 && $e.elt[0][1] == 0 && $e.elt[0][2] == 0 && $e.elt[0][3] == 0 && $e.elt[1][0] == 0 && $e.elt[1][1] == 1 && $e.elt[1][2] == 0 && $e.elt[1][3] == 0 && $e.elt[2][0] == 0 && $e.elt[2][1] == 0 && $e.elt[2][2] == 1 && $e.elt[2][3] == 0 && $e.elt[3][0] == 0 && $e.elt[3][1] == 0 && $e.elt[3][2] == 0 && $e.elt[3][3] == 1 )
+       (
+           #( "[Identity]" )
+       )
+       #else
+       (
+            #( 
+                "( ",
+                "(", [$e.elt[0][0],g], ",", [$e.elt[1][0],g], ",", [$e.elt[2][0],g], ",", [$e.elt[3][0],g], ")",
+                "(", [$e.elt[0][1],g], ",", [$e.elt[1][1],g], ",", [$e.elt[2][1],g], ",", [$e.elt[3][1],g], ")",
+                "(", [$e.elt[0][2],g], ",", [$e.elt[1][2],g], ",", [$e.elt[2][2],g], ",", [$e.elt[3][2],g], ")",
+                "(", [$e.elt[0][3],g], ",", [$e.elt[1][3],g], ",", [$e.elt[2][3],g], ",", [$e.elt[3][3],g], ")",
+                " )"
+            )
+        )
+    )
+    children
+    (
+        #(
+
+            #( col0.x : $e.elt[0][0]) ,
+            #( col0.y : $e.elt[1][0]) ,
+            #( col0.z : $e.elt[2][0]) ,
+            #( col0.w : $e.elt[3][0]) ,
+
+            #( col1.x : $e.elt[0][1]) ,
+            #( col1.y : $e.elt[1][1]) ,
+            #( col1.z : $e.elt[2][1]) ,
+            #( col1.w : $e.elt[3][1]) ,
+
+            #( col2.x : $e.elt[0][2]) ,
+            #( col2.y : $e.elt[1][2]) ,
+            #( col2.z : $e.elt[2][2]) ,
+            #( col2.w : $e.elt[3][2]) ,
+
+            #( col3.x : $e.elt[0][3]) ,
+            #( col3.y : $e.elt[1][3]) ,
+            #( col3.z : $e.elt[2][3]) ,
+            #( col3.w : $e.elt[3][3]) ,
+
+            #( row0 : *(G3D::Vector4*)($e.elt[0]) ),
+            #( row1 : *(G3D::Vector4*)($e.elt[1]) ),
+            #( row2 : *(G3D::Vector4*)($e.elt[2]) ),
+            #( row3 : *(G3D::Vector4*)($e.elt[3]) ),
+            #( data : $e.elt )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Quat
+;------------------------------------------------------------------------------
+G3D::Quat|Quat{
+    preview
+    (
+        #if ( $e.x == 0 && $e.y == 0 && $e.z == 0 && $e.w == 1 ) 
+        (
+            #( "[Identity]" )
+        )
+        #elif ( ( (($e.x)*($e.x)) + (($e.y)*($e.y)) + (($e.z)*($e.z)) + (($e.w)*($e.w)) ) > 1.001f ) 
+        (
+            #( "[Unnormalized] ", "( ", [$e.x,g], " , ", [$e.y,g], " , ", [$e.z,g], " , ", [$e.w,g], " )" )
+        )
+        #elif ( ( (($e.x)*($e.x)) + (($e.y)*($e.y)) + (($e.z)*($e.z)) + (($e.w)*($e.w)) ) < 0.999f ) 
+        (
+            #( "[Unnormalized] ", "( ", [$e.x,g], " , ", [$e.y,g], " , ", [$e.z,g], " , ", [$e.w,g], " )" )
+        )
+        #else 
+        (
+            #( "( ", [$e.x,g], " , ", [$e.y,g], " , ", [$e.z,g], " , ", [$e.w,g], " )" )
+        )
+    )
+    children
+    (
+        #(
+            #( x : $e.x ),
+            #( y : $e.y ),
+            #( z : $e.z ),
+            #( w : $e.w )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Plane
+;------------------------------------------------------------------------------
+G3D::Plane|Plane{
+    preview
+    (
+        #(
+            $e._normal, " x ", [$e._distance,g]
+        )
+    )
+    children
+    (
+        #(
+            #( Normal: $e._normal ),
+            #( Distance: $e._distance )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  RBX::RbxRay
+;------------------------------------------------------------------------------
+RBX::RbxRay|RbxRay{
+    preview
+    (
+        #(
+            $e.m_origin, " towards ", $e.m_direction
+        )
+    )
+    children
+    (
+        #(
+            #( Origin: $e.m_origin ),
+            #( Direction: $e.m_direction )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Line
+;------------------------------------------------------------------------------
+G3D::Line|Line{
+    preview
+    (
+        #(
+            $e._point, " towards ", $e._direction
+        )
+    )
+    children
+    (
+        #(
+            #( Origin: $e._point ),
+            #( Direction: $e._direction )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Color3
+;------------------------------------------------------------------------------
+G3D::Color3|Color3{
+    preview
+    (
+        #(
+            "[",
+            [$e.r,g], ",", 
+            [$e.g,g], ",", 
+            [$e.b,g],
+            "]"
+        )
+    )
+    children
+    (
+        #(
+            #( Red: $e.r ),
+            #( Green: $e.g ),
+            #( Blue: $e.b )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::Color4
+;------------------------------------------------------------------------------
+G3D::Color4|Color4{
+    preview
+    (
+        #(
+            "[", 
+            [$e.r,g], ",", 
+            [$e.g,g], ",",
+            [$e.b,g], ",", 
+            [$e.a,g], 
+            "]" 
+        )
+    )
+    children
+    (
+        #(
+            #( Red: $e.r ),
+            #( Green: $e.g ),
+            #( Blue: $e.b ),
+            #( Alpha: $e.a )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  G3D::CoordinateFrame
+;------------------------------------------------------------------------------
+G3D::CoordinateFrame|CoordinateFrame{
+    preview
+    (
+        #(
+            $e.translation, " x ", $e.rotation
+        )
+    )
+    children
+    (
+        #(
+            #( Rotation: $e.rotation ),
+            #( Translation: $e.translation )
+        )
+    )
+}
+
+;------------------------------------------------------------------------------
+;  LUA
+;------------------------------------------------------------------------------
+
+; public domain by Glenn Maynard, with help from http://www.virtualdub.org/blog/pivot/entry.php?id=120
+
+lua_State{
+    preview 
+    (
+        #(
+            "thread top=", [$c.top-$c.base, i]
+        )
+    )
+
+    children 
+    (
+        #(
+            [raw members]: [$c,!],
+            stack size: [$c.top-$c.base, i],
+            globals: [$c.l_gt],
+            registry: [$c.l_G->l_registry],
+
+            #array 
+            (
+                expr: $e.ci->func,
+                size: $e.ci->func->tt != 0,
+            ): #( call: $e ),
+
+            #array 
+            (
+                expr: $c.base[$i],
+                size: $c.top - $c.base,
+                base: 1
+            )
+        )
+    )
+    
+}
+
+Node{
+    preview 
+    (
+        #( $c.i_key.tvk, " = ", $c.i_val )
+    )
+    children 
+    (
+        #(
+            key: $c.i_key.tvk,
+            val: $c.i_val,
+            #if( $c.i_key.nk.next != 0 ) 
+            (
+                #( next: $c.i_key.nk.next )
+            )
+        )
+    )
+}
+
+lua_TValue{
+    children 
+    (
+        #switch($c.tt)
+        #case 2 
+        (                            ; LUA_TLIGHTUSERDATA
+            ptr: #((const char*)($c.value.p))
+        )
+        #case 5 
+        (                             ; LUA_TTABLE
+            #(
+                [raw]: [$c,!],
+                array size: $c.value.gc->h.sizearray,
+                #array (
+                    expr: $e.value.gc->h.metatable,
+                    size: $e.value.gc->h.metatable != 0,
+                ): #( metatable: $e ),
+                
+                #array (
+                    expr: $c.value.gc->h.array[$i],
+                    size: $c.value.gc->h.sizearray,
+                    base: 1
+                ),
+                #array (
+                    expr: #( $c.value.gc->h.node[$i], 2 ),
+                    size: (1<<$c.value.gc->h.lsizenode),
+                    base: 1
+                ): #( hash part: $e )
+            )    
+        )
+        #case 6 
+        (                            ; LUA_TFUNCTION
+            #if ($c.value.gc->cl.c.isC) 
+            (
+                #(
+                    env: $c.value.gc->cl.c.env,
+                    #array 
+                    (
+                        expr: $e.value.gc->cl.c.upvalue[$i],
+                        size: $e.value.gc->cl.c.nupvalues,
+                    ): #( upvalues: $e )
+                )
+            ) #else (
+                #($c.value.gc->cl.l)
+            )
+            
+        )
+        #case 7 
+        (                            ; LUA_TUSERDATA
+            #(
+                #array 
+                (
+                    expr: $e.value.gc->u.uv.metatable,
+                    size: $e.value.gc->u.uv.metatable != 0,
+                ): #( metatable: $e ),
+                env: $c.value.gc->u.uv.env,
+                ptr: #((const char*)((&$c.value.gc->u)+1)),
+                size: $c.value.gc->u.uv.len
+            )
+        )
+        #case 8 ( #($c.value.gc->th) )        ; LUA_TTHREAD
+        
+    )
+
+    preview 
+    (
+        #switch($c.tt)
+        #case 0 ( "nil" )                    ; LUA_TNIL
+        #case 1 
+        (
+            #if ($c.value.b == 0) 
+            (
+                "false"
+            ) 
+            #else 
+            (
+                "true"
+            )
+        )
+        #case 2 
+        (                            ; LUA_TLIGHTUSERDATA
+            #($c.value.p, " lightuserdata")
+        )
+        #case 3 
+        (                            ; LUA_TNUMBER
+            #("number=", $c.value.n) 
+        )
+        #case 4 
+        (                            ; LUA_TSTRING
+            #( $c.value.gc->ts) 
+        )
+        #case 5 (     ; LUA_TTABLE
+            #( "table" )
+        )
+        
+        #case 6 ( #($c.value.gc->cl) )        ; LUA_TFUNCTION
+        #case 7 ( #($c.value.gc->u) )        ; LUA_TUSERDATA
+        #case 8 ( #($c.value.gc->th) )        ; LUA_TTHREAD
+        #default ( "empty" )
+        )
+    )
+}
+
+Udata{
+    preview 
+    (
+        #( "userdata size=", $c.uv.len, " ptr=", #((void*)((&$c)+1)) )
+    )
+}
+
+CClosure{
+    preview 
+    (
+        $c.f
+    )
+}
+LClosure{
+    preview
+    (
+        "Lua function"
+    )
+}
+
+Closure{
+    preview 
+    (
+        #if ($c.c.isC) ( #($c.c) )
+        #else ( #($c.value.gc->cl.l) )
+    )
+}
+
+Table{
+    children 
+    (
+            #(
+                [raw]: [$c,!],
+                [array size]: $c.sizearray,
+                #array 
+                (
+                    expr: $e.metatable,
+                    size: $e.metatable != 0,
+                ): #( metatable: $e ),
+                
+                #array 
+                (
+                    expr: $c.array[$i],
+                    size: $c.sizearray,
+                    base: 1
+                ),
+                #array 
+                (
+                    expr: #( $c.node[$i], 2 ),
+                    size: (1<<$c.lsizenode),
+                    base: 1
+                ): #( key: $e )
+            )    
+    )
+
+    preview 
+    (
+        #( "table" )
+    )
+}
+
+TString{
+    preview 
+    (
+        #( (const char *) (&($c.tsv)+1) )
+    )
+}
+
+; END ROBLOX CUSTOM VISUALIZERS ----------------------------------------------

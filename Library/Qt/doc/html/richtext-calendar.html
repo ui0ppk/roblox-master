@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- calendar.qdoc -->
+  <title>Qt 4.8: Calendar Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Calendar Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#mainwindow-class-definition">MainWindow Class Definition</a></li>
+<li class="level1"><a href="#mainwindow-class-implementation">MainWindow Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Calendar Example</h1>
+<span class="subtitle"></span>
+<!-- $$$richtext/calendar-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="richtext-calendar-mainwindow-cpp.html">richtext/calendar/mainwindow.cpp</a></li>
+<li><a href="richtext-calendar-mainwindow-h.html">richtext/calendar/mainwindow.h</a></li>
+<li><a href="richtext-calendar-main-cpp.html">richtext/calendar/main.cpp</a></li>
+<li><a href="richtext-calendar-calendar-pro.html">richtext/calendar/calendar.pro</a></li>
+</ul>
+<p>The Calendar example shows how to create rich text content and display it using a rich text editor.<p class="centerAlign"><img src="images/calendar-example.png" alt="" /></p><p>Specifically, the example demonstrates the following:</p>
+<ul>
+<li>Use of a text editor with a text document</li>
+<li>Insertion of tables and frames into a document</li>
+<li>Navigation within a table</li>
+<li>Insert text in different styles</li>
+</ul>
+<p>The rich text editor used to display the document is used within a main window application.</p>
+<a name="mainwindow-class-definition"></a>
+<h2>MainWindow Class Definition</h2>
+<p>The <tt>MainWindow</tt> class provides a text editor widget and some controls to allow the user to change the month and year shown. The font size used for the text can also be adjusted.</p>
+<pre class="cpp"> <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     MainWindow();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setFontSize(<span class="type">int</span> size);
+     <span class="type">void</span> setMonth(<span class="type">int</span> month);
+     <span class="type">void</span> setYear(<span class="type"><a href="qdate.html">QDate</a></span> date);
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> insertCalendar();
+
+     <span class="type">int</span> fontSize;
+     <span class="type"><a href="qdate.html">QDate</a></span> selectedDate;
+     <span class="type"><a href="qtextbrowser.html">QTextBrowser</a></span> <span class="operator">*</span>editor;
+ };</pre>
+<p>The private <tt>insertCalendar()</tt> function performs most of the work, relying on the <tt>fontSize</tt> and <tt>selectedDate</tt> variables to write useful information to the <tt>editor</tt>.</p>
+<a name="mainwindow-class-implementation"></a>
+<h2>MainWindow Class Implementation</h2>
+<p>The <tt>MainWindow</tt> constructor sets up the user interface and initializes variables used to generate a calendar for each month.</p>
+<pre class="cpp"> MainWindow<span class="operator">::</span>MainWindow()
+ {
+     selectedDate <span class="operator">=</span> <span class="type"><a href="qdate.html">QDate</a></span><span class="operator">::</span>currentDate();
+     fontSize <span class="operator">=</span> <span class="number">10</span>;
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>centralWidget <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwidget.html">QWidget</a></span>;</pre>
+<p>We begin by setting default values for the selected date that will be highlighted in the calendar and the font size to be used. Since we are using a <a href="qmainwindow.html">QMainWindow</a> for the user interface, we construct a widget for use as the central widget.</p>
+<p>The user interface will include a line of controls above the generated calendar; we construct a label and a combobox to allow the month to be selected, and a spin box for the year. These widgets are configured to provide a reasonable range of values for the user to try:</p>
+<pre class="cpp">     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>dateLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Date:&quot;</span>));
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>monthCombo <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
+
+     <span class="keyword">for</span> (<span class="type">int</span> month <span class="operator">=</span> <span class="number">1</span>; month <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">12</span>; <span class="operator">+</span><span class="operator">+</span>month)
+         monthCombo<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="type"><a href="qdate.html">QDate</a></span><span class="operator">::</span>longMonthName(month));
+
+     <span class="type"><a href="qdatetimeedit.html">QDateTimeEdit</a></span> <span class="operator">*</span>yearEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdatetimeedit.html">QDateTimeEdit</a></span>;
+     yearEdit<span class="operator">-</span><span class="operator">&gt;</span>setDisplayFormat(<span class="string">&quot;yyyy&quot;</span>);
+     yearEdit<span class="operator">-</span><span class="operator">&gt;</span>setDateRange(<span class="type"><a href="qdate.html">QDate</a></span>(<span class="number">1753</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>)<span class="operator">,</span> <span class="type"><a href="qdate.html">QDate</a></span>(<span class="number">8000</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>));</pre>
+<p>We use the <tt>selectedDate</tt> object to obtain the current month and year, and we set these in the combobox and spin box:</p>
+<p>The font size is displayed in a spin box which we restrict to a sensible range of values:</p>
+<pre class="cpp">     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>fontSizeLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(tr(<span class="string">&quot;Font size:&quot;</span>));
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>fontSizeSpinBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qspinbox.html">QSpinBox</a></span>;
+     fontSizeSpinBox<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">1</span><span class="operator">,</span> <span class="number">64</span>);
+
+     editor <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtextbrowser.html">QTextBrowser</a></span>;
+     insertCalendar();</pre>
+<p>We construct an editor and use the <tt>insertCalendar()</tt> function to create a calendar for it. Each calendar is displayed in the same text editor; in this example we use a <a href="qtextbrowser.html">QTextBrowser</a> since we do not allow the calendar to be edited.</p>
+<p>The controls used to set the month, year, and font size will not have any effect on the appearance of the calendar unless we make some signal-slot connections:</p>
+<pre class="cpp">     connect(monthCombo<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setMonth(<span class="type">int</span>)));
+     connect(yearEdit<span class="operator">,</span> SIGNAL(dateChanged(<span class="type"><a href="qdate.html">QDate</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(setYear(<span class="type"><a href="qdate.html">QDate</a></span>)));
+     connect(fontSizeSpinBox<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(setFontSize(<span class="type">int</span>)));</pre>
+<p>The signals are connected to some simple slots in the <tt>MainWindow</tt> class which we will describe later.</p>
+<p>We create layouts to manage the widgets we constructed:</p>
+<pre class="cpp">     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>controlsLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>;
+     controlsLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(dateLabel);
+     controlsLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(monthCombo);
+     controlsLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(yearEdit);
+     controlsLayout<span class="operator">-</span><span class="operator">&gt;</span>addSpacing(<span class="number">24</span>);
+     controlsLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontSizeLabel);
+     controlsLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(fontSizeSpinBox);
+     controlsLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch(<span class="number">1</span>);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>centralLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     centralLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(controlsLayout);
+     centralLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(editor<span class="operator">,</span> <span class="number">1</span>);
+     centralWidget<span class="operator">-</span><span class="operator">&gt;</span>setLayout(centralLayout);
+
+     setCentralWidget(centralWidget);</pre>
+<p>Finally, the central widget is set for the window.</p>
+<p>Each calendar is created for the editor by the <tt>insertCalendar()</tt> function which uses the date and font size, defined by the private <i>selectedDate</i> and <tt>fontSize</tt> variables, to produce a suitable plan for the specified month and year.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>insertCalendar()
+ {
+     editor<span class="operator">-</span><span class="operator">&gt;</span>clear();
+     <span class="type"><a href="qtextcursor.html">QTextCursor</a></span> cursor <span class="operator">=</span> editor<span class="operator">-</span><span class="operator">&gt;</span>textCursor();
+     cursor<span class="operator">.</span>beginEditBlock();
+
+     <span class="type"><a href="qdate.html">QDate</a></span> date(selectedDate<span class="operator">.</span>year()<span class="operator">,</span> selectedDate<span class="operator">.</span>month()<span class="operator">,</span> <span class="number">1</span>);</pre>
+<p>We begin by clearing the editor's rich text document, and obtain a text cursor from the editor that we will use to add content. We also create a <a href="qdate.html">QDate</a> object based on the currently selected date.</p>
+<p>The calendar is made up of a table with a gray background color that contains seven columns: one for each day of the week. It is placed in the center of the page with equal space to the left and right of it. All of these properties are set in a <a href="qtexttableformat.html">QTextTableFormat</a> object:</p>
+<pre class="cpp">     <span class="type"><a href="qtexttableformat.html">QTextTableFormat</a></span> tableFormat;
+     tableFormat<span class="operator">.</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+     tableFormat<span class="operator">.</span>setBackground(<span class="type"><a href="qcolor.html">QColor</a></span>(<span class="string">&quot;#e0e0e0&quot;</span>));
+     tableFormat<span class="operator">.</span>setCellPadding(<span class="number">2</span>);
+     tableFormat<span class="operator">.</span>setCellSpacing(<span class="number">4</span>);</pre>
+<p>Each cell in the table will be padded and spaced to make the text easier to read.</p>
+<p>We want the columns to have equal widths, so we provide a vector containing percentage widths for each of them and set the constraints in the <a href="qtexttableformat.html">QTextTableFormat</a>:</p>
+<pre class="cpp">     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">&gt;</span> constraints;
+     constraints <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">14</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">14</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">14</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">14</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">14</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">14</span>)
+                 <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qtextlength.html">QTextLength</a></span>(<span class="type"><a href="qtextlength.html">QTextLength</a></span><span class="operator">::</span>PercentageLength<span class="operator">,</span> <span class="number">14</span>);
+     tableFormat<span class="operator">.</span>setColumnWidthConstraints(constraints);</pre>
+<p>The constraints used for the column widths are only useful if the table has an appropriate number of columns. With the format for the table defined, we construct a new table with one row and seven columns at the current cursor position:</p>
+<pre class="cpp">     <span class="type"><a href="qtexttable.html">QTextTable</a></span> <span class="operator">*</span>table <span class="operator">=</span> cursor<span class="operator">.</span>insertTable(<span class="number">1</span><span class="operator">,</span> <span class="number">7</span><span class="operator">,</span> tableFormat);</pre>
+<p>We only need one row to start with; more can be added as we need them. Using this approach means that we do not need to perform any date calculations until we add cells to the table.</p>
+<p>When inserting objects into a document with the cursor's insertion functions, the cursor is automatically moved inside the newly inserted object. This means that we can immediately start modifying the table from within:</p>
+<pre class="cpp">     <span class="type"><a href="qtextframe.html">QTextFrame</a></span> <span class="operator">*</span>frame <span class="operator">=</span> cursor<span class="operator">.</span>currentFrame();
+     <span class="type"><a href="qtextframeformat.html">QTextFrameFormat</a></span> frameFormat <span class="operator">=</span> frame<span class="operator">-</span><span class="operator">&gt;</span>frameFormat();
+     frameFormat<span class="operator">.</span>setBorder(<span class="number">1</span>);
+     frame<span class="operator">-</span><span class="operator">&gt;</span>setFrameFormat(frameFormat);</pre>
+<p>Since the table has an outer frame, we obtain the frame and its format so that we can customize it. After making the changes we want, we set the frame's format using the modified format object. We have given the table an outer border one pixel wide.</p>
+<pre class="cpp">     <span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> format <span class="operator">=</span> cursor<span class="operator">.</span>charFormat();
+     format<span class="operator">.</span>setFontPointSize(fontSize);
+
+     <span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> boldFormat <span class="operator">=</span> format;
+     boldFormat<span class="operator">.</span>setFontWeight(<span class="type"><a href="qfont.html">QFont</a></span><span class="operator">::</span>Bold);
+
+     <span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> highlightedFormat <span class="operator">=</span> boldFormat;
+     highlightedFormat<span class="operator">.</span>setBackground(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow);</pre>
+<p>In a similar way, we obtain the cursor's current character format and create customized formats based on it.</p>
+<p>We do not set the format on the cursor because this would change the default character format; instead, we use the customized formats explicitly when we insert text. The following loop inserts the days of the week into the table as bold text:</p>
+<pre class="cpp">     <span class="keyword">for</span> (<span class="type">int</span> weekDay <span class="operator">=</span> <span class="number">1</span>; weekDay <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">7</span>; <span class="operator">+</span><span class="operator">+</span>weekDay) {
+         <span class="type"><a href="qtexttablecell.html">QTextTableCell</a></span> cell <span class="operator">=</span> table<span class="operator">-</span><span class="operator">&gt;</span>cellAt(<span class="number">0</span><span class="operator">,</span> weekDay<span class="operator">-</span><span class="number">1</span>);</pre>
+<p>For each day of the week, we obtain an existing table cell in the first row (row 0) using the table's <a href="qtexttable.html#cellAt">cellAt()</a> function. Since we start counting the days of the week at day 1 (Monday), we subtract 1 from <tt>weekDay</tt> to ensure that we obtain the cell for the correct column of the table.</p>
+<p>Before text can be inserted into a cell, we must obtain a cursor with the correct position in the document. The cell provides a function for this purpose, and we use this cursor to insert text using the <tt>boldFormat</tt> character format that we created earlier:</p>
+<pre class="cpp">         <span class="type"><a href="qtextcursor.html">QTextCursor</a></span> cellCursor <span class="operator">=</span> cell<span class="operator">.</span>firstCursorPosition();
+         cellCursor<span class="operator">.</span>insertText(<span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;%1&quot;</span>)<span class="operator">.</span>arg(<span class="type"><a href="qdate.html">QDate</a></span><span class="operator">::</span>longDayName(weekDay))<span class="operator">,</span>
+                               boldFormat);
+     }</pre>
+<p>Inserting text into document objects usually follows the same pattern. Each object can provide a new cursor that corresponds to the first valid position within itself, and this can be used to insert new content. We continue to use this pattern as we insert the days of the month into the table.</p>
+<p>Since every month has more than seven days, we insert a single row to begin and add days until we reach the end of the month. If the current date is encountered, it is inserted with a special format (created earlier) that makes it stand out:</p>
+<pre class="cpp">     table<span class="operator">-</span><span class="operator">&gt;</span>insertRows(table<span class="operator">-</span><span class="operator">&gt;</span>rows()<span class="operator">,</span> <span class="number">1</span>);</pre>
+<p>We add a new row to the table at the end of each week only if the next week falls within the currently selected month.</p>
+<p>For each calendar that we create, we change the window title to reflect the currently selected month and year:</p>
+<pre class="cpp">     setWindowTitle(tr(<span class="string">&quot;Calendar for %1 %2&quot;</span>
+         )<span class="operator">.</span>arg(<span class="type"><a href="qdate.html">QDate</a></span><span class="operator">::</span>longMonthName(selectedDate<span class="operator">.</span>month())
+         )<span class="operator">.</span>arg(selectedDate<span class="operator">.</span>year()));
+ }</pre>
+<p>The <tt>insertCalendar()</tt> function relies on up-to-date values for the month, year, and font size. These are set in the following slots:</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>setFontSize(<span class="type">int</span> size)
+ {
+     fontSize <span class="operator">=</span> size;
+     insertCalendar();
+ }</pre>
+<p>The <tt>setFontSize()</tt> function simply changes the private <tt>fontSize</tt> variable before updating the calendar.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>setMonth(<span class="type">int</span> month)
+ {
+     selectedDate <span class="operator">=</span> <span class="type"><a href="qdate.html">QDate</a></span>(selectedDate<span class="operator">.</span>year()<span class="operator">,</span> month <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> selectedDate<span class="operator">.</span>day());
+     insertCalendar();
+ }</pre>
+<p>The <tt>setMonth</tt> slot is called when the <a href="qcombobox.html">QComboBox</a> used to select the month is updated. The value supplied is the currently selected row in the combobox. We add 1 to this value to obtain a valid month number, and create a new <a href="qdate.html">QDate</a> based on the existing one. The calendar is then updated to use this new date.</p>
+<pre class="cpp"> <span class="type">void</span> MainWindow<span class="operator">::</span>setYear(<span class="type"><a href="qdate.html">QDate</a></span> date)
+ {
+     selectedDate <span class="operator">=</span> <span class="type"><a href="qdate.html">QDate</a></span>(date<span class="operator">.</span>year()<span class="operator">,</span> selectedDate<span class="operator">.</span>month()<span class="operator">,</span> selectedDate<span class="operator">.</span>day());
+     insertCalendar();
+ }</pre>
+<p>The <tt>setYear()</tt> slot is called when the <a href="qdatetimeedit.html">QDateTimeEdit</a> used to select the year is updated. The value supplied is a <a href="qdate.html">QDate</a> object; this makes the construction of a new value for <tt>selectedDate</tt> simple. We update the calendar afterwards to use this new date.</p>
+</div>
+<!-- @@@richtext/calendar -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

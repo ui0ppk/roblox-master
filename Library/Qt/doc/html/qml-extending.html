@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- extending.qdoc -->
+  <title>Qt 4.8: Extending QML Functionalities using C++</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li>Extending QML Functionalities using C++</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+  <link rel="prev" href="qml-views.html" />
+  <link rel="next" href="qtbinding.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qml-views.html">Presenting Data with Views</a>
+<a class="nextPage" href="qtbinding.html">Using QML Bindings in C++ Applications</a>
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#adding-types">Adding Types</a></li>
+<li class="level1"><a href="#qml-type-versioning">QML Type Versioning</a></li>
+<li class="level1"><a href="#object-and-list-property-types">Object and List Property Types</a></li>
+<li class="level1"><a href="#inheritance-and-coercion">Inheritance and Coercion</a></li>
+<li class="level1"><a href="#default-property">Default Property</a></li>
+<li class="level1"><a href="#grouped-properties">Grouped Properties</a></li>
+<li class="level1"><a href="#attached-properties">Attached Properties</a></li>
+<li class="level1"><a href="#memory-management-and-qvariant-types">Memory Management and QVariant types</a></li>
+<li class="level1"><a href="#signal-support">Signal Support</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#property-value-sources">Property Value Sources</a></li>
+<li class="level1"><a href="#property-binding">Property Binding</a></li>
+<li class="level1"><a href="#extension-objects">Extension Objects</a></li>
+<li class="level1"><a href="#optimization">Optimization</a></li>
+</ul>
+</div>
+<h1 class="title">Extending QML Functionalities using C++</h1>
+<span class="subtitle"></span>
+<!-- $$$qml-extending.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The QML syntax declaratively describes how to construct an in-memory object tree. In Qt, QML is mainly used to describe a visual scene graph, but it is not conceptually limited to this: the QML format is an abstract description of any object tree. All the QML element types included in Qt are implemented using the C++ extension mechanisms describe on this page. Programmers can use these APIs to add new types that interact with the existing Qt types, or to repurpose QML for their own independent use.</p>
+<a name="adding-types"></a>
+<h2>Adding Types</h2>
+<a name="adding-types"></a><pre class="qml"> import People 1.0
+
+ <span class="type">Person</span> {
+     <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+     <span class="name">shoeSize</span>: <span class="number">12</span>
+ }</pre>
+<p>The QML snippet shown above instantiates one <tt>Person</tt> instance and sets the <tt>name</tt> and <tt>shoeSize</tt> properties on it. Everything in QML ultimately comes down to either instantiating an object instance, or assigning a property a value.</p>
+<p>QML relies heavily on Qt's meta object system and can only instantiate classes that derive from <a href="qobject.html">QObject</a>. For visual element types, this will usually mean a subclass of <a href="qdeclarativeitem.html">QDeclarativeItem</a>; for models used with the view elements, a subclass of <a href="qabstractitemmodel.html">QAbstractItemModel</a>; and for arbitrary objects with properties, a direct subclass of <a href="qobject.html">QObject</a>.</p>
+<p>The QML engine has no intrinsic knowledge of any class types. Instead the programmer must register the C++ types with their corresponding QML names.</p>
+<p>Custom C++ types are registered using a template function:</p>
+<blockquote><pre class="cpp"> <span class="keyword">template</span><span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span>
+ <span class="type">int</span> <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>uri<span class="operator">,</span> <span class="type">int</span> versionMajor<span class="operator">,</span> <span class="type">int</span> versionMinor<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>qmlName)</pre>
+<p>Calling <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>() registers the C++ type <i>T</i> with the QML system, and makes it available in QML under the name <i>qmlName</i> in library <i>uri</i> version <i>versionMajor.versionMinor</i>. The <i>qmlName</i> can be the same as the C++ type name.</p>
+<p>Type <i>T</i> must be a concrete type that inherits <a href="qobject.html">QObject</a> and has a default constructor.</p>
+</blockquote>
+<p>#include &lt;<a href="qtdeclarative.html">QtDeclarative</a>&gt; to use <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>().</p>
+<p>Types can be registered by libraries, application code, or by plugins (see <a href="qdeclarativeextensionplugin.html">QDeclarativeExtensionPlugin</a>).</p>
+<p>Once registered, all <a href="properties.html#qt-s-property-system">properties</a> of the supported types are available in QML. QML has intrinsic support for properties of the types listed in the <a href="qdeclarativebasictypes.html">QML Basic Types</a> document, which includes the following:</p>
+<ul>
+<li>bool, unsigned int, int, float, double, qreal</li>
+<li><a href="qstring.html">QString</a>, <a href="qurl.html">QUrl</a>, <a href="qcolor.html">QColor</a></li>
+<li><a href="qdate.html">QDate</a>, <a href="qtime.html">QTime</a>, <a href="qdatetime.html">QDateTime</a></li>
+<li><a href="qpoint.html">QPoint</a>, <a href="qpointf.html">QPointF</a>, <a href="qsize.html">QSize</a>, <a href="qsizef.html">QSizeF</a>, <a href="qrect.html">QRect</a>, <a href="qrectf.html">QRectF</a></li>
+<li><a href="qvariant.html">QVariant</a></li>
+</ul>
+<p>When a property of a supported type is added to a C++ class, in a QML element based on the C++ class, a <i>value-changed</i> signal handler will be available. See <a href="#signal-support">Signal Support</a> below.</p>
+<p>QML is typesafe. Attempting to assign an invalid value to a property will generate an error. For example, assuming the <i>name</i> property of the <tt>Person</tt> element had a type of <a href="qstring.html">QString</a>, this would cause an error:</p>
+<pre class="cpp"> Person {
+     <span class="comment">// Will NOT work</span>
+     name: <span class="number">12</span>
+ }</pre>
+<p><a href="declarative-cppextensions-referenceexamples-adding.html">Extending QML - Adding Types Example</a> shows the complete code used to create the <tt>Person</tt> type.</p>
+<a name="qml-type-versioning"></a>
+<h2>QML Type Versioning</h2>
+<p>In C++ adding a new method or property cannot break old applications. In QML, however, new methods and properties can change what a name previously resolved to to within a scope chain.</p>
+<p>For example, consider these two QML files</p>
+<pre class="cpp"> <span class="comment">// main.qml</span>
+ import <span class="type">QtQuick</span> <span class="number">1.0</span>
+ Item {
+     id: root
+     MyComponent {}
+ }</pre>
+<pre class="cpp"> <span class="comment">// MyComponent.qml</span>
+ import MyModule <span class="number">1.0</span>
+ CppItem {
+     value: root<span class="operator">.</span>x
+ }</pre>
+<p>where CppItem maps to the C++ class QCppItem.</p>
+<p>If the author of QCppItem adds a &quot;root&quot; property to QCppItem in a new version of the module, it will break the above program as <tt>root.x</tt> now resolves to a different value. The solution is to allow the author of QCppItem to state that the new <tt>root</tt> property is only available from a particular version of QCppItem onwards. This permits new properties and features to be added to existing elements without breaking existing programs.</p>
+<p>QML enables this by allowing the properties, methods and signals of a class to be tagged with a particular <i>revision</i>, so that they are only accessible if the relevant module version is imported. In this case, the author can tag the <tt>root</tt> property as being added in <i>revision 1</i> of the class, and register that revision in version 1.1 of the module.</p>
+<p>The REVISION tag is used to mark the <tt>root</tt> property as added in revision 1 of the class. Methods such as <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>'s, signals and slots can also be tagged for a revision using the <tt>Q_REVISION(x)</tt> macro:</p>
+<pre class="cpp"> <span class="keyword">class</span> CppItem : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type">int</span> root READ root WRITE setRoot NOTIFY rootChanged REVISION <span class="number">1</span>)
+
+ <span class="keyword">signals</span>:
+     Q_REVISION(<span class="number">1</span>) <span class="type">void</span> rootChanged();
+ };</pre>
+<p>To register the new class revision to a particular version the following function is used:</p>
+<pre class="cpp"> <span class="keyword">template</span><span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">,</span> <span class="type">int</span> metaObjectRevision<span class="operator">&gt;</span>
+ <span class="type">int</span> <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>uri<span class="operator">,</span> <span class="type">int</span> versionMajor<span class="operator">,</span> <span class="type">int</span> versionMinor<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>qmlName)</pre>
+<p>To register <tt>CppItem</tt> version 1 for <tt>MyModule 1.1</tt>:</p>
+<pre class="cpp"> qmlRegisterType<span class="operator">&lt;</span><span class="type">QCppItem</span><span class="operator">,</span><span class="number">1</span><span class="operator">&gt;</span>(<span class="string">&quot;MyModule&quot;</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="string">&quot;CppItem&quot;</span>)</pre>
+<p><tt>root</tt> is only available when MyModule 1.1 is imported.</p>
+<a name="object-and-list-property-types"></a>
+<h2>Object and List Property Types</h2>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     <span class="name">host</span>: <span class="name">Person</span> {
+         <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+         <span class="name">shoeSize</span>: <span class="number">12</span>
+     }
+     <span class="name">guests</span>: [
+         <span class="type">Person</span> { <span class="name">name</span>: <span class="string">&quot;Leo Hodges&quot;</span> },
+         <span class="type">Person</span> { <span class="name">name</span>: <span class="string">&quot;Jack Smith&quot;</span> },
+         <span class="type">Person</span> { <span class="name">name</span>: <span class="string">&quot;Anne Brown&quot;</span> }
+     ]
+ }</pre>
+<p>The QML snippet shown above assigns a <tt>Person</tt> object to the <tt>BirthdayParty</tt>'s <tt>host</tt> property, and assigns three <tt>Person</tt> objects to the guests property.</p>
+<p>QML can set properties of types that are more complex than basic intrinsics like integers and strings. Properties can also be object pointers, Qt interface pointers, lists of object pointers, and lists of Qt interface pointers. As QML is typesafe it ensures that only valid types are assigned to these properties, just like it does for primitive types.</p>
+<p>Properties that are pointers to objects or Qt interfaces are declared with the <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>() macro, just like other properties. The <tt>host</tt> property declaration looks like this:</p>
+<pre class="cpp">     Q_PROPERTY(Person <span class="operator">*</span>host READ host WRITE setHost)</pre>
+<p>As long as the property type, in this case <tt>Person</tt>, is registered with QML the property can be assigned.</p>
+<p>QML also supports assigning Qt interfaces. To assign to a property whose type is a Qt interface pointer, the interface must also be registered with QML. As they cannot be instantiated directly, registering a Qt interface is different from registering a new QML type. The following function is used instead:</p>
+<blockquote><pre class="cpp"> <span class="keyword">template</span><span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span>
+ <span class="type">int</span> <a href="qdeclarativeengine.html#qmlRegisterInterface">qmlRegisterInterface</a>(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>typeName)</pre>
+<p>This registers the C++ interface <i>T</i> with the QML system as <i>typeName</i>.</p>
+<p>Following registration, QML can coerce objects that implement this interface for assignment to appropriately typed properties.</p>
+</blockquote>
+<p>The <tt>guests</tt> property is a list of <tt>Person</tt> objects. Properties that are lists of objects or Qt interfaces are also declared with the <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>() macro, just like other properties. List properties must have the type <tt>QDeclarativeListProperty&lt;T&gt;</tt>. As with object properties, the type <i>T</i> must be registered with QML.</p>
+<p>The <tt>guest</tt> property declaration looks like this:</p>
+<pre class="cpp">     Q_PROPERTY(<span class="type"><a href="qdeclarativelistproperty.html">QDeclarativeListProperty</a></span><span class="operator">&lt;</span>Person<span class="operator">&gt;</span> guests READ guests)</pre>
+<p><a href="declarative-cppextensions-referenceexamples-properties.html">Extending QML - Object and List Property Types Example</a> shows the complete code used to create the <tt>BirthdayParty</tt> type.</p>
+<a name="inheritance-and-coercion"></a>
+<h2>Inheritance and Coercion</h2>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     <span class="name">host</span>: <span class="name">Boy</span> {
+         <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+         <span class="name">shoeSize</span>: <span class="number">12</span>
+     }
+     <span class="name">guests</span>: [
+         <span class="type">Boy</span> { <span class="name">name</span>: <span class="string">&quot;Leo Hodges&quot;</span> },
+         <span class="type">Boy</span> { <span class="name">name</span>: <span class="string">&quot;Jack Smith&quot;</span> },
+         <span class="type">Girl</span> { <span class="name">name</span>: <span class="string">&quot;Anne Brown&quot;</span> }
+     ]
+ }</pre>
+<p>The QML snippet shown above assigns a <tt>Boy</tt> object to the <tt>BirthdayParty</tt>'s <tt>host</tt> property, and assigns three other objects to the <tt>guests</tt> property.</p>
+<p>QML supports C++ inheritance hierarchies and can freely coerce between known, valid object types. This enables the creation of common base classes that allow the assignment of specialized classes to object or list properties. In the snippet shown, both the <tt>host</tt> and the <tt>guests</tt> properties retain the <tt>Person</tt> type used in the previous section, but the assignment is valid as both the <tt>Boy</tt> and <tt>Girl</tt> objects inherit from <tt>Person</tt>.</p>
+<p>To assign to a property, the property's type must have been registered with QML. Both the <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>() and <a href="qdeclarativeengine.html#qmlRegisterInterface">qmlRegisterInterface</a>() template functions already shown can be used to register a type with QML. Additionally, if a type that acts purely as a base class that cannot be instantiated from QML needs to be registered, the following function can be used:</p>
+<blockquote><pre class="cpp">     <span class="keyword">template</span><span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span>
+     <span class="type">int</span> <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>()</pre>
+<p>This registers the C++ type <i>T</i> with the QML system. The parameterless call to the template function <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>() does not define a mapping between the C++ class and a QML element name, so the type is not instantiable from QML, but it is available for type coercion.</p>
+<p>Type <i>T</i> must inherit <a href="qobject.html">QObject</a>, but there are no restrictions on whether it is concrete or the signature of its constructor.</p>
+</blockquote>
+<p>QML will automatically coerce C++ types when assigning to either an object property, or to a list property. Only if coercion fails does an assignment error occur.</p>
+<p><a href="declarative-cppextensions-referenceexamples-coercion.html">Extending QML - Inheritance and Coercion Example</a> shows the complete code used to create the <tt>Boy</tt> and <tt>Girl</tt> types.</p>
+<a name="default-property"></a>
+<h2>Default Property</h2>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     <span class="name">host</span>: <span class="name">Boy</span> {
+         <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+         <span class="name">shoeSize</span>: <span class="number">12</span>
+     }
+
+     <span class="type">Boy</span> { <span class="name">name</span>: <span class="string">&quot;Leo Hodges&quot;</span> }
+     <span class="type">Boy</span> { <span class="name">name</span>: <span class="string">&quot;Jack Smith&quot;</span> }
+     <span class="type">Girl</span> { <span class="name">name</span>: <span class="string">&quot;Anne Brown&quot;</span> }
+ }</pre>
+<p>The QML snippet shown above assigns a collection of objects to the <tt>BirthdayParty</tt>'s default property.</p>
+<p>The <i>default property</i> is a syntactic convenience that allows a type designer to specify a single property as the type's default. The default property is assigned to whenever no explicit property is specified. As a convenience, it is behaviorally identical to assigning to the default property explicitly by name.</p>
+<p>From C++, type designers mark the default property using a <a href="qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>() annotation:</p>
+<blockquote><pre class="cpp"> <a href="qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>(<span class="string">&quot;DefaultProperty&quot;</span><span class="operator">,</span> <span class="string">&quot;property&quot;</span>)</pre>
+<p>This marks <i>property</i> as the class's default property. <i>property</i> must be either an object property, or a list property.</p>
+<p>A default property is optional. A derived class inherits its base class's default property, but may override it in its own declaration. <i>property</i> can refer to a property declared in the class itself, or a property inherited from a base class.</p>
+</blockquote>
+<p><a href="declarative-cppextensions-referenceexamples-default.html">Extending QML - Default Property Example</a> shows the complete code used to specify a default property.</p>
+<a name="grouped-properties"></a>
+<h2>Grouped Properties</h2>
+<pre class="qml"> <span class="type">Boy</span> {
+     <span class="name">name</span>: <span class="string">&quot;Jack Smith&quot;</span>
+     <span class="type">shoe</span> {
+         <span class="name">size</span>: <span class="number">8</span>
+         <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+         <span class="name">brand</span>: <span class="string">&quot;Puma&quot;</span>
+         <span class="name">price</span>: <span class="number">19.95</span>
+     }
+ }</pre>
+<p>The QML snippet shown above assigns a number of properties to the <tt>Boy</tt> object, including four properties using the grouped property syntax.</p>
+<p>Grouped properties collect similar properties together into a single named block. Grouped properties can be used to present a nicer API to developers, and may also simplify the implementation of common property collections across different types through implementation reuse.</p>
+<p>A grouped property block is implemented as a read-only object property. The <tt>shoe</tt> property shown is declared like this:</p>
+<pre class="cpp">     Q_PROPERTY(ShoeDescription <span class="operator">*</span>shoe READ shoe)</pre>
+<p>The <tt>ShoeDescription</tt> type declares the properties available to the grouped property block - in this case the <tt>size</tt>, <tt>color</tt>, <tt>brand</tt> and <tt>price</tt> properties.</p>
+<p>Grouped property blocks may declared and accessed be recusively.</p>
+<p><a href="declarative-cppextensions-referenceexamples-grouped.html">Extending QML - Grouped Properties Example</a> shows the complete code used to implement the <tt>shoe</tt> property grouping.</p>
+<a name="attached-properties"></a>
+<h2>Attached Properties</h2>
+<pre class="qml"> <span class="type">Boy</span> {
+     <span class="name">name</span>: <span class="string">&quot;Leo Hodges&quot;</span>
+     <span class="type">shoe</span> { <span class="name">size</span>: <span class="number">10</span>; <span class="name">color</span>: <span class="string">&quot;black&quot;</span>; <span class="name">brand</span>: <span class="string">&quot;Reebok&quot;</span>; <span class="name">price</span>: <span class="number">59.95</span> }
+
+     <span class="name">BirthdayParty</span>.rsvp: <span class="string">&quot;2009-07-06&quot;</span>
+ }</pre>
+<p>The QML snippet shown above assigns a date to the <tt>rsvp</tt> property using the attached property syntax.</p>
+<p>Attached properties allow unrelated types to annotate other types with some additional properties, generally for their own use. Attached properties are identified through the use of the attacher type name, in the case shown <tt>BirthdayParty</tt>, as a prefix to the property name.</p>
+<p>In the example shown, <tt>BirthdayParty</tt> is called the attaching type, and the <tt>Boy</tt> instance the attachee object instance.</p>
+<p>For the attaching type, an attached property block is implemented as a new <a href="qobject.html">QObject</a> derived type, called the attachment object. The properties on the attachment object are those that become available for use as the attached property block.</p>
+<p>Any QML type can become an attaching type by declaring the <tt>qmlAttachedProperties()</tt> public function and declaring that the class has QML_HAS_ATTACHED_PROPERTIES:</p>
+<blockquote><pre class="cpp"> <span class="keyword">class</span> MyType : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span> {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+
+     <span class="keyword">static</span> AttachedPropertiesType <span class="operator">*</span>qmlAttachedProperties(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object);
+ };
+
+ <a href="qdeclarativeengine.html#QML_DECLARE_TYPEINFO">QML_DECLARE_TYPEINFO</a>(MyType<span class="operator">,</span> QML_HAS_ATTACHED_PROPERTIES)</pre>
+<p>This returns an attachment object, of type <i>AttachedPropertiesType</i>, for the attachee <i>object</i> instance. It is customary, though not strictly required, for the attachment object to be parented to <i>object</i> to prevent memory leaks.</p>
+<p><i>AttachedPropertiesType</i> must be a <a href="qobject.html">QObject</a> derived type. The properties on this type will be accessible through the attached properties syntax.</p>
+<p>This method will be called at most once for each attachee object instance. The QML engine will cache the returned instance pointer for subsequent attached property accesses. Consequently the attachment object may not be deleted until <i>object</i> is destroyed.</p>
+</blockquote>
+<p>Conceptually, attached properties are a <i>type</i> exporting a set of additional properties that can be set on <i>any</i> other object instance. Attached properties cannot be limited to only attaching to a sub-set of object instances, although their effect may be so limited.</p>
+<p>For example, a common usage scenario is for a type to enhance the properties available to its children in order to gather instance specific data. Here we add a <tt>rsvp</tt> field to all the guests coming to a birthday party:</p>
+<pre class="cpp"> BirthdayParty {
+     Boy { BirthdayParty<span class="operator">.</span>rsvp: <span class="string">&quot;2009-06-01&quot;</span> }
+ }</pre>
+<p>However, as a type cannot limit the instances to which the attachment object must attach, the following is also allowed, even though adding a birthday party rsvp in this context will have no effect.</p>
+<pre class="cpp"> GraduationParty {
+     Boy { BirthdayParty<span class="operator">.</span>rsvp: <span class="string">&quot;2009-06-01&quot;</span> }
+ }</pre>
+<p>From C++, including the attaching type implementation, the attachment object for an instance can be accessed using the following method:</p>
+<blockquote><pre class="cpp"> <span class="keyword">template</span><span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span>
+ <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>qmlAttachedPropertiesObject<span class="operator">&lt;</span>T<span class="operator">&gt;</span>(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>attachee<span class="operator">,</span> <span class="type">bool</span> create <span class="operator">=</span> <span class="keyword">true</span>);</pre>
+<p>This returns the attachment object attached to <i>attachee</i> by the attaching type <i>T</i>. If type <i>T</i> is not a valid attaching type, this method always returns 0.</p>
+<p>If <i>create</i> is true, a valid attachment object will always be returned, creating it if it does not already exist. If <i>create</i> is false, the attachment object will only be returned if it has previously been created.</p>
+</blockquote>
+<p><a href="declarative-cppextensions-referenceexamples-attached.html">Extending QML - Attached Properties Example</a> shows the complete code used to implement the rsvp attached property.</p>
+<a name="memory-management-and-qvariant-types"></a>
+<h2>Memory Management and QVariant types</h2>
+<p>It is an element's responsibility to ensure that it does not access or return pointers to invalid objects. QML makes the following guarentees:</p>
+<ul>
+<li>An object assigned to a <a href="qobject.html">QObject</a> (or <a href="qobject.html">QObject</a>-derived) pointer property will be valid at the time of assignment.<p>Following assignment, it is the responsibility of the class to subsequently guard this pointer, either through a class specific method or the generic <a href="qpointer.html">QPointer</a> class.</p>
+</li>
+<li>An object assigned to a <a href="qvariant.html">QVariant</a> will be valid at the time of assignment.<p>When assigning an object to a <a href="qvariant.html">QVariant</a> property, QML will always use a <a href="qmetatype.html#Type-enum">QMetaType::QObjectStar</a> typed <a href="qvariant.html">QVariant</a>. It is the responsibility of the class to guard the pointer. A general rule when writing a class that uses <a href="qvariant.html">QVariant</a> properties is to check the type of the <a href="qvariant.html">QVariant</a> when it is set and if the type is not handled by your class, reset it to an invalid variant.</p>
+</li>
+<li>An object assigned to a <a href="qobject.html">QObject</a> (or <a href="qobject.html">QObject</a>-derived) list property will be valid at the time of assignment.<p>Following assignment, it is the responsibility of the class to subsequently guard this pointer, either through a class specific method or the generic <a href="qpointer.html">QPointer</a> class.</p>
+</li>
+</ul>
+<p>Elements should assume that any QML assigned object can be deleted at any time, and respond accordingly. If documented as such an element need not continue to work in this situation, but it must not crash.</p>
+<a name="signal-support"></a>
+<h2>Signal Support</h2>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     <span class="name">onPartyStarted</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;This party started rockin' at &quot;</span> <span class="operator">+</span> <span class="name">time</span>);
+ }</pre>
+<p>The QML snippet shown above associates the evaluation of a JavaScript expression with the emission of a Qt signal.</p>
+<p>All Qt signals on a registered class become available as special &quot;signal properties&quot; within QML to which the user can assign a single JavaScript expression. The signal property's name is a transformed version of the Qt signal name: &quot;on&quot; is prepended, and the first letter of the signal name upper cased. For example, the signal used in the example above has the following C++ signature:</p>
+<pre class="cpp"> <span class="keyword">signals</span>:
+     <span class="type">void</span> partyStarted(<span class="keyword">const</span> <span class="type"><a href="qtime.html">QTime</a></span> <span class="operator">&amp;</span>time);</pre>
+<p>In classes with multiple signals with the same name, only the final signal is accessible as a signal property. Note that signals with the same name but different parameters cannot be distinguished.</p>
+<p>Signal parameters become accessible by name to the assigned script. An unnamed parameter cannot be accessed, so care should be taken to name all the signal parameters in the C++ class declaration. The intrinsic types listed in <a href="#adding-types">Adding Types</a>, as well registered object types are permitted as signal parameter types. Using other types is not an error, but the parameter value will not be accessible from script.</p>
+<p><a href="declarative-cppextensions-referenceexamples-signal.html">Extending QML - Signal Support Example</a> shows the complete code used to implement the onPartyStarted signal property.</p>
+<p>If you want to use signals from items not created in QML, you can access their signals with the <a href="qml-connections.html">Connections</a> element.</p>
+<p>Additionally, if a property is added to a C++ class, all QML elements based on that C++ class will have a <i>value-changed</i> signal handler for that property. The name of the signal handler is <i>on&lt;Property-name&gt;Changed</i>, with the first letter of the property name being upper case.</p>
+<p><b>Note:</b> The QML signal handler will always be named on&lt;Property-name&gt;Changed, regardless of the name used for the NOTIFY signal in C++. We recommend using &lt;property-name&gt;Changed() for the NOTIFY signal in C++.</p>
+<p>See also <a href="qmlreusablecomponents.html">Importing Reusable Components</a></p>
+<a name="methods"></a>
+<h2>Methods</h2>
+<p>Slots and methods marked <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> may be called as functions in QML.</p>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     <span class="name">host</span>: <span class="name">Person</span> {
+         <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+         <span class="name">shoeSize</span>: <span class="number">12</span>
+     }
+     <span class="name">guests</span>: [
+         <span class="type">Person</span> { <span class="name">name</span>: <span class="string">&quot;Leo Hodges&quot;</span> },
+         <span class="type">Person</span> { <span class="name">name</span>: <span class="string">&quot;Jack Smith&quot;</span> },
+         <span class="type">Person</span> { <span class="name">name</span>: <span class="string">&quot;Anne Brown&quot;</span> }
+     ]
+
+     <span class="name">Component</span>.onCompleted: <span class="name">invite</span>(<span class="string">&quot;William Green&quot;</span>)
+ }</pre>
+<p>In this example an invitation is added via an <tt>invite()</tt> invokable method of the BirthdayParty element. This function is available in QML by marking the <tt>invite()</tt> method with <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> in the BirthdayParty class:</p>
+<pre class="cpp">     Q_INVOKABLE <span class="type">void</span> invite(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name);</pre>
+<p><a href="declarative-cppextensions-referenceexamples-methods.html">Extending QML - Methods Example</a> shows the complete code used to implement the invite() method.</p>
+<p>The <tt>invite()</tt> method is similarly available if it is declared as a slot.</p>
+<a name="property-value-sources"></a>
+<h2>Property Value Sources</h2>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     HappyBirthdaySong on <span class="name">announcement</span> { <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span> }
+ }</pre>
+<p>The QML snippet shown above applies a property value source to the <tt>announcement</tt> property. A property value source generates a value for a property that changes over time.</p>
+<p>Property value sources are most commonly used to do animation. Rather than constructing an animation object and manually setting the animation's &quot;target&quot; property, a property value source can be assigned directly to a property of any type and automatically set up this association.</p>
+<p>The example shown here is rather contrived: the <tt>announcement</tt> property of the <tt>BirthdayParty</tt> object is a string that is printed every time it is assigned and the <tt>HappyBirthdaySong</tt> value source generates the lyrics of the song &quot;Happy Birthday&quot;.</p>
+<pre class="cpp">     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> announcement READ announcement WRITE setAnnouncement)</pre>
+<p>Normally, assigning an object to a string property would not be allowed. In the case of a property value source, rather than assigning the object instance itself, the QML engine sets up an association between the value source and the property.</p>
+<p>Property value sources are special types that derive from the <a href="qdeclarativepropertyvaluesource.html">QDeclarativePropertyValueSource</a> base class. This base class contains a single method, <a href="qdeclarativepropertyvaluesource.html#setTarget">QDeclarativePropertyValueSource::setTarget</a>(), that the QML engine invokes when associating the property value source with a property. The relevant part of the <tt>HappyBirthdaySong</tt> type declaration looks like this:</p>
+<pre class="cpp"> <span class="keyword">class</span> HappyBirthdaySong : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qdeclarativepropertyvaluesource.html">QDeclarativePropertyValueSource</a></span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type"><a href="qdeclarativepropertyvaluesource.html">QDeclarativePropertyValueSource</a></span>)
+ <span class="keyword">public</span>:
+     HappyBirthdaySong(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="keyword">virtual</span> <span class="type">void</span> setTarget(<span class="keyword">const</span> <span class="type"><a href="qdeclarativeproperty.html">QDeclarativeProperty</a></span> <span class="operator">&amp;</span>);
+ };</pre>
+<p>In all other respects, property value sources are regular QML types. They must be registered with the QML engine using the same macros as other types, and can contain properties, signals and methods just like other types.</p>
+<p>When a property value source object is assigned to a property, QML first tries to assign it normally, as though it were a regular QML type. Only if this assignment fails does the engine call the <a href="qdeclarativepropertyvaluesource.html#setTarget">setTarget()</a> method. This allows the type to also be used in contexts other than just as a value source.</p>
+<p><a href="declarative-cppextensions-referenceexamples-valuesource.html">Extending QML - Property Value Source Example</a> shows the complete code used to implement the <tt>HappyBirthdaySong</tt> property value source.</p>
+<a name="property-binding"></a>
+<h2>Property Binding</h2>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     <span class="name">id</span>: <span class="name">theParty</span>
+
+     HappyBirthdaySong on <span class="name">announcement</span> { <span class="name">name</span>: <span class="name">theParty</span>.<span class="name">host</span>.<span class="name">name</span> }
+
+     <span class="name">host</span>: <span class="name">Boy</span> {
+         <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+         <span class="type">shoe</span> { <span class="name">size</span>: <span class="number">12</span>; <span class="name">color</span>: <span class="string">&quot;white&quot;</span>; <span class="name">brand</span>: <span class="string">&quot;Nike&quot;</span>; <span class="name">price</span>: <span class="number">90.0</span> }
+     }
+ }</pre>
+<p>The QML snippet shown above uses a property binding to ensure the <tt>HappyBirthdaySong</tt>'s <tt>name</tt> property remains up to date with the <tt>host</tt>.</p>
+<p>Property binding is a core feature of QML. In addition to assigning literal values, property bindings allow the developer to assign an arbitrarily complex JavaScript expression that may include dependencies on other property values. Whenever the expression's result changes - through a change in one of its constituent values - the expression is automatically reevaluated and the new result assigned to the property.</p>
+<p>All properties on custom types automatically support property binding. However, for binding to work correctly, QML must be able to reliably determine when a property has changed so that it knows to reevaluate any bindings that depend on the property's value. QML relies on the presence of a <a href="properties.html#qt-s-property-system">NOTIFY signal</a> for this determination.</p>
+<p>Here is the <tt>host</tt> property declaration:</p>
+<pre class="cpp">     Q_PROPERTY(Person <span class="operator">*</span>host READ host WRITE setHost NOTIFY hostChanged)</pre>
+<p>The NOTIFY attribute is followed by a signal name. It is the responsibility of the class implementer to ensure that whenever the property's value changes, the NOTIFY signal is emitted. The signature of the NOTIFY signal is not important to QML.</p>
+<p>To prevent loops or excessive evaluation, developers should ensure that the signal is only emitted whenever the property's value is actually changed. If a property, or group of properties, is infrequently used it is permitted to use the same NOTIFY signal for several properties. This should be done with care to ensure that performance doesn't suffer.</p>
+<p>To keep QML reliable, if a property does not have a NOTIFY signal, it cannot be used in a binding expression. However, the property can still be assigned a binding as QML does not need to monitor the property for change in that scenario.</p>
+<p>Consider a custom type, <tt>TestElement</tt>, that has two properties, &quot;a&quot; and &quot;b&quot;. Property &quot;a&quot; does not have a NOTIFY signal, and property &quot;b&quot; does have a NOTIFY signal.</p>
+<pre class="cpp"> TestElement {
+     <span class="comment">// This is OK</span>
+     a: b
+ }
+ TestElement {
+     <span class="comment">// Will NOT work</span>
+     b: a
+ }</pre>
+<p>The presence of a NOTIFY signal does incur a small overhead. There are cases where a property's value is set at object construction time, and does not subsequently change. The most common case of this is when a type uses <a href="#grouped-properties">Grouped Properties</a>, and the grouped property object is allocated once, and only freed when the object is deleted. In these cases, the CONSTANT attribute may be added to the property declaration instead of a NOTIFY signal.</p>
+<pre class="cpp">     Q_PROPERTY(ShoeDescription <span class="operator">*</span>shoe READ shoe CONSTANT)</pre>
+<p>Extreme care must be taken here or applications using your type may misbehave. The CONSTANT attribute should only be used for properties whose value is set, and finalized, only in the class constructor. All other properties that want to be used in bindings should have a NOTIFY signal instead.</p>
+<p><a href="declarative-cppextensions-referenceexamples-binding.html">Extending QML - Binding Example</a> shows the BirthdayParty example updated to include NOTIFY signals for use in binding.</p>
+<a name="extension-objects"></a>
+<h2>Extension Objects</h2>
+<pre class="qml"> <span class="type"><a href="qlineedit.html">QLineEdit</a></span> {
+     <span class="name">leftMargin</span>: <span class="number">20</span>
+ }</pre>
+<p>The QML snippet shown above adds a new property to an existing C++ type without modifying its source code.</p>
+<p>When integrating existing classes and technology into QML, their APIs will often need to be tweaked to fit better into the declarative environment. Although the best results are usually obtained by modifying the original classes directly, if this is either not possible or is complicated by some other concerns, extension objects allow limited extension possibilities without direct modifications.</p>
+<p>Extension objects are used to add additional properties to an existing type. Extension objects can only add properties, not signals or methods. An extended type definition allows the programmer to supply an additional type - known as the extension type - when registering the target class whose properties are transparently merged with the original target class when used from within QML.</p>
+<p>An extension class is a regular <a href="qobject.html">QObject</a>, with a constructor that takes a <a href="qobject.html">QObject</a> pointer. When needed (extension class creation is delayed until the first extended property is accessed) the extension class is created and the target object is passed in as the parent. When an extended property on the original is accessed, the appropriate property on the extension object is used instead.</p>
+<p>When an extended type is installed, one of the</p>
+<pre class="cpp"> <span class="keyword">template</span><span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">,</span> <span class="keyword">typename</span> ExtendedT<span class="operator">&gt;</span>
+ <span class="type">int</span> qmlRegisterExtendedType(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>uri<span class="operator">,</span> <span class="type">int</span> versionMajor<span class="operator">,</span> <span class="type">int</span> versionMinor<span class="operator">,</span> <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>qmlName)
+
+ <span class="keyword">template</span><span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">,</span> <span class="keyword">typename</span> ExtendedT<span class="operator">&gt;</span>
+ <span class="type">int</span> qmlRegisterExtendedType()</pre>
+<p>functions should be used instead of the regular <tt>qmlRegisterType()</tt> variations. The arguments are identical to the corresponding non-extension registration functions, except for the ExtendedT parameter which is the type of the extension object.</p>
+<a name="optimization"></a>
+<h2>Optimization</h2>
+<p>Often to develop high performance elements it is helpful to know more about the status of the QML engine. For example, it might be beneficial to delay initializing some costly data structures until after all the properties have been set.</p>
+<p>The QML engine defines an interface class called <a href="qdeclarativeparserstatus.html">QDeclarativeParserStatus</a>, which contains a number of virtual methods that are invoked at various stages during component instantiation. To receive these notifications, an element implementation inherits <a href="qdeclarativeparserstatus.html">QDeclarativeParserStatus</a> and notifies the Qt meta system using the <a href="qobject.html#Q_INTERFACES">Q_INTERFACES</a>() macro.</p>
+<p>For example,</p>
+<pre class="cpp"> <span class="keyword">class</span> Example : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qdeclarativeparserstatus.html">QDeclarativeParserStatus</a></span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type"><a href="qdeclarativeparserstatus.html">QDeclarativeParserStatus</a></span>)
+ <span class="keyword">public</span>:
+     <span class="keyword">virtual</span> <span class="type">void</span> componentComplete()
+     {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Woohoo!  Now to do my costly initialization&quot;</span>;
+     }
+ };</pre>
+</div>
+<!-- @@@qml-extending.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qml-views.html">Presenting Data with Views</a>
+<a class="nextPage" href="qtbinding.html">Using QML Bindings in C++ Applications</a>
+</p>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

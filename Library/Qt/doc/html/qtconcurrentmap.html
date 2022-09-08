@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtconcurrentmap.cpp -->
+  <title>Qt 4.8: &lt;QtConcurrentMap&gt; - Concurrent Map and Map-Reduce</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#concurrent-map">Concurrent Map</a></li>
+<li class="level1"><a href="#concurrent-map-reduce">Concurrent Map-Reduce</a></li>
+<li class="level1"><a href="#additional-api-features">Additional API Features</a></li>
+<li class="level2"><a href="#using-iterators-instead-of-sequence">Using Iterators instead of Sequence</a></li>
+<li class="level2"><a href="#blocking-variants">Blocking Variants</a></li>
+<li class="level2"><a href="#using-member-functions">Using Member Functions</a></li>
+<li class="level2"><a href="#using-function-objects">Using Function Objects</a></li>
+<li class="level2"><a href="#using-bound-function-arguments">Using Bound Function Arguments</a></li>
+</ul>
+</div>
+<h1 class="title">&lt;QtConcurrentMap&gt; - Concurrent Map and Map-Reduce</h1>
+<span class="subtitle"></span>
+<!-- $$$<QtConcurrentMap>-brief -->
+<p>The &lt;QtConcurrentMap&gt; header provides concurrent Map and MapReduce. <a href="#details">More...</a></p>
+<!-- @@@<QtConcurrentMap> -->
+<ul>
+</ul>
+<a name="Functionsx"></a>
+<h2>Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#blockingMappedReduced">blockingMappedReduced</a></b> ( const Sequence &amp; <i>sequence</i>, MapFunction <i>mapFunction</i>, ReduceFunction <i>reduceFunction</i>, QtConcurrent::ReduceOptions <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#blockingMappedReduced-2">blockingMappedReduced</a></b> ( ConstIterator <i>begin</i>, ConstIterator <i>end</i>, MapFunction <i>mapFunction</i>, ReduceFunction <i>reduceFunction</i>, QtConcurrent::ReduceOptions <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;void&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#map">map</a></b> ( Sequence &amp; <i>sequence</i>, MapFunction <i>function</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;void&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#map-2">map</a></b> ( Iterator <i>begin</i>, Iterator <i>end</i>, MapFunction <i>function</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#mapped">mapped</a></b> ( const Sequence &amp; <i>sequence</i>, MapFunction <i>function</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#mapped-2">mapped</a></b> ( ConstIterator <i>begin</i>, ConstIterator <i>end</i>, MapFunction <i>function</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#mappedReduced">mappedReduced</a></b> ( const Sequence &amp; <i>sequence</i>, MapFunction <i>mapFunction</i>, ReduceFunction <i>reduceFunction</i>, QtConcurrent::ReduceOptions <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QFuture&lt;T&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrentmap.html#mappedReduced-2">mappedReduced</a></b> ( ConstIterator <i>begin</i>, ConstIterator <i>end</i>, MapFunction <i>mapFunction</i>, ReduceFunction <i>reduceFunction</i>, QtConcurrent::ReduceOptions <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</td></tr>
+</table>
+<!-- $$$<QtConcurrentMap>-description -->
+<div class="descr"> <a name="details"></a>
+<p>These functions are a part of the <a href="threads-qtconcurrent.html">Qt Concurrent</a> framework.</p>
+<p>The <a href="qtconcurrentmap.html#map">QtConcurrent::map</a>(), <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>() and <a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>() functions run computations in parallel on the items in a sequence such as a <a href="qlist.html">QList</a> or a <a href="qvector.html">QVector</a>. <a href="qtconcurrentmap.html#map">QtConcurrent::map</a>() modifies a sequence in-place, <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>() returns a new sequence containing the modified content, and <a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>() returns a single result.</p>
+<p>Each of the above functions has a blocking variant that returns the final result instead of a <a href="qfuture.html">QFuture</a>. You use them in the same way as the asynchronous variants.</p>
+<pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+
+ <span class="comment">// each call blocks until the entire operation is finished</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingMapped(images<span class="operator">,</span> scaled);
+
+ <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingMap(images<span class="operator">,</span> scale);
+
+ <span class="type"><a href="qimage.html">QImage</a></span> collage <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingMappedReduced(images<span class="operator">,</span> scaled<span class="operator">,</span> addToCollage);</pre>
+<p>Note that the result types above are not <a href="qfuture.html">QFuture</a> objects, but real result types (in this case, <a href="qlist.html">QList</a>&lt;<a href="qimage.html">QImage</a>&gt; and <a href="qimage.html">QImage</a>).</p>
+<a name="concurrent-map"></a>
+<h2>Concurrent Map</h2>
+<p><a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>() takes an input sequence and a map function. This map function is then called for each item in the sequence, and a new sequence containing the return values from the map function is returned.</p>
+<p>The map function must be of the form:</p>
+<pre class="cpp"> U function(<span class="keyword">const</span> T <span class="operator">&amp;</span>t);</pre>
+<p>T and U can be any type (and they can even be the same type), but T must match the type stored in the sequence. The function returns the modified or <i>mapped</i> content.</p>
+<p>This example shows how to apply a scale function to all the items in a sequence:</p>
+<pre class="cpp"> <span class="type"><a href="qimage.html">QImage</a></span> scaled(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image)
+ {
+     <span class="keyword">return</span> image<span class="operator">.</span>scaled(<span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);
+ }
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> thumbnails <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mapped(images<span class="operator">,</span> scaled);</pre>
+<p>The results of the map are made available through <a href="qfuture.html">QFuture</a>. See the <a href="qfuture.html">QFuture</a> and <a href="qfuturewatcher.html">QFutureWatcher</a> documentation for more information on how to use <a href="qfuture.html">QFuture</a> in your applications.</p>
+<p>If you want to modify a sequence in-place, use <a href="qtconcurrentmap.html#map">QtConcurrent::map</a>(). The map function must then be of the form:</p>
+<pre class="cpp"> U function(T <span class="operator">&amp;</span>t);</pre>
+<p>Note that the return value and return type of the map function are not used.</p>
+<p>Using <a href="qtconcurrentmap.html#map">QtConcurrent::map</a>() is similar to using <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>():</p>
+<pre class="cpp"> <span class="type">void</span> scale(<span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image)
+ {
+     image <span class="operator">=</span> image<span class="operator">.</span>scaled(<span class="number">100</span><span class="operator">,</span> <span class="number">100</span>);
+ }
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>map(images<span class="operator">,</span> scale);</pre>
+<p>Since the sequence is modified in place, <a href="qtconcurrentmap.html#map">QtConcurrent::map</a>() does not return any results via <a href="qfuture.html">QFuture</a>. However, you can still use <a href="qfuture.html">QFuture</a> and <a href="qfuturewatcher.html">QFutureWatcher</a> to monitor the status of the map.</p>
+<a name="concurrent-map-reduce"></a>
+<h2>Concurrent Map-Reduce</h2>
+<p><a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>() is similar to <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>(), but instead of returning a sequence with the new results, the results are combined into a single value using a reduce function.</p>
+<p>The reduce function must be of the form:</p>
+<pre class="cpp"> V function(T <span class="operator">&amp;</span>result<span class="operator">,</span> <span class="keyword">const</span> U <span class="operator">&amp;</span>intermediate)</pre>
+<p>T is the type of the final result, U is the return type of the map function. Note that the return value and return type of the reduce function are not used.</p>
+<p>Call <a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>() like this:</p>
+<pre class="cpp"> <span class="type">void</span> addToCollage(<span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>collage<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>thumbnail)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="operator">&amp;</span>collage);
+     <span class="keyword">static</span> <span class="type"><a href="qpoint.html">QPoint</a></span> offset <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     p<span class="operator">.</span>drawImage(offset<span class="operator">,</span> thumbnail);
+     offset <span class="operator">+</span><span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ }
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> collage <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mappedReduced(images<span class="operator">,</span> scaled<span class="operator">,</span> addToCollage);</pre>
+<p>The reduce function will be called once for each result returned by the map function, and should merge the <i>intermediate</i> into the <i>result</i> variable. <a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>() guarantees that only one thread will call reduce at a time, so using a mutex to lock the result variable is not necessary. The <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a> enum provides a way to control the order in which the reduction is done. If <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::UnorderedReduce</a> is used (the default), the order is undefined, while <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::OrderedReduce</a> ensures that the reduction is done in the order of the original sequence.</p>
+<a name="additional-api-features"></a>
+<h2>Additional API Features</h2>
+<a name="using-iterators-instead-of-sequence"></a>
+<h3>Using Iterators instead of Sequence</h3>
+<p>Each of the above functions has a variant that takes an iterator range instead of a sequence. You use them in the same way as the sequence variants:</p>
+<pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> thumbnails <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mapped(images<span class="operator">.</span>constBegin()<span class="operator">,</span> images<span class="operator">.</span>constEnd()<span class="operator">,</span> scaled);
+
+ <span class="comment">// map in-place only works on non-const iterators</span>
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>map(images<span class="operator">.</span>begin()<span class="operator">,</span> images<span class="operator">.</span>end()<span class="operator">,</span> scale);
+
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> collage <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mappedReduced(images<span class="operator">.</span>constBegin()<span class="operator">,</span> images<span class="operator">.</span>constEnd()<span class="operator">,</span> scaled<span class="operator">,</span> addToCollage);</pre>
+<a name="blocking-variants"></a>
+<h3>Blocking Variants</h3>
+<p>Each of the above functions has a blocking variant that returns the final result instead of a <a href="qfuture.html">QFuture</a>. You use them in the same way as the asynchronous variants.</p>
+<pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+
+ <span class="comment">// each call blocks until the entire operation is finished</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingMapped(images<span class="operator">,</span> scaled);
+
+ <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingMap(images<span class="operator">,</span> scale);
+
+ <span class="type"><a href="qimage.html">QImage</a></span> collage <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingMappedReduced(images<span class="operator">,</span> scaled<span class="operator">,</span> addToCollage);</pre>
+<p>Note that the result types above are not <a href="qfuture.html">QFuture</a> objects, but real result types (in this case, <a href="qlist.html">QList</a>&lt;<a href="qimage.html">QImage</a>&gt; and <a href="qimage.html">QImage</a>).</p>
+<a name="using-member-functions"></a>
+<h3>Using Member Functions</h3>
+<p><a href="qtconcurrentmap.html#map">QtConcurrent::map</a>(), <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>(), and <a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>() accept pointers to member functions. The member function class type must match the type stored in the sequence:</p>
+<pre class="cpp"> <span class="comment">// squeeze all strings in a QStringList</span>
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> squeezedStrings <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>map(strings<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>squeeze);
+
+ <span class="comment">// swap the rgb values of all pixels on a list of images</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> bgrImages <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mapped(images<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>rgbSwapped);
+
+ <span class="comment">// create a set of the lengths of all strings in a list</span>
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> wordLengths <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mappedReduced(string<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>length<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span><span class="operator">::</span>insert);</pre>
+<p>Note that when using <a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>(), you can mix the use of normal and member functions freely:</p>
+<pre class="cpp"> <span class="comment">// can mix normal functions and member functions with QtConcurrent::mappedReduced()</span>
+
+ <span class="comment">// compute the average length of a list of strings</span>
+ <span class="keyword">extern</span> <span class="type">void</span> computeAverage(<span class="type">int</span> <span class="operator">&amp;</span>average<span class="operator">,</span> <span class="type">int</span> length);
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> strings <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> averageWordLength <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mappedReduced(strings<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>length<span class="operator">,</span> computeAverage);
+
+ <span class="comment">// create a set of the color distribution of all images in a list</span>
+ <span class="keyword">extern</span> <span class="type">int</span> colorDistribution(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>string);
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">&gt;</span> totalColorDistribution <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mappedReduced(images<span class="operator">,</span> colorDistribution<span class="operator">,</span> <span class="type"><a href="qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span><span class="operator">::</span>insert);</pre>
+<a name="using-function-objects"></a>
+<h3>Using Function Objects</h3>
+<p><a href="qtconcurrentmap.html#map">QtConcurrent::map</a>(), <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>(), and <a href="qtconcurrentmap.html#mappedReduced">QtConcurrent::mappedReduced</a>() accept function objects, which can be used to add state to a function call. The result_type typedef must define the result type of the function call operator:</p>
+<pre class="cpp"> <span class="keyword">struct</span> Scaled
+ {
+     Scaled(<span class="type">int</span> size)
+     : m_size(size) { }
+
+     <span class="keyword">typedef</span> <span class="type"><a href="qimage.html">QImage</a></span> result_type;
+
+     <span class="type"><a href="qimage.html">QImage</a></span> <span class="keyword">operator</span>()(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image)
+     {
+         <span class="keyword">return</span> image<span class="operator">.</span>scaled(m_size<span class="operator">,</span> m_size);
+     }
+
+     <span class="type">int</span> m_size;
+ };
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> thumbnails <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mapped(images<span class="operator">,</span> Scaled(<span class="number">100</span>));</pre>
+<a name="using-bound-function-arguments"></a>
+<h3>Using Bound Function Arguments</h3>
+<p>Note that Qt does not provide support for bound functions. This is provided by 3rd party libraries like <a href="http://www.boost.org/libs/bind/bind.html">Boost</a> or <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1836.pdf">C++ TR1 Library Extensions</a>.</p>
+<p>If you want to use a map function that takes more than one argument you can use boost::bind() or std::tr1::bind() to transform it onto a function that takes one argument.</p>
+<p>As an example, we'll use <a href="qimage.html#scaledToWidth">QImage::scaledToWidth</a>():</p>
+<pre class="cpp"> <span class="type"><a href="qimage.html">QImage</a></span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>scaledToWidth(<span class="type">int</span> width<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>TransformationMode) <span class="keyword">const</span>;</pre>
+<p>scaledToWidth takes three arguments (including the &quot;this&quot; pointer) and can't be used with <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>() directly, because <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>() expects a function that takes one argument. To use <a href="qimage.html#scaledToWidth">QImage::scaledToWidth</a>() with <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>() we have to provide a value for the <i>width</i> and the <i>transformation mode</i>:</p>
+<pre class="cpp"> boost<span class="operator">::</span>bind(<span class="operator">&amp;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>scaledToWidth<span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation)</pre>
+<p>The return value from boost::bind() is a function object (functor) with the following signature:</p>
+<pre class="cpp"> <span class="type"><a href="qimage.html">QImage</a></span> scaledToWith(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image)</pre>
+<p>This matches what <a href="qtconcurrentmap.html#mapped">QtConcurrent::mapped</a>() expects, and the complete example becomes:</p>
+<pre class="cpp"> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> images <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type"><a href="qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span> thumbnails <span class="operator">=</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mapped(images<span class="operator">,</span> boost<span class="operator">::</span>bind(<span class="operator">&amp;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>scaledToWidth<span class="operator">,</span> <span class="number">100</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation));</pre>
+</div>
+<!-- @@@<QtConcurrentMap> -->
+<h2>Function Documentation</h2>
+<!-- $$$blockingMappedReduced[overload1]$$$blockingMappedReducedconstSequence&MapFunctionReduceFunctionQtConcurrent::ReduceOptions -->
+<h3 class="fn"><a name="blockingMappedReduced"></a><span class="type">T</span> QtConcurrent::<span class="name">blockingMappedReduced</span> ( const <span class="type">Sequence</span> &amp; <i>sequence</i>, <span class="type">MapFunction</span> <i>mapFunction</i>, <span class="type">ReduceFunction</span> <i>reduceFunction</i>, <span class="type"><a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a></span> <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</h3>
+<p>Calls <i>mapFunction</i> once for each item in <i>sequence</i>. The return value of each <i>mapFunction</i> is passed to <i>reduceFunction</i>.</p>
+<p>Note that while <i>mapFunction</i> is called concurrently, only one thread at a time will call <i>reduceFunction</i>. The order in which <i>reduceFunction</i> is called is determined by <i>reduceOptions</i>.</p>
+<p><b>Note:</b> This function will block until all items in the sequence have been processed.</p>
+<p><b>See also </b><a href="qtconcurrentmap.html#mapped">mapped</a>().</p>
+<!-- @@@blockingMappedReduced -->
+<!-- $$$blockingMappedReduced$$$blockingMappedReducedConstIteratorConstIteratorMapFunctionReduceFunctionQtConcurrent::ReduceOptions -->
+<h3 class="fn"><a name="blockingMappedReduced-2"></a><span class="type">T</span> QtConcurrent::<span class="name">blockingMappedReduced</span> ( <span class="type">ConstIterator</span> <i>begin</i>, <span class="type">ConstIterator</span> <i>end</i>, <span class="type">MapFunction</span> <i>mapFunction</i>, <span class="type">ReduceFunction</span> <i>reduceFunction</i>, <span class="type"><a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a></span> <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</h3>
+<p>Calls <i>mapFunction</i> once for each item from <i>begin</i> to <i>end</i>. The return value of each <i>mapFunction</i> is passed to <i>reduceFunction</i>.</p>
+<p>Note that while <i>mapFunction</i> is called concurrently, only one thread at a time will call <i>reduceFunction</i>. The order in which <i>reduceFunction</i> is called is undefined.</p>
+<p><b>Note:</b> This function will block until the iterator reaches the end of the sequence being processed.</p>
+<p><b>See also </b><a href="qtconcurrentmap.html#blockingMappedReduced">blockingMappedReduced</a>().</p>
+<!-- @@@blockingMappedReduced -->
+<!-- $$$map[overload1]$$$mapSequence&MapFunction -->
+<h3 class="fn"><a name="map"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">void</span>&gt; QtConcurrent::<span class="name">map</span> ( <span class="type">Sequence</span> &amp; <i>sequence</i>, <span class="type">MapFunction</span> <i>function</i> )</h3>
+<p>Calls <i>function</i> once for each item in <i>sequence</i>. The <i>function</i> is passed a reference to the item, so that any modifications done to the item will appear in <i>sequence</i>.</p>
+<!-- @@@map -->
+<!-- $$$map$$$mapIteratorIteratorMapFunction -->
+<h3 class="fn"><a name="map-2"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">void</span>&gt; QtConcurrent::<span class="name">map</span> ( <span class="type">Iterator</span> <i>begin</i>, <span class="type">Iterator</span> <i>end</i>, <span class="type">MapFunction</span> <i>function</i> )</h3>
+<p>Calls <i>function</i> once for each item from <i>begin</i> to <i>end</i>. The <i>function</i> is passed a reference to the item, so that any modifications done to the item will appear in the sequence which the iterators belong to.</p>
+<!-- @@@map -->
+<!-- $$$mapped[overload1]$$$mappedconstSequence&MapFunction -->
+<h3 class="fn"><a name="mapped"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">mapped</span> ( const <span class="type">Sequence</span> &amp; <i>sequence</i>, <span class="type">MapFunction</span> <i>function</i> )</h3>
+<p>Calls <i>function</i> once for each item in <i>sequence</i> and returns a future with each mapped item as a result. You can use <a href="qfuture-const-iterator.html">QFuture::const_iterator</a> or <a href="qfutureiterator.html">QFutureIterator</a> to iterate through the results.</p>
+<!-- @@@mapped -->
+<!-- $$$mapped$$$mappedConstIteratorConstIteratorMapFunction -->
+<h3 class="fn"><a name="mapped-2"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">mapped</span> ( <span class="type">ConstIterator</span> <i>begin</i>, <span class="type">ConstIterator</span> <i>end</i>, <span class="type">MapFunction</span> <i>function</i> )</h3>
+<p>Calls <i>function</i> once for each item from <i>begin</i> to <i>end</i> and returns a future with each mapped item as a result. You can use <a href="qfuture-const-iterator.html">QFuture::const_iterator</a> or <a href="qfutureiterator.html">QFutureIterator</a> to iterate through the results.</p>
+<!-- @@@mapped -->
+<!-- $$$mappedReduced[overload1]$$$mappedReducedconstSequence&MapFunctionReduceFunctionQtConcurrent::ReduceOptions -->
+<h3 class="fn"><a name="mappedReduced"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">mappedReduced</span> ( const <span class="type">Sequence</span> &amp; <i>sequence</i>, <span class="type">MapFunction</span> <i>mapFunction</i>, <span class="type">ReduceFunction</span> <i>reduceFunction</i>, <span class="type"><a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a></span> <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</h3>
+<p>Calls <i>mapFunction</i> once for each item in <i>sequence</i>. The return value of each <i>mapFunction</i> is passed to <i>reduceFunction</i>.</p>
+<p>Note that while <i>mapFunction</i> is called concurrently, only one thread at a time will call <i>reduceFunction</i>. The order in which <i>reduceFunction</i> is called is determined by <i>reduceOptions</i>.</p>
+<!-- @@@mappedReduced -->
+<!-- $$$mappedReduced$$$mappedReducedConstIteratorConstIteratorMapFunctionReduceFunctionQtConcurrent::ReduceOptions -->
+<h3 class="fn"><a name="mappedReduced-2"></a><span class="type"><a href="qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">mappedReduced</span> ( <span class="type">ConstIterator</span> <i>begin</i>, <span class="type">ConstIterator</span> <i>end</i>, <span class="type">MapFunction</span> <i>mapFunction</i>, <span class="type">ReduceFunction</span> <i>reduceFunction</i>, <span class="type"><a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::ReduceOptions</a></span> <i>reduceOptions</i> = UnorderedReduce | SequentialReduce )</h3>
+<p>Calls <i>mapFunction</i> once for each item from <i>begin</i> to <i>end</i>. The return value of each <i>mapFunction</i> is passed to <i>reduceFunction</i>.</p>
+<p>Note that while <i>mapFunction</i> is called concurrently, only one thread at a time will call <i>reduceFunction</i>. By default, the order in which <i>reduceFunction</i> is called is undefined.</p>
+<p><b>Note:</b> <a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::OrderedReduce</a> results in the ordered reduction.</p>
+<!-- @@@mappedReduced -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

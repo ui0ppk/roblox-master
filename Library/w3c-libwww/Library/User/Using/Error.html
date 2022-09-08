@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen,  7-Feb-1996 -->
+  <NEXTID N="z78">
+  <TITLE>The Error Class</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" ALT="W3C" SRC="../../../Icons/WWW/w3c_home" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" ALT="libwww" SRC="../../../Icons/WWW/Lib48x" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/guide48x" ALT="Using" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  The Error Class
+</H1>
+<P>
+The Error class provides an easy API for registering errors occurring while
+the Library serves a request. All errors are registered in an "error
+stack"&nbsp;in the <A HREF="../../src/HTReq.html">Request object</A> which
+allows for nested errors. The Error class is both natural language independent
+and application independent in that it uses enumerations in order to refer
+to specific errors. It is for the application to provide an error presentation
+module which interprets the errors associated with a request. An example
+of such an implementation can be found in the
+<A HREF="../../src/HTDialog.html">HTDialog module</A>.
+<P>
+Libwww deals with two categories of errors: application errors and system
+errors. The former are all the errors that can occur when libwww is used
+in a "real" environment where network connections can disappear, disks can
+get full, and memory can get exhausted. The letter type of errors are at
+a lower level including invalid arguments passed to procedures, missing function
+calls, or any other application misbehavior. In this section we will examine
+libwww <A HREF="../../src/HTError.html">Error Manager</A> which handles user
+errors. In a later section we will have a look at how to control the application
+errors at an application debug level using trace messages.
+<P>
+As a part of the core libwww, the error object is intended to pass information
+about errors and messages occuring in libwww back to the application. Each
+error is kept as an object so multiple errors can be nested together using
+the well-known <A HREF="../../src/HTList.html">HTList object</A>. Nested
+error management can be used to build complicated error messages which an
+arbitrary level of details, for example:
+<PRE>
+	This URL could not be retrieved: http://www.foo.com
+	    Reason: The host name could not be resolved
+	        Reason: DNS service is not available
+</PRE>
+<P>
+The principle behind the error manager is exactly like any other registration
+module in libwww in that it creates an object and binds it to a list that
+the caller provides. Often, errors are related to a specific request object
+and each request object will therefore keep its own list of errors. However,
+errors can also be maintained as separate lists which are not directly related
+to a request, for example, the application can keep its own list of errors
+independent of any Library errors.
+<P>
+System errors include all errors that occur while interacting with the operating
+system. Often these errors occurs as a result of insufficient availability
+or authentication to a system resource. In many operating systems, the system
+provides a set of error messages which is associated with an error code made
+available to the application via the <EM>errno</EM> variable or equivalent.
+All other errors are registered with an error message belonging to libwww
+Error manager. Note, that there are no difference in how system errors and
+other errors are treated, they are the same data objects and can be registered
+together with no exception.
+<P>
+<A HREF="../../src/HTError.html"><IMG BORDER="0" SRC="../../../Icons/WWW/doc48x" ALT="Documentation"
+    WIDTH="48" HEIGHT="48" BORDER="0" ALIGN="Middle">Constructors, Destructors
+and Methods</A>
+<P>
+  <HR>
+<ADDRESS>
+  Henrik Frystyk Nielsen,
+  <A HREF="mailto:libwww@w3.org">libwww@w3.org</A>,<BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmutex.cpp -->
+  <title>Qt 4.8: QMutexLocker Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QMutexLocker</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QMutexLocker Class Reference</h1>
+<!-- $$$QMutexLocker-brief -->
+<p>The QMutexLocker class is a convenience class that simplifies locking and unlocking mutexes. <a href="#details">More...</a></p>
+<!-- @@@QMutexLocker -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QMutexLocker&gt;</span></pre><p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<ul>
+<li><a href="qmutexlocker-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmutexlocker.html#QMutexLocker">QMutexLocker</a></b> ( QMutex * <i>mutex</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmutexlocker.html#dtor.QMutexLocker">~QMutexLocker</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QMutex * </td><td class="memItemRight bottomAlign"><b><a href="qmutexlocker.html#mutex">mutex</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmutexlocker.html#relock">relock</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmutexlocker.html#unlock">unlock</a></b> ()</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QMutexLocker-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QMutexLocker class is a convenience class that simplifies locking and unlocking mutexes.</p>
+<p>Locking and unlocking a <a href="qmutex.html">QMutex</a> in complex functions and statements or in exception handling code is error-prone and difficult to debug. QMutexLocker can be used in such situations to ensure that the state of the mutex is always well-defined.</p>
+<p>QMutexLocker should be created within a function where a <a href="qmutex.html">QMutex</a> needs to be locked. The mutex is locked when QMutexLocker is created. You can unlock and relock the mutex with <tt>unlock()</tt> and <tt>relock()</tt>. If locked, the mutex will be unlocked when the QMutexLocker is destroyed.</p>
+<p>For example, this complex function locks a <a href="qmutex.html">QMutex</a> upon entering the function and unlocks the mutex at all the exit points:</p>
+<pre class="cpp"> <span class="type">int</span> complexFunction(<span class="type">int</span> flag)
+ {
+     mutex<span class="operator">.</span>lock();
+
+     <span class="type">int</span> retVal <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="keyword">switch</span> (flag) {
+     <span class="keyword">case</span> <span class="number">0</span>:
+     <span class="keyword">case</span> <span class="number">1</span>:
+         retVal <span class="operator">=</span> moreComplexFunction(flag);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="number">2</span>:
+         {
+             <span class="type">int</span> status <span class="operator">=</span> anotherFunction();
+             <span class="keyword">if</span> (status <span class="operator">&lt;</span> <span class="number">0</span>) {
+                 mutex<span class="operator">.</span>unlock();
+                 <span class="keyword">return</span> <span class="operator">-</span><span class="number">2</span>;
+             }
+             retVal <span class="operator">=</span> status <span class="operator">+</span> flag;
+         }
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="keyword">if</span> (flag <span class="operator">&gt;</span> <span class="number">10</span>) {
+             mutex<span class="operator">.</span>unlock();
+             <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+         }
+         <span class="keyword">break</span>;
+     }
+
+     mutex<span class="operator">.</span>unlock();
+     <span class="keyword">return</span> retVal;
+ }</pre>
+<p>This example function will get more complicated as it is developed, which increases the likelihood that errors will occur.</p>
+<p>Using QMutexLocker greatly simplifies the code, and makes it more readable:</p>
+<pre class="cpp"> <span class="type">int</span> complexFunction(<span class="type">int</span> flag)
+ {
+     <span class="type">QMutexLocker</span> locker(<span class="operator">&amp;</span>mutex);
+
+     <span class="type">int</span> retVal <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="keyword">switch</span> (flag) {
+     <span class="keyword">case</span> <span class="number">0</span>:
+     <span class="keyword">case</span> <span class="number">1</span>:
+         <span class="keyword">return</span> moreComplexFunction(flag);
+     <span class="keyword">case</span> <span class="number">2</span>:
+         {
+             <span class="type">int</span> status <span class="operator">=</span> anotherFunction();
+             <span class="keyword">if</span> (status <span class="operator">&lt;</span> <span class="number">0</span>)
+                 <span class="keyword">return</span> <span class="operator">-</span><span class="number">2</span>;
+             retVal <span class="operator">=</span> status <span class="operator">+</span> flag;
+         }
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="keyword">if</span> (flag <span class="operator">&gt;</span> <span class="number">10</span>)
+             <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+         <span class="keyword">break</span>;
+     }
+
+     <span class="keyword">return</span> retVal;
+ }</pre>
+<p>Now, the mutex will always be unlocked when the QMutexLocker object is destroyed (when the function returns since <tt>locker</tt> is an auto variable).</p>
+<p>The same principle applies to code that throws and catches exceptions. An exception that is not caught in the function that has locked the mutex has no way of unlocking the mutex before the exception is passed up the stack to the calling function.</p>
+<p>QMutexLocker also provides a <tt>mutex()</tt> member function that returns the mutex on which the QMutexLocker is operating. This is useful for code that needs access to the mutex, such as <a href="qwaitcondition.html#wait">QWaitCondition::wait</a>(). For example:</p>
+<pre class="cpp"> <span class="keyword">class</span> SignalWaiter
+ {
+ <span class="keyword">private</span>:
+     <span class="type">QMutexLocker</span> locker;
+
+ <span class="keyword">public</span>:
+     SignalWaiter(<span class="type"><a href="qmutex.html">QMutex</a></span> <span class="operator">*</span>mutex)
+         : locker(mutex)
+     {
+     }
+
+     <span class="type">void</span> waitForSignal()
+     {
+         <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+         <span class="keyword">while</span> (<span class="operator">!</span>signalled)
+             waitCondition<span class="operator">.</span>wait(locker<span class="operator">.</span>mutex());
+         <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+     }
+ };</pre>
+</div>
+<p><b>See also </b><a href="qreadlocker.html">QReadLocker</a>, <a href="qwritelocker.html">QWriteLocker</a>, and <a href="qmutex.html">QMutex</a>.</p>
+<!-- @@@QMutexLocker -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QMutexLocker[overload1]$$$QMutexLockerQMutex* -->
+<h3 class="fn"><a name="QMutexLocker"></a>QMutexLocker::<span class="name">QMutexLocker</span> ( <span class="type"><a href="qmutex.html">QMutex</a></span> * <i>mutex</i> )</h3>
+<p>Constructs a <a href="qmutexlocker.html">QMutexLocker</a> and locks <i>mutex</i>. The mutex will be unlocked when the <a href="qmutexlocker.html">QMutexLocker</a> is destroyed. If <i>mutex</i> is zero, <a href="qmutexlocker.html">QMutexLocker</a> does nothing.</p>
+<p><b>See also </b><a href="qmutex.html#lock">QMutex::lock</a>().</p>
+<!-- @@@QMutexLocker -->
+<!-- $$$~QMutexLocker[overload1]$$$~QMutexLocker -->
+<h3 class="fn"><a name="dtor.QMutexLocker"></a>QMutexLocker::<span class="name">~QMutexLocker</span> ()</h3>
+<p>Destroys the <a href="qmutexlocker.html">QMutexLocker</a> and unlocks the mutex that was locked in the constructor.</p>
+<p><b>See also </b><a href="qmutex.html#unlock">QMutex::unlock</a>().</p>
+<!-- @@@~QMutexLocker -->
+<!-- $$$mutex[overload1]$$$mutex -->
+<h3 class="fn"><a name="mutex"></a><span class="type"><a href="qmutex.html">QMutex</a></span> * QMutexLocker::<span class="name">mutex</span> () const</h3>
+<p>Returns a pointer to the mutex that was locked in the constructor.</p>
+<!-- @@@mutex -->
+<!-- $$$relock[overload1]$$$relock -->
+<h3 class="fn"><a name="relock"></a><span class="type">void</span> QMutexLocker::<span class="name">relock</span> ()</h3>
+<p>Relocks an unlocked mutex locker.</p>
+<p><b>See also </b><a href="qmutexlocker.html#unlock">unlock</a>().</p>
+<!-- @@@relock -->
+<!-- $$$unlock[overload1]$$$unlock -->
+<h3 class="fn"><a name="unlock"></a><span class="type">void</span> QMutexLocker::<span class="name">unlock</span> ()</h3>
+<p>Unlocks this mutex locker. You can use <tt>relock()</tt> to lock it again. It does not need to be locked when destroyed.</p>
+<p><b>See also </b><a href="qmutexlocker.html#relock">relock</a>().</p>
+<!-- @@@unlock -->
+</div>
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

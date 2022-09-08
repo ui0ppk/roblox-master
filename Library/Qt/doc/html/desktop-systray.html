@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- systray.qdoc -->
+  <title>Qt 4.8: System Tray Icon Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>System Tray Icon Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#window-class-definition">Window Class Definition</a></li>
+<li class="level1"><a href="#window-class-implementation">Window Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">System Tray Icon Example</h1>
+<span class="subtitle"></span>
+<!-- $$$desktop/systray-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="desktop-systray-window-cpp.html">desktop/systray/window.cpp</a></li>
+<li><a href="desktop-systray-window-h.html">desktop/systray/window.h</a></li>
+<li><a href="desktop-systray-images-bad-svg.html">desktop/systray/images/bad.svg</a></li>
+<li><a href="desktop-systray-images-heart-svg.html">desktop/systray/images/heart.svg</a></li>
+<li><a href="desktop-systray-images-trash-svg.html">desktop/systray/images/trash.svg</a></li>
+<li><a href="desktop-systray-main-cpp.html">desktop/systray/main.cpp</a></li>
+<li><a href="desktop-systray-systray-pro.html">desktop/systray/systray.pro</a></li>
+<li><a href="desktop-systray-systray-qrc.html">desktop/systray/systray.qrc</a></li>
+</ul>
+<p>The System Tray Icon example shows how to add an icon with a menu and popup messages to a desktop environment's system tray.<p class="centerAlign"><img src="images/systemtray-example.png" alt="Screenshot of the System Tray Icon." /></p><p>Modern operating systems usually provide a special area on the desktop, called the system tray or notification area, where long-running applications can display icons and short messages.</p>
+<p>This example consists of one single class, <tt>Window</tt>, providing the main application window (i.e&#x2e;, an editor for the system tray icon) and the associated icon.</p>
+<p class="centerAlign"><img src="images/systemtray-editor.png" alt="" /></p><p>The editor allows the user to choose the preferred icon as well as set the balloon message's type and duration. The user can also edit the message's title and body. Finally, the editor provide a checkbox controlling whether the icon is actually shown in the system tray, or not.</p>
+<a name="window-class-definition"></a>
+<h2>Window Class Definition</h2>
+<p>The <tt>Window</tt> class inherits <a href="qwidget.html">QWidget</a>:</p>
+<pre class="cpp"> <span class="keyword">class</span> Window : <span class="keyword">public</span> <span class="type"><a href="qdialog.html">QDialog</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Window();
+
+     <span class="type">void</span> setVisible(<span class="type">bool</span> visible);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> closeEvent(<span class="type"><a href="qcloseevent.html">QCloseEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setIcon(<span class="type">int</span> index);
+     <span class="type">void</span> iconActivated(<span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>ActivationReason reason);
+     <span class="type">void</span> showMessage();
+     <span class="type">void</span> messageClicked();
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> createIconGroupBox();
+     <span class="type">void</span> createMessageGroupBox();
+     <span class="type">void</span> createActions();
+     <span class="type">void</span> createTrayIcon();
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>iconGroupBox;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>iconLabel;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>iconComboBox;
+     <span class="type"><a href="qcheckbox.html">QCheckBox</a></span> <span class="operator">*</span>showIconCheckBox;
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>messageGroupBox;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>typeLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>durationLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>durationWarningLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>titleLabel;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>bodyLabel;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>typeComboBox;
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>durationSpinBox;
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>titleEdit;
+     <span class="type"><a href="qtextedit.html">QTextEdit</a></span> <span class="operator">*</span>bodyEdit;
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>showMessageButton;
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>minimizeAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>maximizeAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>restoreAction;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>quitAction;
+
+     <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span> <span class="operator">*</span>trayIcon;
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>trayIconMenu;
+ };</pre>
+<p>We implement several private slots to respond to user interaction. The other private functions are only convenience functions provided to simplify the constructor.</p>
+<p>The tray icon is an instance of the <a href="qsystemtrayicon.html">QSystemTrayIcon</a> class. To check whether a system tray is present on the user's desktop, call the static <a href="qsystemtrayicon.html#isSystemTrayAvailable">QSystemTrayIcon::isSystemTrayAvailable</a>() function. Associated with the icon, we provide a menu containing the typical <b>minimize</b>, <b>maximize</b>, <b>restore</b> and <b>quit</b> actions. We reimplement the <a href="qwidget.html#visible-prop">QWidget::setVisible</a>() function to update the tray icon's menu whenever the editor's appearance changes, e.g&#x2e;, when maximizing or minimizing the main application window.</p>
+<p>Finally, we reimplement <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#closeEvent">closeEvent()</a> function to be able to inform the user (when closing the editor window) that the program will keep running in the system tray until the user chooses the <b>Quit</b> entry in the icon's context menu.</p>
+<a name="window-class-implementation"></a>
+<h2>Window Class Implementation</h2>
+<p>When constructing the editor widget, we first create the various editor elements before we create the actual system tray icon:</p>
+<pre class="cpp"> Window<span class="operator">::</span>Window()
+ {
+     createIconGroupBox();
+     createMessageGroupBox();
+
+     iconLabel<span class="operator">-</span><span class="operator">&gt;</span>setMinimumWidth(durationLabel<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width());
+
+     createActions();
+     createTrayIcon();
+
+     connect(showMessageButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(showMessage()));
+     connect(showIconCheckBox<span class="operator">,</span> SIGNAL(toggled(<span class="type">bool</span>))<span class="operator">,</span>
+             trayIcon<span class="operator">,</span> SLOT(setVisible(<span class="type">bool</span>)));
+     connect(iconComboBox<span class="operator">,</span> SIGNAL(currentIndexChanged(<span class="type">int</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(setIcon(<span class="type">int</span>)));
+     connect(trayIcon<span class="operator">,</span> SIGNAL(messageClicked())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(messageClicked()));
+     connect(trayIcon<span class="operator">,</span> SIGNAL(activated(<span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>ActivationReason))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(iconActivated(<span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>ActivationReason)));
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(iconGroupBox);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(messageGroupBox);
+     setLayout(mainLayout);
+
+     iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(<span class="number">1</span>);
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>show();
+
+     setWindowTitle(tr(<span class="string">&quot;Systray&quot;</span>));
+     resize(<span class="number">400</span><span class="operator">,</span> <span class="number">300</span>);
+ }</pre>
+<p>We ensure that the application responds to user input by connecting most of the editor's input widgets (including the system tray icon) to the application's private slots. But note the visibility checkbox; its <a href="qabstractbutton.html#toggled">toggled()</a> signal is connected to the <i>icon</i>'s <a href="qsystemtrayicon.html#visible-prop">setVisible()</a> function instead.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>setIcon(<span class="type">int</span> index)
+ {
+     <span class="type"><a href="qicon.html">QIcon</a></span> icon <span class="operator">=</span> iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemIcon(index);
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>setIcon(icon);
+     setWindowIcon(icon);
+
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>setToolTip(iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemText(index));
+ }</pre>
+<p>The <tt>setIcon()</tt> slot is triggered whenever the current index in the icon combobox changes, i.e&#x2e;, whenever the user chooses another icon in the editor. Note that it is also called when the user activates the tray icon with the left mouse button, triggering the icon's <a href="qsystemtrayicon.html#activated">activated()</a> signal. We will come back to this signal shortly.</p>
+<p>The <a href="qsystemtrayicon.html#icon-prop">QSystemTrayIcon::setIcon</a>() function sets the <a href="qsystemtrayicon.html#icon-prop">icon</a> property that holds the actual system tray icon. On Windows, the system tray icon size is 16x16; on X11, the preferred size is 22x22. The icon will be scaled to the appropriate size as necessary.</p>
+<p>Note that on X11, due to a limitation in the system tray specification, mouse clicks on transparent areas in the icon are propagated to the system tray. If this behavior is unacceptable, we suggest using an icon with no transparency.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>iconActivated(<span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>ActivationReason reason)
+ {
+     <span class="keyword">switch</span> (reason) {
+     <span class="keyword">case</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>Trigger:
+     <span class="keyword">case</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>DoubleClick:
+         iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex((iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex() <span class="operator">+</span> <span class="number">1</span>)
+                                       <span class="operator">%</span> iconComboBox<span class="operator">-</span><span class="operator">&gt;</span>count());
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>MiddleClick:
+         showMessage();
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         ;
+     }
+ }</pre>
+<p>Whenever the user activates the system tray icon, it emits its <a href="qsystemtrayicon.html#activated">activated()</a> signal passing the triggering reason as parameter. <a href="qsystemtrayicon.html">QSystemTrayIcon</a> provides the <a href="qsystemtrayicon.html#ActivationReason-enum">ActivationReason</a> enum to describe how the icon was activated.</p>
+<p>In the constructor, we connected our icon's <a href="qsystemtrayicon.html#activated">activated()</a> signal to our custom <tt>iconActivated()</tt> slot: If the user has clicked the icon using the left mouse button, this function changes the icon image by incrementing the icon combobox's current index, triggering the <tt>setIcon()</tt> slot as mentioned above. If the user activates the icon using the middle mouse button, it calls the custom <tt>showMessage()</tt> slot:</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>showMessage()
+ {
+     <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>MessageIcon icon <span class="operator">=</span> <span class="type"><a href="qsystemtrayicon.html">QSystemTrayIcon</a></span><span class="operator">::</span>MessageIcon(
+             typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(typeComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex())<span class="operator">.</span>toInt());
+     trayIcon<span class="operator">-</span><span class="operator">&gt;</span>showMessage(titleEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">,</span> bodyEdit<span class="operator">-</span><span class="operator">&gt;</span>toPlainText()<span class="operator">,</span> icon<span class="operator">,</span>
+                           durationSpinBox<span class="operator">-</span><span class="operator">&gt;</span>value() <span class="operator">*</span> <span class="number">1000</span>);
+ }</pre>
+<p>When the <i>showMessage()</i> slot is triggered, we first retrieve the message icon depending on the currently chosen message type. The <a href="qsystemtrayicon.html#MessageIcon-enum">QSystemTrayIcon::MessageIcon</a> enum describes the icon that is shown when a balloon message is displayed. Then we call <a href="qsystemtrayicon.html">QSystemTrayIcon</a>'s <a href="qsystemtrayicon.html#showMessage">showMessage()</a> function to show the message with the title, body, and icon for the time specified in milliseconds.</p>
+<p>Mac OS X users note: The Growl notification system must be installed for <a href="qsystemtrayicon.html#showMessage">QSystemTrayIcon::showMessage</a>() to display messages.</p>
+<p><a href="qsystemtrayicon.html">QSystemTrayIcon</a> also has the corresponding, <a href="qsystemtrayicon.html#messageClicked">messageClicked()</a> signal, which is emitted when the user clicks a message displayed by <a href="qsystemtrayicon.html#showMessage">showMessage()</a>.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>messageClicked()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="number">0</span><span class="operator">,</span> tr(<span class="string">&quot;Systray&quot;</span>)<span class="operator">,</span>
+                              tr(<span class="string">&quot;Sorry, I already gave what help I could.\n&quot;</span>
+                                 <span class="string">&quot;Maybe you should try asking a human?&quot;</span>));
+ }</pre>
+<p>In the constructor, we connected the <a href="qsystemtrayicon.html#messageClicked">messageClicked()</a> signal to our custom <tt>messageClicked()</tt> slot that simply displays a message using the <a href="qmessagebox.html">QMessageBox</a> class.</p>
+<p><a href="qmessagebox.html">QMessageBox</a> provides a modal dialog with a short message, an icon, and buttons laid out depending on the current style. It supports four severity levels: &quot;Question&quot;, &quot;Information&quot;, &quot;Warning&quot; and &quot;Critical&quot;. The easiest way to pop up a message box in Qt is to call one of the associated static functions, e.g&#x2e;, <a href="qmessagebox.html#information">QMessageBox::information</a>().</p>
+<p>As we mentioned earlier, we reimplement a couple of <a href="qwidget.html">QWidget</a>'s virtual functions:</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>setVisible(<span class="type">bool</span> visible)
+ {
+     minimizeAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(visible);
+     maximizeAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="operator">!</span>isMaximized());
+     restoreAction<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(isMaximized() <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>visible);
+     <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>setVisible(visible);
+ }</pre>
+<p>Our reimplementation of the <a href="qwidget.html#visible-prop">QWidget::setVisible</a>() function updates the tray icon's menu whenever the editor's appearance changes, e.g&#x2e;, when maximizing or minimizing the main application window, before calling the base class implementation.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>closeEvent(<span class="type"><a href="qcloseevent.html">QCloseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (trayIcon<span class="operator">-</span><span class="operator">&gt;</span>isVisible()) {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Systray&quot;</span>)<span class="operator">,</span>
+                                  tr(<span class="string">&quot;The program will keep running in the &quot;</span>
+                                     <span class="string">&quot;system tray. To terminate the program, &quot;</span>
+                                     <span class="string">&quot;choose &lt;b&gt;Quit&lt;/b&gt; in the context menu &quot;</span>
+                                     <span class="string">&quot;of the system tray entry.&quot;</span>));
+         hide();
+         event<span class="operator">-</span><span class="operator">&gt;</span>ignore();
+     }
+ }</pre>
+<p>We have reimplemented the <a href="qwidget.html#closeEvent">QWidget::closeEvent</a>() event handler to receive widget close events, showing the above message to the users when they are closing the editor window.</p>
+<p>In addition to the functions and slots discussed above, we have also implemented several convenience functions to simplify the constructor: <tt>createIconGroupBox()</tt>, <tt>createMessageGroupBox()</tt>, <tt>createActions()</tt> and <tt>createTrayIcon()</tt>. See the <a href="desktop-systray-window-cpp.html">window.cpp</a> file for details.</p>
+</div>
+<!-- @@@desktop/systray -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

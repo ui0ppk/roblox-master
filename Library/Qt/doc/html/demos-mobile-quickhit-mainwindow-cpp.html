@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: mainwindow.cpp Example File (demos/mobile/quickhit/mainwindow.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">mainwindow.cpp Example File</h1>
+<span class="small-subtitle">demos/mobile/quickhit/mainwindow.cpp</span>
+<!-- $$$demos/mobile/quickhit/mainwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+ <span class="preprocessor">#include &quot;gameengine.h&quot;</span>
+ <span class="preprocessor">#include &quot;plugins/levelplugininterface.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &lt;QDir&gt;</span>
+ <span class="preprocessor">#include &lt;QMessageBox&gt;</span>
+ <span class="preprocessor">#include &lt;QLibraryInfo&gt;</span>
+ <span class="preprocessor">#include &lt;QDeclarativeEngine&gt;</span>
+ <span class="preprocessor">#include &lt;QDesktopWidget&gt;</span>
+
+ MainWindow<span class="operator">::</span>MainWindow(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span>(parent)
+ {
+
+ <span class="preprocessor">#ifdef Q_WS_MAEMO_5</span>
+     window()<span class="operator">-</span><span class="operator">&gt;</span>setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_Maemo5PortraitOrientation<span class="operator">,</span> <span class="keyword">true</span>);
+ <span class="preprocessor">#endif</span>
+
+     <span class="comment">// Game engine</span>
+     m_gameEngine <span class="operator">=</span> <span class="keyword">new</span> GameEngine(<span class="keyword">this</span>);
+
+     <span class="comment">// Load all levels plugins</span>
+     m_levelPlugin <span class="operator">=</span> <span class="number">0</span>;
+     loadLevelPlugins();
+
+     <span class="comment">// QML main window</span>
+     engine()<span class="operator">-</span><span class="operator">&gt;</span>addImportPath(<span class="string">&quot;./imports&quot;</span>);
+     setResizeMode(<span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span><span class="operator">::</span>SizeRootObjectToView);
+
+     <span class="comment">// Set game engine visible to QML</span>
+     rootContext()<span class="operator">-</span><span class="operator">&gt;</span>setContextProperty(<span class="string">&quot;GameEngine&quot;</span><span class="operator">,</span> m_gameEngine);
+
+     <span class="comment">// Set QML source</span>
+     setSource(<span class="type"><a href="qurl.html">QUrl</a></span>(<span class="string">&quot;qrc:/Game.qml&quot;</span>));
+     <span class="comment">//setSource(QUrl(&quot;../QuickHit/Game.qml&quot;));</span>
+
+     <span class="comment">// Store QML root object for game engine</span>
+     <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>ro <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qobject.html">QObject</a></span><span class="operator">*</span><span class="operator">&gt;</span>(rootObject());
+     m_gameEngine<span class="operator">-</span><span class="operator">&gt;</span>setGameQml(ro);
+     m_gameEngine<span class="operator">-</span><span class="operator">&gt;</span>findQmlObjects();
+
+     <span class="comment">// Application foreground / background event filter for filterin incoming call (window)</span>
+     <span class="comment">// when game will be paused</span>
+     m_eventFilter <span class="operator">=</span> <span class="keyword">new</span> MyEventFilter(<span class="keyword">this</span>);
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(m_eventFilter<span class="operator">,</span>SIGNAL(activationChangeFiltered())<span class="operator">,</span><span class="keyword">this</span><span class="operator">,</span>SLOT(activationChangeFiltered()));
+     qApp<span class="operator">-</span><span class="operator">&gt;</span>installEventFilter(m_eventFilter);
+
+     <span class="comment">// Remove context menu from the all widgets</span>
+     <span class="type"><a href="qwidget.html#QWidgetList-typedef">QWidgetList</a></span> widgets <span class="operator">=</span> <span class="type"><a href="qapplication.html">QApplication</a></span><span class="operator">::</span>allWidgets();
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> w <span class="operator">=</span> <span class="number">0</span>;
+     foreach (w<span class="operator">,</span>widgets){
+         w<span class="operator">-</span><span class="operator">&gt;</span>setContextMenuPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoContextMenu);
+     }
+ }
+
+ MainWindow<span class="operator">::</span><span class="operator">~</span>MainWindow()
+ {
+     <span class="keyword">for</span> (<span class="type">int</span> i<span class="operator">=</span><span class="number">0</span>;i<span class="operator">&lt;</span>m_plugins<span class="operator">.</span>count();i<span class="operator">+</span><span class="operator">+</span>) {
+         m_plugins<span class="operator">[</span>i<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>unload();
+     }
+     m_plugins<span class="operator">.</span>clear();
+
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>activationChangeFiltered()
+ {
+     m_gameEngine<span class="operator">-</span><span class="operator">&gt;</span>pauseGame();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>levelActivated(<span class="type">int</span> index)
+ {
+     <span class="comment">// Set level for the game engine</span>
+     createPlugin(index);
+     rootContext()<span class="operator">-</span><span class="operator">&gt;</span>setContextProperty(<span class="string">&quot;LevelPlugin&quot;</span><span class="operator">,</span> m_levelPlugin);
+     m_gameEngine<span class="operator">-</span><span class="operator">&gt;</span>setGameLevel(m_levelPlugin);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>loadLevelPlugins()
+ {
+ <span class="preprocessor">#if defined (Q_OS_SYMBIAN)</span>
+     <span class="type">bool</span> exists_c <span class="operator">=</span> loadPlugins(<span class="string">&quot;c&quot;</span><span class="operator">,</span> <span class="string">&quot;quickhitlevels&quot;</span>);
+     <span class="type">bool</span> exists_e <span class="operator">=</span> loadPlugins(<span class="string">&quot;e&quot;</span><span class="operator">,</span> <span class="string">&quot;quickhitlevels&quot;</span>);
+     <span class="type">bool</span> exists_f <span class="operator">=</span> loadPlugins(<span class="string">&quot;f&quot;</span><span class="operator">,</span> <span class="string">&quot;quickhitlevels&quot;</span>);
+     <span class="keyword">if</span> (exists_c <span class="operator">|</span><span class="operator">|</span> exists_e <span class="operator">|</span><span class="operator">|</span> exists_f) {
+         m_gameEngine<span class="operator">-</span><span class="operator">&gt;</span>setPluginList(m_plugins);
+         createPlugin();
+     }
+     <span class="keyword">else</span> {
+         <span class="comment">//QMessageBox::information(this, &quot;QuickHit&quot;, &quot;Could not load any of the quickhitlevels&quot;);</span>
+     }
+ <span class="preprocessor">#else</span>
+     <span class="keyword">if</span> (loadPlugins(<span class="string">&quot;c&quot;</span><span class="operator">,</span> <span class="string">&quot;quickhitlevels&quot;</span>)) {
+         m_gameEngine<span class="operator">-</span><span class="operator">&gt;</span>setPluginList(m_plugins);
+         createPlugin();
+     }
+     <span class="keyword">else</span> {
+         <span class="comment">//QMessageBox::information(this, &quot;QuickHit&quot;, &quot;Could not load any of the quickhitlevels&quot;);</span>
+     }
+
+ <span class="preprocessor">#endif</span>
+ }
+
+ <span class="type">bool</span> MainWindow<span class="operator">::</span>loadPlugins(<span class="type"><a href="qstring.html">QString</a></span> drive<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span> pluginDir)
+ {
+ <span class="preprocessor">#if defined (Q_OS_SYMBIAN)</span>
+     <span class="type"><a href="qdir.html">QDir</a></span> pluginsDir(drive <span class="operator">+</span> <span class="string">&quot;:&quot;</span> <span class="operator">+</span> <span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>location(<span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>PluginsPath));
+ <span class="preprocessor">#elif defined Q_OS_WIN32</span>
+     <span class="type"><a href="qdir.html">QDir</a></span> pluginsDir <span class="operator">=</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>currentPath();
+ <span class="preprocessor">#else</span>
+     <span class="type"><a href="qdir.html">QDir</a></span> pluginsDir(<span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>location(<span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>PluginsPath));
+ <span class="preprocessor">#endif</span>
+     pluginsDir<span class="operator">.</span>cd(pluginDir);
+
+     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Loads plugins from : &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> pluginsDir<span class="operator">.</span>path();
+
+     <span class="type">bool</span> newPluginsLoaded <span class="operator">=</span> <span class="keyword">false</span>;
+
+     foreach (<span class="type"><a href="qstring.html">QString</a></span> fileName<span class="operator">,</span> pluginsDir<span class="operator">.</span>entryList(<span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files))
+         {
+             <span class="comment">// Accept only plugin files</span>
+ <span class="preprocessor">#if defined (Q_OS_SYMBIAN)</span>
+             <span class="keyword">if</span> (fileName<span class="operator">.</span>contains(<span class="string">&quot;.qtplugin&quot;</span><span class="operator">,</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CaseInsensitive)) {
+ <span class="preprocessor">#elif defined (Q_WS_MAEMO_5)</span>
+             <span class="keyword">if</span> (fileName<span class="operator">.</span>contains(<span class="string">&quot;.so&quot;</span><span class="operator">,</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CaseInsensitive)) {
+ <span class="preprocessor">#else</span>
+             <span class="keyword">if</span> (fileName<span class="operator">.</span>contains(<span class="string">&quot;.dll&quot;</span><span class="operator">,</span><span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CaseInsensitive)) {
+ <span class="preprocessor">#endif</span>
+
+                 <span class="comment">// Create plugin loader</span>
+                 <span class="type"><a href="qpluginloader.html">QPluginLoader</a></span><span class="operator">*</span> pluginLoader <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpluginloader.html">QPluginLoader</a></span>(pluginsDir<span class="operator">.</span>absoluteFilePath(fileName));
+                 <span class="comment">// Load plugin</span>
+                 <span class="type">bool</span> ret <span class="operator">=</span> pluginLoader<span class="operator">-</span><span class="operator">&gt;</span>load();
+                 <span class="keyword">if</span> (<span class="operator">!</span>ret) {
+                     <span class="comment">// Loading failed</span>
+                     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Could not load plugin &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName;
+                 } <span class="keyword">else</span> {
+                     <span class="comment">// Loading done</span>
+                     <span class="comment">// Test creating plugin</span>
+                     <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>plugin <span class="operator">=</span> <span class="number">0</span>;
+                     LevelPluginInterface<span class="operator">*</span> pluginIF <span class="operator">=</span> <span class="number">0</span>;
+                     plugin <span class="operator">=</span> pluginLoader<span class="operator">-</span><span class="operator">&gt;</span>instance();
+                     pluginIF <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>LevelPluginInterface<span class="operator">*</span><span class="operator">&gt;</span> (plugin);
+                     <span class="keyword">if</span> (pluginIF) {
+                         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Plugin can be created&quot;</span>;
+                         <span class="comment">// Store loader to array</span>
+                         m_plugins<span class="operator">.</span>append(pluginLoader);
+                         newPluginsLoaded <span class="operator">=</span> <span class="keyword">true</span>;
+                     } <span class="keyword">else</span> {
+                         pluginLoader<span class="operator">-</span><span class="operator">&gt;</span>unload();
+                         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Plugin can NOT be created!&quot;</span>;
+                     }
+                 }
+             }
+         }
+
+     <span class="keyword">return</span> newPluginsLoaded;
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>createPlugin(<span class="type">int</span> index)
+ {
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>) {
+         <span class="keyword">return</span>;
+     }
+
+     m_levelPlugin <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="comment">// Try to create plugin instance</span>
+     <span class="type"><a href="qpluginloader.html">QPluginLoader</a></span><span class="operator">*</span> pluginLoader <span class="operator">=</span> m_plugins<span class="operator">[</span>index<span class="operator">]</span>;
+     <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>plugin <span class="operator">=</span> pluginLoader<span class="operator">-</span><span class="operator">&gt;</span>instance();
+     <span class="keyword">if</span> (plugin) {
+         <span class="comment">// Plugin instance created</span>
+         <span class="comment">// Cast plugin to LevelPluginInterface, that is common for all plugins</span>
+         LevelPluginInterface<span class="operator">*</span> pluginIF <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>LevelPluginInterface<span class="operator">*</span><span class="operator">&gt;</span> (plugin);
+         m_levelPlugin <span class="operator">=</span> pluginIF;
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Plugin created: &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> index;
+     }
+     <span class="keyword">else</span> {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Creating plugin failed!&quot;</span>;
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>information(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;QuickHit&quot;</span><span class="operator">,</span> <span class="string">&quot;Could not create quickhitlevels&quot;</span>);
+     }
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>printObjectTree(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">*</span> parent)
+ {
+    <span class="keyword">if</span> (parent) {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;className:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> parent<span class="operator">-</span><span class="operator">&gt;</span>metaObject()<span class="operator">-</span><span class="operator">&gt;</span>className();
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;objectName:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> parent<span class="operator">-</span><span class="operator">&gt;</span>objectName();
+
+         <span class="type"><a href="qobject.html#QObjectList-typedef">QObjectList</a></span> list <span class="operator">=</span> parent<span class="operator">-</span><span class="operator">&gt;</span>children();
+         <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">*</span> item;
+         foreach (item<span class="operator">,</span>list) {
+             <span class="keyword">if</span> (item<span class="operator">-</span><span class="operator">&gt;</span>children()<span class="operator">.</span>count()<span class="operator">&gt;</span><span class="number">0</span>) {
+                 <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;--Childrens found--&quot;</span>;
+                 printObjectTree(item);
+             } <span class="keyword">else</span> {
+                 <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;className:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> item<span class="operator">-</span><span class="operator">&gt;</span>metaObject()<span class="operator">-</span><span class="operator">&gt;</span>className();
+                 <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;objectName:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> item<span class="operator">-</span><span class="operator">&gt;</span>objectName();
+             }
+         }
+     } <span class="keyword">else</span> {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;object NULL&quot;</span>;
+     }
+
+ }</pre>
+</div>
+<!-- @@@demos/mobile/quickhit/mainwindow.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

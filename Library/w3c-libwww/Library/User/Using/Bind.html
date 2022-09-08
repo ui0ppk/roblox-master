@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen,  5-Nov-1995 -->
+  <TITLE>Bindings to the local File system</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<P>
+<A HREF="../../../"><IMG BORDER="0" SRC="../../../Icons/WWW/w3c_home" ALT="W3C" WIDTH="72"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="../../"><IMG BORDER="0" SRC="../../../Icons/WWW/Lib48x" ALT="libwww" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<A HREF="./"><IMG BORDER="0" SRC="../../../Icons/WWW/guide48x" ALT="Using" WIDTH="48"
+    HEIGHT="48" BORDER="0"></A>
+<H1>
+  Bindings to the local File system
+</H1>
+<P>
+The preferences that we described in section <A HREF="Prefs.html">Request
+Preferences</A> did not mention what libwww should do if it doesn't know
+the data format of a document. In many protocols this information is provided
+by the remote server. Typical examples are MIME like protocols where the
+metainformation such as the <EM>Content-Type</EM> and the
+<EM>Content-Language</EM> is provided together with the document. However,
+applications often have access to the local file system using <B>file</B>
+URLs which in general do not keep any or at least very little information
+of the file type. It is therefore required to have some kind of binding between
+the file system and the preferences registered in the Library which provides
+this mateinformation about the object.
+<P>
+Often files in a file system is classified by some sort of a suffix, for
+example GIF files are often ending in <EM>.gif</EM>, text files in
+<EM>.txt</EM> etc. This binding is not static and it is therefore required
+to have a dynamic binding just like the preferences themselves. An example
+of the latter is HTML files which on most Unix systems end in <EM>.html</EM>
+whereas they on many MS-DOS based systems end in <EM>.htm</EM>.
+<P>
+The <A HREF="../../src/HTBind.html">HTBind module</A> provides a generic
+binding mechanism between a file and its representation internally in libwww.
+It is not limited to simple file suffix classification but can also be used
+in more advanced environments using data bases etc. However, at this point
+we are interested in how we can register bindings between file suffixes and
+for example content types, content languages etc. The Bind manager is born
+with a certain knowledge about the set of delimiters but more can be added
+to provide the functionality desired. 
+<P>
+<A HREF="../../src/HTResponse.html"><IMG BORDER="0" SRC="../../../Icons/WWW/doc48x"
+    ALT="Documentation" WIDTH="48" HEIGHT="48" BORDER="0" ALIGN="Middle">Adding
+and Deleting Bindings</A>
+<P>
+  <HR>
+<ADDRESS>
+  Henrik Frystyk Nielsen,
+  <A HREF="mailto:libwww@w3.org">libwww@w3.org</A>,<BR>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

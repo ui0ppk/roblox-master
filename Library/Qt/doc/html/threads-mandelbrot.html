@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- mandelbrot.qdoc -->
+  <title>Qt 4.8: Mandelbrot Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Mandelbrot Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#renderthread-class-definition">RenderThread Class Definition</a></li>
+<li class="level1"><a href="#renderthread-class-implementation">RenderThread Class Implementation</a></li>
+<li class="level1"><a href="#mandelbrotwidget-class-defintion">MandelbrotWidget Class Defintion</a></li>
+<li class="level1"><a href="#mandelbrotwidget-class-implementation">MandelbrotWidget Class Implementation</a></li>
+<li class="level1"><a href="#the-main-function">The main() Function</a></li>
+</ul>
+</div>
+<h1 class="title">Mandelbrot Example</h1>
+<span class="subtitle"></span>
+<!-- $$$threads/mandelbrot-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="threads-mandelbrot-mandelbrotwidget-cpp.html">threads/mandelbrot/mandelbrotwidget.cpp</a></li>
+<li><a href="threads-mandelbrot-mandelbrotwidget-h.html">threads/mandelbrot/mandelbrotwidget.h</a></li>
+<li><a href="threads-mandelbrot-renderthread-cpp.html">threads/mandelbrot/renderthread.cpp</a></li>
+<li><a href="threads-mandelbrot-renderthread-h.html">threads/mandelbrot/renderthread.h</a></li>
+<li><a href="threads-mandelbrot-main-cpp.html">threads/mandelbrot/main.cpp</a></li>
+<li><a href="threads-mandelbrot-mandelbrot-pro.html">threads/mandelbrot/mandelbrot.pro</a></li>
+</ul>
+<p>The Mandelbrot example shows how to use a worker thread to perform heavy computations without blocking the main thread's event loop.<p>The heavy computation here is the Mandelbrot set, probably the world's most famous fractal. These days, while sophisticated programs such as <a href="http://xaos.sourceforge.net/">XaoS</a> that provide real-time zooming in the Mandelbrot set, the standard Mandelbrot algorithm is just slow enough for our purposes.</p>
+<p class="centerAlign"><img src="images/mandelbrot-example.png" alt="Screenshot of the Mandelbrot example" /></p><p>In real life, the approach described here is applicable to a large set of problems, including synchronous network I/O and database access, where the user interface must remain responsive while some heavy operation is taking place. The <a href="network-blockingfortuneclient.html">network/blockingfortuneclient</a> example shows the same principle at work in a TCP client.</p>
+<p>The Mandelbrot application supports zooming and scrolling using the mouse or the keyboard. To avoid freezing the main thread's event loop (and, as a consequence, the application's user interface), we put all the fractal computation in a separate worker thread. The thread emits a signal when it is done rendering the fractal.</p>
+<p>During the time where the worker thread is recomputing the fractal to reflect the new zoom factor position, the main thread simply scales the previously rendered pixmap to provide immediate feedback. The result doesn't look as good as what the worker thread eventually ends up providing, but at least it makes the application more responsive. The sequence of screenshots below shows the original image, the scaled image, and the rerendered image.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><img src="images/mandelbrot_zoom1.png" alt="" /></td><td ><img src="images/mandelbrot_zoom2.png" alt="" /></td><td ><img src="images/mandelbrot_zoom3.png" alt="" /></td></tr>
+</table>
+<p>Similarly, when the user scrolls, the previous pixmap is scrolled immediately, revealing unpainted areas beyond the edge of the pixmap, while the image is rendered by the worker thread.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><img src="images/mandelbrot_scroll1.png" alt="" /></td><td ><img src="images/mandelbrot_scroll2.png" alt="" /></td><td ><img src="images/mandelbrot_scroll3.png" alt="" /></td></tr>
+</table>
+<p>The application consists of two classes:</p>
+<ul>
+<li><tt>RenderThread</tt> is a <a href="qthread.html">QThread</a> subclass that renders the Mandelbrot set.</li>
+<li><tt>MandelbrotWidget</tt> is a <a href="qwidget.html">QWidget</a> subclass that shows the Mandelbrot set on screen and lets the user zoom and scroll.</li>
+</ul>
+<p>If you are not already familiar with Qt's thread support, we recommend that you start by reading the <a href="threads.html">Thread Support in Qt</a> overview.</p>
+<a name="renderthread-class-definition"></a>
+<h2>RenderThread Class Definition</h2>
+<p>We'll start with the definition of the <tt>RenderThread</tt> class:</p>
+<pre class="cpp"> <span class="keyword">class</span> RenderThread : <span class="keyword">public</span> <span class="type"><a href="qthread.html">QThread</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     RenderThread(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="operator">~</span>RenderThread();
+
+     <span class="type">void</span> render(<span class="type">double</span> centerX<span class="operator">,</span> <span class="type">double</span> centerY<span class="operator">,</span> <span class="type">double</span> scaleFactor<span class="operator">,</span>
+                 <span class="type"><a href="qsize.html">QSize</a></span> resultSize);
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> renderedImage(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image<span class="operator">,</span> <span class="type">double</span> scaleFactor);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> run();
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> rgbFromWaveLength(<span class="type">double</span> wave);
+
+     <span class="type"><a href="qmutex.html">QMutex</a></span> mutex;
+     <span class="type"><a href="qwaitcondition.html">QWaitCondition</a></span> condition;
+     <span class="type">double</span> centerX;
+     <span class="type">double</span> centerY;
+     <span class="type">double</span> scaleFactor;
+     <span class="type"><a href="qsize.html">QSize</a></span> resultSize;
+     <span class="type">bool</span> restart;
+     <span class="type">bool</span> abort;
+
+     <span class="keyword">enum</span> { ColormapSize <span class="operator">=</span> <span class="number">512</span> };
+     <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> colormap<span class="operator">[</span>ColormapSize<span class="operator">]</span>;
+ };</pre>
+<p>The class inherits <a href="qthread.html">QThread</a> so that it gains the ability to run in a separate thread. Apart from the constructor and destructor, <tt>render()</tt> is the only public function. Whenever the thread is done rendering an image, it emits the <tt>renderedImage()</tt> signal.</p>
+<p>The protected <tt>run()</tt> function is reimplemented from <a href="qthread.html">QThread</a>. It is automatically called when the thread is started.</p>
+<p>In the <tt>private</tt> section, we have a <a href="qmutex.html">QMutex</a>, a <a href="qwaitcondition.html">QWaitCondition</a>, and a few other data members. The mutex protects the other data member.</p>
+<a name="renderthread-class-implementation"></a>
+<h2>RenderThread Class Implementation</h2>
+<pre class="cpp"> RenderThread<span class="operator">::</span>RenderThread(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qthread.html">QThread</a></span>(parent)
+ {
+     restart <span class="operator">=</span> <span class="keyword">false</span>;
+     abort <span class="operator">=</span> <span class="keyword">false</span>;
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> ColormapSize; <span class="operator">+</span><span class="operator">+</span>i)
+         colormap<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> rgbFromWaveLength(<span class="number">380.0</span> <span class="operator">+</span> (i <span class="operator">*</span> <span class="number">400.0</span> <span class="operator">/</span> ColormapSize));
+ }</pre>
+<p>In the constructor, we initialize the <tt>restart</tt> and <tt>abort</tt> variables to <tt>false</tt>. These variables control the flow of the <tt>run()</tt> function.</p>
+<p>We also initialize the <tt>colormap</tt> array, which contains a series of RGB colors.</p>
+<pre class="cpp"> RenderThread<span class="operator">::</span><span class="operator">~</span>RenderThread()
+ {
+     mutex<span class="operator">.</span>lock();
+     abort <span class="operator">=</span> <span class="keyword">true</span>;
+     condition<span class="operator">.</span>wakeOne();
+     mutex<span class="operator">.</span>unlock();
+
+     wait();
+ }</pre>
+<p>The destructor can be called at any point while the thread is active. We set <tt>abort</tt> to <tt>true</tt> to tell <tt>run()</tt> to stop running as soon as possible. We also call <a href="qwaitcondition.html#wakeOne">QWaitCondition::wakeOne</a>() to wake up the thread if it's sleeping. (As we will see when we review <tt>run()</tt>, the thread is put to sleep when it has nothing to do.)</p>
+<p>The important thing to notice here is that <tt>run()</tt> is executed in its own thread (the worker thread), whereas the <tt>RenderThread</tt> constructor and destructor (as well as the <tt>render()</tt> function) are called by the thread that created the worker thread. Therefore, we need a mutex to protect accesses to the <tt>abort</tt> and <tt>condition</tt> variables, which might be accessed at any time by <tt>run()</tt>.</p>
+<p>At the end of the destructor, we call <a href="qthread.html#wait">QThread::wait</a>() to wait until <tt>run()</tt> has exited before the base class destructor is invoked.</p>
+<pre class="cpp"> <span class="type">void</span> RenderThread<span class="operator">::</span>render(<span class="type">double</span> centerX<span class="operator">,</span> <span class="type">double</span> centerY<span class="operator">,</span> <span class="type">double</span> scaleFactor<span class="operator">,</span>
+                           <span class="type"><a href="qsize.html">QSize</a></span> resultSize)
+ {
+     <span class="type"><a href="qmutexlocker.html">QMutexLocker</a></span> locker(<span class="operator">&amp;</span>mutex);
+
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>centerX <span class="operator">=</span> centerX;
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>centerY <span class="operator">=</span> centerY;
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>scaleFactor <span class="operator">=</span> scaleFactor;
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>resultSize <span class="operator">=</span> resultSize;
+
+     <span class="keyword">if</span> (<span class="operator">!</span>isRunning()) {
+         start(LowPriority);
+     } <span class="keyword">else</span> {
+         restart <span class="operator">=</span> <span class="keyword">true</span>;
+         condition<span class="operator">.</span>wakeOne();
+     }
+ }</pre>
+<p>The <tt>render()</tt> function is called by the <tt>MandelbrotWidget</tt> whenever it needs to generate a new image of the Mandelbrot set. The <tt>centerX</tt>, <tt>centerY</tt>, and <tt>scaleFactor</tt> parameters specify the portion of the fractal to render; <tt>resultSize</tt> specifies the size of the resulting <a href="qimage.html">QImage</a>.</p>
+<p>The function stores the parameters in member variables. If the thread isn't already running, it starts it; otherwise, it sets <tt>restart</tt> to <tt>true</tt> (telling <tt>run()</tt> to stop any unfinished computation and start again with the new parameters) and wakes up the thread, which might be sleeping.</p>
+<pre class="cpp"> <span class="type">void</span> RenderThread<span class="operator">::</span>run()
+ {
+     forever {
+         mutex<span class="operator">.</span>lock();
+         <span class="type"><a href="qsize.html">QSize</a></span> resultSize <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>resultSize;
+         <span class="type">double</span> scaleFactor <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>scaleFactor;
+         <span class="type">double</span> centerX <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>centerX;
+         <span class="type">double</span> centerY <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>centerY;
+         mutex<span class="operator">.</span>unlock();</pre>
+<p><tt>run()</tt> is quite a big function, so we'll break it down into parts.</p>
+<p>The function body is an infinite loop which starts by storing the rendering parameters in local variables. As usual, we protect accesses to the member variables using the class's mutex. Storing the member variables in local variables allows us to minimize the amout of code that needs to be protected by a mutex. This ensures that the main thread will never have to block for too long when it needs to access <tt>RenderThread</tt>'s member variables (e.g&#x2e;, in <tt>render()</tt>).</p>
+<p>The <tt>forever</tt> keyword is, like <tt>foreach</tt>, a Qt pseudo-keyword.</p>
+<pre class="cpp">         <span class="type">int</span> halfWidth <span class="operator">=</span> resultSize<span class="operator">.</span>width() <span class="operator">/</span> <span class="number">2</span>;
+         <span class="type">int</span> halfHeight <span class="operator">=</span> resultSize<span class="operator">.</span>height() <span class="operator">/</span> <span class="number">2</span>;
+         <span class="type"><a href="qimage.html">QImage</a></span> image(resultSize<span class="operator">,</span> <span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_RGB32);
+
+         <span class="keyword">const</span> <span class="type">int</span> NumPasses <span class="operator">=</span> <span class="number">8</span>;
+         <span class="type">int</span> pass <span class="operator">=</span> <span class="number">0</span>;
+         <span class="keyword">while</span> (pass <span class="operator">&lt;</span> NumPasses) {
+             <span class="keyword">const</span> <span class="type">int</span> MaxIterations <span class="operator">=</span> (<span class="number">1</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="number">2</span> <span class="operator">*</span> pass <span class="operator">+</span> <span class="number">6</span>)) <span class="operator">+</span> <span class="number">32</span>;
+             <span class="keyword">const</span> <span class="type">int</span> Limit <span class="operator">=</span> <span class="number">4</span>;
+             <span class="type">bool</span> allBlack <span class="operator">=</span> <span class="keyword">true</span>;
+
+             <span class="keyword">for</span> (<span class="type">int</span> y <span class="operator">=</span> <span class="operator">-</span>halfHeight; y <span class="operator">&lt;</span> halfHeight; <span class="operator">+</span><span class="operator">+</span>y) {
+                 <span class="keyword">if</span> (restart)
+                     <span class="keyword">break</span>;
+                 <span class="keyword">if</span> (abort)
+                     <span class="keyword">return</span>;
+
+                 <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="operator">*</span>scanLine <span class="operator">=</span>
+                         <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(image<span class="operator">.</span>scanLine(y <span class="operator">+</span> halfHeight));
+                 <span class="type">double</span> ay <span class="operator">=</span> centerY <span class="operator">+</span> (y <span class="operator">*</span> scaleFactor);
+
+                 <span class="keyword">for</span> (<span class="type">int</span> x <span class="operator">=</span> <span class="operator">-</span>halfWidth; x <span class="operator">&lt;</span> halfWidth; <span class="operator">+</span><span class="operator">+</span>x) {
+                     <span class="type">double</span> ax <span class="operator">=</span> centerX <span class="operator">+</span> (x <span class="operator">*</span> scaleFactor);
+                     <span class="type">double</span> a1 <span class="operator">=</span> ax;
+                     <span class="type">double</span> b1 <span class="operator">=</span> ay;
+                     <span class="type">int</span> numIterations <span class="operator">=</span> <span class="number">0</span>;
+
+                     <span class="keyword">do</span> {
+                         <span class="operator">+</span><span class="operator">+</span>numIterations;
+                         <span class="type">double</span> a2 <span class="operator">=</span> (a1 <span class="operator">*</span> a1) <span class="operator">-</span> (b1 <span class="operator">*</span> b1) <span class="operator">+</span> ax;
+                         <span class="type">double</span> b2 <span class="operator">=</span> (<span class="number">2</span> <span class="operator">*</span> a1 <span class="operator">*</span> b1) <span class="operator">+</span> ay;
+                         <span class="keyword">if</span> ((a2 <span class="operator">*</span> a2) <span class="operator">+</span> (b2 <span class="operator">*</span> b2) <span class="operator">&gt;</span> Limit)
+                             <span class="keyword">break</span>;
+
+                         <span class="operator">+</span><span class="operator">+</span>numIterations;
+                         a1 <span class="operator">=</span> (a2 <span class="operator">*</span> a2) <span class="operator">-</span> (b2 <span class="operator">*</span> b2) <span class="operator">+</span> ax;
+                         b1 <span class="operator">=</span> (<span class="number">2</span> <span class="operator">*</span> a2 <span class="operator">*</span> b2) <span class="operator">+</span> ay;
+                         <span class="keyword">if</span> ((a1 <span class="operator">*</span> a1) <span class="operator">+</span> (b1 <span class="operator">*</span> b1) <span class="operator">&gt;</span> Limit)
+                             <span class="keyword">break</span>;
+                     } <span class="keyword">while</span> (numIterations <span class="operator">&lt;</span> MaxIterations);
+
+                     <span class="keyword">if</span> (numIterations <span class="operator">&lt;</span> MaxIterations) {
+                         <span class="operator">*</span>scanLine<span class="operator">+</span><span class="operator">+</span> <span class="operator">=</span> colormap<span class="operator">[</span>numIterations <span class="operator">%</span> ColormapSize<span class="operator">]</span>;
+                         allBlack <span class="operator">=</span> <span class="keyword">false</span>;
+                     } <span class="keyword">else</span> {
+                         <span class="operator">*</span>scanLine<span class="operator">+</span><span class="operator">+</span> <span class="operator">=</span> <a href="qcolor.html#qRgb">qRgb</a>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+                     }
+                 }
+             }
+
+             <span class="keyword">if</span> (allBlack <span class="operator">&amp;</span><span class="operator">&amp;</span> pass <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+                 pass <span class="operator">=</span> <span class="number">4</span>;
+             } <span class="keyword">else</span> {
+                 <span class="keyword">if</span> (<span class="operator">!</span>restart)
+                     <span class="keyword">emit</span> renderedImage(image<span class="operator">,</span> scaleFactor);
+                 <span class="operator">+</span><span class="operator">+</span>pass;
+             }
+         }</pre>
+<p>Then comes the core of the algorithm. Instead of trying to create a perfect Mandelbrot set image, we do multiple passes and generate more and more precise (and computationally expensive) approximations of the fractal.</p>
+<p>If we discover inside the loop that <tt>restart</tt> has been set to <tt>true</tt> (by <tt>render()</tt>), we break out of the loop immediately, so that the control quickly returns to the very top of the outer loop (the <tt>forever</tt> loop) and we fetch the new rendering parameters. Similarly, if we discover that <tt>abort</tt> has been set to <tt>true</tt> (by the <tt>RenderThread</tt> destructor), we return from the function immediately, terminating the thread.</p>
+<p>The core algorithm is beyond the scope of this tutorial.</p>
+<pre class="cpp">         mutex<span class="operator">.</span>lock();
+         <span class="keyword">if</span> (<span class="operator">!</span>restart)
+             condition<span class="operator">.</span>wait(<span class="operator">&amp;</span>mutex);
+         restart <span class="operator">=</span> <span class="keyword">false</span>;
+         mutex<span class="operator">.</span>unlock();
+     }
+ }</pre>
+<p>Once we're done with all the iterations, we call <a href="qwaitcondition.html#wait">QWaitCondition::wait</a>() to put the thread to sleep by calling, unless <tt>restart</tt> is <tt>true</tt>. There's no use in keeping a worker thread looping indefinitely while there's nothing to do.</p>
+<pre class="cpp"> <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> RenderThread<span class="operator">::</span>rgbFromWaveLength(<span class="type">double</span> wave)
+ {
+     <span class="type">double</span> r <span class="operator">=</span> <span class="number">0.0</span>;
+     <span class="type">double</span> g <span class="operator">=</span> <span class="number">0.0</span>;
+     <span class="type">double</span> b <span class="operator">=</span> <span class="number">0.0</span>;
+
+     <span class="keyword">if</span> (wave <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">380.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> wave <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">440.0</span>) {
+         r <span class="operator">=</span> <span class="operator">-</span><span class="number">1.0</span> <span class="operator">*</span> (wave <span class="operator">-</span> <span class="number">440.0</span>) <span class="operator">/</span> (<span class="number">440.0</span> <span class="operator">-</span> <span class="number">380.0</span>);
+         b <span class="operator">=</span> <span class="number">1.0</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (wave <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">440.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> wave <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">490.0</span>) {
+         g <span class="operator">=</span> (wave <span class="operator">-</span> <span class="number">440.0</span>) <span class="operator">/</span> (<span class="number">490.0</span> <span class="operator">-</span> <span class="number">440.0</span>);
+         b <span class="operator">=</span> <span class="number">1.0</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (wave <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">490.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> wave <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">510.0</span>) {
+         g <span class="operator">=</span> <span class="number">1.0</span>;
+         b <span class="operator">=</span> <span class="operator">-</span><span class="number">1.0</span> <span class="operator">*</span> (wave <span class="operator">-</span> <span class="number">510.0</span>) <span class="operator">/</span> (<span class="number">510.0</span> <span class="operator">-</span> <span class="number">490.0</span>);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (wave <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">510.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> wave <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">580.0</span>) {
+         r <span class="operator">=</span> (wave <span class="operator">-</span> <span class="number">510.0</span>) <span class="operator">/</span> (<span class="number">580.0</span> <span class="operator">-</span> <span class="number">510.0</span>);
+         g <span class="operator">=</span> <span class="number">1.0</span>;
+     } <span class="keyword">else</span> <span class="keyword">if</span> (wave <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">580.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> wave <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">645.0</span>) {
+         r <span class="operator">=</span> <span class="number">1.0</span>;
+         g <span class="operator">=</span> <span class="operator">-</span><span class="number">1.0</span> <span class="operator">*</span> (wave <span class="operator">-</span> <span class="number">645.0</span>) <span class="operator">/</span> (<span class="number">645.0</span> <span class="operator">-</span> <span class="number">580.0</span>);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (wave <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">645.0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> wave <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">780.0</span>) {
+         r <span class="operator">=</span> <span class="number">1.0</span>;
+     }
+
+     <span class="type">double</span> s <span class="operator">=</span> <span class="number">1.0</span>;
+     <span class="keyword">if</span> (wave <span class="operator">&gt;</span> <span class="number">700.0</span>)
+         s <span class="operator">=</span> <span class="number">0.3</span> <span class="operator">+</span> <span class="number">0.7</span> <span class="operator">*</span> (<span class="number">780.0</span> <span class="operator">-</span> wave) <span class="operator">/</span> (<span class="number">780.0</span> <span class="operator">-</span> <span class="number">700.0</span>);
+     <span class="keyword">else</span> <span class="keyword">if</span> (wave <span class="operator">&lt;</span>  <span class="number">420.0</span>)
+         s <span class="operator">=</span> <span class="number">0.3</span> <span class="operator">+</span> <span class="number">0.7</span> <span class="operator">*</span> (wave <span class="operator">-</span> <span class="number">380.0</span>) <span class="operator">/</span> (<span class="number">420.0</span> <span class="operator">-</span> <span class="number">380.0</span>);
+
+     r <span class="operator">=</span> pow(r <span class="operator">*</span> s<span class="operator">,</span> <span class="number">0.8</span>);
+     g <span class="operator">=</span> pow(g <span class="operator">*</span> s<span class="operator">,</span> <span class="number">0.8</span>);
+     b <span class="operator">=</span> pow(b <span class="operator">*</span> s<span class="operator">,</span> <span class="number">0.8</span>);
+     <span class="keyword">return</span> <a href="qcolor.html#qRgb">qRgb</a>(<span class="type">int</span>(r <span class="operator">*</span> <span class="number">255</span>)<span class="operator">,</span> <span class="type">int</span>(g <span class="operator">*</span> <span class="number">255</span>)<span class="operator">,</span> <span class="type">int</span>(b <span class="operator">*</span> <span class="number">255</span>));
+ }</pre>
+<p>The <tt>rgbFromWaveLength()</tt> function is a helper function that converts a wave length to a RGB value compatible with 32-bit <a href="qimage.html">QImage</a>s. It is called from the constructor to initialize the <tt>colormap</tt> array with pleasing colors.</p>
+<a name="mandelbrotwidget-class-defintion"></a>
+<h2>MandelbrotWidget Class Defintion</h2>
+<p>The <tt>MandelbrotWidget</tt> class uses <tt>RenderThread</tt> to draw the Mandelbrot set on screen. Here's the class definition:</p>
+<pre class="cpp"> <span class="keyword">class</span> MandelbrotWidget : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     MandelbrotWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> wheelEvent(<span class="type"><a href="qwheelevent.html">QWheelEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> updatePixmap(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image<span class="operator">,</span> <span class="type">double</span> scaleFactor);
+     <span class="type">void</span> zoom(<span class="type">double</span> zoomFactor);
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> scroll(<span class="type">int</span> deltaX<span class="operator">,</span> <span class="type">int</span> deltaY);
+
+     RenderThread thread;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap;
+     <span class="type"><a href="qpoint.html">QPoint</a></span> pixmapOffset;
+     <span class="type"><a href="qpoint.html">QPoint</a></span> lastDragPos;
+     <span class="type">double</span> centerX;
+     <span class="type">double</span> centerY;
+     <span class="type">double</span> pixmapScale;
+     <span class="type">double</span> curScale;
+ };</pre>
+<p>The widget reimplements many event handlers from <a href="qwidget.html">QWidget</a>. In addition, it has an <tt>updatePixmap()</tt> slot that we'll connect to the worker thread's <tt>renderedImage()</tt> signal to update the display whenever we receive new data from the thread.</p>
+<p>Among the private variables, we have <tt>thread</tt> of type <tt>RenderThread</tt> and <tt>pixmap</tt>, which contains the last rendered image.</p>
+<a name="mandelbrotwidget-class-implementation"></a>
+<h2>MandelbrotWidget Class Implementation</h2>
+<pre class="cpp"> <span class="keyword">const</span> <span class="type">double</span> DefaultCenterX <span class="operator">=</span> <span class="operator">-</span><span class="number">0.637011f</span>;
+ <span class="keyword">const</span> <span class="type">double</span> DefaultCenterY <span class="operator">=</span> <span class="operator">-</span><span class="number">0.0395159f</span>;
+ <span class="keyword">const</span> <span class="type">double</span> DefaultScale <span class="operator">=</span> <span class="number">0.00403897f</span>;
+
+ <span class="keyword">const</span> <span class="type">double</span> ZoomInFactor <span class="operator">=</span> <span class="number">0.8f</span>;
+ <span class="keyword">const</span> <span class="type">double</span> ZoomOutFactor <span class="operator">=</span> <span class="number">1</span> <span class="operator">/</span> ZoomInFactor;
+ <span class="keyword">const</span> <span class="type">int</span> ScrollStep <span class="operator">=</span> <span class="number">20</span>;</pre>
+<p>The implementation starts with a few contants that we'll need later on.</p>
+<pre class="cpp"> MandelbrotWidget<span class="operator">::</span>MandelbrotWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     centerX <span class="operator">=</span> DefaultCenterX;
+     centerY <span class="operator">=</span> DefaultCenterY;
+     pixmapScale <span class="operator">=</span> DefaultScale;
+     curScale <span class="operator">=</span> DefaultScale;
+
+     <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span>(<span class="string">&quot;QImage&quot;</span>);
+     connect(<span class="operator">&amp;</span>thread<span class="operator">,</span> SIGNAL(renderedImage(<span class="type"><a href="qimage.html">QImage</a></span><span class="operator">,</span><span class="type">double</span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(updatePixmap(<span class="type"><a href="qimage.html">QImage</a></span><span class="operator">,</span><span class="type">double</span>)));
+
+     setWindowTitle(tr(<span class="string">&quot;Mandelbrot&quot;</span>));
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
+     setCursor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CrossCursor);
+ <span class="preprocessor">#endif</span>
+     resize(<span class="number">550</span><span class="operator">,</span> <span class="number">400</span>);
+
+ <span class="preprocessor">#if defined(Q_WS_S60) || defined(Q_WS_MAEMO_5) || defined(Q_WS_SIMULATOR)</span>
+     ZoomButton <span class="operator">*</span>zoomIn <span class="operator">=</span> <span class="keyword">new</span> ZoomButton(tr(<span class="string">&quot;Zoom In&quot;</span>)<span class="operator">,</span> ZoomInFactor<span class="operator">,</span> <span class="keyword">this</span>);
+     ZoomButton <span class="operator">*</span>zoomOut <span class="operator">=</span> <span class="keyword">new</span> ZoomButton(tr(<span class="string">&quot;Zoom Out&quot;</span>)<span class="operator">,</span> ZoomOutFactor<span class="operator">,</span> <span class="keyword">this</span>);
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>(<span class="keyword">this</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(zoomIn<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(zoomOut<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setColumnStretch(<span class="number">0</span><span class="operator">,</span> <span class="number">10</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>setRowStretch(<span class="number">2</span><span class="operator">,</span> <span class="number">10</span>);
+     setLayout(layout);
+
+     connect(zoomIn<span class="operator">,</span> SIGNAL(zoom(<span class="type">double</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(zoom(<span class="type">double</span>)));
+     connect(zoomOut<span class="operator">,</span> SIGNAL(zoom(<span class="type">double</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(zoom(<span class="type">double</span>)));
+ <span class="preprocessor">#endif</span>
+ }</pre>
+<p>The interesting part of the constructor is the <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>() and <a href="qobject.html#connect">QObject::connect</a>() calls. Let's start with the <a href="qobject.html#connect">connect()</a> call.</p>
+<p>Although it looks like a standard signal-slot connection between two <a href="qobject.html">QObject</a>s, because the signal is emitted in a different thread than the receiver lives in, the connection is effectively a <a href="qt.html#ConnectionType-enum">queued connection</a>. These connections are asynchronous (i.e&#x2e;, non-blocking), meaning that the slot will be called at some point after the <tt>emit</tt> statement. What's more, the slot will be invoked in the thread in which the receiver lives. Here, the signal is emitted in the worker thread, and the slot is executed in the GUI thread when control returns to the event loop.</p>
+<p>With queued connections, Qt must store a copy of the arguments that were passed to the signal so that it can pass them to the slot later on. Qt knows how to take of copy of many C++ and Qt types, but <a href="qimage.html">QImage</a> isn't one of them. We must therefore call the template function <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>() before we can use <a href="qimage.html">QImage</a> as parameter in queued connections.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span> <span class="comment">/* event */</span>)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> painter(<span class="keyword">this</span>);
+     painter<span class="operator">.</span>fillRect(rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+
+     <span class="keyword">if</span> (pixmap<span class="operator">.</span>isNull()) {
+         painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+         painter<span class="operator">.</span>drawText(rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignCenter<span class="operator">,</span>
+                          tr(<span class="string">&quot;Rendering initial image, please wait...&quot;</span>));
+         <span class="keyword">return</span>;
+     }</pre>
+<p>In <a href="qwidget.html#paintEvent">paintEvent()</a>, we start by filling the background with black. If we have nothing yet to paint (<tt>pixmap</tt> is null), we print a message on the widget asking the user to be patient and return from the function immediately.</p>
+<pre class="cpp">     <span class="keyword">if</span> (curScale <span class="operator">=</span><span class="operator">=</span> pixmapScale) {
+         painter<span class="operator">.</span>drawPixmap(pixmapOffset<span class="operator">,</span> pixmap);
+     } <span class="keyword">else</span> {
+         <span class="type">double</span> scaleFactor <span class="operator">=</span> pixmapScale <span class="operator">/</span> curScale;
+         <span class="type">int</span> newWidth <span class="operator">=</span> <span class="type">int</span>(pixmap<span class="operator">.</span>width() <span class="operator">*</span> scaleFactor);
+         <span class="type">int</span> newHeight <span class="operator">=</span> <span class="type">int</span>(pixmap<span class="operator">.</span>height() <span class="operator">*</span> scaleFactor);
+         <span class="type">int</span> newX <span class="operator">=</span> pixmapOffset<span class="operator">.</span>x() <span class="operator">+</span> (pixmap<span class="operator">.</span>width() <span class="operator">-</span> newWidth) <span class="operator">/</span> <span class="number">2</span>;
+         <span class="type">int</span> newY <span class="operator">=</span> pixmapOffset<span class="operator">.</span>y() <span class="operator">+</span> (pixmap<span class="operator">.</span>height() <span class="operator">-</span> newHeight) <span class="operator">/</span> <span class="number">2</span>;
+
+         painter<span class="operator">.</span>save();
+         painter<span class="operator">.</span>translate(newX<span class="operator">,</span> newY);
+         painter<span class="operator">.</span>scale(scaleFactor<span class="operator">,</span> scaleFactor);
+         <span class="type"><a href="qrectf.html">QRectF</a></span> exposed <span class="operator">=</span> painter<span class="operator">.</span>matrix()<span class="operator">.</span>inverted()<span class="operator">.</span>mapRect(rect())<span class="operator">.</span>adjusted(<span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+         painter<span class="operator">.</span>drawPixmap(exposed<span class="operator">,</span> pixmap<span class="operator">,</span> exposed);
+         painter<span class="operator">.</span>restore();
+     }</pre>
+<p>If the pixmap has the right scale factor, we draw the pixmap directly onto the widget. Otherwise, we scale and translate the <a href="coordsys.html">coordinate system</a> before we draw the pixmap. By reverse mapping the widget's rectangle using the scaled painter matrix, we also make sure that only the exposed areas of the pixmap are drawn. The calls to <a href="qpainter.html#save">QPainter::save</a>() and <a href="qpainter.html#restore">QPainter::restore</a>() make sure that any painting performed afterwards uses the standard coordinate system.</p>
+<pre class="cpp"> <span class="preprocessor">#if !defined(Q_WS_S60) &amp;&amp; !defined(Q_WS_MAEMO_5) &amp;&amp; !defined(Q_WS_SIMULATOR)</span>
+     <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> tr(<span class="string">&quot;Use mouse wheel or the '+' and '-' keys to zoom. &quot;</span>
+                       <span class="string">&quot;Press and hold left mouse button to scroll.&quot;</span>);
+     <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span> metrics <span class="operator">=</span> painter<span class="operator">.</span>fontMetrics();
+     <span class="type">int</span> textWidth <span class="operator">=</span> metrics<span class="operator">.</span>width(text);
+
+     painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     painter<span class="operator">.</span>setBrush(<span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">127</span>));
+     painter<span class="operator">.</span>drawRect((width() <span class="operator">-</span> textWidth) <span class="operator">/</span> <span class="number">2</span> <span class="operator">-</span> <span class="number">5</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> textWidth <span class="operator">+</span> <span class="number">10</span><span class="operator">,</span>
+                      metrics<span class="operator">.</span>lineSpacing() <span class="operator">+</span> <span class="number">5</span>);
+     painter<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     painter<span class="operator">.</span>drawText((width() <span class="operator">-</span> textWidth) <span class="operator">/</span> <span class="number">2</span><span class="operator">,</span>
+                      metrics<span class="operator">.</span>leading() <span class="operator">+</span> metrics<span class="operator">.</span>ascent()<span class="operator">,</span> text);
+ <span class="preprocessor">#endif</span>
+ }</pre>
+<p>At the end of the paint event handler, we draw a text string and a semi-transparent rectangle on top of the fractal.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span> <span class="comment">/* event */</span>)
+ {
+     thread<span class="operator">.</span>render(centerX<span class="operator">,</span> centerY<span class="operator">,</span> curScale<span class="operator">,</span> size());
+ }</pre>
+<p>Whenever the user resizes the widget, we call <tt>render()</tt> to start generating a new image, with the same <tt>centerX</tt>, <tt>centerY</tt>, and <tt>curScale</tt> parameters but with the new widget size.</p>
+<p>Notice that we rely on <tt>resizeEvent()</tt> being automatically called by Qt when the widget is shown the first time to generate the image the very first time.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">switch</span> (event<span class="operator">-</span><span class="operator">&gt;</span>key()) {
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Plus:
+         zoom(ZoomInFactor);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Minus:
+         zoom(ZoomOutFactor);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Left:
+         scroll(<span class="operator">-</span>ScrollStep<span class="operator">,</span> <span class="number">0</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Right:
+         scroll(<span class="operator">+</span>ScrollStep<span class="operator">,</span> <span class="number">0</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Down:
+         scroll(<span class="number">0</span><span class="operator">,</span> <span class="operator">-</span>ScrollStep);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Up:
+         scroll(<span class="number">0</span><span class="operator">,</span> <span class="operator">+</span>ScrollStep);
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>keyPressEvent(event);
+     }
+ }</pre>
+<p>The key press event handler provides a few keyboard bindings for the benefit of users who don't have a mouse. The <tt>zoom()</tt> and <tt>scroll()</tt> functions will be covered later.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>wheelEvent(<span class="type"><a href="qwheelevent.html">QWheelEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type">int</span> numDegrees <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>delta() <span class="operator">/</span> <span class="number">8</span>;
+     <span class="type">double</span> numSteps <span class="operator">=</span> numDegrees <span class="operator">/</span> <span class="number">15.0f</span>;
+     zoom(pow(ZoomInFactor<span class="operator">,</span> numSteps));
+ }</pre>
+<p>The wheel event handler is reimplemented to make the mouse wheel control the zoom level. <a href="qwheelevent.html#delta">QWheelEvent::delta</a>() returns the angle of the wheel mouse movement, in eights of a degree. For most mice, one wheel step corresponds to 15 degrees. We find out how many mouse steps we have and determine the zoom factor in consequence. For example, if we have two wheel steps in the positive direction (i.e&#x2e;, +30 degrees), the zoom factor becomes <tt>ZoomInFactor</tt> to the second power, i.e&#x2e; 0.8 * 0.8 = 0.64.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton)
+         lastDragPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+ }</pre>
+<p>When the user presses the left mouse button, we store the mouse pointer position in <tt>lastDragPos</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>buttons() <span class="operator">&amp;</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         pixmapOffset <span class="operator">+</span><span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">-</span> lastDragPos;
+         lastDragPos <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos();
+         update();
+     }
+ }</pre>
+<p>When the user moves the mouse pointer while the left mouse button is pressed, we adjust <tt>pixmapOffset</tt> to paint the pixmap at a shifted position and call <a href="qwidget.html#update">QWidget::update</a>() to force a repaint.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+         pixmapOffset <span class="operator">+</span><span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos() <span class="operator">-</span> lastDragPos;
+         lastDragPos <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>();
+
+         <span class="type">int</span> deltaX <span class="operator">=</span> (width() <span class="operator">-</span> pixmap<span class="operator">.</span>width()) <span class="operator">/</span> <span class="number">2</span> <span class="operator">-</span> pixmapOffset<span class="operator">.</span>x();
+         <span class="type">int</span> deltaY <span class="operator">=</span> (height() <span class="operator">-</span> pixmap<span class="operator">.</span>height()) <span class="operator">/</span> <span class="number">2</span> <span class="operator">-</span> pixmapOffset<span class="operator">.</span>y();
+         scroll(deltaX<span class="operator">,</span> deltaY);
+     }
+ }</pre>
+<p>When the left mouse button is released, we update <tt>pixmapOffset</tt> just like we did on a mouse move and we reset <tt>lastDragPos</tt> to a default value. Then, we call <tt>scroll()</tt> to render a new image for the new position. (Adjusting <tt>pixmapOffset</tt> isn't sufficient because areas revealed when dragging the pixmap are drawn in black.)</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>updatePixmap(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image<span class="operator">,</span> <span class="type">double</span> scaleFactor)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>lastDragPos<span class="operator">.</span>isNull())
+         <span class="keyword">return</span>;
+
+     pixmap <span class="operator">=</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">::</span>fromImage(image);
+     pixmapOffset <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>();
+     lastDragPos <span class="operator">=</span> <span class="type"><a href="qpoint.html">QPoint</a></span>();
+     pixmapScale <span class="operator">=</span> scaleFactor;
+     update();
+ }</pre>
+<p>The <tt>updatePixmap()</tt> slot is invoked when the worker thread has finished rendering an image. We start by checking whether a drag is in effect and do nothing in that case. In the normal case, we store the image in <tt>pixmap</tt> and reinitialize some of the other members. At the end, we call <a href="qwidget.html#update">QWidget::update</a>() to refresh the display.</p>
+<p>At this point, you might wonder why we use a <a href="qimage.html">QImage</a> for the parameter and a <a href="qpixmap.html">QPixmap</a> for the data member. Why not stick to one type? The reason is that <a href="qimage.html">QImage</a> is the only class that supports direct pixel manipulation, which we need in the worker thread. On the other hand, before an image can be drawn on screen, it must be converted into a pixmap. It's better to do the conversion once and for all here, rather than in <tt>paintEvent()</tt>.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>zoom(<span class="type">double</span> zoomFactor)
+ {
+     curScale <span class="operator">*</span><span class="operator">=</span> zoomFactor;
+     update();
+     thread<span class="operator">.</span>render(centerX<span class="operator">,</span> centerY<span class="operator">,</span> curScale<span class="operator">,</span> size());
+ }</pre>
+<p>In <tt>zoom()</tt>, we recompute <tt>curScale</tt>. Then we call <a href="qwidget.html#update">QWidget::update</a>() to draw a scaled pixmap, and we ask the worker thread to render a new image corresponding to the new <tt>curScale</tt> value.</p>
+<pre class="cpp"> <span class="type">void</span> MandelbrotWidget<span class="operator">::</span>scroll(<span class="type">int</span> deltaX<span class="operator">,</span> <span class="type">int</span> deltaY)
+ {
+     centerX <span class="operator">+</span><span class="operator">=</span> deltaX <span class="operator">*</span> curScale;
+     centerY <span class="operator">+</span><span class="operator">=</span> deltaY <span class="operator">*</span> curScale;
+     update();
+     thread<span class="operator">.</span>render(centerX<span class="operator">,</span> centerY<span class="operator">,</span> curScale<span class="operator">,</span> size());
+ }</pre>
+<p><tt>scroll()</tt> is similar to <tt>zoom()</tt>, except that the affected parameters are <tt>centerX</tt> and <tt>centerY</tt>.</p>
+<a name="the-main-function"></a>
+<h2>The main() Function</h2>
+<p>The application's multithreaded nature has no impact on its <tt>main()</tt> function, which is as simple as usual:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     MandelbrotWidget widget;
+ <span class="preprocessor">#if defined(Q_WS_S60)</span>
+     widget<span class="operator">.</span>showMaximized();
+ <span class="preprocessor">#else</span>
+     widget<span class="operator">.</span>show();
+ <span class="preprocessor">#endif</span>
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</div>
+<!-- @@@threads/mandelbrot -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

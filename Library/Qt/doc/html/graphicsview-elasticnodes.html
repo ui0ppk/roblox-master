@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- elasticnodes.qdoc -->
+  <title>Qt 4.8: Elastic Nodes Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Elastic Nodes Example</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#node-class-definition">Node Class Definition</a></li>
+<li class="level1"><a href="#edge-class-definition">Edge Class Definition</a></li>
+<li class="level1"><a href="#graphwidget-class-definition">GraphWidget Class Definition</a></li>
+<li class="level1"><a href="#the-main-function">The main() Function</a></li>
+</ul>
+</div>
+<h1 class="title">Elastic Nodes Example</h1>
+<span class="subtitle"></span>
+<!-- $$$graphicsview/elasticnodes-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="graphicsview-elasticnodes-edge-cpp.html">graphicsview/elasticnodes/edge.cpp</a></li>
+<li><a href="graphicsview-elasticnodes-edge-h.html">graphicsview/elasticnodes/edge.h</a></li>
+<li><a href="graphicsview-elasticnodes-graphwidget-cpp.html">graphicsview/elasticnodes/graphwidget.cpp</a></li>
+<li><a href="graphicsview-elasticnodes-graphwidget-h.html">graphicsview/elasticnodes/graphwidget.h</a></li>
+<li><a href="graphicsview-elasticnodes-node-cpp.html">graphicsview/elasticnodes/node.cpp</a></li>
+<li><a href="graphicsview-elasticnodes-node-h.html">graphicsview/elasticnodes/node.h</a></li>
+<li><a href="graphicsview-elasticnodes-main-cpp.html">graphicsview/elasticnodes/main.cpp</a></li>
+<li><a href="graphicsview-elasticnodes-elasticnodes-pro.html">graphicsview/elasticnodes/elasticnodes.pro</a></li>
+</ul>
+<p>The Elastic Nodes example shows how to implement edges between nodes in a graph, with basic interaction.<p>You can click to drag a node around, and zoom in and out using the mouse wheel or the keyboard. Hitting the space bar will randomize the nodes. The example is also resolution independent; as you zoom in, the graphics remain crisp.</p>
+<p class="centerAlign"><img src="images/elasticnodes-example.png" alt="" /></p><p>Graphics View provides the <a href="qgraphicsscene.html">QGraphicsScene</a> class for managing and interacting with a large number of custom-made 2D graphical items derived from the <a href="qgraphicsitem.html">QGraphicsItem</a> class, and a <a href="qgraphicsview.html">QGraphicsView</a> widget for visualizing the items, with support for zooming and rotation.</p>
+<p>This example consists of a <tt>Node</tt> class, an <tt>Edge</tt> class, a <tt>GraphWidget</tt> test, and a <tt>main</tt> function: the <tt>Node</tt> class represents draggable yellow nodes in a grid, the <tt>Edge</tt> class represents the lines between the nodes, the <tt>GraphWidget</tt> class represents the application window, and the <tt>main()</tt> function creates and shows this window, and runs the event loop.</p>
+<a name="node-class-definition"></a>
+<h2>Node Class Definition</h2>
+<p>The <tt>Node</tt> class serves three purposes:</p>
+<ul>
+<li>Painting a yellow gradient &quot;ball&quot; in two states: sunken and raised.</li>
+<li>Managing connections to other nodes.</li>
+<li>Calculating forces pulling and pushing the nodes in the grid.</li>
+</ul>
+<p>Let's start by looking at the <tt>Node</tt> class declaration.</p>
+<pre class="cpp"> <span class="keyword">class</span> Node : <span class="keyword">public</span> <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span>
+ {
+ <span class="keyword">public</span>:
+     Node(GraphWidget <span class="operator">*</span>graphWidget);
+
+     <span class="type">void</span> addEdge(Edge <span class="operator">*</span>edge);
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Edge <span class="operator">*</span><span class="operator">&gt;</span> edges() <span class="keyword">const</span>;
+
+     <span class="keyword">enum</span> { Type <span class="operator">=</span> UserType <span class="operator">+</span> <span class="number">1</span> };
+     <span class="type">int</span> type() <span class="keyword">const</span> { <span class="keyword">return</span> Type; }
+
+     <span class="type">void</span> calculateForces();
+     <span class="type">bool</span> advance();
+
+     <span class="type"><a href="qrectf.html">QRectF</a></span> boundingRect() <span class="keyword">const</span>;
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> shape() <span class="keyword">const</span>;
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget);
+
+ <span class="keyword">protected</span>:
+     <span class="type"><a href="qvariant.html">QVariant</a></span> itemChange(GraphicsItemChange change<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value);
+
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Edge <span class="operator">*</span><span class="operator">&gt;</span> edgeList;
+     <span class="type"><a href="qpointf.html">QPointF</a></span> newPos;
+     GraphWidget <span class="operator">*</span>graph;
+ };</pre>
+<p>The <tt>Node</tt> class inherits <a href="qgraphicsitem.html">QGraphicsItem</a>, and reimplements the two mandatory functions <a href="qgraphicsitem.html#boundingRect">boundingRect()</a> and <a href="qgraphicsitem.html#paint">paint()</a> to provide its visual appearance. It also reimplements <a href="qgraphicsitem.html#shape">shape()</a> to ensure its hit area has an elliptic shape (as opposed to the default bounding rectangle).</p>
+<p>For edge management purposes, the node provides a simple API for adding edges to a node, and for listing all connected edges.</p>
+<p>The <a href="qgraphicsitem.html#advance">advance()</a> reimplementation is called whenever the scene's state advances by one step. The calculateForces() function is called to calculate the forces that push and pull on this node and its neighbors.</p>
+<p>The <tt>Node</tt> class also reimplements <a href="qgraphicsitem.html#itemChange">itemChange()</a> to react to state changes (in this case, position changes), and <a href="qgraphicsitem.html#mousePressEvent">mousePressEvent()</a> and <a href="qgraphicsitem.html#mouseReleaseEvent">mouseReleaseEvent()</a> to update the item's visual appearance.</p>
+<p>We will start reviewing the <tt>Node</tt> implementation by looking at its constructor:</p>
+<pre class="cpp"> Node<span class="operator">::</span>Node(GraphWidget <span class="operator">*</span>graphWidget)
+     : graph(graphWidget)
+ {
+     setFlag(ItemIsMovable);
+     setFlag(ItemSendsGeometryChanges);
+     setCacheMode(DeviceCoordinateCache);
+     setZValue(<span class="operator">-</span><span class="number">1</span>);
+ }</pre>
+<p>In the constructor, we set the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsMovable</a> flag to allow the item to move in response to mouse dragging, and <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemSendsGeometryChanges</a> to enable <a href="qgraphicsitem.html#itemChange">itemChange()</a> notifications for position and transformation changes. We also enable <a href="qgraphicsitem.html#CacheMode-enum">DeviceCoordinateCache</a> to speed up rendering performance. To ensure that the nodes are always stacked on top of edges, we finally set the item's Z value to -1.</p>
+<p><tt>Node</tt>'s constructor takes a <tt>GraphWidget</tt> pointer and stores this as a member variable. We will revisit this pointer later on.</p>
+<pre class="cpp"> <span class="type">void</span> Node<span class="operator">::</span>addEdge(Edge <span class="operator">*</span>edge)
+ {
+     edgeList <span class="operator">&lt;</span><span class="operator">&lt;</span> edge;
+     edge<span class="operator">-</span><span class="operator">&gt;</span>adjust();
+ }
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Edge <span class="operator">*</span><span class="operator">&gt;</span> Node<span class="operator">::</span>edges() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> edgeList;
+ }</pre>
+<p>The addEdge() function adds the input edge to a list of attached edges. The edge is then adjusted so that the end points for the edge match the positions of the source and destination nodes.</p>
+<p>The edges() function simply returns the list of attached edges.</p>
+<pre class="cpp"> <span class="type">void</span> Node<span class="operator">::</span>calculateForces()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>scene() <span class="operator">|</span><span class="operator">|</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>mouseGrabberItem() <span class="operator">=</span><span class="operator">=</span> <span class="keyword">this</span>) {
+         newPos <span class="operator">=</span> pos();
+         <span class="keyword">return</span>;
+     }</pre>
+<p>There are two ways to move a node. The <tt>calculateForces()</tt> function implements the elastic effect that pulls and pushes on nodes in the grid. In addition, the user can directly move one node around with the mouse. Because we do not want the two approaches to operate at the same time on the same node, we start <tt>calculateForces()</tt> by checking if this <tt>Node</tt> is the current mouse grabber item (i.e&#x2e;, <a href="qgraphicsscene.html#mouseGrabberItem">QGraphicsScene::mouseGrabberItem</a>()). Because we need to find all neighboring (but not necessarily connected) nodes, we also make sure the item is part of a scene in the first place.</p>
+<pre class="cpp">     <span class="comment">// Sum up all forces pushing this item away</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> xvel <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> yvel <span class="operator">=</span> <span class="number">0</span>;
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>items()) {
+         Node <span class="operator">*</span>node <span class="operator">=</span> qgraphicsitem_cast<span class="operator">&lt;</span>Node <span class="operator">*</span><span class="operator">&gt;</span>(item);
+         <span class="keyword">if</span> (<span class="operator">!</span>node)
+             <span class="keyword">continue</span>;
+
+         <span class="type"><a href="qpointf.html">QPointF</a></span> vec <span class="operator">=</span> mapToItem(node<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dx <span class="operator">=</span> vec<span class="operator">.</span>x();
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> dy <span class="operator">=</span> vec<span class="operator">.</span>y();
+         <span class="type">double</span> l <span class="operator">=</span> <span class="number">2.0</span> <span class="operator">*</span> (dx <span class="operator">*</span> dx <span class="operator">+</span> dy <span class="operator">*</span> dy);
+         <span class="keyword">if</span> (l <span class="operator">&gt;</span> <span class="number">0</span>) {
+             xvel <span class="operator">+</span><span class="operator">=</span> (dx <span class="operator">*</span> <span class="number">150.0</span>) <span class="operator">/</span> l;
+             yvel <span class="operator">+</span><span class="operator">=</span> (dy <span class="operator">*</span> <span class="number">150.0</span>) <span class="operator">/</span> l;
+         }
+     }</pre>
+<p>The &quot;elastic&quot; effect comes from an algorithm that applies pushing and pulling forces. The effect is impressive, and surprisingly simple to implement.</p>
+<p>The algorithm has two steps: the first is to calculate the forces that push the nodes apart, and the second is to subtract the forces that pull the nodes together. First we need to find all the nodes in the graph. We call <a href="qgraphicsscene.html#items">QGraphicsScene::items</a>() to find all items in the scene, and then use <a href="qgraphicsitem.html#qgraphicsitem_cast">qgraphicsitem_cast</a>() to look for <tt>Node</tt> instances.</p>
+<p>We make use of <a href="qgraphicsitem.html#mapFromItem">mapFromItem()</a> to create a temporary vector pointing from this node to each other node, in <a href="graphicsview.html#the-graphics-view-coordinate-system">local coordinates</a>. We use the decomposed components of this vector to determine the direction and strength of force that should apply to the node. The forces accumulate for each node, and are then adjusted so that the closest nodes are given the strongest force, with rapid degradation when distance increases. The sum of all forces is stored in <tt>xvel</tt> (X-velocity) and <tt>yvel</tt> (Y-velocity).</p>
+<pre class="cpp">     <span class="comment">// Now subtract all forces pulling items together</span>
+     <span class="type">double</span> weight <span class="operator">=</span> (edgeList<span class="operator">.</span>size() <span class="operator">+</span> <span class="number">1</span>) <span class="operator">*</span> <span class="number">10</span>;
+     foreach (Edge <span class="operator">*</span>edge<span class="operator">,</span> edgeList) {
+         <span class="type"><a href="qpointf.html">QPointF</a></span> vec;
+         <span class="keyword">if</span> (edge<span class="operator">-</span><span class="operator">&gt;</span>sourceNode() <span class="operator">=</span><span class="operator">=</span> <span class="keyword">this</span>)
+             vec <span class="operator">=</span> mapToItem(edge<span class="operator">-</span><span class="operator">&gt;</span>destNode()<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+         <span class="keyword">else</span>
+             vec <span class="operator">=</span> mapToItem(edge<span class="operator">-</span><span class="operator">&gt;</span>sourceNode()<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+         xvel <span class="operator">-</span><span class="operator">=</span> vec<span class="operator">.</span>x() <span class="operator">/</span> weight;
+         yvel <span class="operator">-</span><span class="operator">=</span> vec<span class="operator">.</span>y() <span class="operator">/</span> weight;
+     }</pre>
+<p>The edges between the nodes represent forces that pull the nodes together. By visiting each edge that is connected to this node, we can use a similar approach as above to find the direction and strength of all pulling forces. These forces are subtracted from <tt>xvel</tt> and <tt>yvel</tt>.</p>
+<pre class="cpp">     <span class="keyword">if</span> (<a href="qtglobal.html#qAbs">qAbs</a>(xvel) <span class="operator">&lt;</span> <span class="number">0.1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> <a href="qtglobal.html#qAbs">qAbs</a>(yvel) <span class="operator">&lt;</span> <span class="number">0.1</span>)
+         xvel <span class="operator">=</span> yvel <span class="operator">=</span> <span class="number">0</span>;</pre>
+<p>In theory, the sum of pushing and pulling forces should stabilize to precisely 0. In practise, however, they never do. To circumvent errors in numerical precision, we simply force the sum of forces to be 0 when they are less than 0.1&#x2e;</p>
+<pre class="cpp">     <span class="type"><a href="qrectf.html">QRectF</a></span> sceneRect <span class="operator">=</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>sceneRect();
+     newPos <span class="operator">=</span> pos() <span class="operator">+</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(xvel<span class="operator">,</span> yvel);
+     newPos<span class="operator">.</span>setX(<a href="qtglobal.html#qMin">qMin</a>(<a href="qtglobal.html#qMax">qMax</a>(newPos<span class="operator">.</span>x()<span class="operator">,</span> sceneRect<span class="operator">.</span>left() <span class="operator">+</span> <span class="number">10</span>)<span class="operator">,</span> sceneRect<span class="operator">.</span>right() <span class="operator">-</span> <span class="number">10</span>));
+     newPos<span class="operator">.</span>setY(<a href="qtglobal.html#qMin">qMin</a>(<a href="qtglobal.html#qMax">qMax</a>(newPos<span class="operator">.</span>y()<span class="operator">,</span> sceneRect<span class="operator">.</span>top() <span class="operator">+</span> <span class="number">10</span>)<span class="operator">,</span> sceneRect<span class="operator">.</span>bottom() <span class="operator">-</span> <span class="number">10</span>));
+ }</pre>
+<p>The final step of <tt>calculateForces()</tt> determines the node's new position. We add the force to the node's current position. We also make sure the new position stays inside of our defined boundaries. We don't actually move the item in this function; that's done in a separate step, from <tt>advance()</tt>.</p>
+<pre class="cpp"> <span class="type">bool</span> Node<span class="operator">::</span>advance()
+ {
+     <span class="keyword">if</span> (newPos <span class="operator">=</span><span class="operator">=</span> pos())
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     setPos(newPos);
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>The <tt>advance()</tt> function updates the item's current position. It is called from <tt>GraphWidget::timerEvent()</tt>. If the node's position changed, the function returns true; otherwise false is returned.</p>
+<pre class="cpp"> <span class="type"><a href="qrectf.html">QRectF</a></span> Node<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
+ {
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5)</span>
+     <span class="comment">// Add some extra space around the circle for easier touching with finger</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> adjust <span class="operator">=</span> <span class="number">30</span>;
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>( <span class="operator">-</span><span class="number">10</span> <span class="operator">-</span> adjust<span class="operator">,</span> <span class="operator">-</span><span class="number">10</span> <span class="operator">-</span> adjust<span class="operator">,</span>
+                   <span class="number">20</span> <span class="operator">+</span> adjust <span class="operator">*</span> <span class="number">2</span><span class="operator">,</span> <span class="number">20</span> <span class="operator">+</span> adjust <span class="operator">*</span> <span class="number">2</span>);
+ <span class="preprocessor">#else</span>
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> adjust <span class="operator">=</span> <span class="number">2</span>;
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>( <span class="operator">-</span><span class="number">10</span> <span class="operator">-</span> adjust<span class="operator">,</span> <span class="operator">-</span><span class="number">10</span> <span class="operator">-</span> adjust<span class="operator">,</span>
+                   <span class="number">23</span> <span class="operator">+</span> adjust<span class="operator">,</span> <span class="number">23</span> <span class="operator">+</span> adjust);
+ <span class="preprocessor">#endif</span>
+ }</pre>
+<p>The <tt>Node</tt>'s bounding rectangle is a 20x20 sized rectangle centered around its origin (0, 0), adjusted by 2 units in all directions to compensate for the node's outline stroke, and by 3 units down and to the right to make room for a simple drop shadow.</p>
+<pre class="cpp"> <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> Node<span class="operator">::</span>shape() <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qpainterpath.html">QPainterPath</a></span> path;
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_WS_MAEMO_5)</span>
+     <span class="comment">// Add some extra space around the circle for easier touching with finger</span>
+     path<span class="operator">.</span>addEllipse( <span class="operator">-</span><span class="number">40</span><span class="operator">,</span> <span class="operator">-</span><span class="number">40</span><span class="operator">,</span> <span class="number">80</span><span class="operator">,</span> <span class="number">80</span>);
+ <span class="preprocessor">#else</span>
+     path<span class="operator">.</span>addEllipse(<span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+ <span class="preprocessor">#endif</span>
+     <span class="keyword">return</span> path;
+ }</pre>
+<p>The shape is a simple ellipse. This ensures that you must click inside the node's elliptic shape in order to drag it around. You can test this effect by running the example, and zooming far in so that the nodes are very large. Without reimplementing <a href="qgraphicsitem.html#shape">shape()</a>, the item's hit area would be identical to its bounding rectangle (i.e&#x2e;, rectangular).</p>
+<pre class="cpp"> <span class="type">void</span> Node<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>)
+ {
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGray);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">7</span><span class="operator">,</span> <span class="operator">-</span><span class="number">7</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+
+     <span class="type"><a href="qradialgradient.html">QRadialGradient</a></span> gradient(<span class="operator">-</span><span class="number">3</span><span class="operator">,</span> <span class="operator">-</span><span class="number">3</span><span class="operator">,</span> <span class="number">10</span>);
+     <span class="keyword">if</span> (option<span class="operator">-</span><span class="operator">&gt;</span>state <span class="operator">&amp;</span> <span class="type"><a href="qstyle.html">QStyle</a></span><span class="operator">::</span>State_Sunken) {
+         gradient<span class="operator">.</span>setCenter(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span>);
+         gradient<span class="operator">.</span>setFocalPoint(<span class="number">3</span><span class="operator">,</span> <span class="number">3</span>);
+         gradient<span class="operator">.</span>setColorAt(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow)<span class="operator">.</span>light(<span class="number">120</span>));
+         gradient<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkYellow)<span class="operator">.</span>light(<span class="number">120</span>));
+     } <span class="keyword">else</span> {
+         gradient<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>yellow);
+         gradient<span class="operator">.</span>setColorAt(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkYellow);
+     }
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(gradient);
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black<span class="operator">,</span> <span class="number">0</span>));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawEllipse(<span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="operator">-</span><span class="number">10</span><span class="operator">,</span> <span class="number">20</span><span class="operator">,</span> <span class="number">20</span>);
+ }</pre>
+<p>This function implements the node's painting. We start by drawing a simple dark gray elliptic drop shadow at (-7, -7), that is, (3, 3) units down and to the right from the top-left corner (-10, -10) of the ellipse.</p>
+<p>We then draw an ellipse with a radial gradient fill. This fill is either <a href="qt.html#GlobalColor-enum">Qt::yellow</a> to <a href="qt.html#GlobalColor-enum">Qt::darkYellow</a> when raised, or the opposite when sunken. In sunken state we also shift the center and focal point by (3, 3) to emphasize the impression that something has been pushed down.</p>
+<p>Drawing filled ellipses with gradients can be quite slow, especially when using complex gradients such as <a href="qradialgradient.html">QRadialGradient</a>. This is why this example uses <a href="qgraphicsitem.html#CacheMode-enum">DeviceCoordinateCache</a>, a simple yet effective measure that prevents unnecessary redrawing.</p>
+<pre class="cpp"> <span class="type"><a href="qvariant.html">QVariant</a></span> Node<span class="operator">::</span>itemChange(GraphicsItemChange change<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value)
+ {
+     <span class="keyword">switch</span> (change) {
+     <span class="keyword">case</span> ItemPositionHasChanged:
+         foreach (Edge <span class="operator">*</span>edge<span class="operator">,</span> edgeList)
+             edge<span class="operator">-</span><span class="operator">&gt;</span>adjust();
+         graph<span class="operator">-</span><span class="operator">&gt;</span>itemMoved();
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="keyword">break</span>;
+     };
+
+     <span class="keyword">return</span> <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>itemChange(change<span class="operator">,</span> value);
+ }</pre>
+<p>We reimplement <a href="qgraphicsitem.html#itemChange">itemChange()</a> to adjust the position of all connected edges, and to notify the scene that an item has moved (i.e&#x2e;, &quot;something has happened&quot;). This will trigger new force calculations.</p>
+<p>This notification is the only reason why the nodes need to keep a pointer back to the <tt>GraphWidget</tt>. Another approach could be to provide such notification using a signal; in such case, <tt>Node</tt> would need to inherit from <a href="qgraphicsobject.html">QGraphicsObject</a>.</p>
+<pre class="cpp"> <span class="type">void</span> Node<span class="operator">::</span>mousePressEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     update();
+     <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>mousePressEvent(event);
+ }
+
+ <span class="type">void</span> Node<span class="operator">::</span>mouseReleaseEvent(<span class="type"><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a></span> <span class="operator">*</span>event)
+ {
+     update();
+     <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span><span class="operator">::</span>mouseReleaseEvent(event);
+ }</pre>
+<p>Because we have set the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsMovable</a> flag, we don't need to implement the logic that moves the node according to mouse input; this is already provided for us. We still need to reimplement the mouse press and release handlers, though, to update the nodes' visual appearance (i.e&#x2e;, sunken or raised).</p>
+<a name="edge-class-definition"></a>
+<h2>Edge Class Definition</h2>
+<p>The <tt>Edge</tt> class represents the arrow-lines between the nodes in this example. The class is very simple: it maintains a source- and destination node pointer, and provides an <tt>adjust()</tt> function that makes sure the line starts at the position of the source, and ends at the position of the destination. The edges are the only items that change continuously as forces pull and push on the nodes.</p>
+<p>Let's take a look at the class declaration:</p>
+<pre class="cpp"> <span class="keyword">class</span> Edge : <span class="keyword">public</span> <span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span>
+ {
+ <span class="keyword">public</span>:
+     Edge(Node <span class="operator">*</span>sourceNode<span class="operator">,</span> Node <span class="operator">*</span>destNode);
+
+     Node <span class="operator">*</span>sourceNode() <span class="keyword">const</span>;
+     Node <span class="operator">*</span>destNode() <span class="keyword">const</span>;
+
+     <span class="type">void</span> adjust();
+
+     <span class="keyword">enum</span> { Type <span class="operator">=</span> UserType <span class="operator">+</span> <span class="number">2</span> };
+     <span class="type">int</span> type() <span class="keyword">const</span> { <span class="keyword">return</span> Type; }
+
+ <span class="keyword">protected</span>:
+     <span class="type"><a href="qrectf.html">QRectF</a></span> boundingRect() <span class="keyword">const</span>;
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget);
+
+ <span class="keyword">private</span>:
+     Node <span class="operator">*</span>source<span class="operator">,</span> <span class="operator">*</span>dest;
+
+     <span class="type"><a href="qpointf.html">QPointF</a></span> sourcePoint;
+     <span class="type"><a href="qpointf.html">QPointF</a></span> destPoint;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> arrowSize;
+ };</pre>
+<p><tt>Edge</tt> inherits from <a href="qgraphicsitem.html">QGraphicsItem</a>, as it's a simple class that has no use for signals, slots, and properties (compare to <a href="qgraphicsobject.html">QGraphicsObject</a>).</p>
+<p>The constructor takes two node pointers as input. Both pointers are mandatory in this example. We also provide get-functions for each node.</p>
+<p>The <tt>adjust()</tt> function repositions the edge, and the item also implements <a href="qgraphicsitem.html#boundingRect">boundingRect()</a> and <a href="qgraphicsitem.html#paint">paint()</a>.</p>
+<p>We will now review its implementation.</p>
+<pre class="cpp"> Edge<span class="operator">::</span>Edge(Node <span class="operator">*</span>sourceNode<span class="operator">,</span> Node <span class="operator">*</span>destNode)
+     : arrowSize(<span class="number">10</span>)
+ {
+     setAcceptedMouseButtons(<span class="number">0</span>);
+     source <span class="operator">=</span> sourceNode;
+     dest <span class="operator">=</span> destNode;
+     source<span class="operator">-</span><span class="operator">&gt;</span>addEdge(<span class="keyword">this</span>);
+     dest<span class="operator">-</span><span class="operator">&gt;</span>addEdge(<span class="keyword">this</span>);
+     adjust();
+ }</pre>
+<p>The <tt>Edge</tt> constructor initializes its <tt>arrowSize</tt> data member to 10 units; this determines the size of the arrow which is drawn in <a href="qgraphicsitem.html#paint">paint()</a>.</p>
+<p>In the constructor body, we call <a href="qgraphicsitem.html#setAcceptedMouseButtons">setAcceptedMouseButtons(0)</a>. This ensures that the edge items are not considered for mouse input at all (i.e&#x2e;, you cannot click the edges). Then, the source and destination pointers are updated, this edge is registered with each node, and we call <tt>adjust()</tt> to update this edge's start end end position.</p>
+<pre class="cpp"> Node <span class="operator">*</span>Edge<span class="operator">::</span>sourceNode() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> source;
+ }
+
+ Node <span class="operator">*</span>Edge<span class="operator">::</span>destNode() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> dest;
+ }</pre>
+<p>The source and destination get-functions simply return the respective pointers.</p>
+<pre class="cpp"> <span class="type">void</span> Edge<span class="operator">::</span>adjust()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>source <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>dest)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qlinef.html">QLineF</a></span> line(mapFromItem(source<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> mapFromItem(dest<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> length <span class="operator">=</span> line<span class="operator">.</span>length();
+
+     prepareGeometryChange();
+
+     <span class="keyword">if</span> (length <span class="operator">&gt;</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">20.</span>)) {
+         <span class="type"><a href="qpointf.html">QPointF</a></span> edgeOffset((line<span class="operator">.</span>dx() <span class="operator">*</span> <span class="number">10</span>) <span class="operator">/</span> length<span class="operator">,</span> (line<span class="operator">.</span>dy() <span class="operator">*</span> <span class="number">10</span>) <span class="operator">/</span> length);
+         sourcePoint <span class="operator">=</span> line<span class="operator">.</span>p1() <span class="operator">+</span> edgeOffset;
+         destPoint <span class="operator">=</span> line<span class="operator">.</span>p2() <span class="operator">-</span> edgeOffset;
+     } <span class="keyword">else</span> {
+         sourcePoint <span class="operator">=</span> destPoint <span class="operator">=</span> line<span class="operator">.</span>p1();
+     }
+ }</pre>
+<p>In <tt>adjust()</tt>, we define two points: <tt>sourcePoint</tt>, and <tt>destPoint</tt>, pointing at the source and destination nodes' origins respectively. Each point is calculated using <a href="graphicsview.html#the-graphics-view-coordinate-system">local coordinates</a>.</p>
+<p>We want the tip of the edge's arrows to point to the exact outline of the nodes, as opposed to the center of the nodes. To find this point, we first decompose the vector pointing from the center of the source to the center of the destination node into X and Y, and then normalize the components by dividing by the length of the vector. This gives us an X and Y unit delta that, when multiplied by the radius of the node (which is 10), gives us the offset that must be added to one point of the edge, and subtracted from the other.</p>
+<p>If the length of the vector is less than 20 (i.e&#x2e;, if two nodes overlap), then we fix the source and destination pointer at the center of the source node. In practise this case is very hard to reproduce manually, as the forces between the two nodes is then at its maximum.</p>
+<p>It's important to notice that we call <a href="qgraphicsitem.html#prepareGeometryChange">prepareGeometryChange()</a> in this function. The reason is that the variables <tt>sourcePoint</tt> and <tt>destPoint</tt> are used directly when painting, and they are returned from the <a href="qgraphicsitem.html#boundingRect">boundingRect()</a> reimplementation. We must always call <a href="qgraphicsitem.html#prepareGeometryChange">prepareGeometryChange()</a> before changing what <a href="qgraphicsitem.html#boundingRect">boundingRect()</a> returns, and before these variables can be used by <a href="qgraphicsitem.html#paint">paint()</a>, to keep Graphics View's internal bookkeeping clean. It's safest to call this function once, immediately before any such variable is modified.</p>
+<pre class="cpp"> <span class="type"><a href="qrectf.html">QRectF</a></span> Edge<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>source <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>dest)
+         <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>();
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> penWidth <span class="operator">=</span> <span class="number">1</span>;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> extra <span class="operator">=</span> (penWidth <span class="operator">+</span> arrowSize) <span class="operator">/</span> <span class="number">2.0</span>;
+
+     <span class="keyword">return</span> <span class="type"><a href="qrectf.html">QRectF</a></span>(sourcePoint<span class="operator">,</span> <span class="type"><a href="qsizef.html">QSizeF</a></span>(destPoint<span class="operator">.</span>x() <span class="operator">-</span> sourcePoint<span class="operator">.</span>x()<span class="operator">,</span>
+                                       destPoint<span class="operator">.</span>y() <span class="operator">-</span> sourcePoint<span class="operator">.</span>y()))
+         <span class="operator">.</span>normalized()
+         <span class="operator">.</span>adjusted(<span class="operator">-</span>extra<span class="operator">,</span> <span class="operator">-</span>extra<span class="operator">,</span> extra<span class="operator">,</span> extra);
+ }</pre>
+<p>The edge's bounding rectangle is defined as the smallest rectangle that includes both the start and the end point of the edge. Because we draw an arrow on each edge, we also need to compensate by adjusting with half the arrow size and half the pen width in all directions. The pen is used to draw the outline of the arrow, and we can assume that half of the outline can be drawn outside of the arrow's area, and half will be drawn inside.</p>
+<pre class="cpp"> <span class="type">void</span> Edge<span class="operator">::</span>paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span><span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>source <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>dest)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qlinef.html">QLineF</a></span> line(sourcePoint<span class="operator">,</span> destPoint);
+     <span class="keyword">if</span> (<a href="qmatrix4x4.html#qFuzzyCompare">qFuzzyCompare</a>(line<span class="operator">.</span>length()<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">0.</span>)))
+         <span class="keyword">return</span>;</pre>
+<p>We start the reimplementation of <a href="qgraphicsitem.html#paint">paint()</a> by checking a few preconditions. Firstly, if either the source or destination node is not set, then we return immediately; there is nothing to draw.</p>
+<p>At the same time, we check if the length of the edge is approximately 0, and if it is, then we also return.</p>
+<pre class="cpp">     <span class="comment">// Draw the line itself</span>
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qpen.html">QPen</a></span>(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SolidLine<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundCap<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundJoin));
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawLine(line);</pre>
+<p>We draw the line using a pen that has round joins and caps. If you run the example, zoom in and study the edge in detail, you will see that there are no sharp/square edges.</p>
+<pre class="cpp">     <span class="comment">// Draw the arrows</span>
+     <span class="type">double</span> angle <span class="operator">=</span> <span class="operator">::</span>acos(line<span class="operator">.</span>dx() <span class="operator">/</span> line<span class="operator">.</span>length());
+     <span class="keyword">if</span> (line<span class="operator">.</span>dy() <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>)
+         angle <span class="operator">=</span> TwoPi <span class="operator">-</span> angle;
+
+     <span class="type"><a href="qpointf.html">QPointF</a></span> sourceArrowP1 <span class="operator">=</span> sourcePoint <span class="operator">+</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(sin(angle <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize<span class="operator">,</span>
+                                                   cos(angle <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize);
+     <span class="type"><a href="qpointf.html">QPointF</a></span> sourceArrowP2 <span class="operator">=</span> sourcePoint <span class="operator">+</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(sin(angle <span class="operator">+</span> Pi <span class="operator">-</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize<span class="operator">,</span>
+                                                   cos(angle <span class="operator">+</span> Pi <span class="operator">-</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize);
+     <span class="type"><a href="qpointf.html">QPointF</a></span> destArrowP1 <span class="operator">=</span> destPoint <span class="operator">+</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(sin(angle <span class="operator">-</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize<span class="operator">,</span>
+                                               cos(angle <span class="operator">-</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize);
+     <span class="type"><a href="qpointf.html">QPointF</a></span> destArrowP2 <span class="operator">=</span> destPoint <span class="operator">+</span> <span class="type"><a href="qpointf.html">QPointF</a></span>(sin(angle <span class="operator">-</span> Pi <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize<span class="operator">,</span>
+                                               cos(angle <span class="operator">-</span> Pi <span class="operator">+</span> Pi <span class="operator">/</span> <span class="number">3</span>) <span class="operator">*</span> arrowSize);
+
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawPolygon(<span class="type"><a href="qpolygonf.html">QPolygonF</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> line<span class="operator">.</span>p1() <span class="operator">&lt;</span><span class="operator">&lt;</span> sourceArrowP1 <span class="operator">&lt;</span><span class="operator">&lt;</span> sourceArrowP2);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawPolygon(<span class="type"><a href="qpolygonf.html">QPolygonF</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> line<span class="operator">.</span>p2() <span class="operator">&lt;</span><span class="operator">&lt;</span> destArrowP1 <span class="operator">&lt;</span><span class="operator">&lt;</span> destArrowP2);
+ }</pre>
+<p>We proceed to drawing one arrow at each end of the edge. Each arrow is drawn as a polygon with a black fill. The coordinates for the arrow are determined using simple trigonometry.</p>
+<a name="graphwidget-class-definition"></a>
+<h2>GraphWidget Class Definition</h2>
+<p><tt>GraphWidget</tt> is a subclass of <a href="qgraphicsview.html">QGraphicsView</a>, which provides the main window with scrollbars.</p>
+<pre class="cpp"> <span class="keyword">class</span> GraphWidget : <span class="keyword">public</span> <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     GraphWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type">void</span> itemMoved();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> shuffle();
+     <span class="type">void</span> zoomIn();
+     <span class="type">void</span> zoomOut();
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> wheelEvent(<span class="type"><a href="qwheelevent.html">QWheelEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> drawBackground(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrectf.html">QRectF</a></span> <span class="operator">&amp;</span>rect);
+
+     <span class="type">void</span> scaleView(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> scaleFactor);
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> timerId;
+     Node <span class="operator">*</span>centerNode;
+ };</pre>
+<p>The class provides a basic constructor that initializes the scene, an <tt>itemMoved()</tt> function to notify changes in the scene's node graph, a few event handlers, a reimplementation of <a href="qgraphicsview.html#drawBackground">drawBackground()</a>, and a helper function for scaling the view by using the mouse wheel or keyboard.</p>
+<pre class="cpp"> GraphWidget<span class="operator">::</span>GraphWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span>(parent)<span class="operator">,</span> timerId(<span class="number">0</span>)
+ {
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>scene <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span>(<span class="keyword">this</span>);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setItemIndexMethod(<span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span><span class="operator">::</span>NoIndex);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>setSceneRect(<span class="operator">-</span><span class="number">200</span><span class="operator">,</span> <span class="operator">-</span><span class="number">200</span><span class="operator">,</span> <span class="number">400</span><span class="operator">,</span> <span class="number">400</span>);
+     setScene(scene);
+     setCacheMode(CacheBackground);
+     setViewportUpdateMode(BoundingRectViewportUpdate);
+     setRenderHint(<span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing);
+     setTransformationAnchor(AnchorUnderMouse);
+     scale(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">0.8</span>)<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(<span class="number">0.8</span>));
+     setMinimumSize(<span class="number">400</span><span class="operator">,</span> <span class="number">400</span>);
+     setWindowTitle(tr(<span class="string">&quot;Elastic Nodes&quot;</span>));</pre>
+<p><tt>GraphicsWidget</tt>'s constructor creates the scene, and because most items move around most of the time, it sets <a href="qgraphicsscene.html#ItemIndexMethod-enum">QGraphicsScene::NoIndex</a>. The scene then gets a fixed <a href="qgraphicsscene.html#sceneRect-prop">scene rectangle</a>, and is assigned to the <tt>GraphWidget</tt> view.</p>
+<p>The view enables <a href="qgraphicsview.html#CacheModeFlag-enum">QGraphicsView::CacheBackground</a> to cache rendering of its static, and somewhat complex, background. Because the graph renders a close collection of small items that all move around, it's unnecessary for Graphics View to waste time finding accurate update regions, so we set the <a href="qgraphicsview.html#ViewportUpdateMode-enum">QGraphicsView::BoundingRectViewportUpdate</a> viewport update mode. The default would work fine, but this mode is noticably faster for this example.</p>
+<p>To improve rendering quality, we set <a href="qpainter.html#RenderHint-enum">QPainter::Antialiasing</a>.</p>
+<p>The transformation anchor decides how the view should scroll when you transform the view, or in our case, when we zoom in or out. We have chosen <a href="qgraphicsview.html#ViewportAnchor-enum">QGraphicsView::AnchorUnderMouse</a>, which centers the view on the point under the mouse cursor. This makes it easy to zoom towards a point in the scene by moving the mouse over it, and then rolling the mouse wheel.</p>
+<p>Finally we give the window a minimum size that matches the scene's default size, and set a suitable window title.</p>
+<pre class="cpp">     Node <span class="operator">*</span>node1 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     Node <span class="operator">*</span>node2 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     Node <span class="operator">*</span>node3 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     Node <span class="operator">*</span>node4 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     centerNode <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     Node <span class="operator">*</span>node6 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     Node <span class="operator">*</span>node7 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     Node <span class="operator">*</span>node8 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     Node <span class="operator">*</span>node9 <span class="operator">=</span> <span class="keyword">new</span> Node(<span class="keyword">this</span>);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node1);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node2);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node3);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node4);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(centerNode);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node6);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node7);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node8);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(node9);
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node1<span class="operator">,</span> node2));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node2<span class="operator">,</span> node3));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node2<span class="operator">,</span> centerNode));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node3<span class="operator">,</span> node6));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node4<span class="operator">,</span> node1));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node4<span class="operator">,</span> centerNode));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(centerNode<span class="operator">,</span> node6));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(centerNode<span class="operator">,</span> node8));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node6<span class="operator">,</span> node9));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node7<span class="operator">,</span> node4));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node8<span class="operator">,</span> node7));
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="keyword">new</span> Edge(node9<span class="operator">,</span> node8));
+
+     node1<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="operator">-</span><span class="number">50</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span>);
+     node2<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span>);
+     node3<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">50</span><span class="operator">,</span> <span class="operator">-</span><span class="number">50</span>);
+     node4<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="operator">-</span><span class="number">50</span><span class="operator">,</span> <span class="number">0</span>);
+     centerNode<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     node6<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">50</span><span class="operator">,</span> <span class="number">0</span>);
+     node7<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="operator">-</span><span class="number">50</span><span class="operator">,</span> <span class="number">50</span>);
+     node8<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">0</span><span class="operator">,</span> <span class="number">50</span>);
+     node9<span class="operator">-</span><span class="operator">&gt;</span>setPos(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span>);
+ }</pre>
+<p>The last part of the constructor creates the grid of nodes and edges, and gives each node an initial position.</p>
+<pre class="cpp"> <span class="type">void</span> GraphWidget<span class="operator">::</span>itemMoved()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>timerId)
+         timerId <span class="operator">=</span> startTimer(<span class="number">1000</span> <span class="operator">/</span> <span class="number">25</span>);
+ }</pre>
+<p><tt>GraphWidget</tt> is notified of node movement through this <tt>itemMoved()</tt> function. Its job is simply to restart the main timer in case it's not running already. The timer is designed to stop when the graph stabilizes, and start once it's unstable again.</p>
+<pre class="cpp"> <span class="type">void</span> GraphWidget<span class="operator">::</span>keyPressEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">switch</span> (event<span class="operator">-</span><span class="operator">&gt;</span>key()) {
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Up:
+         centerNode<span class="operator">-</span><span class="operator">&gt;</span>moveBy(<span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">20</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Down:
+         centerNode<span class="operator">-</span><span class="operator">&gt;</span>moveBy(<span class="number">0</span><span class="operator">,</span> <span class="number">20</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Left:
+         centerNode<span class="operator">-</span><span class="operator">&gt;</span>moveBy(<span class="operator">-</span><span class="number">20</span><span class="operator">,</span> <span class="number">0</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Right:
+         centerNode<span class="operator">-</span><span class="operator">&gt;</span>moveBy(<span class="number">20</span><span class="operator">,</span> <span class="number">0</span>);
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Plus:
+         zoomIn();
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Minus:
+         zoomOut();
+         <span class="keyword">break</span>;
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Space:
+     <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Enter:
+         shuffle();
+         <span class="keyword">break</span>;
+     <span class="keyword">default</span>:
+         <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span><span class="operator">::</span>keyPressEvent(event);
+     }
+ }</pre>
+<p>This is <tt>GraphWidget</tt>'s key event handler. The arrow keys move the center node around, the '+' and '-' keys zoom in and out by calling <tt>scaleView()</tt>, and the enter and space keys randomize the positions of the nodes. All other key events (e.g&#x2e;, page up and page down) are handled by <a href="qgraphicsview.html">QGraphicsView</a>'s default implementation.</p>
+<pre class="cpp"> <span class="type">void</span> GraphWidget<span class="operator">::</span>timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>event)
+ {
+     Q_UNUSED(event);
+
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Node <span class="operator">*</span><span class="operator">&gt;</span> nodes;
+     foreach (<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> <span class="operator">*</span>item<span class="operator">,</span> scene()<span class="operator">-</span><span class="operator">&gt;</span>items()) {
+         <span class="keyword">if</span> (Node <span class="operator">*</span>node <span class="operator">=</span> qgraphicsitem_cast<span class="operator">&lt;</span>Node <span class="operator">*</span><span class="operator">&gt;</span>(item))
+             nodes <span class="operator">&lt;</span><span class="operator">&lt;</span> node;
+     }
+
+     foreach (Node <span class="operator">*</span>node<span class="operator">,</span> nodes)
+         node<span class="operator">-</span><span class="operator">&gt;</span>calculateForces();
+
+     <span class="type">bool</span> itemsMoved <span class="operator">=</span> <span class="keyword">false</span>;
+     foreach (Node <span class="operator">*</span>node<span class="operator">,</span> nodes) {
+         <span class="keyword">if</span> (node<span class="operator">-</span><span class="operator">&gt;</span>advance())
+             itemsMoved <span class="operator">=</span> <span class="keyword">true</span>;
+     }
+
+     <span class="keyword">if</span> (<span class="operator">!</span>itemsMoved) {
+         killTimer(timerId);
+         timerId <span class="operator">=</span> <span class="number">0</span>;
+     }
+ }</pre>
+<p>The timer event handler's job is to run the whole force calculation machinery as a smooth animation. Each time the timer is triggered, the handler will find all nodes in the scene, and call <tt>Node::calculateForces()</tt> on each node, one at a time. Then, in a final step it will call <tt>Node::advance()</tt> to move all nodes to their new positions. By checking the return value of <tt>advance()</tt>, we can decide if the grid stabilized (i.e&#x2e;, no nodes moved). If so, we can stop the timer.</p>
+<pre class="cpp"> <span class="type">void</span> GraphWidget<span class="operator">::</span>wheelEvent(<span class="type"><a href="qwheelevent.html">QWheelEvent</a></span> <span class="operator">*</span>event)
+ {
+     scaleView(pow((<span class="type">double</span>)<span class="number">2</span><span class="operator">,</span> <span class="operator">-</span>event<span class="operator">-</span><span class="operator">&gt;</span>delta() <span class="operator">/</span> <span class="number">240.0</span>));
+ }</pre>
+<p>In the wheel event handler, we convert the mouse wheel delta to a scale factor, and pass this factor to <tt>scaleView()</tt>. This approach takes into account the speed that the wheel is rolled. The faster you roll the mouse wheel, the faster the view will zoom.</p>
+<pre class="cpp"> <span class="type">void</span> GraphWidget<span class="operator">::</span>drawBackground(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrectf.html">QRectF</a></span> <span class="operator">&amp;</span>rect)
+ {
+     Q_UNUSED(rect);
+
+     <span class="comment">// Shadow</span>
+     <span class="type"><a href="qrectf.html">QRectF</a></span> sceneRect <span class="operator">=</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>sceneRect();
+     <span class="type"><a href="qrectf.html">QRectF</a></span> rightShadow(sceneRect<span class="operator">.</span>right()<span class="operator">,</span> sceneRect<span class="operator">.</span>top() <span class="operator">+</span> <span class="number">5</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> sceneRect<span class="operator">.</span>height());
+     <span class="type"><a href="qrectf.html">QRectF</a></span> bottomShadow(sceneRect<span class="operator">.</span>left() <span class="operator">+</span> <span class="number">5</span><span class="operator">,</span> sceneRect<span class="operator">.</span>bottom()<span class="operator">,</span> sceneRect<span class="operator">.</span>width()<span class="operator">,</span> <span class="number">5</span>);
+     <span class="keyword">if</span> (rightShadow<span class="operator">.</span>intersects(rect) <span class="operator">|</span><span class="operator">|</span> rightShadow<span class="operator">.</span>contains(rect))
+         painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(rightShadow<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGray);
+     <span class="keyword">if</span> (bottomShadow<span class="operator">.</span>intersects(rect) <span class="operator">|</span><span class="operator">|</span> bottomShadow<span class="operator">.</span>contains(rect))
+         painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(bottomShadow<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>darkGray);
+
+     <span class="comment">// Fill</span>
+     <span class="type"><a href="qlineargradient.html">QLinearGradient</a></span> gradient(sceneRect<span class="operator">.</span>topLeft()<span class="operator">,</span> sceneRect<span class="operator">.</span>bottomRight());
+     gradient<span class="operator">.</span>setColorAt(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     gradient<span class="operator">.</span>setColorAt(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(rect<span class="operator">.</span>intersect(sceneRect)<span class="operator">,</span> gradient);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoBrush);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawRect(sceneRect);
+
+ <span class="preprocessor">#if !defined(Q_OS_SYMBIAN) &amp;&amp; !defined(Q_WS_MAEMO_5)</span>
+     <span class="comment">// Text</span>
+     <span class="type"><a href="qrectf.html">QRectF</a></span> textRect(sceneRect<span class="operator">.</span>left() <span class="operator">+</span> <span class="number">4</span><span class="operator">,</span> sceneRect<span class="operator">.</span>top() <span class="operator">+</span> <span class="number">4</span><span class="operator">,</span>
+                     sceneRect<span class="operator">.</span>width() <span class="operator">-</span> <span class="number">4</span><span class="operator">,</span> sceneRect<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">4</span>);
+     <span class="type"><a href="qstring.html">QString</a></span> message(tr(<span class="string">&quot;Click and drag the nodes around, and zoom with the mouse &quot;</span>
+                        <span class="string">&quot;wheel or the '+' and '-' keys&quot;</span>));
+
+     <span class="type"><a href="qfont.html">QFont</a></span> font <span class="operator">=</span> painter<span class="operator">-</span><span class="operator">&gt;</span>font();
+     font<span class="operator">.</span>setBold(<span class="keyword">true</span>);
+     font<span class="operator">.</span>setPointSize(<span class="number">14</span>);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setFont(font);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>lightGray);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawText(textRect<span class="operator">.</span>translated(<span class="number">2</span><span class="operator">,</span> <span class="number">2</span>)<span class="operator">,</span> message);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     painter<span class="operator">-</span><span class="operator">&gt;</span>drawText(textRect<span class="operator">,</span> message);
+ <span class="preprocessor">#endif</span>
+ }</pre>
+<p>The view's background is rendered in a reimplementation of <a href="qgraphicsview.html#drawBackground">QGraphicsView::drawBackground</a>(). We draw a large rectangle filled with a linear gradient, add a drop shadow, and then render text on top. The text is rendered twice for a simple drop-shadow effect.</p>
+<p>This background rendering is quite expensive; this is why the view enables <a href="qgraphicsview.html#CacheModeFlag-enum">QGraphicsView::CacheBackground</a>.</p>
+<pre class="cpp"> <span class="type">void</span> GraphWidget<span class="operator">::</span>scaleView(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> scaleFactor)
+ {
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> factor <span class="operator">=</span> transform()<span class="operator">.</span>scale(scaleFactor<span class="operator">,</span> scaleFactor)<span class="operator">.</span>mapRect(<span class="type"><a href="qrectf.html">QRectF</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>))<span class="operator">.</span>width();
+     <span class="keyword">if</span> (factor <span class="operator">&lt;</span> <span class="number">0.07</span> <span class="operator">|</span><span class="operator">|</span> factor <span class="operator">&gt;</span> <span class="number">100</span>)
+         <span class="keyword">return</span>;
+
+     scale(scaleFactor<span class="operator">,</span> scaleFactor);
+ }</pre>
+<p>The <tt>scaleView()</tt> helper function checks that the scale factor stays within certain limits (i.e&#x2e;, you cannot zoom too far in nor too far out), and then applies this scale to the view.</p>
+<a name="the-main-function"></a>
+<h2>The main() Function</h2>
+<p>In contrast to the complexity of the rest of this example, the <tt>main()</tt> function is very simple: We create a <a href="qapplication.html">QApplication</a> instance, seed the randomizer using <a href="qtglobal.html#qsrand">qsrand</a>(), and then create and show an instance of <tt>GraphWidget</tt>. Because all nodes in the grid are moved initially, the <tt>GraphWidget</tt> timer will start immediately after control has returned to the event loop.</p>
+</div>
+<!-- @@@graphicsview/elasticnodes -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

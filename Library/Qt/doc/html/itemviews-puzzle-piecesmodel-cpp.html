@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.8: piecesmodel.cpp Example File (itemviews/puzzle/piecesmodel.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/superfish.css" />
+  <link rel="stylesheet" type="text/css" href="style/narrow.css" />
+  <!--[if IE]>
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta http-equiv="imagetoolbar" content="no">
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie6.css">
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="style/style_ie7.css">
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/style_ie8.css">
+<![endif]-->
+
+<script src="scripts/superfish.js" type="text/javascript"></script>
+<script src="scripts/narrow.js" type="text/javascript"></script>
+
+</head>
+<body class="" onload="CheckEmptyAndLoadList();">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+    <div id="narrowsearch"></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.digia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://qt-project.org/">DEV</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://qt-project.org/doc/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.digia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.8</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt-project.org/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu" id="narrowmenu"> 
+             <li><a href="#">API Lookup</a> 
+                 <ul> 
+                     <li><a href="classes.html">Class index</a></li> 
+           <li><a href="functions.html">Function index</a></li> 
+           <li><a href="modules.html">Modules</a></li> 
+           <li><a href="namespaces.html">Namespaces</a></li> 
+           <li><a href="qtglobal.html">Global Declarations</a></li> 
+           <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+             </ul> 
+             </li> 
+             <li><a href="#">Qt Topics</a> 
+                 <ul> 
+                        <li><a href="qt-basic-concepts.html">Programming with Qt</a></li>  
+                        <li><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li>  
+                        <li><a href="qt-gui-concepts.html">UI Design with Qt</a></li>  
+                        <li><a href="supported-platforms.html">Supported Platforms</a></li>  
+                        <li><a href="technology-apis.html">Qt and Key Technologies</a></li>  
+                        <li><a href="best-practices.html">How-To's and Best Practices</a></li>  
+              </ul> 
+                 </li> 
+                 <li><a href="#">Examples</a> 
+                     <ul> 
+                       <li><a href="all-examples.html">Examples</a></li> 
+                       <li><a href="tutorials.html">Tutorials</a></li> 
+                       <li><a href="demos.html">Demos</a></li> 
+                       <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+                </ul> 
+                     </li> 
+                 </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search" id="sidebarsearch">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+ <div id="resultdialog"> 
+ <a href="#" id="resultclose">Close</a> 
+ <p id="resultlinks" class="all"><a href="#" id="showallresults">All</a> | <a href="#" id="showapiresults">API</a> | <a href="#" id="showarticleresults">Articles</a> | <a href="#" id="showexampleresults">Examples</a></p> 
+ <p id="searchcount" class="all"><span id="resultcount"></span><span id="apicount"></span><span id="articlecount"></span><span id="examplecount"></span>&nbsp;results:</p> 
+ <ul id="resultlist" class="all"> 
+ </ul> 
+ </div> 
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global Declarations</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+               <li class="defaultLink"><a href="qt-basic-concepts.html">Programming with Qt</a></li> 
+               <li class="defaultLink"><a href="qtquick.html">Device UIs &amp; Qt Quick</a></li> 
+               <li class="defaultLink"><a href="qt-gui-concepts.html">UI Design with Qt</a></li> 
+               <li class="defaultLink"><a href="supported-platforms.html">Supported Platforms</a></li>  
+               <li class="defaultLink"><a href="technology-apis.html">Qt and Key Technologies</a></li> 
+               <li class="defaultLink"><a href="best-practices.html">How-To's and Best Practices</a></li> 
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Breadcrumbs go here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="content mainContent">
+<h1 class="title">piecesmodel.cpp Example File</h1>
+<span class="small-subtitle">itemviews/puzzle/piecesmodel.cpp</span>
+<!-- $$$itemviews/puzzle/piecesmodel.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+ ** Contact: http://www.qt-project.org/legal
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
+ **     of its contributors may be used to endorse or promote products derived
+ **     from this software without specific prior written permission.
+ **
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="preprocessor">#include &quot;piecesmodel.h&quot;</span>
+
+ PiecesModel<span class="operator">::</span>PiecesModel(<span class="type">int</span> pieceSize<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qabstractlistmodel.html">QAbstractListModel</a></span>(parent)<span class="operator">,</span> m_PieceSize(pieceSize)
+ {
+ }
+
+ <span class="type"><a href="qvariant.html">QVariant</a></span> PiecesModel<span class="operator">::</span>data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>index<span class="operator">.</span>isValid())
+         <span class="keyword">return</span> <span class="type"><a href="qvariant.html">QVariant</a></span>();
+
+     <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DecorationRole)
+         <span class="keyword">return</span> <span class="type"><a href="qicon.html">QIcon</a></span>(pixmaps<span class="operator">.</span>value(index<span class="operator">.</span>row())<span class="operator">.</span>scaled(m_PieceSize<span class="operator">,</span> m_PieceSize<span class="operator">,</span>
+                          <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>KeepAspectRatio<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation));
+     <span class="keyword">else</span> <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>UserRole)
+         <span class="keyword">return</span> pixmaps<span class="operator">.</span>value(index<span class="operator">.</span>row());
+     <span class="keyword">else</span> <span class="keyword">if</span> (role <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>UserRole <span class="operator">+</span> <span class="number">1</span>)
+         <span class="keyword">return</span> locations<span class="operator">.</span>value(index<span class="operator">.</span>row());
+
+     <span class="keyword">return</span> <span class="type"><a href="qvariant.html">QVariant</a></span>();
+ }
+
+ <span class="type">void</span> PiecesModel<span class="operator">::</span>addPiece(<span class="keyword">const</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span> <span class="operator">&amp;</span>pixmap<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>location)
+ {
+     <span class="type">int</span> row;
+     <span class="keyword">if</span> (<span class="type">int</span>(<span class="number">2.0</span><span class="operator">*</span>qrand()<span class="operator">/</span>(RAND_MAX<span class="operator">+</span><span class="number">1.0</span>)) <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>)
+         row <span class="operator">=</span> <span class="number">0</span>;
+     <span class="keyword">else</span>
+         row <span class="operator">=</span> pixmaps<span class="operator">.</span>size();
+
+     beginInsertRows(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()<span class="operator">,</span> row<span class="operator">,</span> row);
+     pixmaps<span class="operator">.</span>insert(row<span class="operator">,</span> pixmap);
+     locations<span class="operator">.</span>insert(row<span class="operator">,</span> location);
+     endInsertRows();
+ }
+
+ <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemFlags PiecesModel<span class="operator">::</span>flags(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (index<span class="operator">.</span>isValid())
+         <span class="keyword">return</span> (<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsEnabled <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsSelectable <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsDragEnabled);
+
+     <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ItemIsDropEnabled;
+ }
+
+ <span class="type">bool</span> PiecesModel<span class="operator">::</span>removeRows(<span class="type">int</span> row<span class="operator">,</span> <span class="type">int</span> count<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent)
+ {
+     <span class="keyword">if</span> (parent<span class="operator">.</span>isValid())
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     <span class="keyword">if</span> (row <span class="operator">&gt;</span><span class="operator">=</span> pixmaps<span class="operator">.</span>size() <span class="operator">|</span><span class="operator">|</span> row <span class="operator">+</span> count <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     <span class="type">int</span> beginRow <span class="operator">=</span> <a href="qtglobal.html#qMax">qMax</a>(<span class="number">0</span><span class="operator">,</span> row);
+     <span class="type">int</span> endRow <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(row <span class="operator">+</span> count <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> pixmaps<span class="operator">.</span>size() <span class="operator">-</span> <span class="number">1</span>);
+
+     beginRemoveRows(parent<span class="operator">,</span> beginRow<span class="operator">,</span> endRow);
+
+     <span class="keyword">while</span> (beginRow <span class="operator">&lt;</span><span class="operator">=</span> endRow) {
+         pixmaps<span class="operator">.</span>removeAt(beginRow);
+         locations<span class="operator">.</span>removeAt(beginRow);
+         <span class="operator">+</span><span class="operator">+</span>beginRow;
+     }
+
+     endRemoveRows();
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> PiecesModel<span class="operator">::</span>mimeTypes() <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> types;
+     types <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;image/x-puzzle-piece&quot;</span>;
+     <span class="keyword">return</span> types;
+ }
+
+ <span class="type"><a href="qmimedata.html">QMimeData</a></span> <span class="operator">*</span>PiecesModel<span class="operator">::</span>mimeData(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> <span class="operator">&amp;</span>indexes) <span class="keyword">const</span>
+ {
+     <span class="type"><a href="qmimedata.html">QMimeData</a></span> <span class="operator">*</span>mimeData <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmimedata.html">QMimeData</a></span>();
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> encodedData;
+
+     <span class="type"><a href="qdatastream.html">QDataStream</a></span> stream(<span class="operator">&amp;</span>encodedData<span class="operator">,</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>WriteOnly);
+
+     foreach (<span class="type"><a href="qmodelindex.html">QModelIndex</a></span> index<span class="operator">,</span> indexes) {
+         <span class="keyword">if</span> (index<span class="operator">.</span>isValid()) {
+             <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span>(data(index<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>UserRole));
+             <span class="type"><a href="qpoint.html">QPoint</a></span> location <span class="operator">=</span> data(index<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>UserRole<span class="operator">+</span><span class="number">1</span>)<span class="operator">.</span>toPoint();
+             stream <span class="operator">&lt;</span><span class="operator">&lt;</span> pixmap <span class="operator">&lt;</span><span class="operator">&lt;</span> location;
+         }
+     }
+
+     mimeData<span class="operator">-</span><span class="operator">&gt;</span>setData(<span class="string">&quot;image/x-puzzle-piece&quot;</span><span class="operator">,</span> encodedData);
+     <span class="keyword">return</span> mimeData;
+ }
+
+ <span class="type">bool</span> PiecesModel<span class="operator">::</span>dropMimeData(<span class="keyword">const</span> <span class="type"><a href="qmimedata.html">QMimeData</a></span> <span class="operator">*</span>data<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DropAction action<span class="operator">,</span>
+                                <span class="type">int</span> row<span class="operator">,</span> <span class="type">int</span> column<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>data<span class="operator">-</span><span class="operator">&gt;</span>hasFormat(<span class="string">&quot;image/x-puzzle-piece&quot;</span>))
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     <span class="keyword">if</span> (action <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>IgnoreAction)
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+
+     <span class="keyword">if</span> (column <span class="operator">&gt;</span> <span class="number">0</span>)
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     <span class="type">int</span> endRow;
+
+     <span class="keyword">if</span> (<span class="operator">!</span>parent<span class="operator">.</span>isValid()) {
+         <span class="keyword">if</span> (row <span class="operator">&lt;</span> <span class="number">0</span>)
+             endRow <span class="operator">=</span> pixmaps<span class="operator">.</span>size();
+         <span class="keyword">else</span>
+             endRow <span class="operator">=</span> <a href="qtglobal.html#qMin">qMin</a>(row<span class="operator">,</span> pixmaps<span class="operator">.</span>size());
+     } <span class="keyword">else</span>
+         endRow <span class="operator">=</span> parent<span class="operator">.</span>row();
+
+     <span class="type"><a href="qbytearray.html">QByteArray</a></span> encodedData <span class="operator">=</span> data<span class="operator">-</span><span class="operator">&gt;</span>data(<span class="string">&quot;image/x-puzzle-piece&quot;</span>);
+     <span class="type"><a href="qdatastream.html">QDataStream</a></span> stream(<span class="operator">&amp;</span>encodedData<span class="operator">,</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+
+     <span class="keyword">while</span> (<span class="operator">!</span>stream<span class="operator">.</span>atEnd()) {
+         <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap;
+         <span class="type"><a href="qpoint.html">QPoint</a></span> location;
+         stream <span class="operator">&gt;</span><span class="operator">&gt;</span> pixmap <span class="operator">&gt;</span><span class="operator">&gt;</span> location;
+
+         beginInsertRows(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()<span class="operator">,</span> endRow<span class="operator">,</span> endRow);
+         pixmaps<span class="operator">.</span>insert(endRow<span class="operator">,</span> pixmap);
+         locations<span class="operator">.</span>insert(endRow<span class="operator">,</span> location);
+         endInsertRows();
+
+         <span class="operator">+</span><span class="operator">+</span>endRow;
+     }
+
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type">int</span> PiecesModel<span class="operator">::</span>rowCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (parent<span class="operator">.</span>isValid())
+         <span class="keyword">return</span> <span class="number">0</span>;
+     <span class="keyword">else</span>
+         <span class="keyword">return</span> pixmaps<span class="operator">.</span>size();
+ }
+
+ <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DropActions PiecesModel<span class="operator">::</span>supportedDropActions() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>CopyAction <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MoveAction;
+ }
+
+ <span class="type">void</span> PiecesModel<span class="operator">::</span>addPieces(<span class="keyword">const</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&amp;</span> pixmap)
+ {
+     beginRemoveRows(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">24</span>);
+     pixmaps<span class="operator">.</span>clear();
+     locations<span class="operator">.</span>clear();
+     endRemoveRows();
+     <span class="keyword">for</span> (<span class="type">int</span> y <span class="operator">=</span> <span class="number">0</span>; y <span class="operator">&lt;</span> <span class="number">5</span>; <span class="operator">+</span><span class="operator">+</span>y) {
+         <span class="keyword">for</span> (<span class="type">int</span> x <span class="operator">=</span> <span class="number">0</span>; x <span class="operator">&lt;</span> <span class="number">5</span>; <span class="operator">+</span><span class="operator">+</span>x) {
+             <span class="type"><a href="qpixmap.html">QPixmap</a></span> pieceImage <span class="operator">=</span> pixmap<span class="operator">.</span>copy(x<span class="operator">*</span>m_PieceSize<span class="operator">,</span> y<span class="operator">*</span>m_PieceSize<span class="operator">,</span> m_PieceSize<span class="operator">,</span> m_PieceSize);
+             addPiece(pieceImage<span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(x<span class="operator">,</span> y));
+         }
+     }
+ }</pre>
+</div>
+<!-- @@@itemviews/puzzle/piecesmodel.cpp -->
+      </div>
+    </div>
+    </div> 
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2013 Digia Plc and/or its
+      subsidiaries. Documentation contributions included herein are the copyrights of
+      their respective owners.</p>
+    <br />
+    <p>
+      The documentation provided herein is licensed under the terms of the
+      <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation
+      License version 1.3</a> as published by the Free Software Foundation.</p>
+    <p>
+      Documentation sources may be obtained from <a href="http://www.qt-project.org">
+      www.qt-project.org</a>.</p>
+    <br />
+    <p>
+      Digia, Qt and their respective logos are trademarks of Digia Plc 
+      in Finland and/or other countries worldwide. All other trademarks are property
+      of their respective owners. <a title="Privacy Policy"
+      href="http://en.gitorious.org/privacy_policy/">Privacy Policy</a></p>
+  </div>
+
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</body>
+</html>

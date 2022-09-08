@@ -1,0 +1,242 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 18-May-1996 -->
+  <!-- Changed by: Eric Prud'hommeaux, 28-May-1996 -->
+  <TITLE>W3C Sample Code Library libwww WWW String Utilities</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  WWW Related String Management
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This module is like the <A HREF="HTString.html">generic string utility
+module</A> but it contains more Web related string utility functions. Examples
+are functions that return a <I>date string</I>, a <I>Message ID string</I>
+etc.
+<P>
+This module is implemented by <A HREF="HTWWWStr.c">HTWWWStr.c</A>, and it
+is a part of the <A HREF="http://www.w3.org/Library/"> W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTWWWSTR_H
+#define HTWWWSTR_H
+
+#include "HTUser.h"
+#include "HTAtom.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<H2>
+  MIME Parsing and other String Based Utilities
+</H2>
+<P>
+A bunch of "finding the next whatever" functions.
+<H3>
+  Next word or quoted string
+</H3>
+<P>
+This function returns a RFC822 word separated by space, comma, or semi-colons.
+<CODE>pstr</CODE> points to a string containing a word separated by white
+white space "," ";" or "=". The word can optionally be quoted using
+<"> or "<" ">" Comments surrrounded by '(' ')' are filtered out. On exit,
+<CODE>pstr</CODE> has been moved to the first delimiter past the field THE
+STRING HAS BEEN MUTILATED by a 0 terminator. The function returns a pointer
+to the first word or NULL on error
+<PRE>
+extern char * HTNextField (char** pstr);
+</PRE>
+<H3>
+  Next Name-value Pair
+</H3>
+<P>
+This is the same as <CODE>HTNextField</CODE> but it does not look for '='
+as a separator so if there is a name-value pair then both parts are returned.
+Returns a pointer to the first word or NULL on error
+<PRE>
+extern char * HTNextPair (char ** pstr);
+</PRE>
+<H3>
+  Next Name-value Parameter
+</H3>
+<P>
+This is the same as <CODE>HTNextPair</CODE> but it does not look for ','
+as a separator so if there is a name-value pair then both parts are returned.
+Returns a pointer to the first word or NULL on error
+<PRE>
+extern char * HTNextParam (char ** pstr);
+</PRE>
+<H3>
+  Next LWS Delimited Token
+</H3>
+<P>
+A simpler version of the above that only looks for linear white space as
+the delimiter.
+<PRE>
+extern char * HTNextLWSToken (char ** pstr);
+</PRE>
+<H3>
+  Find next "/" Delimited Segment
+</H3>
+<P>
+This is the same as HTNextField but it includes "/" as a delimiter. Returns
+a pointer to the first segment or NULL on error
+<PRE>
+extern char * HTNextSegment (char ** pstr);
+</PRE>
+<H3>
+  Next Comma Separated String (or Element)
+</H3>
+<P>
+This is the same as HTNextPair but it does not look for anything else than
+',' as separator Returns a pointer to the first word or NULL on error
+<PRE>
+extern char * HTNextElement (char ** pstr);
+</PRE>
+<H3>
+  Next S-expression
+</H3>
+<P>
+Find the next s-expression token from a string of characters. We return the
+<CODE>name</CODE> of this expression and the <CODE>param</CODE> points to
+the parameters. Note, that the string has been mutilated by a 0 terminator!
+<PRE>
+extern char * HTNextSExp (char ** exp, char ** param);
+</PRE>
+<H2>
+  Reading CRLF
+</H2>
+<P>
+The Library provides a default set of read routines that can handle the most
+common situations. However, before we start we make following definition
+is to make life easier when having a state machine looking for a
+<CODE>&lt;CRLF&gt;</CODE> sequence.
+<PRE>
+typedef enum _HTEOLState {
+    EOL_ERR = -1,
+    EOL_BEGIN = 0,
+    EOL_FCR,
+    EOL_FLF,
+    EOL_DOT,
+    EOL_SCR,
+    EOL_SLF,
+    /* intermediate states */
+    EOL_END,
+    EOL_FOLD,
+    EOL_LINE
+} HTEOLState;
+</PRE>
+<H2>
+  RFC1123 Date/Time Stamp String
+</H2>
+<P>
+Returns a string containing a date/time stamp string in RFC-1123 format.
+The string is in static memory so be aware!
+<PRE>
+extern const char * HTDateTimeStr (time_t *calendar, BOOL local);
+</PRE>
+<H2>
+  Date used for directory listings
+</H2>
+<P>
+Generates a date/time stamp string used in directory listings. There is nothing
+special about this format, it is just to make directory listings look alike.
+<PRE>
+extern BOOL HTDateDirStr (time_t * time, char * str, int len);
+</PRE>
+<H2>
+  Parse a Date/Time String
+</H2>
+<P>
+Converts a variety of different string representations of date time stamps
+in GMT to a local representation of localtime <CODE>time_t</CODE>. The local
+<I>time zone</I> is taken from the <A HREF="HTUser.html">user profile</A>
+information or directly from the system if <CODE>NULL</CODE> is passed as
+user profile . If the time is relative (for example in the <CODE>Age</CODE>
+header) then you can indicate whether it should be expanded to local time
+or not by using the <CODE>expand</CODE> argument.
+<PRE>
+extern time_t HTParseTime (const char * str, HTUserProfile * up, BOOL expand);
+</PRE>
+<H2>
+  Unique Message-ID String
+</H2>
+<P>
+The message ID string can for example be use as a RFC 822 header. The content
+is based on the information taken from the <A HREF="HTUser.html">user
+profile</A> which can be supplied by the application.
+<PRE>extern const char * HTMessageIdStr (HTUserProfile * up);
+</PRE>
+<H2>
+  Matching MIME Content-Types
+</H2>
+<P>
+Matches MIME constructions for <I>content-types</I> and others like them,
+for example "text/html", "text/plain". It can also match wild cards like
+"text/<star>" and "<star>/<star>. We use <star> instead of * in order note
+to make C like comments :-)
+<PRE>
+extern BOOL HTMIMEMatch (HTAtom * tmplate, HTAtom * actual);
+</PRE>
+<H2>
+  Converts an Integer to a String using Prefix
+</H2>
+<P>
+In computer-world 1K is 1024 bytes and 1M is 1024K -- however, sprintf()
+still formats in base-10. Therefore I output only until 999, and then start
+using the next unit. This doesn't work wrong, it's just a feature. The conversion
+is done in "str" which must be large enough to contain the result.
+<PRE>
+extern void HTNumToStr (unsigned long n, char *str, int len);
+</PRE>
+<H2>
+  Conversion between URLs and Local File Names
+</H2>
+<P>
+These are two functions that separate the URL naming syntax from platform
+dependent file naming schemes. If you are porting the code to a new platform,
+you probably have to do some translation here.
+<H3>
+  Convert file URLs into a local representation
+</H3>
+<P>
+The URL has already been translated through the rules in get_physical in
+HTAccess.c and all we need to do now is to map the path to a local
+representation, for example if must translate '/' to the ones that turn the
+wrong way ;-) Returns local file (that must be freed by caller) if OK, else
+NULL.
+<PRE>
+extern char * HTWWWToLocal (const char * url, const char * base,
+			    HTUserProfile * up);
+</PRE>
+<H3>
+  Convert a local file name into a URL
+</H3>
+<P>
+Generates a WWW URL name from a local file name or NULL if error. Returns
+URL (that must be freed by caller) if OK, else NULL. The access parameter
+can be used to indicate any special scheme used for local file access. If
+NULL then "<CODE>file:</CODE>" is used.
+<PRE>
+extern char * HTLocalToWWW (const char * local, const char * access);
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTWWWSTR_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 12-Apr-1996 -->
+  <TITLE>W3C Sample Code Library libwww Unbuffered Socket Writer Stream</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Unbuffered Socket Writer Stream
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The Socket Writer Stream is an <A HREF="HTIOStream.html">output stream
+</A>&nbsp;which knows how to write to a BSD type socket. It is part of the
+<A HREF="WWWTrans.html">Transport interface </A>and may be registered as
+part of a <A HREF="HTTrans.html">Transport Object</A>. The application
+can&nbsp;initialize this stream together with the
+<A HREF="HTReader.html">HTReader stream</A>, for example. In the
+<A HREF="HTInit.html">default initialization module</A>, you can find the
+<CODE>HTTransportInit()</CODE> function which sets up this stream as a default
+transport for handling unbuffered socket write operations. See also the
+<A HREF="HTBufWrt.html">buffered writer stream</A>.
+<P>
+This module is implemented by <A HREF="HTWriter.c">HTWriter.c</A>, and it
+is a part of the <A HREF="http://www.w3.org/Library/">W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTWRITE_H
+#define HTWRITE_H
+
+#include <A HREF="HTIOStream.html">"HTIOStream.h"</A>
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+</PRE>
+<PRE>extern HTOutput_new HTWriter_new;
+
+extern BOOL HTWriter_set (HTOutputStream *	me,
+			  HTNet *		net,
+			  HTChannel *		ch,
+			  void *		param,
+			  int			mode);
+
+</PRE>
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif  /* HTWRITE_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

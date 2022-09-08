@@ -1,0 +1,214 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen,  5-Jun-1996 -->
+  <TITLE>W3C Sample Code Library libwww File Suffix Binding</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  File Suffix Binding Manager
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+The preferences that we described in section
+<A HREF="../User/Using/Prefs.html">Request Preferences</A> did not mention
+what libwww should do if it doesn't know the data format of a document. In
+many protocols this information is provided by the remote server. Typical
+examples are MIME like protocols where the metainformation such as the
+<EM>Content-Type</EM> and the <EM>Content-Language</EM> is provided together
+with the document. However, applications often have access to the local file
+system using <B>file</B> URLs which in general do not keep any or at least
+very little information of the file type. It is therefore required to have
+some kind of binding between the file system and the preferences registered
+in the Library which provides this mateinformation about the object.
+<P>
+Often files in a file system is classified by some sort of a suffix, for
+example, <TT>GIF</TT> files are often ending in <EM>.gif</EM>, text files
+in <EM>.txt</EM> etc. This binding is not static and it is therefore required
+to have a dynamic binding just like the preferences themselves. An example
+of the latter is HTML files which on most Unix systems end in <EM>.html</EM>
+whereas they on many MS-DOS based systems end in <EM>.htm</EM>.
+<P>
+This module provides a generic binding mechanism between a file and its
+representation internally in libwww. It is not limited to simple file suffix
+classification but can also be used in more advanced environments using data
+bases etc. However, at this point we are interested in how we can register
+bindings between file suffixes and for example content types, content languages
+etc. The Bind manager is born with a certain knowledge about the set of
+delimiters but more can be added to provide the functionality desired.
+<P>
+All the binding management could of course be replaced by a database interface.
+<P>
+This module is implemented by <A HREF="HTBind.c">HTBind.c</A>, and it is
+a part of the <A HREF="http://www.w3.org/Library/"> W3C Sample Code
+Library</A>.
+<PRE>
+#ifndef HTBIND_H
+#define HTBIND_H
+
+#include "HTFormat.h"
+#include "HTAnchor.h"
+
+#ifdef __cplusplus
+extern "C" { 
+#endif 
+
+</PRE>
+<H2>
+  Initialization of the Module
+</H2>
+<P>
+These functions must be called on startup and termination of the application.
+This is done automatically by <A HREF="HTReq.html#Library">HTLibInit() and
+HTLibTerminate()</A>.
+<PRE>
+extern BOOL HTBind_init		(void);
+extern BOOL HTBind_deleteAll	(void);
+</PRE>
+<H2>
+  Case Sensitivity
+</H2>
+<P>
+Should the search for suffixes be case sensitive or not? The default value
+is <EM>case sensitive</EM>.
+<PRE>
+extern void HTBind_caseSensitive	(BOOL sensitive);
+</PRE>
+<H2>
+  Suffix Delimiters
+</H2>
+<P>
+Change the set of suffix delimiters. The default is a platform dependent
+set defined in the <A HREF="wwwsys.html">tcp module</A>.
+<PRE>
+extern const char *HTBind_delimiters	(void);
+extern void HTBind_setDelimiters	(const char * new_suffixes);
+</PRE>
+<H2>
+  Set up Bindings Associated with a File Suffix
+</H2>
+<P>
+There are four types of bindings:
+<UL>
+  <LI>
+    Content Type (media type)
+  <LI>
+    Language
+  <LI>
+    Content Encoding
+  <LI>
+    Content Transfer Encoding
+</UL>
+<P>
+And the associated set of methods is defined as:
+<PRE>
+extern BOOL HTBind_add		(const char *	suffix,
+				 const char *	representation,
+				 const char *	encoding,
+				 const char *	transfer,
+				 const char *	language,
+				 double		value);
+
+extern BOOL HTBind_addType	(const char *	suffix,
+				 const char *	format,
+				 double		value);
+
+extern BOOL HTBind_addEncoding	(const char *	suffix,
+				 const char *	encoding,
+				 double		value);
+
+extern BOOL HTBind_addTransfer	(const char *	suffix,
+				 const char *	transfer,
+				 double		value);
+
+extern BOOL HTBind_addLanguage	(const char *	suffix,
+				 const char *	language,
+				 double		value);
+</PRE>
+<P>
+The first method is a "super" method for binding information to a file suffic.
+Any of the string values can be <CODE>NULL</CODE>. If filename suffix is
+already defined its previous definition is overridden or modified. For example,
+a <CODE>HTBind_setType</CODE> and <CODE>HTBind_setEncoding</CODE> can be
+called with the same suffix.
+<P>
+Calling this with suffix set to "*" will set the default representation.
+Calling this with suffix set to "*.*" will set the default representation
+for unknown suffix files which contain a "."
+<P>
+<B>NOTE:</B> The suffixes <EM>can</EM> contain characters that must be escaped
+in a URL. However, they should <EM>not</EM> be encoded when parsed as the
+<CODE>suffix</CODE> parameter.
+<H2>
+  Determine a suitable suffix
+</H2>
+<P>
+Use the set of bindings to find a suitable suffix (or index) for a certain
+combination of language, media type and encoding given in the anchor. Returns
+a pointer to a suitable suffix string that must be freed by the caller. If
+more than one suffix is found they are all concatenated. If no suffix is
+found, NULL is returned.
+<PRE>
+extern char * HTBind_getSuffix	(HTParentAnchor * anchor);
+</PRE>
+<H2>
+  Determine the content of an Anchor
+</H2>
+<P>
+Use the set of bindings to find the combination of language, media type and
+encoding of a given anchor. If more than one suffix is found they are all
+searched. The last suffix has highest priority, the first one lowest. Returns
+the <A HREF="HTAnchor.html">HTAnchor object</A> with the representations
+found. See also <CODE>HTBind_getFormat</CODE>
+<PRE>
+extern BOOL HTBind_getAnchorBindings	(HTParentAnchor * anchor);
+</PRE>
+<H2>
+  Determine the content of a Response
+</H2>
+<P>
+Use the set of bindings to find the combination of language, media type and
+encoding of a given anchor. If more than one suffix is found they are all
+searched. The last suffix has highest priority, the first one lowest. Returns
+the <A HREF="HTResponse.html">HTResponse object</A> with the representations
+found. See also <CODE>HTBind_getFormat</CODE>
+<PRE>
+extern BOOL HTBind_getResponseBindings	(HTResponse * response,
+                                         const char * url);
+</PRE>
+<H2>
+  Determine the content of File
+</H2>
+<P>
+Use the set of bindings to find the combination of language, media type and
+encoding of a given anchor. If more than one suffix is found they are all
+searched. The last suffix has highest priority, the first one lowest. Returns
+the format, encoding, and language found. See also
+<CODE>HTBind_getBindings</CODE>.
+<PRE>
+extern BOOL HTBind_getFormat (const char *	filename,
+			      HTFormat *	format,
+			      HTEncoding *	enc,
+			      HTEncoding *	cte,
+			      HTLanguage *	lang,
+			      double *		quality);
+</PRE>
+<P>
+End of declaration module
+<PRE>
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* HTBIND_H */
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

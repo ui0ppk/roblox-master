@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup
+    Condition="'$(RccBeforeTargets)' == '' and '$(RccAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <RccBeforeTargets>Midl</RccBeforeTargets>
+    <RccAfterTargets>CustomBuild</RccAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RccDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(RccDependsOn)</RccDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Rcc>
+      <CommandLineTemplate>"..\Library\Qt\bin\Rcc.exe" -name %(Filename) "%(FullPath)" -o "$(ProjectDir)qrc_%(Filename).cpp"</CommandLineTemplate>
+      <!--<Outputs>"$(ProjectDir)qrc_%(Filename).cpp"</Outputs>-->
+	  <Outputs>$(ProjectDir)qrc_%(Filename).cpp</Outputs>
+      <ExecutionDescription>Rcc %(Filename)%(Extension)</ExecutionDescription>
+    </Rcc>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(MocBeforeTargets)' == '' and '$(MocAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <MocBeforeTargets>Midl</MocBeforeTargets>
+    <MocAfterTargets>CustomBuild</MocAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MocDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(MocDependsOn)</MocDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Moc>
+      <CommandLineTemplate>"..\Library\Qt\bin\moc.exe" -fstdafx.h -f%(Filename).h -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I"..\Library\Qt\include\QtCore" -I"..\Library\Qt\include\QtGui" -I"..\Library\Qt\include" -I"..\Library\Qt\include\ActiveQt" -I"..\Library\Qt\mkspecs\win32-msvc2008" -D_MSC_VER=1500 -DWIN32 "%(FullPath)" -o "$(ProjectDir)moc_%(Filename).cpp"</CommandLineTemplate>
+      <!--<Outputs>"$(ProjectDir)moc_%(Filename).cpp"</Outputs>-->
+	  <Outputs>$(ProjectDir)moc_%(Filename).cpp</Outputs>
+      <ExecutionDescription>Moc %(Filename)%(Extension)</ExecutionDescription>
+    </Moc>
+  </ItemDefinitionGroup>
+  <PropertyGroup
+    Condition="'$(UicBeforeTargets)' == '' and '$(UicAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <UicBeforeTargets>Midl</UicBeforeTargets>
+    <UicAfterTargets>CustomBuild</UicAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <UicDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(UicDependsOn)</UicDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Uic>
+      <CommandLineTemplate>"..\Library\Qt\bin\uic.exe" "%(FullPath)" -o "$(ProjectDir)ui_%(Filename).h"</CommandLineTemplate>
+      <!--<Outputs>"$(ProjectDir)ui_%(Filename).h"</Outputs>-->
+	  <Outputs>$(ProjectDir)ui_%(Filename).h</Outputs>
+      <ExecutionDescription>Uic %(Filename)%(Extension)</ExecutionDescription>
+    </Uic>
+  </ItemDefinitionGroup>
+  
+</Project>

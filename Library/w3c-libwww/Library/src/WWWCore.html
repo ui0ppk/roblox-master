@@ -1,0 +1,324 @@
+<HTML>
+<HEAD>
+  <!-- Changed by: Henrik Frystyk Nielsen, 30-Jun-1996 -->
+  <TITLE>W3C Sample Code Library libwww Core Interface</TITLE>
+</HEAD>
+<BODY>
+<H1>
+  Declaration of W3C Sample Code Library Core Interface
+</H1>
+<PRE>
+/*
+**	(c) COPYRIGHT MIT 1995.
+**	Please first read the full copyright statement in the file COPYRIGH.
+*/
+</PRE>
+<P>
+This is the basic include file for the core of the W3C Sample Code Library.
+The core part of the Library is designed as a set of registration modules
+with no real functionality in itself. Instead all the functionality comes
+when the application registeres the modules that provides a desired functionaly,
+for example accessing HTTP servers or the local file system. The Library
+has a special include file called <A HREF="WWWApp.html">WWWApp.h</A> which
+contains all converters, protocol modules, and a lot of other "sugar" modules
+that can make the core a very powerful Web interface. You can include this
+one if the application is to use all the functionality of the Library.
+<PRE>
+#ifndef WWWCORE_H
+#define WWWCORE_H
+</PRE>
+<PRE>
+#ifdef __cplusplus
+extern "C" { 
+#endif
+</PRE>
+<H3>
+  System dependencies
+</H3>
+<P>
+The <A HREF="wwwsys.html">wwwsys.h</A> file includes system-specific include
+files and flags for I/O to network and disk. The only reason for this file
+is that the Internet world is more complicated than Posix and ANSI.
+<PRE>#include "wwwsys.h"
+</PRE>
+<H3>
+  Generic Libwww Information
+</H3>
+<P>
+This module contains some generic functions for getting the name and version
+of libwww. It also contains some global configuration options like if you
+can access the local file system, for example.
+<PRE>#include "<A HREF="HTLib.html">HTLib.h</A>"
+</PRE>
+<H3>
+  The Request Class
+</H3>
+<P>
+Libwww is based on a request/response paradigm and the Request class defines
+"<I>an operation to be performed on a URL</I>". The request object is the
+main entry point for an application to issue a request to the Library - all
+operations on a URL <I>must</I> use a Request object.
+<PRE>
+#include "<A HREF="HTReq.html">HTReq.h</A>"
+</PRE>
+<H3>
+  Request Methods
+</H3>
+<P>
+This module defines the set of methods that you can perform on a request,
+for example <B>GET</B>, <B>HEAD</B>, <B>PUT</B>, <B>POST</B>, <B>DELETE</B>,
+etc.
+<PRE>
+#include "<A HREF="HTMethod.html">HTMethod.h</A>"
+</PRE>
+<H3>
+  The Anchor (URL) Class
+</H3>
+<P>
+An <A HREF="HTAnchor.html">anchor</A> represents a region of a hypertext
+document which is linked to another anchor in the same or a different document.
+Another name for anchors would be URLs as an anchor represents all we know
+about a URL - including where it points to and who points to it.
+<PRE>#include "<A HREF="HTAnchor.html">HTAnchor.h</A>"
+</PRE>
+<H3>
+  The Link Class
+</H3>
+<P>
+A <A HREF="HTLink.html">Link</A> represents the link between anchor objects.
+By keeping the link as a object and not as part of the anchor we are capable
+of handling link semantics in a much more organized way. For example, we
+can then search for link types among all the link objects that we have created.
+<PRE>#include "<A HREF="HTLink.html">HTLink.h</A>"
+</PRE>
+<H3>
+  Parsing URLs
+</H3>
+<P>
+This module contains code to parse URIs for the various components according
+to the <A HREF="http://www.w3.org/Addressing/">URI syntax</A>
+<PRE>
+#include "<A HREF="HTParse.html">HTParse.h</A>"
+</PRE>
+<H3>
+  Escaping and Unescaping URLs
+</H3>
+<P>
+URLs are written only with the graphic printable characters of the US-ASCII
+coded character set. All other characters must be escaped before they can
+be used in URLs. This module defines the methods required for escaping and
+unescaping the URLs.
+<PRE>
+#include "<A HREF="HTEscape.html">HTEscape.h</A>"
+</PRE>
+<H3>
+  URL Trees and Hierarchies
+</H3>
+<P>
+A <A HREF="HTUTree.html">URL tree</A> is a data class that can store all
+the information we know about a URL hierarchy. Typically, a URL hierarchy
+is what a client sees of a Web server but it can also be the view a server
+has of itself. A URL tree has the advantage that it can be searched using
+URLs <I>or</I> using realms. The letter is most useful to "guess" information
+about a remote URL that we haven't seen before.
+<PRE>
+#include "<A HREF="HTUTree.html">HTUTree.h</A>"
+</PRE>
+<H3>
+  Web Related String Functions
+</H3>
+<P>
+This module is like the <A HREF="HTString.html">generic string utility
+module</A> but it contains more Web related string utility functions. Examples
+are functions that return a <I>date string</I>, a <I>Message ID string</I>
+etc.
+<PRE>
+#include "<A HREF="HTWWWStr.html">HTWWWStr.h</A>"
+</PRE>
+<H3>
+  The User Profile Class
+</H3>
+<P>
+The User profile&nbsp;class manages what we know about a <I>user on this
+host</I>. This can for example be the FQDN of the host, the user's email
+address, the time zone, the news server etc.
+<PRE>
+#include "<A HREF="HTUser.html">HTUser.h</A>"
+</PRE>
+<H3>
+  The Event Class
+</H3>
+<P>
+The Event Class defines any event manager to be used by libwww for handling
+events.
+<PRE>
+#include "<A HREF="HTEvent.html">HTEvent.h</A>"
+</PRE>
+<H3>
+  The Network Trace Handler
+</H3>
+<P>
+The <A HREF="HTMemLog.html">Network Trace Handler</A> provides an easy mechanism
+for tracing memory problems. It gives a complete dump of all read and written
+information to and from the network
+<PRE>
+#include "<A HREF="HTMemLog.html">HTMemLog.h</A>"
+</PRE>
+<H3>
+  The Error Class
+</H3>
+<P>
+The <A HREF="HTError.html">Error class</A> provides an easy API for registering
+errors ocurring while the Library serves a request. All errors are registered
+in an "error stack"&nbsp;in the <A HREF="HTReq.html">Request object</A> which
+allows for nested errors.
+<PRE>
+#include "<A HREF="HTError.html">HTError.h</A>"
+</PRE>
+<H3>
+  The Alert Class
+</H3>
+<P>
+The <A HREF="HTAlert.html">Alert class</A> defines a set of methods to be
+used by libwww to be used for passing prompts and message to a user.
+<PRE>
+#include "<A HREF="HTAlert.html">HTAlert.h</A>"
+</PRE>
+<H3>
+  The Format Manager
+</H3>
+<P>
+The Format Manager is responsible for setting up the stream pipe from the
+<A HREF="HTChannl.html">Channel Object</A> to the <A HREF="HTReq.html">Request
+Object</A> when data is arriving, for example as a response to s
+<A HREF="HTTP.html">HTTP</A> <B>Get</B> request. The Format Manager is also
+responsible for keeping track of the "<I>preferences</I>" of the application
+and/or user. It is an integral part of the Web and HTTP, that the client
+application can express its preferences as a set of "accept" headers in a
+HTTP request.
+<PRE>
+#include "<A HREF="HTFormat.html">HTFormat.h</A>"
+</PRE>
+<H3>
+  The Generic Stream Class
+</H3>
+<P>
+The <A HREF="HTStream.html">Stream class</A> defines objects which accepts
+a sequence of characters. Streams may also have an output in which case multiple
+stream objects can be cascaded to build a stream pipe where the output of
+a stream is directed into the input of the next stream object "down the line".
+<PRE>
+#include "<A HREF="HTStream.html">HTStream.h</A>"
+</PRE>
+<H3>
+  The Structured Stream Class
+</H3>
+<P>
+The <A HREF="HTStruct.html">Structured stream class</A> defines objects which
+accepts a <I>structured</I> sequence of characters for eaxmple a SGML document.
+I'll rephrase that. A structured object is am ordered tree-structured arrangement
+of data which is representable as text. An example is the
+<A HREF="SGML.html">SGML parser</A> which outputs to a Structured Object.
+<PRE>
+#include "<A HREF="HTStruct.html">HTStruct.h</A>"
+</PRE>
+<H3>
+  No Free Stream
+</H3>
+<P>
+This stream is a throughline for all methods except FREE and
+ABORT. This means that it can be use to put ahead of streams that you
+don't want to be freed or aborted until you are redy to do it
+yourself.
+<PRE>
+#include "<A HREF="HTNoFree.html">HTNoFree.h</A>"
+</PRE>
+<H3>
+  The Input/output Stream Classes
+</H3>
+<P>
+The <A HREF="HTIOStream.html">I/O Stream</A> class defines objects which
+accepts a sequence of characters to and from a
+<A HREF="HTTrans.html">transport</A>
+<PRE>
+#include "<A HREF="HTIOStream.html">HTIOStream.h</A>"
+</PRE>
+<H3>
+  The DNS Class
+</H3>
+<P>
+The DNS Class defines generic access to &nbsp;the DNS system. It maintains
+a cache of all visited hosts so that subsequent connects to the same host
+doesn't imply a new request to the DNS every time.
+<PRE>
+#include "<A HREF="HTDNS.html">HTDNS.h</A>"
+</PRE>
+<H3>
+  The Host Class
+</H3>
+<P>
+The <A HREF="HTHost.html">Host class</A> manages what we know about a remote
+host. This can for example be what type of host it is, and what version it
+is using.
+<PRE>
+#include "<A HREF="HTHost.html">HTHost.h</A>"
+</PRE>
+<H3>
+  The Net Class
+</H3>
+<P>
+The <A HREF="HTNet.html">Net class </A>manages information related to a "thread"
+in libwww. As libwww threads are not really threads but a notion of using
+interleaved, non-blocking I/O for accessing data objects from the network
+(or local file system), they can be used on any platform with or without
+support for native threads.
+<PRE>
+#include "<A HREF="HTNet.html">HTNet.h</A>"
+</PRE>
+<H3>
+  Internet Functions
+</H3>
+<P>
+This module has the common code for handling typical Internet functions like
+getting the name of the local host, getting the domain name and email address
+of user etc.
+<PRE>
+#include "<A HREF="HTInet.html">HTInet.h</A>"
+</PRE>
+<H3>
+  The Transport Class
+</H3>
+<P>
+The Transport Class defines a transport as used by the
+<A HREF="HTChannl.html">HTChannel class</A> to communicate with the network,
+the local file system etc. New transport objects may be registered at any
+time. This allows the application to easily hook in its own transport layers.
+<PRE>
+#include "<A HREF="HTTrans.html">HTTrans.h</A>"
+</PRE>
+<H3>
+  The Protocol Class
+</H3>
+<P>
+The Protocol class defines an application level protocol (HTTP, FTP, Gopher,
+etc.) to be used by libwww. Please note that access to the local file system
+also is considered to be an appliaction level protocol treated identically
+to for example the HTTP protocol.
+<PRE>
+#include "<A HREF="HTProt.html">HTProt.h</A>"
+</PRE>
+<P>
+End of Core modules
+<PRE>
+#ifdef __cplusplus
+} /* end extern C definitions */
+#endif
+
+#endif
+</PRE>
+<P>
+  <HR>
+<ADDRESS>
+  @(#) $Id$
+</ADDRESS>
+</BODY></HTML>

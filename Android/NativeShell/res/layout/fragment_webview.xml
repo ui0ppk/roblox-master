@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_webview"
+    android:minWidth="450dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- hack to avoid default focus bringing up keyboard -->
+    <View
+        android:id="@+id/focusable_view"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <TextView
+        android:id="@+id/webview_urlbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@color/webview_url"
+        android:ellipsize="end"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:singleLine="true"
+        android:textColor="@color/shell_text_normal"
+        android:textIsSelectable="true"
+        android:textSize="20sp" />
+
+    <com.roblox.client.components.CustomSwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.roblox.hybrid.RBHybridWebView
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" />
+    </com.roblox.client.components.CustomSwipeRefreshLayout>
+</LinearLayout>
+
